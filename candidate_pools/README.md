@@ -25,6 +25,21 @@ The protocol is provider-neutral. Run the three configured judge roles independe
 
 ## Enterprise batch
 
-`enterprise-v1/` contains the differentiated matrix: 12 source benchmarks, 36 candidate decisions, and question briefs. The first implementation tranche is under `enterprise-v1/contracts/`: six cross-workflow task contracts with compiled manifests. EB001 and EB004 now have synthetic calibration fixtures and authored verifiers; the remaining four are still contract-only.
+`enterprise-v1/` contains the differentiated matrix: 12 source benchmarks, 36 candidate decisions, and question briefs. The first implementation tranche is under `enterprise-v1/contracts/`: six cross-workflow task contracts with compiled manifests and synthetic fixtures. EB001 and EB004 have completed control calibration and author-side baselines; EB003, EB005, EB008, and EB010 are materialized with authored verifiers but their controls and model trials remain pending.
 
-These are not yet released Harbor tasks. The batch status is `MIXED_CALIBRATION_AND_CONTRACT`: calibration-ready entries still need positive/negative/invariance controls and model trials, while contract-only entries additionally need an agent-visible fixture, hidden truth route, and independent verifier.
+These are not yet released Harbor tasks. The batch status remains `MIXED_CALIBRATION_AND_CONTRACT` for release-policy compatibility: all six entries are materialized, but four still need positive/negative/invariance/insufficient-evidence controls and model trials, and all six still require the remaining scientific, reproducibility, license, and claim-boundary reviews.
+
+### Starting a batch
+
+Use `scale_tranche_<n>.json` to select a 4-8 task tranche across workflow families. Validate the source/requirements matrix and candidate diversity, compile the selected TOML contracts, materialize only selected tasks under `benchmarks/<task_id>/`, then run controls, author-side baselines, target-model trials, isolation checks and Harbor replay. The authoritative state is `enterprise-v1/contracts/manifest.json`; `batch_compile_report.json` is a generated snapshot and local uncommitted materialization is not a promotion.
+
+```bash
+python3 scripts/validate_knowledge_base.py
+python3 scripts/validate_candidate_matrix.py candidate_pools/enterprise-v1
+python3 scripts/compile_enterprise_question_briefs.py
+python3 scripts/compile_contract_batch.py
+python3 scripts/run_calibration_controls.py
+python3 scripts/run_enterprise_baselines.py
+```
+
+`compiled_contract`, `ready_for_calibration` and `CALIBRATED` are development states. They do not imply target-model success, enterprise adoption evidence, license/privacy approval or `READY_FOR_HARBOR`.
