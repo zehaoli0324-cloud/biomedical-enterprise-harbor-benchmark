@@ -4,6 +4,17 @@
 
 本仓库的目标不是把一个数据集压缩成题目，而是保留企业工作流中的关键判断、数据血缘、工具边界、失败恢复和人工审核节点。
 
+## 这是什么项目
+
+这是一个面向生物医药企业场景的 benchmark authoring system。它服务两类题源：
+
+- **真实/公开企业 benchmark 改题：**从企业发布的数据集、挑战赛、联盟项目或公开工作流出发，恢复原始契约，再设计新的业务决策、失败注入和审计交付。
+- **skill/workflow 合成题：**从科研 skill、工具链或公开工作流合成明确标注的模拟题，用于能力覆盖和校准；不能冒称企业内部任务。
+
+项目的核心判断是：企业名称、公开数据和模型分数都不足以证明企业价值。一个候选题只有在真实工作节点、可执行决策、下游 handoff、独立真值、合规边界和模型试跑都可审计时，才可能进入 Harbor。
+
+当前版本处于 **knowledge-base + contract-only calibration** 阶段：已登记 12 个公开来源，生成 12 个 draft bundle 和 2 个合成校准切片；尚未声称拥有任何企业内部数据，也没有把未完成的模型 trial 标记为通过。
+
 ## 方法主线
 
 ```text
@@ -16,6 +27,16 @@ enterprise workflow / source evidence
   -> scientific / reproducibility / evidence review
 ```
 
+企业版在上面增加一条来源要求和价值门：
+
+```text
+official source
+  -> REQ01-REQ14 public contract matrix
+  -> enterprise reality + semantic novelty
+  -> GPT difficulty + training signal
+  -> license / privacy / claim review
+```
+
 对应目录：
 
 | 阶段 | 产物 | 入口 |
@@ -25,6 +46,33 @@ enterprise workflow / source evidence
 | 候选与难度 | 候选池、模块目录、TOML 配置 | [`candidate_pools/`](candidate_pools/)、[`config/`](config/) |
 | 任务编译 | manifest、难度报告和评审协议 | [`benchmark_builder/`](benchmark_builder/) |
 | 试跑与评审 | 隔离工作区、verifier、judge 聚合 | [`benchmark_runner/`](benchmark_runner/)、[`docs/evaluation-pipeline.md`](docs/evaluation-pipeline.md) |
+
+## 公开 benchmark 的共同要求
+
+我们把 12 个来源中反复出现的要求整理为 14 个维度，详见 [`docs/public-enterprise-benchmark-requirements.md`](docs/public-enterprise-benchmark-requirements.md) 和 [`knowledge_base/registry/public_benchmark_requirements.json`](knowledge_base/registry/public_benchmark_requirements.json)：
+
+| 维度 | 必须冻结的内容 |
+| --- | --- |
+| 任务与数据 | task contract、输入 schema、实验/分析单位、split、标签可见性 |
+| 输出与评测 | 提交格式、必需 artifact、指标、容差、等价答案、baseline |
+| 来源与合规 | commit/version、哈希、许可证、归属、隐私、模型权重和商标 |
+| 环境与复现 | 依赖、网络、资源、随机性、日志、重放命令和成本 |
+| 失败与主张 | 无效输入、工具失败、合理弃答、人工复核和 claim boundary |
+| 污染与迁移 | 公开答案、实体重叠、模板捷径、holdout 和跨实例迁移 |
+
+这套要求先形成 `requirements_card`，未核验的字段保持 `PENDING_VERIFICATION`，不会因为网页上出现企业名称就升级为 `verified`。
+
+## 企业题的五道门
+
+每个候选必须同时通过以下门，才允许从 draft 进入 Harbor 构建：
+
+1. **来源契约门：**REQ01-REQ14 中的关键字段有官方证据、版本和定位。
+2. **企业价值门：**有明确角色、业务决策、下游交接、错误代价和采用/暂停规则。
+3. **语义新意门：**至少两个语义维度发生变化，并改变决策、失败机制或真值路线之一。
+4. **GPT 难度门：**存在证据整合、竞争性选择、状态依赖和捷径对照，而不是增加 prompt 长度或工具数量。
+5. **训练与发布门：**错误可归因、控制案例已校准、模型 trial 已记录，且许可证/隐私/claim boundary/容器回放通过。
+
+任意一门缺证据，都保持 `DRAFT`、`REVIEW_REQUIRED`、`CONTRACT_ONLY`、`NOT_RUN` 或 `BLOCKED`。
 
 ## 当前 vertical slice
 
@@ -47,6 +95,13 @@ python3 scripts/validate_knowledge_base.py
 python3 scripts/validate_card_bundle.py knowledge_base/examples/EB001-biogen-adme
 python3 scripts/scaffold_enterprise_cards.py
 python3 scripts/collect_enterprise_sources.py
+```
+
+完整校验所有 draft bundle：
+
+```bash
+python3 scripts/validate_knowledge_base.py
+python3 -c 'from pathlib import Path; import subprocess, sys; roots=sorted(Path("knowledge_base/draft_bundles").glob("EB*")); raise SystemExit(any(subprocess.run([sys.executable, "scripts/validate_card_bundle.py", str(root)]).returncode for root in roots))'
 ```
 
 ## 快速开始
@@ -92,6 +147,8 @@ python3 -m pytest
 
 当前已按 12 个登记企业 benchmark 生成 36 张候选决策卡，并按独立单位、业务决策、失败机制、交接产物和 GPT 难度进行语义去重。候选矩阵、第一批跨工作流 tranche 和 contract-only question briefs 见 [`candidate_pools/enterprise-v1/`](candidate_pools/enterprise-v1/)；生成与校验命令见 [`docs/scaled-question-generation.md`](docs/scaled-question-generation.md)。
 
+规模化生成仍然只是候选生产，不是发布。候选需要回到来源要求卡、企业价值卡、控制计划、难度卡和模型试跑卡，任何自动生成的 `ready` 状态都必须经过人工/程序双重审核。
+
 ## 设计原则
 
 1. 科学正确性、证据追溯、工程复现、交付完整性和安全边界分开评分。
@@ -105,3 +162,5 @@ python3 -m pytest
 ## 参考来源
 
 本项目的候选生成、难度编译和评审结构参考 [`skill-scenario-to-benchmark`](https://github.com/zehaoli0324-cloud/skill-scenario-to-benchmark)。领域候选清单来源于本地的《生物医药企业 Harbor 选题与资源地图》研究表，后续会逐条补充公开来源、许可和运行证据。
+
+改题差异、科学价值控制、正负/不变性对照、solver/judge 隔离和模型试跑流程参考 [`harbor-science-bench-factory`](https://github.com/zehaoli0324-cloud/harbor-science-bench-factory)。
