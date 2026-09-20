@@ -1,0 +1,99 @@
+[task]
+id = "literature-prioritization-m1-002"
+title = "Budgeted prioritization of unresolved drug-resistance evidence"
+domain = "life_sciences"
+source_scenarios = ["M1", "A11"]
+
+[scenario]
+card = "scientific-scenario-002.yaml"
+
+[difficulty.scientific_scenario]
+level = 4
+weight = 1.1
+rationale = "A bounded evidence-review allocation decision with explicit downstream consequences."
+tags = ["literature-review", "resource-allocation"]
+
+[difficulty.scientific_judgment]
+level = 5
+weight = 1.4
+rationale = "Priority depends on value of information, causal relevance, missingness, and stopping rules."
+tags = ["value-of-information", "partial-order"]
+
+[difficulty.computational_difficulty]
+level = 3
+weight = 0.9
+rationale = "The task requires constraint-aware ranking and equivalence classes."
+tags = ["ranking", "constraints"]
+
+[difficulty.tool_call_complexity]
+level = 1
+weight = 0.7
+rationale = "The candidate can be evaluated offline without external tools."
+tags = ["offline"]
+
+[difficulty.retrieval_complexity]
+level = 4
+weight = 1.2
+rationale = "The agent must identify exactly which missing source content could change a decision."
+tags = ["missing-evidence", "claim-linkage"]
+
+[difficulty.information_noise_complexity]
+level = 4
+weight = 1.2
+rationale = "Salient but non-decision-changing records compete with less obvious high-value records."
+tags = ["red-herring", "salience"]
+
+[difficulty.data_type_complexity]
+level = 2
+weight = 0.8
+rationale = "Inputs are structured records, a decision contract, and a budget."
+tags = ["text", "tabular", "json"]
+
+[difficulty.data_complexity]
+level = 3
+weight = 0.9
+rationale = "Records have incomplete fields and non-total priority relations."
+tags = ["missingness", "ties"]
+
+[difficulty.environment_complexity]
+level = 1
+weight = 0.7
+rationale = "The task is deterministic and offline."
+tags = ["offline", "deterministic"]
+
+[difficulty.mathematical_complexity]
+level = 3
+weight = 1.0
+rationale = "The result is a constrained partial ranking, not a single heuristic score."
+tags = ["dominance", "partial-order"]
+
+[difficulty.long_horizon_complexity]
+level = 3
+weight = 1.0
+rationale = "Uncertainty inventory, prioritization, and stopping report must remain consistent."
+tags = ["artifact-handoff", "stopping-rule"]
+
+[difficulty.safety_risk]
+level = 2
+weight = 0.8
+rationale = "The output allocates review effort and must not become a clinical recommendation."
+tags = ["claim-safety"]
+
+[data]
+types = ["tsv", "json", "markdown"]
+
+[modules]
+scenario = ["scenario_literature_review"]
+judgment = ["judgment_evidence_quality", "judgment_causal_boundary", "judgment_uncertainty_and_stop_rules"]
+retrieval = ["retrieval_inclusion_exclusion", "retrieval_claim_entailment"]
+noise = ["noise_red_herring_records", "noise_missing_and_duplicate_inputs"]
+data = ["data_text_and_metadata"]
+horizon = ["horizon_checkpointed_workflow"]
+safety = ["safety_human_approval_gate"]
+
+[constraints]
+network = "off"
+cpu_seconds = 90
+memory_mb = 512
+requires_input_checksum = true
+requires_deterministic_output = true

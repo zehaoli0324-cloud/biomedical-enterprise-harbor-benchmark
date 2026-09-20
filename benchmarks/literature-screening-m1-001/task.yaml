@@ -1,0 +1,105 @@
+id: literature-screening-m1-001
+version: "0.1.0"
+status: ready_for_calibration
+title: "Pre-registered literature screening for drug-resistance evidence"
+domain: life_sciences
+stage: master_phd
+scenario_ids: [M1, A11]
+scenario_card: scenario-card.yaml
+
+scientific_decision:
+  question: >-
+    Which records satisfy the stated evidence-screening protocol for human cancer
+    drug-resistance studies, and which claims remain association-only or uncertain?
+  target_claim_boundary: >-
+    A record can support inclusion and an evidence statement without supporting
+    a causal mechanism. Metadata and abstract evidence cannot substitute for
+    unavailable full-text methods.
+  consequence_of_error: >-
+    Incorrect screening changes the evidence base; duplicate counting or causal
+    overclaiming can redirect later experiments.
+
+agent_visible_inputs:
+  - path: data/constraints.yaml
+    format: YAML
+    contract: pre-registered inclusion, exclusion, and stop rules
+  - path: data/literature_records.tsv
+    format: TSV
+    contract: frozen metadata and abstract snapshots with deliberate conflicts
+
+constraints:
+  network: "off"
+  compute:
+    cpu_seconds: 60
+    memory_mb: 512
+  provenance:
+    record_input_sha256: true
+    record_decision_rules: true
+    deterministic_output: true
+  safety:
+    scope: "evidence screening only"
+    prohibited: "不得把筛选结果写成临床或湿实验建议"
+
+required_outputs:
+  - id: screening_decisions
+    path: outputs/screening_decisions.tsv
+    required_fields: [record_id, decision, reason_code, confidence, evidence_locator]
+  - id: evidence_table
+    path: outputs/evidence_table.tsv
+    required_fields: [claim_id, source_id, evidence_type, support_status, locator, limitation]
+  - id: uncertainty_queue
+    path: outputs/uncertainty_queue.tsv
+    required_fields: [record_id, uncertainty_reason, minimum_next_check]
+  - id: run_manifest
+    path: outputs/run_manifest.json
+    required_fields: [input_sha256, rules_version, tool_version]
+  - id: final_report
+    path: outputs/final_report.md
+    required_fields: [screening_summary, evidence_boundary, uncertainty, next_step]
+
+evaluation:
+  hard_gates:
+    - id: HG1
+      rule: "每条输入记录必须有一个可审计决定，不能静默丢弃"
+    - id: HG2
+      rule: "重复 DOI、元数据冲突和不可访问全文必须显式处理"
+    - id: HG3
+      rule: "相关性证据不能被写成因果机制证据"
+    - id: HG4
+      rule: "输入 checksum 和筛选规则版本必须记录"
+  weighted_scores:
+    decision_accuracy: 35
+    reason_accuracy: 20
+    evidence_grounding: 20
+    uncertainty_handling: 15
+    reproducibility: 10
+    total: 100
+
+hidden_truth:
+  path: verifier_only/reference_labels.json
+  status: verifier_only
+  policy: "不得挂载到 agent-visible 工作目录"
+
+failure_injections:
+  - id: FI1
+    surface: "LIT-005 shares a DOI with LIT-001 but has conflicting title metadata"
+    taxonomy: [F2, F3, F4]
+    expected_behavior: "mark LIT-005 duplicate and preserve the canonical record"
+  - id: FI2
+    surface: "LIT-003 is primary evidence but only association-level"
+    taxonomy: [F2, F3, F9]
+    expected_behavior: "retain as context-only and block causal support"
+  - id: FI3
+    surface: "LIT-007 lacks enough methods detail and has no full-text snapshot"
+    taxonomy: [F3, F12]
+    expected_behavior: "send to uncertainty queue with a concrete next check"
+  - id: FI4
+    surface: "LIT-006 studies drug sensitivity, not resistance"
+    taxonomy: [F3, F9]
+    expected_behavior: "exclude with wrong_outcome reason"
+
+provenance:
+  source_inventory: "data/workflow_inventory.csv"
+  source_workflow_table: "source/科研场景_开源工作流对应表 (2) (1).numbers"
+  source_workflow: "ASReview LAB / literature-review workflow, selected from M1 and A11"
+  data_status: "synthetic frozen records for verifier calibration; not a claim about real studies"

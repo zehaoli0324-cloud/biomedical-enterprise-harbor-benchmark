@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scenario to Benchmark"
+  short_description: "Mine workflows into benchmark scenarios"
+  default_prompt: "Use $scenario-to-benchmark to mine a workflow into scientific context, tasks, failure modes, and benchmark contracts."

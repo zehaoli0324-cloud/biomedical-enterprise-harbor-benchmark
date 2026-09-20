@@ -1,0 +1,5 @@
+source_id	doi	title	evidence_type	model	summary
+SRC-001	10.1000/target.001	Target A perturbation study in human cancer cells	primary_functional	human	Perturbation is reported with a functional resistance phenotype.
+SRC-002	10.1000/target.002	Target B expression tracks resistance in a patient cohort	association	human	Expression is associated with outcome; no perturbation is described.
+SRC-003	10.1000/target.001	Target A resistance mechanism review	secondary_review	human	Review metadata duplicates the primary DOI after normalization.
+SRC-004	10.1000/target.004	Target C resistance signature in a model system	primary_observational	non_human	A model-system signature is reported without human validation.

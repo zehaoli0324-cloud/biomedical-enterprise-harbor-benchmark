@@ -1,0 +1,69 @@
+scenario_id: M1-literature-screening
+status: ready
+source_scenarios: [M1, A11]
+domain: life_sciences
+stage: master_phd
+research_role: evidence_synthesis_analyst
+scientific_context:
+  object: human cancer drug-resistance literature
+  question: which records meet a pre-registered evidence-screening protocol?
+  decision: include, exclude, retain as context-only, or send to uncertainty queue
+  consequence_of_error: missed evidence, duplicate counting, or causal overclaim
+scientific_judgments:
+  - inclusion_exclusion_consistency
+  - duplicate_and_metadata_resolution
+  - association_vs_causality
+  - uncertainty_and_stop_rules
+workflow_handoffs:
+  - from: literature_records
+    to: screening_decisions
+    artifact: screening_decisions.tsv
+    invariant: every input record has one auditable decision and reason
+  - from: screening_decisions
+    to: evidence_table
+    artifact: evidence_table.tsv
+    invariant: included or context-only records have locator and limitation fields
+  - from: evidence_table
+    to: final_report
+    artifact: final_report.md
+    invariant: supported claims do not exceed the evidence tier
+required_artifacts:
+  - screening_decisions.tsv
+  - evidence_table.tsv
+  - uncertainty_queue.tsv
+  - run_manifest.json
+  - final_report.md
+failure_injections:
+  - id: duplicate-metadata-conflict
+    trigger: two records share a DOI but have conflicting title metadata
+    expected_behavior: retain one canonical record and mark the other duplicate
+    verifier_signal: duplicate_handling
+  - id: association-only-record
+    trigger: a primary study reports association without perturbation or causal test
+    expected_behavior: allow context evidence but block causal wording
+    verifier_signal: claim_boundary_preserved
+  - id: incomplete-access-record
+    trigger: the abstract is insufficient and the full text snapshot is unavailable
+    expected_behavior: send the record to uncertainty queue rather than guessing
+    verifier_signal: uncertainty_reported
+  - id: wrong-outcome-record
+    trigger: a primary study measures drug sensitivity rather than resistance
+    expected_behavior: exclude with a specific reason
+    verifier_signal: inclusion_rule_applied
+difficulty_modules:
+  scenario: [scenario_literature_review]
+  judgment: [judgment_evidence_quality, judgment_causal_boundary, judgment_uncertainty_and_stop_rules]
+  retrieval: [retrieval_metadata_verification, retrieval_inclusion_exclusion, retrieval_claim_entailment]
+  noise: [noise_metadata_conflict, noise_red_herring_records, noise_missing_and_duplicate_inputs]
+  data: [data_text_and_metadata]
+  horizon: [horizon_checkpointed_workflow]
+  safety: [safety_human_approval_gate]
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+open_questions:
+  - Should a context-only association enter the final ranking or only the evidence ledger?
+  - Which disagreements require expert adjudication in a future full-text variant?

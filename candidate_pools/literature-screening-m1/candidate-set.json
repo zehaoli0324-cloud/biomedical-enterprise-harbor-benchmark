@@ -1,0 +1,51 @@
+{
+  "schema_version": "benchmark-candidate-set.v1",
+  "workflow_id": "M1-literature-screening",
+  "generation_policy": {
+    "target_candidates": 3,
+    "variation_axes": [
+      "scientific decision",
+      "evidence ambiguity",
+      "failure consequence"
+    ],
+    "note": "Candidates vary the scientific decision while preserving the underlying workflow family."
+  },
+  "candidates": [
+    {
+      "candidate_id": "literature-screening-m1-001",
+      "design_intent": "Test protocol-consistent evidence screening under duplicate, association-only, and incomplete-access ambiguity.",
+      "scenario_family": "evidence-screening-decision",
+      "cards": {
+        "workflow_evidence": "workflow-evidence.json",
+        "scientific_scenario": "../../benchmarks/literature-screening-m1-001/scenario-card.yaml",
+        "scientific_judgment": "scientific-judgment.json",
+        "difficulty": "../../config/examples/literature-screening-m1-001.toml",
+        "compute": "compute.json"
+      }
+    },
+    {
+      "candidate_id": "literature-prioritization-m1-002",
+      "design_intent": "Test value-of-information reasoning when full-text review time is scarce and evidence is incomplete.",
+      "scenario_family": "evidence-review-allocation",
+      "cards": {
+        "workflow_evidence": "workflow-evidence.json",
+        "scientific_scenario": "scientific-scenario-002.yaml",
+        "scientific_judgment": "scientific-judgment-002.json",
+        "difficulty": "difficulty-002.toml",
+        "compute": "compute-002.json"
+      }
+    },
+    {
+      "candidate_id": "literature-claim-audit-m1-003",
+      "design_intent": "Test whether a model can audit claim entailment and contradictions rather than merely produce fluent synthesis.",
+      "scenario_family": "evidence-to-claim-audit",
+      "cards": {
+        "workflow_evidence": "workflow-evidence.json",
+        "scientific_scenario": "scientific-scenario-003.yaml",
+        "scientific_judgment": "scientific-judgment-003.json",
+        "difficulty": "difficulty-003.toml",
+        "compute": "compute-003.json"
+      }
+    }
+  ]
+}

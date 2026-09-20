@@ -1,0 +1,32 @@
+{
+  "schema_version": "workflow-evidence-card.v1",
+  "workflow_id": "M1-literature-screening",
+  "operations": [
+    "normalize literature metadata",
+    "apply pre-registered inclusion and exclusion rules",
+    "separate association evidence from causal evidence",
+    "route insufficient records to an uncertainty queue"
+  ],
+  "sources": [
+    {
+      "locator": "benchmarks/literature-screening-m1-001/data/literature_records.tsv",
+      "evidence_tier": "E2",
+      "verification_status": "executed"
+    },
+    {
+      "locator": "benchmarks/literature-screening-m1-001/data/constraints.yaml",
+      "evidence_tier": "E2",
+      "verification_status": "inspected"
+    },
+    {
+      "locator": "benchmarks/literature-screening-m1-001/verifier.py",
+      "evidence_tier": "E4",
+      "verification_status": "executed"
+    }
+  ],
+  "unsupported_inferences": [
+    "A screened association establishes a causal resistance mechanism.",
+    "A missing full-text record can be classified from plausible domain knowledge.",
+    "The task output is sufficient for a clinical or wet-lab recommendation."
+  ]
+}

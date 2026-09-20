@@ -1,0 +1,19 @@
+{
+  "rules_version": "rws-stress-v1",
+  "source_audit": {
+    "SRC-001": {"normalized_doi": "10.1000/target.001", "duplicate_of": "", "evidence_level": "primary_functional", "supports_causal_claim": "no"},
+    "SRC-002": {"normalized_doi": "10.1000/target.002", "duplicate_of": "", "evidence_level": "association", "supports_causal_claim": "no"},
+    "SRC-003": {"normalized_doi": "10.1000/target.001", "duplicate_of": "SRC-001", "evidence_level": "duplicate_secondary", "supports_causal_claim": "no"},
+    "SRC-004": {"normalized_doi": "10.1000/target.004", "duplicate_of": "", "evidence_level": "non_human_observational", "supports_causal_claim": "no"}
+  },
+  "sample_conflict": "S-006",
+  "candidate_decisions": {
+    "CAND-A": {"rank": "1", "decision": "go"},
+    "CAND-B": {"rank": "2", "decision": "hold"},
+    "CAND-C": {"rank": "3", "decision": "uncertain"},
+    "CAND-D": {"rank": "4", "decision": "no_go"}
+  },
+  "recovery_tool": "offline-tsv-exporter",
+  "sensitivity_top_candidate": "CAND-A",
+  "causal_status_required": "not_established"
+}

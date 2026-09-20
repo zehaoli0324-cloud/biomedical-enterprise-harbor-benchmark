@@ -1,0 +1,36 @@
+{
+  "schema_version": "compute-card.v1",
+  "task_id": "literature-screening-m1-001",
+  "environment": {
+    "network": "off",
+    "runtime": "Python 3.11+ standard library",
+    "determinism": "required"
+  },
+  "resource_budget": {
+    "cpu_seconds": 60,
+    "memory_mb": 512,
+    "storage_mb": 64
+  },
+  "stages": [
+    {
+      "id": "screen",
+      "inputs": ["literature_records.tsv", "constraints.yaml"],
+      "outputs": ["screening_decisions.tsv", "uncertainty_queue.tsv"],
+      "failure_behavior": "Preserve an auditable unresolved state instead of inferring missing evidence."
+    },
+    {
+      "id": "synthesize",
+      "inputs": ["screening_decisions.tsv", "literature_records.tsv"],
+      "outputs": ["evidence_table.tsv", "final_report.md", "run_manifest.json"],
+      "failure_behavior": "Do not emit a causal claim when evidence tier or provenance is insufficient."
+    }
+  ],
+  "programmatic_checks": [
+    "input and output record cardinality",
+    "DOI duplicate canonicalization",
+    "allowed decision and reason values",
+    "uncertainty queue membership",
+    "claim language consistent with evidence tier",
+    "input checksums recorded in run manifest"
+  ]
+}

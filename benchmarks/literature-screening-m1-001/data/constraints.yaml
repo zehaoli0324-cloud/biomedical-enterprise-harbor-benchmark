@@ -1,0 +1,30 @@
+rules_version: "m1-literature-screening-v1"
+question: "Which records provide admissible evidence about human cancer drug resistance?"
+population: "human cancer cells or human patient-derived material"
+target_outcome: "resistance or acquired resistance to an explicitly named anti-cancer drug"
+inclusion:
+  - "primary research study"
+  - "human-derived model"
+  - "drug resistance phenotype is measured or directly studied"
+  - "title and abstract provide enough evidence for an auditable decision"
+exclusion:
+  - "review, perspective, protocol, or editorial"
+  - "animal-only or non-human model"
+  - "drug sensitivity without a resistance phenotype"
+  - "duplicate record after DOI normalization"
+context_only:
+  - "primary human study with resistance association but no perturbation or causal test"
+uncertainty:
+  - "abstract and metadata are insufficient to verify population, outcome, or study type"
+  - "full text is required but unavailable in the frozen snapshot"
+stop_rules:
+  - "never infer methods, cohort, or causal effect from title keywords alone"
+  - "do not silently repair conflicting metadata"
+  - "record one decision for every input record"
+required_decision_values: [include, exclude, context_only, uncertain]
+confidence_contract: "numeric value from 0.0 to 1.0"
+reason_codes:
+  include: [primary_human_direct_resistance, primary_human_functional_resistance]
+  exclude: [secondary_review, non_human_model, duplicate_normalized_doi, wrong_outcome_sensitivity]
+  context_only: [association_without_perturbation]
+  uncertain: [insufficient_metadata_full_text_unavailable]

@@ -1,0 +1,69 @@
+id: biogen-adme-audit-001
+version: "0.1.0"
+status: ready_for_calibration
+title: "ADME measurement split audit for leakage, units and missingness"
+domain: biomedical_enterprise
+stage: preclinical_dmpk
+scenario_ids: [T01]
+scenario_card: scenario-card.yaml
+
+scientific_decision:
+  question: Is this small ADME measurement split safe to use as a leakage-free modeling benchmark?
+  target_claim_boundary: An input audit can establish data-quality risks; it cannot establish predictive performance or enterprise validation.
+  consequence_of_error: Leakage or unit errors can make a model appear better than it is and misdirect follow-up experiments.
+
+agent_visible_inputs:
+  - path: data/adme_measurements.csv
+    format: CSV
+    contract: frozen synthetic measurements with train/test assignments, canonical structure keys and one missing value
+
+constraints:
+  network: "off"
+  compute:
+    cpu_seconds: 30
+    memory_mb: 256
+  provenance:
+    record_input_sha256: true
+    record_tool_version: true
+    deterministic_output: true
+  safety:
+    scope: data-quality audit only
+    prohibited: do not present the fixture or audit as internal Biogen data or as evidence of clinical efficacy
+
+required_outputs:
+  - id: audit_report
+    path: outputs/audit_report.json
+    required_fields: [schema_version, input_sha256, summary, leakage, unit_audit, missingness, readiness]
+  - id: audit_notes
+    path: outputs/audit_notes.md
+    required_fields: [observed_issues, recommendation_boundary]
+  - id: run_manifest
+    path: outputs/run_manifest.json
+    required_fields: [input_sha256, tool_version, deterministic]
+
+evaluation:
+  hard_gates:
+    - id: HG1
+      rule: every input row and split count is accounted for
+    - id: HG2
+      rule: cross-split canonical structure overlap is reported explicitly
+    - id: HG3
+      rule: unit mismatch and missing measurement are not silently normalized away
+    - id: HG4
+      rule: the report preserves the boundary between synthetic fixture audit and enterprise validation
+  weighted_scores:
+    structural_audit: 35
+    unit_and_missingness: 25
+    evidence_and_reproducibility: 25
+    claim_boundary: 15
+    total: 100
+
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only
+  policy: do not mount into the agent-visible workspace
+
+provenance:
+  source_inventory: data/enterprise_workflow_inventory.csv
+  source_workflow: T01 Biogen ADME direction from the local research map
+  data_status: synthetic frozen fixture for contract calibration; not a claim about private enterprise data

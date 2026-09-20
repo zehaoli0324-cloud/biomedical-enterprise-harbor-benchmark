@@ -1,0 +1,57 @@
+scenario_id: M1-claim-traceability-audit
+status: contract_only
+source_scenarios: [M1, A11, R6]
+domain: life_sciences
+stage: master_phd
+research_role: evidence_and_manuscript_auditor
+scientific_context:
+  object: a draft drug-resistance evidence synthesis and its source records
+  question: which manuscript claims are supported, contradicted, or stronger than their cited evidence?
+  decision: retain, weaken, remove, or escalate each draft claim
+  consequence_of_error: a polished report communicates an unsupported mechanism or hides contradictory evidence
+scientific_judgments:
+  - claim_entailment
+  - contradiction_resolution
+  - uncertainty_calibration
+workflow_handoffs:
+  - from: draft_claims
+    to: claim_evidence_map
+    artifact: claim_evidence_map.tsv
+    invariant: every material claim maps to exact source locators or is marked unsupported
+  - from: claim_evidence_map
+    to: contradiction_register
+    artifact: contradiction_register.tsv
+    invariant: conflicting evidence remains visible and is not resolved by citation count alone
+  - from: contradiction_register
+    to: audited_report
+    artifact: audited_report.md
+    invariant: final language does not exceed the strongest admissible evidence tier
+required_artifacts:
+  - claim_evidence_map.tsv
+  - contradiction_register.tsv
+  - audited_report.md
+  - run_manifest.json
+failure_injections:
+  - id: true-citation-wrong-entailment
+    trigger: a real source is cited for a claim it does not support
+    expected_behavior: mark the claim unsupported despite valid citation metadata
+    verifier_signal: entailment_checked
+  - id: majority-low-tier-conflict
+    trigger: several association records conflict with one decision-relevant perturbation study
+    expected_behavior: preserve the conflict and reason by design and evidence tier, not vote count
+    verifier_signal: contradiction_weighted_by_design
+difficulty_modules:
+  scenario: [scenario_literature_review]
+  judgment: [judgment_evidence_quality, judgment_causal_boundary, judgment_uncertainty_and_stop_rules]
+  retrieval: [retrieval_metadata_verification, retrieval_claim_entailment]
+  noise: [noise_metadata_conflict, noise_red_herring_records]
+  horizon: [horizon_end_to_end_claim]
+release_gates:
+  scientific_reality: pass
+  observability: pending
+  verifiability: pending
+  naive_resistance: pending
+  reproducibility: pending
+open_questions:
+  - How should equally defensible weakened phrasings be scored?
+  - Which contradictions require domain-expert adjudication rather than an automatic rule?

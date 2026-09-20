@@ -1,0 +1,9 @@
+compound_id,smiles,canonical_smiles,split,solubility_value,solubility_unit,measurement_status
+CMP-001,CCO,CCO,train,120,uM,measured
+CMP-002,CCN,CCN,train,85,uM,measured
+CMP-003,c1ccccc1,c1ccccc1,train,12,uM,measured
+CMP-004,CCOC,CCOC,train,42,uM,measured
+CMP-005,CC(C)O,CC(C)O,test,95,uM,measured
+CMP-006,CCN(C)C,CCN(C)C,test,,uM,missing
+CMP-007,CC(C)C,CC(C)C,test,0.5,mM,measured
+CMP-008,c1ccccc1,c1ccccc1,test,15,uM,measured

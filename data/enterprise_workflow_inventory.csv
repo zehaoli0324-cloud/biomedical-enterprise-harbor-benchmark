@@ -1,0 +1,7 @@
+workflow_id,source_ref,organization,domain,workflow_goal,authenticity,source_status,license_or_access,benchmark_seed,notes
+EW01,T01,Biogen,ADME,solubility prediction and leakage audit,A,candidate,public source requires verification,biogen-adme-audit-001,synthetic calibration fixture only
+EW02,T03,Expansion Therapeutics,ADMET,time-split multi-endpoint prediction,A,candidate,challenge terms require verification,expansion-admet-prediction-001,do not expose public test labels
+EW03,T06,Genentech/Roche,transcriptomics,cross-modal RNA-ATAC sample matching,B,candidate,public task data requires frozen snapshot,genentech-multiome-match-001,enterprise-published task corpus
+EW04,T16,Roche + GSK / pharmaverse,clinical statistics,derive ADSL from SDTM,W,candidate,open-source packages and example data,admiral-adsl-001,public workflow is not private clinical data
+EW05,T17,Roche + GSK / pharmaverse,oncology statistics,derive ADTTE for PFS and OS,W,candidate,open-source packages and example data,admiral-adtte-001,analysis rules must be frozen by task author
+EW06,T23,Novartis + Biogen,model audit,ADME uncertainty and applicability-domain audit,W+A,needs-data,composite design needs explicit attribution,adme-uncertainty-audit-001,combination task proposed by this project

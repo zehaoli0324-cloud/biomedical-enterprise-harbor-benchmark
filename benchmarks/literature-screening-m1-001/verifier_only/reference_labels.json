@@ -1,0 +1,17 @@
+{
+  "rules_version": "m1-literature-screening-v1",
+  "decisions": {
+    "LIT-001": {"decision": "include", "reason_code": "primary_human_direct_resistance", "accepted_reason_codes": ["primary_human_direct_resistance", "primary_human_functional_resistance"]},
+    "LIT-002": {"decision": "exclude", "reason_code": "secondary_review"},
+    "LIT-003": {"decision": "context_only", "reason_code": "association_without_perturbation"},
+    "LIT-004": {"decision": "exclude", "reason_code": "non_human_model"},
+    "LIT-005": {"decision": "exclude", "reason_code": "duplicate_normalized_doi"},
+    "LIT-006": {"decision": "exclude", "reason_code": "wrong_outcome_sensitivity"},
+    "LIT-007": {"decision": "uncertain", "reason_code": "insufficient_metadata_full_text_unavailable"},
+    "LIT-008": {"decision": "include", "reason_code": "primary_human_functional_resistance"}
+  },
+  "uncertain_records": ["LIT-007"],
+  "context_only_records": ["LIT-003"],
+  "duplicate_records": ["LIT-005"],
+  "required_evidence_sources": ["LIT-001", "LIT-003", "LIT-008"]
+}

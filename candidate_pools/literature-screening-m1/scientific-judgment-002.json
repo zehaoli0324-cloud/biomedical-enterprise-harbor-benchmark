@@ -1,0 +1,31 @@
+{
+  "schema_version": "scientific-judgment-card.v1",
+  "task_id": "literature-prioritization-m1-002",
+  "scenario_id": "M1-full-text-prioritization",
+  "judgments": [
+    {
+      "id": "evidence_value_of_information",
+      "decision": "Rank missing evidence by its ability to change an inclusion or scientific conclusion.",
+      "failure_consequence": "Scarce review resources are consumed without reducing consequential uncertainty.",
+      "observable": "review_priority.tsv records decision impact, resolvability, and cost separately.",
+      "verifier": "partial-order and dominance checks over frozen record attributes",
+      "claim_boundary": "Priority is conditional on the registered decision and available metadata."
+    },
+    {
+      "id": "causal_relevance",
+      "decision": "Distinguish evidence that can affect a causal claim from evidence that only adds association context.",
+      "failure_consequence": "A salient but non-diagnostic record displaces evidence needed for a mechanism decision.",
+      "observable": "priority reasons name the exact claim and evidence tier that may change.",
+      "verifier": "claim-to-record linkage and evidence-tier constraint",
+      "claim_boundary": "Retrieving a record does not itself strengthen the causal claim."
+    },
+    {
+      "id": "decision_under_missingness",
+      "decision": "Defer or stop when missing evidence cannot be resolved within the stated budget.",
+      "failure_consequence": "The task rewards fabricated certainty or an unbounded retrieval plan.",
+      "observable": "stopping_report.md names unresolved decisions and budget-aware next actions.",
+      "verifier": "budget, stopping-state, and prohibited-certainty checks",
+      "claim_boundary": "A stopped review preserves uncertainty rather than converting it into exclusion."
+    }
+  ]
+}

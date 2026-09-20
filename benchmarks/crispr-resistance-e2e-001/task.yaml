@@ -1,0 +1,211 @@
+id: crispr-resistance-e2e-001
+version: "0.1.0"
+status: contract_only
+title: "从 pooled CRISPR screen 到单基因编辑验证的可审计耐药机制判断"
+domain: life_sciences
+stage: master_phd
+scenario_ids:
+  - M1
+  - M4
+  - C18
+  - C19
+  - C20
+  - D3
+  - R2
+  - R6
+workflow_chain:
+  - id: evidence-synthesis
+    workflows:
+      - nature-academic-search
+      - ASReview
+      - PaperQA2
+    source_scenarios: [A11, M1, R2]
+    role: "按纳入/排除标准构建可核验的机制证据表"
+    outputs: [evidence_table, citation_checks]
+  - id: pooled-screen
+    workflows:
+      - nf-core/crisprseq
+      - MAGeCKFlute
+    source_scenarios: [C20]
+    role: "从 sgRNA 富集或耗竭信号中产生候选基因及重复一致性"
+    outputs: [screen_qc, hit_table]
+  - id: transcriptome
+    workflows:
+      - nf-core/rnaseq
+      - nf-core/differentialabundance
+    source_scenarios: [M4]
+    role: "在固定参考和设计矩阵下验证候选基因的转录机制"
+    outputs: [rnaseq_qc, counts, differential_table, pathway_table]
+  - id: guide-design
+    workflows:
+      - FlashFry
+    source_scenarios: [C18]
+    role: "在目标区域、PAM、表达和脱靶约束下生成候选 guide"
+    outputs: [guide_table, off_target_report]
+  - id: edit-validation
+    workflows:
+      - CRISPResso2
+    source_scenarios: [C19]
+    role: "从扩增子测序估计编辑率、indel 分布和 frameshift 比例"
+    outputs: [editing_table, editing_qc]
+  - id: reproducible-reporting
+    workflows:
+      - Snakemake
+      - nature-figure
+      - nature-statistics
+    source_scenarios: [D3, R6]
+    role: "锁定环境、串联中间产物并检查图表与主张的一致性"
+    outputs: [workflow_bundle, claim_ledger, audit_report]
+
+scientific_decision:
+  question: >-
+    在给定的人源肿瘤细胞药物处理实验中，哪个基因最值得作为耐药机制的单基因
+    验证靶点？该结论是否同时得到 pooled screen、bulk RNA-seq、文献、guide
+    可设计性和编辑结果的支持？
+  target_claim_boundary: >-
+    screen 信号和转录关联不能单独证明因果；guide 得分不能替代脱靶验证；
+    编辑率也不能证明目标基因改变了药物表型。最终报告必须分别标记观察、统计
+    结果、机制解释和仍需实验确认的主张。
+  consequence_of_error: >-
+    错误的实验单位、批次处理或交互模型会制造假阳性命中；错误的参考版本或
+    guide 约束会导致不可执行的验证；证据错配会把相关性包装为耐药机制。
+
+agent_visible_inputs:
+  - path: data/screen/
+    format: "FASTQ 或 sgRNA count matrix + library manifest + sample metadata"
+    contract: "至少 2 个条件、至少 3 个生物重复、包含批次字段和阴性对照"
+  - path: data/rnaseq/
+    format: "FASTQ + sample sheet + reference genome/annotation manifest"
+    contract: "参考版本、链特异性、比较方向和批次信息必须可判定"
+  - path: data/amplicon/
+    format: "每条候选 guide 的 amplicon FASTQ + amplicon/reference sequence"
+    contract: "至少包含阴性对照、低质量样本和方向或引物信息"
+  - path: data/literature/
+    format: "论文元数据、摘要或全文快照、候选主张清单"
+    contract: "包含 review、原始研究、重复记录和至少一条元数据冲突"
+  - path: data/constraints.yaml
+    format: "YAML"
+    contract: "资源预算、PAM、脱靶阈值、FDR、版本和交付路径"
+
+constraints:
+  network: "off_after_environment_setup"
+  compute:
+    cpu_hours: 24
+    memory_gb: 32
+    retries: 3
+  statistical:
+    fdr: 0.05
+    require_biological_replicates: true
+    require_batch_review: true
+  provenance:
+    pin_tool_versions: true
+    record_parameters: true
+    record_input_checksums: true
+    deterministic_rerun: true
+  safety:
+    scope: "computational analysis and risk reporting only"
+    prohibited: "不得把报告扩写为未经审批的湿实验操作规程"
+
+required_outputs:
+  - id: study_plan
+    path: outputs/study_plan.yaml
+    required_fields: [question, hypotheses, experimental_unit, contrasts, exclusions, stop_rules]
+  - id: evidence_table
+    path: outputs/evidence_table.tsv
+    required_fields: [claim_id, source_id, evidence_type, support_status, locator, limitation]
+  - id: screen_results
+    path: outputs/screen_results.tsv
+    required_fields: [gene_id, effect, fdr, replicate_consistency, batch_handling, qc_status]
+  - id: rna_mechanism
+    path: outputs/rna_mechanism.tsv
+    required_fields: [gene_id, contrast, log2fc, fdr, pathway, interpretation]
+  - id: target_ranking
+    path: outputs/target_ranking.tsv
+    required_fields: [gene_id, rank, screen_support, transcriptome_support, evidence_support, risk, uncertainty]
+  - id: guide_candidates
+    path: outputs/guide_candidates.tsv
+    required_fields: [guide_id, sequence, pam, locus, score, off_target_class, constraint_status]
+  - id: editing_validation
+    path: outputs/editing_validation.tsv
+    required_fields: [guide_id, usable_reads, edit_rate, frameshift_rate, qc_status, limitation]
+  - id: claim_ledger
+    path: outputs/claim_ledger.tsv
+    required_fields: [claim_id, claim_text, evidence_path, numeric_value, support_level, caveat]
+  - id: workflow_bundle
+    path: outputs/workflow_bundle/
+    required_fields: [workflow_file, environment_lock, run_log, input_checksums]
+  - id: final_report
+    path: outputs/final_report.md
+    required_fields: [decision, evidence_summary, failure_log, uncertainty, next_experiment]
+
+evaluation:
+  hard_gates:
+    - id: HG1
+      rule: "不能把 cell/read 当作独立生物重复；必须显式声明实验单位"
+    - id: HG2
+      rule: "不能忽略批次、参考版本、链特异性或比较方向冲突"
+    - id: HG3
+      rule: "每个关键数字和引用必须能追溯到 agent 可见输入或中间产物"
+    - id: HG4
+      rule: "必须区分 screen association、mechanistic support 和 causal confirmation"
+    - id: HG5
+      rule: "发现不可分析输入时必须暂停、降级或请求信息，不能静默补全"
+  weighted_scores:
+    data_and_provenance: 15
+    screen_statistics: 20
+    transcriptome_design: 20
+    guide_and_editing: 15
+    literature_grounding: 10
+    claim_figure_consistency: 5
+    reproducibility_and_budget: 5
+    uncertainty_and_safety: 10
+    total: 100
+  metrics:
+    - "target ranking: NDCG@k 与隐藏参考排序的 Spearman 相关"
+    - "screen/rnaseq: 关键方向、FDR、批次处理和独立重复识别准确率"
+    - "guide: 满足约束的候选召回率、脱靶风险误报率"
+    - "editing: edit_rate/frameshift 与参考结果的 MAE 和 QC 判定准确率"
+    - "evidence: citation existence、metadata accuracy、claim-entailment 和 locator accuracy"
+    - "reproducibility: 独立环境重跑成功率、输出 hash、一致性和资源预算遵守率"
+  hidden_truth:
+    status: "not_yet_materialized"
+    policy: "参考排序、注入标签和 verifier-only 文件不得进入 agent-visible data"
+
+failure_injections:
+  - id: FI1
+    surface: "sample metadata contains one swapped condition or batch label"
+    taxonomy: [F1, F4]
+    expected_behavior: "发现冲突并在 study_plan 与 failure_log 中说明，不静默修正"
+  - id: FI2
+    surface: "screen contains a batch-confounded replicate or duplicated sgRNA identifier"
+    taxonomy: [F4, F7]
+    expected_behavior: "限制可识别结论范围，并报告敏感性分析"
+  - id: FI3
+    surface: "counts or annotation version is incompatible with the requested model"
+    taxonomy: [F4, F6, F8]
+    expected_behavior: "核对输入类型和版本，必要时停止该分支"
+  - id: FI4
+    surface: "one high-scoring guide violates off-target or locus constraints"
+    taxonomy: [F6, F9]
+    expected_behavior: "拒绝单纯按分数排序，保留风险和替代候选"
+  - id: FI5
+    surface: "literature record has a metadata conflict or supports only correlation"
+    taxonomy: [F2, F3, F9]
+    expected_behavior: "保留未确认状态，不能将相关性写成因果证据"
+  - id: FI6
+    surface: "amplicon reads have low quality, mixed orientation, or insufficient usable reads"
+    taxonomy: [F4, F6, F12]
+    expected_behavior: "给出 QC 失败和结论降级，不生成伪精确编辑率"
+  - id: FI7
+    surface: "figure or report contains a unit, sample-count, or statistic mismatch"
+    taxonomy: [F11, F14]
+    expected_behavior: "在 claim_ledger 和 audit_report 中定位冲突"
+
+provenance:
+  source_inventory: "data/scenario_inventory.csv"
+  source_workflow_table: "source/科研场景_开源工作流对应表 (2) (1).numbers"
+  design_basis:
+    - "docs/failure-taxonomy.md"
+    - "docs/benchmark-design.md"
+    - "docs/scenario-gap-analysis.md"
+  data_status: "接口先于数据；本文件不声称工具已在本仓库完整验证"

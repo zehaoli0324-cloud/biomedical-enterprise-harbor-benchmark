@@ -1,0 +1,3 @@
+scenario_id,workflow_id,workflow_name,source_url,resource_form,screening_grade,role_in_benchmark,source_status,notes
+M1,asreview-lab,ASReview LAB,https://github.com/asreview/asreview,交互筛读软件,A,候选文献排序与筛选流程,documentation_checked,"本轮先实现离线筛选切片；不依赖实时检索"
+A11,literature-review-evidence-table,literature-review evidence table,,Skill 流程,A,证据表与主张定位,scenario_derived,"来自科研场景表的生命科学文献检索、筛读与证据问答场景"

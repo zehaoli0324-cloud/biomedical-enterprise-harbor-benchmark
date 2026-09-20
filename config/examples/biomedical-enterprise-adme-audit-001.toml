@@ -1,0 +1,100 @@
+[task]
+id = "biogen-adme-audit-001"
+title = "ADME measurement split audit for leakage, units and missingness"
+domain = "biomedical_enterprise"
+source_scenarios = ["T01"]
+
+[scenario]
+card = "../../benchmarks/biogen-adme-audit-001/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 3
+weight = 1.2
+rationale = "A bounded pre-modeling quality gate in a real-world DMPK workflow."
+tags = ["adme", "data-readiness"]
+
+[difficulty.scientific_judgment]
+level = 4
+weight = 1.4
+rationale = "The agent must distinguish structure identity, unit comparability and claims about model readiness."
+tags = ["experimental-unit", "claim-boundary"]
+
+[difficulty.computational_difficulty]
+level = 2
+weight = 0.8
+rationale = "The fixture is small, but the output must preserve row-level evidence and deterministic summaries."
+tags = ["tabular", "audit"]
+
+[difficulty.tool_call_complexity]
+level = 1
+weight = 0.6
+rationale = "The calibration task is offline and uses one input table."
+tags = ["offline"]
+
+[difficulty.retrieval_complexity]
+level = 1
+weight = 0.6
+rationale = "No external retrieval is needed in the frozen calibration slice."
+tags = ["frozen-input"]
+
+[difficulty.information_noise_complexity]
+level = 3
+weight = 1.0
+rationale = "The table includes one duplicate structure, a mixed unit and an explicit missing measurement."
+tags = ["duplicate", "unit-mismatch", "missingness"]
+
+[difficulty.data_type_complexity]
+level = 2
+weight = 0.8
+rationale = "The task uses a structured measurement table and JSON/Markdown artifacts."
+tags = ["csv", "json", "markdown"]
+
+[difficulty.data_complexity]
+level = 2
+weight = 0.8
+rationale = "The row count is small, but split membership and canonical structure identity interact."
+tags = ["small-data", "split-audit"]
+
+[difficulty.environment_complexity]
+level = 1
+weight = 0.7
+rationale = "The verifier is standard-library only and runs offline with a small budget."
+tags = ["deterministic", "offline"]
+
+[difficulty.mathematical_complexity]
+level = 2
+weight = 0.7
+rationale = "The task requires one unit conversion from mM to uM and no model fitting."
+tags = ["unit-conversion"]
+
+[difficulty.long_horizon_complexity]
+level = 2
+weight = 0.8
+rationale = "The agent moves from input inspection to an auditable readiness decision with a manifest."
+tags = ["checkpointed", "artifact-handoff"]
+
+[difficulty.safety_risk]
+level = 2
+weight = 0.8
+rationale = "The task is pre-modeling QA and must not be generalized to clinical or enterprise validation claims."
+tags = ["claim-safety"]
+
+[modules]
+scenario = ["scenario_reproducibility_audit"]
+judgment = ["judgment_experimental_unit", "judgment_uncertainty_and_stop_rules", "judgment_causal_boundary"]
+compute = ["compute_data_schema_discovery"]
+noise = ["noise_metadata_conflict", "noise_missing_and_duplicate_inputs"]
+data = ["data_text_and_metadata"]
+math = ["math_basic_units_and_rates"]
+horizon = ["horizon_checkpointed_workflow"]
+safety = ["safety_human_approval_gate"]
+
+[data]
+types = ["csv", "json", "markdown"]
+
+[constraints]
+network = "off"
+cpu_seconds = 30
+memory_mb = 256
+requires_input_checksum = true
+requires_deterministic_output = true

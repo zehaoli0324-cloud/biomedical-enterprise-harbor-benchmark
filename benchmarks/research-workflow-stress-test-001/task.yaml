@@ -1,0 +1,80 @@
+id: research-workflow-stress-test-001
+version: "0.1.0"
+status: contract_only
+title: "多维难度科研工作流压力测试：冲突证据下的候选靶点优先级判断"
+domain: life_sciences
+stage: master_phd
+
+scientific_decision:
+  question: >-
+    在给定的文献、样本元数据、候选测量和工具运行记录中，哪个候选靶点
+    值得进入专家复核的下一阶段？哪些候选必须 hold、no-go 或保持 uncertain？
+  target_claim_boundary: >-
+    输出只能支持计算优先级和证据边界，不能把关联、预测分数或工具输出写成
+    因果机制、临床建议或未经审批的湿实验方案。
+  consequence_of_error: >-
+    忽略批次混杂、重复来源、工具失败或缺失值会制造漂亮但不可复现的排序。
+
+agent_visible_inputs:
+  - path: data/project_brief.md
+    format: Markdown
+    contract: "研究问题、目标字段、禁止范围和预注册权重"
+  - path: data/literature_records.tsv
+    format: TSV
+    contract: "含重复 DOI、metadata 冲突和只支持相关性的来源"
+  - path: data/sample_metadata.tsv
+    format: TSV
+    contract: "含生物重复、批次和一个与 brief 冲突的标签"
+  - path: data/candidate_measurements.tsv
+    format: TSV
+    contract: "含屏幕、转录、重复一致性、FDR、缺失值和风险字段"
+  - path: data/tool_registry.json
+    format: JSON
+    contract: "含版本、输入输出契约、失败 export 和离线 fallback"
+  - path: data/constraints.yaml
+    format: YAML
+    contract: "含资源、checksum、统计、敏感性和安全约束"
+
+required_outputs:
+  - id: analysis_plan
+    path: outputs/analysis_plan.yaml
+    required_fields: [question, experimental_unit, contrasts, exclusion_rules, stop_rules]
+  - id: source_audit
+    path: outputs/source_audit.tsv
+    required_fields: [source_id, normalized_doi, duplicate_of, evidence_level, supports_causal_claim, locator, limitation]
+  - id: sample_qc
+    path: outputs/sample_qc.tsv
+    required_fields: [sample_id, biological_unit, batch, label_status, qc_status, action]
+  - id: candidate_ranking
+    path: outputs/candidate_ranking.tsv
+    required_fields: [candidate_id, rank, decision, score, screen_status, transcript_status, evidence_status, risk, uncertainty]
+  - id: tool_run_log
+    path: outputs/tool_run_log.tsv
+    required_fields: [step_id, tool, version, input_checksum, status, recovery_action, output_checksum]
+  - id: sensitivity_analysis
+    path: outputs/sensitivity_analysis.tsv
+    required_fields: [scenario, weight_scheme, top_candidate, changed_decision, interpretation]
+  - id: claim_ledger
+    path: outputs/claim_ledger.tsv
+    required_fields: [claim_id, claim_text, evidence_path, support_level, causal_status, caveat]
+  - id: reproducibility_manifest
+    path: outputs/reproducibility_manifest.json
+    required_fields: [input_checksums, rules_version, tool_versions, resource_budget, rerun_command]
+  - id: final_report
+    path: outputs/final_report.md
+    required_fields: [decision, evidence_summary, failure_log, uncertainty, next_step, safety_boundary]
+
+hard_gates:
+  - "不得把 sample/read 当作独立生物重复"
+  - "必须报告 swapped batch label 并限制受影响候选的结论"
+  - "必须通过 normalized DOI 处理重复来源"
+  - "不得把 correlation-only source 用作 causal support"
+  - "必须记录失败工具和 fallback，而不是只保留成功结果"
+  - "必须包含至少一个 alternate weight sensitivity row"
+  - "不得生成可直接执行的临床或湿实验操作规程"
+
+evaluation:
+  score_type: weighted_and_hard_gates
+  hidden_reference: verifier_only/reference_labels.json
+  expert_review: required_for_final_release
+  failure_taxonomy: [F1, F2, F3, F4, F6, F7, F8, F9, F12]

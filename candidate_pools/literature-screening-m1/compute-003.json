@@ -1,0 +1,36 @@
+{
+  "schema_version": "compute-card.v1",
+  "task_id": "literature-claim-audit-m1-003",
+  "environment": {
+    "network": "off",
+    "runtime": "Python 3.11+ standard library",
+    "determinism": "required for structured outputs; equivalent prose is rubric-scored"
+  },
+  "resource_budget": {
+    "cpu_seconds": 120,
+    "memory_mb": 768,
+    "storage_mb": 96
+  },
+  "stages": [
+    {
+      "id": "map-claims",
+      "inputs": ["draft_report.md", "literature_records.tsv"],
+      "outputs": ["claim_evidence_map.tsv"],
+      "failure_behavior": "Mark unsupported when an exact locator or entailing passage is absent."
+    },
+    {
+      "id": "resolve-conflicts",
+      "inputs": ["claim_evidence_map.tsv", "evidence_rules.json"],
+      "outputs": ["contradiction_register.tsv", "audited_report.md", "run_manifest.json"],
+      "failure_behavior": "Preserve unresolved conflicts and route non-identifiable cases to adjudication."
+    }
+  ],
+  "programmatic_checks": [
+    "material claim coverage",
+    "source locator validity",
+    "known non-entailing citation detection",
+    "contradiction pair coverage",
+    "claim action consistent with evidence tier",
+    "input checksums recorded"
+  ]
+}

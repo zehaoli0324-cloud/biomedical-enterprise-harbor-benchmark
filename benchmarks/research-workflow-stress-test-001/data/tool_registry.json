@@ -1,0 +1,9 @@
+{
+  "rules_version": "rws-stress-v1",
+  "tools": [
+    {"name": "evidence-normalizer", "version": "2.1.0", "inputs": ["literature_records.tsv"], "outputs": ["source_audit.tsv"]},
+    {"name": "candidate-ranker", "version": "1.4.2", "inputs": ["candidate_measurements.tsv", "source_audit.tsv"], "outputs": ["candidate_ranking.tsv"]},
+    {"name": "report-exporter", "version": "3.0.1", "inputs": ["claim_ledger.tsv"], "outputs": ["final_report.md"], "failure_injection": "empty_partial_output"},
+    {"name": "offline-tsv-exporter", "version": "1.2.0", "inputs": ["claim_ledger.tsv"], "outputs": ["final_report.md"], "fallback_for": "report-exporter"}
+  ]
+}

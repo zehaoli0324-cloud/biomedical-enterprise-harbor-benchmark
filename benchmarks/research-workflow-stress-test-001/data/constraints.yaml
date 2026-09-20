@@ -1,0 +1,23 @@
+rules_version: rws-stress-v1
+network: off
+cpu_seconds: 120
+memory_mb: 1024
+fdr_threshold: 0.05
+minimum_biological_replicates: 3
+required_tools:
+  - name: evidence-normalizer
+    version: 2.1.0
+  - name: candidate-ranker
+    version: 1.4.2
+  - name: report-exporter
+    version: 3.0.1
+fallback_tools:
+  report-exporter: offline-tsv-exporter-1.2.0
+required_checks:
+  - input_sha256
+  - normalized_doi
+  - batch_conflict
+  - alternate_weight_sensitivity
+prohibited:
+  - clinical_recommendation
+  - executable_wet_lab_protocol

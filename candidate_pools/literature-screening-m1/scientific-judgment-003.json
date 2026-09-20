@@ -1,0 +1,31 @@
+{
+  "schema_version": "scientific-judgment-card.v1",
+  "task_id": "literature-claim-audit-m1-003",
+  "scenario_id": "M1-claim-traceability-audit",
+  "judgments": [
+    {
+      "id": "claim_entailment",
+      "decision": "Determine whether each cited source supports the exact scope and direction of a draft claim.",
+      "failure_consequence": "Valid-looking citations conceal an unsupported scientific statement.",
+      "observable": "claim_evidence_map.tsv records source locators, entailment status, and scope mismatch.",
+      "verifier": "frozen claim-source relations plus required locator checks",
+      "claim_boundary": "Source existence and topical relevance do not establish entailment."
+    },
+    {
+      "id": "contradiction_resolution",
+      "decision": "Weigh conflicting records by design relevance and evidence tier rather than record count.",
+      "failure_consequence": "A literature majority vote erases the most decision-relevant conflicting evidence.",
+      "observable": "contradiction_register.tsv preserves both sides and the resolution basis.",
+      "verifier": "conflict-pair coverage and evidence-tier precedence rules",
+      "claim_boundary": "A precedence rule may justify uncertainty, not a universal biological conclusion."
+    },
+    {
+      "id": "uncertainty_calibration",
+      "decision": "Choose retain, weaken, remove, or escalate without demanding false certainty.",
+      "failure_consequence": "The audited report remains overconfident or becomes uninformatively cautious.",
+      "observable": "audited_report.md and claim map agree on action, limitation, and remaining uncertainty.",
+      "verifier": "claim-action consistency and accepted-equivalent-language rubric",
+      "claim_boundary": "The audit evaluates support in the supplied evidence snapshot, not ultimate truth."
+    }
+  ]
+}

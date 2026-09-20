@@ -1,0 +1,39 @@
+{
+  "schema_version": "scientific-judgment-card.v1",
+  "task_id": "literature-screening-m1-001",
+  "scenario_id": "M1-literature-screening",
+  "judgments": [
+    {
+      "id": "inclusion_exclusion_consistency",
+      "decision": "Classify every record using the pre-registered population, intervention, outcome, and evidence-type rules.",
+      "failure_consequence": "Ineligible evidence changes the apparent evidence base or a relevant study is silently lost.",
+      "observable": "screening_decisions.tsv contains a decision and rule-specific reason for every record.",
+      "verifier": "reference label and allowed-reason checks",
+      "claim_boundary": "Eligibility does not establish study quality or causal validity."
+    },
+    {
+      "id": "duplicate_and_metadata_resolution",
+      "decision": "Select a canonical record when identifiers agree but metadata conflict.",
+      "failure_consequence": "The same study is counted twice or the wrong metadata becomes authoritative.",
+      "observable": "duplicate records identify their canonical record and conflict handling.",
+      "verifier": "DOI-group cardinality and canonical-record invariant",
+      "claim_boundary": "Metadata normalization cannot reconstruct unavailable study content."
+    },
+    {
+      "id": "association_vs_causality",
+      "decision": "Retain useful association evidence without promoting it to a causal mechanism.",
+      "failure_consequence": "The final report makes a mechanistic claim unsupported by the study design.",
+      "observable": "evidence tier and limitation fields agree with final-report language.",
+      "verifier": "claim-boundary phrase and evidence-tier checks",
+      "claim_boundary": "Observational association alone does not establish a resistance mechanism."
+    },
+    {
+      "id": "uncertainty_and_stop_rules",
+      "decision": "Stop and queue a record when the available snapshot cannot support classification.",
+      "failure_consequence": "The benchmark rewards guessing and hides missing evidence.",
+      "observable": "uncertainty_queue.tsv names the missing evidence and next action.",
+      "verifier": "uncertainty-queue membership and non-fabrication checks",
+      "claim_boundary": "An unresolved record is not an exclusion and not positive evidence."
+    }
+  ]
+}

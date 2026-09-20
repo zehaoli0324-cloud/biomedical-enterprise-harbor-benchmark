@@ -1,0 +1,57 @@
+scenario_id: M1-full-text-prioritization
+status: contract_only
+source_scenarios: [M1, A11]
+domain: life_sciences
+stage: master_phd
+research_role: evidence_synthesis_analyst
+scientific_context:
+  object: partially accessible cancer drug-resistance records
+  question: which unresolved records should receive scarce full-text retrieval and expert review?
+  decision: prioritize, defer, or stop review for each unresolved record
+  consequence_of_error: review effort is spent on low-value records while decision-changing evidence remains unresolved
+scientific_judgments:
+  - evidence_value_of_information
+  - causal_relevance
+  - decision_under_missingness
+workflow_handoffs:
+  - from: screened_records
+    to: uncertainty_inventory
+    artifact: uncertainty_inventory.tsv
+    invariant: every unresolved decision names the exact missing evidence
+  - from: uncertainty_inventory
+    to: review_priority
+    artifact: review_priority.tsv
+    invariant: priority follows decision impact and resolvability rather than topical similarity
+  - from: review_priority
+    to: stopping_report
+    artifact: stopping_report.md
+    invariant: deferred records and stopping reasons remain explicit
+required_artifacts:
+  - uncertainty_inventory.tsv
+  - review_priority.tsv
+  - stopping_report.md
+  - run_manifest.json
+failure_injections:
+  - id: salient-low-value-record
+    trigger: a topically close record cannot change the registered inclusion decision
+    expected_behavior: do not prioritize it solely for semantic similarity
+    verifier_signal: value_of_information_preserved
+  - id: inaccessible-decision-critical-record
+    trigger: a missing result could reverse a mechanism-level conclusion
+    expected_behavior: prioritize retrieval or require expert adjudication
+    verifier_signal: decision_impact_detected
+difficulty_modules:
+  scenario: [scenario_literature_review]
+  judgment: [judgment_evidence_quality, judgment_causal_boundary, judgment_uncertainty_and_stop_rules]
+  retrieval: [retrieval_inclusion_exclusion, retrieval_claim_entailment]
+  noise: [noise_red_herring_records, noise_missing_and_duplicate_inputs]
+  horizon: [horizon_checkpointed_workflow]
+release_gates:
+  scientific_reality: pass
+  observability: pending
+  verifiability: pending
+  naive_resistance: pending
+  reproducibility: pending
+open_questions:
+  - Can the hidden oracle encode priority equivalence classes instead of one total order?
+  - Which retrieval costs should be visible to the agent?

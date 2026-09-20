@@ -1,0 +1,5 @@
+candidate_id	screen_strength	transcript_support	evidence_support	reproducibility	fdr	replicate_consistency	batch_status	missing_critical	offline_risk
+CAND-A	0.90	0.82	0.90	0.88	0.004	3/3	identifiable	no	low
+CAND-B	0.98	0.20	0.55	0.40	0.001	2/3	confounded	no	medium
+CAND-C	0.72	0.75	0.70	0.65	0.030	2/3	identifiable	yes	low
+CAND-D	0.30	0.40	0.10	0.25	0.220	1/3	identifiable	no	high

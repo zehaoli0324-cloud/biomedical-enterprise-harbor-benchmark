@@ -1,0 +1,10 @@
+sample_id	candidate_id	biological_unit	batch	condition	label_source	qc_status
+S-001	CAND-A	patient_donor	B1	resistant	manifest	pass
+S-002	CAND-A	patient_donor	B1	sensitive	manifest	pass
+S-003	CAND-A	patient_donor	B2	resistant	manifest	pass
+S-004	CAND-B	patient_donor	B3	resistant	manifest	pass
+S-005	CAND-B	patient_donor	B3	sensitive	manifest	pass
+S-006	CAND-B	patient_donor	B4	sensitive	brief_conflict	pass
+S-007	CAND-C	patient_donor	B5	resistant	manifest	pass
+S-008	CAND-C	patient_donor	B5	sensitive	manifest	pass
+S-009	CAND-C	patient_donor	B6	resistant	manifest	low_reads

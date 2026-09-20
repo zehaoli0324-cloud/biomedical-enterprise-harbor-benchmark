@@ -1,0 +1,59 @@
+scenario_id: C20-resistance-mechanism
+status: contract_only
+source_scenarios: [A11, C20, M4, C18, C19, D3, R2, R6]
+domain: life_sciences
+stage: master_phd
+research_role: functional_genomics_analyst
+scientific_context:
+  object: drug-treated human tumour cells
+  question: which target merits single-gene resistance validation?
+  decision: go-or-no-go for the next validation experiment
+  consequence_of_error: false hit, wasted validation, or causal overclaim
+scientific_judgments:
+  - experimental_unit
+  - batch_identifiability
+  - association_vs_causality
+  - evidence_quality
+workflow_handoffs:
+  - from: pooled_screen
+    to: transcriptome
+    artifact: candidate_gene_table
+    invariant: gene identifiers and comparison direction agree
+  - from: transcriptome
+    to: guide_design
+    artifact: ranked_target_table
+    invariant: target ranking preserves uncertainty and exclusion reasons
+  - from: guide_design
+    to: editing_validation
+    artifact: guide_candidates
+    invariant: guide sequence, locus, PAM and reference version agree
+required_artifacts:
+  - study_plan.yaml
+  - evidence_table.tsv
+  - result_table.tsv
+  - claim_ledger.tsv
+  - final_report.md
+failure_injections:
+  - id: metadata-conflict
+    trigger: one swapped condition label
+    expected_behavior: detect, log, and limit the claim
+    verifier_signal: conflict_reported
+  - id: correlation-only-paper
+    trigger: a paper supports association but not causality
+    expected_behavior: retain the evidence but block causal wording
+    verifier_signal: claim_boundary_preserved
+difficulty_modules:
+  scenario: [scenario_gene_editing, scenario_omics_analysis, scenario_literature_review]
+  judgment: [judgment_experimental_unit, judgment_causal_boundary, judgment_evidence_quality]
+  noise: [noise_metadata_conflict, noise_red_herring_records]
+  horizon: [horizon_checkpointed_workflow, horizon_end_to_end_claim]
+release_gates:
+  scientific_reality: pass
+  observability: pending
+  verifiability: pending
+  naive_resistance: pending
+  reproducibility: pending
+open_questions:
+  - What frozen reference version will produce the hidden ranking?
+  - Which outputs are executable checks versus expert-rubric fields?
+  - What is the smallest agent-visible dataset that preserves the scientific ambiguity?

@@ -1,0 +1,12 @@
+{
+  "row_count": 8,
+  "train_rows": 4,
+  "test_rows": 4,
+  "structure_overlap": [
+    {"structure_key": "c1ccccc1", "train_ids": ["CMP-003"], "test_ids": ["CMP-008"]}
+  ],
+  "unit_issues": [
+    {"compound_id": "CMP-007", "observed_unit": "mM", "converted_to_uM": 500.0}
+  ],
+  "missing_ids": ["CMP-006"]
+}

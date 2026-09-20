@@ -1,0 +1,50 @@
+scenario_id: biogen-adme-audit
+status: ready
+source_scenarios: [T01]
+domain: biomedical_enterprise
+stage: preclinical_dmpk
+research_role: computational_chemist
+scientific_context:
+  object: compound solubility measurements
+  question: does the proposed train/test split support a leakage-free ADME benchmark?
+  decision: identify structure overlap, unit inconsistencies and missing measurements before modeling
+  consequence_of_error: inflated benchmark performance, invalid unit comparisons or silent loss of compounds
+scientific_judgments:
+  - experimental_unit_and_structure_identity
+  - unit_and_missingness_interpretation
+  - evidence_boundaries_for_model_readiness
+workflow_handoffs:
+  - from: measurement_table
+    to: input_audit
+    artifact: outputs/audit_report.json
+    invariant: every row and split is accounted for with reproducible counts
+  - from: input_audit
+    to: readiness_decision
+    artifact: outputs/audit_notes.md
+    invariant: model-readiness recommendation cites observed issues and does not imply enterprise validation
+required_artifacts:
+  - outputs/audit_report.json
+  - outputs/audit_notes.md
+  - outputs/run_manifest.json
+failure_injections:
+  - id: cross-split-structure-duplicate
+    trigger: the same canonical structure appears in train and test
+    expected_behavior: report the overlap and block a leakage-free readiness claim
+    verifier_signal: structure_overlap
+  - id: mixed-solubility-unit
+    trigger: one measured row uses mM while the declared benchmark unit is uM
+    expected_behavior: flag the row and state the conversion before comparison
+    verifier_signal: unit_issue
+  - id: missing-measurement
+    trigger: a test compound has no measured value
+    expected_behavior: preserve the ID and report missingness rather than imputing silently
+    verifier_signal: missingness
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+open_questions:
+  - Which public ADME source and license will be frozen for a production release?
+  - What split policy should be used for scaffold-level generalization?
