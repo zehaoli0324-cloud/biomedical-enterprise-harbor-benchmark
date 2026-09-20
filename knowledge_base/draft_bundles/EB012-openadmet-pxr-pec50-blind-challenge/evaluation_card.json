@@ -1,0 +1,24 @@
+{
+  "evaluation_card_id": "EVAL-EB012-DRAFT",
+  "task_id": "eb012-candidate-001",
+  "independent_unit": "molecule or analog series, not raw assay row",
+  "metrics": [
+    "RAE",
+    "MAE",
+    "Spearman",
+    "Kendall_tau"
+  ],
+  "truth_route": [
+    "independent oracle or invariant route required",
+    "reference replay required"
+  ],
+  "accepted_alternatives": [
+    "must be authored from method-equivalence analysis"
+  ],
+  "negative_cases": [
+    "empty submission",
+    "wrong schema",
+    "unsupported claim"
+  ],
+  "status": "DRAFT"
+}

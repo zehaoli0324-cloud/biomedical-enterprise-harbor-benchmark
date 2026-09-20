@@ -1,0 +1,24 @@
+{
+  "evaluation_card_id": "EVAL-EB009-DRAFT",
+  "task_id": "eb009-candidate-001",
+  "independent_unit": "target molecule or generated candidate",
+  "metrics": [
+    "validity",
+    "uniqueness",
+    "constraint_satisfaction",
+    "objective_score"
+  ],
+  "truth_route": [
+    "independent oracle or invariant route required",
+    "reference replay required"
+  ],
+  "accepted_alternatives": [
+    "must be authored from method-equivalence analysis"
+  ],
+  "negative_cases": [
+    "empty submission",
+    "wrong schema",
+    "unsupported claim"
+  ],
+  "status": "DRAFT"
+}

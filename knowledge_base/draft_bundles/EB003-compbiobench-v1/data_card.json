@@ -1,0 +1,22 @@
+{
+  "data_card_id": "DATA-EB003-DRAFT",
+  "source_benchmark_id": "EB003",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://github.com/Genentech/compbiobench-runner"
+  ],
+  "visibility": {
+    "agent": [
+      "FASTQ/BAM/H5AD/TSV/CSV",
+      "question metadata"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}

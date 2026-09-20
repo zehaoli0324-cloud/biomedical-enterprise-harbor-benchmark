@@ -1,0 +1,16 @@
+{
+  "workflow_id": "WF-EB011-UNRESOLVED",
+  "benchmark_ids": [
+    "EB011"
+  ],
+  "enterprise_stage": "unresolved",
+  "role": "unresolved",
+  "object": "protein_ligand_system",
+  "business_decision": "recompute or audit reported FEP results under a fixed system manifest",
+  "handoffs": [
+    "input->analysis->decision"
+  ],
+  "independent_unit": "unresolved",
+  "claim_boundary": "Benchmark score does not establish enterprise or clinical validity.",
+  "status": "candidate"
+}

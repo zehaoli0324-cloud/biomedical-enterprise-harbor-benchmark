@@ -1,0 +1,23 @@
+{
+  "data_card_id": "DATA-EB006-DRAFT",
+  "source_benchmark_id": "EB006",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://www.rxrx.ai/datasets"
+  ],
+  "visibility": {
+    "agent": [
+      "multi-channel microscopy",
+      "plate metadata",
+      "perturbation labels"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}

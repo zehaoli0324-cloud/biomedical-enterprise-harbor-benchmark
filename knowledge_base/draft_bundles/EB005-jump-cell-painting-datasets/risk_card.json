@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB005-DRAFT",
+  "task_id": "eb005-candidate-001",
+  "attribution": {
+    "organization": "JUMP Cell Painting Consortium",
+    "enterprise_role": "multi_company_consortium",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "mixed_dataset_licenses",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "morphological similarity is not proof of target mechanism or therapeutic efficacy"
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-EXPANSIONRX",
+  "organization": "Expansion Therapeutics",
+  "url": "https://github.com/OpenADMET/ExpansionRx-Challenge-Tutorial",
+  "kind": "experimental_data_contributor",
+  "authenticity": "A",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "verify_pending",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

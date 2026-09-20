@@ -33,6 +33,7 @@ source_record
 - [`seeds/official_sources.json`](seeds/official_sources.json)：爬取入口、来源类型和待核验项。
 - [`schemas/`](schemas/)：source、benchmark、workflow、transformation、data、evaluation、risk、Harbor 和 review 卡的最小契约。
 - [`templates/`](templates/)：新记录和新改题版本的作者模板。
+- [`draft_bundles/`](draft_bundles/)：由登记表批量生成的改题卡骨架；所有 bundle 默认处于 `DRAFT`，必须经过来源、许可、真值、隔离和试跑审核。
 - [`harvest/README.md`](harvest/README.md)：原始页面快照、哈希和抓取日志的保存规范。
 
 ## 状态纪律

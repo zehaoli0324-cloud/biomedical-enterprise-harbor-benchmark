@@ -1,0 +1,23 @@
+{
+  "data_card_id": "DATA-EB001-DRAFT",
+  "source_benchmark_id": "EB001",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://polarishub.io/datasets/biogen/adme-fang-v1"
+  ],
+  "visibility": {
+    "agent": [
+      "SMILES",
+      "six ADME endpoints",
+      "train/test assignment"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}

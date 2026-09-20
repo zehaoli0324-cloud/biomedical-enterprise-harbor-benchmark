@@ -1,0 +1,35 @@
+{
+  "workflow_id": "WF-ADAM-DERIVATION",
+  "benchmark_ids": [
+    "EB004"
+  ],
+  "enterprise_stage": "clinical_statistics",
+  "role": "statistical_programmer",
+  "object": "patient-level analysis datasets",
+  "business_decision": "derive analysis-ready data under a pre-specified study rule set",
+  "handoffs": [
+    "SDTM->ADSL_or_ADTTE",
+    "derived_dataset->table_or_analysis",
+    "analysis->review_record"
+  ],
+  "independent_unit": "subject and parameter/event record",
+  "critical_assumptions": [
+    "study-specific dates",
+    "treatment flags",
+    "event/censoring rules",
+    "cutoff date"
+  ],
+  "failure_consequences": [
+    "wrong estimand",
+    "incorrect event/censoring",
+    "audit failure"
+  ],
+  "observable_artifacts": [
+    "derivation_script",
+    "dataset",
+    "source-to-target trace",
+    "edge-case checks"
+  ],
+  "claim_boundary": "a public example workflow does not represent sponsor patient data or a clinical conclusion",
+  "status": "candidate"
+}

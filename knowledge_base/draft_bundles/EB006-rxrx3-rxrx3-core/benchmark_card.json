@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "EB006",
+  "source_id": "SRC-RECURSION-RXRX",
+  "name": "RxRx3 / RxRx3-core",
+  "organization": "Recursion Pharmaceuticals",
+  "enterprise_role": "company_dataset_publisher",
+  "authenticity_class": "A",
+  "workflow_family": "phenomics_and_drug_target_interaction",
+  "object": "cell_painting_images_and_embeddings",
+  "decision": "generalize phenotype representations to unseen perturbations or drug-target links",
+  "inputs": [
+    "multi-channel microscopy",
+    "plate metadata",
+    "perturbation labels"
+  ],
+  "outputs": [
+    "embedding or ranking",
+    "zero-shot prediction",
+    "batch-aware report"
+  ],
+  "evaluation": {
+    "kind": "dataset_specific_holdout",
+    "metrics": [
+      "DTI benchmark metrics",
+      "representation metrics"
+    ],
+    "blind_labels": "benchmark-specific"
+  },
+  "public_data_status": "public_but_license_varies_by_dataset",
+  "license_status": "dataset_specific",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://www.rxrx.ai/datasets",
+  "notes": "The public page explicitly distinguishes public data from the proprietary universe."
+}

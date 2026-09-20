@@ -1,0 +1,23 @@
+{
+  "data_card_id": "DATA-EB007-DRAFT",
+  "source_benchmark_id": "EB007",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://github.com/MCompChem/fep-benchmark"
+  ],
+  "visibility": {
+    "agent": [
+      "protein structures",
+      "ligand series",
+      "experimental reference values"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}

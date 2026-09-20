@@ -1,0 +1,23 @@
+{
+  "evaluation_card_id": "EVAL-EB007-DRAFT",
+  "task_id": "eb007-candidate-001",
+  "independent_unit": "unresolved",
+  "metrics": [
+    "RMSE",
+    "R2",
+    "Kendall_tau"
+  ],
+  "truth_route": [
+    "independent oracle or invariant route required",
+    "reference replay required"
+  ],
+  "accepted_alternatives": [
+    "must be authored from method-equivalence analysis"
+  ],
+  "negative_cases": [
+    "empty submission",
+    "wrong schema",
+    "unsupported claim"
+  ],
+  "status": "DRAFT"
+}

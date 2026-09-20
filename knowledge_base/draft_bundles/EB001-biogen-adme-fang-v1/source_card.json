@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-BIOGEN-ADME",
+  "organization": "Biogen",
+  "url": "https://polarishub.io/datasets/biogen/adme-fang-v1",
+  "kind": "public_dataset_publisher",
+  "authenticity": "B",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "verify_pending",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

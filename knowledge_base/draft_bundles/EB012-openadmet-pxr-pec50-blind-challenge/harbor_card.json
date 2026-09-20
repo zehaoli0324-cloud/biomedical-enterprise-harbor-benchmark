@@ -1,0 +1,33 @@
+{
+  "harbor_card_id": "HARBOR-EB012-DRAFT",
+  "task_id": "eb012-candidate-001",
+  "task_contract": {
+    "instruction": null,
+    "task_yaml": null
+  },
+  "agent_visible": [
+    "training pEC50",
+    "counter-screen values",
+    "analog test compounds"
+  ],
+  "verifier_only": [
+    "truth",
+    "oracle",
+    "verifier"
+  ],
+  "environment": {
+    "network": "to_be_frozen",
+    "resources": "to_be_measured"
+  },
+  "oracle": {
+    "status": "not_authored"
+  },
+  "release_gates": {
+    "source": "blocked",
+    "license": "blocked",
+    "truth": "blocked",
+    "verifier": "blocked",
+    "trial": "not_run"
+  },
+  "status": "CONTRACT_ONLY"
+}

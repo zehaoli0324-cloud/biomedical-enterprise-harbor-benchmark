@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB011-DRAFT",
+  "task_id": "eb011-candidate-001",
+  "attribution": {
+    "organization": "DP Technology",
+    "enterprise_role": "benchmark_and_method_publisher",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "Apache-2.0",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "Benchmark score does not establish enterprise or clinical validity."
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

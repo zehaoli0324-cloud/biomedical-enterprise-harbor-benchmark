@@ -1,0 +1,35 @@
+{
+  "workflow_id": "WF-COMPBIO-TASK",
+  "benchmark_ids": [
+    "EB003"
+  ],
+  "enterprise_stage": "computational_biology_support",
+  "role": "bioinformatics_or_research_analyst",
+  "object": "omics_and_sequence_files",
+  "business_decision": "produce a reproducible analysis artifact or stop when evidence is insufficient",
+  "handoffs": [
+    "raw_files->validated_inputs",
+    "validated_inputs->analysis",
+    "analysis->claim_ledger"
+  ],
+  "independent_unit": "sample, perturbation, or task-specific entity",
+  "critical_assumptions": [
+    "metadata alignment",
+    "reference version",
+    "tool availability",
+    "answer visibility"
+  ],
+  "failure_consequences": [
+    "wrong sample mapping",
+    "false biological claim",
+    "non-reproducible handoff"
+  ],
+  "observable_artifacts": [
+    "input_checksums",
+    "analysis_outputs",
+    "claim_ledger",
+    "execution_log"
+  ],
+  "claim_boundary": "a computational result is not automatically a causal or clinical finding",
+  "status": "candidate"
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-AZ-AIZYNTH",
+  "organization": "AstraZeneca / MolecularAI",
+  "url": "https://github.com/MolecularAI/aizynthfinder",
+  "kind": "tool_and_workflow_publisher",
+  "authenticity": "W",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "MIT_code_data_models_separate",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

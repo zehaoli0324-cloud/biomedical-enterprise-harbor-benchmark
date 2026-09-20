@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-AZ-REINVENT",
+  "organization": "AstraZeneca / MolecularAI",
+  "url": "https://github.com/MolecularAI/REINVENT4",
+  "kind": "tool_and_workflow_publisher",
+  "authenticity": "W",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "MIT_code_model_terms_separate",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

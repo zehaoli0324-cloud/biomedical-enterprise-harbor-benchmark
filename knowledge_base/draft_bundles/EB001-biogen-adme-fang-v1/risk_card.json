@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB001-DRAFT",
+  "task_id": "eb001-candidate-001",
+  "attribution": {
+    "organization": "Biogen",
+    "enterprise_role": "public_dataset_publisher",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "verify_pending",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "prediction and benchmark performance do not establish in vivo efficacy or clinical utility"
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

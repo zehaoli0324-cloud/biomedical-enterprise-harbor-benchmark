@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB007-DRAFT",
+  "task_id": "eb007-candidate-001",
+  "attribution": {
+    "organization": "Merck KGaA",
+    "enterprise_role": "benchmark_creator",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "verify_pending",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "Benchmark score does not establish enterprise or clinical validity."
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

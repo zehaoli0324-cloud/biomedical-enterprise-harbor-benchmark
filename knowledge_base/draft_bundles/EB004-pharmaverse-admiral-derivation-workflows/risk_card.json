@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB004-DRAFT",
+  "task_id": "eb004-candidate-001",
+  "attribution": {
+    "organization": "Roche + GSK / pharmaverse",
+    "enterprise_role": "public_workflow_co_developer",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "Apache-2.0_code_data_mixed",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "a public example workflow does not represent sponsor patient data or a clinical conclusion"
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

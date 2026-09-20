@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-RECURSION-RXRX",
+  "organization": "Recursion Pharmaceuticals",
+  "url": "https://www.rxrx.ai/datasets",
+  "kind": "company_dataset_publisher",
+  "authenticity": "A",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "dataset_specific",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

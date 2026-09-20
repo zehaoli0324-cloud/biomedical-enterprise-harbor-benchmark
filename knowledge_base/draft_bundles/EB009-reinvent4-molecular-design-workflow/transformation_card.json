@@ -1,0 +1,21 @@
+{
+  "schema_version": "enterprise_transformation_card.v1",
+  "transformation_id": "TX-EB009-DRAFT",
+  "source_benchmark_id": "EB009",
+  "derived_task_id": "eb009-candidate-001",
+  "status": "DRAFT",
+  "changed_dimensions": [
+    "business_decision",
+    "failure_mode",
+    "evaluation_contract"
+  ],
+  "semantic_changed_dimensions": [],
+  "surface_only_changes": [],
+  "scientific_decision_changed": false,
+  "truth_or_failure_changed": false,
+  "transformation_primitives": [],
+  "evidence": {},
+  "accepted_alternatives": [],
+  "scientific_rationale": null,
+  "release_status": "REVIEW_REQUIRED"
+}

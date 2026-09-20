@@ -1,0 +1,37 @@
+{
+  "benchmark_id": "EB008",
+  "source_id": "SRC-AZ-AIZYNTH",
+  "name": "AiZynthFinder retrosynthesis workflow",
+  "organization": "AstraZeneca / MolecularAI",
+  "enterprise_role": "tool_and_workflow_publisher",
+  "authenticity_class": "W",
+  "workflow_family": "retrosynthesis_planning",
+  "object": "target_molecule",
+  "decision": "find chemically valid routes from an allowed stock under a bounded search budget",
+  "inputs": [
+    "target SMILES",
+    "stock file",
+    "policy/filter models",
+    "search budget"
+  ],
+  "outputs": [
+    "routes",
+    "stock usage",
+    "failure reasons",
+    "route validation"
+  ],
+  "evaluation": {
+    "kind": "constraint_and_structure_verification",
+    "metrics": [
+      "solved_target_rate",
+      "route_validity",
+      "stock_compliance"
+    ]
+  },
+  "public_data_status": "public_code_public_data_components",
+  "license_status": "MIT_code_data_models_separate",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/MolecularAI/aizynthfinder",
+  "notes": "Route existence is not experimental synthesizability."
+}

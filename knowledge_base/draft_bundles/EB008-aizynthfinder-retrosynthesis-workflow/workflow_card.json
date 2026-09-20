@@ -1,0 +1,36 @@
+{
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "benchmark_ids": [
+    "EB008",
+    "EB009"
+  ],
+  "enterprise_stage": "medicinal_chemistry",
+  "role": "medicinal_chemist_or_design_scientist",
+  "object": "target_molecule_or_candidate_set",
+  "business_decision": "recommend computationally valid candidates/routes for human review",
+  "handoffs": [
+    "target_and_constraints->search",
+    "search->structure_validation",
+    "validation->human_review"
+  ],
+  "independent_unit": "target molecule or generated candidate",
+  "critical_assumptions": [
+    "stock inventory",
+    "scoring components",
+    "chemical validity",
+    "search budget"
+  ],
+  "failure_consequences": [
+    "invalid route",
+    "proxy gaming",
+    "unsafe or unusable candidate recommendation"
+  ],
+  "observable_artifacts": [
+    "configuration",
+    "routes_or_structures",
+    "constraint_checks",
+    "human_review_gate"
+  ],
+  "claim_boundary": "computational route/candidate validity does not establish experimental synthesizability or activity",
+  "status": "candidate"
+}

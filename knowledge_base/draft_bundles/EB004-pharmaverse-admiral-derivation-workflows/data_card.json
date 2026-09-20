@@ -1,0 +1,23 @@
+{
+  "data_card_id": "DATA-EB004-DRAFT",
+  "source_benchmark_id": "EB004",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://github.com/pharmaverse/admiral"
+  ],
+  "visibility": {
+    "agent": [
+      "SDTM domains",
+      "derivation specifications",
+      "date and treatment metadata"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}

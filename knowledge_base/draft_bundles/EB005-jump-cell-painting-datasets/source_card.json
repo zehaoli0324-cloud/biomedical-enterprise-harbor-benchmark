@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-JUMP-DATASETS",
+  "organization": "JUMP Cell Painting Consortium",
+  "url": "https://github.com/jump-cellpainting/datasets",
+  "kind": "multi_company_consortium",
+  "authenticity": "C",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "mixed_dataset_licenses",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

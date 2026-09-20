@@ -1,0 +1,16 @@
+{
+  "workflow_id": "WF-EB010-UNRESOLVED",
+  "benchmark_ids": [
+    "EB010"
+  ],
+  "enterprise_stage": "unresolved",
+  "role": "unresolved",
+  "object": "candidate_experiments",
+  "business_decision": "recommend the next batch under budget and feasibility constraints",
+  "handoffs": [
+    "input->analysis->decision"
+  ],
+  "independent_unit": "unresolved",
+  "claim_boundary": "Benchmark score does not establish enterprise or clinical validity.",
+  "status": "candidate"
+}

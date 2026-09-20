@@ -1,0 +1,24 @@
+{
+  "data_card_id": "DATA-EB009-DRAFT",
+  "source_benchmark_id": "EB009",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://github.com/MolecularAI/REINVENT4"
+  ],
+  "visibility": {
+    "agent": [
+      "prior model",
+      "scaffold or seed set",
+      "scoring configuration",
+      "sampling budget"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}

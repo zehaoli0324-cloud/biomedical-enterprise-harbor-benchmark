@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB008-DRAFT",
+  "task_id": "eb008-candidate-001",
+  "attribution": {
+    "organization": "AstraZeneca / MolecularAI",
+    "enterprise_role": "tool_and_workflow_publisher",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "MIT_code_data_models_separate",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "computational route/candidate validity does not establish experimental synthesizability or activity"
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

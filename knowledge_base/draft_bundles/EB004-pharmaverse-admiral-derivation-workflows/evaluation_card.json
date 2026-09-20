@@ -1,0 +1,22 @@
+{
+  "evaluation_card_id": "EVAL-EB004-DRAFT",
+  "task_id": "eb004-candidate-001",
+  "independent_unit": "subject and parameter/event record",
+  "metrics": [
+    "row_level_rule_accuracy",
+    "schema_validity"
+  ],
+  "truth_route": [
+    "independent oracle or invariant route required",
+    "reference replay required"
+  ],
+  "accepted_alternatives": [
+    "must be authored from method-equivalence analysis"
+  ],
+  "negative_cases": [
+    "empty submission",
+    "wrong schema",
+    "unsupported claim"
+  ],
+  "status": "DRAFT"
+}

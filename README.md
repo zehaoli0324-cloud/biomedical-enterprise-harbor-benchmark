@@ -41,6 +41,7 @@ enterprise workflow / source evidence
 ```bash
 python3 scripts/validate_knowledge_base.py
 python3 scripts/validate_card_bundle.py knowledge_base/examples/EB001-biogen-adme
+python3 scripts/scaffold_enterprise_cards.py
 python3 scripts/collect_enterprise_sources.py
 ```
 

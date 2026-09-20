@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-OPENADMET-PXR",
+  "organization": "OpenADMET / Octant Bio / UCSF",
+  "url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+  "kind": "enterprise_contributed_assay_challenge",
+  "authenticity": "A",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "verify_pending",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "enterprise_card_bundle.v1",
+  "bundle_id": "BUNDLE-EB004-DRAFT",
+  "source_benchmark_id": "EB004",
+  "derived_task_id": "eb004-candidate-001",
+  "cards": {
+    "source": "source_card.json",
+    "benchmark": "benchmark_card.json",
+    "workflow": "workflow_card.json",
+    "transformation": "transformation_card.json",
+    "data": "data_card.json",
+    "evaluation": "evaluation_card.json",
+    "risk": "risk_card.json",
+    "harbor": "harbor_card.json",
+    "review": "review_card.json"
+  },
+  "status": "DRAFT",
+  "release_blockers": [
+    "source_verification",
+    "license_review",
+    "independent_truth_route",
+    "container_replay",
+    "model_trial"
+  ]
+}

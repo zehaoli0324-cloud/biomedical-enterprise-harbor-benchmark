@@ -1,0 +1,23 @@
+{
+  "evaluation_card_id": "EVAL-EB010-DRAFT",
+  "task_id": "eb010-candidate-001",
+  "independent_unit": "unresolved",
+  "metrics": [
+    "constraint_validity",
+    "cumulative_objective",
+    "budget_compliance"
+  ],
+  "truth_route": [
+    "independent oracle or invariant route required",
+    "reference replay required"
+  ],
+  "accepted_alternatives": [
+    "must be authored from method-equivalence analysis"
+  ],
+  "negative_cases": [
+    "empty submission",
+    "wrong schema",
+    "unsupported claim"
+  ],
+  "status": "DRAFT"
+}

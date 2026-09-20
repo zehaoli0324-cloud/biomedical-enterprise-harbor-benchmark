@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "EB007",
+  "source_id": "SRC-MERCK-FEP",
+  "name": "Merck relative free-energy benchmark",
+  "organization": "Merck KGaA",
+  "enterprise_role": "benchmark_creator",
+  "authenticity_class": "B",
+  "workflow_family": "free_energy_prediction",
+  "object": "protein_ligand_series",
+  "decision": "assess rank and error of relative binding free-energy predictions",
+  "inputs": [
+    "protein structures",
+    "ligand series",
+    "experimental reference values"
+  ],
+  "outputs": [
+    "predicted relative free energies",
+    "error/ranking analysis",
+    "outlier review"
+  ],
+  "evaluation": {
+    "kind": "reference_value_comparison",
+    "metrics": [
+      "RMSE",
+      "R2",
+      "Kendall_tau"
+    ]
+  },
+  "public_data_status": "public_repository",
+  "license_status": "verify_pending",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/MCompChem/fep-benchmark",
+  "notes": "Commercial FEP engines and public reference files must be separated in a Harbor package."
+}

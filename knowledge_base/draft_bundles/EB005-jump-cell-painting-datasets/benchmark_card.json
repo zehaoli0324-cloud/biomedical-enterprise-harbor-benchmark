@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "EB005",
+  "source_id": "SRC-JUMP-DATASETS",
+  "name": "JUMP Cell Painting datasets",
+  "organization": "JUMP Cell Painting Consortium",
+  "enterprise_role": "multi_company_consortium",
+  "authenticity_class": "C",
+  "workflow_family": "high_content_cell_painting",
+  "object": "cell_images_and_profiles",
+  "decision": "normalize, retrieve or compare phenotypic profiles across plates and perturbations",
+  "inputs": [
+    "well/plate metadata",
+    "images or profiles",
+    "perturbation annotations"
+  ],
+  "outputs": [
+    "normalized profiles",
+    "retrieval ranking",
+    "batch diagnostics"
+  ],
+  "evaluation": {
+    "kind": "holdout_plate_or_compound_split",
+    "metrics": [
+      "profile_similarity",
+      "retrieval_recall",
+      "batch_diagnostics"
+    ]
+  },
+  "public_data_status": "large_public_dataset",
+  "license_status": "mixed_dataset_licenses",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/jump-cellpainting/datasets",
+  "notes": "Record consortium attribution instead of assigning the dataset to one member company."
+}

@@ -1,0 +1,38 @@
+{
+  "benchmark_id": "EB009",
+  "source_id": "SRC-AZ-REINVENT",
+  "name": "REINVENT4 molecular design workflow",
+  "organization": "AstraZeneca / MolecularAI",
+  "enterprise_role": "tool_and_workflow_publisher",
+  "authenticity_class": "W",
+  "workflow_family": "constrained_molecule_design",
+  "object": "molecule_set_or_scaffold",
+  "decision": "generate candidates under a fixed scaffold/property/novelty profile",
+  "inputs": [
+    "prior model",
+    "scaffold or seed set",
+    "scoring configuration",
+    "sampling budget"
+  ],
+  "outputs": [
+    "candidate molecules",
+    "component scores",
+    "run log",
+    "configuration"
+  ],
+  "evaluation": {
+    "kind": "multi_objective_constraint_check",
+    "metrics": [
+      "validity",
+      "uniqueness",
+      "constraint_satisfaction",
+      "objective_score"
+    ]
+  },
+  "public_data_status": "public_code_models_may_be_separate",
+  "license_status": "MIT_code_model_terms_separate",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/MolecularAI/REINVENT4",
+  "notes": "A high proxy score is not evidence of biological activity."
+}

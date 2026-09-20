@@ -1,0 +1,36 @@
+{
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "benchmark_ids": [
+    "EB005",
+    "EB006"
+  ],
+  "enterprise_stage": "high_content_screening",
+  "role": "image_analysis_or_phenomics_scientist",
+  "object": "well_or_compound_profile",
+  "business_decision": "identify robust phenotype similarity or target associations across plates and batches",
+  "handoffs": [
+    "images_and_metadata->profiles",
+    "profiles->batch_diagnostics",
+    "profiles->retrieval_or_DTI_rank"
+  ],
+  "independent_unit": "well/plate or compound after replicate aggregation",
+  "critical_assumptions": [
+    "plate and perturbation metadata",
+    "batch controls",
+    "compound-level split",
+    "replicate handling"
+  ],
+  "failure_consequences": [
+    "batch leakage",
+    "pseudoreplication",
+    "false mechanism assignment"
+  ],
+  "observable_artifacts": [
+    "metadata_join_audit",
+    "normalized_profiles",
+    "holdout_metrics",
+    "batch_report"
+  ],
+  "claim_boundary": "morphological similarity is not proof of target mechanism or therapeutic efficacy",
+  "status": "candidate"
+}

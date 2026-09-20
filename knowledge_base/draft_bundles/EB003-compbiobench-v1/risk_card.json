@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB003-DRAFT",
+  "task_id": "eb003-candidate-001",
+  "attribution": {
+    "organization": "Genentech",
+    "enterprise_role": "task_suite_publisher",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "verify_pending",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "a computational result is not automatically a causal or clinical finding"
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

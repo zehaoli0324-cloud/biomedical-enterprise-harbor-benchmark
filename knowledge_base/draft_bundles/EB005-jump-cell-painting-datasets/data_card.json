@@ -1,0 +1,23 @@
+{
+  "data_card_id": "DATA-EB005-DRAFT",
+  "source_benchmark_id": "EB005",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://github.com/jump-cellpainting/datasets"
+  ],
+  "visibility": {
+    "agent": [
+      "well/plate metadata",
+      "images or profiles",
+      "perturbation annotations"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}

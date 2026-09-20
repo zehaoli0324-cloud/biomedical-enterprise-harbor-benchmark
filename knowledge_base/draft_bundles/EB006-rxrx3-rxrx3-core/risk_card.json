@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB006-DRAFT",
+  "task_id": "eb006-candidate-001",
+  "attribution": {
+    "organization": "Recursion Pharmaceuticals",
+    "enterprise_role": "company_dataset_publisher",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "dataset_specific",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "morphological similarity is not proof of target mechanism or therapeutic efficacy"
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

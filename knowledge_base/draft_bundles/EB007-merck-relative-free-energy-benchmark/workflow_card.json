@@ -1,0 +1,16 @@
+{
+  "workflow_id": "WF-EB007-UNRESOLVED",
+  "benchmark_ids": [
+    "EB007"
+  ],
+  "enterprise_stage": "unresolved",
+  "role": "unresolved",
+  "object": "protein_ligand_series",
+  "business_decision": "assess rank and error of relative binding free-energy predictions",
+  "handoffs": [
+    "input->analysis->decision"
+  ],
+  "independent_unit": "unresolved",
+  "claim_boundary": "Benchmark score does not establish enterprise or clinical validity.",
+  "status": "candidate"
+}

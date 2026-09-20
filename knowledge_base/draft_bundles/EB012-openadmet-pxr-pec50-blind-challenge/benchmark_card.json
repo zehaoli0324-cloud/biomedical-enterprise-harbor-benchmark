@@ -1,0 +1,37 @@
+{
+  "benchmark_id": "EB012",
+  "source_id": "SRC-OPENADMET-PXR",
+  "name": "OpenADMET PXR pEC50 blind challenge",
+  "organization": "OpenADMET / Octant Bio / UCSF",
+  "enterprise_role": "enterprise_contributed_assay_challenge",
+  "authenticity_class": "A",
+  "workflow_family": "lead_optimization_activity_prediction",
+  "object": "analog_series",
+  "decision": "predict potency and selectivity for a prospective analog expansion",
+  "inputs": [
+    "training pEC50",
+    "counter-screen values",
+    "analog test compounds"
+  ],
+  "outputs": [
+    "blind predictions",
+    "ranking",
+    "phase-wise update"
+  ],
+  "evaluation": {
+    "kind": "phased_blind_challenge",
+    "metrics": [
+      "RAE",
+      "MAE",
+      "Spearman",
+      "Kendall_tau"
+    ],
+    "blind_labels": true
+  },
+  "public_data_status": "phase_split_blind",
+  "license_status": "verify_pending",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+  "notes": "The analog-expansion design is a useful lead-optimization pattern distinct from random virtual screening."
+}

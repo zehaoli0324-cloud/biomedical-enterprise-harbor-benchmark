@@ -1,0 +1,22 @@
+{
+  "review_id": "REVIEW-EB010-DRAFT",
+  "task_id": "eb010-candidate-001",
+  "reviewers": [
+    "domain_scientist",
+    "methods_reproducibility_auditor",
+    "license_attribution_reviewer"
+  ],
+  "hard_gates": [
+    "enterprise attribution verified",
+    "license verified",
+    "truth route independently checked",
+    "agent/verifier isolation tested"
+  ],
+  "open_questions": [
+    "what is the real business handoff?",
+    "which evidence is visible to the agent?",
+    "what is the acceptable answer class?"
+  ],
+  "decision": "REVISE",
+  "status": "PENDING"
+}

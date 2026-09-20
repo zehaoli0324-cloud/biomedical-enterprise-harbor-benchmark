@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "EB011",
+  "source_id": "SRC-DP-UNIFEP",
+  "name": "Uni-FEP-Benchmarks",
+  "organization": "DP Technology",
+  "enterprise_role": "benchmark_and_method_publisher",
+  "authenticity_class": "B",
+  "workflow_family": "free_energy_prediction",
+  "object": "protein_ligand_system",
+  "decision": "recompute or audit reported FEP results under a fixed system manifest",
+  "inputs": [
+    "protein-ligand systems",
+    "experimental data",
+    "reference results"
+  ],
+  "outputs": [
+    "prediction results",
+    "error distribution",
+    "system-level audit"
+  ],
+  "evaluation": {
+    "kind": "benchmark_reproduction",
+    "metrics": [
+      "RMSE",
+      "R2",
+      "Kendall_tau"
+    ]
+  },
+  "public_data_status": "public_repository",
+  "license_status": "Apache-2.0",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/dptech-corp/Uni-FEP-Benchmarks",
+  "notes": "Open challenge participation and published cases need separate provenance records."
+}

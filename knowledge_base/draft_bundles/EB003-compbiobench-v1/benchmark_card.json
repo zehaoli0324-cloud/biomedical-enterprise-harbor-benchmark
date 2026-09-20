@@ -1,0 +1,33 @@
+{
+  "benchmark_id": "EB003",
+  "source_id": "SRC-GENENTECH-COMPBIO",
+  "name": "CompBioBench v1",
+  "organization": "Genentech",
+  "enterprise_role": "task_suite_publisher",
+  "authenticity_class": "B",
+  "workflow_family": "computational_biology_agent_tasks",
+  "object": "multi_modal_bioinformatics_inputs",
+  "decision": "complete a bounded computational biology analysis with auditable artifacts",
+  "inputs": [
+    "FASTQ/BAM/H5AD/TSV/CSV",
+    "question metadata"
+  ],
+  "outputs": [
+    "analysis artifact",
+    "answer or report",
+    "execution evidence"
+  ],
+  "evaluation": {
+    "kind": "task_level_verifier",
+    "metrics": [
+      "task_success"
+    ],
+    "blind_labels": "task_specific"
+  },
+  "public_data_status": "public_task_corpus",
+  "license_status": "verify_pending",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/Genentech/compbiobench-runner",
+  "notes": "A task corpus is not automatically an enterprise internal SOP; preserve task-level source metadata."
+}

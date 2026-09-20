@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-MERCK-BAYBE",
+  "organization": "Merck KGaA",
+  "url": "https://github.com/emdgroup/baybe",
+  "kind": "workflow_and_library_publisher",
+  "authenticity": "W",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "Apache-2.0",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

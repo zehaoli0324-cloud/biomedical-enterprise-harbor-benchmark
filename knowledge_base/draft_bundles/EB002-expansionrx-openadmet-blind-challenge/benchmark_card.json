@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "EB002",
+  "source_id": "SRC-EXPANSIONRX",
+  "name": "ExpansionRx-OpenADMET Blind Challenge",
+  "organization": "Expansion Therapeutics",
+  "enterprise_role": "experimental_data_contributor",
+  "authenticity_class": "A",
+  "workflow_family": "multitask_admet_prediction",
+  "object": "small_molecule",
+  "decision": "predict later-stage ADMET endpoints from an early project split",
+  "inputs": [
+    "SMILES",
+    "nine ADMET endpoints",
+    "public training split"
+  ],
+  "outputs": [
+    "blind test predictions",
+    "submission file",
+    "model report"
+  ],
+  "evaluation": {
+    "kind": "blind_challenge",
+    "metrics": [
+      "MAE",
+      "MA-RAE"
+    ],
+    "blind_labels": true
+  },
+  "public_data_status": "training_public_test_blind",
+  "license_status": "verify_pending",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/OpenADMET/ExpansionRx-Challenge-Tutorial",
+  "notes": "The enterprise contribution and challenge platform must be kept separate in attribution."
+}

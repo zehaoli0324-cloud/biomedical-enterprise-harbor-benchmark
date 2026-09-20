@@ -1,0 +1,23 @@
+{
+  "risk_card_id": "RISK-EB012-DRAFT",
+  "task_id": "eb012-candidate-001",
+  "attribution": {
+    "organization": "OpenADMET / Octant Bio / UCSF",
+    "enterprise_role": "enterprise_contributed_assay_challenge",
+    "status": "review_required"
+  },
+  "license": {
+    "status": "verify_pending",
+    "solver_redistribution": "blocked_until_review"
+  },
+  "privacy": {
+    "status": "review_required"
+  },
+  "biosafety_or_medical": {
+    "status": "review_required"
+  },
+  "claim_boundary": [
+    "prediction and benchmark performance do not establish in vivo efficacy or clinical utility"
+  ],
+  "release_status": "REVIEW_REQUIRED"
+}

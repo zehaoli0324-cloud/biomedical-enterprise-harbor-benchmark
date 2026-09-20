@@ -1,0 +1,36 @@
+{
+  "benchmark_id": "EB010",
+  "source_id": "SRC-MERCK-BAYBE",
+  "name": "BayBE constrained experimental design",
+  "organization": "Merck KGaA",
+  "enterprise_role": "workflow_and_library_publisher",
+  "authenticity_class": "W",
+  "workflow_family": "closed_loop_experimental_optimization",
+  "object": "candidate_experiments",
+  "decision": "recommend the next batch under budget and feasibility constraints",
+  "inputs": [
+    "completed experiment table",
+    "search space",
+    "constraints",
+    "budget"
+  ],
+  "outputs": [
+    "next batch",
+    "predictions/uncertainty",
+    "stop or continue rationale"
+  ],
+  "evaluation": {
+    "kind": "simulated_closed_loop_replay",
+    "metrics": [
+      "constraint_validity",
+      "cumulative_objective",
+      "budget_compliance"
+    ]
+  },
+  "public_data_status": "public_code_examples",
+  "license_status": "Apache-2.0",
+  "evidence_status": "observed",
+  "redesign_status": "candidate",
+  "source_url": "https://github.com/emdgroup/baybe",
+  "notes": "Workshop examples may be materials/chemistry rather than biomedical sponsor data."
+}

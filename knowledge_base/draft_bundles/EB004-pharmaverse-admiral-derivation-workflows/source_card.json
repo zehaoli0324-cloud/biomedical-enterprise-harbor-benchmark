@@ -1,0 +1,19 @@
+{
+  "source_id": "SRC-PHARMAVERSE-ADMIRAL",
+  "organization": "Roche + GSK / pharmaverse",
+  "url": "https://github.com/pharmaverse/admiral",
+  "kind": "public_workflow_co_developer",
+  "authenticity": "W",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "Apache-2.0_code_data_mixed",
+  "evidence_locators": [
+    "registry/enterprise_benchmarks.jsonl"
+  ],
+  "unresolved_questions": [
+    "freeze an official commit or version",
+    "verify data and model redistribution terms",
+    "confirm enterprise participation scope"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "harbor_card_id": "HARBOR-EB006-DRAFT",
+  "task_id": "eb006-candidate-001",
+  "task_contract": {
+    "instruction": null,
+    "task_yaml": null
+  },
+  "agent_visible": [
+    "multi-channel microscopy",
+    "plate metadata",
+    "perturbation labels"
+  ],
+  "verifier_only": [
+    "truth",
+    "oracle",
+    "verifier"
+  ],
+  "environment": {
+    "network": "to_be_frozen",
+    "resources": "to_be_measured"
+  },
+  "oracle": {
+    "status": "not_authored"
+  },
+  "release_gates": {
+    "source": "blocked",
+    "license": "blocked",
+    "truth": "blocked",
+    "verifier": "blocked",
+    "trial": "not_run"
+  },
+  "status": "CONTRACT_ONLY"
+}

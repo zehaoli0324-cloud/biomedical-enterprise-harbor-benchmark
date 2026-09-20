@@ -1,0 +1,23 @@
+{
+  "data_card_id": "DATA-EB011-DRAFT",
+  "source_benchmark_id": "EB011",
+  "data_kind": "source_data_status_pending",
+  "lineage": [
+    "https://github.com/dptech-corp/Uni-FEP-Benchmarks"
+  ],
+  "visibility": {
+    "agent": [
+      "protein-ligand systems",
+      "experimental data",
+      "reference results"
+    ],
+    "verifier": [
+      "hidden truth to be authored"
+    ],
+    "author": [
+      "source files and license evidence"
+    ]
+  },
+  "truth_scope": "Not yet established; do not infer labels, units, or external validity.",
+  "status": "DRAFT"
+}
