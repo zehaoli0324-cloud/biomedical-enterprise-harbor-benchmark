@@ -32,7 +32,7 @@
       "workflow_family": "clinical_statistics_adam",
       "why_now": "keeps the clinical-statistics family coherent while changing the decision from population flags to endpoint/censoring rules",
       "next_artifact": "synthetic event/censoring domains and independent ADTTE oracle",
-      "status": "CONTRACT_ONLY"
+      "status": "READY_FOR_CALIBRATION"
     },
     {
       "candidate_id": "eb005-batch-normalization-002",
