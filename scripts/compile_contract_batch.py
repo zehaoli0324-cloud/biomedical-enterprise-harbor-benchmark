@@ -60,7 +60,12 @@ def main() -> int:
     }
     path = config_dir / "batch_compile_report.json"
     path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"compiled {len(records)} contract-only tasks; report={path}")
+    ready_count = sum(item["status"] == "ready_for_calibration" for item in records)
+    contract_count = len(records) - ready_count
+    print(
+        f"compiled {len(records)} tasks ({ready_count} ready_for_calibration, "
+        f"{contract_count} compiled_contract); report={path}"
+    )
     return 0
 
 
