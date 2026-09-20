@@ -1,0 +1,50 @@
+id: eb003-failure-recovery-003
+version: "0.1.0"
+status: contract_only
+title: "Computational biology tool failure recovery with claim-preserving handoff"
+domain: biomedical_enterprise
+stage: computational_biology_support
+scenario_ids: [EB003]
+scenario_card: scenario-card.yaml
+scientific_decision:
+  question: After a version-pinned tool branch fails or returns partial output, can the analyst recover without changing the scientific question or overclaiming?
+  target_claim_boundary: silent fallback or parameter drift makes results incomparable and unauditable; this contract does not establish an experimental, clinical, or commercial conclusion.
+  consequence_of_error: silent fallback or parameter drift makes results incomparable and unauditable
+agent_visible_inputs:
+  - path: data/
+    format: task-specific bundle
+    contract: pending frozen public or synthetic fixture
+constraints:
+  network: "off"
+  compute:
+    cpu_seconds: 120
+    memory_mb: 1024
+  provenance:
+    record_input_checksum: true
+    record_tool_version: true
+    deterministic_output: true
+  safety:
+    scope: contract-only enterprise workflow analysis
+    prohibited: do not overstate computational evidence or use the task as clinical, efficacy, safety, or wet-lab authorization
+required_outputs:
+  - id: execution_log
+    path: outputs/execution_log.jsonl
+    required_fields: [schema_version]
+  - id: failure_recovery
+    path: outputs/failure_recovery.md
+    required_fields: [schema_version]
+  - id: claim_ledger
+    path: outputs/claim_ledger.tsv
+    required_fields: [schema_version]
+  - id: run_manifest
+    path: outputs/run_manifest.json
+    required_fields: [schema_version]
+hidden_truth:
+  status: not_authored
+  policy: verifier-only when materialized
+provenance:
+  source_benchmark: EB003
+  data_status: source workflow observed; task fixture pending
+quality_cards:
+  candidate_set: candidate_pools/enterprise-v1/EB003-compbiobench-v1-candidate-set.json
+  question_brief: candidate_pools/enterprise-v1/question_briefs/eb003-failure-recovery-003.json

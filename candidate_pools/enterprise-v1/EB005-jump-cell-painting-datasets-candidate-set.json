@@ -1,0 +1,123 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB005-SCALED-V1",
+  "source_benchmark_id": "EB005",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "source_name": "JUMP Cell Painting datasets",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "candidates": [
+    {
+      "candidate_id": "eb005-plate-leakage-001",
+      "decision": "Does a plate/compound split support honest phenotype retrieval without replicate leakage?",
+      "independent_unit": "well/plate and perturbation identity",
+      "handoff": "images_and_metadata->profiles",
+      "error_consequence": "plate leakage inflates retrieval and makes morphology claims non-transferable",
+      "semantic_axes": [
+        "split_and_unit",
+        "failure_mode",
+        "evaluation_contract"
+      ],
+      "failure_injections": [
+        "same compound across train/test",
+        "well-level split used for compound-level claim",
+        "control wells duplicated"
+      ],
+      "required_artifacts": [
+        "split_manifest.json",
+        "metadata_join_audit.tsv",
+        "holdout_metrics.json"
+      ],
+      "gpt_difficulty_mechanism": "the agent must choose the independent unit before computing similarity and detect leakage hidden by well-level sample counts",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Retrieval performance does not prove target mechanism or therapeutic efficacy.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb005-batch-normalization-002",
+      "decision": "Which normalization and replicate aggregation choices remove batch effects without erasing a real phenotype?",
+      "independent_unit": "plate-level replicate aggregate",
+      "handoff": "profiles->batch_diagnostics",
+      "error_consequence": "over-correction can erase biology while under-correction creates false hits",
+      "semantic_axes": [
+        "method_choice",
+        "failure_mode",
+        "stopping_rule"
+      ],
+      "failure_injections": [
+        "batch confounding",
+        "control drift",
+        "replicate imbalance"
+      ],
+      "required_artifacts": [
+        "normalization_comparison.tsv",
+        "batch_report.json",
+        "sensitivity_summary.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must compare plausible preprocessing branches and report conclusions that change under normalization",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Batch correction supports analytical robustness, not mechanism confirmation.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb005-mechanism-retrieval-003",
+      "decision": "Which phenotype-similar perturbations are safe to pass to mechanism review, and what remains unproven?",
+      "independent_unit": "compound/perturbation profile",
+      "handoff": "profiles->retrieval_or_DTI_rank",
+      "error_consequence": "morphological similarity can be overinterpreted as a target relationship",
+      "semantic_axes": [
+        "business_decision",
+        "claim_boundary",
+        "handoff"
+      ],
+      "failure_injections": [
+        "similarity driven by toxicity",
+        "unseen cell state",
+        "weak annotation evidence"
+      ],
+      "required_artifacts": [
+        "retrieval_rank.tsv",
+        "evidence_boundary.json",
+        "human_review_queue.md"
+      ],
+      "gpt_difficulty_mechanism": "ranking must be separated from causal interpretation and linked to metadata and uncertainty",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Morphological similarity is not proof of target mechanism or clinical efficacy.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "C",
+    "license_status": "mixed_dataset_licenses"
+  },
+  "status": "DRAFT"
+}

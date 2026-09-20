@@ -1,0 +1,123 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB006-SCALED-V1",
+  "source_benchmark_id": "EB006",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "source_name": "RxRx3 / RxRx3-core",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "candidates": [
+    {
+      "candidate_id": "eb006-unseen-perturbation-001",
+      "decision": "Do learned representations generalize to unseen perturbations rather than memorizing plate or compound identity?",
+      "independent_unit": "unseen perturbation",
+      "handoff": "images_and_metadata->zero_shot_prediction",
+      "error_consequence": "memorization creates false confidence in novel target or drug prioritization",
+      "semantic_axes": [
+        "split_and_unit",
+        "data_visibility",
+        "evaluation_contract"
+      ],
+      "failure_injections": [
+        "perturbation overlap",
+        "plate batch shortcut",
+        "label leakage in embeddings"
+      ],
+      "required_artifacts": [
+        "holdout_manifest.json",
+        "zero_shot_metrics.json",
+        "representation_audit.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must reason about entity-level holdout and distinguish representation quality from benchmark leakage",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Zero-shot phenotype prediction is not target validation or therapeutic efficacy.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb006-metadata-confounding-002",
+      "decision": "Can batch and metadata confounding be separated from a putative drug-target interaction signal?",
+      "independent_unit": "plate/compound perturbation",
+      "handoff": "profiles->batch_diagnostics",
+      "error_consequence": "confounding can produce a false mechanism assignment and waste follow-up work",
+      "semantic_axes": [
+        "scientific_judgment",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "failure_injections": [
+        "batch aligned with treatment",
+        "missing plate metadata",
+        "control imbalance"
+      ],
+      "required_artifacts": [
+        "metadata_conflict_report.json",
+        "batch_sensitivity.tsv",
+        "claim_ledger.tsv"
+      ],
+      "gpt_difficulty_mechanism": "the agent must identify non-identifiability and downgrade the mechanism claim instead of selecting a preferred story",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A batch-adjusted association is not causal target evidence.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb006-dti-priority-003",
+      "decision": "Which drug-target links merit orthogonal review after phenotype ranking, uncertainty, and annotation quality are combined?",
+      "independent_unit": "drug-target link",
+      "handoff": "profiles->DTI_rank->human_review",
+      "error_consequence": "high-ranked links with weak annotation may misdirect expensive validation",
+      "semantic_axes": [
+        "business_decision",
+        "handoff",
+        "uncertainty"
+      ],
+      "failure_injections": [
+        "ranking instability",
+        "annotation conflict",
+        "out-of-domain cell state"
+      ],
+      "required_artifacts": [
+        "dti_priority.tsv",
+        "uncertainty_report.json",
+        "review_decision.md"
+      ],
+      "gpt_difficulty_mechanism": "the decision is a multi-evidence triage, not a single metric sort; abstention must be available",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A ranked link is a hypothesis for review, not a confirmed mechanism.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "A",
+    "license_status": "dataset_specific"
+  },
+  "status": "DRAFT"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb002-prospective-analog-003",
+  "source_benchmark_id": "EB002",
+  "source_name": "ExpansionRx-OpenADMET Blind Challenge",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which analogs merit the next assay round after uncertainty, chemical novelty, and endpoint risk are reconciled?",
+  "independent_unit": "analog series",
+  "handoff": "prediction->experimental_candidate_review",
+  "error_consequence": "proxy-optimal analogs can consume assay capacity while hiding selectivity or liability risk",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "analog_priority.tsv",
+    "uncertainty_report.json",
+    "human_review_queue.md"
+  ],
+  "failure_injections": [
+    "high score with counter-screen liability",
+    "series-level duplicate",
+    "uncertainty ranking reversal"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the decision is a constrained portfolio choice, not a leaderboard sort; equivalent candidates and hold decisions must be represented",
+    "semantic_axes": [
+      "business_decision",
+      "handoff",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "The output recommends assay priority only and does not claim activity in vivo.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

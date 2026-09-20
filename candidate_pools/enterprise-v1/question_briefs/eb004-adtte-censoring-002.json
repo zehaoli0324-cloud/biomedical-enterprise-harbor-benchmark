@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb004-adtte-censoring-002",
+  "source_benchmark_id": "EB004",
+  "source_name": "pharmaverse admiral derivation workflows",
+  "workflow_id": "WF-ADAM-DERIVATION",
+  "enterprise_role": "statistical_programmer",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which subject-level event and censoring dates are valid for a prespecified ADTTE endpoint?",
+  "independent_unit": "subject-parameter-event record",
+  "handoff": "ADSL->ADTTE->table_or_analysis",
+  "error_consequence": "incorrect censoring changes the survival estimand and downstream table",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "adtte.csv",
+    "event_trace.csv",
+    "censoring_audit.json"
+  ],
+  "failure_injections": [
+    "event date after cutoff",
+    "partial date",
+    "competing event",
+    "missing follow-up"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must distinguish endpoint rules from generic date arithmetic and route ambiguous records to review",
+    "semantic_axes": [
+      "scientific_decision",
+      "evaluation_contract",
+      "claim_boundary"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "An ADTTE derivation does not establish treatment benefit or regulatory validity.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

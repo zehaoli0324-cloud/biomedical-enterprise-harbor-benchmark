@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb009-constraint-generation-001",
+  "source_benchmark_id": "EB009",
+  "source_name": "REINVENT4 molecular design workflow",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which generated molecules satisfy scaffold, validity, uniqueness, and fixed property constraints?",
+  "independent_unit": "generated molecule",
+  "handoff": "configuration->candidate_set->human_review",
+  "error_consequence": "invalid or duplicate candidates waste design and synthesis review",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "candidate_set.smi",
+    "constraint_report.tsv",
+    "generation_manifest.json"
+  ],
+  "failure_injections": [
+    "invalid SMILES",
+    "scaffold violation",
+    "duplicate collapse",
+    "property constraint mismatch"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must verify each constraint independently instead of trusting aggregate reward",
+    "semantic_axes": [
+      "business_decision",
+      "failure_mode",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Constraint satisfaction is not evidence of biological activity.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

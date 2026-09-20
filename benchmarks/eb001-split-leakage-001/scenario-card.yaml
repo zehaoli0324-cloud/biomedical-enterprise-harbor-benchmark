@@ -1,0 +1,54 @@
+scenario_id: eb001-split-leakage-001
+status: contract_only
+source_scenarios: [EB001]
+domain: biomedical_enterprise
+stage: discovery_and_lead_optimization
+research_role: DMPK_or_computational_chemist
+scientific_context:
+  object: small molecules and canonical structures
+  question: Is the proposed ADME train/test split independent at the molecule and scaffold level, or must model comparison be held?
+  decision: handoff a leakage-free split or stop before modeling
+  consequence_of_error: leakage inflates benchmark performance and misdirects compound selection
+scientific_judgments:
+  - independent_unit_and_handoff
+  - competing_choice_and_stop_rule
+  - claim_boundary_and_evidence_quality
+workflow_handoffs:
+  - from: measurement_table
+    to: curated_split
+    artifact: split_audit.json
+    invariant: every molecule identity and split assignment is accounted for
+  - from: curated_split
+    to: prediction
+    artifact: split_manifest.json
+    invariant: no canonical structure or scaffold crosses the declared boundary
+required_artifacts:
+  - outputs/split_audit.json
+  - outputs/structure_identity.tsv
+  - outputs/readiness_report.md
+  - outputs/run_manifest.json
+failure_injections:
+  - id: eb001-split-leakage-001-1
+    trigger: same canonical structure appears under multiple IDs
+    expected_behavior: report identity overlap and block readiness
+    verifier_signal: pending_independent_verifier
+  - id: eb001-split-leakage-001-2
+    trigger: a scaffold crosses train/test
+    expected_behavior: report the overlap and distinguish molecule from scaffold policy
+    verifier_signal: pending_independent_verifier
+  - id: eb001-split-leakage-001-3
+    trigger: stereochemistry or salt normalization changes identity
+    expected_behavior: preserve the conflict and request a rule decision
+    verifier_signal: pending_independent_verifier
+release_gates:
+  scientific_reality: pass
+  observability: pending
+  verifiability: pending
+  naive_resistance: pending
+  reproducibility: pending
+  enterprise_value: pending
+  training_value: not_run
+open_questions:
+  - Freeze the task-specific public input version and redistribution terms.
+  - Author an independent oracle or expert-equivalence rubric.
+  - Run positive, negative, invariance, and insufficient-evidence controls.

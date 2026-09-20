@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb002-multitask-missingness-002",
+  "source_benchmark_id": "EB002",
+  "source_name": "ExpansionRx-OpenADMET Blind Challenge",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which endpoints can be jointly modeled under structured missingness, and where should the workflow abstain?",
+  "independent_unit": "molecule-endpoint pair",
+  "handoff": "training_matrix->endpoint_review",
+  "error_consequence": "improper imputation changes endpoint trade-offs and wastes assay budget",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "missingness_audit.tsv",
+    "per_endpoint_metrics.json",
+    "abstention_queue.tsv"
+  ],
+  "failure_injections": [
+    "endpoint-specific missingness",
+    "negative values encoded as missing",
+    "task weighting masks weak endpoints"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "a model must separate missing-label handling from prediction quality and preserve per-endpoint uncertainty",
+    "semantic_axes": [
+      "scientific_decision",
+      "failure_mode",
+      "stopping_rule"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Predicted ADMET values do not establish measured safety or exposure.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

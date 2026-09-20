@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb002-blind-calibration-001",
+  "source_benchmark_id": "EB002",
+  "source_name": "ExpansionRx-OpenADMET Blind Challenge",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Can a model produce a calibrated prospective ADMET submission while preserving blind-test and split provenance?",
+  "independent_unit": "molecule across project-time split",
+  "handoff": "public_training->blind_prediction",
+  "error_consequence": "leakage or label peeking invalidates prospective lead decisions",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "submission.csv",
+    "blind_split_manifest.json",
+    "calibration_report.md"
+  ],
+  "failure_injections": [
+    "blind labels accidentally exposed",
+    "time split replaced by random split",
+    "prediction file misaligned to compound IDs"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must reason under hidden labels and prove identifier alignment without optimizing to a visible answer",
+    "semantic_axes": [
+      "data_visibility",
+      "split_and_unit",
+      "claim_boundary"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Blind challenge performance is not a clinical or in vivo efficacy conclusion.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

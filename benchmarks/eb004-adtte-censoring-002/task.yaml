@@ -1,0 +1,60 @@
+id: eb004-adtte-censoring-002
+version: "0.1.0"
+status: ready_for_calibration
+title: "ADTTE event and censoring derivation under a prespecified cutoff"
+domain: biomedical_enterprise
+stage: clinical_statistics
+scenario_ids: [EB004]
+scenario_card: scenario-card.yaml
+scientific_decision:
+  question: Which event and censoring dates are valid for the frozen ADTTE endpoint rule, and which records require review?
+  target_claim_boundary: incorrect censoring changes the survival estimand and downstream table; this contract does not establish an experimental, clinical, or commercial conclusion.
+  consequence_of_error: incorrect censoring changes the survival estimand and downstream table
+agent_visible_inputs:
+  - path: data/dm.csv
+    format: CSV
+    contract: synthetic subject-level treatment start table
+  - path: data/events.csv
+    format: CSV
+    contract: synthetic progression/death event records with date precision
+  - path: data/followup.csv
+    format: CSV
+    contract: synthetic last-assessment records
+  - path: data/rules.json
+    format: JSON
+    contract: frozen PFS event, censoring, cutoff, partial-date, and missing-follow-up rules
+constraints:
+  network: "off"
+  compute:
+    cpu_seconds: 120
+    memory_mb: 1024
+  provenance:
+    record_input_checksum: true
+    record_tool_version: true
+    deterministic_output: true
+  safety:
+    scope: contract-only enterprise workflow analysis
+    prohibited: do not overstate computational evidence or use the task as clinical, efficacy, safety, or wet-lab authorization
+required_outputs:
+  - id: adtte
+    path: outputs/adtte.csv
+    required_fields: [USUBJID, PARAMCD, TRTSDT, ADT, CNSR, EVNTDESC, ADT_DTYPE, DERIVATION_STATUS]
+  - id: event_trace
+    path: outputs/event_trace.csv
+    required_fields: [USUBJID, source_record, event_type, raw_date, date_precision, rule_id, selected_value]
+  - id: censoring_audit
+    path: outputs/censoring_audit.json
+    required_fields: [schema_version, input_sha256, rules_version, summary, edge_cases, handoff, claim_boundary]
+  - id: run_manifest
+    path: outputs/run_manifest.json
+    required_fields: [input_sha256, rules_version, tool_version, deterministic]
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only
+  policy: do not mount into the agent-visible workspace
+provenance:
+  source_benchmark: EB004
+  data_status: synthetic frozen fixture for contract calibration; not sponsor or patient data
+quality_cards:
+  candidate_set: candidate_pools/enterprise-v1/EB004-pharmaverse-admiral-derivation-workflows-candidate-set.json
+  question_brief: candidate_pools/enterprise-v1/question_briefs/eb004-adtte-censoring-002.json

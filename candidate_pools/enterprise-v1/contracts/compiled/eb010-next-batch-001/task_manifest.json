@@ -1,0 +1,378 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb010-next-batch-001",
+    "title": "Next-batch experimental design under feasibility and budget constraints",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "EB010"
+    ],
+    "data_types": [
+      "csv",
+      "json",
+      "markdown"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb010-next-batch-001",
+    "raw_score": 3.417,
+    "adjusted_score": 3.617,
+    "band": "advanced",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "computational_difficulty": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "tool_call_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "retrieval_complexity": {
+        "level": 1,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "information_noise_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "data_type_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "data_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "environment_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "mathematical_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "long_horizon_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence"
+    ],
+    "selected_modules": {
+      "scenario": [
+        {
+          "id": "scenario_reproducibility_audit",
+          "params": {}
+        }
+      ],
+      "judgment": [
+        {
+          "id": "judgment_experimental_unit",
+          "params": {}
+        },
+        {
+          "id": "judgment_uncertainty_and_stop_rules",
+          "params": {}
+        }
+      ],
+      "compute": [
+        {
+          "id": "compute_data_schema_discovery",
+          "params": {}
+        },
+        {
+          "id": "compute_multistage_analysis",
+          "params": {}
+        }
+      ],
+      "noise": [
+        {
+          "id": "noise_metadata_conflict",
+          "params": {}
+        },
+        {
+          "id": "noise_missing_and_duplicate_inputs",
+          "params": {}
+        }
+      ],
+      "data": [
+        {
+          "id": "data_text_and_metadata",
+          "params": {}
+        }
+      ],
+      "data_complexity": [
+        {
+          "id": "complexity_replicates_and_batches",
+          "params": {}
+        },
+        {
+          "id": "complexity_sparse_or_missing",
+          "params": {}
+        }
+      ],
+      "environment": [
+        {
+          "id": "environment_offline_setup",
+          "params": {}
+        },
+        {
+          "id": "environment_resource_budget",
+          "params": {}
+        }
+      ],
+      "math": [
+        {
+          "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        }
+      ],
+      "horizon": [
+        {
+          "id": "horizon_branching_experiments",
+          "params": {}
+        },
+        {
+          "id": "horizon_end_to_end_claim",
+          "params": {}
+        }
+      ],
+      "safety": [
+        {
+          "id": "safety_human_approval_gate",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "csv",
+      "json",
+      "markdown"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 120,
+    "memory_mb": 1024,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "fb752de5b10a70a576247ed618550bc7bcc6f0b93f2a740e1f5f0fdc138d9eb7",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb010-next-batch-001/scenario-card.yaml",
+    "digest": "5cd8f0d534db5bde4e19c7d70a467c86e28a8881525fd3a775811de9818fe92f",
+    "scenario_id": "eb010-next-batch-001",
+    "status": "contract_only",
+    "source_scenarios": [
+      "EB010"
+    ],
+    "scientific_judgments": [
+      "independent_unit_and_handoff",
+      "competing_choice_and_stop_rule",
+      "claim_boundary_and_evidence_quality"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "pass",
+      "observability": "pending",
+      "verifiability": "pending",
+      "naive_resistance": "pending",
+      "reproducibility": "pending",
+      "enterprise_value": "pending",
+      "training_value": "not_run"
+    }
+  },
+  "status": "compiled_contract"
+}

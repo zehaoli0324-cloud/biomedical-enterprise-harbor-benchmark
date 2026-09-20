@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb006-unseen-perturbation-001",
+  "source_benchmark_id": "EB006",
+  "source_name": "RxRx3 / RxRx3-core",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Do learned representations generalize to unseen perturbations rather than memorizing plate or compound identity?",
+  "independent_unit": "unseen perturbation",
+  "handoff": "images_and_metadata->zero_shot_prediction",
+  "error_consequence": "memorization creates false confidence in novel target or drug prioritization",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "holdout_manifest.json",
+    "zero_shot_metrics.json",
+    "representation_audit.md"
+  ],
+  "failure_injections": [
+    "perturbation overlap",
+    "plate batch shortcut",
+    "label leakage in embeddings"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must reason about entity-level holdout and distinguish representation quality from benchmark leakage",
+    "semantic_axes": [
+      "split_and_unit",
+      "data_visibility",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Zero-shot phenotype prediction is not target validation or therapeutic efficacy.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

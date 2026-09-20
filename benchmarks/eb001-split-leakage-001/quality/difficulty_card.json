@@ -1,0 +1,21 @@
+{
+  "difficulty_card_id": "DIFF-EB001-SPLIT-AUDIT-001",
+  "task_id": "eb001-split-leakage-001",
+  "difficulty_hypothesis": {
+    "reasoning_chain": ["inspect identity and split provenance", "choose molecule versus scaffold unit", "reconcile canonical and scaffold overlap", "preserve missingness", "issue bounded proceed/stop handoff"],
+    "competing_choices": ["molecule-only versus scaffold-level gate", "proceed versus block", "collapse versus preserve salt-stripped identity"],
+    "stateful_dependencies": ["identity policy controls overlap result", "a failed leakage gate blocks model-comparison claims"],
+    "uncertainty_sources": ["salt normalization", "missing endpoint", "public benchmark versus enterprise governance"],
+    "target_failure_mechanism": "a fluent report checks only row counts or canonical duplicates and misses scaffold leakage"
+  },
+  "shortcut_probes": ["company-name matching", "row-count heuristic", "always-block", "always-proceed", "public-answer copying"],
+  "baseline_matrix": [
+    {"strategy": "reference_solution", "purpose": "prove a valid audit exists", "expected_status": "NOT_RUN"},
+    {"strategy": "simple_legal_baseline", "purpose": "measure direct overlap computation", "expected_status": "NOT_RUN"},
+    {"strategy": "always_abstain", "purpose": "check conservative over-reward", "expected_status": "NOT_RUN"},
+    {"strategy": "template_or_keyword", "purpose": "check shortcut resistance", "expected_status": "NOT_RUN"},
+    {"strategy": "target_model", "purpose": "measure evidence-grounded audit", "expected_status": "NOT_RUN"}
+  ],
+  "difficulty_dimensions": ["scientific_judgment", "evidence_reconciliation", "experimental_unit", "claim_boundary", "artifact_completeness"],
+  "status": "DRAFT"
+}

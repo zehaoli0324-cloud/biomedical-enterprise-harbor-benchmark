@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb011-reproduction-manifest-001",
+  "source_benchmark_id": "EB011",
+  "source_name": "Uni-FEP-Benchmarks",
+  "workflow_id": "WF-FEP-AUDIT",
+  "enterprise_role": "computational_chemist_or_method_auditor",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Can reported FEP results be reproduced from a fixed protein-ligand-system manifest and pinned configuration?",
+  "independent_unit": "protein-ligand system",
+  "handoff": "system_manifest->reproduction",
+  "error_consequence": "untracked system or configuration drift makes published errors unauditable",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "reproduction_manifest.json",
+    "rerun_results.tsv",
+    "difference_report.md"
+  ],
+  "failure_injections": [
+    "missing system file",
+    "parameter drift",
+    "reference mismatch",
+    "non-deterministic rerun"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must separate rerun failure from scientific disagreement and preserve input hashes",
+    "semantic_axes": [
+      "reproducibility",
+      "data_visibility",
+      "failure_mode"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Reproduction status does not validate the underlying biological claim.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

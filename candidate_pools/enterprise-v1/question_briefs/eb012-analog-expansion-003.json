@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb012-analog-expansion-003",
+  "source_benchmark_id": "EB012",
+  "source_name": "OpenADMET PXR pEC50 blind challenge",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Should the next analog expansion proceed, pause, or request new measurements based on blind predictions and evidence coverage?",
+  "independent_unit": "analog series and evidence state",
+  "handoff": "phase_update->experimental_candidate_review",
+  "error_consequence": "premature expansion consumes chemistry and assay capacity under weak evidence",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "expansion_decision.json",
+    "evidence_coverage.tsv",
+    "human_review_queue.md"
+  ],
+  "failure_injections": [
+    "sparse series coverage",
+    "uncertainty concentration",
+    "counter-screen contradiction"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must make a bounded proceed/pause/review decision with explicit missing information",
+    "semantic_axes": [
+      "stopping_rule",
+      "handoff",
+      "evidence_quality"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "An expansion decision does not establish in vivo efficacy or clinical utility.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

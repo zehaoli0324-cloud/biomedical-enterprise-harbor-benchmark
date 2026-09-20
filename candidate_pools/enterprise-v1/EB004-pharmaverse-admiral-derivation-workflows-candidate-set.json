@@ -1,0 +1,126 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB004-SCALED-V1",
+  "source_benchmark_id": "EB004",
+  "workflow_id": "WF-ADAM-DERIVATION",
+  "source_name": "pharmaverse admiral derivation workflows",
+  "enterprise_role": "statistical_programmer",
+  "candidates": [
+    {
+      "candidate_id": "eb004-adsl-population-001",
+      "decision": "Can subject-level treatment dates and ITT/SAFFL/PPROTFL flags be derived under frozen study rules?",
+      "independent_unit": "subject",
+      "handoff": "SDTM->ADSL_or_ADTTE",
+      "error_consequence": "wrong population membership or treatment dates changes the estimand",
+      "semantic_axes": [
+        "business_decision",
+        "split_and_unit",
+        "failure_mode"
+      ],
+      "failure_injections": [
+        "screen failure",
+        "no exposure",
+        "missing end date",
+        "cutoff capping"
+      ],
+      "required_artifacts": [
+        "adsl.csv",
+        "derivation_trace.csv",
+        "audit_report.json"
+      ],
+      "gpt_difficulty_mechanism": "one-to-many exposure rows must be reconciled to subject-level flags while preserving rule provenance and hold conditions",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "The derivation is a synthetic data-quality handoff, not a clinical conclusion.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb004-adtte-censoring-002",
+      "decision": "Which subject-level event and censoring dates are valid for a prespecified ADTTE endpoint?",
+      "independent_unit": "subject-parameter-event record",
+      "handoff": "ADSL->ADTTE->table_or_analysis",
+      "error_consequence": "incorrect censoring changes the survival estimand and downstream table",
+      "semantic_axes": [
+        "scientific_decision",
+        "evaluation_contract",
+        "claim_boundary"
+      ],
+      "failure_injections": [
+        "event date after cutoff",
+        "partial date",
+        "competing event",
+        "missing follow-up"
+      ],
+      "required_artifacts": [
+        "adtte.csv",
+        "event_trace.csv",
+        "censoring_audit.json"
+      ],
+      "gpt_difficulty_mechanism": "the model must distinguish endpoint rules from generic date arithmetic and route ambiguous records to review",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "An ADTTE derivation does not establish treatment benefit or regulatory validity.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb004-rule-mutation-003",
+      "decision": "Does a derivation implementation obey the declared SDTM-to-ADaM rules under adversarial edge-case mutations?",
+      "independent_unit": "subject-rule assertion",
+      "handoff": "derivation_code->review_record",
+      "error_consequence": "a plausible table can pass superficial review while violating a study rule",
+      "semantic_axes": [
+        "failure_mode",
+        "evaluation_contract",
+        "tool_and_trace_reliability"
+      ],
+      "failure_injections": [
+        "mutated arm code",
+        "reordered exposure rows",
+        "missing source row",
+        "rule version drift"
+      ],
+      "required_artifacts": [
+        "rule_matrix.csv",
+        "counterexample_report.json",
+        "rerun_manifest.json"
+      ],
+      "gpt_difficulty_mechanism": "the agent must distinguish equivalent implementations from silent rule changes and identify the earliest failing assertion",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Rule conformance is not evidence of sponsor data quality or clinical analysis validity.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "W",
+    "license_status": "Apache-2.0_code_data_mixed"
+  },
+  "status": "DRAFT"
+}

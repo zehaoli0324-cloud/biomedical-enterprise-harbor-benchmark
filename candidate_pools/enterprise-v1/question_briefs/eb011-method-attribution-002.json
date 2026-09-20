@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb011-method-attribution-002",
+  "source_benchmark_id": "EB011",
+  "source_name": "Uni-FEP-Benchmarks",
+  "workflow_id": "WF-FEP-AUDIT",
+  "enterprise_role": "computational_chemist_or_method_auditor",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which error differences are attributable to system selection, method configuration, or evaluation metric?",
+  "independent_unit": "method-system-metric tuple",
+  "handoff": "results->error_attribution->review",
+  "error_consequence": "misattributing an error source leads to the wrong method or dataset change",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "error_attribution.tsv",
+    "subset_sensitivity.json",
+    "method_review.md"
+  ],
+  "failure_injections": [
+    "metric disagreement",
+    "system subset confounding",
+    "outlier dominance"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must reason across linked results and avoid declaring a winner from one aggregate metric",
+    "semantic_axes": [
+      "method_choice",
+      "evidence_reconciliation",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Benchmark error attribution is not a claim of prospective binding performance.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

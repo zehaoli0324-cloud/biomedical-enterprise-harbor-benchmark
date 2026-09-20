@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb006-metadata-confounding-002",
+  "source_benchmark_id": "EB006",
+  "source_name": "RxRx3 / RxRx3-core",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Can batch and metadata confounding be separated from a putative drug-target interaction signal?",
+  "independent_unit": "plate/compound perturbation",
+  "handoff": "profiles->batch_diagnostics",
+  "error_consequence": "confounding can produce a false mechanism assignment and waste follow-up work",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "metadata_conflict_report.json",
+    "batch_sensitivity.tsv",
+    "claim_ledger.tsv"
+  ],
+  "failure_injections": [
+    "batch aligned with treatment",
+    "missing plate metadata",
+    "control imbalance"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must identify non-identifiability and downgrade the mechanism claim instead of selecting a preferred story",
+    "semantic_axes": [
+      "scientific_judgment",
+      "failure_mode",
+      "claim_boundary"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A batch-adjusted association is not causal target evidence.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

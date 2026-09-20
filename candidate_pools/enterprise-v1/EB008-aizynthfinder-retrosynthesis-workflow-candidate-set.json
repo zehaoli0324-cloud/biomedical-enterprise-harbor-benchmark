@@ -1,0 +1,125 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB008-SCALED-V1",
+  "source_benchmark_id": "EB008",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "source_name": "AiZynthFinder retrosynthesis workflow",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "candidates": [
+    {
+      "candidate_id": "eb008-stock-route-001",
+      "decision": "Which retrosynthesis routes satisfy target structure, stock inventory, reaction validity, and search-budget constraints?",
+      "independent_unit": "target molecule and route",
+      "handoff": "target_and_constraints->search->structure_validation",
+      "error_consequence": "an invalid or unavailable route wastes chemistry review time",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "evaluation_contract"
+      ],
+      "failure_injections": [
+        "stock violation",
+        "invalid reaction template",
+        "route duplicate",
+        "budget truncation"
+      ],
+      "required_artifacts": [
+        "route_table.tsv",
+        "stock_compliance.json",
+        "route_review.md"
+      ],
+      "gpt_difficulty_mechanism": "route existence, stock compliance, and structural validity are separate gates; the best score is not automatically usable",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A computational route is not proof of experimental synthesizability.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb008-route-evidence-002",
+      "decision": "Which route claims are supported by explicit reaction and structure checks, and which require chemist review?",
+      "independent_unit": "route step and evidence item",
+      "handoff": "search->structure_validation->human_review",
+      "error_consequence": "unsupported route confidence can lead to infeasible synthesis planning",
+      "semantic_axes": [
+        "claim_boundary",
+        "visible_evidence",
+        "handoff"
+      ],
+      "failure_injections": [
+        "missing reaction evidence",
+        "ambiguous stereochemistry",
+        "model score mistaken for feasibility"
+      ],
+      "required_artifacts": [
+        "route_evidence.tsv",
+        "claim_ledger.tsv",
+        "human_review_queue.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must align each route claim to checks and maintain uncertainty when the public workflow does not prove feasibility",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Route evidence is computational and does not establish laboratory success.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb008-search-recovery-003",
+      "decision": "After search exhaustion or a failed policy/filter branch, can the workflow recover without relaxing constraints silently?",
+      "independent_unit": "search branch and route state",
+      "handoff": "search->failure_log->human_review",
+      "error_consequence": "silent constraint relaxation can produce unsafe or unusable candidates",
+      "semantic_axes": [
+        "tool_call_complexity",
+        "stateful_dependency",
+        "safety"
+      ],
+      "failure_injections": [
+        "empty output",
+        "policy-model version drift",
+        "timeout",
+        "fallback changes stock set"
+      ],
+      "required_artifacts": [
+        "search_log.jsonl",
+        "failure_recovery.md",
+        "constraint_diff.json"
+      ],
+      "gpt_difficulty_mechanism": "the model must preserve failed state and explicitly request approval before any constraint change",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Recovery does not make a route experimentally validated.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "W",
+    "license_status": "MIT_code_data_models_separate"
+  },
+  "status": "DRAFT"
+}

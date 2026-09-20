@@ -1,0 +1,9 @@
+{
+  "rules_version": "adme-split-audit-v1",
+  "canonical_identity": "canonical_smiles after declared salt stripping; stereochemistry policy must be recorded",
+  "molecule_split_rule": "canonical_smiles must not occur in both train and test",
+  "scaffold_split_rule": "scaffold_id must not occur in both train and test",
+  "expected_endpoint_unit": "uM",
+  "missingness_rule": "preserve missing endpoint rows and exclude them from endpoint comparisons",
+  "readiness_rule": "block model comparison when molecule or scaffold leakage is present"
+}

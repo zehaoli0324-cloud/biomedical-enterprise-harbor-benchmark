@@ -1,0 +1,12 @@
+{
+  "candidate_set_id": "CSET-EB001-SPLIT-AUDIT-001",
+  "source_benchmark_id": "EB001",
+  "candidates": [
+    {"candidate_id": "eb001-split-leakage-001", "decision": "molecule/scaffold split readiness", "unit": "molecule and canonical structure", "error_consequence": "leakage inflates model quality", "semantic_axes": ["split_and_unit", "failure_mode", "handoff"], "selection_status": "MATERIALIZED"},
+    {"candidate_id": "eb001-endpoint-harmonization-002", "decision": "endpoint comparability under unit and missingness rules", "unit": "molecule-endpoint measurement", "error_consequence": "wrong endpoint comparison", "semantic_axes": ["business_decision", "data_visibility", "claim_boundary"], "selection_status": "PENDING"},
+    {"candidate_id": "eb001-applicability-triage-003", "decision": "applicability-domain review priority", "unit": "held-out compound", "error_consequence": "out-of-domain compound over-prioritized", "semantic_axes": ["business_decision", "stopping_rule", "handoff"], "selection_status": "PENDING"}
+  ],
+  "deduplication_axes": ["decision", "unit", "error_consequence", "handoff", "semantic_axes"],
+  "selection_gate": {"minimum_candidates": 3, "maximum_candidates": 5, "require_two_semantic_differences": true, "require_independent_review": true},
+  "status": "REVIEW_REQUIRED"
+}

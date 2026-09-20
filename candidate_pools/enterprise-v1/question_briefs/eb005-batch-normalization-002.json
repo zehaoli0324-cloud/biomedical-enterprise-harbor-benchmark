@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb005-batch-normalization-002",
+  "source_benchmark_id": "EB005",
+  "source_name": "JUMP Cell Painting datasets",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which normalization and replicate aggregation choices remove batch effects without erasing a real phenotype?",
+  "independent_unit": "plate-level replicate aggregate",
+  "handoff": "profiles->batch_diagnostics",
+  "error_consequence": "over-correction can erase biology while under-correction creates false hits",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "normalization_comparison.tsv",
+    "batch_report.json",
+    "sensitivity_summary.md"
+  ],
+  "failure_injections": [
+    "batch confounding",
+    "control drift",
+    "replicate imbalance"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must compare plausible preprocessing branches and report conclusions that change under normalization",
+    "semantic_axes": [
+      "method_choice",
+      "failure_mode",
+      "stopping_rule"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Batch correction supports analytical robustness, not mechanism confirmation.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

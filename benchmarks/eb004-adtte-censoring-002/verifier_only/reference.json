@@ -1,0 +1,8 @@
+{
+  "edge_cases": [
+    {"id": "SUBJ-202", "type": "competing_events"},
+    {"id": "SUBJ-203", "type": "post_cutoff_event"},
+    {"id": "SUBJ-205", "type": "missing_followup"},
+    {"id": "SUBJ-206", "type": "partial_date"}
+  ]
+}

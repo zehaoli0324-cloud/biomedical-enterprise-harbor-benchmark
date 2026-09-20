@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb009-novelty-review-003",
+  "source_benchmark_id": "EB009",
+  "source_name": "REINVENT4 molecular design workflow",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which generated candidates are novel enough and sufficiently evidenced for medicinal-chemistry review?",
+  "independent_unit": "scaffold/candidate family",
+  "handoff": "candidate_set->novelty_audit->human_review",
+  "error_consequence": "novelty or IP-like claims based on a limited reference set can misdirect review",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "novelty_audit.tsv",
+    "similarity_evidence.json",
+    "approval_gate.md"
+  ],
+  "failure_injections": [
+    "reference-set leakage",
+    "near-duplicate scaffold",
+    "unsupported novelty claim"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must separate computed similarity from legal or commercial novelty and retain a review gate",
+    "semantic_axes": [
+      "enterprise_context",
+      "claim_boundary",
+      "handoff"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Computed novelty is not freedom-to-operate or clinical value.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

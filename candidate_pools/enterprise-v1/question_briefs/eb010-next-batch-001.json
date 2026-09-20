@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb010-next-batch-001",
+  "source_benchmark_id": "EB010",
+  "source_name": "BayBE constrained experimental design",
+  "workflow_id": "WF-BAYBE-CLOSED-LOOP",
+  "enterprise_role": "experimental_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which next experiment batch is valid under search-space, material, and budget constraints?",
+  "independent_unit": "candidate experiment",
+  "handoff": "completed_experiments->next_batch",
+  "error_consequence": "invalid or infeasible batches waste scarce experimental capacity",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "next_batch.csv",
+    "constraint_check.json",
+    "selection_rationale.md"
+  ],
+  "failure_injections": [
+    "constraint violation",
+    "duplicate experiment",
+    "material budget overflow"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must produce a legal batch and explain trade-offs rather than maximize a proxy alone",
+    "semantic_axes": [
+      "business_decision",
+      "failure_mode",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A selected batch is a planning recommendation, not an experimental result.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

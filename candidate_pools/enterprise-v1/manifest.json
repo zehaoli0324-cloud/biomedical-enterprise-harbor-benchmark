@@ -1,0 +1,87 @@
+{
+  "schema_version": "enterprise_candidate_matrix.v1",
+  "generator": "enterprise-candidate-cards.v1",
+  "source_registry": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+  "workflow_registry": "knowledge_base/registry/workflows.jsonl",
+  "benchmark_count": 12,
+  "candidate_count": 36,
+  "semantic_deduplication": {
+    "minimum_candidates_per_benchmark": 3,
+    "minimum_symmetric_axis_difference": 2
+  },
+  "status": "DRAFT",
+  "cards": [
+    {
+      "benchmark_id": "EB001",
+      "path": "candidate_pools/enterprise-v1/EB001-biogen-adme-fang-v1-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "d222bf84f64e79d94cda997bfb4fc66fccbb6b8d5c18b738f9d98774af48c2e7"
+    },
+    {
+      "benchmark_id": "EB002",
+      "path": "candidate_pools/enterprise-v1/EB002-expansionrx-openadmet-blind-challenge-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "09cecccba4f55c985e1054c3a5c04365fa78bc676b4d49de730f65126ac88f1f"
+    },
+    {
+      "benchmark_id": "EB003",
+      "path": "candidate_pools/enterprise-v1/EB003-compbiobench-v1-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "447fb11cc95d45df4d09cd82567f7c413594134d1c7d8df071337cd9fe3e4359"
+    },
+    {
+      "benchmark_id": "EB004",
+      "path": "candidate_pools/enterprise-v1/EB004-pharmaverse-admiral-derivation-workflows-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "4661cf0bd6e04753e7ea1211fcb67f63ee51199bb0b03cbd610fd3eafafe6de7"
+    },
+    {
+      "benchmark_id": "EB005",
+      "path": "candidate_pools/enterprise-v1/EB005-jump-cell-painting-datasets-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "1e318fa376a1239c6cb9ca1348af743195915d0b8564fc9d0026ea7b9acec01c"
+    },
+    {
+      "benchmark_id": "EB006",
+      "path": "candidate_pools/enterprise-v1/EB006-rxrx3-rxrx3-core-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "78b3ced4b8ee0d0729acdf71e2e76732ac9cad53942b5ee6c3268099a2edcc16"
+    },
+    {
+      "benchmark_id": "EB007",
+      "path": "candidate_pools/enterprise-v1/EB007-merck-relative-free-energy-benchmark-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "6c3bd311240e284b163d00cf9025c79dc5d61a5757e2144321ef51bf28455024"
+    },
+    {
+      "benchmark_id": "EB008",
+      "path": "candidate_pools/enterprise-v1/EB008-aizynthfinder-retrosynthesis-workflow-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "40cffd9759b9b33b83b04cb228cc0aa7f2b925805e2d26fee5447d5f930ae524"
+    },
+    {
+      "benchmark_id": "EB009",
+      "path": "candidate_pools/enterprise-v1/EB009-reinvent4-molecular-design-workflow-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "5bd4172ece79ed717e707d4b8a255a4fdf057c7f40e2920fabc14e166453b115"
+    },
+    {
+      "benchmark_id": "EB010",
+      "path": "candidate_pools/enterprise-v1/EB010-baybe-constrained-experimental-design-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "227fa899b72c5a3ee266dec9c2e16a712adf97de832409adc241bb30374b12e8"
+    },
+    {
+      "benchmark_id": "EB011",
+      "path": "candidate_pools/enterprise-v1/EB011-uni-fep-benchmarks-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "ff1a77384ac04359c8c95a5593d854493490e683288f1dd153a22f1585727b02"
+    },
+    {
+      "benchmark_id": "EB012",
+      "path": "candidate_pools/enterprise-v1/EB012-openadmet-pxr-pec50-blind-challenge-candidate-set.json",
+      "candidate_count": 3,
+      "sha256": "6ea231e384b36bcff63e105e83feda7cbd337e47bacb34cf9dc242088d9b711c"
+    }
+  ]
+}

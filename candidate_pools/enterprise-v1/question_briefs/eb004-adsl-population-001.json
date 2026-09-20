@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb004-adsl-population-001",
+  "source_benchmark_id": "EB004",
+  "source_name": "pharmaverse admiral derivation workflows",
+  "workflow_id": "WF-ADAM-DERIVATION",
+  "enterprise_role": "statistical_programmer",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Can subject-level treatment dates and ITT/SAFFL/PPROTFL flags be derived under frozen study rules?",
+  "independent_unit": "subject",
+  "handoff": "SDTM->ADSL_or_ADTTE",
+  "error_consequence": "wrong population membership or treatment dates changes the estimand",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "adsl.csv",
+    "derivation_trace.csv",
+    "audit_report.json"
+  ],
+  "failure_injections": [
+    "screen failure",
+    "no exposure",
+    "missing end date",
+    "cutoff capping"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "one-to-many exposure rows must be reconciled to subject-level flags while preserving rule provenance and hold conditions",
+    "semantic_axes": [
+      "business_decision",
+      "split_and_unit",
+      "failure_mode"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "The derivation is a synthetic data-quality handoff, not a clinical conclusion.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

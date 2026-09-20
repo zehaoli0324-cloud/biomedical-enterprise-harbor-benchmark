@@ -1,0 +1,22 @@
+{
+  "enterprise_value_card_id": "VALUE-EB001-SPLIT-AUDIT-001",
+  "task_id": "eb001-split-leakage-001",
+  "enterprise_reality": {
+    "evidence_class": "B",
+    "real_work_node": "discovery_and_lead_optimization",
+    "named_role": "DMPK_or_computational_chemist",
+    "decision": "handoff a leakage-free split or stop before model comparison",
+    "downstream_action": "prediction model review and compound prioritization",
+    "error_consequence": "inflated benchmark performance and invalid lead ranking",
+    "human_owner": "methods or DMPK reviewer"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "prevent invalid model-comparison handoff",
+    "cycle_time_or_cost": "avoid training and reviewing models on a contaminated split",
+    "risk_reduction": "detect molecule/scaffold leakage and unresolved identity policy",
+    "adoption_test": "an independent practitioner can state the block/proceed rule from the audit"
+  },
+  "novelty": {"source_gap": "public benchmark entry does not itself enforce enterprise split governance", "new_information_or_control": "molecule and scaffold leakage are separately audited with claim boundaries", "not_surface_variant": true},
+  "required_evidence": ["named_role", "decision", "downstream_action", "error_consequence", "human_owner"],
+  "status": "REVIEW_REQUIRED"
+}

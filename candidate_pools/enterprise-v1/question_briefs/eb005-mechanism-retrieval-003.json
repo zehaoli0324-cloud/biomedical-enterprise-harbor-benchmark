@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb005-mechanism-retrieval-003",
+  "source_benchmark_id": "EB005",
+  "source_name": "JUMP Cell Painting datasets",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which phenotype-similar perturbations are safe to pass to mechanism review, and what remains unproven?",
+  "independent_unit": "compound/perturbation profile",
+  "handoff": "profiles->retrieval_or_DTI_rank",
+  "error_consequence": "morphological similarity can be overinterpreted as a target relationship",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "retrieval_rank.tsv",
+    "evidence_boundary.json",
+    "human_review_queue.md"
+  ],
+  "failure_injections": [
+    "similarity driven by toxicity",
+    "unseen cell state",
+    "weak annotation evidence"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "ranking must be separated from causal interpretation and linked to metadata and uncertainty",
+    "semantic_axes": [
+      "business_decision",
+      "claim_boundary",
+      "handoff"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Morphological similarity is not proof of target mechanism or clinical efficacy.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

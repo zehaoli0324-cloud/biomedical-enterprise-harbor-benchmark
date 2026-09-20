@@ -1,0 +1,11 @@
+{
+  "rules_version": "adtte-pfs-synthetic-v1",
+  "analysis_cutoff": "2024-03-01",
+  "parameter": "PFS",
+  "event_priority": ["DEATH", "PROGRESSION"],
+  "event_rule": "use the earliest exact-date death or progression on or before the cutoff; death wins ties",
+  "post_cutoff_rule": "events after the cutoff do not count as events and are censored at the cutoff",
+  "censor_rule": "without a qualifying event, censor at the last exact follow-up assessment or the cutoff",
+  "partial_date_rule": "month-only dates are not exact enough for an event; route the subject to review",
+  "missing_followup_rule": "if no event and no exact follow-up exists, leave ADT empty and route to review"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb009-proxy-robustness-002",
+  "source_benchmark_id": "EB009",
+  "source_name": "REINVENT4 molecular design workflow",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Does candidate prioritization remain stable when proxy weights, seeds, or model uncertainty change?",
+  "independent_unit": "candidate set and scoring configuration",
+  "handoff": "generation->sensitivity_review",
+  "error_consequence": "proxy gaming can select molecules that look good only under one scoring recipe",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "sensitivity_matrix.tsv",
+    "score_breakdown.json",
+    "robustness_report.md"
+  ],
+  "failure_injections": [
+    "weight sensitivity",
+    "seed instability",
+    "component score conflict"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must distinguish objective score from decision stability and identify when no candidate is robust",
+    "semantic_axes": [
+      "method_choice",
+      "uncertainty",
+      "stopping_rule"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Proxy robustness does not establish activity, selectivity, or safety.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

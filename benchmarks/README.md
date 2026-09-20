@@ -25,8 +25,14 @@
 | 任务 | 场景组合 | 状态 |
 | --- | --- | --- |
 | `crispr-resistance-e2e-001` | pooled CRISPR screen + bulk RNA-seq + guide 设计 + 编辑验证 + 引用/图表审计 | 契约已冻结，数据与 verifier 待接入 |
+| [`admiral-adsl-derivation-001`](admiral-adsl-derivation-001/) | pharmaverse 风格 SDTM → ADSL 规则派生、逐行血缘和下游 handoff 审计 | 首个临床统计工作流校准题，合成数据、已具备 verifier |
+| [`eb001-split-leakage-001`](eb001-split-leakage-001/) | ADME 分子身份、canonical structure 与 scaffold split 泄漏审计 | 首批规模化校准题，合成数据、已具备 verifier；待控制实验和模型 trial |
+| [`eb004-adtte-censoring-002`](eb004-adtte-censoring-002/) | ADTTE 事件选择、截止日截断、部分日期和缺失随访审计 | 合成数据、已具备 verifier；待控制实验和模型 trial |
+| [`eb004-adtte-censoring-002`](eb004-adtte-censoring-002/) | ADTTE PFS 事件/删失、cutoff、竞争事件和部分日期审计 | 首批临床统计扩展校准题，合成数据、已具备 verifier；待控制实验和模型 trial |
 | [`literature-screening-m1-001`](literature-screening-m1-001/) | M1 文献规模化筛读 + A11 证据表构建 | 首个离线 vertical slice，已具备数据、隐藏标签和 verifier |
 | [`research-workflow-stress-test-001`](research-workflow-stress-test-001/) | 多类型科研输入 + 冲突证据 + 失败工具恢复 + 敏感性分析 | 独立高难度任务包，已具备任务书、数据、隐藏标签和 verifier；待真实 trial |
+
+第一批规模化题包位于 [`candidate_pools/enterprise-v1/contracts/`](../candidate_pools/enterprise-v1/contracts/)，覆盖 ADME split、CompBio failure recovery、ADTTE censoring、Cell Painting normalization、retrosynthesis stock constraints 和 BayBE next-batch。当前 EB001 与 EB004 已物化为 synthetic calibration slice；其余四题仍为 contract-only。所有题目的控制实验、独立模型试跑和企业采用证据仍是发布阻塞项。
 
 ## 首个可运行 vertical slice
 
@@ -81,3 +87,15 @@ python -m benchmark_builder.cli compile config/examples/crispr-resistance-e2e-00
 真实模型 trial 的前置工程、adapter 环境变量、隔离边界和归档格式见 [`docs/trial-runner.md`](../docs/trial-runner.md)。当前 runner 是进程级基线，不等同于容器或 Harbor 的强隔离执行环境。
 
 在本机没有 `python` 别名时使用 `python3.11`，或先激活项目虚拟环境。CI 会安装测试依赖。
+
+## 临床统计工作流首题
+
+`admiral-adsl-derivation-001` 从 EB004 的 pharmaverse 公开工作流中抽取“按冻结研究规则派生受试者级分析数据并决定是否交接”的决策。它使用六个合成受试者和五条暴露记录，注入 screen failure、无暴露、缺失 `RFENDTC` 和截止日截断四类边界；verifier 独立重算 ADSL 行、计数和输入哈希，并检查逐行血缘与合成数据声明。
+
+```bash
+python3 -m benchmark_builder.cli validate config/examples/admiral-adsl-derivation-001.toml
+python3 benchmarks/admiral-adsl-derivation-001/verifier.py \
+  --submission /path/to/outputs \
+  --data benchmarks/admiral-adsl-derivation-001/data \
+  --reference benchmarks/admiral-adsl-derivation-001/verifier_only/reference.json
+```

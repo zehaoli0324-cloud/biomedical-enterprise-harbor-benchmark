@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb001-applicability-triage-003",
+  "source_benchmark_id": "EB001",
+  "source_name": "Biogen ADME Fang v1",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which held-out compounds are sufficiently in-domain for a model-assisted ADME review, and which require human or experimental follow-up?",
+  "independent_unit": "held-out compound",
+  "handoff": "prediction->uncertainty_and_candidate_review",
+  "error_consequence": "out-of-domain compounds can be over-prioritized despite favorable aggregate metrics",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "applicability_report.json",
+    "candidate_review.tsv",
+    "claim_ledger.tsv"
+  ],
+  "failure_injections": [
+    "scaffold novelty",
+    "high uncertainty with high predicted rank",
+    "conflicting endpoint signals"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "ranking, uncertainty, and applicability must be reconciled; the highest prediction is not automatically the next compound",
+    "semantic_axes": [
+      "business_decision",
+      "stopping_rule",
+      "handoff"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Applicability review is a prioritization signal, not an efficacy or safety claim.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

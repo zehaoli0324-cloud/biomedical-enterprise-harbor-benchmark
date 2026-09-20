@@ -1,0 +1,53 @@
+scenario_id: eb004-adtte-censoring-002
+status: ready
+source_scenarios: [EB004]
+domain: biomedical_enterprise
+stage: clinical_statistics
+research_role: statistical_programmer
+scientific_context:
+  object: subject-parameter-event records from synthetic SDTM-like domains
+  question: Which event and censoring dates are valid for the frozen ADTTE endpoint rule, and which records require review?
+  decision: handoff ADTTE or hold ambiguous event/censoring records
+  consequence_of_error: incorrect censoring changes the survival estimand and downstream table
+scientific_judgments:
+  - independent_unit_and_handoff
+  - competing_choice_and_stop_rule
+  - claim_boundary_and_evidence_quality
+workflow_handoffs:
+  - from: ADSL
+    to: ADTTE
+    artifact: event_trace.csv
+    invariant: each date and status cites the source record and endpoint rule
+  - from: ADTTE
+    to: table_or_analysis
+    artifact: censoring_audit.json
+    invariant: ambiguous dates are separated from valid derivations
+required_artifacts:
+  - outputs/adtte.csv
+  - outputs/event_trace.csv
+  - outputs/censoring_audit.json
+  - outputs/run_manifest.json
+failure_injections:
+  - id: eb004-adtte-censoring-002-1
+    trigger: event date falls after analysis cutoff
+    expected_behavior: apply the rule and record cutoff handling
+    verifier_signal: pending_independent_verifier
+  - id: eb004-adtte-censoring-002-2
+    trigger: only year/month is available
+    expected_behavior: use the declared partial-date policy or hold
+    verifier_signal: pending_independent_verifier
+  - id: eb004-adtte-censoring-002-3
+    trigger: a competing event conflicts with the primary endpoint
+    expected_behavior: preserve endpoint-specific status and request review
+    verifier_signal: pending_independent_verifier
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run
+open_questions:
+  - Which licensed public admiral example data and endpoint specification can replace the synthetic fixture for production?
+  - Run endpoint-rule mutation and row-order invariance controls before release.

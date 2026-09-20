@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb012-potency-selectivity-002",
+  "source_benchmark_id": "EB012",
+  "source_name": "OpenADMET PXR pEC50 blind challenge",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which analogs balance PXR potency with counter-screen selectivity and uncertainty for follow-up?",
+  "independent_unit": "analog and endpoint pair",
+  "handoff": "prediction->selectivity_review",
+  "error_consequence": "optimizing potency alone can increase off-target liability and waste assay budget",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "tradeoff_table.tsv",
+    "uncertainty_report.json",
+    "candidate_review.md"
+  ],
+  "failure_injections": [
+    "potency/selectivity trade-off",
+    "missing counter-screen",
+    "rank instability"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must reason over competing endpoints and expose Pareto or hold cases instead of one scalar ranking",
+    "semantic_axes": [
+      "business_decision",
+      "failure_mode",
+      "claim_boundary"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Predicted potency/selectivity is a prioritization signal, not an experimental result.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

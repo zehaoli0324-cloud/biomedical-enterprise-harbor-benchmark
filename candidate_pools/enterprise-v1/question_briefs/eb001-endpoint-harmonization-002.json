@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb001-endpoint-harmonization-002",
+  "source_benchmark_id": "EB001",
+  "source_name": "Biogen ADME Fang v1",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Are six ADME endpoints comparable after units, missingness, and assay-version checks?",
+  "independent_unit": "molecule-endpoint measurement",
+  "handoff": "measurement_table->curated_split",
+  "error_consequence": "unit or assay drift creates false endpoint rankings and invalid multi-task comparisons",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "endpoint_dictionary.json",
+    "measurement_qc.tsv",
+    "uncertainty_queue.tsv"
+  ],
+  "failure_injections": [
+    "mixed endpoint units",
+    "missing labels not missing at random",
+    "assay version conflict"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must separate analyzable rows from comparable rows and abstain per endpoint rather than emit one global score",
+    "semantic_axes": [
+      "business_decision",
+      "data_visibility",
+      "claim_boundary"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Harmonized measurements support data readiness only, not biological validity.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

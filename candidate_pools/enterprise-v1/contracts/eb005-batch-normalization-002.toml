@@ -1,0 +1,101 @@
+[task]
+id = "eb005-batch-normalization-002"
+title = "Cell Painting normalization choice under controlled batch confounding"
+domain = "biomedical_enterprise"
+source_scenarios = ["EB005"]
+
+[scenario]
+card = "../../../benchmarks/eb005-batch-normalization-002/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 5
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.scientific_judgment]
+level = 5
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.computational_difficulty]
+level = 4
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.tool_call_complexity]
+level = 2
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.retrieval_complexity]
+level = 1
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.information_noise_complexity]
+level = 5
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.data_type_complexity]
+level = 4
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.data_complexity]
+level = 4
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.environment_complexity]
+level = 1
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.mathematical_complexity]
+level = 4
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.long_horizon_complexity]
+level = 4
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+
+[difficulty.safety_risk]
+level = 3
+weight = 1.0
+rationale = "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact."
+tags = ["cell-painting", "batch-confounding", "normalization"]
+[modules]
+scenario = ["scenario_omics_analysis"]
+judgment = ["judgment_experimental_unit", "judgment_uncertainty_and_stop_rules", "judgment_causal_boundary"]
+compute = ["compute_multistage_analysis"]
+noise = ["noise_metadata_conflict", "noise_missing_and_duplicate_inputs"]
+data = ["data_images_and_structures", "data_text_and_metadata"]
+data_complexity = ["complexity_replicates_and_batches", "complexity_sparse_or_missing"]
+environment = ["environment_offline_setup"]
+math = ["math_model_selection_and_sensitivity", "math_statistics_and_multiple_testing"]
+horizon = ["horizon_checkpointed_workflow", "horizon_end_to_end_claim"]
+safety = ["safety_human_approval_gate"]
+
+[data]
+types = ["csv", "json", "markdown"]
+
+[constraints]
+network = "off"
+cpu_seconds = 120
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

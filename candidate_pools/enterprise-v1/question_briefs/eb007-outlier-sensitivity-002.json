@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb007-outlier-sensitivity-002",
+  "source_benchmark_id": "EB007",
+  "source_name": "Merck relative free-energy benchmark",
+  "workflow_id": "WF-FEP-AUDIT",
+  "enterprise_role": "computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Does the FEP ranking remain defensible after outlier and uncertainty sensitivity analysis?",
+  "independent_unit": "ligand series and edge set",
+  "handoff": "prediction->error_and_outlier_review",
+  "error_consequence": "one unstable edge can reverse compound prioritization",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "error_distribution.json",
+    "sensitivity_table.tsv",
+    "outlier_review.md"
+  ],
+  "failure_injections": [
+    "outlier dominates RMSE",
+    "sparse edge graph",
+    "replicate disagreement"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must separate metric improvement from decision stability and report rank reversals",
+    "semantic_axes": [
+      "method_choice",
+      "uncertainty",
+      "stopping_rule"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Error/rank stability is not a measured binding or clinical claim.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

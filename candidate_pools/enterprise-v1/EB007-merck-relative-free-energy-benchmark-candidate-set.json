@@ -1,0 +1,123 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB007-SCALED-V1",
+  "source_benchmark_id": "EB007",
+  "workflow_id": "WF-FEP-AUDIT",
+  "source_name": "Merck relative free-energy benchmark",
+  "enterprise_role": "computational_chemist",
+  "candidates": [
+    {
+      "candidate_id": "eb007-ligand-mapping-001",
+      "decision": "Are protein, ligand, atom mapping, and reference-state choices valid before comparing relative free-energy predictions?",
+      "independent_unit": "protein-ligand edge",
+      "handoff": "system_manifest->FEP_analysis",
+      "error_consequence": "mapping errors make RMSE and rank comparisons scientifically meaningless",
+      "semantic_axes": [
+        "data_multimodal_join",
+        "failure_mode",
+        "reproducibility"
+      ],
+      "failure_injections": [
+        "ligand identity mismatch",
+        "atom-map inconsistency",
+        "reference edge disconnected"
+      ],
+      "required_artifacts": [
+        "system_manifest.json",
+        "mapping_audit.tsv",
+        "invalid_edge_report.md"
+      ],
+      "gpt_difficulty_mechanism": "the agent must validate system identity and graph connectivity before trusting numerical metrics",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A valid system manifest does not establish binding or efficacy.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb007-outlier-sensitivity-002",
+      "decision": "Does the FEP ranking remain defensible after outlier and uncertainty sensitivity analysis?",
+      "independent_unit": "ligand series and edge set",
+      "handoff": "prediction->error_and_outlier_review",
+      "error_consequence": "one unstable edge can reverse compound prioritization",
+      "semantic_axes": [
+        "method_choice",
+        "uncertainty",
+        "stopping_rule"
+      ],
+      "failure_injections": [
+        "outlier dominates RMSE",
+        "sparse edge graph",
+        "replicate disagreement"
+      ],
+      "required_artifacts": [
+        "error_distribution.json",
+        "sensitivity_table.tsv",
+        "outlier_review.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must separate metric improvement from decision stability and report rank reversals",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Error/rank stability is not a measured binding or clinical claim.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb007-prospective-ranking-003",
+      "decision": "Which ligand changes are sufficiently supported for human review under a fixed FEP budget?",
+      "independent_unit": "prospective ligand candidate",
+      "handoff": "ranking->medicinal_chemistry_review",
+      "error_consequence": "proxy-optimal ranking can consume synthesis capacity while hiding uncertainty",
+      "semantic_axes": [
+        "business_decision",
+        "handoff",
+        "claim_boundary"
+      ],
+      "failure_injections": [
+        "high score with unstable edge",
+        "novel chemistry outside reference set",
+        "budget conflict"
+      ],
+      "required_artifacts": [
+        "candidate_rank.tsv",
+        "uncertainty_report.json",
+        "approval_gate.md"
+      ],
+      "gpt_difficulty_mechanism": "the task requires a bounded go/hold/review decision and cannot be solved by sorting predicted values",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A computational ranking is not experimental affinity or developability evidence.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "B",
+    "license_status": "verify_pending"
+  },
+  "status": "DRAFT"
+}

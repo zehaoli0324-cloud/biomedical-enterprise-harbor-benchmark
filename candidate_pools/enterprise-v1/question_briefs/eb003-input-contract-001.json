@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb003-input-contract-001",
+  "source_benchmark_id": "EB003",
+  "source_name": "CompBioBench v1",
+  "workflow_id": "WF-COMPBIO-TASK",
+  "enterprise_role": "bioinformatics_or_research_analyst",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Are the multimodal inputs, identifiers, references, and tool versions sufficient to start the analysis?",
+  "independent_unit": "sample/task input bundle",
+  "handoff": "raw_files->validated_inputs",
+  "error_consequence": "wrong mapping or reference version produces an irreproducible and scientifically invalid artifact",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "input_manifest.json",
+    "schema_audit.json",
+    "start_or_stop_report.md"
+  ],
+  "failure_injections": [
+    "sample-sheet mismatch",
+    "unsupported file schema",
+    "reference/tool unavailable offline"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must stop early when a prerequisite fails and preserve a minimal information request instead of fabricating results",
+    "semantic_axes": [
+      "enterprise_context",
+      "failure_mode",
+      "reproducibility"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Input validation does not establish a biological finding.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

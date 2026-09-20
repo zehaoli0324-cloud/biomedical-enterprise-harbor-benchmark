@@ -1,0 +1,123 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB002-SCALED-V1",
+  "source_benchmark_id": "EB002",
+  "workflow_id": "WF-ADME-BLIND",
+  "source_name": "ExpansionRx-OpenADMET Blind Challenge",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "candidates": [
+    {
+      "candidate_id": "eb002-blind-calibration-001",
+      "decision": "Can a model produce a calibrated prospective ADMET submission while preserving blind-test and split provenance?",
+      "independent_unit": "molecule across project-time split",
+      "handoff": "public_training->blind_prediction",
+      "error_consequence": "leakage or label peeking invalidates prospective lead decisions",
+      "semantic_axes": [
+        "data_visibility",
+        "split_and_unit",
+        "claim_boundary"
+      ],
+      "failure_injections": [
+        "blind labels accidentally exposed",
+        "time split replaced by random split",
+        "prediction file misaligned to compound IDs"
+      ],
+      "required_artifacts": [
+        "submission.csv",
+        "blind_split_manifest.json",
+        "calibration_report.md"
+      ],
+      "gpt_difficulty_mechanism": "the agent must reason under hidden labels and prove identifier alignment without optimizing to a visible answer",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Blind challenge performance is not a clinical or in vivo efficacy conclusion.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb002-multitask-missingness-002",
+      "decision": "Which endpoints can be jointly modeled under structured missingness, and where should the workflow abstain?",
+      "independent_unit": "molecule-endpoint pair",
+      "handoff": "training_matrix->endpoint_review",
+      "error_consequence": "improper imputation changes endpoint trade-offs and wastes assay budget",
+      "semantic_axes": [
+        "scientific_decision",
+        "failure_mode",
+        "stopping_rule"
+      ],
+      "failure_injections": [
+        "endpoint-specific missingness",
+        "negative values encoded as missing",
+        "task weighting masks weak endpoints"
+      ],
+      "required_artifacts": [
+        "missingness_audit.tsv",
+        "per_endpoint_metrics.json",
+        "abstention_queue.tsv"
+      ],
+      "gpt_difficulty_mechanism": "a model must separate missing-label handling from prediction quality and preserve per-endpoint uncertainty",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Predicted ADMET values do not establish measured safety or exposure.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb002-prospective-analog-003",
+      "decision": "Which analogs merit the next assay round after uncertainty, chemical novelty, and endpoint risk are reconciled?",
+      "independent_unit": "analog series",
+      "handoff": "prediction->experimental_candidate_review",
+      "error_consequence": "proxy-optimal analogs can consume assay capacity while hiding selectivity or liability risk",
+      "semantic_axes": [
+        "business_decision",
+        "handoff",
+        "evaluation_contract"
+      ],
+      "failure_injections": [
+        "high score with counter-screen liability",
+        "series-level duplicate",
+        "uncertainty ranking reversal"
+      ],
+      "required_artifacts": [
+        "analog_priority.tsv",
+        "uncertainty_report.json",
+        "human_review_queue.md"
+      ],
+      "gpt_difficulty_mechanism": "the decision is a constrained portfolio choice, not a leaderboard sort; equivalent candidates and hold decisions must be represented",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "The output recommends assay priority only and does not claim activity in vivo.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "A",
+    "license_status": "verify_pending"
+  },
+  "status": "DRAFT"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb006-dti-priority-003",
+  "source_benchmark_id": "EB006",
+  "source_name": "RxRx3 / RxRx3-core",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which drug-target links merit orthogonal review after phenotype ranking, uncertainty, and annotation quality are combined?",
+  "independent_unit": "drug-target link",
+  "handoff": "profiles->DTI_rank->human_review",
+  "error_consequence": "high-ranked links with weak annotation may misdirect expensive validation",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "dti_priority.tsv",
+    "uncertainty_report.json",
+    "review_decision.md"
+  ],
+  "failure_injections": [
+    "ranking instability",
+    "annotation conflict",
+    "out-of-domain cell state"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the decision is a multi-evidence triage, not a single metric sort; abstention must be available",
+    "semantic_axes": [
+      "business_decision",
+      "handoff",
+      "uncertainty"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A ranked link is a hypothesis for review, not a confirmed mechanism.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

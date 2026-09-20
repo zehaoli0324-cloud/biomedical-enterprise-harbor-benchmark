@@ -1,0 +1,9 @@
+{
+  "canonical_overlap": [
+    {"canonical_smiles": "CCO", "train_ids": ["CMP-101"], "test_ids": ["CMP-102", "CMP-107"]}
+  ],
+  "scaffold_overlap": [
+    {"scaffold_id": "SCAF-A", "train_ids": ["CMP-101"], "test_ids": ["CMP-102", "CMP-107"]},
+    {"scaffold_id": "SCAF-B", "train_ids": ["CMP-103"], "test_ids": ["CMP-104"]}
+  ]
+}

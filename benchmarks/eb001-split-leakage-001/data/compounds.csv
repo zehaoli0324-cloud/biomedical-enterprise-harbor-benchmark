@@ -1,0 +1,9 @@
+compound_id,smiles,canonical_smiles,scaffold_id,split,adme_value,adme_unit,identity_note
+CMP-101,CCO,CCO,SCAF-A,train,120,uM,exact
+CMP-102,CCO,CCO,SCAF-A,test,95,uM,duplicate_structure
+CMP-103,c1ccccc1,c1ccccc1,SCAF-B,train,12,uM,exact
+CMP-104,c1ccccc1C,c1ccccc1C,SCAF-B,test,18,uM,different_structure_same_scaffold
+CMP-105,CCN,CCN,SCAF-C,train,85,uM,exact
+CMP-106,CCNC,CCNC,SCAF-D,test,60,uM,exact
+CMP-107,CCO.[Na+],CCO,SCAF-A,test,110,uM,salt_stripped_to_canonical
+CMP-108,CC(C)O,CC(C)O,SCAF-E,train,,uM,missing_measurement

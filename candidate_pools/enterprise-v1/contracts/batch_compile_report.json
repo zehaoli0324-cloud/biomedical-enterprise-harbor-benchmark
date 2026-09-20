@@ -1,0 +1,81 @@
+{
+  "schema_version": "enterprise_contract_compile_batch.v1",
+  "batch_id": "TRANCHE-001",
+  "status": "MIXED_CALIBRATION_AND_CONTRACT",
+  "task_count": 6,
+  "release_policy": "compiled difficulty is not evidence of runnable data, truth, verifier, or model readiness",
+  "tasks": [
+    {
+      "task_id": "eb001-split-leakage-001",
+      "config": "candidate_pools/enterprise-v1/contracts/eb001-split-leakage-001.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb001-split-leakage-001/task_manifest.json",
+      "status": "ready_for_calibration",
+      "band": "intermediate",
+      "adjusted_score": 2.783,
+      "spec_digest": "87f51f755a536ccdd48f46cd5bea0dd9c6ea5ccf64c665eea3179f0a0a02131a",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "model_trial_status": "NOT_RUN"
+    },
+    {
+      "task_id": "eb003-failure-recovery-003",
+      "config": "candidate_pools/enterprise-v1/contracts/eb003-failure-recovery-003.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb003-failure-recovery-003/task_manifest.json",
+      "status": "compiled_contract",
+      "band": "research-grade",
+      "adjusted_score": 4.3,
+      "spec_digest": "840ca2c1ebffefeed7cd9119296a2369ce46170e958ba0ec4de88c4fc5e08657",
+      "data_status": "not_materialized",
+      "verifier_status": "not_authored",
+      "model_trial_status": "NOT_RUN"
+    },
+    {
+      "task_id": "eb004-adtte-censoring-002",
+      "config": "candidate_pools/enterprise-v1/contracts/eb004-adtte-censoring-002.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb004-adtte-censoring-002/task_manifest.json",
+      "status": "ready_for_calibration",
+      "band": "advanced",
+      "adjusted_score": 3.117,
+      "spec_digest": "073035dccb10a606e01c47c1c3a37a2ad89e482020fef175bdc144602916f1ff",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "model_trial_status": "NOT_RUN"
+    },
+    {
+      "task_id": "eb005-batch-normalization-002",
+      "config": "candidate_pools/enterprise-v1/contracts/eb005-batch-normalization-002.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb005-batch-normalization-002/task_manifest.json",
+      "status": "compiled_contract",
+      "band": "advanced",
+      "adjusted_score": 3.7,
+      "spec_digest": "e4dec3ae40a32c40c63f089717ebdd36bfa078a65df4911193b7889cc16f81a7",
+      "data_status": "not_materialized",
+      "verifier_status": "not_authored",
+      "model_trial_status": "NOT_RUN"
+    },
+    {
+      "task_id": "eb008-stock-route-001",
+      "config": "candidate_pools/enterprise-v1/contracts/eb008-stock-route-001.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb008-stock-route-001/task_manifest.json",
+      "status": "compiled_contract",
+      "band": "advanced",
+      "adjusted_score": 3.917,
+      "spec_digest": "c63432435822b54fe58ffac531e89a1c0eec6ca27b0c0877ed966f850aac8c09",
+      "data_status": "not_materialized",
+      "verifier_status": "not_authored",
+      "model_trial_status": "NOT_RUN"
+    },
+    {
+      "task_id": "eb010-next-batch-001",
+      "config": "candidate_pools/enterprise-v1/contracts/eb010-next-batch-001.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb010-next-batch-001/task_manifest.json",
+      "status": "compiled_contract",
+      "band": "advanced",
+      "adjusted_score": 3.617,
+      "spec_digest": "fb752de5b10a70a576247ed618550bc7bcc6f0b93f2a740e1f5f0fdc138d9eb7",
+      "data_status": "not_materialized",
+      "verifier_status": "not_authored",
+      "model_trial_status": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+id: eb001-split-leakage-001
+version: "0.1.0"
+status: contract_only
+title: "Molecular identity and scaffold leakage audit before ADME model comparison"
+domain: biomedical_enterprise
+stage: discovery_and_lead_optimization
+scenario_ids: [EB001]
+scenario_card: scenario-card.yaml
+scientific_decision:
+  question: Is the proposed ADME train/test split independent at the molecule and scaffold level, or must model comparison be held?
+  target_claim_boundary: leakage inflates benchmark performance and misdirects compound selection; this contract does not establish an experimental, clinical, or commercial conclusion.
+  consequence_of_error: leakage inflates benchmark performance and misdirects compound selection
+agent_visible_inputs:
+  - path: data/
+    format: task-specific bundle
+    contract: pending frozen public or synthetic fixture
+constraints:
+  network: "off"
+  compute:
+    cpu_seconds: 120
+    memory_mb: 1024
+  provenance:
+    record_input_checksum: true
+    record_tool_version: true
+    deterministic_output: true
+  safety:
+    scope: contract-only enterprise workflow analysis
+    prohibited: do not overstate computational evidence or use the task as clinical, efficacy, safety, or wet-lab authorization
+required_outputs:
+  - id: split_audit
+    path: outputs/split_audit.json
+    required_fields: [schema_version]
+  - id: structure_identity
+    path: outputs/structure_identity.tsv
+    required_fields: [schema_version]
+  - id: readiness_report
+    path: outputs/readiness_report.md
+    required_fields: [schema_version]
+  - id: run_manifest
+    path: outputs/run_manifest.json
+    required_fields: [schema_version]
+hidden_truth:
+  status: not_authored
+  policy: verifier-only when materialized
+provenance:
+  source_benchmark: EB001
+  data_status: source workflow observed; task fixture pending
+quality_cards:
+  candidate_set: candidate_pools/enterprise-v1/EB001-biogen-adme-fang-v1-candidate-set.json
+  question_brief: candidate_pools/enterprise-v1/question_briefs/eb001-split-leakage-001.json

@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb007-prospective-ranking-003",
+  "source_benchmark_id": "EB007",
+  "source_name": "Merck relative free-energy benchmark",
+  "workflow_id": "WF-FEP-AUDIT",
+  "enterprise_role": "computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which ligand changes are sufficiently supported for human review under a fixed FEP budget?",
+  "independent_unit": "prospective ligand candidate",
+  "handoff": "ranking->medicinal_chemistry_review",
+  "error_consequence": "proxy-optimal ranking can consume synthesis capacity while hiding uncertainty",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "candidate_rank.tsv",
+    "uncertainty_report.json",
+    "approval_gate.md"
+  ],
+  "failure_injections": [
+    "high score with unstable edge",
+    "novel chemistry outside reference set",
+    "budget conflict"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the task requires a bounded go/hold/review decision and cannot be solved by sorting predicted values",
+    "semantic_axes": [
+      "business_decision",
+      "handoff",
+      "claim_boundary"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A computational ranking is not experimental affinity or developability evidence.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb005-plate-leakage-001",
+  "source_benchmark_id": "EB005",
+  "source_name": "JUMP Cell Painting datasets",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Does a plate/compound split support honest phenotype retrieval without replicate leakage?",
+  "independent_unit": "well/plate and perturbation identity",
+  "handoff": "images_and_metadata->profiles",
+  "error_consequence": "plate leakage inflates retrieval and makes morphology claims non-transferable",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "split_manifest.json",
+    "metadata_join_audit.tsv",
+    "holdout_metrics.json"
+  ],
+  "failure_injections": [
+    "same compound across train/test",
+    "well-level split used for compound-level claim",
+    "control wells duplicated"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must choose the independent unit before computing similarity and detect leakage hidden by well-level sample counts",
+    "semantic_axes": [
+      "split_and_unit",
+      "failure_mode",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Retrieval performance does not prove target mechanism or therapeutic efficacy.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

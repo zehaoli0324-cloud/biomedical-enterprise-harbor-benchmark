@@ -1,0 +1,124 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB011-SCALED-V1",
+  "source_benchmark_id": "EB011",
+  "workflow_id": "WF-FEP-AUDIT",
+  "source_name": "Uni-FEP-Benchmarks",
+  "enterprise_role": "computational_chemist_or_method_auditor",
+  "candidates": [
+    {
+      "candidate_id": "eb011-reproduction-manifest-001",
+      "decision": "Can reported FEP results be reproduced from a fixed protein-ligand-system manifest and pinned configuration?",
+      "independent_unit": "protein-ligand system",
+      "handoff": "system_manifest->reproduction",
+      "error_consequence": "untracked system or configuration drift makes published errors unauditable",
+      "semantic_axes": [
+        "reproducibility",
+        "data_visibility",
+        "failure_mode"
+      ],
+      "failure_injections": [
+        "missing system file",
+        "parameter drift",
+        "reference mismatch",
+        "non-deterministic rerun"
+      ],
+      "required_artifacts": [
+        "reproduction_manifest.json",
+        "rerun_results.tsv",
+        "difference_report.md"
+      ],
+      "gpt_difficulty_mechanism": "the agent must separate rerun failure from scientific disagreement and preserve input hashes",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Reproduction status does not validate the underlying biological claim.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb011-method-attribution-002",
+      "decision": "Which error differences are attributable to system selection, method configuration, or evaluation metric?",
+      "independent_unit": "method-system-metric tuple",
+      "handoff": "results->error_attribution->review",
+      "error_consequence": "misattributing an error source leads to the wrong method or dataset change",
+      "semantic_axes": [
+        "method_choice",
+        "evidence_reconciliation",
+        "evaluation_contract"
+      ],
+      "failure_injections": [
+        "metric disagreement",
+        "system subset confounding",
+        "outlier dominance"
+      ],
+      "required_artifacts": [
+        "error_attribution.tsv",
+        "subset_sensitivity.json",
+        "method_review.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must reason across linked results and avoid declaring a winner from one aggregate metric",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Benchmark error attribution is not a claim of prospective binding performance.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb011-outlier-claim-003",
+      "decision": "Which systems require human review before a benchmark result is used to support a method or project decision?",
+      "independent_unit": "outlier system and reported claim",
+      "handoff": "error_distribution->human_review",
+      "error_consequence": "unreviewed outliers can distort method choice and downstream project confidence",
+      "semantic_axes": [
+        "business_decision",
+        "claim_boundary",
+        "handoff"
+      ],
+      "failure_injections": [
+        "unstable outlier",
+        "missing experimental context",
+        "system-level rank reversal"
+      ],
+      "required_artifacts": [
+        "outlier_queue.tsv",
+        "claim_ledger.tsv",
+        "approval_gate.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must route unresolved cases to review rather than optimize the headline score",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A benchmark outlier review does not establish clinical or commercial value.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "B",
+    "license_status": "Apache-2.0"
+  },
+  "status": "DRAFT"
+}

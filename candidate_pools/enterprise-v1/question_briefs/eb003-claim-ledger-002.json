@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb003-claim-ledger-002",
+  "source_benchmark_id": "EB003",
+  "source_name": "CompBioBench v1",
+  "workflow_id": "WF-COMPBIO-TASK",
+  "enterprise_role": "bioinformatics_or_research_analyst",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which claims are supported by the produced computational artifact, and which require downgrade or human review?",
+  "independent_unit": "claim linked to result artifact",
+  "handoff": "analysis->claim_ledger",
+  "error_consequence": "a plausible figure can be misread as causal or clinical evidence",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "claim_ledger.tsv",
+    "evidence_table.tsv",
+    "final_report.md"
+  ],
+  "failure_injections": [
+    "association-only output",
+    "figure/table mismatch",
+    "missing provenance locator"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "evidence locators, uncertainty, and claim language must stay synchronized across artifacts",
+    "semantic_axes": [
+      "claim_boundary",
+      "visible_evidence",
+      "handoff"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A computational result is not automatically causal, clinical, or experimentally confirmed.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

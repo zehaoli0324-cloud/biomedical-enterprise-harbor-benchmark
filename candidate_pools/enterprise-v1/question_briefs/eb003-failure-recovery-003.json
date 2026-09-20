@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb003-failure-recovery-003",
+  "source_benchmark_id": "EB003",
+  "source_name": "CompBioBench v1",
+  "workflow_id": "WF-COMPBIO-TASK",
+  "enterprise_role": "bioinformatics_or_research_analyst",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "After one tool branch fails or returns partial output, can the analyst recover without silently changing the scientific question?",
+  "independent_unit": "analysis branch and artifact state",
+  "handoff": "analysis->execution_log->claim_ledger",
+  "error_consequence": "silent fallback or parameter drift makes later results incomparable and unauditable",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "execution_log.jsonl",
+    "failure_recovery.md",
+    "rerun_manifest.json"
+  ],
+  "failure_injections": [
+    "partial output",
+    "version/interface drift",
+    "resource timeout"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must preserve failed state, choose an equivalent route or stop, and prove that downstream claims use the recovered branch",
+    "semantic_axes": [
+      "tool_call_complexity",
+      "stateful_dependency",
+      "failure_mode"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A recovered computational branch still requires scientific and human review.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

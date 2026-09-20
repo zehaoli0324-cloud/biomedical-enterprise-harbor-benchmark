@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb012-phased-blind-001",
+  "source_benchmark_id": "EB012",
+  "source_name": "OpenADMET PXR pEC50 blind challenge",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Can prospective PXR potency predictions remain calibrated across phased blind releases without label leakage?",
+  "independent_unit": "analog series across phase split",
+  "handoff": "training_phase->blind_prediction->phase_update",
+  "error_consequence": "leakage or phase mixing invalidates lead-optimization decisions",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "phase_manifest.json",
+    "blind_predictions.csv",
+    "calibration_update.md"
+  ],
+  "failure_injections": [
+    "phase label leakage",
+    "analog identity collision",
+    "submission schema mismatch"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must maintain state across phases, preserve hidden-label boundaries, and update uncertainty without retroactive answers",
+    "semantic_axes": [
+      "data_visibility",
+      "split_and_unit",
+      "reproducibility"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Blind potency prediction is not measured efficacy or clinical safety.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

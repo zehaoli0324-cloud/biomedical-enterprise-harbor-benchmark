@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb010-closed-loop-replay-003",
+  "source_benchmark_id": "EB010",
+  "source_name": "BayBE constrained experimental design",
+  "workflow_id": "WF-BAYBE-CLOSED-LOOP",
+  "enterprise_role": "experimental_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Does a proposed next-batch policy remain budget-compliant and decision-stable across a fixed simulated replay?",
+  "independent_unit": "closed-loop trajectory",
+  "handoff": "policy->simulated_replay->approval",
+  "error_consequence": "a policy that wins one replay while violating budget or changing under seed noise is not deployable",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "replay_log.jsonl",
+    "budget_audit.json",
+    "policy_review.md"
+  ],
+  "failure_injections": [
+    "seed sensitivity",
+    "budget drift",
+    "action leakage from future outcomes"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must preserve temporal causality and compare policy value with legal and reproducible execution",
+    "semantic_axes": [
+      "evaluation_contract",
+      "reproducibility",
+      "stateful_dependency"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Replay performance does not establish laboratory or commercial benefit.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

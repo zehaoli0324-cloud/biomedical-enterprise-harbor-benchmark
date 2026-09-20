@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb004-rule-mutation-003",
+  "source_benchmark_id": "EB004",
+  "source_name": "pharmaverse admiral derivation workflows",
+  "workflow_id": "WF-ADAM-DERIVATION",
+  "enterprise_role": "statistical_programmer",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Does a derivation implementation obey the declared SDTM-to-ADaM rules under adversarial edge-case mutations?",
+  "independent_unit": "subject-rule assertion",
+  "handoff": "derivation_code->review_record",
+  "error_consequence": "a plausible table can pass superficial review while violating a study rule",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "rule_matrix.csv",
+    "counterexample_report.json",
+    "rerun_manifest.json"
+  ],
+  "failure_injections": [
+    "mutated arm code",
+    "reordered exposure rows",
+    "missing source row",
+    "rule version drift"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must distinguish equivalent implementations from silent rule changes and identify the earliest failing assertion",
+    "semantic_axes": [
+      "failure_mode",
+      "evaluation_contract",
+      "tool_and_trace_reliability"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Rule conformance is not evidence of sponsor data quality or clinical analysis validity.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

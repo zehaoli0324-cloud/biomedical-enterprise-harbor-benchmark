@@ -1,0 +1,10 @@
+{
+  "training_value_card_id": "TRAIN-EB001-SPLIT-AUDIT-001",
+  "task_id": "eb001-split-leakage-001",
+  "capability_targets": ["schema/provenance inspection", "molecule and scaffold unit reasoning", "leakage detection", "bounded business decision"],
+  "error_labels": ["input_understanding", "experimental_unit", "identity_normalization", "calculation_or_tool", "claim_overreach", "delivery_failure"],
+  "feedback_granularity": ["artifact-level", "criterion-level", "claim-level", "failure-injection-level"],
+  "generalization_plan": {"held_out_axis": "molecule identities, scaffold families, source version", "contamination_control": "hide reference overlap labels and hold out entity-level structures", "transfer_probe": "new split policy and new salt/stereo identity cases"},
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

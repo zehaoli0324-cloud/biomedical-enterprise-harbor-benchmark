@@ -1,0 +1,101 @@
+[task]
+id = "eb010-next-batch-001"
+title = "Next-batch experimental design under feasibility and budget constraints"
+domain = "biomedical_enterprise"
+source_scenarios = ["EB010"]
+
+[scenario]
+card = "../../../benchmarks/eb010-next-batch-001/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 4
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.scientific_judgment]
+level = 5
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.computational_difficulty]
+level = 4
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.tool_call_complexity]
+level = 2
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.retrieval_complexity]
+level = 1
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.information_noise_complexity]
+level = 4
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.data_type_complexity]
+level = 3
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.data_complexity]
+level = 4
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.environment_complexity]
+level = 2
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.mathematical_complexity]
+level = 4
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.long_horizon_complexity]
+level = 5
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
+[difficulty.safety_risk]
+level = 3
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+[modules]
+scenario = ["scenario_reproducibility_audit"]
+judgment = ["judgment_experimental_unit", "judgment_uncertainty_and_stop_rules"]
+compute = ["compute_data_schema_discovery", "compute_multistage_analysis"]
+noise = ["noise_metadata_conflict", "noise_missing_and_duplicate_inputs"]
+data = ["data_text_and_metadata"]
+data_complexity = ["complexity_replicates_and_batches", "complexity_sparse_or_missing"]
+environment = ["environment_offline_setup", "environment_resource_budget"]
+math = ["math_model_selection_and_sensitivity"]
+horizon = ["horizon_branching_experiments", "horizon_end_to_end_claim"]
+safety = ["safety_human_approval_gate"]
+
+[data]
+types = ["csv", "json", "markdown"]
+
+[constraints]
+network = "off"
+cpu_seconds = 120
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

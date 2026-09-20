@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb007-ligand-mapping-001",
+  "source_benchmark_id": "EB007",
+  "source_name": "Merck relative free-energy benchmark",
+  "workflow_id": "WF-FEP-AUDIT",
+  "enterprise_role": "computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Are protein, ligand, atom mapping, and reference-state choices valid before comparing relative free-energy predictions?",
+  "independent_unit": "protein-ligand edge",
+  "handoff": "system_manifest->FEP_analysis",
+  "error_consequence": "mapping errors make RMSE and rank comparisons scientifically meaningless",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "system_manifest.json",
+    "mapping_audit.tsv",
+    "invalid_edge_report.md"
+  ],
+  "failure_injections": [
+    "ligand identity mismatch",
+    "atom-map inconsistency",
+    "reference edge disconnected"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the agent must validate system identity and graph connectivity before trusting numerical metrics",
+    "semantic_axes": [
+      "data_multimodal_join",
+      "failure_mode",
+      "reproducibility"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A valid system manifest does not establish binding or efficacy.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

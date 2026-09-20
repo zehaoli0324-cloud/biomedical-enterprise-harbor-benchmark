@@ -1,0 +1,54 @@
+scenario_id: eb010-next-batch-001
+status: contract_only
+source_scenarios: [EB010]
+domain: biomedical_enterprise
+stage: closed_loop_experimental_optimization
+research_role: experimental_design_scientist
+scientific_context:
+  object: candidate experiments and closed-loop state
+  question: Which next batch is legal under the search space, material budget, and feasibility constraints, and what evidence supports selecting it?
+  decision: select a feasible next batch, stop, or request human review
+  consequence_of_error: an invalid or proxy-gamed batch wastes scarce experimental capacity
+scientific_judgments:
+  - independent_unit_and_handoff
+  - competing_choice_and_stop_rule
+  - claim_boundary_and_evidence_quality
+workflow_handoffs:
+  - from: completed_experiments
+    to: next_batch
+    artifact: next_batch.csv
+    invariant: all selected experiments satisfy hard constraints and budget
+  - from: next_batch
+    to: approval
+    artifact: selection_rationale.md
+    invariant: trade-offs, uncertainty, and stop conditions are explicit
+required_artifacts:
+  - outputs/next_batch.csv
+  - outputs/constraint_check.json
+  - outputs/uncertainty_table.tsv
+  - outputs/selection_rationale.md
+failure_injections:
+  - id: eb010-next-batch-001-1
+    trigger: candidate exceeds material or search-space limits
+    expected_behavior: exclude it and report the violated constraint
+    verifier_signal: pending_independent_verifier
+  - id: eb010-next-batch-001-2
+    trigger: the proposed batch repeats an existing experiment
+    expected_behavior: detect duplicate identity and preserve budget
+    verifier_signal: pending_independent_verifier
+  - id: eb010-next-batch-001-3
+    trigger: outcome coverage is insufficient for a confident next action
+    expected_behavior: choose hold/request-information rather than fabricate improvement
+    verifier_signal: pending_independent_verifier
+release_gates:
+  scientific_reality: pass
+  observability: pending
+  verifiability: pending
+  naive_resistance: pending
+  reproducibility: pending
+  enterprise_value: pending
+  training_value: not_run
+open_questions:
+  - Freeze the task-specific public input version and redistribution terms.
+  - Author an independent oracle or expert-equivalence rubric.
+  - Run positive, negative, invariance, and insufficient-evidence controls.

@@ -22,3 +22,9 @@ python3.11 -m benchmark_builder.cli candidate-protocol \
 ```
 
 The protocol is provider-neutral. Run the three configured judge roles independently, combine their structured output into one review packet, then call `select-candidates`. See `docs/candidate-pipeline.md` for the full state transition.
+
+## Enterprise batch
+
+`enterprise-v1/` contains the differentiated matrix: 12 source benchmarks, 36 candidate decisions, and question briefs. The first implementation tranche is under `enterprise-v1/contracts/`: six cross-workflow task contracts with compiled manifests. EB001 and EB004 now have synthetic calibration fixtures and authored verifiers; the remaining four are still contract-only.
+
+These are not yet released Harbor tasks. The batch status is `MIXED_CALIBRATION_AND_CONTRACT`: calibration-ready entries still need positive/negative/invariance controls and model trials, while contract-only entries additionally need an agent-visible fixture, hidden truth route, and independent verifier.

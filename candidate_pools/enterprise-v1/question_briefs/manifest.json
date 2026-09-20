@@ -1,0 +1,189 @@
+{
+  "schema_version": "enterprise_question_brief_matrix.v1",
+  "source_matrix": "candidate_pools/enterprise-v1",
+  "status": "CONTRACT_ONLY",
+  "brief_count": 36,
+  "selection_policy": "select at most one or two candidates per source after enterprise-value and control review; do not compile every brief automatically",
+  "briefs": [
+    {
+      "brief_id": "BRIEF-eb001-split-leakage-001",
+      "path": "enterprise-v1/question_briefs/eb001-split-leakage-001.json",
+      "source_benchmark_id": "EB001"
+    },
+    {
+      "brief_id": "BRIEF-eb001-endpoint-harmonization-002",
+      "path": "enterprise-v1/question_briefs/eb001-endpoint-harmonization-002.json",
+      "source_benchmark_id": "EB001"
+    },
+    {
+      "brief_id": "BRIEF-eb001-applicability-triage-003",
+      "path": "enterprise-v1/question_briefs/eb001-applicability-triage-003.json",
+      "source_benchmark_id": "EB001"
+    },
+    {
+      "brief_id": "BRIEF-eb002-blind-calibration-001",
+      "path": "enterprise-v1/question_briefs/eb002-blind-calibration-001.json",
+      "source_benchmark_id": "EB002"
+    },
+    {
+      "brief_id": "BRIEF-eb002-multitask-missingness-002",
+      "path": "enterprise-v1/question_briefs/eb002-multitask-missingness-002.json",
+      "source_benchmark_id": "EB002"
+    },
+    {
+      "brief_id": "BRIEF-eb002-prospective-analog-003",
+      "path": "enterprise-v1/question_briefs/eb002-prospective-analog-003.json",
+      "source_benchmark_id": "EB002"
+    },
+    {
+      "brief_id": "BRIEF-eb003-input-contract-001",
+      "path": "enterprise-v1/question_briefs/eb003-input-contract-001.json",
+      "source_benchmark_id": "EB003"
+    },
+    {
+      "brief_id": "BRIEF-eb003-claim-ledger-002",
+      "path": "enterprise-v1/question_briefs/eb003-claim-ledger-002.json",
+      "source_benchmark_id": "EB003"
+    },
+    {
+      "brief_id": "BRIEF-eb003-failure-recovery-003",
+      "path": "enterprise-v1/question_briefs/eb003-failure-recovery-003.json",
+      "source_benchmark_id": "EB003"
+    },
+    {
+      "brief_id": "BRIEF-eb004-adsl-population-001",
+      "path": "enterprise-v1/question_briefs/eb004-adsl-population-001.json",
+      "source_benchmark_id": "EB004"
+    },
+    {
+      "brief_id": "BRIEF-eb004-adtte-censoring-002",
+      "path": "enterprise-v1/question_briefs/eb004-adtte-censoring-002.json",
+      "source_benchmark_id": "EB004"
+    },
+    {
+      "brief_id": "BRIEF-eb004-rule-mutation-003",
+      "path": "enterprise-v1/question_briefs/eb004-rule-mutation-003.json",
+      "source_benchmark_id": "EB004"
+    },
+    {
+      "brief_id": "BRIEF-eb005-plate-leakage-001",
+      "path": "enterprise-v1/question_briefs/eb005-plate-leakage-001.json",
+      "source_benchmark_id": "EB005"
+    },
+    {
+      "brief_id": "BRIEF-eb005-batch-normalization-002",
+      "path": "enterprise-v1/question_briefs/eb005-batch-normalization-002.json",
+      "source_benchmark_id": "EB005"
+    },
+    {
+      "brief_id": "BRIEF-eb005-mechanism-retrieval-003",
+      "path": "enterprise-v1/question_briefs/eb005-mechanism-retrieval-003.json",
+      "source_benchmark_id": "EB005"
+    },
+    {
+      "brief_id": "BRIEF-eb006-unseen-perturbation-001",
+      "path": "enterprise-v1/question_briefs/eb006-unseen-perturbation-001.json",
+      "source_benchmark_id": "EB006"
+    },
+    {
+      "brief_id": "BRIEF-eb006-metadata-confounding-002",
+      "path": "enterprise-v1/question_briefs/eb006-metadata-confounding-002.json",
+      "source_benchmark_id": "EB006"
+    },
+    {
+      "brief_id": "BRIEF-eb006-dti-priority-003",
+      "path": "enterprise-v1/question_briefs/eb006-dti-priority-003.json",
+      "source_benchmark_id": "EB006"
+    },
+    {
+      "brief_id": "BRIEF-eb007-ligand-mapping-001",
+      "path": "enterprise-v1/question_briefs/eb007-ligand-mapping-001.json",
+      "source_benchmark_id": "EB007"
+    },
+    {
+      "brief_id": "BRIEF-eb007-outlier-sensitivity-002",
+      "path": "enterprise-v1/question_briefs/eb007-outlier-sensitivity-002.json",
+      "source_benchmark_id": "EB007"
+    },
+    {
+      "brief_id": "BRIEF-eb007-prospective-ranking-003",
+      "path": "enterprise-v1/question_briefs/eb007-prospective-ranking-003.json",
+      "source_benchmark_id": "EB007"
+    },
+    {
+      "brief_id": "BRIEF-eb008-stock-route-001",
+      "path": "enterprise-v1/question_briefs/eb008-stock-route-001.json",
+      "source_benchmark_id": "EB008"
+    },
+    {
+      "brief_id": "BRIEF-eb008-route-evidence-002",
+      "path": "enterprise-v1/question_briefs/eb008-route-evidence-002.json",
+      "source_benchmark_id": "EB008"
+    },
+    {
+      "brief_id": "BRIEF-eb008-search-recovery-003",
+      "path": "enterprise-v1/question_briefs/eb008-search-recovery-003.json",
+      "source_benchmark_id": "EB008"
+    },
+    {
+      "brief_id": "BRIEF-eb009-constraint-generation-001",
+      "path": "enterprise-v1/question_briefs/eb009-constraint-generation-001.json",
+      "source_benchmark_id": "EB009"
+    },
+    {
+      "brief_id": "BRIEF-eb009-proxy-robustness-002",
+      "path": "enterprise-v1/question_briefs/eb009-proxy-robustness-002.json",
+      "source_benchmark_id": "EB009"
+    },
+    {
+      "brief_id": "BRIEF-eb009-novelty-review-003",
+      "path": "enterprise-v1/question_briefs/eb009-novelty-review-003.json",
+      "source_benchmark_id": "EB009"
+    },
+    {
+      "brief_id": "BRIEF-eb010-next-batch-001",
+      "path": "enterprise-v1/question_briefs/eb010-next-batch-001.json",
+      "source_benchmark_id": "EB010"
+    },
+    {
+      "brief_id": "BRIEF-eb010-stop-uncertainty-002",
+      "path": "enterprise-v1/question_briefs/eb010-stop-uncertainty-002.json",
+      "source_benchmark_id": "EB010"
+    },
+    {
+      "brief_id": "BRIEF-eb010-closed-loop-replay-003",
+      "path": "enterprise-v1/question_briefs/eb010-closed-loop-replay-003.json",
+      "source_benchmark_id": "EB010"
+    },
+    {
+      "brief_id": "BRIEF-eb011-reproduction-manifest-001",
+      "path": "enterprise-v1/question_briefs/eb011-reproduction-manifest-001.json",
+      "source_benchmark_id": "EB011"
+    },
+    {
+      "brief_id": "BRIEF-eb011-method-attribution-002",
+      "path": "enterprise-v1/question_briefs/eb011-method-attribution-002.json",
+      "source_benchmark_id": "EB011"
+    },
+    {
+      "brief_id": "BRIEF-eb011-outlier-claim-003",
+      "path": "enterprise-v1/question_briefs/eb011-outlier-claim-003.json",
+      "source_benchmark_id": "EB011"
+    },
+    {
+      "brief_id": "BRIEF-eb012-phased-blind-001",
+      "path": "enterprise-v1/question_briefs/eb012-phased-blind-001.json",
+      "source_benchmark_id": "EB012"
+    },
+    {
+      "brief_id": "BRIEF-eb012-potency-selectivity-002",
+      "path": "enterprise-v1/question_briefs/eb012-potency-selectivity-002.json",
+      "source_benchmark_id": "EB012"
+    },
+    {
+      "brief_id": "BRIEF-eb012-analog-expansion-003",
+      "path": "enterprise-v1/question_briefs/eb012-analog-expansion-003.json",
+      "source_benchmark_id": "EB012"
+    }
+  ]
+}

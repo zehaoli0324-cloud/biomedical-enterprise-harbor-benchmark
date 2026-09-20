@@ -1,0 +1,69 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-001",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "REVIEW_REQUIRED",
+  "selection_policy": {
+    "candidate_count": 6,
+    "coverage": "one candidate from six distinct enterprise workflow families",
+    "maximum_same_family": 1,
+    "runnable_release_requires": ["enterprise_value_review", "data_card", "independent_truth_route", "control_calibration", "model_trial"]
+  },
+  "recommended_candidates": [
+    {
+      "candidate_id": "eb001-split-leakage-001",
+      "brief": "enterprise-v1/question_briefs/eb001-split-leakage-001.json",
+      "workflow_family": "adme_prediction",
+      "why_now": "extends the existing ADME audit slice from row-level units to molecular identity and scaffold leakage",
+      "next_artifact": "new entity-level split audit fixture",
+      "status": "READY_FOR_CALIBRATION"
+    },
+    {
+      "candidate_id": "eb003-failure-recovery-003",
+      "brief": "enterprise-v1/question_briefs/eb003-failure-recovery-003.json",
+      "workflow_family": "computational_biology_agent_tasks",
+      "why_now": "tests stateful tool recovery and claim preservation, a capability not covered by the current ADSL slice",
+      "next_artifact": "offline multimodal input bundle with one partial tool output",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "candidate_id": "eb004-adtte-censoring-002",
+      "brief": "enterprise-v1/question_briefs/eb004-adtte-censoring-002.json",
+      "workflow_family": "clinical_statistics_adam",
+      "why_now": "keeps the clinical-statistics family coherent while changing the decision from population flags to endpoint/censoring rules",
+      "next_artifact": "synthetic event/censoring domains and independent ADTTE oracle",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "candidate_id": "eb005-batch-normalization-002",
+      "brief": "enterprise-v1/question_briefs/eb005-batch-normalization-002.json",
+      "workflow_family": "high_content_cell_painting",
+      "why_now": "introduces competing preprocessing choices and sensitivity-based scientific judgment",
+      "next_artifact": "small plate-level profile fixture with controlled batch confounding",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "candidate_id": "eb008-stock-route-001",
+      "brief": "enterprise-v1/question_briefs/eb008-stock-route-001.json",
+      "workflow_family": "retrosynthesis_planning",
+      "why_now": "adds a constrained chemistry handoff with a clear human approval boundary",
+      "next_artifact": "frozen target/stock/reaction fixture and route validity oracle",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "candidate_id": "eb010-next-batch-001",
+      "brief": "enterprise-v1/question_briefs/eb010-next-batch-001.json",
+      "workflow_family": "closed_loop_experimental_optimization",
+      "why_now": "tests executable constraint satisfaction and next-action selection rather than retrospective prediction",
+      "next_artifact": "simulated experiment table, search space, budget and legal-batch oracle",
+      "status": "CONTRACT_ONLY"
+    }
+  ],
+  "shared_release_blockers": [
+    "public source version and license review",
+    "agent-visible versus verifier-only separation",
+    "positive, negative, invariance, and insufficient-evidence controls",
+    "reference solution and simple legal baseline",
+    "target-model trial with failure attribution"
+  ]
+}

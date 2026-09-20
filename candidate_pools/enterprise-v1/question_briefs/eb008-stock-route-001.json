@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb008-stock-route-001",
+  "source_benchmark_id": "EB008",
+  "source_name": "AiZynthFinder retrosynthesis workflow",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which retrosynthesis routes satisfy target structure, stock inventory, reaction validity, and search-budget constraints?",
+  "independent_unit": "target molecule and route",
+  "handoff": "target_and_constraints->search->structure_validation",
+  "error_consequence": "an invalid or unavailable route wastes chemistry review time",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "route_table.tsv",
+    "stock_compliance.json",
+    "route_review.md"
+  ],
+  "failure_injections": [
+    "stock violation",
+    "invalid reaction template",
+    "route duplicate",
+    "budget truncation"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "route existence, stock compliance, and structural validity are separate gates; the best score is not automatically usable",
+    "semantic_axes": [
+      "business_decision",
+      "failure_mode",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A computational route is not proof of experimental synthesizability.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

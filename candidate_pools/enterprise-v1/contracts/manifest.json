@@ -1,0 +1,40 @@
+{
+  "schema_version": "enterprise_contract_batch.v1",
+  "batch_id": "TRANCHE-001",
+  "status": "MIXED_CALIBRATION_AND_CONTRACT",
+  "task_count": 6,
+  "source_ledger": "candidate_pools/enterprise-v1/source_ledger.json",
+  "tasks": [
+    {
+      "id": "eb001-split-leakage-001",
+      "source": "EB001",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb003-failure-recovery-003",
+      "source": "EB003",
+      "status": "contract_only"
+    },
+    {
+      "id": "eb004-adtte-censoring-002",
+      "source": "EB004",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb005-batch-normalization-002",
+      "source": "EB005",
+      "status": "contract_only"
+    },
+    {
+      "id": "eb008-stock-route-001",
+      "source": "EB008",
+      "status": "contract_only"
+    },
+    {
+      "id": "eb010-next-batch-001",
+      "source": "EB010",
+      "status": "contract_only"
+    }
+  ],
+  "release_policy": "no task is runnable until data, oracle, verifier, controls, and model trial are independently materialized"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb008-route-evidence-002",
+  "source_benchmark_id": "EB008",
+  "source_name": "AiZynthFinder retrosynthesis workflow",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which route claims are supported by explicit reaction and structure checks, and which require chemist review?",
+  "independent_unit": "route step and evidence item",
+  "handoff": "search->structure_validation->human_review",
+  "error_consequence": "unsupported route confidence can lead to infeasible synthesis planning",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "route_evidence.tsv",
+    "claim_ledger.tsv",
+    "human_review_queue.md"
+  ],
+  "failure_injections": [
+    "missing reaction evidence",
+    "ambiguous stereochemistry",
+    "model score mistaken for feasibility"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must align each route claim to checks and maintain uncertainty when the public workflow does not prove feasibility",
+    "semantic_axes": [
+      "claim_boundary",
+      "visible_evidence",
+      "handoff"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Route evidence is computational and does not establish laboratory success.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

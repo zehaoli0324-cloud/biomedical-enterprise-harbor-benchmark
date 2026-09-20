@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb011-outlier-claim-003",
+  "source_benchmark_id": "EB011",
+  "source_name": "Uni-FEP-Benchmarks",
+  "workflow_id": "WF-FEP-AUDIT",
+  "enterprise_role": "computational_chemist_or_method_auditor",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which systems require human review before a benchmark result is used to support a method or project decision?",
+  "independent_unit": "outlier system and reported claim",
+  "handoff": "error_distribution->human_review",
+  "error_consequence": "unreviewed outliers can distort method choice and downstream project confidence",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "outlier_queue.tsv",
+    "claim_ledger.tsv",
+    "approval_gate.md"
+  ],
+  "failure_injections": [
+    "unstable outlier",
+    "missing experimental context",
+    "system-level rank reversal"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must route unresolved cases to review rather than optimize the headline score",
+    "semantic_axes": [
+      "business_decision",
+      "claim_boundary",
+      "handoff"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A benchmark outlier review does not establish clinical or commercial value.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

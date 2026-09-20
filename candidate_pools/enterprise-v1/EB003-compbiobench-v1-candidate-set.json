@@ -1,0 +1,123 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB003-SCALED-V1",
+  "source_benchmark_id": "EB003",
+  "workflow_id": "WF-COMPBIO-TASK",
+  "source_name": "CompBioBench v1",
+  "enterprise_role": "bioinformatics_or_research_analyst",
+  "candidates": [
+    {
+      "candidate_id": "eb003-input-contract-001",
+      "decision": "Are the multimodal inputs, identifiers, references, and tool versions sufficient to start the analysis?",
+      "independent_unit": "sample/task input bundle",
+      "handoff": "raw_files->validated_inputs",
+      "error_consequence": "wrong mapping or reference version produces an irreproducible and scientifically invalid artifact",
+      "semantic_axes": [
+        "enterprise_context",
+        "failure_mode",
+        "reproducibility"
+      ],
+      "failure_injections": [
+        "sample-sheet mismatch",
+        "unsupported file schema",
+        "reference/tool unavailable offline"
+      ],
+      "required_artifacts": [
+        "input_manifest.json",
+        "schema_audit.json",
+        "start_or_stop_report.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must stop early when a prerequisite fails and preserve a minimal information request instead of fabricating results",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Input validation does not establish a biological finding.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb003-claim-ledger-002",
+      "decision": "Which claims are supported by the produced computational artifact, and which require downgrade or human review?",
+      "independent_unit": "claim linked to result artifact",
+      "handoff": "analysis->claim_ledger",
+      "error_consequence": "a plausible figure can be misread as causal or clinical evidence",
+      "semantic_axes": [
+        "claim_boundary",
+        "visible_evidence",
+        "handoff"
+      ],
+      "failure_injections": [
+        "association-only output",
+        "figure/table mismatch",
+        "missing provenance locator"
+      ],
+      "required_artifacts": [
+        "claim_ledger.tsv",
+        "evidence_table.tsv",
+        "final_report.md"
+      ],
+      "gpt_difficulty_mechanism": "evidence locators, uncertainty, and claim language must stay synchronized across artifacts",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A computational result is not automatically causal, clinical, or experimentally confirmed.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb003-failure-recovery-003",
+      "decision": "After one tool branch fails or returns partial output, can the analyst recover without silently changing the scientific question?",
+      "independent_unit": "analysis branch and artifact state",
+      "handoff": "analysis->execution_log->claim_ledger",
+      "error_consequence": "silent fallback or parameter drift makes later results incomparable and unauditable",
+      "semantic_axes": [
+        "tool_call_complexity",
+        "stateful_dependency",
+        "failure_mode"
+      ],
+      "failure_injections": [
+        "partial output",
+        "version/interface drift",
+        "resource timeout"
+      ],
+      "required_artifacts": [
+        "execution_log.jsonl",
+        "failure_recovery.md",
+        "rerun_manifest.json"
+      ],
+      "gpt_difficulty_mechanism": "the agent must preserve failed state, choose an equivalent route or stop, and prove that downstream claims use the recovered branch",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A recovered computational branch still requires scientific and human review.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "B",
+    "license_status": "verify_pending"
+  },
+  "status": "DRAFT"
+}

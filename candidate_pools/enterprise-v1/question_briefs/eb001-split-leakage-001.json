@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb001-split-leakage-001",
+  "source_benchmark_id": "EB001",
+  "source_name": "Biogen ADME Fang v1",
+  "workflow_id": "WF-ADME-BLIND",
+  "enterprise_role": "DMPK_or_computational_chemist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Is the molecule split leakage-free at the structure/scaffold level before comparing ADME models?",
+  "independent_unit": "molecule and canonical structure",
+  "handoff": "curated_split->prediction",
+  "error_consequence": "leakage inflates apparent model quality and misdirects compound selection",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "split_audit.csv",
+    "structure_identity_report.json",
+    "readiness_decision.md"
+  ],
+  "failure_injections": [
+    "duplicate structure under different IDs",
+    "scaffold overlap across train/test",
+    "salt or stereochemistry normalization conflict"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "entity identity must be resolved before metrics are trusted; a fluent model can otherwise report correct arithmetic on the wrong split",
+    "semantic_axes": [
+      "split_and_unit",
+      "failure_mode",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A split audit cannot establish in vivo efficacy or clinical utility.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

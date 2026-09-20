@@ -1,0 +1,124 @@
+{
+  "schema_version": "enterprise_candidate_set_card.v1",
+  "candidate_set_id": "CSET-EB009-SCALED-V1",
+  "source_benchmark_id": "EB009",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "source_name": "REINVENT4 molecular design workflow",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "candidates": [
+    {
+      "candidate_id": "eb009-constraint-generation-001",
+      "decision": "Which generated molecules satisfy scaffold, validity, uniqueness, and fixed property constraints?",
+      "independent_unit": "generated molecule",
+      "handoff": "configuration->candidate_set->human_review",
+      "error_consequence": "invalid or duplicate candidates waste design and synthesis review",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "evaluation_contract"
+      ],
+      "failure_injections": [
+        "invalid SMILES",
+        "scaffold violation",
+        "duplicate collapse",
+        "property constraint mismatch"
+      ],
+      "required_artifacts": [
+        "candidate_set.smi",
+        "constraint_report.tsv",
+        "generation_manifest.json"
+      ],
+      "gpt_difficulty_mechanism": "the model must verify each constraint independently instead of trusting aggregate reward",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Constraint satisfaction is not evidence of biological activity.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb009-proxy-robustness-002",
+      "decision": "Does candidate prioritization remain stable when proxy weights, seeds, or model uncertainty change?",
+      "independent_unit": "candidate set and scoring configuration",
+      "handoff": "generation->sensitivity_review",
+      "error_consequence": "proxy gaming can select molecules that look good only under one scoring recipe",
+      "semantic_axes": [
+        "method_choice",
+        "uncertainty",
+        "stopping_rule"
+      ],
+      "failure_injections": [
+        "weight sensitivity",
+        "seed instability",
+        "component score conflict"
+      ],
+      "required_artifacts": [
+        "sensitivity_matrix.tsv",
+        "score_breakdown.json",
+        "robustness_report.md"
+      ],
+      "gpt_difficulty_mechanism": "the agent must distinguish objective score from decision stability and identify when no candidate is robust",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Proxy robustness does not establish activity, selectivity, or safety.",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb009-novelty-review-003",
+      "decision": "Which generated candidates are novel enough and sufficiently evidenced for medicinal-chemistry review?",
+      "independent_unit": "scaffold/candidate family",
+      "handoff": "candidate_set->novelty_audit->human_review",
+      "error_consequence": "novelty or IP-like claims based on a limited reference set can misdirect review",
+      "semantic_axes": [
+        "enterprise_context",
+        "claim_boundary",
+        "handoff"
+      ],
+      "failure_injections": [
+        "reference-set leakage",
+        "near-duplicate scaffold",
+        "unsupported novelty claim"
+      ],
+      "required_artifacts": [
+        "novelty_audit.tsv",
+        "similarity_evidence.json",
+        "approval_gate.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must separate computed similarity from legal or commercial novelty and retain a review gate",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Computed novelty is not freedom-to-operate or clinical value.",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "independent_unit",
+    "error_consequence",
+    "handoff",
+    "semantic_axes"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_enterprise_value_card": true,
+    "require_independent_review": true,
+    "require_positive_negative_invariance_controls": true
+  },
+  "source_evidence": {
+    "registry_record": "knowledge_base/registry/enterprise_benchmarks.jsonl",
+    "workflow_record": "knowledge_base/registry/workflows.jsonl",
+    "evidence_status": "observed",
+    "authenticity_class": "W",
+    "license_status": "MIT_code_model_terms_separate"
+  },
+  "status": "DRAFT"
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb010-stop-uncertainty-002",
+  "source_benchmark_id": "EB010",
+  "source_name": "BayBE constrained experimental design",
+  "workflow_id": "WF-BAYBE-CLOSED-LOOP",
+  "enterprise_role": "experimental_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Should the closed loop continue, stop, or request more information given uncertainty and observed improvement?",
+  "independent_unit": "optimization state and candidate batch",
+  "handoff": "batch_result->uncertainty->stop_or_continue",
+  "error_consequence": "continuing after a non-identifiable or exhausted loop wastes experiments",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "stop_rule_report.json",
+    "uncertainty_table.tsv",
+    "human_review.md"
+  ],
+  "failure_injections": [
+    "uncertainty collapse",
+    "plateau hidden by noise",
+    "missing outcome",
+    "model disagreement"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must justify a stop/continue/review action using stateful evidence and allow abstention",
+    "semantic_axes": [
+      "stopping_rule",
+      "uncertainty",
+      "handoff"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A simulated objective is not proof of real-world improvement.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}
