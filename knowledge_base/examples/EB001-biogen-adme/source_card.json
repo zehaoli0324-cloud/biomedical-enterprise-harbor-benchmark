@@ -1,0 +1,13 @@
+{
+  "source_id": "SRC-BIOGEN-ADME",
+  "organization": "Biogen",
+  "url": "https://github.com/molecularinformatics/Computational-ADME",
+  "kind": "company_public_dataset",
+  "authenticity": "B",
+  "evidence_status": "observed",
+  "retrieved_at": "2026-09-20",
+  "commit_or_version": null,
+  "license_status": "verify_pending",
+  "evidence_locators": ["repository README", "ADME_public_set_3521.csv"],
+  "unresolved_questions": ["freeze a commit and verify redistribution terms", "confirm endpoint units and official split"]
+}

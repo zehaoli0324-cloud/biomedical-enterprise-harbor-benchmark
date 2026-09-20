@@ -1,0 +1,9 @@
+{
+  "review_id": "REVIEW-EB001-ADME-AUDIT",
+  "task_id": "biogen-adme-audit-001",
+  "reviewers": ["domain_scientist", "methods_reproducibility_auditor", "license_attribution_reviewer"],
+  "hard_gates": ["enterprise attribution is explicit", "synthetic fixture is not mislabeled as internal data", "overlap/unit/missingness verifier rejects targeted errors", "license is verified before redistribution"],
+  "open_questions": ["freeze official upstream commit", "verify data terms", "replay on permitted real subset"],
+  "decision": "REVISE",
+  "status": "COMPLETE"
+}

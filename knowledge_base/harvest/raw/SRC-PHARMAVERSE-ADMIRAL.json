@@ -1,0 +1,28 @@
+{
+  "source_id": "SRC-PHARMAVERSE-ADMIRAL",
+  "url": "https://github.com/pharmaverse/admiral",
+  "retrieved_at": "2026-09-20T04:01:32+00:00",
+  "seed": {
+    "source_id": "SRC-PHARMAVERSE-ADMIRAL",
+    "organization": "Roche + GSK / pharmaverse",
+    "kind": "company_coauthored_workflow",
+    "url": "https://github.com/pharmaverse/admiral",
+    "authenticity": "W",
+    "requires": [
+      "example_data",
+      "package_version",
+      "company_scope"
+    ]
+  },
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "truncated": true,
+  "content_sha256": "8681f6bd302e5046cc490baa931309829b487b02e367a0d0d490f655e32cc534",
+  "bytes": 65536,
+  "extraction_status": "ok",
+  "title": "GitHub - pharmaverse/admiral: ADaM in R Asset Library · GitHub",
+  "headings": [
+    "Navigation Menu"
+  ],
+  "text_excerpt": "GitHub - pharmaverse/admiral: ADaM in R Asset Library · GitHub Skip to content Navigation Menu Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security Find and fix v"
+}

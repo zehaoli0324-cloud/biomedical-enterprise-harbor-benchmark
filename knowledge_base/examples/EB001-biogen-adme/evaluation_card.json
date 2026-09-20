@@ -1,0 +1,10 @@
+{
+  "evaluation_card_id": "EVAL-EB001-ADME-AUDIT",
+  "task_id": "biogen-adme-audit-001",
+  "independent_unit": "compound row and canonical structure key",
+  "metrics": ["row-accounting", "structure-overlap-exact-match", "unit-issue-exact-match", "missingness-exact-match"],
+  "truth_route": ["recompute from visible CSV", "compare to verifier-only reference", "validate input checksum"],
+  "accepted_alternatives": ["equivalent JSON key order", "equivalent prose recommendation"],
+  "negative_cases": ["omit overlap", "silently convert mM", "impute missing row", "claim ready", "wrong input hash"],
+  "status": "CALIBRATED"
+}

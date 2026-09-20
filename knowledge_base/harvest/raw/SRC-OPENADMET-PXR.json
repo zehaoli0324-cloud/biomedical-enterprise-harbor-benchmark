@@ -1,0 +1,28 @@
+{
+  "source_id": "SRC-OPENADMET-PXR",
+  "url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+  "retrieved_at": "2026-09-20T04:01:52+00:00",
+  "seed": {
+    "source_id": "SRC-OPENADMET-PXR",
+    "organization": "OpenADMET / Octant Bio / UCSF",
+    "kind": "enterprise_contributed_blind_challenge",
+    "url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+    "authenticity": "A",
+    "requires": [
+      "challenge_protocol",
+      "phase_split",
+      "label_visibility"
+    ]
+  },
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "truncated": true,
+  "content_sha256": "8e29e387314a5299476ea95a59cdcc4993f4eba6a07386c57c3d9c0f7f8b7b1f",
+  "bytes": 65536,
+  "extraction_status": "ok",
+  "title": "GitHub - gashawmg/openadmet-pxr-pec50-challenge: OpenADMET PXR pEC50 Blind Challenge: Chemprop D-MPNN + MultitaskMPNN + UniMol 3D Transformer ensemble · GitHub",
+  "headings": [
+    "Navigation Menu"
+  ],
+  "text_excerpt": "GitHub - gashawmg/openadmet-pxr-pec50-challenge: OpenADMET PXR pEC50 Blind Challenge: Chemprop D-MPNN + MultitaskMPNN + UniMol 3D Transformer ensemble · GitHub Skip to content Navigation Menu Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY <path d=\"m8.533.133 5.25 1.68A1.75 1.75 0 0 1 15 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.697 1.697 0 0 1-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 0 1 1.217-1.667l5.25-1.68a1.748 1.748 0 0 1 1.066 0Zm-.61 1.429.001.001-5.25 1.68a.251.251 0 0 0-.174.237V7c0 1.36.275 2.666 1.057 3.859.784 1.194"
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "SRC-BIOGEN-ADME",
+  "url": "https://github.com/molecularinformatics/Computational-ADME",
+  "retrieved_at": "2026-09-20T04:01:24+00:00",
+  "seed": {
+    "source_id": "SRC-BIOGEN-ADME",
+    "organization": "Biogen",
+    "kind": "company_public_dataset",
+    "url": "https://github.com/molecularinformatics/Computational-ADME",
+    "authenticity": "B",
+    "requires": [
+      "commit",
+      "dataset_license",
+      "endpoint_definition"
+    ]
+  },
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "truncated": true,
+  "content_sha256": "e9810e5ccef77d2a5a5b0b45ea85f55b75bdb41c2fbc2f7ac157cf387aad9e33",
+  "bytes": 65536,
+  "extraction_status": "ok",
+  "title": "GitHub - molecularinformatics/Computational-ADME · GitHub",
+  "headings": [
+    "Navigation Menu"
+  ],
+  "text_excerpt": "GitHub - molecularinformatics/Computational-ADME · GitHub Skip to content Navigation Menu Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security <span class=\"Primer_Brand__Text-module__Text___XeGJJ Primer_Brand__"
+}

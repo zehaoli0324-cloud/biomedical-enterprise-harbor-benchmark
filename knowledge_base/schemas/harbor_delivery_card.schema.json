@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "harbor_delivery_card.v1",
+  "type": "object",
+  "required": ["harbor_card_id", "task_id", "task_contract", "agent_visible", "verifier_only", "environment", "oracle", "release_gates", "status"],
+  "properties": {
+    "harbor_card_id": {"type": "string", "pattern": "^HARBOR-"},
+    "task_id": {"type": "string"},
+    "task_contract": {"type": "object"},
+    "agent_visible": {"type": "array"},
+    "verifier_only": {"type": "array"},
+    "environment": {"type": "object"},
+    "oracle": {"type": "object"},
+    "release_gates": {"type": "object"},
+    "status": {"enum": ["CONTRACT_ONLY", "RUNTIME_REQUIRED", "READY_FOR_HARBOR", "BLOCKED"]}
+  }
+}

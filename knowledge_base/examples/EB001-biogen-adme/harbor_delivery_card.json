@@ -1,0 +1,11 @@
+{
+  "harbor_card_id": "HARBOR-EB001-ADME-AUDIT",
+  "task_id": "biogen-adme-audit-001",
+  "task_contract": {"instruction": "benchmarks/biogen-adme-audit-001/instruction.md", "task_yaml": "benchmarks/biogen-adme-audit-001/task.yaml"},
+  "agent_visible": ["data/adme_measurements.csv", "instruction.md", "expected_artifacts.md"],
+  "verifier_only": ["verifier_only/reference.json", "verifier.py"],
+  "environment": {"network": "off", "cpu_seconds": 30, "memory_mb": 256, "dependencies": "python standard library"},
+  "oracle": {"status": "present_for_calibration", "path": "verifier_only/reference.json"},
+  "release_gates": {"source_verification": "blocked", "license": "blocked", "verifier": "pass", "container_replay": "not_run", "model_trial": "not_run"},
+  "status": "CONTRACT_ONLY"
+}

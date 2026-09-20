@@ -1,0 +1,13 @@
+{
+  "schema_version": "enterprise_transformation_card.v1",
+  "transformation_id": "TX-EB001-ADME-AUDIT",
+  "source_benchmark_id": "EB001",
+  "derived_task_id": "biogen-adme-audit-001",
+  "status": "REVIEW_REQUIRED",
+  "changed_dimensions": ["business_decision", "data_visibility", "failure_mode", "evaluation_contract", "claim_boundary"],
+  "semantic_changed_dimensions": ["business_decision", "failure_mode", "evaluation_contract", "claim_boundary"],
+  "scientific_decision_changed": true,
+  "truth_or_failure_changed": true,
+  "evidence": {"source": "knowledge_base/examples/EB001-biogen-adme/benchmark_card.json", "derived": "benchmarks/biogen-adme-audit-001/task.yaml"},
+  "release_status": "REVIEW_REQUIRED"
+}

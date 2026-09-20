@@ -1,0 +1,17 @@
+{
+  "benchmark_id": "EB001",
+  "source_id": "SRC-BIOGEN-ADME",
+  "name": "Biogen ADME Fang v1",
+  "organization": "Biogen",
+  "enterprise_role": "public_dataset_publisher",
+  "authenticity_class": "B",
+  "workflow_family": "adme_prediction",
+  "object": "small_molecule",
+  "decision": "compare ADME prediction quality under a fixed split",
+  "inputs": ["SMILES", "six ADME endpoints", "train/test assignment"],
+  "outputs": ["per-endpoint predictions", "error metrics", "data audit"],
+  "evaluation": {"kind": "fixed_split_regression", "metrics": ["MAE", "correlation"], "blind_labels": false},
+  "license_status": "verify_pending",
+  "evidence_status": "observed",
+  "redesign_status": "candidate"
+}

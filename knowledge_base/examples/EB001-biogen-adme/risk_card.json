@@ -1,0 +1,10 @@
+{
+  "risk_card_id": "RISK-EB001-ADME-AUDIT",
+  "task_id": "biogen-adme-audit-001",
+  "attribution": {"public_claim": "Biogen-associated public dataset direction", "prohibited_claim": "Biogen internal data or sponsor validation"},
+  "license": {"code": "verify_pending", "data": "verify_pending", "solver_redistribution": "blocked_until_review"},
+  "privacy": {"patient_data": "not_expected_in_fixture", "review": "required_for_real_data"},
+  "biosafety_or_medical": {"level": "low_for_calibration", "human_review": "required_before_real enterprise deployment"},
+  "claim_boundary": ["does not establish model performance", "does not establish clinical efficacy", "does not establish internal Biogen workflow"],
+  "release_status": "REVIEW_REQUIRED"
+}

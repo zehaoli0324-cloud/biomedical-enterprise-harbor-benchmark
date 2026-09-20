@@ -1,0 +1,29 @@
+{
+  "source_id": "SRC-RECURSION-RXRX",
+  "url": "https://www.rxrx.ai/datasets",
+  "retrieved_at": "2026-09-20T04:01:38+00:00",
+  "seed": {
+    "source_id": "SRC-RECURSION-RXRX",
+    "organization": "Recursion Pharmaceuticals",
+    "kind": "company_generated_dataset",
+    "url": "https://www.rxrx.ai/datasets",
+    "authenticity": "A",
+    "requires": [
+      "dataset_license",
+      "access_terms",
+      "benchmark_definition"
+    ]
+  },
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "truncated": false,
+  "content_sha256": "9f5ff5bc55fd6c8ac518f5296a615dd09665f6484d73affc4d96c53b8c5d6bcc",
+  "bytes": 23853,
+  "extraction_status": "ok",
+  "title": "Datasets",
+  "headings": [
+    "Compare our data sets",
+    "Want to help us explore the uncharted?"
+  ],
+  "text_excerpt": "Datasets Home Research Datasets Compare RxRx 1 RxRx 2 RxRx 19a RxRx 19b RxRx 3 RxRx 3-core Models Boltz-2 OpenPhenom MolRec TM Partnerships Recursion's Datasets High-dimensional and relatable data generated in our automated laboratories NeurIPS 2019 competition coming soon: CellSignal : Disentangling biological signal from experimental noise in cellular images. SPONSORED BY: Compare our data sets To date, datasets have been released for cells treated with a broad range of perturbations, including siRNA and CRISPR/Cas9 genetic knockdown/knockout, small molecules at multiple concentrations, SARS-CoV-2 virus, immune-focused proteins, and a model of COVID-19 cytokine storm. RxRx3-core Download Read More RxRx3 Download Read More RxRx2 Download Read More RxRx19b Download Read More RxRx19a Download Read More RxRx1 Download Read More Release Date November 2024 January 2023 August 2020 August 2020 April 2020 June 2019 Categories Genetic Perturbations (CRISPR) Small molecules Genetic Perturbations (genome-wide CRISPR) Small molecules Large molecules Infectious disease Small & large molecules Infectious disease Small molecules Genetic perturbations (siRNA) Cell Types HUVEC HUVEC HUVEC HUVEC HRCE VERO HUVEC RPE U2OS HepG2 Stains (Channels) Hoechst ConA Phalloidin Syto14 MitoTracker WGA Hoechst ConA Phalloidin Syto14 MitoTracker WGA Hoechst ConA Phalloidin Syto14 MitoTracker WGA Hoechst ConA Phalloidin Syto14 MitoTracker WGA Hoechst ConA Phalloidin Syto14 WGA Hoechst ConA Phalloidin Syto14 MitoTracker WGA Plate Density 1536-well 1536-well 1536-well 1536-well 1536-well 384-well Imaging Sites per Well 1 1 4 1 4 2 Perturbations Evaluated 222,601 microscopy images spanning 736 CRISPR knockouts and 1,674 compounds at 8 concentrations 17,063 CRISPR/Cas9-mediated gene knockouts 1,674 compounds at 8 concentrations each 434 soluble factors at 6 concentrations 1,856 small molecules at 4-6 concentrations in three COVID-19-associated cytokine storm conditions (severe storm, healthy, and no cytokines) 1,672 small molecules at 6+ concentrations Three viral conditions (active virus, irradiated, mock) 1,138 siRNAs Total Number of Images 1,335,606 ~2.2M 131,953 70,384 305,520 125,510 Image Dimension 512x512 center crops retained from 6 channel 2,048 x 2,048 resolution images captured from each well 2048x2048x6 1024x1024x6 2048x2048x6 1024x1024x5 512x512x6 Compressed Dataset Size 17.5 GB ~83,100 GB ~185 GB ~409 GB ~450 GB ~46 GB License Recursion Commercial License CC-BY-NC-SA CC-BY-NC-SA CC-BY CC-BY Recursion Custom Commercial License Want to help us explore the uncharted? Our publicly available datasets represent less than 1% of Recursion’s full, proprietary dataset. Interested in partnering with us commercially? Contact us Stay informed about RxRx datasets & models Thank you! Your submission has been received! Oops! Something went wrong while submitting the form. Connect on social media SPONSORED BY:"
+}

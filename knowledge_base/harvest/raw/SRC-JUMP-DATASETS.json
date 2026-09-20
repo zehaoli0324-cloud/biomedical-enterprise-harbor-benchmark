@@ -1,0 +1,28 @@
+{
+  "source_id": "SRC-JUMP-DATASETS",
+  "url": "https://github.com/jump-cellpainting/datasets",
+  "retrieved_at": "2026-09-20T04:01:34+00:00",
+  "seed": {
+    "source_id": "SRC-JUMP-DATASETS",
+    "organization": "JUMP Cell Painting Consortium",
+    "kind": "multi_company_consortium",
+    "url": "https://github.com/jump-cellpainting/datasets",
+    "authenticity": "C",
+    "requires": [
+      "member_attribution",
+      "metadata_schema",
+      "data_license"
+    ]
+  },
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "truncated": true,
+  "content_sha256": "2eee9a46f0b032497793c62c9dbd88dc0a28665bac0ca7f3544c493b672f25ee",
+  "bytes": 65536,
+  "extraction_status": "ok",
+  "title": "GitHub - jump-cellpainting/datasets: Images and other data from the JUMP Cell Painting Consortium · GitHub",
+  "headings": [
+    "Navigation Menu"
+  ],
+  "text_excerpt": "GitHub - jump-cellpainting/datasets: Images and other data from the JUMP Cell Painting Consortium · GitHub Skip to content Navigation Menu Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security <span class=\"Primer_Brand__Text-module__Text___XeGJJ Primer_Brand__Text-module__Text-font--mona-sans___a8XJD Primer_Brand__Text-module__T"
+}

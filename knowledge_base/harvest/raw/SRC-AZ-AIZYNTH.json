@@ -1,0 +1,28 @@
+{
+  "source_id": "SRC-AZ-AIZYNTH",
+  "url": "https://github.com/MolecularAI/aizynthfinder",
+  "retrieved_at": "2026-09-20T04:01:44+00:00",
+  "seed": {
+    "source_id": "SRC-AZ-AIZYNTH",
+    "organization": "AstraZeneca / MolecularAI",
+    "kind": "company_developed_workflow",
+    "url": "https://github.com/MolecularAI/aizynthfinder",
+    "authenticity": "W",
+    "requires": [
+      "model_weights",
+      "stock_file",
+      "license"
+    ]
+  },
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "truncated": true,
+  "content_sha256": "532ec52806dc69204aa1b15dfcda47b5c00e2d209771ee5903ace9b83d946797",
+  "bytes": 65536,
+  "extraction_status": "ok",
+  "title": "GitHub - MolecularAI/aizynthfinder: A tool for retrosynthetic planning · GitHub",
+  "headings": [
+    "Navigation Menu"
+  ],
+  "text_excerpt": "GitHub - MolecularAI/aizynthfinder: A tool for retrosynthetic planning · GitHub Skip to content Navigation Menu Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security <span class=\"Primer_Brand__Text-module__Text___XeGJJ Primer_Brand__Text-module__Text-font--mona-sans___a"
+}

@@ -1,0 +1,9 @@
+{
+  "data_card_id": "DATA-EB001-ADME-AUDIT",
+  "source_benchmark_id": "EB001",
+  "data_kind": "synthetic_frozen_calibration_fixture",
+  "lineage": ["Biogen ADME direction in local research map", "synthetic eight-row audit fixture"],
+  "visibility": {"agent": ["data/adme_measurements.csv"], "verifier": ["verifier_only/reference.json"], "author": ["generation notes", "source license evidence"]},
+  "truth_scope": "row counts, canonical-structure overlap, unit conversion and missingness only",
+  "status": "REVIEW_REQUIRED"
+}

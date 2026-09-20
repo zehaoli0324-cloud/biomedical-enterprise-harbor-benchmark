@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_benchmark_card.v1",
+  "type": "object",
+  "required": ["benchmark_id", "source_id", "name", "organization", "authenticity_class", "workflow_family", "evaluation", "redesign_status"],
+  "properties": {
+    "benchmark_id": {"type": "string", "pattern": "^EB[0-9]{3,}$"},
+    "source_id": {"type": "string"},
+    "name": {"type": "string"},
+    "organization": {"type": "string"},
+    "enterprise_role": {"type": "string"},
+    "authenticity_class": {"enum": ["A", "B", "C", "W", "S"]},
+    "workflow_family": {"type": "string"},
+    "object": {"type": "string"},
+    "decision": {"type": "string"},
+    "inputs": {"type": "array", "items": {"type": "string"}},
+    "outputs": {"type": "array", "items": {"type": "string"}},
+    "evaluation": {"type": "object", "required": ["kind"], "properties": {"kind": {"type": "string"}, "metrics": {"type": "array"}, "blind_labels": {}}},
+    "license_status": {"type": "string"},
+    "evidence_status": {"enum": ["observed", "verified", "blocked"]},
+    "redesign_status": {"enum": ["candidate", "selected", "blocked", "ready_for_harbor"]}
+  }
+}

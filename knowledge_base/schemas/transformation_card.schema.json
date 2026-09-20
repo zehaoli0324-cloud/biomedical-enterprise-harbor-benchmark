@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_transformation_card.v1",
+  "type": "object",
+  "required": ["transformation_id", "source_benchmark_id", "derived_task_id", "status", "changed_dimensions", "scientific_decision_changed", "truth_or_failure_changed", "evidence", "release_status"],
+  "properties": {
+    "transformation_id": {"type": "string", "pattern": "^TX-"},
+    "source_benchmark_id": {"type": "string"},
+    "derived_task_id": {"type": "string"},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "SELECTED", "READY_FOR_HARBOR", "REJECTED"]},
+    "changed_dimensions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "scientific_decision_changed": {"type": "boolean"},
+    "truth_or_failure_changed": {"type": "boolean"},
+    "evidence": {"type": "object"},
+    "accepted_alternatives": {"type": "array"},
+    "release_status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "PRIVATE_INTERNAL_ONLY", "READY_FOR_HARBOR"]}
+  }
+}

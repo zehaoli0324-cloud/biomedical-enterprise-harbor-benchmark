@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_evaluation_card.v1",
+  "type": "object",
+  "required": ["evaluation_card_id", "task_id", "independent_unit", "metrics", "truth_route", "accepted_alternatives", "negative_cases", "status"],
+  "properties": {
+    "evaluation_card_id": {"type": "string", "pattern": "^EVAL-"},
+    "task_id": {"type": "string"},
+    "independent_unit": {"type": "string"},
+    "metrics": {"type": "array", "minItems": 1},
+    "truth_route": {"type": "array", "minItems": 1},
+    "accepted_alternatives": {"type": "array"},
+    "negative_cases": {"type": "array", "minItems": 1},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "CALIBRATED", "FROZEN"]}
+  }
+}

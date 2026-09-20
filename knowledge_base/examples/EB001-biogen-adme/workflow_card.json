@@ -1,0 +1,12 @@
+{
+  "workflow_id": "WF-ADME-BLIND",
+  "benchmark_ids": ["EB001"],
+  "enterprise_stage": "discovery_and_lead_optimization",
+  "role": "DMPK_or_computational_chemist",
+  "object": "small_molecule_series",
+  "business_decision": "which compounds or endpoints are reliable enough for the next modeling or experimental round",
+  "handoffs": ["measurement_table->curated_split", "curated_split->prediction", "prediction->uncertainty_and_candidate_review"],
+  "independent_unit": "molecule or analog series, not raw assay row",
+  "claim_boundary": "prediction and benchmark performance do not establish in vivo efficacy or clinical utility",
+  "status": "candidate"
+}

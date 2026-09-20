@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_workflow_card.v1",
+  "type": "object",
+  "required": ["workflow_id", "benchmark_ids", "enterprise_stage", "role", "object", "business_decision", "handoffs", "independent_unit", "claim_boundary", "status"],
+  "properties": {
+    "workflow_id": {"type": "string", "pattern": "^WF-"},
+    "benchmark_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "enterprise_stage": {"type": "string"},
+    "role": {"type": "string"},
+    "object": {"type": "string"},
+    "business_decision": {"type": "string"},
+    "handoffs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "independent_unit": {"type": "string"},
+    "claim_boundary": {"type": "string"},
+    "status": {"enum": ["candidate", "verified", "blocked"]}
+  }
+}

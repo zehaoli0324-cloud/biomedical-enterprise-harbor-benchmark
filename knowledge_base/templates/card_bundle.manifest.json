@@ -1,0 +1,24 @@
+{
+  "schema_version": "enterprise_card_bundle.v1",
+  "bundle_id": "BUNDLE-REPLACE",
+  "source_benchmark_id": "EB000",
+  "derived_task_id": "REPLACE",
+  "cards": {
+    "source": "source_card.json",
+    "benchmark": "benchmark_card.json",
+    "workflow": "workflow_card.json",
+    "transformation": "transformation_card.json",
+    "data": "data_card.json",
+    "evaluation": "evaluation_card.json",
+    "risk": "risk_card.json",
+    "harbor": "harbor_delivery_card.json",
+    "review": "review_card.json"
+  },
+  "visibility_policy": {
+    "agent_visible": ["benchmark", "workflow", "data", "harbor"],
+    "author_only": ["source", "transformation", "risk", "review"],
+    "verifier_only": ["evaluation.truth_route", "evaluation.negative_cases", "harbor.oracle"]
+  },
+  "status": "DRAFT",
+  "release_blockers": ["source_verification", "license_review", "independent_truth_route", "container_replay", "model_trial"]
+}

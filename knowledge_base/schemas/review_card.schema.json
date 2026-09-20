@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_review_card.v1",
+  "type": "object",
+  "required": ["review_id", "task_id", "reviewers", "hard_gates", "open_questions", "decision", "status"],
+  "properties": {
+    "review_id": {"type": "string", "pattern": "^REVIEW-"},
+    "task_id": {"type": "string"},
+    "reviewers": {"type": "array", "minItems": 2},
+    "hard_gates": {"type": "array", "minItems": 1},
+    "open_questions": {"type": "array"},
+    "decision": {"enum": ["REVISE", "BLOCK", "SELECT", "READY"]},
+    "status": {"enum": ["PENDING", "COMPLETE"]}
+  }
+}

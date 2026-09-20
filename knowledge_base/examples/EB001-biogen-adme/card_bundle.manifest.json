@@ -1,0 +1,19 @@
+{
+  "schema_version": "enterprise_card_bundle.v1",
+  "bundle_id": "BUNDLE-EB001-ADME-AUDIT",
+  "source_benchmark_id": "EB001",
+  "derived_task_id": "biogen-adme-audit-001",
+  "cards": {
+    "source": "source_card.json",
+    "benchmark": "benchmark_card.json",
+    "workflow": "workflow_card.json",
+    "transformation": "transformation_card.json",
+    "data": "data_card.json",
+    "evaluation": "evaluation_card.json",
+    "risk": "risk_card.json",
+    "harbor": "harbor_delivery_card.json",
+    "review": "review_card.json"
+  },
+  "status": "REVIEW_REQUIRED",
+  "release_blockers": ["public_dataset_license_verification", "real_data_replay", "container_replay", "model_trial"]
+}

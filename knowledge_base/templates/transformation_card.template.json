@@ -1,0 +1,63 @@
+{
+  "schema_version": "enterprise_transformation_card.v1",
+  "transformation_id": "TX-REPLACE",
+  "source_benchmark_id": "EB000",
+  "source_task_ref": {
+    "repository": null,
+    "path_or_url": null,
+    "commit_or_version": null,
+    "source_task_sha256": null
+  },
+  "derived_task_id": null,
+  "derived_version": "0.1.0",
+  "status": "DRAFT",
+  "enterprise_context": {
+    "source_enterprise_role": null,
+    "derived_user_role": null,
+    "research_or_business_stage": null,
+    "downstream_handoff": null,
+    "error_consequence": null
+  },
+  "changed_dimensions": [
+    "business_decision",
+    "data_visibility",
+    "failure_mode",
+    "evaluation_contract",
+    "claim_boundary"
+  ],
+  "semantic_changed_dimensions": [],
+  "surface_only_changes": [],
+  "scientific_decision_changed": false,
+  "truth_or_failure_changed": false,
+  "transformation_primitives": [],
+  "before": {
+    "visible_evidence": [],
+    "withheld_evidence": [],
+    "inputs": [],
+    "outputs": [],
+    "evaluation": null
+  },
+  "after": {
+    "visible_evidence": [],
+    "withheld_evidence": [],
+    "inputs": [],
+    "outputs": [],
+    "evaluation": null
+  },
+  "scientific_rationale": null,
+  "naive_shortcuts_blocked": [],
+  "truth_source": {
+    "kind": null,
+    "scope": null,
+    "independent_check_route": null,
+    "shared_dependencies": [],
+    "accepted_alternatives": [],
+    "tolerance_basis": null
+  },
+  "evidence": {},
+  "negative_cases": [],
+  "risk_card": null,
+  "expert_review": "REVIEW_REQUIRED",
+  "license_review": "REVIEW_REQUIRED",
+  "release_status": "REVIEW_REQUIRED"
+}

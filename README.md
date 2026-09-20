@@ -34,6 +34,16 @@ enterprise workflow / source evidence
 
 参考仓库中的 [`literature-screening-m1-001`](benchmarks/literature-screening-m1-001/) 保留为通用文献筛选校准样例，用来回归 builder 和 verifier 管线。
 
+## 企业知识库与改题
+
+企业来源登记和官方页面 harvest 位于 [`knowledge_base/`](knowledge_base/)，改题卡链和企业版流程见 [`docs/enterprise-redesign-pipeline.md`](docs/enterprise-redesign-pipeline.md)。知识库当前登记 12 个企业/联盟 benchmark、5 类工作流和 6 个可复用改题模式；这些记录仍按 `observed` / `verified` / `ready_for_harbor` 分级，不把网页摘要直接当成已授权或已验收题源。
+
+```bash
+python3 scripts/validate_knowledge_base.py
+python3 scripts/validate_card_bundle.py knowledge_base/examples/EB001-biogen-adme
+python3 scripts/collect_enterprise_sources.py
+```
+
 ## 快速开始
 
 要求 Python 3.11+（本机也可使用 3.14）。

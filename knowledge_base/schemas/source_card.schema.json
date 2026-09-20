@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source_card.v1",
+  "type": "object",
+  "required": ["source_id", "organization", "url", "kind", "authenticity", "evidence_status", "retrieved_at"],
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"},
+    "organization": {"type": "string", "minLength": 1},
+    "url": {"type": "string", "format": "uri"},
+    "kind": {"type": "string"},
+    "authenticity": {"enum": ["A", "B", "C", "W", "S"]},
+    "evidence_status": {"enum": ["observed", "verified", "blocked"]},
+    "retrieved_at": {"type": "string", "format": "date"},
+    "commit_or_version": {"type": ["string", "null"]},
+    "license_status": {"type": ["string", "null"]},
+    "evidence_locators": {"type": "array", "items": {"type": "string"}},
+    "unresolved_questions": {"type": "array", "items": {"type": "string"}}
+  }
+}
