@@ -1,0 +1,71 @@
+{
+  "difficulty_card_id": "DIFF-EB009-DRAFT",
+  "task_id": "eb009-candidate-001",
+  "difficulty_hypothesis": {
+    "reasoning_chain": [
+      "validate input provenance and unit",
+      "identify independent unit and split",
+      "compare competing methods or claims",
+      "produce a bounded enterprise decision",
+      "leave an auditable handoff"
+    ],
+    "competing_choices": [
+      "proceed vs stop",
+      "support vs abstain",
+      "candidate A vs candidate B",
+      "technical success vs business readiness"
+    ],
+    "stateful_dependencies": [
+      "later claims depend on earlier metadata and split checks",
+      "a failed gate changes the allowed conclusion"
+    ],
+    "uncertainty_sources": [
+      "partial labels",
+      "metadata conflicts",
+      "equivalent valid answers",
+      "public benchmark versus enterprise-use boundary"
+    ],
+    "target_failure_mechanism": "a fluent answer that skips provenance, experimental unit, evidence boundary, or handoff rules"
+  },
+  "shortcut_probes": [
+    "keyword or company-name matching",
+    "constant prediction or always-support response",
+    "file-count and output-volume heuristics",
+    "copying public benchmark labels or leaderboard answers"
+  ],
+  "baseline_matrix": [
+    {
+      "strategy": "reference_solution",
+      "purpose": "prove a valid solution exists",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "purpose": "measure whether the task is only direct computation",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "always_abstain",
+      "purpose": "test whether conservative non-answering is over-rewarded",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "template_or_keyword",
+      "purpose": "test prompt and label shortcuts",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "target_model",
+      "purpose": "measure autonomous reasoning and tool use",
+      "expected_status": "NOT_RUN"
+    }
+  ],
+  "difficulty_dimensions": [
+    "scientific_judgment",
+    "evidence_reconciliation",
+    "tool_and_trace_reliability",
+    "claim_boundary",
+    "artifact_completeness"
+  ],
+  "status": "DRAFT"
+}

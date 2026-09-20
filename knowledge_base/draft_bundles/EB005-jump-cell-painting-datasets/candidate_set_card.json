@@ -1,0 +1,63 @@
+{
+  "candidate_set_id": "CSET-EB005-DRAFT",
+  "source_benchmark_id": "EB005",
+  "candidates": [
+    {
+      "candidate_id": "eb005-decision-gate-001",
+      "decision": "identify robust phenotype similarity or target associations across plates and batches",
+      "unit": "well/plate or compound after replicate aggregation",
+      "error_consequence": "batch leakage; pseudoreplication; false mechanism assignment",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "handoff": "images_and_metadata->profiles",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb005-evidence-boundary-002",
+      "decision": "which claims are supported, uncertain, or blocked by the available evidence",
+      "unit": "well/plate or compound after replicate aggregation",
+      "error_consequence": "unsupported claim or premature escalation",
+      "semantic_axes": [
+        "visible_evidence",
+        "claim_boundary",
+        "evaluation_contract"
+      ],
+      "handoff": "profiles->retrieval_or_DTI_rank",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb005-handoff-review-003",
+      "decision": "whether to proceed, stop, or request human review at the next workflow handoff",
+      "unit": "well/plate or compound after replicate aggregation",
+      "error_consequence": "wasted experiment, invalid analysis handoff, or audit failure",
+      "semantic_axes": [
+        "enterprise_context",
+        "handoff",
+        "stopping_rule"
+      ],
+      "handoff": "human_review->next_stage",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "unit",
+    "error_consequence",
+    "handoff",
+    "stopping_rule"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "open_questions": [
+    "which candidate has a real enterprise owner?",
+    "which candidate has an independent truth route?"
+  ],
+  "status": "DRAFT"
+}

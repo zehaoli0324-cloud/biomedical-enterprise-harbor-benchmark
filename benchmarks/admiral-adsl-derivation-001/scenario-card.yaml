@@ -1,0 +1,62 @@
+scenario_id: admiral-adsl-derivation
+status: contract_only
+source_scenarios: [EW04]
+domain: biomedical_enterprise
+stage: clinical_statistics
+research_role: statistical_programmer
+scientific_context:
+  object: subject-level clinical analysis dataset derived from synthetic SDTM domains
+  question: can the subject-level treatment and population flags be derived under the frozen study rules?
+  decision: hand off an auditable ADSL-like dataset to downstream time-to-event analysis, or hold for review
+  consequence_of_error: incorrect population flags or treatment dates can change the estimand and invalidate downstream tables
+scientific_judgments:
+  - study_rule_and_analysis_population
+  - date_cutoff_and_exposure_interpretation
+  - derivation_trace_and_claim_boundary
+workflow_handoffs:
+  - from: sdtm_dm_and_ex
+    to: subject_level_derivation
+    artifact: outputs/adsl.csv
+    invariant: one output row exists for every DM subject and every flag follows the frozen rules
+  - from: subject_level_derivation
+    to: audit_review
+    artifact: outputs/derivation_trace.csv
+    invariant: every non-trivial value cites a source domain/row and rule identifier
+  - from: audit_review
+    to: downstream_adtte_handoff
+    artifact: outputs/audit_report.json
+    invariant: edge cases and hold conditions are explicit before downstream analysis
+required_artifacts:
+  - outputs/adsl.csv
+  - outputs/derivation_trace.csv
+  - outputs/audit_report.json
+  - outputs/run_manifest.json
+  - outputs/derivation_notes.md
+failure_injections:
+  - id: screen-failure
+    trigger: SUBJ-003 has no RFSTDTC and ARMCD=SCRN
+    expected_behavior: preserve the subject, set ITTFL/SAFFL/PPROTFL to N, and explain the exclusion
+    verifier_signal: screen_failure_handled
+  - id: no-exposure
+    trigger: SUBJ-006 is randomized but has no EX record
+    expected_behavior: retain ITTFL=Y but set SAFFL and PPROTFL to N
+    verifier_signal: no_exposure_handled
+  - id: missing-end-date
+    trigger: SUBJ-004 has treatment exposure but no RFENDTC
+    expected_behavior: derive treatment dates but block PPROTFL
+    verifier_signal: missing_end_date_handled
+  - id: cutoff-truncation
+    trigger: SUBJ-005 exposure ends after the cutoff
+    expected_behavior: cap TRTEDT at the cutoff and mark the derivation type
+    verifier_signal: cutoff_cap_handled
+release_gates:
+  scientific_reality: pending
+  observability: pass
+  verifiability: pass
+  naive_resistance: pending
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run
+open_questions:
+  - Which licensed, version-pinned public admiral example data can replace this synthetic fixture?
+  - Which sponsor-specific estimand and population rules would be frozen for a production task?

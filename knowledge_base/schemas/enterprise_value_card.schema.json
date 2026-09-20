@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_value_card.v1",
+  "type": "object",
+  "required": ["enterprise_value_card_id", "task_id", "enterprise_reality", "utility_hypothesis", "novelty", "status"],
+  "properties": {
+    "enterprise_value_card_id": {"type": "string", "pattern": "^VALUE-"},
+    "task_id": {"type": "string"},
+    "enterprise_reality": {"type": "object"},
+    "utility_hypothesis": {"type": "object"},
+    "novelty": {"type": "object"},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "VERIFIED", "BLOCKED"]}
+  }
+}

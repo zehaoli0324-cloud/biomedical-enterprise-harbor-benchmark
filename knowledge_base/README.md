@@ -17,10 +17,11 @@
 source_record
   -> enterprise_benchmark_record
   -> enterprise_workflow_card
-  -> transformation_card
-  -> data_card + evaluation_card + risk_card
-  -> harbor_delivery_card
-  -> model_trial_card / review_card
+  -> candidate_set_card (3-5 decisions)
+  -> transformation_card + enterprise_value_card
+  -> data_card + evaluation_card + control_plan_card
+  -> difficulty_card + training_value_card + model_trial_card
+  -> risk_card + harbor_delivery_card + review_card
 ```
 
 一个来源可以有多个 benchmark，一个 benchmark 可以派生多个改题版本；每个派生版本都必须保留 source/version/hash 链，不能在原题目录上原地覆盖。
@@ -32,6 +33,7 @@ source_record
 - [`registry/transformation_patterns.jsonl`](registry/transformation_patterns.jsonl)：可复用的改题模式，不代表已经完成的题包。
 - [`seeds/official_sources.json`](seeds/official_sources.json)：爬取入口、来源类型和待核验项。
 - [`schemas/`](schemas/)：source、benchmark、workflow、transformation、data、evaluation、risk、Harbor 和 review 卡的最小契约。
+- [`registry/enterprise_quality_modules.json`](registry/enterprise_quality_modules.json)：企业真实性、业务价值、GPT 难度、训练价值、控制校准和模型试跑模块目录。
 - [`templates/`](templates/)：新记录和新改题版本的作者模板。
 - [`draft_bundles/`](draft_bundles/)：由登记表批量生成的改题卡骨架；所有 bundle 默认处于 `DRAFT`，必须经过来源、许可、真值、隔离和试跑审核。
 - [`harvest/README.md`](harvest/README.md)：原始页面快照、哈希和抓取日志的保存规范。
@@ -41,6 +43,17 @@ source_record
 `observed` 只表示已经读取页面或仓库；`verified` 还需要固定版本、可复查定位和许可/归属证据；`ready_for_redesign` 还需要独立数据、真值和 verifier 路线。搜索摘要、二手博客和模型生成文本不能单独把记录升级为 `verified`。
 
 真实性类别沿用项目主仓库：`A` 企业真实实验/项目数据，`B` 企业发布的公共 benchmark，`C` 多企业联盟，`W` 企业公开工作流，`S` 模拟/增强 fixture。
+
+## 企业意义与 GPT 难度门
+
+企业版本只有同时通过两组门，才值得进入 Harbor 构建：
+
+- **企业意义门：**卡片必须写清真实角色、决策、下游动作、错误代价、人审 owner 和采用/暂停规则；“企业名称 + 公开数据”不算真实任务。
+- **新意门：**相对来源 benchmark 至少改变两个语义维度，并且改变业务决策、失败机制或真值路线之一；只改 prompt、文件名、输出格式、阈值或工具数量不算派生题。
+- **GPT 难度门：**任务必须需要证据整合、竞争性选择、状态依赖或主张边界控制，并通过关键词、常数预测、始终支持、始终弃答和公开答案复制等捷径探针。
+- **训练价值门：**错误必须能定位到输入理解、方法选择、计算/工具、证据、主张边界或交付；还要有留出轴、污染控制和迁移探针，证明学到的是能力而不是答案记忆。
+
+这四组门由 `enterprise_value_card`、`candidate_set_card`、`control_plan_card`、`difficulty_card`、`training_value_card` 和 `model_trial_card` 承载。它们默认是 `DRAFT`/`NOT_RUN`，不能代替领域专家、许可和真实模型试跑。
 
 ## 推荐收集顺序
 

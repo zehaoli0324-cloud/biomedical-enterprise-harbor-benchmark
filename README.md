@@ -34,9 +34,13 @@ enterprise workflow / source evidence
 
 参考仓库中的 [`literature-screening-m1-001`](benchmarks/literature-screening-m1-001/) 保留为通用文献筛选校准样例，用来回归 builder 和 verifier 管线。
 
+[`admiral-adsl-derivation-001`](benchmarks/admiral-adsl-derivation-001/) 是第二个企业风格校准切片：它把公开 pharmaverse 工作流映射为 SDTM-like 输入到 ADSL-like 输出的规则派生、lineage、cutoff 和 downstream ADTTE handoff。它明确是 synthetic fixture，当前保持 `contract_only`，不声称 sponsor 数据、临床结论或生产规则。
+
 ## 企业知识库与改题
 
-企业来源登记和官方页面 harvest 位于 [`knowledge_base/`](knowledge_base/)，改题卡链和企业版流程见 [`docs/enterprise-redesign-pipeline.md`](docs/enterprise-redesign-pipeline.md)。知识库当前登记 12 个企业/联盟 benchmark、5 类工作流和 6 个可复用改题模式；这些记录仍按 `observed` / `verified` / `ready_for_harbor` 分级，不把网页摘要直接当成已授权或已验收题源。
+企业来源登记和官方页面 harvest 位于 [`knowledge_base/`](knowledge_base/)，改题卡链和企业版流程见 [`docs/enterprise-redesign-pipeline.md`](docs/enterprise-redesign-pipeline.md)。知识库当前登记 12 个企业/联盟 benchmark、5 类工作流和 10 个可复用改题模式；这些记录仍按 `observed` / `verified` / `ready_for_harbor` 分级，不把网页摘要直接当成已授权或已验收题源。
+
+每个新版 bundle 还会生成六张质量卡：3-5 候选的 `candidate_set`、企业意义和采用规则的 `enterprise_value`、正/负/不变性/证据不足对照的 `control_plan`、GPT 难度假设的 `difficulty`、能力标签和迁移/污染控制的 `training_value`，以及固定策略矩阵和错误归因的 `model_trial`。这些卡片把“对企业有用”和“对 GPT 难且有训练价值”从描述性要求变成可审核的字段与发布门。
 
 ```bash
 python3 scripts/validate_knowledge_base.py
@@ -91,6 +95,8 @@ python3 -m pytest
 3. 公开数据必须披露改编关系，并通过新切分、失败注入或新业务规则降低答案捷径。
 4. verifier 必须独立重算关键结果，不能只检查文件存在或 agent 自报分数。
 5. 当真值、许可或输入不足时，任务状态应为 `candidate` / `needs-data`，而不是伪装成 `ready`。
+
+企业题的验收不是“来源看起来像企业”或“模型分数下降”。请先阅读 [`docs/enterprise-value-and-gpt-difficulty.md`](docs/enterprise-value-and-gpt-difficulty.md)，其中定义真实工作节点、业务采用规则、语义新意、控制案例、GPT 难度、训练信号和模型试跑的分离门。
 
 ## 参考来源
 

@@ -1,0 +1,32 @@
+{
+  "enterprise_value_card_id": "VALUE-EB012-DRAFT",
+  "task_id": "eb012-candidate-001",
+  "enterprise_reality": {
+    "evidence_class": "A",
+    "real_work_node": "discovery_and_lead_optimization",
+    "named_role": "DMPK_or_computational_chemist",
+    "decision": "which compounds or endpoints are reliable enough for the next modeling or experimental round",
+    "downstream_action": "pending confirmation with an enterprise practitioner",
+    "error_consequence": "leakage; wrong endpoint transformation; overconfident lead ranking",
+    "human_owner": "unresolved"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "reduce false escalation and prevent invalid downstream handoff",
+    "cycle_time_or_cost": "not estimated",
+    "risk_reduction": "detect data, evidence, or claim-boundary failures before the next stage",
+    "adoption_test": "an independent practitioner can state the proceed/stop/review rule from the artifact"
+  },
+  "novelty": {
+    "source_gap": "pending source and practitioner review",
+    "new_information_or_control": "requires an explicit business decision and auditable handoff, not only a benchmark score",
+    "not_surface_variant": true
+  },
+  "required_evidence": [
+    "named_role",
+    "decision",
+    "downstream_action",
+    "error_consequence",
+    "human_owner"
+  ],
+  "status": "DRAFT"
+}

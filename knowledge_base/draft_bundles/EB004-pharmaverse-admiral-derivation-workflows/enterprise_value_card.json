@@ -1,0 +1,32 @@
+{
+  "enterprise_value_card_id": "VALUE-EB004-DRAFT",
+  "task_id": "eb004-candidate-001",
+  "enterprise_reality": {
+    "evidence_class": "W",
+    "real_work_node": "clinical_statistics",
+    "named_role": "statistical_programmer",
+    "decision": "derive analysis-ready data under a pre-specified study rule set",
+    "downstream_action": "pending confirmation with an enterprise practitioner",
+    "error_consequence": "wrong estimand; incorrect event/censoring; audit failure",
+    "human_owner": "unresolved"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "reduce false escalation and prevent invalid downstream handoff",
+    "cycle_time_or_cost": "not estimated",
+    "risk_reduction": "detect data, evidence, or claim-boundary failures before the next stage",
+    "adoption_test": "an independent practitioner can state the proceed/stop/review rule from the artifact"
+  },
+  "novelty": {
+    "source_gap": "pending source and practitioner review",
+    "new_information_or_control": "requires an explicit business decision and auditable handoff, not only a benchmark score",
+    "not_surface_variant": true
+  },
+  "required_evidence": [
+    "named_role",
+    "decision",
+    "downstream_action",
+    "error_consequence",
+    "human_owner"
+  ],
+  "status": "DRAFT"
+}

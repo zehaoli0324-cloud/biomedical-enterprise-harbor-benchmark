@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_control_plan_card.v1",
+  "type": "object",
+  "required": ["control_plan_id", "task_id", "controls", "single_factor_policy", "status"],
+  "properties": {
+    "control_plan_id": {"type": "string", "pattern": "^CONTROL-"},
+    "task_id": {"type": "string"},
+    "controls": {"type": "array", "minItems": 4},
+    "single_factor_policy": {"type": "boolean"},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "CALIBRATED", "BLOCKED"]}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_difficulty_card.v1",
+  "type": "object",
+  "required": ["difficulty_card_id", "task_id", "difficulty_hypothesis", "shortcut_probes", "baseline_matrix", "status"],
+  "properties": {
+    "difficulty_card_id": {"type": "string", "pattern": "^DIFF-"},
+    "task_id": {"type": "string"},
+    "difficulty_hypothesis": {"type": "object"},
+    "shortcut_probes": {"type": "array", "minItems": 3},
+    "baseline_matrix": {"type": "array", "minItems": 4},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "CALIBRATED", "BLOCKED"]}
+  }
+}

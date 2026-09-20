@@ -1,0 +1,63 @@
+{
+  "candidate_set_id": "CSET-EB007-DRAFT",
+  "source_benchmark_id": "EB007",
+  "candidates": [
+    {
+      "candidate_id": "eb007-decision-gate-001",
+      "decision": "assess rank and error of relative binding free-energy predictions",
+      "unit": "unresolved",
+      "error_consequence": "downstream decision may be wrong",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "handoff": "input->analysis->decision",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb007-evidence-boundary-002",
+      "decision": "which claims are supported, uncertain, or blocked by the available evidence",
+      "unit": "unresolved",
+      "error_consequence": "unsupported claim or premature escalation",
+      "semantic_axes": [
+        "visible_evidence",
+        "claim_boundary",
+        "evaluation_contract"
+      ],
+      "handoff": "input->analysis->decision",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb007-handoff-review-003",
+      "decision": "whether to proceed, stop, or request human review at the next workflow handoff",
+      "unit": "unresolved",
+      "error_consequence": "wasted experiment, invalid analysis handoff, or audit failure",
+      "semantic_axes": [
+        "enterprise_context",
+        "handoff",
+        "stopping_rule"
+      ],
+      "handoff": "human_review->next_stage",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "unit",
+    "error_consequence",
+    "handoff",
+    "stopping_rule"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "open_questions": [
+    "which candidate has a real enterprise owner?",
+    "which candidate has an independent truth route?"
+  ],
+  "status": "DRAFT"
+}

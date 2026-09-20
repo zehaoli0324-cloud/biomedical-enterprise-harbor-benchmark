@@ -1,0 +1,65 @@
+{
+  "schema_version": "enterprise_quality_modules.v1",
+  "modules": [
+    {
+      "module_id": "EV01",
+      "name": "enterprise_decision_value",
+      "purpose": "证明任务对应真实企业决策，而不是把公开数据换成企业措辞",
+      "required_evidence": ["named_role", "decision", "downstream_action", "error_consequence"]
+    },
+    {
+      "module_id": "EV02",
+      "name": "handoff_and_adoption",
+      "purpose": "验证结果能进入下一环节，并定义实际采用或暂停的条件",
+      "required_evidence": ["handoff_artifact", "acceptance_rule", "human_owner"]
+    },
+    {
+      "module_id": "CD01",
+      "name": "candidate_diversification",
+      "purpose": "从一个来源展开 3-5 个不同决策候选并做语义去重",
+      "required_evidence": ["candidate_set", "deduplication_axes", "selection_gate"]
+    },
+    {
+      "module_id": "CD02",
+      "name": "control_and_calibration",
+      "purpose": "用正例、负例、不变性和证据不足例校准 verifier 与 rubric",
+      "required_evidence": ["positive_case", "negative_case", "invariance_case", "insufficient_evidence_case"]
+    },
+    {
+      "module_id": "GPT01",
+      "name": "multi_step_reasoning",
+      "purpose": "让任务包含证据整合、竞争性选择、状态依赖和可审计交付",
+      "required_evidence": ["reasoning_chain", "competing_choices", "stateful_dependencies"]
+    },
+    {
+      "module_id": "GPT02",
+      "name": "shortcut_resistance",
+      "purpose": "证明关键词、文件数量、公开答案和始终支持/弃答不能稳定得分",
+      "required_evidence": ["shortcut_probes", "baseline_strategies", "hidden_oracle"]
+    },
+    {
+      "module_id": "TV01",
+      "name": "training_signal_quality",
+      "purpose": "把科学错误拆成可学习、可定位、可反馈的标签",
+      "required_evidence": ["capability_targets", "error_labels", "feedback_granularity"]
+    },
+    {
+      "module_id": "TV02",
+      "name": "generalization_and_contamination",
+      "purpose": "验证题目训练出的能力可迁移且不依赖来源答案记忆",
+      "required_evidence": ["held_out_axis", "contamination_control", "transfer_probe"]
+    },
+    {
+      "module_id": "TR01",
+      "name": "controlled_model_trial",
+      "purpose": "用固定策略矩阵测量任务难度，不把一次失败直接解释成模型能力",
+      "required_evidence": ["reference", "simple_baseline", "abstain_baseline", "target_model"]
+    },
+    {
+      "module_id": "TR02",
+      "name": "failure_attribution",
+      "purpose": "区分输入理解、方法选择、计算、证据、主张边界和交付失败",
+      "required_evidence": ["attribution_taxonomy", "run_trace", "criterion_scores"]
+    }
+  ]
+}

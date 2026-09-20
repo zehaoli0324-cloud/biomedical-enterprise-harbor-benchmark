@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_model_trial_card.v1",
+  "type": "object",
+  "required": ["model_trial_card_id", "task_id", "strategies", "score_dimensions", "failure_attribution_taxonomy", "status"],
+  "properties": {
+    "model_trial_card_id": {"type": "string", "pattern": "^TRIAL-"},
+    "task_id": {"type": "string"},
+    "strategies": {"type": "array", "minItems": 4},
+    "score_dimensions": {"type": "array", "minItems": 5},
+    "failure_attribution_taxonomy": {"type": "array", "minItems": 4},
+    "status": {"enum": ["NOT_RUN", "RUNNING", "COMPLETE", "BLOCKED"]}
+  }
+}

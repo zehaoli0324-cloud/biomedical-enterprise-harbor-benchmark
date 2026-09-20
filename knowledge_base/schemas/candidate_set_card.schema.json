@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_candidate_set_card.v1",
+  "type": "object",
+  "required": ["candidate_set_id", "source_benchmark_id", "candidates", "deduplication_axes", "selection_gate", "status"],
+  "properties": {
+    "candidate_set_id": {"type": "string", "pattern": "^CSET-"},
+    "source_benchmark_id": {"type": "string"},
+    "candidates": {"type": "array", "minItems": 3, "maxItems": 5},
+    "deduplication_axes": {"type": "array", "minItems": 3},
+    "selection_gate": {"type": "object"},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "SELECTED", "BLOCKED"]}
+  }
+}

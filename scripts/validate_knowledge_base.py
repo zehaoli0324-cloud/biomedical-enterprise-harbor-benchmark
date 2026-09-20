@@ -45,10 +45,21 @@ def main() -> int:
     sources = read_jsonl(root / "registry/enterprise_benchmarks.jsonl") if (root / "registry/enterprise_benchmarks.jsonl").exists() else []
     workflows = read_jsonl(root / "registry/workflows.jsonl") if (root / "registry/workflows.jsonl").exists() else []
     patterns = read_jsonl(root / "registry/transformation_patterns.jsonl") if (root / "registry/transformation_patterns.jsonl").exists() else []
+    quality_modules_path = root / "registry/enterprise_quality_modules.json"
+    quality_modules = json.loads(quality_modules_path.read_text(encoding="utf-8")) if quality_modules_path.exists() else {"modules": []}
     source_index = check_unique(sources, "benchmark_id", "benchmarks", errors)
     workflow_index = check_unique(workflows, "workflow_id", "workflows", errors)
     pattern_index = check_unique(patterns, "pattern_id", "patterns", errors)
     del workflow_index, pattern_index
+    module_rows = quality_modules.get("modules", [])
+    module_ids = {row.get("module_id") for row in module_rows if isinstance(row, dict)}
+    if len(module_ids) != len(module_rows) or None in module_ids:
+        errors.append("quality modules: duplicate or missing module_id")
+    if len(module_rows) < 8:
+        errors.append("quality modules: expected at least 8 enterprise quality modules")
+    for row in module_rows:
+        if not row.get("name") or not row.get("purpose") or not row.get("required_evidence"):
+            errors.append(f"quality module {row.get('module_id')}: name, purpose, and required_evidence are required")
     seeds = json.loads((root / "seeds/official_sources.json").read_text(encoding="utf-8"))
     seed_ids = {row.get("source_id") for row in seeds}
     benchmark_ids = set(source_index)
@@ -67,7 +78,7 @@ def main() -> int:
             errors.append(f"{row.get('workflow_id')}: workflow requires at least one handoff")
         if not row.get("claim_boundary"):
             errors.append(f"{row.get('workflow_id')}: claim_boundary is required")
-    print(json.dumps({"valid": not errors, "counts": {"benchmarks": len(sources), "workflows": len(workflows), "patterns": len(patterns)}, "errors": errors}, ensure_ascii=False, indent=2))
+    print(json.dumps({"valid": not errors, "counts": {"benchmarks": len(sources), "workflows": len(workflows), "patterns": len(patterns), "quality_modules": len(module_rows)}, "errors": errors}, ensure_ascii=False, indent=2))
     return 0 if not errors else 1
 
 

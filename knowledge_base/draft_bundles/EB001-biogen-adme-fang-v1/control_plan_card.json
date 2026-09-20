@@ -1,0 +1,46 @@
+{
+  "control_plan_id": "CONTROL-EB001-DRAFT",
+  "task_id": "eb001-candidate-001",
+  "controls": [
+    {
+      "control_id": "positive-sufficient-evidence",
+      "kind": "positive",
+      "input_change": "valid evidence and analyzable metadata",
+      "expected_behavior": "make the supported decision with evidence",
+      "verifier_signal": "decision_and_evidence_match",
+      "status": "NOT_RUN"
+    },
+    {
+      "control_id": "negative-invalid-input",
+      "kind": "negative",
+      "input_change": "conflicting metadata, units, or schema",
+      "expected_behavior": "detect the defect and stop or downgrade the claim",
+      "verifier_signal": "defect_reported_and_no_unsafe_completion",
+      "status": "NOT_RUN"
+    },
+    {
+      "control_id": "invariance-benign-reorder",
+      "kind": "invariance",
+      "input_change": "legal row/order or filename permutation",
+      "expected_behavior": "preserve the decision and key metrics",
+      "verifier_signal": "equivalent_result_class",
+      "status": "NOT_RUN"
+    },
+    {
+      "control_id": "insufficient-evidence",
+      "kind": "insufficient_evidence",
+      "input_change": "remove one necessary evidence source",
+      "expected_behavior": "separate supported claims from unresolved claims",
+      "verifier_signal": "bounded_abstention",
+      "status": "NOT_RUN"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "NOT_RUN",
+  "release_blockers": [
+    "execute positive/negative/invariance controls",
+    "verify expected relations",
+    "record false-positive and false-negative cases"
+  ],
+  "status": "DRAFT"
+}

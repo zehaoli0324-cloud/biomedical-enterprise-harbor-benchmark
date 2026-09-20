@@ -1,0 +1,31 @@
+{
+  "training_value_card_id": "TRAIN-EB004-DRAFT",
+  "task_id": "eb004-candidate-001",
+  "capability_targets": [
+    "schema and provenance inspection",
+    "experimental-unit and split reasoning",
+    "evidence-grounded decision making",
+    "uncertainty and claim-boundary control"
+  ],
+  "error_labels": [
+    "input_understanding",
+    "method_choice",
+    "calculation_or_tool",
+    "evidence_misuse",
+    "claim_overreach",
+    "delivery_failure"
+  ],
+  "feedback_granularity": [
+    "artifact-level",
+    "criterion-level",
+    "claim-level",
+    "failure-injection-level"
+  ],
+  "generalization_plan": {
+    "held_out_axis": "organization, molecule/sample/plate identity, or source version",
+    "contamination_control": "freeze source commit and hold out entity-level inputs; do not expose hidden labels or author oracle",
+    "transfer_probe": "evaluate a new instance with the same decision contract but different evidence and failure mechanism"
+  },
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "DRAFT"
+}

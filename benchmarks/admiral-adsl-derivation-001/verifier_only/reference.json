@@ -1,0 +1,8 @@
+{
+  "edge_cases": [
+    {"id": "SUBJ-003", "type": "screen_failure"},
+    {"id": "SUBJ-004", "type": "missing_rfendtc"},
+    {"id": "SUBJ-005", "type": "cutoff_capping"},
+    {"id": "SUBJ-006", "type": "no_exposure"}
+  ]
+}

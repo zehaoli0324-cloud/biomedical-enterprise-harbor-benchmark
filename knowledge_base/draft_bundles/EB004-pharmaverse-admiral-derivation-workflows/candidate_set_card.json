@@ -1,0 +1,63 @@
+{
+  "candidate_set_id": "CSET-EB004-DRAFT",
+  "source_benchmark_id": "EB004",
+  "candidates": [
+    {
+      "candidate_id": "eb004-decision-gate-001",
+      "decision": "derive analysis-ready data under a pre-specified study rule set",
+      "unit": "subject and parameter/event record",
+      "error_consequence": "wrong estimand; incorrect event/censoring; audit failure",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "handoff": "SDTM->ADSL_or_ADTTE",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb004-evidence-boundary-002",
+      "decision": "which claims are supported, uncertain, or blocked by the available evidence",
+      "unit": "subject and parameter/event record",
+      "error_consequence": "unsupported claim or premature escalation",
+      "semantic_axes": [
+        "visible_evidence",
+        "claim_boundary",
+        "evaluation_contract"
+      ],
+      "handoff": "analysis->review_record",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb004-handoff-review-003",
+      "decision": "whether to proceed, stop, or request human review at the next workflow handoff",
+      "unit": "subject and parameter/event record",
+      "error_consequence": "wasted experiment, invalid analysis handoff, or audit failure",
+      "semantic_axes": [
+        "enterprise_context",
+        "handoff",
+        "stopping_rule"
+      ],
+      "handoff": "human_review->next_stage",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "unit",
+    "error_consequence",
+    "handoff",
+    "stopping_rule"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "open_questions": [
+    "which candidate has a real enterprise owner?",
+    "which candidate has an independent truth route?"
+  ],
+  "status": "DRAFT"
+}

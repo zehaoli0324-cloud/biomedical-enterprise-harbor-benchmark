@@ -1,0 +1,63 @@
+{
+  "candidate_set_id": "CSET-EB003-DRAFT",
+  "source_benchmark_id": "EB003",
+  "candidates": [
+    {
+      "candidate_id": "eb003-decision-gate-001",
+      "decision": "produce a reproducible analysis artifact or stop when evidence is insufficient",
+      "unit": "sample, perturbation, or task-specific entity",
+      "error_consequence": "wrong sample mapping; false biological claim; non-reproducible handoff",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "handoff": "raw_files->validated_inputs",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb003-evidence-boundary-002",
+      "decision": "which claims are supported, uncertain, or blocked by the available evidence",
+      "unit": "sample, perturbation, or task-specific entity",
+      "error_consequence": "unsupported claim or premature escalation",
+      "semantic_axes": [
+        "visible_evidence",
+        "claim_boundary",
+        "evaluation_contract"
+      ],
+      "handoff": "analysis->claim_ledger",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb003-handoff-review-003",
+      "decision": "whether to proceed, stop, or request human review at the next workflow handoff",
+      "unit": "sample, perturbation, or task-specific entity",
+      "error_consequence": "wasted experiment, invalid analysis handoff, or audit failure",
+      "semantic_axes": [
+        "enterprise_context",
+        "handoff",
+        "stopping_rule"
+      ],
+      "handoff": "human_review->next_stage",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "unit",
+    "error_consequence",
+    "handoff",
+    "stopping_rule"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "open_questions": [
+    "which candidate has a real enterprise owner?",
+    "which candidate has an independent truth route?"
+  ],
+  "status": "DRAFT"
+}

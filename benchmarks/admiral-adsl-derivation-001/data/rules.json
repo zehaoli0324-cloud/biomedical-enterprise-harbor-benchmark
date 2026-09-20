@@ -1,0 +1,16 @@
+{
+  "rules_version": "admiral-adsl-synthetic-v1",
+  "analysis_cutoff": "2024-02-28",
+  "randomized_armcd": ["PBO", "TRT"],
+  "arm_labels": {
+    "PBO": "Placebo",
+    "TRT": "Active treatment",
+    "SCRN": "Screen failure"
+  },
+  "exposure_rule": "treated if at least one EX record has EXSTDTC on or before the cutoff and EXDOSE > 0",
+  "treatment_start_rule": "TRTSDT is the earliest qualifying EXSTDTC",
+  "treatment_end_rule": "TRTEDT is the latest qualifying EXENDTC; a missing EXENDTC falls back to EXSTDTC; a date after the cutoff is capped at the cutoff and marked CUTOFF",
+  "itt_rule": "ITTFL=Y when ARMCD is randomized and RFSTDTC is present",
+  "safety_rule": "SAFFL=Y when the subject meets the exposure rule",
+  "per_protocol_rule": "PPROTFL=Y only when ITTFL=Y, SAFFL=Y, RFENDTC is present and RFENDTC is on or before the cutoff"
+}

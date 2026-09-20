@@ -1,0 +1,32 @@
+{
+  "enterprise_value_card_id": "VALUE-EB007-DRAFT",
+  "task_id": "eb007-candidate-001",
+  "enterprise_reality": {
+    "evidence_class": "B",
+    "real_work_node": "unresolved",
+    "named_role": "unresolved",
+    "decision": "assess rank and error of relative binding free-energy predictions",
+    "downstream_action": "pending confirmation with an enterprise practitioner",
+    "error_consequence": "downstream decision may be wrong",
+    "human_owner": "unresolved"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "reduce false escalation and prevent invalid downstream handoff",
+    "cycle_time_or_cost": "not estimated",
+    "risk_reduction": "detect data, evidence, or claim-boundary failures before the next stage",
+    "adoption_test": "an independent practitioner can state the proceed/stop/review rule from the artifact"
+  },
+  "novelty": {
+    "source_gap": "pending source and practitioner review",
+    "new_information_or_control": "requires an explicit business decision and auditable handoff, not only a benchmark score",
+    "not_surface_variant": true
+  },
+  "required_evidence": [
+    "named_role",
+    "decision",
+    "downstream_action",
+    "error_consequence",
+    "human_owner"
+  ],
+  "status": "DRAFT"
+}

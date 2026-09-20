@@ -1,0 +1,32 @@
+{
+  "enterprise_value_card_id": "VALUE-EB005-DRAFT",
+  "task_id": "eb005-candidate-001",
+  "enterprise_reality": {
+    "evidence_class": "C",
+    "real_work_node": "high_content_screening",
+    "named_role": "image_analysis_or_phenomics_scientist",
+    "decision": "identify robust phenotype similarity or target associations across plates and batches",
+    "downstream_action": "pending confirmation with an enterprise practitioner",
+    "error_consequence": "batch leakage; pseudoreplication; false mechanism assignment",
+    "human_owner": "unresolved"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "reduce false escalation and prevent invalid downstream handoff",
+    "cycle_time_or_cost": "not estimated",
+    "risk_reduction": "detect data, evidence, or claim-boundary failures before the next stage",
+    "adoption_test": "an independent practitioner can state the proceed/stop/review rule from the artifact"
+  },
+  "novelty": {
+    "source_gap": "pending source and practitioner review",
+    "new_information_or_control": "requires an explicit business decision and auditable handoff, not only a benchmark score",
+    "not_surface_variant": true
+  },
+  "required_evidence": [
+    "named_role",
+    "decision",
+    "downstream_action",
+    "error_consequence",
+    "human_owner"
+  ],
+  "status": "DRAFT"
+}

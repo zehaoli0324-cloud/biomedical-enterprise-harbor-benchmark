@@ -1,0 +1,63 @@
+{
+  "candidate_set_id": "CSET-EB001-DRAFT",
+  "source_benchmark_id": "EB001",
+  "candidates": [
+    {
+      "candidate_id": "eb001-decision-gate-001",
+      "decision": "which compounds or endpoints are reliable enough for the next modeling or experimental round",
+      "unit": "molecule or analog series, not raw assay row",
+      "error_consequence": "leakage; wrong endpoint transformation; overconfident lead ranking",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "handoff": "measurement_table->curated_split",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb001-evidence-boundary-002",
+      "decision": "which claims are supported, uncertain, or blocked by the available evidence",
+      "unit": "molecule or analog series, not raw assay row",
+      "error_consequence": "unsupported claim or premature escalation",
+      "semantic_axes": [
+        "visible_evidence",
+        "claim_boundary",
+        "evaluation_contract"
+      ],
+      "handoff": "prediction->uncertainty_and_candidate_review",
+      "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb001-handoff-review-003",
+      "decision": "whether to proceed, stop, or request human review at the next workflow handoff",
+      "unit": "molecule or analog series, not raw assay row",
+      "error_consequence": "wasted experiment, invalid analysis handoff, or audit failure",
+      "semantic_axes": [
+        "enterprise_context",
+        "handoff",
+        "stopping_rule"
+      ],
+      "handoff": "human_review->next_stage",
+      "selection_status": "PENDING"
+    }
+  ],
+  "deduplication_axes": [
+    "decision",
+    "unit",
+    "error_consequence",
+    "handoff",
+    "stopping_rule"
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "open_questions": [
+    "which candidate has a real enterprise owner?",
+    "which candidate has an independent truth route?"
+  ],
+  "status": "DRAFT"
+}

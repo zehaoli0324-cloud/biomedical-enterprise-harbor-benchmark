@@ -1,0 +1,45 @@
+{
+  "model_trial_card_id": "TRIAL-EB009-DRAFT",
+  "task_id": "eb009-candidate-001",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "fixed_config": {
+    "task_digest": null,
+    "input_hashes": [],
+    "model_version": null,
+    "tool_policy": null,
+    "budget": null,
+    "repeat_count": null
+  },
+  "score_dimensions": [
+    "scientific_correctness",
+    "evidence_grounding",
+    "decision_usefulness",
+    "artifact_completeness",
+    "reproducibility",
+    "uncertainty_and_claim_boundary",
+    "safety_and_human_review"
+  ],
+  "failure_attribution_taxonomy": [
+    "input_understanding",
+    "method_choice",
+    "calculation_or_tool",
+    "evidence_and_citation",
+    "claim_boundary",
+    "handoff_and_delivery"
+  ],
+  "training_value_evidence": {
+    "signal_quality": "NOT_RUN",
+    "error_localization": "NOT_RUN",
+    "generalization": "NOT_RUN",
+    "use_recommendation": "EVAL_ONLY_UNTIL_CALIBRATED"
+  },
+  "run_records": [],
+  "status": "NOT_RUN"
+}

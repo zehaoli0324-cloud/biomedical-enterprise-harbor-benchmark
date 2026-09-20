@@ -1,0 +1,80 @@
+id: admiral-adsl-derivation-001
+version: "0.1.0"
+status: ready_for_calibration
+title: "Rule-based SDTM to ADSL derivation with cutoff and population edge cases"
+domain: biomedical_enterprise
+stage: clinical_statistics
+scenario_ids: [EW04]
+scenario_card: scenario-card.yaml
+
+scientific_decision:
+  question: Can this subject-level analysis dataset be handed off to downstream ADTTE derivation under the frozen study rules?
+  target_claim_boundary: The task validates rule application and data lineage on a synthetic fixture; it does not establish a clinical result or sponsor analysis.
+  consequence_of_error: Incorrect flags or dates can change the analysis population and event-time estimand.
+
+agent_visible_inputs:
+  - path: data/dm.csv
+    format: CSV
+    contract: synthetic SDTM DM-like subject table
+  - path: data/ex.csv
+    format: CSV
+    contract: synthetic SDTM EX-like exposure table
+  - path: data/rules.json
+    format: JSON
+    contract: frozen derivation rules and cutoff
+
+constraints:
+  network: "off"
+  compute:
+    cpu_seconds: 30
+    memory_mb: 256
+  provenance:
+    record_input_checksum: true
+    record_tool_version: true
+    deterministic_output: true
+  safety:
+    scope: synthetic clinical-statistics derivation audit only
+    prohibited: do not present the fixture as patient data or as evidence of efficacy, safety, or regulatory compliance
+
+required_outputs:
+  - id: adsl
+    path: outputs/adsl.csv
+    required_fields: [USUBJID, ARMCD, TRT01P, ITTFL, SAFFL, PPROTFL, TRTSDT, TRTEDT, TRTEDT_DTYPE]
+  - id: derivation_trace
+    path: outputs/derivation_trace.csv
+    required_fields: [USUBJID, target_variable, source_domain, source_rows, rule_id, derived_value]
+  - id: audit_report
+    path: outputs/audit_report.json
+    required_fields: [schema_version, input_sha256, rules_version, summary, edge_cases, handoff, claim_boundary]
+  - id: derivation_notes
+    path: outputs/derivation_notes.md
+    required_fields: [screen failure, no exposure, missing RFENDTC, cutoff, synthetic]
+  - id: run_manifest
+    path: outputs/run_manifest.json
+    required_fields: [input_sha256, rules_version, tool_version, deterministic]
+
+evaluation:
+  hard_gates:
+    - id: HG1
+      rule: output contains exactly one row per DM subject and no fabricated subject IDs
+    - id: HG2
+      rule: flags and treatment dates match the frozen rule file, including cutoff behavior
+    - id: HG3
+      rule: every required derivation has source-to-target trace evidence
+    - id: HG4
+      rule: handoff and claim boundary do not overstate synthetic data as clinical evidence
+  weighted_scores:
+    row_level_derivation: 35
+    edge_case_handling: 25
+    trace_and_reproducibility: 25
+    claim_boundary: 15
+
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only
+  policy: do not mount into the agent-visible workspace
+
+provenance:
+  source_inventory: data/enterprise_workflow_inventory.csv
+  source_workflow: EW04 Roche + GSK / pharmaverse public clinical-statistics workflow
+  data_status: synthetic frozen fixture for contract calibration; not sponsor or patient data

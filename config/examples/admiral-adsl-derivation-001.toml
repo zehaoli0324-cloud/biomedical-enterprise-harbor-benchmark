@@ -1,0 +1,102 @@
+[task]
+id = "admiral-adsl-derivation-001"
+title = "Rule-based SDTM to ADSL derivation with cutoff and population edge cases"
+domain = "biomedical_enterprise"
+source_scenarios = ["EW04"]
+
+[scenario]
+card = "../../benchmarks/admiral-adsl-derivation-001/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 4
+weight = 1.2
+rationale = "A public clinical-statistics workflow is transformed into a subject-level derivation and downstream handoff decision."
+tags = ["clinical-statistics", "adsl", "handoff"]
+
+[difficulty.scientific_judgment]
+level = 4
+weight = 1.4
+rationale = "The agent must distinguish randomized, treated, and per-protocol populations and respect a frozen cutoff."
+tags = ["analysis-population", "date-boundary", "estimand"]
+
+[difficulty.computational_difficulty]
+level = 3
+weight = 1.0
+rationale = "The fixture requires deterministic joins, grouped exposure derivation, date capping, and exact row-level outputs."
+tags = ["csv", "groupby", "date-rules"]
+
+[difficulty.tool_call_complexity]
+level = 1
+weight = 0.6
+rationale = "The calibration task is offline and can be solved with standard-library tooling."
+tags = ["offline"]
+
+[difficulty.retrieval_complexity]
+level = 1
+weight = 0.6
+rationale = "The public workflow provenance is frozen in the task description; no external retrieval is needed."
+tags = ["frozen-input"]
+
+[difficulty.information_noise_complexity]
+level = 4
+weight = 1.1
+rationale = "Missing end dates, no exposure, screen failure, and post-cutoff exposure create competing derivation paths."
+tags = ["missingness", "edge-cases", "cutoff"]
+
+[difficulty.data_type_complexity]
+level = 3
+weight = 0.9
+rationale = "The task combines two relational CSV domains, a JSON rule contract, and structured audit artifacts."
+tags = ["csv", "json", "lineage"]
+
+[difficulty.data_complexity]
+level = 3
+weight = 1.0
+rationale = "Subject-level and exposure-level units must be reconciled without counting records as subjects."
+tags = ["subject-unit", "one-to-many"]
+
+[difficulty.environment_complexity]
+level = 1
+weight = 0.7
+rationale = "The verifier is deterministic, offline, and resource bounded."
+tags = ["deterministic", "offline"]
+
+[difficulty.mathematical_complexity]
+level = 2
+weight = 0.7
+rationale = "The task uses date comparisons and a cutoff operation but no model fitting."
+tags = ["date-comparison"]
+
+[difficulty.long_horizon_complexity]
+level = 3
+weight = 1.0
+rationale = "The output chain moves from schema inspection to derivation, trace, audit, and a gated handoff."
+tags = ["checkpointed", "artifact-handoff"]
+
+[difficulty.safety_risk]
+level = 3
+weight = 0.9
+rationale = "Clinical-statistics terminology creates a risk of overclaiming; the task requires an explicit synthetic-data boundary."
+tags = ["claim-safety", "human-review"]
+
+[modules]
+scenario = ["scenario_reproducibility_audit"]
+judgment = ["judgment_experimental_unit", "judgment_uncertainty_and_stop_rules", "judgment_causal_boundary"]
+compute = ["compute_data_schema_discovery", "compute_multistage_analysis"]
+noise = ["noise_metadata_conflict", "noise_missing_and_duplicate_inputs"]
+data = ["data_text_and_metadata"]
+data_complexity = ["complexity_replicates_and_batches", "complexity_sparse_or_missing"]
+environment = ["environment_offline_setup"]
+math = ["math_basic_units_and_rates"]
+horizon = ["horizon_checkpointed_workflow", "horizon_end_to_end_claim"]
+safety = ["safety_human_approval_gate", "safety_genetic_or_clinical_boundary"]
+
+[data]
+types = ["csv", "json", "markdown"]
+
+[constraints]
+network = "off"
+cpu_seconds = 30
+memory_mb = 256
+requires_input_checksum = true
+requires_deterministic_output = true

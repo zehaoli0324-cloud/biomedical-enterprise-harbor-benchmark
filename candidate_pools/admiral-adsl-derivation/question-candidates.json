@@ -1,0 +1,48 @@
+{
+  "schema_version": "enterprise-question-candidate-set.v1",
+  "workflow_id": "WF-ADAM-DERIVATION",
+  "source_benchmark_id": "EB004",
+  "status": "candidate_set",
+  "provenance": {
+    "source_card": "knowledge_base/draft_bundles/EB004-pharmaverse-admiral-derivation-workflows/source_card.json",
+    "workflow_card": "knowledge_base/draft_bundles/EB004-pharmaverse-admiral-derivation-workflows/workflow_card.json",
+    "source_status": "observed",
+    "data_status": "synthetic calibration fixture"
+  },
+  "selection_policy": {
+    "target_candidates": 3,
+    "variation_axes": ["scientific decision", "failure consequence", "downstream handoff"],
+    "note": "These are distinct decisions from one public workflow, not prompt variants. Only the first has been materialized as a runnable calibration slice."
+  },
+  "candidates": [
+    {
+      "candidate_id": "admiral-adsl-derivation-001",
+      "question": "Can subject-level treatment dates and ITT/SAFFL/PPROTFL flags be derived under a frozen cutoff and handed off to downstream ADTTE?",
+      "decision": "handoff or hold_for_review",
+      "independent_unit": "subject",
+      "failure_consequence": "wrong population membership or treatment dates change the estimand",
+      "observable_artifacts": ["adsl.csv", "derivation_trace.csv", "audit_report.json"],
+      "status": "materialized"
+    },
+    {
+      "candidate_id": "admiral-adtte-censoring-002",
+      "question": "For a time-to-event endpoint, which subject-level dates and event/censoring statuses are valid under a prespecified cutoff and missing-date policy?",
+      "decision": "event/censoring derivation or hold_for_review",
+      "independent_unit": "subject-parameter",
+      "failure_consequence": "incorrect censoring changes the estimand and survival summary",
+      "observable_artifacts": ["adtte.csv", "event_trace.csv", "censoring_audit.json"],
+      "status": "needs-data",
+      "blockers": ["freeze endpoint definition", "author independent event oracle", "select licensed example data"]
+    },
+    {
+      "candidate_id": "admiral-derivation-rule-audit-003",
+      "question": "Does a derivation program implement the declared SDTM-to-ADaM rules across edge cases and preserve row-level lineage?",
+      "decision": "accept, revise, or reject derivation implementation",
+      "independent_unit": "subject-rule assertion",
+      "failure_consequence": "a plausible-looking table can pass review while violating a study rule",
+      "observable_artifacts": ["rule_matrix.csv", "counterexample_report.json", "rerun_manifest.json"],
+      "status": "candidate",
+      "open_questions": ["write adversarial mutation fixtures", "define accepted equivalent implementations"]
+    }
+  ]
+}

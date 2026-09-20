@@ -60,6 +60,21 @@
 
 最后才生成 Harbor task package。`harbor_delivery_card` 必须把 agent-visible、author-only 和 verifier-only 分开，登记 `task.toml`/`instruction.md`/environment/verifier/oracle/reference solution、资源和网络策略。Harbor 的目录通过之后，仍需科学、许可、隐私和模型试跑门。
 
+## 新增质量模块
+
+企业版在科研场景五卡和 Harbor 改题卡之外，增加六张质量卡，分别回答“是否有企业意义”和“是否对 GPT 有难度与训练价值”：
+
+| 卡片 | 核心问题 | 未完成时的状态 |
+| --- | --- | --- |
+| `candidate_set_card` | 一个来源能否展开 3-5 个不同业务决策 | `DRAFT` |
+| `enterprise_value_card` | 谁使用、做什么决定、交给谁、错了损失什么 | `REVIEW_REQUIRED` |
+| `control_plan_card` | 正例、负例、不变性、证据不足例是否能校准判分 | `NOT_RUN` |
+| `difficulty_card` | 是否存在证据整合、竞争性选择、状态依赖和捷径探针 | `DRAFT` |
+| `training_value_card` | 错误是否可定位、可反馈、可迁移且不依赖答案记忆 | `EVAL_ONLY_UNTIL_CALIBRATED` |
+| `model_trial_card` | 参考解、简单基线、始终弃答、模板基线和目标模型如何比较 | `NOT_RUN` |
+
+六张卡不能用文字自证。每张卡都要绑定可执行控制、输入/输出哈希、独立真值或专家规则；未运行的项必须保留 `NOT_RUN`，不得折算为通过。
+
 ## 三类题源的差异
 
 ### 真实企业数据（A）

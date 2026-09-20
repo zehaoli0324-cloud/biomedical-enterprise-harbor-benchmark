@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_training_value_card.v1",
+  "type": "object",
+  "required": ["training_value_card_id", "task_id", "capability_targets", "error_labels", "feedback_granularity", "generalization_plan", "status"],
+  "properties": {
+    "training_value_card_id": {"type": "string", "pattern": "^TRAIN-"},
+    "task_id": {"type": "string"},
+    "capability_targets": {"type": "array", "minItems": 3},
+    "error_labels": {"type": "array", "minItems": 3},
+    "feedback_granularity": {"type": "array", "minItems": 3},
+    "generalization_plan": {"type": "object"},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "CALIBRATED", "BLOCKED"]}
+  }
+}
