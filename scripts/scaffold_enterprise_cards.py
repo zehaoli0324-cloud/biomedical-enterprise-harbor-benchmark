@@ -16,7 +16,7 @@ from pathlib import Path
 
 
 BASE_CARD_NAMES = ("source", "benchmark", "workflow", "transformation", "data", "evaluation", "risk", "harbor", "review")
-QUALITY_CARD_NAMES = ("candidate_set", "enterprise_value", "control_plan", "difficulty", "training_value", "model_trial")
+QUALITY_CARD_NAMES = ("candidate_set", "enterprise_value", "requirements", "control_plan", "difficulty", "training_value", "model_trial")
 CARD_NAMES = BASE_CARD_NAMES + QUALITY_CARD_NAMES
 
 
@@ -29,7 +29,7 @@ def slug(value: str) -> str:
     return value[:48] or "benchmark"
 
 
-def build_cards(benchmark: dict, workflow: dict | None, retrieved_at: str) -> dict[str, dict]:
+def build_cards(benchmark: dict, workflow: dict | None, retrieved_at: str, requirement_dimensions: list[dict], source_review: dict | None) -> dict[str, dict]:
     benchmark_id = benchmark["benchmark_id"]
     task_id = f"{slug(benchmark_id)}-candidate-001"
     source_id = benchmark["source_id"]
@@ -51,6 +51,27 @@ def build_cards(benchmark: dict, workflow: dict | None, retrieved_at: str) -> di
     handoff = workflow.get("handoffs", ["input->analysis->decision"])
     error_consequence = "; ".join(workflow.get("failure_consequences", ["downstream decision may be wrong"]))
     candidate_prefix = slug(benchmark_id)
+    evaluation = benchmark.get("evaluation", {})
+    observed_requirements = {"REQ01", "REQ02", "REQ05"}
+    if evaluation.get("metrics"):
+        observed_requirements.add("REQ06")
+    if "blind_labels" in evaluation:
+        observed_requirements.add("REQ04")
+    if workflow.get("claim_boundary"):
+        observed_requirements.add("REQ13")
+    if evaluation.get("kind"):
+        observed_requirements.add("REQ03")
+    dimensions = []
+    for definition in requirement_dimensions:
+        requirement_id = definition["requirement_id"]
+        dimensions.append({
+            "requirement_id": requirement_id,
+            "name": definition["name"],
+            "status": "OBSERVED_FROM_REGISTRY" if requirement_id in observed_requirements else "PENDING_VERIFICATION",
+            "evidence_url": benchmark.get("source_url", ""),
+            "evidence_summary": definition["question"],
+            "harbor_action": definition["harbor_mapping"],
+        })
     return {
         "source": {
             "source_id": source_id,
@@ -201,6 +222,14 @@ def build_cards(benchmark: dict, workflow: dict | None, retrieved_at: str) -> di
             "required_evidence": ["named_role", "decision", "downstream_action", "error_consequence", "human_owner"],
             "status": "DRAFT",
         },
+        "requirements": {
+            "requirements_card_id": f"REQ-{benchmark_id}-DRAFT",
+            "source_benchmark_id": benchmark_id,
+            "dimensions": dimensions,
+            "source_review": source_review or {"review_status": "pending_official_replay", "official_evidence": []},
+            "release_implications": ["freeze official source version and evidence locator", "verify license/attribution before redistribution", "resolve all PENDING_VERIFICATION dimensions before Harbor release"],
+            "status": "DRAFT",
+        },
         "control_plan": {
             "control_plan_id": f"CONTROL-{benchmark_id}-DRAFT",
             "task_id": task_id,
@@ -278,6 +307,9 @@ def main() -> int:
     args = parser.parse_args()
     benchmarks = read_jsonl(args.root / "registry/enterprise_benchmarks.jsonl")
     workflows = read_jsonl(args.root / "registry/workflows.jsonl")
+    requirements_doc = json.loads((args.root / "registry/public_benchmark_requirements.json").read_text(encoding="utf-8"))
+    requirement_dimensions = requirements_doc.get("requirement_dimensions", [])
+    requirements_by_benchmark = {row.get("benchmark_id"): row for row in requirements_doc.get("source_requirements", [])}
     workflow_by_benchmark = {benchmark_id: workflow for workflow in workflows for benchmark_id in workflow.get("benchmark_ids", [])}
     if args.clean and args.out.exists():
         for child in args.out.iterdir():
@@ -294,7 +326,7 @@ def main() -> int:
         benchmark_id = benchmark["benchmark_id"]
         bundle_dir = args.out / f"{benchmark_id}-{slug(benchmark['name'])}"
         bundle_dir.mkdir(parents=True, exist_ok=True)
-        cards = build_cards(benchmark, workflow_by_benchmark.get(benchmark_id), retrieved_at)
+        cards = build_cards(benchmark, workflow_by_benchmark.get(benchmark_id), retrieved_at, requirement_dimensions, requirements_by_benchmark.get(benchmark_id))
         manifest = {
             "schema_version": "enterprise_card_bundle.v2",
             "bundle_id": f"BUNDLE-{benchmark_id}-DRAFT",
@@ -303,11 +335,11 @@ def main() -> int:
             "cards": {name: f"{name}_card.json" for name in CARD_NAMES},
             "visibility_policy": {
                 "agent_visible": ["benchmark", "workflow", "data", "harbor", "enterprise_value"],
-                "author_only": ["source", "transformation", "candidate_set", "control_plan", "difficulty", "training_value", "model_trial", "risk", "review"],
+                "author_only": ["source", "transformation", "candidate_set", "requirements", "control_plan", "difficulty", "training_value", "model_trial", "risk", "review"],
                 "verifier_only": ["evaluation.truth_route", "evaluation.negative_cases", "harbor.oracle", "control_plan.expected_truth"],
             },
             "status": "DRAFT",
-            "release_blockers": ["source_verification", "license_review", "independent_truth_route", "business_value_review", "control_calibration", "container_replay", "model_trial"],
+            "release_blockers": ["source_verification", "benchmark_requirements_review", "license_review", "independent_truth_route", "business_value_review", "control_calibration", "container_replay", "model_trial"],
         }
         (bundle_dir / "card_bundle.manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         for name, card in cards.items():

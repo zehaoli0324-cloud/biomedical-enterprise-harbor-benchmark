@@ -15,6 +15,7 @@
     "review": "review_card.json",
     "candidate_set": "candidate_set_card.json",
     "enterprise_value": "enterprise_value_card.json",
+    "requirements": "requirements_card.json",
     "control_plan": "control_plan_card.json",
     "difficulty": "difficulty_card.json",
     "training_value": "training_value_card.json",
@@ -22,9 +23,9 @@
   },
   "visibility_policy": {
     "agent_visible": ["benchmark", "workflow", "data", "harbor", "enterprise_value"],
-    "author_only": ["source", "transformation", "candidate_set", "control_plan", "difficulty", "training_value", "model_trial", "risk", "review"],
+    "author_only": ["source", "transformation", "candidate_set", "requirements", "control_plan", "difficulty", "training_value", "model_trial", "risk", "review"],
     "verifier_only": ["evaluation.truth_route", "evaluation.negative_cases", "harbor.oracle", "control_plan.expected_truth"]
   },
   "status": "DRAFT",
-  "release_blockers": ["source_verification", "license_review", "independent_truth_route", "business_value_review", "control_calibration", "container_replay", "model_trial"]
+  "release_blockers": ["source_verification", "benchmark_requirements_review", "license_review", "independent_truth_route", "business_value_review", "control_calibration", "container_replay", "model_trial"]
 }

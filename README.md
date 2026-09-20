@@ -40,7 +40,7 @@ enterprise workflow / source evidence
 
 企业来源登记和官方页面 harvest 位于 [`knowledge_base/`](knowledge_base/)，改题卡链和企业版流程见 [`docs/enterprise-redesign-pipeline.md`](docs/enterprise-redesign-pipeline.md)。知识库当前登记 12 个企业/联盟 benchmark、5 类工作流和 10 个可复用改题模式；这些记录仍按 `observed` / `verified` / `ready_for_harbor` 分级，不把网页摘要直接当成已授权或已验收题源。
 
-每个新版 bundle 还会生成六张质量卡：3-5 候选的 `candidate_set`、企业意义和采用规则的 `enterprise_value`、正/负/不变性/证据不足对照的 `control_plan`、GPT 难度假设的 `difficulty`、能力标签和迁移/污染控制的 `training_value`，以及固定策略矩阵和错误归因的 `model_trial`。这些卡片把“对企业有用”和“对 GPT 难且有训练价值”从描述性要求变成可审核的字段与发布门。
+每个新版 bundle 还会生成七张质量卡：公开 benchmark 要求矩阵 `requirements`、3-5 候选的 `candidate_set`、企业意义和采用规则的 `enterprise_value`、正/负/不变性/证据不足对照的 `control_plan`、GPT 难度假设的 `difficulty`、能力标签和迁移/污染控制的 `training_value`，以及固定策略矩阵和错误归因的 `model_trial`。这些卡片把“对企业有用”“符合公开题目契约”和“对 GPT 难且有训练价值”从描述性要求变成可审核的字段与发布门。
 
 ```bash
 python3 scripts/validate_knowledge_base.py
@@ -87,6 +87,10 @@ python3 -m pytest
 - `S`：明确的模拟、增强或教学 fixture。
 
 正式发布前还必须独立核对授权、版本、数据哈希、隐藏真值、资源预算和模型试跑结果。当前仓库是框架和校准起点，不代表已经完成任何企业内部数据授权或 Harbor 生产部署。
+
+## 规模化出题与差异性
+
+当前已按 12 个登记企业 benchmark 生成 36 张候选决策卡，并按独立单位、业务决策、失败机制、交接产物和 GPT 难度进行语义去重。候选矩阵、第一批跨工作流 tranche 和 contract-only question briefs 见 [`candidate_pools/enterprise-v1/`](candidate_pools/enterprise-v1/)；生成与校验命令见 [`docs/scaled-question-generation.md`](docs/scaled-question-generation.md)。
 
 ## 设计原则
 

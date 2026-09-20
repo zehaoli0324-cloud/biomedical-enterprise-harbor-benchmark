@@ -1,0 +1,133 @@
+{
+  "requirements_card_id": "REQ-EB012-DRAFT",
+  "source_benchmark_id": "EB012",
+  "dimensions": [
+    {
+      "requirement_id": "REQ01",
+      "name": "task_contract",
+      "status": "OBSERVED_FROM_REGISTRY",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "任务对象、目标、角色和成功条件是否明确",
+      "harbor_action": "instruction/task contract"
+    },
+    {
+      "requirement_id": "REQ02",
+      "name": "input_schema",
+      "status": "OBSERVED_FROM_REGISTRY",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "输入文件、字段、单位、标识符和依赖是否明确",
+      "harbor_action": "agent-visible data card"
+    },
+    {
+      "requirement_id": "REQ03",
+      "name": "entity_unit_split",
+      "status": "OBSERVED_FROM_REGISTRY",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "独立实体、实验单位、train/validation/test 或时间/项目 split 是否明确",
+      "harbor_action": "split manifest and leakage verifier"
+    },
+    {
+      "requirement_id": "REQ04",
+      "name": "label_visibility",
+      "status": "OBSERVED_FROM_REGISTRY",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "标签、盲测集、阶段性揭示和 verifier-only 真值边界是否明确",
+      "harbor_action": "visibility policy and oracle"
+    },
+    {
+      "requirement_id": "REQ05",
+      "name": "output_submission",
+      "status": "OBSERVED_FROM_REGISTRY",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "提交文件、字段、命名、排序和报告要求是否明确",
+      "harbor_action": "required artifact schema"
+    },
+    {
+      "requirement_id": "REQ06",
+      "name": "metric_and_tolerance",
+      "status": "OBSERVED_FROM_REGISTRY",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "指标、方向、容差、等价答案和聚合方式是否明确",
+      "harbor_action": "evaluation card"
+    },
+    {
+      "requirement_id": "REQ07",
+      "name": "baseline_and_comparison",
+      "status": "PENDING_VERIFICATION",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "官方 baseline、简单合法基线和比较范围是否明确",
+      "harbor_action": "difficulty/model trial card"
+    },
+    {
+      "requirement_id": "REQ08",
+      "name": "provenance_and_version",
+      "status": "PENDING_VERIFICATION",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "commit/tag、数据版本、内容哈希和引用定位是否可冻结",
+      "harbor_action": "source ledger and manifest"
+    },
+    {
+      "requirement_id": "REQ09",
+      "name": "license_and_attribution",
+      "status": "PENDING_VERIFICATION",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "数据、代码、模型和商标的许可与归属是否可再分发",
+      "harbor_action": "risk/license card"
+    },
+    {
+      "requirement_id": "REQ10",
+      "name": "compute_environment",
+      "status": "PENDING_VERIFICATION",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "依赖、模型权重、工具、网络和资源预算是否可复现",
+      "harbor_action": "Harbor environment"
+    },
+    {
+      "requirement_id": "REQ11",
+      "name": "reproducibility",
+      "status": "PENDING_VERIFICATION",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "随机性、参数、运行日志、校验和和重放步骤是否明确",
+      "harbor_action": "run manifest and replay"
+    },
+    {
+      "requirement_id": "REQ12",
+      "name": "failure_and_abstention",
+      "status": "PENDING_VERIFICATION",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "无效输入、失败工具、缺失证据和合理弃答如何处理",
+      "harbor_action": "control plan and verifier"
+    },
+    {
+      "requirement_id": "REQ13",
+      "name": "claim_and_human_boundary",
+      "status": "OBSERVED_FROM_REGISTRY",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "计算输出不能支持的机制、临床或商业结论是否明确",
+      "harbor_action": "claim ledger and human review"
+    },
+    {
+      "requirement_id": "REQ14",
+      "name": "contamination_and_holdout",
+      "status": "PENDING_VERIFICATION",
+      "evidence_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+      "evidence_summary": "公开答案、实体重叠、模板泄漏和 holdout 污染风险是否审计",
+      "harbor_action": "risk card and held-out trial"
+    }
+  ],
+  "source_review": {
+    "benchmark_id": "EB012",
+    "source_url": "https://github.com/gashawmg/openadmet-pxr-pec50-challenge",
+    "official_evidence": [
+      "repository entry"
+    ],
+    "review_status": "pending_task_contract_review",
+    "notes": "需核对 phase split、counter-screen 输入和盲测提交格式。"
+  },
+  "release_implications": [
+    "freeze official source version and evidence locator",
+    "verify license/attribution before redistribution",
+    "resolve all PENDING_VERIFICATION dimensions before Harbor release"
+  ],
+  "status": "DRAFT"
+}

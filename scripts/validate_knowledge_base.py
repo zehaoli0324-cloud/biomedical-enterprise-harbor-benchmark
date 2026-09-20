@@ -47,10 +47,13 @@ def main() -> int:
     patterns = read_jsonl(root / "registry/transformation_patterns.jsonl") if (root / "registry/transformation_patterns.jsonl").exists() else []
     quality_modules_path = root / "registry/enterprise_quality_modules.json"
     quality_modules = json.loads(quality_modules_path.read_text(encoding="utf-8")) if quality_modules_path.exists() else {"modules": []}
+    requirements_path = root / "registry/public_benchmark_requirements.json"
+    requirements_doc = json.loads(requirements_path.read_text(encoding="utf-8")) if requirements_path.exists() else {"requirement_dimensions": [], "source_requirements": []}
     source_index = check_unique(sources, "benchmark_id", "benchmarks", errors)
     workflow_index = check_unique(workflows, "workflow_id", "workflows", errors)
     pattern_index = check_unique(patterns, "pattern_id", "patterns", errors)
     del workflow_index, pattern_index
+    benchmark_ids = set(source_index)
     module_rows = quality_modules.get("modules", [])
     module_ids = {row.get("module_id") for row in module_rows if isinstance(row, dict)}
     if len(module_ids) != len(module_rows) or None in module_ids:
@@ -60,9 +63,20 @@ def main() -> int:
     for row in module_rows:
         if not row.get("name") or not row.get("purpose") or not row.get("required_evidence"):
             errors.append(f"quality module {row.get('module_id')}: name, purpose, and required_evidence are required")
+    requirement_dimensions = requirements_doc.get("requirement_dimensions", [])
+    requirement_ids = {row.get("requirement_id") for row in requirement_dimensions if isinstance(row, dict)}
+    if len(requirement_dimensions) < 10 or len(requirement_ids) != len(requirement_dimensions) or None in requirement_ids:
+        errors.append("public benchmark requirements: expected at least 10 unique requirement dimensions")
+    for row in requirement_dimensions:
+        if not row.get("name") or not row.get("question") or not row.get("harbor_mapping"):
+            errors.append(f"requirement {row.get('requirement_id')}: name, question, and harbor_mapping are required")
+    source_requirement_rows = requirements_doc.get("source_requirements", [])
+    source_requirement_ids = {row.get("benchmark_id") for row in source_requirement_rows if isinstance(row, dict)}
+    for benchmark_id in source_requirement_ids:
+        if benchmark_id not in benchmark_ids:
+            errors.append(f"public benchmark requirements: unknown benchmark_id {benchmark_id}")
     seeds = json.loads((root / "seeds/official_sources.json").read_text(encoding="utf-8"))
     seed_ids = {row.get("source_id") for row in seeds}
-    benchmark_ids = set(source_index)
     for row in sources:
         if row.get("source_id") not in seed_ids:
             errors.append(f"{row.get('benchmark_id')}: source_id is absent from official seed registry")
@@ -78,7 +92,7 @@ def main() -> int:
             errors.append(f"{row.get('workflow_id')}: workflow requires at least one handoff")
         if not row.get("claim_boundary"):
             errors.append(f"{row.get('workflow_id')}: claim_boundary is required")
-    print(json.dumps({"valid": not errors, "counts": {"benchmarks": len(sources), "workflows": len(workflows), "patterns": len(patterns), "quality_modules": len(module_rows)}, "errors": errors}, ensure_ascii=False, indent=2))
+    print(json.dumps({"valid": not errors, "counts": {"benchmarks": len(sources), "workflows": len(workflows), "patterns": len(patterns), "quality_modules": len(module_rows), "requirement_dimensions": len(requirement_dimensions), "source_requirement_rows": len(source_requirement_rows)}, "errors": errors}, ensure_ascii=False, indent=2))
     return 0 if not errors else 1
 
 

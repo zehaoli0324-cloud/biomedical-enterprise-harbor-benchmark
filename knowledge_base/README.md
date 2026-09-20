@@ -18,7 +18,7 @@ source_record
   -> enterprise_benchmark_record
   -> enterprise_workflow_card
   -> candidate_set_card (3-5 decisions)
-  -> transformation_card + enterprise_value_card
+  -> transformation_card + enterprise_value_card + requirements_card
   -> data_card + evaluation_card + control_plan_card
   -> difficulty_card + training_value_card + model_trial_card
   -> risk_card + harbor_delivery_card + review_card
@@ -34,6 +34,7 @@ source_record
 - [`seeds/official_sources.json`](seeds/official_sources.json)：爬取入口、来源类型和待核验项。
 - [`schemas/`](schemas/)：source、benchmark、workflow、transformation、data、evaluation、risk、Harbor 和 review 卡的最小契约。
 - [`registry/enterprise_quality_modules.json`](registry/enterprise_quality_modules.json)：企业真实性、业务价值、GPT 难度、训练价值、控制校准和模型试跑模块目录。
+- [`registry/public_benchmark_requirements.json`](registry/public_benchmark_requirements.json)：公开 benchmark 对任务契约、数据、split、盲测、指标、版本、许可、环境和复现的要求矩阵。
 - [`templates/`](templates/)：新记录和新改题版本的作者模板。
 - [`draft_bundles/`](draft_bundles/)：由登记表批量生成的改题卡骨架；所有 bundle 默认处于 `DRAFT`，必须经过来源、许可、真值、隔离和试跑审核。
 - [`harvest/README.md`](harvest/README.md)：原始页面快照、哈希和抓取日志的保存规范。
@@ -52,8 +53,9 @@ source_record
 - **新意门：**相对来源 benchmark 至少改变两个语义维度，并且改变业务决策、失败机制或真值路线之一；只改 prompt、文件名、输出格式、阈值或工具数量不算派生题。
 - **GPT 难度门：**任务必须需要证据整合、竞争性选择、状态依赖或主张边界控制，并通过关键词、常数预测、始终支持、始终弃答和公开答案复制等捷径探针。
 - **训练价值门：**错误必须能定位到输入理解、方法选择、计算/工具、证据、主张边界或交付；还要有留出轴、污染控制和迁移探针，证明学到的是能力而不是答案记忆。
+- **来源要求门：**先完成 `REQ01-REQ14` 的公开契约核对；网页只显示“观察到”时，不能把未核验的 split、指标、许可、资源或提交格式写成任务事实。
 
-这四组门由 `enterprise_value_card`、`candidate_set_card`、`control_plan_card`、`difficulty_card`、`training_value_card` 和 `model_trial_card` 承载。它们默认是 `DRAFT`/`NOT_RUN`，不能代替领域专家、许可和真实模型试跑。
+这五组门由 `requirements_card`、`enterprise_value_card`、`candidate_set_card`、`control_plan_card`、`difficulty_card`、`training_value_card` 和 `model_trial_card` 承载。它们默认是 `DRAFT`/`NOT_RUN`，不能代替领域专家、许可和真实模型试跑。
 
 ## 推荐收集顺序
 

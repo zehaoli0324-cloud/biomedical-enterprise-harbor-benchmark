@@ -15,6 +15,7 @@
     "review": "review_card.json",
     "candidate_set": "candidate_set_card.json",
     "enterprise_value": "enterprise_value_card.json",
+    "requirements": "requirements_card.json",
     "control_plan": "control_plan_card.json",
     "difficulty": "difficulty_card.json",
     "training_value": "training_value_card.json",
@@ -32,6 +33,7 @@
       "source",
       "transformation",
       "candidate_set",
+      "requirements",
       "control_plan",
       "difficulty",
       "training_value",
@@ -49,6 +51,7 @@
   "status": "DRAFT",
   "release_blockers": [
     "source_verification",
+    "benchmark_requirements_review",
     "license_review",
     "independent_truth_route",
     "business_value_review",

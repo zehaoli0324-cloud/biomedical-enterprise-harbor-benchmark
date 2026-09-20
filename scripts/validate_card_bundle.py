@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 BASE_CARDS = ("source", "benchmark", "workflow", "transformation", "data", "evaluation", "risk", "harbor", "review")
-QUALITY_CARDS = ("candidate_set", "enterprise_value", "control_plan", "difficulty", "training_value", "model_trial")
+QUALITY_CARDS = ("candidate_set", "enterprise_value", "requirements", "control_plan", "difficulty", "training_value", "model_trial")
 
 
 def load(path: Path) -> dict:
@@ -69,7 +69,12 @@ def main() -> int:
             errors.append("candidate_set card does not match source_benchmark_id")
         for card_name in QUALITY_CARDS[1:]:
             if loaded.get(card_name, {}).get("task_id") != task_id:
-                errors.append(f"{card_name} card does not match derived_task_id")
+                if card_name != "requirements":
+                    errors.append(f"{card_name} card does not match derived_task_id")
+        if loaded.get("requirements", {}).get("source_benchmark_id") != benchmark_id:
+            errors.append("requirements card does not match source_benchmark_id")
+        if len(loaded.get("requirements", {}).get("dimensions", [])) < 8:
+            errors.append("requirements card must contain at least 8 requirement dimensions")
         candidate_count = len(loaded.get("candidate_set", {}).get("candidates", []))
         if not 3 <= candidate_count <= 5:
             errors.append("candidate_set must contain 3-5 candidates")

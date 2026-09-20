@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise_benchmark_requirements_card.v1",
+  "type": "object",
+  "required": ["requirements_card_id", "source_benchmark_id", "dimensions", "source_review", "status"],
+  "properties": {
+    "requirements_card_id": {"type": "string", "pattern": "^REQ-"},
+    "source_benchmark_id": {"type": "string"},
+    "dimensions": {"type": "array", "minItems": 8},
+    "source_review": {"type": "object"},
+    "release_implications": {"type": "array", "minItems": 1},
+    "status": {"enum": ["DRAFT", "REVIEW_REQUIRED", "VERIFIED", "BLOCKED"]}
+  }
+}
