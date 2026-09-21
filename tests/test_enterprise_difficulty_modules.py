@@ -11,6 +11,12 @@ TASKS = (
     "eb005-batch-normalization-002",
     "eb008-stock-route-001",
     "eb010-next-batch-001",
+    "eb003-recovery-chain-005",
+    "eb005-normalization-hierarchy-003",
+    "eb008-route-portfolio-002",
+    "eb010-next-batch-002",
+    "eb011-measurement-request-005",
+    "eb012-cross-handoff-audit-001",
 )
 
 

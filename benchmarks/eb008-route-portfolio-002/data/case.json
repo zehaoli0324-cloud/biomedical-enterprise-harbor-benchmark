@@ -1,0 +1,63 @@
+{
+  "kind": "route",
+  "stock": [
+    {
+      "compound_id": "M-1",
+      "usable": 8.0
+    },
+    {
+      "compound_id": "M-2",
+      "usable": 3.0
+    },
+    {
+      "compound_id": "M-3",
+      "usable": 1.0
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "R-A",
+      "target": "TGT-1",
+      "materials": [
+        {
+          "compound_id": "M-1",
+          "amount": 4.0
+        },
+        {
+          "compound_id": "M-2",
+          "amount": 2.0
+        }
+      ],
+      "independent_sources": 2,
+      "evidence_status": "current"
+    },
+    {
+      "route_id": "R-B",
+      "target": "TGT-1",
+      "materials": [
+        {
+          "compound_id": "M-1",
+          "amount": 5.0
+        },
+        {
+          "compound_id": "M-3",
+          "amount": 2.0
+        }
+      ],
+      "independent_sources": 3,
+      "evidence_status": "current"
+    },
+    {
+      "route_id": "R-C",
+      "target": "TGT-9",
+      "materials": [
+        {
+          "compound_id": "M-1",
+          "amount": 2.0
+        }
+      ],
+      "independent_sources": 3,
+      "evidence_status": "current"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "control_plan_id": "CONTROL-EB003-RECOVERY-CHAIN-005-001",
+  "task_id": "eb003-recovery-chain-005",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-decision-flip",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-row-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-provenance",
+      "kind": "insufficient_evidence"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

@@ -1,0 +1,9 @@
+{
+  "rules_version": "l4-v1",
+  "max_control_range": 0.2,
+  "min_retention": 0.8,
+  "allowed_unit_levels": [
+    "donor",
+    "plate"
+  ]
+}

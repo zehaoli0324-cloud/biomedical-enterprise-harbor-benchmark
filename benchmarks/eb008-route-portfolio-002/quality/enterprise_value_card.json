@@ -1,0 +1,11 @@
+{
+  "enterprise_value_card_id": "VALUE-EB008-ROUTE-PORTFOLIO-002-001",
+  "task_id": "eb008-route-portfolio-002",
+  "enterprise_reality": {
+    "decision": "choose a feasible route portfolio or reject",
+    "downstream_action": "decision->review->handoff",
+    "error_consequence": "an attractive local result can corrupt a downstream scientific decision",
+    "human_owner": "domain_reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

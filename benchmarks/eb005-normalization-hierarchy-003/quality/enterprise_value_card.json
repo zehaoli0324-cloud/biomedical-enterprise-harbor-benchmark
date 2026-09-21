@@ -1,0 +1,11 @@
+{
+  "enterprise_value_card_id": "VALUE-EB005-NORMALIZATION-HIERARCHY-003-001",
+  "task_id": "eb005-normalization-hierarchy-003",
+  "enterprise_reality": {
+    "decision": "choose an eligible normalization profile or hold",
+    "downstream_action": "decision->review->handoff",
+    "error_consequence": "an attractive local result can corrupt a downstream scientific decision",
+    "human_owner": "domain_reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

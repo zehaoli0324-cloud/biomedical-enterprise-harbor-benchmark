@@ -1,0 +1,11 @@
+{
+  "enterprise_value_card_id": "VALUE-EB010-NEXT-BATCH-002-001",
+  "task_id": "eb010-next-batch-002",
+  "enterprise_reality": {
+    "decision": "choose a robust legal next batch or request information",
+    "downstream_action": "decision->review->handoff",
+    "error_consequence": "an attractive local result can corrupt a downstream scientific decision",
+    "human_owner": "domain_reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

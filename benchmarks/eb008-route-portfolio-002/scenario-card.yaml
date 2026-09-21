@@ -1,0 +1,35 @@
+scenario_id: eb008-route-portfolio-002
+status: ready
+source_scenarios: [L4-TRANCHE-001]
+domain: biomedical_enterprise
+scientific_decision: choose a feasible route portfolio or reject
+scientific_judgments:
+  - independent_unit_and_handoff
+  - competing_choice_and_stop_rule
+  - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_experimental_unit
+    observable: module 1 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of judgment_experimental_unit changes selection or triggers a bounded hold
+  - id: compute_data_schema_discovery
+    observable: module 2 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of compute_data_schema_discovery changes selection or triggers a bounded hold
+  - id: math_model_selection_and_sensitivity
+    observable: module 3 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of math_model_selection_and_sensitivity changes selection or triggers a bounded hold
+  - id: safety_human_approval_gate
+    observable: module 4 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of safety_human_approval_gate changes selection or triggers a bounded hold
+workflow_handoffs:
+  - from: visible_inputs
+    to: decision_handoff
+    artifact: outputs/decision.json
+    invariant: decision, evidence, provenance and claim boundary remain aligned
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

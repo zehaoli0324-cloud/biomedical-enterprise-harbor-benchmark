@@ -1,0 +1,20 @@
+{
+  "difficulty_card_id": "DIFF-EB012-CROSS-HANDOFF-AUDIT-001-001",
+  "task_id": "eb012-cross-handoff-audit-001",
+  "difficulty_hypothesis": {
+    "reasoning_chain": [
+      "join visible evidence",
+      "apply cross-artifact constraints",
+      "test decision flip",
+      "preserve bounded claim"
+    ],
+    "target_failure_mechanism": "local proxy optimization ignores a binding handoff invariant"
+  },
+  "shortcut_probes": [
+    "always select",
+    "always abstain",
+    "ignore provenance",
+    "copy the highest proxy"
+  ],
+  "status": "DRAFT"
+}

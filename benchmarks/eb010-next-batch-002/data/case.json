@@ -1,0 +1,75 @@
+{
+  "kind": "batch",
+  "candidates": [
+    {
+      "candidate_id": "C-1",
+      "scope": "active",
+      "group": "A",
+      "cost": 2.5,
+      "gain": 0.6,
+      "failure": 0.1,
+      "uncertainty": 0.15
+    },
+    {
+      "candidate_id": "C-2",
+      "scope": "active",
+      "group": "B",
+      "cost": 2.5,
+      "gain": 0.58,
+      "failure": 0.15,
+      "uncertainty": 0.35
+    },
+    {
+      "candidate_id": "C-4",
+      "scope": "active",
+      "group": "C",
+      "cost": 2.5,
+      "gain": 0.52,
+      "failure": 0.05,
+      "uncertainty": 0.25
+    },
+    {
+      "candidate_id": "C-6",
+      "scope": "active",
+      "group": "C",
+      "cost": 2.0,
+      "gain": 0.4,
+      "failure": 0.15,
+      "uncertainty": 0.6
+    },
+    {
+      "candidate_id": "C-7",
+      "scope": "active",
+      "group": "D",
+      "cost": 2.0,
+      "gain": 0.3,
+      "failure": 0.1,
+      "uncertainty": 0.7
+    },
+    {
+      "candidate_id": "C-8",
+      "scope": "pilot",
+      "group": "A",
+      "cost": 1.0,
+      "gain": 1.2,
+      "failure": 0.05,
+      "uncertainty": 0.9
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "nominal",
+      "gain_multiplier": 1.0,
+      "failure_multiplier": 1.0
+    },
+    {
+      "id": "high_failure",
+      "gain_multiplier": 0.9,
+      "failure_multiplier": 1.6
+    }
+  ],
+  "stage_two": {
+    "if": "high_failure",
+    "action": "request_information"
+  }
+}

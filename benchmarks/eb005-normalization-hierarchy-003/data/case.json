@@ -1,0 +1,29 @@
+{
+  "kind": "normalization",
+  "profiles": [
+    {
+      "profile": "global",
+      "metadata_complete": true,
+      "unit_level": "plate",
+      "control_range": 0.04,
+      "retention": 0.42,
+      "direction_preserved": false
+    },
+    {
+      "profile": "hierarchical",
+      "metadata_complete": true,
+      "unit_level": "donor",
+      "control_range": 0.08,
+      "retention": 0.91,
+      "direction_preserved": true
+    },
+    {
+      "profile": "site_local",
+      "metadata_complete": false,
+      "unit_level": "well",
+      "control_range": 0.03,
+      "retention": 0.96,
+      "direction_preserved": true
+    }
+  ]
+}

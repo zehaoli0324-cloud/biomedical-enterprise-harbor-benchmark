@@ -1,0 +1,13 @@
+{
+  "audit_id": "AUDIT-EB011-MEASUREMENT-REQUEST-005-001",
+  "task_id": "eb011-measurement-request-005",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": [
+    "decision derivation",
+    "negative flip",
+    "invariance",
+    "insufficient provenance"
+  ],
+  "reviewer": "author-side-independent-fixture-check"
+}

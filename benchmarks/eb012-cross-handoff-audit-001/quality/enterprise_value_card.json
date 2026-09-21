@@ -1,0 +1,11 @@
+{
+  "enterprise_value_card_id": "VALUE-EB012-CROSS-HANDOFF-AUDIT-001-001",
+  "task_id": "eb012-cross-handoff-audit-001",
+  "enterprise_reality": {
+    "decision": "allow downstream consumption only when the handoff is coherent",
+    "downstream_action": "decision->review->handoff",
+    "error_consequence": "an attractive local result can corrupt a downstream scientific decision",
+    "human_owner": "domain_reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

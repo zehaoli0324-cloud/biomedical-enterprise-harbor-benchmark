@@ -1,0 +1,5 @@
+{
+  "decision": "C-1,C-2,C-4,C-7",
+  "rules_version": "l4-v1",
+  "status": "verifier_only"
+}

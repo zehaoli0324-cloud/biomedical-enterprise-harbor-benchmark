@@ -1,0 +1,57 @@
+{
+  "model_trial_card_id": "TRIAL-EB011-MEASUREMENT-REQUEST-005-001",
+  "task_id": "eb011-measurement-request-005",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "target_model_status": "NOT_RUN",
+  "status": "BASELINES_COMPLETE",
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: decision.json"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "delivery_failure",
+      "errors": [
+        "missing artifact: decision.json",
+        "missing artifact: evidence.tsv",
+        "missing artifact: review.md",
+        "missing artifact: manifest.json"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "decision mismatch"
+      ]
+    }
+  ]
+}

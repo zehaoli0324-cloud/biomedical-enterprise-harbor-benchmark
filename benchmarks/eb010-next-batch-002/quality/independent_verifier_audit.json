@@ -1,0 +1,13 @@
+{
+  "audit_id": "AUDIT-EB010-NEXT-BATCH-002-001",
+  "task_id": "eb010-next-batch-002",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": [
+    "decision derivation",
+    "negative flip",
+    "invariance",
+    "insufficient provenance"
+  ],
+  "reviewer": "author-side-independent-fixture-check"
+}

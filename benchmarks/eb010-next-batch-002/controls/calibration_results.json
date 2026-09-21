@@ -1,0 +1,35 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "task_id": "eb010-next-batch-002",
+  "status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "negative-decision-flip",
+      "kind": "negative",
+      "passed": true,
+      "errors": [
+        "decision mismatch"
+      ]
+    },
+    {
+      "control_id": "invariance-row-order",
+      "kind": "invariance",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "insufficient-provenance",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "errors": [
+        "manifest provenance mismatch"
+      ]
+    }
+  ]
+}

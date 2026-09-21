@@ -1,0 +1,36 @@
+{
+  "kind": "recovery",
+  "branches": [
+    {
+      "branch": "retry_clean",
+      "status": "success",
+      "side_effect": "none",
+      "failed_invariants": [],
+      "claim_permissions": [
+        "operational",
+        "descriptive"
+      ]
+    },
+    {
+      "branch": "retry_fast",
+      "status": "success",
+      "side_effect": "irreversible",
+      "failed_invariants": [],
+      "claim_permissions": [
+        "operational"
+      ]
+    },
+    {
+      "branch": "refresh_reference",
+      "status": "success",
+      "side_effect": "none",
+      "failed_invariants": [
+        "reference"
+      ],
+      "claim_permissions": [
+        "operational",
+        "associational"
+      ]
+    }
+  ]
+}

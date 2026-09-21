@@ -1,0 +1,17 @@
+{
+  "rules_version": "l4-v1",
+  "batch_size": 4,
+  "budget": 10.0,
+  "required_groups": [
+    "A",
+    "B",
+    "C"
+  ],
+  "exploration_weight": 0.5,
+  "incompatibility_pairs": [
+    [
+      "C-2",
+      "C-4"
+    ]
+  ]
+}

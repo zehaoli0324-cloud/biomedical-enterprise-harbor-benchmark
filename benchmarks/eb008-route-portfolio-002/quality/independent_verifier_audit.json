@@ -1,0 +1,13 @@
+{
+  "audit_id": "AUDIT-EB008-ROUTE-PORTFOLIO-002-001",
+  "task_id": "eb008-route-portfolio-002",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": [
+    "decision derivation",
+    "negative flip",
+    "invariance",
+    "insufficient provenance"
+  ],
+  "reviewer": "author-side-independent-fixture-check"
+}

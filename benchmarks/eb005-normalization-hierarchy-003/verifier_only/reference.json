@@ -1,0 +1,5 @@
+{
+  "decision": "hierarchical",
+  "rules_version": "l4-v1",
+  "status": "verifier_only"
+}

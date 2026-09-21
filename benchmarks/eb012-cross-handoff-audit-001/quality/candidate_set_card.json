@@ -1,0 +1,22 @@
+{
+  "candidate_set_id": "CSET-EB012-CROSS-HANDOFF-AUDIT-001-001",
+  "source_benchmark_id": "L4-TRANCHE-001",
+  "candidates": [
+    {
+      "candidate_id": "eb012-cross-handoff-audit-001",
+      "selection_status": "MATERIALIZED",
+      "semantic_axes": [
+        "cross_artifact",
+        "partial_observability",
+        "decision_flip"
+      ]
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

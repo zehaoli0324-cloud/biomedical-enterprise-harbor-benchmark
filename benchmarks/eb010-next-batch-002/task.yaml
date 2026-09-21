@@ -1,0 +1,29 @@
+id: eb010-next-batch-002
+version: "0.4.0"
+status: ready_for_calibration
+title: "robust next-batch planning across failure scenarios"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: JSON
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - id: decision
+    path: outputs/decision.json
+    required_fields: [decision, rules_version]
+  - id: evidence
+    path: outputs/evidence.tsv
+    required_fields: [entity, outcome, decision, provenance, uncertainty, claim_boundary]
+  - id: review
+    path: outputs/review.md
+    required_fields: [human_review, stop, not_experimental_proof]
+  - id: manifest
+    path: outputs/manifest.json
+    required_fields: [input_sha256, rules_version, deterministic]
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

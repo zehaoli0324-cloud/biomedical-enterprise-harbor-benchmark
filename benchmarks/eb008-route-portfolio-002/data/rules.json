@@ -1,0 +1,5 @@
+{
+  "rules_version": "l4-v1",
+  "target": "TGT-1",
+  "min_independent_sources": 2
+}

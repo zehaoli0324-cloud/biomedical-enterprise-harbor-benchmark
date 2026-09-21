@@ -1,0 +1,13 @@
+{
+  "audit_id": "AUDIT-EB003-RECOVERY-CHAIN-005-001",
+  "task_id": "eb003-recovery-chain-005",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": [
+    "decision derivation",
+    "negative flip",
+    "invariance",
+    "insufficient provenance"
+  ],
+  "reviewer": "author-side-independent-fixture-check"
+}

@@ -1,0 +1,13 @@
+{
+  "audit_id": "AUDIT-EB005-NORMALIZATION-HIERARCHY-003-001",
+  "task_id": "eb005-normalization-hierarchy-003",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": [
+    "decision derivation",
+    "negative flip",
+    "invariance",
+    "insufficient provenance"
+  ],
+  "reviewer": "author-side-independent-fixture-check"
+}

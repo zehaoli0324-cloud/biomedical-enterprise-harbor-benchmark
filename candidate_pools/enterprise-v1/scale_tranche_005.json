@@ -1,0 +1,29 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-005",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "CONTRACT_ONLY_DIFFICULTY_ESCALATION",
+  "selection_policy": {
+    "candidate_count": 4,
+    "coverage": "parallel v0.4 difficulty upgrade across provenance, phenomics, route evidence, and closed-loop acquisition",
+    "shared_contract": "docs/enterprise-difficulty-escalation-v1.md",
+    "required_before_target_trial": [
+      "materialize the declared intermediate artifacts",
+      "add positive, negative, invariance, insufficient-evidence, adversarial and metamorphic controls",
+      "rerun independent contract audit",
+      "rerun reference, simple legal, abstain, template and target-model trials"
+    ]
+  },
+  "recommended_candidates": [
+    {"candidate_id": "eb003-replay-provenance-004", "upgrade": "v0.4 claim-permission lattice and evidence graph", "primary_modules": ["judgment_claim_permission_lattice", "data_evidence_graph_join"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"},
+    {"candidate_id": "eb006-signal-noise-004", "upgrade": "v0.4 experimental-unit hierarchy and sensitivity-qualified normalization", "primary_modules": ["data_experimental_unit_hierarchy", "math_sensitivity_frontier"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"},
+    {"candidate_id": "eb009-diversity-coverage-004", "upgrade": "v0.4 evidence graph and threshold sensitivity", "primary_modules": ["data_evidence_graph_join", "math_sensitivity_frontier"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"},
+    {"candidate_id": "eb010-next-batch-001", "upgrade": "v0.4 two-stage acquisition and sensitivity frontier", "primary_modules": ["horizon_two_stage_acquisition", "math_sensitivity_frontier"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"}
+  ],
+  "release_blockers": [
+    "v0.4 fixtures and intermediate artifact schemas are not yet materialized",
+    "fixed-container replay",
+    "independent practitioner review",
+    "license/privacy/claim-boundary review"
+  ]
+}

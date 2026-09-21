@@ -1,0 +1,17 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb008-route-portfolio-002",
+  "sop_version": "enterprise-harbor-sop-v1.1",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "CONTRACT_ONLY",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BASELINES_COMPLETE",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "control calibration",
+    "author baselines",
+    "target-model trial",
+    "practitioner review"
+  ]
+}

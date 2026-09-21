@@ -1,0 +1,19 @@
+{
+  "training_value_card_id": "TRAIN-EB003-RECOVERY-CHAIN-005-001",
+  "task_id": "eb003-recovery-chain-005",
+  "capability_targets": [
+    "evidence reconciliation",
+    "decision flip detection",
+    "abstention",
+    "claim boundary"
+  ],
+  "error_labels": [
+    "input_understanding",
+    "method_choice",
+    "calculation_or_tool",
+    "claim_overreach",
+    "delivery_failure"
+  ],
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

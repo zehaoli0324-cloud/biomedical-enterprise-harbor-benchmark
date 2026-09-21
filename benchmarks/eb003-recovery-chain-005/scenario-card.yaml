@@ -1,0 +1,35 @@
+scenario_id: eb003-recovery-chain-005
+status: ready
+source_scenarios: [L4-TRANCHE-001]
+domain: biomedical_enterprise
+scientific_decision: choose a claim-preserving recovery branch or escalate
+scientific_judgments:
+  - independent_unit_and_handoff
+  - competing_choice_and_stop_rule
+  - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_claim_preserving_recovery
+    observable: module 1 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of judgment_claim_preserving_recovery changes selection or triggers a bounded hold
+  - id: compute_failure_recovery
+    observable: module 2 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of compute_failure_recovery changes selection or triggers a bounded hold
+  - id: tool_branching_pipeline
+    observable: module 3 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of tool_branching_pipeline changes selection or triggers a bounded hold
+  - id: horizon_checkpointed_workflow
+    observable: module 4 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of horizon_checkpointed_workflow changes selection or triggers a bounded hold
+workflow_handoffs:
+  - from: visible_inputs
+    to: decision_handoff
+    artifact: outputs/decision.json
+    invariant: decision, evidence, provenance and claim boundary remain aligned
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

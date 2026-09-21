@@ -1,0 +1,37 @@
+{
+  "kind": "measurement",
+  "options": [
+    {
+      "measurement_id": "M-01",
+      "current_uncertainty": true,
+      "feasible": true,
+      "gain": 0.4,
+      "correlation": 0.7,
+      "cost": 1.0
+    },
+    {
+      "measurement_id": "M-02",
+      "current_uncertainty": true,
+      "feasible": true,
+      "gain": 0.65,
+      "correlation": 0.1,
+      "cost": 1.0
+    },
+    {
+      "measurement_id": "M-03",
+      "current_uncertainty": true,
+      "feasible": false,
+      "gain": 0.99,
+      "correlation": 0.0,
+      "cost": 0.5
+    },
+    {
+      "measurement_id": "M-04",
+      "current_uncertainty": false,
+      "feasible": true,
+      "gain": 2.0,
+      "correlation": 0.0,
+      "cost": 1.0
+    }
+  ]
+}

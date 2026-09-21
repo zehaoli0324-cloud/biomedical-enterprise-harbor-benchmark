@@ -1,0 +1,19 @@
+{
+  "kind": "handoff",
+  "artifacts": [
+    {
+      "artifact": "normalization_report",
+      "scope_ok": true,
+      "schema_ok": true,
+      "hash_ok": true,
+      "claim_boundary_ok": true
+    },
+    {
+      "artifact": "route_portfolio",
+      "scope_ok": true,
+      "schema_ok": true,
+      "hash_ok": false,
+      "claim_boundary_ok": true
+    }
+  ]
+}

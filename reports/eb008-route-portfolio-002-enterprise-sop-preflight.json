@@ -1,0 +1,121 @@
+{
+  "schema_version": "enterprise_harbor_sop_preflight.v1",
+  "task_id": "eb008-route-portfolio-002",
+  "package": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb008-route-portfolio-002",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "file:task.yaml",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file:instruction.md",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file:verifier.py",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file:verifier_only/reference.json",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "data_nonempty",
+      "status": "PASS",
+      "detail": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb008-route-portfolio-002/data"
+    },
+    {
+      "check": "tests_present",
+      "status": "PASS",
+      "detail": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb008-route-portfolio-002/tests"
+    },
+    {
+      "check": "required_outputs_declared",
+      "status": "PASS",
+      "detail": "['outputs/decision.json', 'outputs/evidence.tsv', 'outputs/review.md', 'outputs/manifest.json']"
+    },
+    {
+      "check": "output:outputs/decision.json",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "output:outputs/evidence.tsv",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "output:outputs/review.md",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "output:outputs/manifest.json",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "hidden_boundary:verifier_only/",
+      "status": "PASS",
+      "detail": "not_named_in_instruction"
+    },
+    {
+      "check": "hidden_boundary:verifier.py",
+      "status": "PASS",
+      "detail": "not_named_in_instruction"
+    },
+    {
+      "check": "hidden_boundary:tests/",
+      "status": "PASS",
+      "detail": "not_named_in_instruction"
+    },
+    {
+      "check": "four_control_kinds",
+      "status": "PASS",
+      "detail": "insufficient_evidence,invariance,negative,positive"
+    },
+    {
+      "check": "five_trial_strategies",
+      "status": "PASS",
+      "detail": "always_abstain,reference_solution,simple_legal_baseline,target_model,template_or_keyword"
+    },
+    {
+      "check": "baseline_records_present",
+      "status": "PASS",
+      "detail": "always_abstain,reference_solution,simple_legal_baseline,template_or_keyword"
+    },
+    {
+      "check": "target_model_status_attributed",
+      "status": "PASS",
+      "detail": "NOT_RUN"
+    },
+    {
+      "check": "sop_card_present",
+      "status": "PASS",
+      "detail": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb008-route-portfolio-002/quality/sop_card.json"
+    },
+    {
+      "check": "sop_card_identity",
+      "status": "PASS",
+      "detail": "enterprise_harbor_sop_card.v1"
+    },
+    {
+      "check": "independent_verifier_audit",
+      "status": "PASS",
+      "detail": "PASS"
+    }
+  ],
+  "blockers": [],
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "target_model_not_run"
+  ],
+  "target_model_status": "NOT_RUN",
+  "target_model_infra_not_difficulty": false,
+  "release_permitted": false
+}

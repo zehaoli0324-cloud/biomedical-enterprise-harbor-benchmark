@@ -1,0 +1,35 @@
+scenario_id: eb010-next-batch-002
+status: ready
+source_scenarios: [L4-TRANCHE-001]
+domain: biomedical_enterprise
+scientific_decision: choose a robust legal next batch or request information
+scientific_judgments:
+  - independent_unit_and_handoff
+  - competing_choice_and_stop_rule
+  - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_value_of_information
+    observable: module 1 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of judgment_value_of_information changes selection or triggers a bounded hold
+  - id: math_batch_acquisition_under_uncertainty
+    observable: module 2 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of math_batch_acquisition_under_uncertainty changes selection or triggers a bounded hold
+  - id: horizon_branching_experiments
+    observable: module 3 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of horizon_branching_experiments changes selection or triggers a bounded hold
+  - id: judgment_uncertainty_and_stop_rules
+    observable: module 4 contributes an explicit evidence row to the final decision
+    decision_flip: a single-factor perturbation of judgment_uncertainty_and_stop_rules changes selection or triggers a bounded hold
+workflow_handoffs:
+  - from: visible_inputs
+    to: decision_handoff
+    artifact: outputs/decision.json
+    invariant: decision, evidence, provenance and claim boundary remain aligned
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

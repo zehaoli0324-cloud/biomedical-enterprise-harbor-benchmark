@@ -1,0 +1,11 @@
+{
+  "enterprise_value_card_id": "VALUE-EB011-MEASUREMENT-REQUEST-005-001",
+  "task_id": "eb011-measurement-request-005",
+  "enterprise_reality": {
+    "decision": "request the measurement with the highest decision value",
+    "downstream_action": "decision->review->handoff",
+    "error_consequence": "an attractive local result can corrupt a downstream scientific decision",
+    "human_owner": "domain_reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}
