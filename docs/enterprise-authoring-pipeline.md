@@ -205,6 +205,21 @@ source + benchmark + workflow + transformation + data + evaluation + risk + harb
 | `math_hierarchical_batch_sensitivity` | normalization 对批次和表型结论的敏感性 | batch/condition/replicate 层级、控制范围、效应保留和不平衡/缺失控制 |
 | `math_batch_acquisition_under_uncertainty` | 约束批次 acquisition 的可复核计算 | 声明 acquisition 公式、风险和相关性惩罚、合法组合、tie-break 与敏感性条件 |
 
+本批次抽象出的跨领域模块，作为 E6 的可迁移扩展登记在
+`config/l4_tranche_005_transferable_modules.json`。它们不是新的固定答案，
+而是可用同一控制协议复用的难度轴：
+
+| 模块 | 可迁移难点 | 最低物化要求 |
+| --- | --- | --- |
+| `judgment_minimal_sufficient_disclosure` | 区分“证据不足应 handoff”和“规则已经足够应决定” | 一个真实 blocker、一个非 blocker 不确定性、一个过度弃答陷阱 |
+| `judgment_contract_equivalence_and_replay` | 区分语义错误与未声明的序列化/等价表示错误 | 等价表示、错误表示、合同修复后的原产物 replay |
+| `judgment_local_eligibility_global_selection` | 区分单候选 eligibility 与资源约束下的全局 selection | 局部合法但全局冲突的候选、全局 tie-break、行序 invariance |
+| `audit_cross_artifact_consistency` | 检查 decision、evidence、manifest、digest、claim ledger 是否同一状态 | 单字段 mutation、哈希错误、缺 provenance 和完整一致包 |
+| `math_deterministic_tie_break` | 在主分数相同或近似时保持选择可重放 | 唯一 winner、并列 winner、近 tie 敏感性和明确二级规则 |
+
+这些模块必须先通过独立 verifier 和四类控制，再用于目标模型难度结论；
+不得把未公开的 enum、固定短语或隐藏 winner 当作难度来源。
+
 模块登记不等于难度实现。每个新增模块必须同时满足：
 
 1. agent-visible fixture 中存在会改变科学决策的竞争证据；

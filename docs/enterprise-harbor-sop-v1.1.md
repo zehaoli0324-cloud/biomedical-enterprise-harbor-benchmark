@@ -65,3 +65,27 @@ SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
 ## 6. 当前批次的处理结论
 
 本仓库当前两道新 mined task 的 reference 和控制已完成，但 target model 为 `TIMEOUT_INFRASTRUCTURE`，所以只能标记为 `BLOCKED`，不能从该结果推断 GPT 难度，也不能晋级 Harbor。先完成 preflight 和独立 verifier audit，再重跑 target model。
+
+## 7. 可迁移的 L4 难度模块
+
+六道 L4 题的难点分析和试跑归因见 `docs/l4-tranche-005-difficulty-analysis.md`，机器可读登记见 `config/l4_tranche_005_transferable_modules.json`。当前登记五个跨领域模块：
+
+- `judgment_minimal_sufficient_disclosure`：只在真实 blocker 存在时 handoff，不能把所有不确定性都变成弃答。
+- `judgment_contract_equivalence_and_replay`：显式区分语义判断、等价表示和合同修复后的原产物 replay。
+- `judgment_local_eligibility_global_selection`：分离候选 eligibility、共享资源约束和全局 selection。
+- `audit_cross_artifact_consistency`：让 decision、evidence、manifest、digest 和 claim ledger 保持同一状态。
+- `math_deterministic_tie_break`：在并列或近并列目标值下使用公开、可重放的二级规则。
+
+模块只有在 agent-visible evidence、公开合同、positive/negative/invariance/insufficient-evidence 控制和单因素 mutation 都齐全时才算实现。首轮模型因未声明的枚举和证据标签失败时，必须按 `invalid_contract_defect` 归因并保留原产物 replay；不能把合同缺陷包装成模型科学能力失败。
+
+## 8. L5 低披露、环境复杂性与语义含糊
+
+低披露只能减少重复解释，不能隐藏决定答案所需的规则。输入 schema、semantic lexicon、scope、阈值和环境约束可以分散在嵌套文件中，但必须能由 agent-visible manifest 和确定性 join 完整发现；verifier 必须从同一批公开输入重新推导，不能依赖未披露答案标签。
+
+当前登记三个可迁移模块：
+
+- `retrieval_schema_discovery`：递归发现嵌套输入，验证 manifest 覆盖、相对路径和 SHA-256，并把缺失发现与错误科学判断分开。
+- `judgment_semantic_ambiguity_resolution`：当 proceed 与 review 线索同时成立时，utility 不能消解语义冲突；必须转人工 review，并保留 scope、future leakage 和 numeric blocker 的独立原因。
+- `environment_schema_discovery_under_offline`：记录 network state、determinism 和输入边界；离线约束必须在 runner 或容器层可执行，不能只靠题面声明。
+
+这类题至少增加两项控制：高 utility 的 ambiguous adversarial case，以及不改变语义的 synonym/path-prefix metamorphic case。首轮 verifier fail 后必须对原始 artifact 做 hash 固定的 contract replay：路径前缀、布尔/枚举别名和冗余语义编码属于等价表示；缺文件、漏记录、错误 scope、未来 outcome 泄漏或越过 blocker 才属于能力失败。任何 verifier 兼容修订都要保留首轮错误、修订理由和 unchanged-artifact hash，不能悄悄覆盖 trial 结果。

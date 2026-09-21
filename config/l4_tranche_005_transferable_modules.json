@@ -1,0 +1,59 @@
+{
+  "schema_version": "enterprise_transferable_difficulty_modules.v1",
+  "source_tranche": "TRANCHE-005",
+  "selection_rule": "A module is transferable only when its evidence is observable, its contract is explicit, a single-factor mutation can flip the decision, and a verifier can separate scientific error from delivery or contract error.",
+  "modules": [
+    {
+      "id": "judgment_minimal_sufficient_disclosure",
+      "category": "judgment",
+      "question": "Should the agent decide, hold, or hand off when the disclosed evidence is already sufficient?",
+      "inputs": ["binding invariants", "blocking evidence", "allowed uncertainty", "handoff conditions"],
+      "required_controls": ["proceed despite non-blocking uncertainty", "hold on a binding blocker", "same decision after distractor reorder", "over-abstention trap"],
+      "failure_modes": ["over_abstention", "unnecessary_human_handoff", "missing_deterministic_decision", "blocker_without_evidence"],
+      "appears_in": ["eb003-recovery-chain-005", "eb005-normalization-hierarchy-003", "eb008-route-portfolio-002", "eb010-next-batch-002", "eb011-measurement-request-005", "eb012-cross-handoff-audit-001"]
+    },
+    {
+      "id": "judgment_contract_equivalence_and_replay",
+      "category": "judgment",
+      "question": "Is a semantically correct decision accepted across explicitly allowed representations and replayed after a contract repair?",
+      "inputs": ["decision enum", "equivalent labels", "nested evidence paths", "task version", "verifier revision"],
+      "required_controls": ["equivalent representation", "wrong semantic choice", "old artifact replay after contract repair", "schema mutation"],
+      "failure_modes": ["semantic_answer_rejected_by_format", "undocumented_equivalence", "contract_defect_misclassified_as_scientific_error", "revision_without_replay"],
+      "appears_in": ["all six L4 tasks"]
+    },
+    {
+      "id": "judgment_local_eligibility_global_selection",
+      "category": "judgment",
+      "question": "Can the agent distinguish per-candidate eligibility from the final selection under shared resources or portfolio constraints?",
+      "inputs": ["candidate-level gates", "shared inventory", "budget", "coverage", "global tie-break"],
+      "required_controls": ["locally valid but globally incompatible candidate", "globally optimal feasible portfolio", "target mismatch or duplicate evidence", "row-order invariance"],
+      "failure_modes": ["local_feasibility_as_global_winner", "resource_conflict_ignored", "duplicate_evidence_counted", "unnecessary_abstention"],
+      "appears_in": ["eb008-route-portfolio-002", "eb010-next-batch-002", "eb011-measurement-request-005"]
+    },
+    {
+      "id": "audit_cross_artifact_consistency",
+      "category": "audit",
+      "question": "Do decision, evidence, review, manifest, hashes, and status tell the same story?",
+      "inputs": ["decision artifact", "evidence ledger", "review boundary", "manifest", "artifact digest", "handoff status"],
+      "required_controls": ["one-field mismatch", "hash mismatch", "missing provenance", "complete consistent package"],
+      "failure_modes": ["decision_evidence_mismatch", "manifest_artifact_mismatch", "stale_status_propagation", "claim_boundary_leak"],
+      "appears_in": ["eb003-recovery-chain-005", "eb012-cross-handoff-audit-001"]
+    },
+    {
+      "id": "math_deterministic_tie_break",
+      "category": "math",
+      "question": "Does the optimization remain reproducible when multiple candidates share the same primary score?",
+      "inputs": ["objective", "feasibility constraints", "secondary priority", "lexical or stable tie-break", "sensitivity range"],
+      "required_controls": ["unique winner", "tied primary score", "near-tie sensitivity", "infeasible candidate"],
+      "failure_modes": ["nonunique winner", "unstated tie-break", "score-only selection", "conservative override of a determined tie-break"],
+      "appears_in": ["eb005-normalization-hierarchy-003", "eb010-next-batch-002", "eb011-measurement-request-005"]
+    }
+  ],
+  "authoring_gate": [
+    "Expose the objective, hard constraints, thresholds, tolerances, tie-break, output schema, equivalent representations, and handoff conditions.",
+    "Keep reference winners, eligibility labels, oracle intermediates, and target trajectories hidden.",
+    "Add positive, negative, invariance, insufficient-evidence, and single-factor mutation controls.",
+    "Record target-model failures with the earliest failure node and replay unchanged artifacts after any contract repair.",
+    "Do not claim model discrimination from one pass; require held-out variants and independent review."
+  ]
+}

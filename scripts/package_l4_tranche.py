@@ -51,6 +51,11 @@ verifier for all six tasks. Both trial results and their minimal artifacts are
 included for review. This is provisional acceptance for packaging, not a
 claim that the earlier failures passed and not READY_FOR_HARBOR.
 
+`tranche/l4-trial-summary.json` gives the machine-readable trial conditions and
+failure attribution for all six tasks. `tranche/l4-difficulty-analysis.md` and
+`tranche/l4-transferable-modules.json` explain which parts of the difficulty
+are scientific, which parts were contract defects, and how to reuse the modules.
+
 The recorded model runs used `process_cwd_only`. Independent practitioner
 review and fixed-container replay are still required before release.
 `manifest.json` lists the task statuses and SHA-256 of every packaged file.
@@ -77,10 +82,22 @@ def payload() -> dict[str, bytes]:
         "acceptance": "PROVISIONAL_FOR_PACKAGING",
         "release_status": "BLOCKED",
         "execution_boundary": "author_side_bundle; agent sees instruction.md and data/ only",
+        "trial_summary_path": "tranche/l4-trial-summary.json",
+        "difficulty_analysis_path": "tranche/l4-difficulty-analysis.md",
+        "transferable_modules_path": "tranche/l4-transferable-modules.json",
         "tasks": {},
     }
     add_file(files, "tranche/scale_tranche_005.json", ROOT / "candidate_pools/enterprise-v1/scale_tranche_005.json")
     add_file(files, "tranche/difficulty.md", ROOT / "docs/enterprise-difficulty-escalation-v1.md")
+    add_file(files, "tranche/l4-difficulty-analysis.md", ROOT / "docs/l4-tranche-005-difficulty-analysis.md")
+    add_file(files, "tranche/l4-transferable-modules.json", ROOT / "config/l4_tranche_005_transferable_modules.json")
+    trial_summary = {
+        "schema_version": "l4_trial_summary.v1",
+        "tranche_id": "TRANCHE-005",
+        "trial_scope": "author_side_process_cwd_only",
+        "contract_repair_interpretation": "initial failures are retained as contract-defect evidence; revised trials test the clarified contract",
+        "tasks": {},
+    }
     for task_id in TASKS:
         task = ROOT / "benchmarks" / task_id
         check = evaluate(task)
@@ -101,12 +118,27 @@ def payload() -> dict[str, bytes]:
         for row in trial_records:
             trial = Path(row["trial_dir"])
             trial_id = row["trial_id"]
+            trial_manifest = json.loads((trial / "manifest.json").read_text())
             verdict = json.loads((trial / "verifier_result.json").read_text())
             if verdict.get("passed") is not row["passed"]:
                 raise ValueError(f"trial verdict mismatch: {task_id}/{trial_id}")
             for relative in TRIAL_FILES:
                 add_file(files, f"trials/{task_id}/{trial_id}/{relative}", trial / relative)
-            packaged_trials.append({"trial_id": trial_id, "passed": row["passed"], "isolation_mode": json.loads((trial / "manifest.json").read_text()).get("isolation_mode")})
+            packaged_trials.append({
+                "trial_id": trial_id,
+                "passed": row["passed"],
+                "task_version": row.get("task_version"),
+                "model": row.get("model"),
+                "runner_status": row.get("runner_status"),
+                "agent_exit_code": row.get("agent_exit_code"),
+                "timed_out": row.get("timed_out"),
+                "verifier_status": row.get("verifier_status"),
+                "failure_attribution": row.get("failure_attribution"),
+                "verifier_errors": row.get("verifier_errors", []),
+                "artifact_sha256": row.get("artifact_sha256"),
+                "isolation_mode": trial_manifest.get("isolation_mode"),
+                "trial_path": f"trials/{task_id}/{trial_id}",
+            })
         for source in sorted(task.rglob("*")):
             if not source.is_file() or "__pycache__" in source.parts or source.suffix == ".pyc":
                 continue
@@ -120,6 +152,28 @@ def payload() -> dict[str, bytes]:
             "release_blockers": sop.get("release_blockers", []),
             "trials": packaged_trials,
         }
+        trial_summary["tasks"][task_id] = {
+            "quality_card_path": f"tasks/{task_id}/quality/model_trial_card.json",
+            "quality_results_path": f"tasks/{task_id}/quality/model_trial_results.json",
+            "target_model_status": results.get("target_model_status"),
+            "records": packaged_trials,
+            "independent_verifier_audit": {
+                "status": audit.get("status"),
+                "review_status": audit.get("review_status"),
+                "report_path": f"tasks/{task_id}/quality/independent_verifier_audit.json",
+            },
+        }
+        preflight = ROOT / "reports" / f"{task_id}-enterprise-sop-preflight.json"
+        verification = ROOT / "reports" / f"{task_id}-verification-agent.json"
+        add_file(files, f"reports/{preflight.name}", preflight)
+        add_file(files, f"reports/{verification.name}", verification)
+        verification_report = json.loads(verification.read_text())
+        trial_summary["tasks"][task_id]["sop_preflight_report_path"] = f"reports/{preflight.name}"
+        trial_summary["tasks"][task_id]["verification_agent"] = {
+            "status": verification_report.get("status"),
+            "report_path": f"reports/{verification.name}",
+        }
+    files["tranche/l4-trial-summary.json"] = (json.dumps(trial_summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode("utf-8")
     metadata["files"] = {path: {"sha256": digest(content), "size": len(content)} for path, content in sorted(files.items())}
     files["manifest.json"] = (json.dumps(metadata, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode("utf-8")
     return files

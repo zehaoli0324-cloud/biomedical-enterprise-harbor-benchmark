@@ -1,0 +1,45 @@
+{
+  "task_path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb012-cross-handoff-audit-001",
+  "status": "pass",
+  "gates": [
+    {
+      "name": "structure",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "name": "metadata",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "name": "readme",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "name": "trial-evidence",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "name": "enterprise-contract",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "name": "scientific-provenance",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "name": "oracle-static",
+      "passed": true,
+      "findings": []
+    }
+  ],
+  "findings": [],
+  "metadata": {
+    "judge": null
+  }
+}
