@@ -11,12 +11,61 @@
           "kind": "positive",
           "passed": true,
           "observed": {
-            "selected": "fallback_safe",
-            "drifted": [
-              "fallback_drifted"
-            ]
+            "selected": "retry_parallel",
+            "decisions": {
+              "primary": {
+                "status": "failed",
+                "failed_invariants": [
+                  "primary_failed"
+                ]
+              },
+              "retry_parallel": {
+                "status": "selected",
+                "failed_invariants": []
+              },
+              "retry_reference_refresh": {
+                "status": "provenance_incomplete",
+                "failed_invariants": [
+                  "reference",
+                  "tool_major_version",
+                  "version"
+                ]
+              },
+              "retry_cohort_refresh": {
+                "status": "provenance_incomplete",
+                "failed_invariants": [
+                  "cohort",
+                  "input_digest"
+                ]
+              },
+              "retry_missing_digest": {
+                "status": "provenance_incomplete",
+                "failed_invariants": [
+                  "input_digest"
+                ]
+              },
+              "pilot_gpu": {
+                "status": "excluded",
+                "failed_invariants": [
+                  "cohort",
+                  "input_digest",
+                  "scope"
+                ]
+              },
+              "archived_2024": {
+                "status": "excluded",
+                "failed_invariants": [
+                  "cohort",
+                  "input_digest",
+                  "reference",
+                  "scope",
+                  "tool_major_version",
+                  "version"
+                ]
+              }
+            }
           },
-          "expected": "select only the claim-preserving fallback and reject the successful drifted branch"
+          "expected": "select one current-scope claim-preserving fallback and classify drift, provenance, and scope branches"
         },
         {
           "control_id": "negative-scientific-question-drift",

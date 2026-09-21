@@ -11,7 +11,24 @@
   ],
   "fixed_config": {
     "task_digest": null,
-    "input_hashes": [{"path": "data/candidates.csv", "sha256": "94c083e6a4d6f6a1e6bb74573321f6a08f4348925928051994e5888830b3cfce"}, {"path": "data/constraints.json", "sha256": "ecf4ecd5db40e53612266655cbdeec397127aa6d1166159f6a591d3ee0dd8124"}, {"path": "data/pairwise_correlation.csv", "sha256": "14509bbb0314b485d2819931dacd1f8b4ca8538878f4f2f7ff06c372500f04f6"}, {"path": "instruction.md", "sha256": "8ae38f738051766cebfadd843422e2d1597022153c73abe09e441dad1fabf358"}],
+    "input_hashes": [
+      {
+        "path": "data/candidates.csv",
+        "sha256": "94c083e6a4d6f6a1e6bb74573321f6a08f4348925928051994e5888830b3cfce"
+      },
+      {
+        "path": "data/constraints.json",
+        "sha256": "ecf4ecd5db40e53612266655cbdeec397127aa6d1166159f6a591d3ee0dd8124"
+      },
+      {
+        "path": "data/pairwise_correlation.csv",
+        "sha256": "14509bbb0314b485d2819931dacd1f8b4ca8538878f4f2f7ff06c372500f04f6"
+      },
+      {
+        "path": "instruction.md",
+        "sha256": "8ae38f738051766cebfadd843422e2d1597022153c73abe09e441dad1fabf358"
+      }
+    ],
     "model_version": "gpt-5.6-sol",
     "tool_policy": "no task network tools; provider transport required",
     "network_policy": "off_requested",
@@ -54,7 +71,7 @@
       "strategy": "template_or_keyword",
       "status": "verifier_fail",
       "passed": false,
-      "error_count": 1,
+      "error_count": 5,
       "failure_attribution": "shortcut_or_calculation"
     },
     {

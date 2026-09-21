@@ -10,5 +10,48 @@
     "target_model"
   ],
   "target_model_status": "NOT_RUN",
-  "status": "NOT_RUN"
+  "status": "BASELINES_COMPLETE",
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: run_manifest.json"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "claim_boundary_or_abstention",
+      "errors": [
+        "missing artifact: candidate_set.tsv",
+        "missing artifact: diversity_report.json",
+        "missing artifact: coverage_review_gate.md",
+        "missing artifact: run_manifest.json"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "calculation_or_tool",
+      "errors": [
+        "diversity report mismatch: coverage"
+      ]
+    }
+  ]
 }

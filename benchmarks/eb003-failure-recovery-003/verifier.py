@@ -14,18 +14,50 @@ def expected(data: Path) -> dict:
     runs = json.loads((data / "tool_runs.json").read_text())
     spec = json.loads((data / "branch_spec.json").read_text())
     primary = next(row for row in runs if row["branch"] == "primary")
-    candidates = [row for row in runs if row["branch"] != "primary" and row["status"] == "success"]
-    equivalent = [
-        row["branch"]
-        for row in candidates
-        if row["question_id"] == spec["question_id"] and row["parameters"] == spec["fallback_parameters"]
-    ]
-    drifted = [row["branch"] for row in candidates if row["branch"] not in equivalent]
+    decisions = {}
+    eligible = []
+    invariants = spec["registered_invariants"]
+    for row in runs:
+        branch = row["branch"]
+        if branch == "primary":
+            decisions[branch] = {"status": "failed", "failed_invariants": ["primary_failed"]}
+            continue
+        failed = []
+        if row.get("scope") != spec["decision_scope"]:
+            failed.append("scope")
+        for field in ("question_id", "estimand", "cohort", "reference", "version", "input_digest"):
+            if row.get(field) != invariants[field]:
+                failed.append(field)
+        try:
+            tool_major = int(str(row.get("tool_version", "")).split(".", 1)[0])
+        except ValueError:
+            tool_major = None
+        if tool_major != invariants["tool_major_version"]:
+            failed.append("tool_major_version")
+        for field in spec["required_provenance"]:
+            if row.get(field) in (None, "") and field not in failed:
+                failed.append(field)
+        if row.get("status") != "success":
+            failed.append("execution_status")
+        if not failed:
+            eligible.append(branch)
+            status = "selected"
+        elif "scope" in failed:
+            status = "excluded"
+        elif any(field in failed for field in spec["required_provenance"]):
+            status = "provenance_incomplete"
+        else:
+            status = "scientific_drift"
+        decisions[branch] = {"status": status, "failed_invariants": sorted(failed)}
+    selected = eligible[0] if len(eligible) == 1 else None
+    if selected is None:
+        for branch in eligible:
+            decisions[branch]["status"] = "hold_ambiguous"
     return {
         "primary_failed": primary["status"] != "success",
-        "selected_branch": equivalent[0] if len(equivalent) == 1 else None,
-        "equivalent_branches": equivalent,
-        "drifted_branches": drifted,
+        "selected_branch": selected,
+        "eligible_branches": eligible,
+        "decisions": decisions,
         "hashes": {name: sha(data / name) for name in ("tool_runs.json", "branch_spec.json", "provenance.json")},
         "rules_version": spec["rules_version"],
     }
@@ -59,25 +91,42 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
         return False, errors
 
     events = [json.loads(line) for line in (submission / "execution_log.jsonl").read_text().splitlines() if line.strip()]
-    if not any(row.get("branch") == "primary" and row.get("status") == "failed" for row in events):
-        errors.append("primary failure is not preserved")
-    if not any(row.get("branch") == exp["selected_branch"] and row.get("status") in {"success", "selected"} for row in events):
-        errors.append("claim-preserving fallback is not selected")
-    for branch in exp["drifted_branches"]:
-        if not any(row.get("branch") == branch and row.get("status") in {"rejected", "excluded", "scientific_drift"} for row in events):
-            errors.append("scientifically drifted fallback is not rejected: " + branch)
+    by_branch = {row.get("branch"): row for row in events}
+    if set(by_branch) != set(exp["decisions"]):
+        errors.append("execution log must cover every branch exactly once")
+    accepted_statuses = {
+        "failed": {"failed"},
+        "selected": {"selected", "success"},
+        "excluded": {"excluded"},
+        "provenance_incomplete": {"provenance_incomplete", "rejected"},
+        "scientific_drift": {"scientific_drift", "rejected"},
+        "hold_ambiguous": {"hold", "hold_ambiguous"},
+    }
+    for branch, decision in exp["decisions"].items():
+        row = by_branch.get(branch, {})
+        if row.get("status") not in accepted_statuses[decision["status"]]:
+            errors.append(f"{branch} disposition mismatch")
+        actual_failed = row.get("failed_invariants", [])
+        if isinstance(actual_failed, str):
+            actual_failed = [item.strip() for item in actual_failed.split(",") if item.strip()]
+        if sorted(actual_failed) != decision["failed_invariants"]:
+            errors.append(f"{branch} failed invariants mismatch")
 
     report = (submission / "failure_recovery.md").read_text().lower()
     for concept, terms in {
         "partial output": ("partial", "incomplete"),
-        "scientific drift": ("drift", "reference change", "version change"),
+        "scientific drift": ("drift", "reference", "cohort", "estimand"),
+        "provenance blocker": ("provenance", "digest"),
+        "scope exclusion": ("pilot", "archiv", "scope"),
         "review boundary": ("review", "human"),
     }.items():
         if not any(term in report for term in terms):
             errors.append("failure recovery omits " + concept)
     ledger = (submission / "claim_ledger.tsv").read_text().lower()
-    if exp["selected_branch"].lower() not in ledger:
+    if exp["selected_branch"] and exp["selected_branch"].lower() not in ledger:
         errors.append("claim ledger does not identify the selected fallback")
+    if "blocker" not in ledger.splitlines()[0].split("\t"):
+        errors.append("claim ledger lacks blocker column")
     if "causal" not in report and "causal" not in ledger:
         errors.append("causal claim boundary is not explicit")
 

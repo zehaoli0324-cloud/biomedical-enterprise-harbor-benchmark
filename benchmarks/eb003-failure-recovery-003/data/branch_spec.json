@@ -1,12 +1,19 @@
 {
   "question_id": "Q-RECOVERY-01",
-  "rules_version": "recovery-v2",
+  "rules_version": "recovery-v3",
+  "decision_scope": "current",
   "allowed_changes": [
-    "timeout_seconds"
+    "timeout_seconds",
+    "workers"
   ],
-  "fallback_parameters": {
+  "registered_invariants": {
+    "question_id": "Q-RECOVERY-01",
+    "estimand": "ranked_pathway_enrichment",
+    "cohort": "COHORT-17-freeze3",
     "reference": "gene-set-v2",
     "version": "2.1.0",
-    "timeout_seconds": 60
-  }
+    "input_digest": "sha256:4af84d9f",
+    "tool_major_version": 2
+  },
+  "required_provenance": ["input_digest", "tool_version", "reference", "version"]
 }

@@ -1,6 +1,11 @@
 {
-  "rules_version": "route-stock-v2",
+  "rules_version": "route-stock-v3",
+  "target": "TGT-1",
+  "decision_date": "2026-09-21",
+  "eligible_lot_status": ["active"],
+  "eligible_source_status": ["current"],
   "max_steps": 3,
+  "min_independent_sources_per_step": 2,
   "allowed_precedent_scope": ["direct", "close_analogue"],
   "allowed_risk": ["low", "moderate"],
   "require_stereochemistry_resolved": true,

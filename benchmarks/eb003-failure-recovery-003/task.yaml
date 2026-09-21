@@ -1,5 +1,5 @@
 id: eb003-failure-recovery-003
-version: "0.2.0"
+version: "0.3.0"
 status: ready_for_calibration
 title: "Computational biology failure recovery with claim-preserving handoff"
 domain: biomedical_enterprise
@@ -12,9 +12,9 @@ constraints:
     record_input_checksum: true
     deterministic_output: true
 required_outputs:
-  - {id: execution_log, path: outputs/execution_log.jsonl, required_fields: [event, branch, status]}
+  - {id: execution_log, path: outputs/execution_log.jsonl, required_fields: [event, branch, status, failed_invariants]}
   - {id: failure_recovery, path: outputs/failure_recovery.md, required_fields: [failed_branch, safe_fallback, drifted_fallback, review_boundary]}
-  - {id: claim_ledger, path: outputs/claim_ledger.tsv, required_fields: [claim, status, evidence, review_boundary]}
+  - {id: claim_ledger, path: outputs/claim_ledger.tsv, required_fields: [claim, status, evidence, blocker, review_boundary]}
   - {id: run_manifest, path: outputs/run_manifest.json, required_fields: [rules_version, inputs, deterministic]}
 hidden_truth:
   path: verifier_only/reference.json

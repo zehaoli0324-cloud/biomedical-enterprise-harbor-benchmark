@@ -1,7 +1,6 @@
 {
   "primary_failed": true,
-  "selected_branch": "fallback_safe",
-  "equivalent_branches": ["fallback_safe"],
-  "drifted_branches": ["fallback_drifted"],
-  "rules_version": "recovery-v2"
+  "selected_branch": "retry_parallel",
+  "eligible_branches": ["retry_parallel"],
+  "rules_version": "recovery-v3"
 }

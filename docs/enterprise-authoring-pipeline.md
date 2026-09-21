@@ -217,6 +217,29 @@ source + benchmark + workflow + transformation + data + evaluation + risk + harb
 
 难度等级与目标模型区分度必须分开记录。单次目标模型通过不自动降低已经物化且通过控制校准的结构难度，但只能记为 `PASS_SINGLE_TRIAL`，不得宣称该题能区分目标模型；至少完成重复试跑和独立领域复核后才能形成稳定的模型难度结论。反过来，若模型给出正确科学判断，但因 instruction 未声明的字段位置、等价命名或固定措辞被拒绝，必须修复 contract，并用未改动的原产物 replay；replay 通过时记录 `PASS_AFTER_CONTRACT_REPLAY`，原失败归入 verifier/contract，不计入科学难度证据。
 
+#### E6.2 Blocker、最小披露和复杂场景升级
+
+难度升级不得以降低某个已知模型的分数为目标。先冻结科学决策合同，再构造能区分方法质量的任务分布。推荐使用以下模块：
+
+| 模块 | 作用 | 物化要求 |
+| --- | --- | --- |
+| `judgment_blocker_and_abstention` | 在证据不足或关键假设失效时决定 hold/reject | blocker 必须对应真实风险；至少包含一个应 proceed、一个应 hold 的控制；不得把所有不确定性都变成弃答 |
+| `noise_operational_distractors` | 混入 pilot、archived、wrong-scope 或已失效记录 | 每条干扰记录必须有可判定的排除依据；加入、删除或重排干扰项不得改变正确结论 |
+| `data_evidence_graph_join` | 连接候选、步骤、来源、库存和 provenance | verifier 检查 join key、覆盖率和去重，禁止把重复来源当成独立证据 |
+| `math_robust_scenario_optimization` | 在多个合理情景下选择稳健决策 | instruction 公开情景集合、聚合规则、约束和 tie-break；不得泄露最优组合 |
+
+披露采用“最小充分披露”，不是“尽量少说”：
+
+1. 必须公开科学目标、独立单位、约束、阈值、容差、tie-break、输出 schema、允许的等价表示和弃答条件。
+2. 必须隐藏 reference winner、预计算 eligibility/validity、oracle 中间结果、控制的预期结论和 target-model 轨迹。
+3. agent-visible 数据不得出现 `recommended`、`accepted`、`reaction_valid` 等最终判断标签；若字段是上游声明而非真值，必须明确命名为 `reported_*` 并要求独立复核。
+4. 干扰数据应来自同一工作流的现实记录类型，并受数量预算约束。默认干扰项不超过决策相关记录的 50%；超过时必须在 difficulty card 解释其业务真实性和训练价值。
+5. 计算规模应提高独立 join、组合数、层级或情景数，而不是增加重复文档和格式要求。每次升级至少新增一个可通过 mutation test 单独翻转的科学维度。
+
+Verifier 必须在目标模型试跑前冻结并记录 digest。看到模型输出后，不得为了降低得分增加新字段、固定措辞或隐藏规则。合同缺陷修复必须升级 verifier revision，保留首次结果，并用原产物 replay。任务数据、instruction、目标函数或 blocker 发生变化时升级 task version，旧 trial 只能作为历史证据。
+
+单 fixture 通过不能证明难度。每个高难题最终应形成至少 3 个 held-out variants：一个正常决策、一个单 blocker、一个多因素冲突；variants 共享公开合同但不共享 reference winner。
+
 ### E7. 编译、隔离和试跑
 
 物化 `task.yaml`/`task.toml`、`instruction.md`、agent-visible fixture、`solution/`、独立 `verifier`、`tests/`、环境和运行 manifest。依次执行 schema/结构检查、solver/judge 隔离、参考解、nop/always-abstain、template/keyword、简单合法 baseline、Docker/Harbor replay 和 target-model trial。

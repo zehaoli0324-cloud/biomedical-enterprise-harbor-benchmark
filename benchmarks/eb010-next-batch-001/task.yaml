@@ -1,5 +1,5 @@
 id: eb010-next-batch-001
-version: "0.2.0"
+version: "0.3.0"
 status: ready_for_calibration
 title: "Next-batch experimental design under feasibility and budget constraints"
 domain: biomedical_enterprise
@@ -12,8 +12,8 @@ constraints:
     record_input_checksum: true
     deterministic_output: true
 required_outputs:
-  - {id: next_batch, path: outputs/next_batch.csv, required_fields: [candidate_id, group, material_cost, predicted_gain, uncertainty, failure_probability, candidate_utility]}
-  - {id: constraint_check, path: outputs/constraint_check.json, required_fields: [legal, material_cost, group_coverage, candidate_utility_sum, correlation_penalty, batch_utility, rules_version]}
+  - {id: next_batch, path: outputs/next_batch.csv, required_fields: [candidate_id, scope, group, material_cost, predicted_gain, uncertainty, failure_probability, candidate_utility]}
+  - {id: constraint_check, path: outputs/constraint_check.json, required_fields: [legal, material_cost, group_coverage, incompatible_pairs, scenario_utilities, robust_batch_utility, rules_version]}
   - {id: uncertainty_table, path: outputs/uncertainty_table.tsv, required_fields: [candidate_id, uncertainty, selected]}
   - {id: selection_rationale, path: outputs/selection_rationale.md, required_fields: [exploration, exploitation, failure_risk, redundancy, feasibility, planning_boundary]}
 hidden_truth:

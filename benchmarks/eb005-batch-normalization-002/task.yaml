@@ -1,19 +1,19 @@
 id: eb005-batch-normalization-002
-version: "0.2.0"
+version: "0.3.0"
 status: ready_for_calibration
 title: "Cell Painting normalization choice under controlled batch confounding"
 domain: biomedical_enterprise
 agent_visible_inputs:
   - path: data/
-    format: CSV and JSON
+    format: joined CSV and JSON
 constraints:
   network: off
   provenance:
     record_input_checksum: true
     deterministic_output: true
 required_outputs:
-  - {id: normalization_comparison, path: outputs/normalization_comparison.tsv, required_fields: [plate, batch, condition, replicate, raw_signal, control_adjusted, aggressive_adjusted]}
-  - {id: batch_report, path: outputs/batch_report.json, required_fields: [recommended_profile, profiles, control_batch_range, effect_retention_fraction, eligible]}
+  - {id: normalization_comparison, path: outputs/normalization_comparison.tsv, required_fields: [plate, analysis_scope, qc_pass, batch, condition, replicate, raw_signal, control_adjusted, aggressive_adjusted, global_adjusted]}
+  - {id: batch_report, path: outputs/batch_report.json, required_fields: [recommended_profile, profiles, control_batch_range, effect_retention_fraction, direction_preserved, blocker_reasons, eligible]}
   - {id: sensitivity_summary, path: outputs/sensitivity_summary.md, required_fields: [batch_identifiability, control, phenotype_retention, overcorrection, limitation]}
   - {id: run_manifest, path: outputs/run_manifest.json, required_fields: [inputs, rules_version, deterministic]}
 hidden_truth:

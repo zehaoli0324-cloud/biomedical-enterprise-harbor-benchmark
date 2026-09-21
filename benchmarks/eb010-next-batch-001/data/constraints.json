@@ -1,8 +1,10 @@
 {
-  "rules_version": "next-batch-v2",
-  "batch_size": 3,
-  "material_budget": 8.5,
+  "rules_version": "next-batch-v3",
+  "batch_size": 4,
+  "material_budget": 10.0,
   "required_groups": ["A", "B", "C"],
+  "max_per_group": 2,
+  "incompatibility_pairs": [["C-2", "C-3"]],
   "exploration_weight": 0.5,
   "failure_penalty": 0.8,
   "correlation_penalty": 0.4

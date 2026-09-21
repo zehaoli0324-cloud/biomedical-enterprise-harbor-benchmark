@@ -1,42 +1,6 @@
 [
-  {
-    "route_id": "R-A",
-    "target": "TGT-1",
-    "score": 0.81,
-    "starting_materials": [
-      "M-1",
-      "M-2"
-    ],
-    "steps": 2
-  },
-  {
-    "route_id": "R-B",
-    "target": "TGT-1",
-    "score": 0.94,
-    "starting_materials": [
-      "M-1",
-      "M-9"
-    ],
-    "steps": 2
-  },
-  {
-    "route_id": "R-C",
-    "target": "TGT-1",
-    "score": 0.89,
-    "starting_materials": [
-      "M-1",
-      "M-2"
-    ],
-    "steps": 2
-  },
-  {
-    "route_id": "R-D",
-    "target": "TGT-1",
-    "score": 0.78,
-    "starting_materials": [
-      "M-1",
-      "M-2"
-    ],
-    "steps": 2
-  }
+  {"route_id":"R-A","target":"TGT-1","score":0.81,"materials":[{"compound_id":"M-1","required_amount":5.0},{"compound_id":"M-2","required_amount":3.0}],"steps":2},
+  {"route_id":"R-B","target":"TGT-1","score":0.94,"materials":[{"compound_id":"M-1","required_amount":5.0},{"compound_id":"M-9","required_amount":2.0}],"steps":2},
+  {"route_id":"R-C","target":"TGT-1","score":0.89,"materials":[{"compound_id":"M-1","required_amount":5.0},{"compound_id":"M-2","required_amount":3.0}],"steps":2},
+  {"route_id":"R-D","target":"TGT-1","score":0.78,"materials":[{"compound_id":"M-1","required_amount":5.0},{"compound_id":"M-2","required_amount":3.0}],"steps":2}
 ]

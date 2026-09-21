@@ -1,8 +1,8 @@
 {
   "task_id": "eb009-diversity-coverage-004",
   "protocol_version": "enterprise-model-trial.v1",
-  "status": "BLOCKED",
-  "target_model_status": "TIMEOUT_INFRASTRUCTURE",
+  "status": "BASELINES_COMPLETE",
+  "target_model_status": "NOT_RUN",
   "records": [
     {
       "strategy": "reference_solution",
@@ -44,17 +44,6 @@
       "errors": [
         "diversity report mismatch: coverage"
       ]
-    },
-    {
-      "strategy": "target_model",
-      "status": "timeout",
-      "passed": false,
-      "error_count": 0,
-      "failure_attribution": "infrastructure_adapter_timeout",
-      "trial_id": "eb009-target-001",
-      "trial_dir": "/private/tmp/mined-target-trials/eb009-target-001",
-      "verifier_status": "not_run",
-      "errors": ["Codex app-server did not produce a completed agent result within 120 seconds"]
     }
   ]
 }

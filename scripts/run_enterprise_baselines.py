@@ -66,50 +66,67 @@ def write_eb004_reference(verifier, data: Path, output: Path) -> None:
 def write_eb003_reference(verifier, data: Path, output: Path) -> None:
     exp = verifier.expected(data)
     output.mkdir(parents=True, exist_ok=True)
-    events = [
-        {"event": "primary_complete", "branch": "primary", "status": "failed"},
-        {"event": "fallback_review", "branch": exp["selected_branch"], "status": "selected"},
-        *({"event": "fallback_review", "branch": branch, "status": "scientific_drift"} for branch in exp["drifted_branches"]),
-    ]
+    events = []
+    for branch, decision in exp["decisions"].items():
+        events.append({"event": "branch_review", "branch": branch, "status": decision["status"], "failed_invariants": decision["failed_invariants"]})
     (output / "execution_log.jsonl").write_text("".join(json.dumps(row) + "\n" for row in events), encoding="utf-8")
-    (output / "failure_recovery.md").write_text("# Recovery\n\nThe primary left partial output. The safe fallback is selected; the other successful branch has scientific reference/version drift. Human review is required and this is not a causal result.\n", encoding="utf-8")
-    (output / "claim_ledger.tsv").write_text(f"claim\tstatus\tevidence\treview_boundary\noperational recovery\tbounded\t{exp['selected_branch']}\tnot causal; human review\n", encoding="utf-8")
+    (output / "failure_recovery.md").write_text("# Recovery\n\nThe primary left partial output. The current-scope fallback is selected only after question, estimand, cohort, reference, version, digest, tool major version, and required provenance checks. Drifted branches, missing-digest branches, pilot and archived scope distractors are excluded. Human review is required and this is not a causal result.\n", encoding="utf-8")
+    (output / "claim_ledger.tsv").write_text(f"claim\tstatus\tevidence\tblocker\treview_boundary\noperational recovery\tbounded\t{exp['selected_branch']}\t\tnot causal; human review\n", encoding="utf-8")
     (output / "run_manifest.json").write_text(json.dumps({"input_sha256": exp["hashes"], "rules_version": exp["rules_version"], "deterministic": True}, indent=2) + "\n", encoding="utf-8")
 
 
 def write_eb005_reference(verifier, data: Path, output: Path) -> None:
     exp = verifier.expected(data)
     output.mkdir(parents=True, exist_ok=True)
-    rows = list(csv.DictReader((data / "plates.csv").open()))
+    rows = [{**row, "qc_pass": str(row["qc_pass"]).lower()} for row in exp["joined_rows"]]
     write_csv(output / "normalization_comparison.tsv", list(rows[0]), rows, delimiter="\t")
-    (output / "batch_report.json").write_text(json.dumps({"recommended": exp["recommended"], "profiles": exp["profiles"]}, indent=2) + "\n", encoding="utf-8")
-    (output / "sensitivity_summary.md").write_text("# Sensitivity\n\nBatch identifiability uses control evidence and effect retention. The aggressive branch is over-correction that erases phenotype signal.\n", encoding="utf-8")
+    report = {"recommended": exp["recommended"], "evidence_complete": exp["evidence_complete"], "cell_counts": exp["cell_counts"], "excluded_plates": exp["excluded_plates"], "profiles": exp["profiles"]}
+    (output / "batch_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    (output / "sensitivity_summary.md").write_text("# Sensitivity\n\nPilot and archived scope exclusions are preserved after the metadata join. Batch identifiability uses control evidence and phenotype effect retention. The global branch has a direction reversal, while the aggressive branch is over-correction that erases phenotype signal. This descriptive analysis has limitations and does not confirm mechanism.\n", encoding="utf-8")
     (output / "run_manifest.json").write_text(json.dumps({"input_sha256": exp["hashes"], "rules_version": exp["rules_version"], "deterministic": True}, indent=2) + "\n", encoding="utf-8")
 
 
 def write_eb008_reference(verifier, data: Path, output: Path) -> None:
     exp = verifier.expected(data)
     output.mkdir(parents=True, exist_ok=True)
-    fields = ["route_id", "target", "score", "stock_ok", "reaction_valid", "failed_gates", "accepted"]
-    write_csv(output / "route_table.tsv", fields, [{**row, "failed_gates": ";".join(row["failed_gates"])} for row in exp["routes"]], delimiter="\t")
-    (output / "stock_compliance.json").write_text(json.dumps({"routes": exp["routes"], "selected_route_ids": exp["accepted_routes"]}, indent=2) + "\n", encoding="utf-8")
-    evidence = json.loads((data / "reaction_evidence.json").read_text(encoding="utf-8"))
+    fields = ["route_id", "target", "score", "usable_stock", "stock_ok", "evidence_quorum", "reaction_valid", "failed_gates", "accepted"]
+    rows = []
+    for row in exp["routes"]:
+        rows.append({
+            "route_id": row["route_id"], "target": row["target"], "score": row["score"],
+            "usable_stock": json.dumps({key: value["usable"] for key, value in row["material_status"].items()}, sort_keys=True),
+            "stock_ok": str(row["stock_ok"]).lower(),
+            "evidence_quorum": json.dumps(row["evidence_quorum"], sort_keys=True),
+            "reaction_valid": str(row["reaction_valid"]).lower(),
+            "failed_gates": ";".join(row["failed_gates"]),
+            "accepted": str(row["accepted"]).lower(),
+        })
+    write_csv(output / "route_table.tsv", fields, rows, delimiter="\t")
+    (output / "stock_compliance.json").write_text(json.dumps({"usable_stock": exp["usable_stock"], "routes": exp["routes"], "selected_route_ids": exp["accepted_routes"]}, indent=2) + "\n", encoding="utf-8")
+    evidence = []
+    for row in exp["joined_evidence"]:
+        evidence.append({
+            "route_id": row["route_id"], "step": row["step"], "source_id": row["source_id"],
+            "source_status": row["source_status"], "independence_group": row["source_independence_group"],
+            "included": str(row["included"]).lower(),
+        })
     write_csv(output / "route_evidence.tsv", list(evidence[0]), evidence, delimiter="\t")
-    (output / "approval_gate.md").write_text("# Approval gate\n\nHuman chemist review remains required. Computational precedent, chemoselectivity, stereochemistry and protection evidence are not experimental laboratory proof.\n", encoding="utf-8")
+    (output / "approval_gate.md").write_text("# Approval gate\n\nHuman chemist review remains required. The evidence-source join excludes retracted or wrong-target records, and computational precedent, chemoselectivity, stereochemistry and protection evidence are not experimental laboratory proof.\n", encoding="utf-8")
 
 
 def write_eb010_reference(verifier, data: Path, output: Path) -> None:
     exp = verifier.expected(data)
     output.mkdir(parents=True, exist_ok=True)
     candidates = {row["candidate_id"]: row for row in csv.DictReader((data / "candidates.csv").open())}
-    fields = ["candidate_id", "group", "material_cost", "predicted_gain", "uncertainty", "failure_probability", "candidate_utility"]
-    rows = [{**candidates[candidate_id], "candidate_utility": exp["best_batch"]["candidate_utilities"][candidate_id]} for candidate_id in exp["reference_batch"]]
+    fields = ["candidate_id", "scope", "group", "material_cost", "predicted_gain", "uncertainty", "failure_probability", "candidate_utility"]
+    nominal = exp["best_batch"]["candidate_utilities"]["nominal"]
+    rows = [{**candidates[candidate_id], "candidate_utility": nominal[candidate_id]} for candidate_id in exp["reference_batch"]]
     write_csv(output / "next_batch.csv", fields, rows)
     best = exp["best_batch"]
-    (output / "constraint_check.json").write_text(json.dumps({"legal": True, "material_cost": best["material_cost"], "group_coverage": exp["required_groups"], "candidate_utility_sum": best["candidate_utility_sum"], "correlation_penalty": best["correlation_penalty"], "batch_utility": best["batch_utility"], "rules_version": exp["rules_version"]}, indent=2) + "\n", encoding="utf-8")
-    uncertainty = [{"candidate_id": candidate_id, "uncertainty": row["uncertainty"], "selected": str(candidate_id in exp["reference_batch"]).lower()} for candidate_id, row in candidates.items()]
+    (output / "constraint_check.json").write_text(json.dumps({"legal": True, "material_cost": best["material_cost"], "group_coverage": best["groups"], "incompatible_pairs": best["incompatible_pairs"], "scenario_utilities": best["scenario_utilities"], "robust_batch_utility": best["robust_batch_utility"], "rules_version": exp["rules_version"]}, indent=2) + "\n", encoding="utf-8")
+    uncertainty = [{"candidate_id": candidate_id, "scope": row["scope"], "uncertainty": row["uncertainty"], "selected": str(candidate_id in exp["reference_batch"]).lower()} for candidate_id, row in candidates.items()]
     write_csv(output / "uncertainty_table.tsv", list(uncertainty[0]), uncertainty, delimiter="\t")
-    (output / "selection_rationale.md").write_text("# Selection\n\nThe planning recommendation balances exploration and exploitation, failure risk, correlation redundancy and budget feasibility. It is not an experimental result.\n", encoding="utf-8")
+    (output / "selection_rationale.md").write_text("# Selection\n\nThe robust scenario recommendation maximizes the worst-case utility before weighted mean. It balances exploration and exploitation, failure risk, correlation redundancy and budget feasibility while excluding pilot and archived candidates. This is a planning recommendation, not an experimental result.\n", encoding="utf-8")
 
 
 REFERENCE_WRITERS = {
@@ -127,8 +144,8 @@ def mutate_baseline(task_id: str, strategy: str, output: Path) -> None:
         if strategy == "simple_legal_baseline":
             events = [json.loads(line) for line in (output / "execution_log.jsonl").read_text().splitlines()]
             for row in events:
-                if row["branch"] == "fallback_safe": row["status"] = "rejected"
-                if row["branch"] == "fallback_drifted": row["status"] = "selected"
+                if row["branch"] == "retry_parallel": row["status"] = "rejected"
+                if row["branch"] == "retry_reference_refresh": row["status"] = "selected"
             (output / "execution_log.jsonl").write_text("".join(json.dumps(row) + "\n" for row in events), encoding="utf-8")
         elif strategy == "always_abstain":
             shutil.rmtree(output)

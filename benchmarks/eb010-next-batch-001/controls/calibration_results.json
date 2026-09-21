@@ -14,19 +14,53 @@
             "ids": [
               "C-1",
               "C-2",
-              "C-6"
+              "C-6",
+              "C-7"
             ],
-            "material_cost": 8.5,
+            "material_cost": 9.0,
+            "groups": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
             "candidate_utilities": {
-              "C-1": 0.595,
-              "C-2": 0.635,
-              "C-6": 0.58
+              "nominal": {
+                "C-1": 0.595,
+                "C-2": 0.635,
+                "C-6": 0.58,
+                "C-7": 0.57
+              },
+              "low_gain": {
+                "C-1": 0.445,
+                "C-2": 0.49,
+                "C-6": 0.48,
+                "C-7": 0.495
+              },
+              "high_failure": {
+                "C-1": 0.555,
+                "C-2": 0.575,
+                "C-6": 0.52,
+                "C-7": 0.53
+              }
             },
-            "candidate_utility_sum": 1.81,
+            "candidate_utility_sum": {
+              "nominal": 2.38,
+              "low_gain": 1.91,
+              "high_failure": 2.18
+            },
             "correlation_penalty": 0.0,
-            "batch_utility": 1.81
+            "scenario_utilities": {
+              "nominal": 2.38,
+              "low_gain": 1.91,
+              "high_failure": 2.18
+            },
+            "robust_batch_utility": 1.91,
+            "mean_batch_utility": 2.199,
+            "batch_utility": 1.91,
+            "incompatible_pairs": []
           },
-          "expected": "select the maximum risk-adjusted, redundancy-penalized feasible batch"
+          "expected": "select the maximum robust scenario utility feasible batch"
         },
         {
           "control_id": "negative-budget-overflow",
@@ -42,7 +76,8 @@
           "observed": [
             "C-1",
             "C-2",
-            "C-6"
+            "C-6",
+            "C-7"
           ],
           "expected": "candidate order does not change the optimum"
         },

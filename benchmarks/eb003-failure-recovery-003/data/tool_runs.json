@@ -2,34 +2,31 @@
   {
     "branch": "primary",
     "status": "failed",
-    "question_id": "Q-RECOVERY-01",
-    "parameters": {
-      "reference": "gene-set-v2",
-      "version": "2.1.0",
-      "timeout_seconds": 15
-    },
+    "scope": "current", "question_id": "Q-RECOVERY-01", "estimand": "ranked_pathway_enrichment", "cohort": "COHORT-17-freeze3", "reference": "gene-set-v2", "version": "2.1.0", "input_digest": "sha256:4af84d9f", "tool_version": "2.1.0", "timeout_seconds": 15, "workers": 2,
     "partial_output": true
   },
   {
-    "branch": "fallback_safe",
+    "branch": "retry_parallel",
     "status": "success",
-    "question_id": "Q-RECOVERY-01",
-    "parameters": {
-      "reference": "gene-set-v2",
-      "version": "2.1.0",
-      "timeout_seconds": 60
-    },
+    "scope": "current", "question_id": "Q-RECOVERY-01", "estimand": "ranked_pathway_enrichment", "cohort": "COHORT-17-freeze3", "reference": "gene-set-v2", "version": "2.1.0", "input_digest": "sha256:4af84d9f", "tool_version": "2.2.1", "timeout_seconds": 60, "workers": 8,
     "partial_output": false
   },
   {
-    "branch": "fallback_drifted",
+    "branch": "retry_reference_refresh",
     "status": "success",
-    "question_id": "Q-RECOVERY-01",
-    "parameters": {
-      "reference": "gene-set-v3",
-      "version": "3.0.0",
-      "timeout_seconds": 60
-    },
+    "scope": "current", "question_id": "Q-RECOVERY-01", "estimand": "ranked_pathway_enrichment", "cohort": "COHORT-17-freeze3", "reference": "gene-set-v3", "version": "3.0.0", "input_digest": "sha256:4af84d9f", "tool_version": "3.0.0", "timeout_seconds": 60, "workers": 8,
     "partial_output": false
+  },
+  {
+    "branch": "retry_cohort_refresh", "status": "success", "scope": "current", "question_id": "Q-RECOVERY-01", "estimand": "ranked_pathway_enrichment", "cohort": "COHORT-17-freeze4", "reference": "gene-set-v2", "version": "2.1.0", "input_digest": "sha256:88b114c2", "tool_version": "2.2.1", "timeout_seconds": 60, "workers": 8, "partial_output": false
+  },
+  {
+    "branch": "retry_missing_digest", "status": "success", "scope": "current", "question_id": "Q-RECOVERY-01", "estimand": "ranked_pathway_enrichment", "cohort": "COHORT-17-freeze3", "reference": "gene-set-v2", "version": "2.1.0", "input_digest": null, "tool_version": "2.2.1", "timeout_seconds": 60, "workers": 8, "partial_output": false
+  },
+  {
+    "branch": "pilot_gpu", "status": "success", "scope": "pilot", "question_id": "Q-RECOVERY-01", "estimand": "ranked_pathway_enrichment", "cohort": "PILOT-02", "reference": "gene-set-v2", "version": "2.1.0", "input_digest": "sha256:pilot", "tool_version": "2.2.1", "timeout_seconds": 30, "workers": 16, "partial_output": false
+  },
+  {
+    "branch": "archived_2024", "status": "success", "scope": "archived", "question_id": "Q-RECOVERY-01", "estimand": "ranked_pathway_enrichment", "cohort": "COHORT-11", "reference": "gene-set-v1", "version": "1.8.0", "input_digest": "sha256:archive", "tool_version": "1.8.4", "timeout_seconds": 45, "workers": 4, "partial_output": false
   }
 ]

@@ -4,7 +4,7 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "CALIBRATION_READY",
   "control_status": "CALIBRATED",
-  "model_trial_status": "SINGLE_TARGET_TRIAL_PASS_V0.2.0",
+  "model_trial_status": "SINGLE_TARGET_TRIAL_PASS_V0.3.0",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": ["repeated target-model trials", "independent scientific review", "reproducibility and license signoff"]

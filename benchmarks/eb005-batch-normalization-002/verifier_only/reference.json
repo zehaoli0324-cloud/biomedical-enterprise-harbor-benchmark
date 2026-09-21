@@ -1,9 +1,12 @@
 {
   "recommended": "control_adjusted",
+  "evidence_complete": true,
+  "excluded_plates": ["PA1", "PA2", "PX1", "PX2"],
   "profiles": {
-    "raw_signal": {"control_batch_range": 0.45, "effect_retention_fraction": 1.0, "eligible": false},
-    "control_adjusted": {"control_batch_range": 0.185, "effect_retention_fraction": 0.907103, "eligible": true},
-    "aggressive_adjusted": {"control_batch_range": 0.0, "effect_retention_fraction": 0.185792, "eligible": false}
+    "raw_signal": {"control_batch_range": 0.45, "effect_retention_fraction": 1.0, "direction_preserved": true, "blocker_reasons": ["control_batch_range"], "eligible": false},
+    "control_adjusted": {"control_batch_range": 0.185, "effect_retention_fraction": 0.907103, "direction_preserved": true, "blocker_reasons": [], "eligible": true},
+    "aggressive_adjusted": {"control_batch_range": 0.0, "effect_retention_fraction": 0.185792, "direction_preserved": true, "blocker_reasons": ["effect_retention"], "eligible": false},
+    "global_adjusted": {"control_batch_range": 0.01, "effect_retention_fraction": 0.642077, "direction_preserved": false, "blocker_reasons": ["effect_retention", "direction_reversal"], "eligible": false}
   },
-  "rules_version": "cell-painting-normalization-v2"
+  "rules_version": "cell-painting-normalization-v3"
 }

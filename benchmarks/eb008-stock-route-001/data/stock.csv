@@ -1,4 +1,8 @@
-compound_id,available
-M-1,true
-M-2,true
-M-9,false
+lot_id,compound_id,on_hand,reserved,expiry_date,status
+L-101,M-1,12.0,4.0,2027-05-01,active
+L-102,M-1,4.0,1.0,2026-08-01,active
+L-201,M-2,5.0,1.5,2026-12-15,active
+L-202,M-2,3.0,3.5,2027-01-10,active
+L-203,M-2,8.0,0.0,2027-03-10,quarantined
+L-901,M-9,10.0,1.0,2026-07-01,active
+L-902,M-9,2.0,1.5,2027-02-01,active

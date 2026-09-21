@@ -1,7 +1,14 @@
 {
-  "reference_batch": ["C-1", "C-2", "C-6"],
-  "candidate_utility_sum": 1.81,
-  "correlation_penalty": 0.0,
-  "batch_utility": 1.81,
-  "rules_version": "next-batch-v2"
+  "reference_batch": ["C-1", "C-2", "C-6", "C-7"],
+  "scenario_utilities": {
+    "nominal": 2.38,
+    "low_gain": 1.91,
+    "high_failure": 2.18
+  },
+  "robust_batch_utility": 1.91,
+  "mean_batch_utility": 2.199,
+  "material_cost": 9.0,
+  "incompatible_pairs": [],
+  "excluded_candidate_ids": ["C-8", "C-9"],
+  "rules_version": "next-batch-v3"
 }

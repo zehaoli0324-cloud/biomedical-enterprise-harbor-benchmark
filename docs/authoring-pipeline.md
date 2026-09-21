@@ -71,6 +71,8 @@ workflow evidence
 
 科学判断模块必须有执行证据，不能只出现在 TOML。至少要求 fixture 激活该模块、instruction 声明决策规则、verifier 检查中间判断、negative control 能翻转结论、invariance control 保持结论。企业题优先使用 `judgment_claim_preserving_recovery`、`judgment_batch_identifiability`、`judgment_route_feasibility`、`judgment_value_of_information`，并按需配对 `math_hierarchical_batch_sensitivity` 或 `math_batch_acquisition_under_uncertainty`。模块具体物化要求见 `docs/enterprise-authoring-pipeline.md` 的 E6.1。
 
+高难升级还必须遵守 E6.2：blocker 是真实停止条件，披露必须最小但充分，干扰项必须有业务语义和 invariance control，计算复杂度来自 join、层级、情景或组合而不是格式负担；禁止根据目标模型输出反向收紧 verifier。
+
 ## 编译和评分
 
 ```bash

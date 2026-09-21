@@ -1,5 +1,5 @@
 id: eb008-stock-route-001
-version: "0.2.0"
+version: "0.3.0"
 status: ready_for_calibration
 title: "Retrosynthesis route selection under stock and reaction validity constraints"
 domain: biomedical_enterprise
@@ -12,9 +12,9 @@ constraints:
     record_input_checksum: true
     deterministic_output: true
 required_outputs:
-  - {id: route_table, path: outputs/route_table.tsv, required_fields: [route_id, target, stock_evidence, reaction_valid, failed_gates, accepted]}
-  - {id: stock_compliance, path: outputs/stock_compliance.json, required_fields: [routes, selected_route_ids, failed_gates]}
-  - {id: route_evidence, path: outputs/route_evidence.tsv, required_fields: [route_id, step, precedent_scope, chemoselectivity_risk, stereochemistry_resolved, protection_strategy_resolved]}
+  - {id: route_table, path: outputs/route_table.tsv, required_fields: [route_id, target, usable_stock, stock_ok, evidence_quorum, reaction_valid, failed_gates, accepted]}
+  - {id: stock_compliance, path: outputs/stock_compliance.json, required_fields: [routes, selected_route_ids, usable_stock, failed_gates]}
+  - {id: route_evidence, path: outputs/route_evidence.tsv, required_fields: [route_id, step, source_id, source_status, independence_group, included, precedent_scope, chemoselectivity_risk, stereochemistry_resolved, protection_strategy_resolved]}
   - {id: approval_gate, path: outputs/approval_gate.md, required_fields: [human_review, experimental_boundary, unresolved_chemistry]}
 hidden_truth:
   path: verifier_only/reference.json

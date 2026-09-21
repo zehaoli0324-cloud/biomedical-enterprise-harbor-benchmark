@@ -210,18 +210,19 @@ def eb003_controls() -> dict:
     verifier = load_verifier(task_id)
     source = ROOT / "benchmarks" / task_id / "data"
     baseline = verifier.expected(source)
+    decisions = baseline["decisions"]
     controls = [{
         "control_id": "positive-equivalent-fallback",
         "kind": "positive",
-        "passed": baseline["primary_failed"] and baseline["selected_branch"] == "fallback_safe" and baseline["drifted_branches"] == ["fallback_drifted"],
-        "observed": {"selected": baseline["selected_branch"], "drifted": baseline["drifted_branches"]},
-        "expected": "select only the claim-preserving fallback and reject the successful drifted branch",
+        "passed": baseline["primary_failed"] and baseline["selected_branch"] == "retry_parallel" and decisions["retry_parallel"]["status"] == "selected",
+        "observed": {"selected": baseline["selected_branch"], "decisions": decisions},
+        "expected": "select one current-scope claim-preserving fallback and classify drift, provenance, and scope branches",
     }]
     with tempfile.TemporaryDirectory(prefix="eb003-controls-") as temp:
         clean = copy_data(task_id, Path(temp))
         spec_path = clean / "branch_spec.json"
         spec = json.loads(spec_path.read_text())
-        spec["fallback_parameters"]["reference"] = "gene-set-v4"
+        spec["registered_invariants"]["reference"] = "gene-set-v4"
         spec_path.write_text(json.dumps(spec))
         result = verifier.expected(clean)
         controls.append({"control_id": "negative-scientific-question-drift", "kind": "negative", "passed": result["selected_branch"] is None, "observed": result["selected_branch"], "expected": "no fallback is selectable after reference drift"})
@@ -231,7 +232,7 @@ def eb003_controls() -> dict:
         runs = json.loads(path.read_text())
         path.write_text(json.dumps(list(reversed(runs))))
         result = verifier.expected(clean)
-        controls.append({"control_id": "invariance-branch-order", "kind": "invariance", "passed": result["selected_branch"] == baseline["selected_branch"] and sorted(result["drifted_branches"]) == sorted(baseline["drifted_branches"]), "observed": "branch decisions unchanged", "expected": "row order does not change recovery semantics"})
+        controls.append({"control_id": "invariance-branch-order", "kind": "invariance", "passed": result["selected_branch"] == baseline["selected_branch"] and result["decisions"] == baseline["decisions"], "observed": "branch decisions unchanged", "expected": "row order does not change recovery semantics"})
     with tempfile.TemporaryDirectory(prefix="eb003-controls-") as temp:
         clean = copy_data(task_id, Path(temp))
         path = clean / "tool_runs.json"
@@ -282,7 +283,7 @@ def eb008_controls() -> dict:
             rows = list(csv.DictReader(handle))
         for row in rows:
             if row["compound_id"] == "M-2":
-                row["available"] = "false"
+                row["status"] = "quarantined"
         rewrite_csv(path, rows)
         result = verifier.expected(clean)
         controls.append({"control_id": "negative-stock-violation", "kind": "negative", "passed": result["accepted_routes"] == [], "observed": result["accepted_routes"], "expected": "reject routes requiring unavailable material"})
@@ -308,7 +309,7 @@ def eb010_controls() -> dict:
     verifier = load_verifier(task_id)
     source = ROOT / "benchmarks" / task_id / "data"
     baseline = verifier.expected(source)
-    controls = [{"control_id": "positive-risk-adjusted-optimum", "kind": "positive", "passed": baseline["best_batch"] is not None and baseline["best_batch"]["ids"] == ["C-1", "C-2", "C-6"], "observed": baseline["best_batch"], "expected": "select the maximum risk-adjusted, redundancy-penalized feasible batch"}]
+    controls = [{"control_id": "positive-risk-adjusted-optimum", "kind": "positive", "passed": baseline["best_batch"] is not None and baseline["best_batch"]["ids"] == baseline["reference_batch"], "observed": baseline["best_batch"], "expected": "select the maximum robust scenario utility feasible batch"}]
     with tempfile.TemporaryDirectory(prefix="eb010-controls-") as temp:
         clean = copy_data(task_id, Path(temp))
         path = clean / "constraints.json"
@@ -328,7 +329,7 @@ def eb010_controls() -> dict:
     with tempfile.TemporaryDirectory(prefix="eb010-controls-") as temp:
         clean = copy_data(task_id, Path(temp))
         path = clean / "candidates.csv"
-        path.write_text("candidate_id,group,material_cost,predicted_gain,failure_probability\nC-1,A,3.0,0.6,0.1\n", encoding="utf-8")
+        path.write_text("candidate_id,scope,group,material_cost,predicted_gain,failure_probability\nC-1,active,A,3.0,0.6,0.1\n", encoding="utf-8")
         result = verifier.expected(clean)
         controls.append({"control_id": "insufficient-uncertainty", "kind": "insufficient_evidence", "passed": result["best_batch"] is None, "observed": result["best_batch"], "expected": "hold when uncertainty is absent"})
     return {"task_id": task_id, "status": "CALIBRATED" if all(item["passed"] for item in controls) else "FAILED", "controls": controls}

@@ -26,6 +26,9 @@
               "treatment_control_effect": 0.61,
               "effect_retention_fraction": 1.0,
               "direction_preserved": true,
+              "blocker_reasons": [
+                "control_batch_range"
+              ],
               "eligible": false
             },
             "control_adjusted": {
@@ -43,6 +46,7 @@
               "treatment_control_effect": 0.553333,
               "effect_retention_fraction": 0.907103,
               "direction_preserved": true,
+              "blocker_reasons": [],
               "eligible": true
             },
             "aggressive_adjusted": {
@@ -60,6 +64,30 @@
               "treatment_control_effect": 0.113333,
               "effect_retention_fraction": 0.185792,
               "direction_preserved": true,
+              "blocker_reasons": [
+                "effect_retention"
+              ],
+              "eligible": false
+            },
+            "global_adjusted": {
+              "control_batch_means": {
+                "B1": 1.005,
+                "B2": 1.015,
+                "B3": 1.015
+              },
+              "control_batch_range": 0.01,
+              "within_batch_effects": {
+                "B1": 0.605,
+                "B2": 0.595,
+                "B3": -0.025
+              },
+              "treatment_control_effect": 0.391667,
+              "effect_retention_fraction": 0.642077,
+              "direction_preserved": false,
+              "blocker_reasons": [
+                "effect_retention",
+                "direction_reversal"
+              ],
               "eligible": false
             }
           },
@@ -84,6 +112,7 @@
             "treatment_control_effect": 0.553333,
             "effect_retention_fraction": 0.907103,
             "direction_preserved": true,
+            "blocker_reasons": [],
             "eligible": true
           },
           "expected": "eligibility changes when aggressive branch no longer erases phenotype"

@@ -1,0 +1,17 @@
+plate,analysis_scope,qc_pass,exclusion_reason
+P1,primary,true,
+P2,primary,true,
+P3,primary,true,
+P4,primary,true,
+P5,primary,true,
+P6,primary,true,
+P7,primary,true,
+P8,primary,true,
+P9,primary,true,
+P10,primary,true,
+P11,primary,true,
+P12,primary,true,
+PX1,pilot,true,pilot optimization plate
+PX2,pilot,true,pilot optimization plate
+PA1,archived,false,failed focus QC
+PA2,archived,false,failed focus QC

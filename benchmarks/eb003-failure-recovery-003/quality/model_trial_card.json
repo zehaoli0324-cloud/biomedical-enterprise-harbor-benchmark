@@ -11,7 +11,24 @@
   ],
   "fixed_config": {
     "task_digest": null,
-    "input_hashes": [{"path": "data/branch_spec.json", "sha256": "eeed9c13fcd70210e12e45dd0e623dc7e3dba5294a2670a193b2d1d10d4e9ed0"}, {"path": "data/provenance.json", "sha256": "4572ba866d7f2c33d1d7f8ff748393b33eddc65572977d21d12e87db9ec0313e"}, {"path": "data/tool_runs.json", "sha256": "7e3207026a9e104ce6e83d5fb3c122b8cfc5f58b64a7cd325154644bb76038a8"}, {"path": "instruction.md", "sha256": "a9e417ce3e200717789e87354b6ac09e3d915abb5585cdce675cfe271e7858e3"}],
+    "input_hashes": [
+      {
+        "path": "data/branch_spec.json",
+        "sha256": "eeed9c13fcd70210e12e45dd0e623dc7e3dba5294a2670a193b2d1d10d4e9ed0"
+      },
+      {
+        "path": "data/provenance.json",
+        "sha256": "4572ba866d7f2c33d1d7f8ff748393b33eddc65572977d21d12e87db9ec0313e"
+      },
+      {
+        "path": "data/tool_runs.json",
+        "sha256": "7e3207026a9e104ce6e83d5fb3c122b8cfc5f58b64a7cd325154644bb76038a8"
+      },
+      {
+        "path": "instruction.md",
+        "sha256": "a9e417ce3e200717789e87354b6ac09e3d915abb5585cdce675cfe271e7858e3"
+      }
+    ],
     "model_version": "gpt-5.6-sol",
     "tool_policy": "no task network tools; provider transport required",
     "network_policy": "off_requested",
@@ -54,7 +71,7 @@
       "strategy": "template_or_keyword",
       "status": "verifier_fail",
       "passed": false,
-      "error_count": 2,
+      "error_count": 13,
       "failure_attribution": "shortcut_or_calculation"
     },
     {
