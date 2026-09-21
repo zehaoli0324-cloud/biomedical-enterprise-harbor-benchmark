@@ -1,0 +1,25 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-measurement-value-004",
+  "trial_id": "eb010-measurement-target-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "timeout",
+  "runner_timeout_seconds": 300,
+  "agent_execution_observed": true,
+  "required_artifacts_written": true,
+  "post_timeout_verifier_status": "pass",
+  "classification": "agent_completed_verifier_passed",
+  "infrastructure_attribution": "adapter_process_did_not_exit_after_complete_artifact_generation",
+  "contract_revision": {
+    "reason": "clarify decimal tie handling exposed by the first trial",
+    "rounding_rule": "decimal_round_half_up_to_six_places",
+    "scientific_decision_changed": false
+  },
+  "artifact_sha256": {
+    "measurement_priority.tsv": "1a37a9f432df7ecf68e8c1eff60421d99682fc5e5a11e3b65ab1568ad7b4da82",
+    "information_value_audit.json": "f380d24143e58ec634ed3b62d6aae3610dae58ab19d9a630550b7cc3f1321e39",
+    "approval_request.md": "acf96aebec76f34b546c9afcc6dd09a525fe81fac8af7529ff5f6bd00c36e5a0"
+  },
+  "replay_command": "python3 benchmarks/eb010-measurement-value-004/verifier.py --submission <trial-workspace>/outputs --data benchmarks/eb010-measurement-value-004/data --reference benchmarks/eb010-measurement-value-004/verifier_only/reference.json",
+  "release_effect": "blocked_pending_runner_lifecycle_repair_and_fixed_container_replay"
+}

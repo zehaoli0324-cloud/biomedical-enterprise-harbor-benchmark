@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "NOT_RUN",
-  "status": "BASELINES_COMPLETE",
+  "target_model_status": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED",
+  "status": "BLOCKED",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -51,6 +51,19 @@
       "errors": [
         "information value audit mismatch: selected_measurement_id"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb010-measurement-target-001",
+      "status": "agent_completed_verifier_passed",
+      "passed": true,
+      "runner_status": "timeout",
+      "timed_out": true,
+      "artifact_verification": "post_timeout_independent_pass",
+      "failure_attribution": "infrastructure_runner_lifecycle_timeout",
+      "durable_evidence": "quality/target_trial_evidence.json",
+      "errors": []
     }
   ]
 }
