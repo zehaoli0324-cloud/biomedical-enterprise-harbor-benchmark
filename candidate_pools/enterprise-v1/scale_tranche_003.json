@@ -1,0 +1,44 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-003",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "BLOCKED_TARGET_MODEL_INFRASTRUCTURE",
+  "selection_policy": {
+    "candidate_count": 1,
+    "coverage": "advance the next mined decision axis after replay provenance and diversity coverage",
+    "runnable_release_requires": [
+      "enterprise_value_review",
+      "independent_truth_route",
+      "control_calibration",
+      "independent_contract_audit",
+      "model_trial"
+    ]
+  },
+  "recommended_candidates": [
+    {
+      "candidate_id": "eb006-signal-noise-004",
+      "brief": "enterprise-v1/question_briefs/eb006-signal-noise-004.json",
+      "workflow_family": "phenomics_profile_quality",
+      "why_now": "adds signal-versus-technical-noise identifiability before profile handoff, distinct from leakage and normalization tasks",
+      "status": "CONTRACT_REVISED_CONTROLS_AND_BASELINES_COMPLETE_TARGET_RERUN_BLOCKED",
+      "trial_history": [
+        {
+          "trial_id": "eb006-target-001",
+          "classification": "agent_completed_verifier_failed",
+          "attribution": "contract_mismatch_before_revision"
+        },
+        {
+          "trial_id": "eb006-target-002",
+          "classification": "agent_not_run",
+          "attribution": "infrastructure_app_server_initialization"
+        }
+      ]
+    }
+  ],
+  "shared_release_blockers": [
+    "repair Codex app-server initialization and rerun the revised contract",
+    "independent practitioner review",
+    "license/privacy/claim-boundary review",
+    "fixed-container Harbor replay"
+  ]
+}

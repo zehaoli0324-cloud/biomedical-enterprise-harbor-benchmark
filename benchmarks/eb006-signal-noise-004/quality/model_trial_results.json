@@ -1,8 +1,8 @@
 {
   "task_id": "eb006-signal-noise-004",
   "protocol_version": "enterprise-model-trial.v1",
-  "status": "BASELINES_COMPLETE",
-  "target_model_status": "NOT_RUN",
+  "status": "BLOCKED",
+  "target_model_status": "BLOCKED_INFRASTRUCTURE_AFTER_CONTRACT_REVISION",
   "records": [
     {
       "strategy": "reference_solution",
@@ -42,6 +42,31 @@
       "failure_attribution": "calculation_or_tool",
       "errors": [
         "signal/noise report mismatch: adjusted_effect"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "status": "verifier_fail",
+      "passed": false,
+      "failure_attribution": "contract_mismatch_before_revision",
+      "trial_id": "eb006-target-001",
+      "trial_dir": "/private/tmp/enterprise-eb006-target-trials/eb006-target-001",
+      "verifier_status": "fail",
+      "errors": [
+        "boolean/enumeration/hash-key contract was underspecified",
+        "claim boundary relied on an exact phrase"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "status": "agent_not_run",
+      "passed": false,
+      "failure_attribution": "infrastructure_app_server_initialization",
+      "trial_id": "eb006-target-002",
+      "trial_dir": "/private/tmp/enterprise-eb006-target-trials/eb006-target-002",
+      "verifier_status": "not_run",
+      "errors": [
+        "failed to initialize in-process app-server client: Operation not permitted"
       ]
     }
   ]

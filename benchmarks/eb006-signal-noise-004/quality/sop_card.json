@@ -5,12 +5,12 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "CONTRACT_ONLY",
   "control_status": "CALIBRATED",
-  "model_trial_status": "BASELINES_COMPLETE",
+  "model_trial_status": "BLOCKED_INFRASTRUCTURE_AFTER_CONTRACT_REVISION",
   "target_model_failure_policy": "infrastructure_failures_are_not_difficulty_evidence",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
     "source/license/privacy review",
-    "target-model trial"
+    "rerun target-model trial after app-server infrastructure repair"
   ]
 }

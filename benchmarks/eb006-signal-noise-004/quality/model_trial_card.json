@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "NOT_RUN",
-  "status": "BASELINES_COMPLETE",
+  "target_model_status": "BLOCKED_INFRASTRUCTURE_AFTER_CONTRACT_REVISION",
+  "status": "BLOCKED",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -51,6 +51,18 @@
       "errors": [
         "signal/noise report mismatch: adjusted_effect"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "status": "verifier_fail",
+      "failure_attribution": "contract_mismatch_before_revision",
+      "trial_id": "eb006-target-001"
+    },
+    {
+      "strategy": "target_model",
+      "status": "agent_not_run",
+      "failure_attribution": "infrastructure_app_server_initialization",
+      "trial_id": "eb006-target-002"
     }
   ]
 }

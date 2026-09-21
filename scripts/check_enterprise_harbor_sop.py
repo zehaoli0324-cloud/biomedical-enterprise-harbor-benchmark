@@ -57,7 +57,7 @@ def _required_output_paths(task_text: str) -> list[str]:
         if line == "required_outputs:":
             in_outputs = True
             continue
-        if in_outputs and line and not line.startswith("-"):
+        if in_outputs and line and not raw.startswith((" ", "\t")):
             break
         if in_outputs and "path:" in line:
             value = line.split("path:", 1)[1].strip().rstrip("}").strip().strip('"').strip("'")
@@ -129,7 +129,12 @@ def evaluate(package: Path) -> dict[str, Any]:
     if not baselines_ok:
         pretrial_blockers.append("baseline_records_present")
     target_status = (trial_results or {}).get("target_model_status") or (trial_card or {}).get("target_model_status") or "NOT_RUN"
-    infra_blocked = target_status in INFRA_FAILURES or "TIMEOUT" in str(target_status).upper()
+    normalized_target_status = str(target_status).upper()
+    infra_blocked = (
+        target_status in INFRA_FAILURES
+        or "TIMEOUT" in normalized_target_status
+        or "INFRASTRUCTURE" in normalized_target_status
+    )
     card_status = (trial_card or {}).get("status")
     results_status = (trial_results or {}).get("status")
     attribution_ok = not infra_blocked or (card_status != "COMPLETE" and results_status != "COMPLETE")

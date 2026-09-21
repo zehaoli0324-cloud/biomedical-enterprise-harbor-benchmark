@@ -4,15 +4,13 @@
   "sop_version": "enterprise-harbor-sop-v1.1",
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "CONTRACT_ONLY",
-  "control_status": "NOT_RUN",
-  "model_trial_status": "NOT_RUN",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BLOCKED_INFRASTRUCTURE",
   "target_model_failure_policy": "infrastructure_failures_are_not_difficulty_evidence",
-  "independent_verifier_status": "NOT_RUN",
+  "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
     "source/license/privacy review",
-    "independent verifier contract audit",
-    "control calibration",
-    "target-model trial"
+    "rerun target-model trial after app-server infrastructure repair"
   ]
 }

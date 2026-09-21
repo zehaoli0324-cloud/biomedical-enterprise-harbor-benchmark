@@ -29,7 +29,7 @@
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "BASELINES_COMPLETE"
+      "model_trial_status": "NOT_RUN"
     },
     {
       "task_id": "eb003-replay-provenance-004",
@@ -68,7 +68,7 @@
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "BASELINES_COMPLETE"
+      "model_trial_status": "NOT_RUN"
     },
     {
       "task_id": "eb006-signal-noise-004",
@@ -81,7 +81,7 @@
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "BASELINES_COMPLETE"
+      "model_trial_status": "BLOCKED"
     },
     {
       "task_id": "eb008-stock-route-001",
@@ -94,7 +94,7 @@
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "BASELINES_COMPLETE"
+      "model_trial_status": "NOT_RUN"
     },
     {
       "task_id": "eb009-diversity-coverage-004",
@@ -120,7 +120,7 @@
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "BASELINES_COMPLETE"
+      "model_trial_status": "NOT_RUN"
     }
   ]
 }

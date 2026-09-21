@@ -2,7 +2,7 @@
   "schema_version": "enterprise_contract_batch.v1",
   "batch_id": "TRANCHE-001_PLUS_MINED-002",
   "status": "MIXED_CALIBRATION_AND_CONTRACT",
-  "task_count": 8,
+  "task_count": 9,
   "source_ledger": "candidate_pools/enterprise-v1/source_ledger.json",
   "tasks": [
     {

@@ -1,166 +1,227 @@
 # Biomedical Enterprise Harbor Benchmark
 
-把生物医药企业公开可核验的研发、分析和统计编程工作流，转换为可运行、可审计、可复现的 Harbor benchmark。
+把生物医药企业公开可核验的研发、分析和统计编程工作流，转换成可运行、可审计、可复现的 Harbor 题包。
 
-本仓库的目标不是把一个数据集压缩成题目，而是保留企业工作流中的关键判断、数据血缘、工具边界、失败恢复和人工审核节点。
+这里的核心对象不是“一个数据集 + 一段 prompt”，而是一条可以被复核的决策链：来源证据 -> 业务场景 -> 候选决策 -> 输入和输出合同 -> 隐藏真值与 verifier -> 控制校准 -> 模型 trial -> Harbor 发布门。
 
-## 这是什么项目
+## 先看当前进展
 
-这是一个面向生物医药企业场景的 benchmark authoring system。它服务两类题源：
+当前仓库处于 `knowledge-base + synthetic calibration` 阶段。公开来源、企业价值、难度和训练价值已经登记，但合成 fixture 不能冒称企业内部数据，未完成的模型 trial 不能冒称难度证据。
 
-- **真实/公开企业 benchmark 改题：**从企业发布的数据集、挑战赛、联盟项目或公开工作流出发，恢复原始契约，再设计新的业务决策、失败注入和审计交付。
-- **skill/workflow 合成题：**从科研 skill、工具链或公开工作流合成明确标注的模拟题，用于能力覆盖和校准；不能冒称企业内部任务。
+最近一轮 seed mining 已发现 4 个新的语义候选：
 
-项目的核心判断是：企业名称、公开数据和模型分数都不足以证明企业价值。一个候选题只有在真实工作节点、可执行决策、下游 handoff、独立真值、合规边界和模型试跑都可审计时，才可能进入 Harbor。
+| 候选 | 决策轴 | 当前状态 | 进展入口 |
+| --- | --- | --- | --- |
+| `eb003-replay-provenance-004` | 交付后 provenance/environment 是否支持 replay | controls calibrated；target model infrastructure blocked | [brief](candidate_pools/enterprise-v1/question_briefs/eb003-replay-provenance-004.json)、[task](benchmarks/eb003-replay-provenance-004/) |
+| `eb009-diversity-coverage-004` | synthesis handoff 前的 scaffold/chemical-space coverage | controls calibrated；target model infrastructure blocked | [brief](candidate_pools/enterprise-v1/question_briefs/eb009-diversity-coverage-004.json)、[task](benchmarks/eb009-diversity-coverage-004/) |
+| `eb006-signal-noise-004` | profile handoff 前 signal 与 plate/technical noise 是否可辨识 | controls/baselines complete；contract revised；target rerun infrastructure blocked | [brief](candidate_pools/enterprise-v1/question_briefs/eb006-signal-noise-004.json)、[task](benchmarks/eb006-signal-noise-004/) |
+| `eb010-measurement-value-004` | next batch 前应优先请求哪项 measurement | `CONTRACT_ONLY`，待下一批推进 | [brief](candidate_pools/enterprise-v1/question_briefs/eb010-measurement-value-004.json) |
 
-当前版本处于 **knowledge-base + contract-only calibration** 阶段：已登记 12 个公开来源，生成 12 个 draft bundle 和 2 个合成校准切片；尚未声称拥有任何企业内部数据，也没有把未完成的模型 trial 标记为通过。
+当前 contract batch 的最新快照在 [batch_compile_report.json](candidate_pools/enterprise-v1/contracts/batch_compile_report.json)：9 个 enterprise task 已完成合同编译。前两道 mined task 的进展见 [scale_tranche_002.json](candidate_pools/enterprise-v1/scale_tranche_002.json)，本轮 EB006 的合同修订和 trial 归因见 [scale_tranche_003.json](candidate_pools/enterprise-v1/scale_tranche_003.json)。`TIMEOUT_INFRASTRUCTURE`、认证、容器和 artifact 收集失败都只算基础设施阻塞，不算模型难度。
 
-## 方法主线
+本仓库新增的总门禁是 [Enterprise Harbor SOP V1.1](docs/enterprise-harbor-sop-v1.1.md) 和 [check_enterprise_harbor_sop.py](scripts/check_enterprise_harbor_sop.py)。它把 `pretrial PASS` 和 `release BLOCKED` 分开：题包可以进入 target-model trial，不代表可以发布到 Harbor。
 
-```text
-enterprise workflow / source evidence
-  -> provenance ledger + scenario card
-  -> 3-5 task candidates
-  -> hard gates + multi-reviewer selection
-  -> difficulty config + compiled contract
-  -> isolated agent trial + hidden verifier
-  -> scientific / reproducibility / evidence review
-```
-
-企业版在上面增加一条来源要求和价值门：
+## 一张架构图
 
 ```text
-official source
-  -> REQ01-REQ14 public contract matrix
-  -> enterprise reality + semantic novelty
-  -> GPT difficulty + training signal
-  -> license / privacy / claim review
+公开来源 / 论文 / 数据卡 / workflow
+             |
+             v
+knowledge_base + data/public_data_literature_registry.json
+             |
+             v
+source ledger + REQ01-REQ14 + scenario card
+             |
+             v
+candidate_pools/enterprise-v1/  (3-5 个语义不同候选)
+             |
+             v
+question brief -> contract TOML -> benchmark_builder 编译
+             |
+             v
+benchmarks/<task-id>/
+  instruction.md + data/ + outputs/       agent 可见/可写
+  verifier.py + tests/ + verifier_only/   runner/judge 私有
+  quality/ + controls/                    author-side 质量证据
+             |
+             v
+preflight -> independent contract audit -> controls -> baselines
+             |
+             v
+target-model trial -> Harbor/Docker replay -> review/release gate
 ```
 
-对应目录：
+## 每个部分怎么工作
 
-| 阶段 | 产物 | 入口 |
-| --- | --- | --- |
-| 来源登记 | 企业工作流、来源、许可和真实性口径 | [`data/enterprise_workflow_inventory.csv`](data/enterprise_workflow_inventory.csv) |
-| 场景建模 | 场景卡、业务决策和失败注入 | [`benchmarks/`](benchmarks/) |
-| 候选与难度 | 候选池、模块目录、TOML 配置 | [`candidate_pools/`](candidate_pools/)、[`config/`](config/) |
-| 任务编译 | manifest、难度报告和评审协议 | [`benchmark_builder/`](benchmark_builder/) |
-| 试跑与评审 | 隔离工作区、verifier、judge 聚合 | [`benchmark_runner/`](benchmark_runner/)、[`docs/evaluation-pipeline.md`](docs/evaluation-pipeline.md) |
+### 1. `knowledge_base/`：来源和设计知识
 
-## 公开 benchmark 的共同要求
+这里不存“模型认为可信的摘要”，而存可追溯的来源记录：官方 URL、版本/commit、访问日期、许可证、证据定位和声明边界。
 
-我们把 12 个来源中反复出现的要求整理为 14 个维度，详见 [`docs/public-enterprise-benchmark-requirements.md`](docs/public-enterprise-benchmark-requirements.md) 和 [`knowledge_base/registry/public_benchmark_requirements.json`](knowledge_base/registry/public_benchmark_requirements.json)：
+- `knowledge_base/seeds/official_sources.json` 是 seed mining 的入口。
+- `knowledge_base/harvest/` 保存来源 harvest 的原始和规范化记录。
+- `knowledge_base/registry/public_benchmark_requirements.json` 把来源中反复出现的要求整理成 REQ01-REQ14。
+- `knowledge_base/draft_bundles/` 保存来源、workflow、transformation、evaluation、risk、review 等卡片。
 
-| 维度 | 必须冻结的内容 |
-| --- | --- |
-| 任务与数据 | task contract、输入 schema、实验/分析单位、split、标签可见性 |
-| 输出与评测 | 提交格式、必需 artifact、指标、容差、等价答案、baseline |
-| 来源与合规 | commit/version、哈希、许可证、归属、隐私、模型权重和商标 |
-| 环境与复现 | 依赖、网络、资源、随机性、日志、重放命令和成本 |
-| 失败与主张 | 无效输入、工具失败、合理弃答、人工复核和 claim boundary |
-| 污染与迁移 | 公开答案、实体重叠、模板捷径、holdout 和跨实例迁移 |
-
-这套要求先形成 `requirements_card`，未核验的字段保持 `PENDING_VERIFICATION`，不会因为网页上出现企业名称就升级为 `verified`。
-
-## 企业题的五道门
-
-每个候选必须同时通过以下门，才允许从 draft 进入 Harbor 构建：
-
-1. **来源契约门：**REQ01-REQ14 中的关键字段有官方证据、版本和定位。
-2. **企业价值门：**有明确角色、业务决策、下游交接、错误代价和采用/暂停规则。
-3. **语义新意门：**至少两个语义维度发生变化，并改变决策、失败机制或真值路线之一。
-4. **GPT 难度门：**存在证据整合、竞争性选择、状态依赖和捷径对照，而不是增加 prompt 长度或工具数量。
-5. **训练与发布门：**错误可归因、控制案例已校准、模型 trial 已记录，且许可证/隐私/claim boundary/容器回放通过。
-
-任意一门缺证据，都保持 `DRAFT`、`REVIEW_REQUIRED`、`CONTRACT_ONLY`、`NOT_RUN` 或 `BLOCKED`。
-
-## 当前 vertical slice
-
-[`biogen-adme-audit-001`](benchmarks/biogen-adme-audit-001/) 是首个企业风格样题：agent 对一份冻结的 ADME 测量表执行训练/测试结构审计，识别跨 split 的同结构泄漏、单位不一致和缺失值，并提交带证据的审计报告。
-
-它参考选题地图中的 Biogen ADME 方向，但当前输入是小型合成校准 fixture，不声称来自 Biogen 内部数据。隐藏真值仅供 verifier 使用，不能挂载到 agent-visible 目录。
-
-参考仓库中的 [`literature-screening-m1-001`](benchmarks/literature-screening-m1-001/) 保留为通用文献筛选校准样例，用来回归 builder 和 verifier 管线。
-
-[`admiral-adsl-derivation-001`](benchmarks/admiral-adsl-derivation-001/) 是第二个企业风格校准切片：它把公开 pharmaverse 工作流映射为 SDTM-like 输入到 ADSL-like 输出的规则派生、lineage、cutoff 和 downstream ADTTE handoff。它明确是 synthetic fixture，当前保持 `contract_only`，不声称 sponsor 数据、临床结论或生产规则。
-
-## 企业知识库与改题
-
-企业来源登记和官方页面 harvest 位于 [`knowledge_base/`](knowledge_base/)，改题卡链和企业版流程见 [`docs/enterprise-redesign-pipeline.md`](docs/enterprise-redesign-pipeline.md)。知识库当前登记 12 个企业/联盟 benchmark、5 类工作流和 10 个可复用改题模式；这些记录仍按 `observed` / `verified` / `ready_for_harbor` 分级，不把网页摘要直接当成已授权或已验收题源。
-
-每个新版 bundle 还会生成七张质量卡：公开 benchmark 要求矩阵 `requirements`、3-5 候选的 `candidate_set`、企业意义和采用规则的 `enterprise_value`、正/负/不变性/证据不足对照的 `control_plan`、GPT 难度假设的 `difficulty`、能力标签和迁移/污染控制的 `training_value`，以及固定策略矩阵和错误归因的 `model_trial`。这些卡片把“对企业有用”“符合公开题目契约”和“对 GPT 难且有训练价值”从描述性要求变成可审核的字段与发布门。
+这里解决“题目从哪里来、能声称什么、哪些字段还没核验”，不直接生成可运行题包。校验命令：
 
 ```bash
 python3 scripts/validate_knowledge_base.py
-python3 scripts/validate_card_bundle.py knowledge_base/examples/EB001-biogen-adme
-python3 scripts/scaffold_enterprise_cards.py
-python3 scripts/collect_enterprise_sources.py
 ```
 
-完整校验所有 draft bundle：
+### 2. `data/`：公共数据和文献证据注册表
+
+`data/public_data_literature_registry.json` 记录可下载数据、数据论文、科学主张、公式/计算方法、accession、下载入口、citation 和哈希。合成或手工 fixture 必须标记为 calibration，不能把真实性等级 A/B/C/W/S 当作 accession 或实验真值的替代品。
+
+### 3. `candidate_pools/`：从 seed 挖掘决策差异
+
+`candidate_pools/enterprise-v1/` 是候选矩阵的工作区：
+
+- `source_ledger.json`：候选与来源、证据等级和许可的连接。
+- `question_briefs/`：每个候选的业务角色、独立单位、handoff、失败注入、required artifacts 和 GPT 难度机制。
+- `EBxxx-...-candidate-set.json`：同一来源的候选集合，要求 3-5 个真正不同的决策，不接受只改文件名、格式、随机种子或 prompt 长度。
+- `contracts/*.toml`：把选中的候选映射到难度模块、资源约束、scenario card 和 evidence registry。
+- `compiled/`：编译后的 manifest、difficulty report 和 evaluation protocol。
+- `seed_mining_report.json`：记录扫描了哪些旧 seed、拒绝了哪些 surface-only variant、发现了哪些新语义轴。
+
+候选矩阵校验：
+
+```bash
+python3 scripts/validate_candidate_matrix.py candidate_pools/enterprise-v1
+```
+
+### 4. `config/` 和 `benchmark_builder/`：把决策合同编译成可比较配置
+
+`config/module_catalog.json` 定义可复用的 scenario、judgment、compute、tooling、noise、data、environment、math、horizon 和 safety 模块。每个 TOML 必须覆盖全部 difficulty dimension，并链接一个 scenario card。
+
+`benchmark_builder/` 负责解析 TOML 和 scenario card、检查模块类别和 evidence registry、计算可解释的 difficulty score，并生成 `task_manifest.json`、`difficulty_report.md` 和 `evaluation_protocol.json`。编译不是题目可运行证明，只说明合同和难度配置完整：
+
+```bash
+python3 scripts/compile_contract_batch.py
+```
+
+### 5. `benchmarks/<task-id>/`：真正运行的 enterprise task
+
+每道题必须把 agent 可见内容和 judge 私有内容分开：
+
+```text
+benchmarks/<task-id>/
+├── task.yaml                    # ID、输入边界、required_outputs、资源和网络
+├── scenario-card.yaml            # 业务决策、handoff、错误后果和停止规则
+├── instruction.md                # agent 唯一说明；逐项写 outputs/ 路径和字段
+├── data/                         # 冻结的 agent-visible fixture
+├── outputs/                      # agent 可写的提交目录
+├── verifier.py                   # 独立重算和等价答案检查
+├── tests/                        # verifier、空输出、负例和控制测试
+├── verifier_only/reference.json  # 隐藏真值，只给 verifier/author runner
+├── controls/                     # 四类控制结果
+└── quality/                      # author-side 质量和状态卡
+```
+
+`instruction.md` 不能暴露 `verifier.py`、`tests/`、`verifier_only/`，也不能依赖题面没有声明的固定短语。`verifier.py` 不能只比较一个隐藏答案，除非题面明确声明唯一目标和 tie-break；它还必须拒绝空输出、乱序/重复、单位错误、provenance 错误、越界 claim 和证据不足。
+
+### 6. `quality/`：发布前的 author-side 证据
+
+质量卡说明“为什么这道题值得做、现在走到哪一步”：
+
+- `candidate_set_card.json`：候选数量、语义轴和选优门。
+- `enterprise_value_card.json`：角色、业务决策、下游接收者、错误代价和人审 owner。
+- `control_plan_card.json`：四类控制和单因素变更策略。
+- `difficulty_card.json`：状态依赖、竞争性选择、失败机制和捷径探针。
+- `training_value_card.json`：错误标签、反馈粒度、留出轴和污染控制。
+- `model_trial_card.json` / `model_trial_results.json`：五类策略的运行状态和失败归因。
+- `sop_card.json`：SOP 版本、contract status、control status、独立 verifier audit 和 release blockers。
+
+四类控制分别证明合法答案可过、错误答案会失败、无关表示不影响判断、证据不足时会弃答或转人工。
+
+### 7. `scripts/`：每个门的可重复命令
+
+- `validate_knowledge_base.py`：来源和质量卡完整性。
+- `validate_candidate_matrix.py`：候选差异和状态边界。
+- `compile_contract_batch.py`：TOML -> compiled contract。
+- `check_enterprise_harbor_sop.py`：题包结构、输出合同、控制、baseline、独立 verifier audit 和发布阻塞。
+- `run_*controls.py`：四类控制。
+- `run_*baselines.py`：reference、simple legal、always abstain、template/keyword。
+- `materialize_*.py`：把 brief 物化为 fixture、verifier、tests 和 quality cards。
+
+题包进入 target-model trial 前运行：
+
+```bash
+python3 scripts/check_enterprise_harbor_sop.py \
+  benchmarks/<task-id> \
+  --output reports/<task-id>-enterprise-sop-preflight.json
+```
+
+`status=PASS` 只表示允许进入 target-model trial；`release_status=BLOCKED` 仍会阻止 Harbor 发布。
+
+### 8. `benchmark_runner/`：模型 trial 和 artifact 归因
+
+runner 创建隔离工作区、挂载 agent-visible 输入、执行模型、保存输出并运行 verifier。正式隔离使用 Docker/Harbor；process-only 只是本机预检。
+
+固定比较五种策略：`reference_solution`、`simple_legal_baseline`、`always_abstain`、`template_or_keyword`、`target_model`。失败分为 `agent_not_run`、`agent_completed_verifier_failed`、`agent_completed_verifier_passed`。超时、认证失败、容器未启动、artifact 未收集是 infrastructure blocker，不能当作“题目难”。
+
+### 9. Harbor 发布门
+
+```text
+SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
+-> SELECTED -> CONTRACT_ONLY -> CALIBRATION_READY
+-> EVAL_ONLY_UNTIL_CALIBRATED -> MODEL_TRIAL_COMPLETE -> READY_FOR_HARBOR
+```
+
+`READY_FOR_HARBOR` 必须同时有来源与关键 REQ 核验、企业价值复核、独立 truth/verifier、四类控制、五类 trial、独立 contract audit、许可证/隐私/claim review、固定容器回放和可重现 manifest。
+
+## 从零开始的执行顺序
+
+### A. 验证仓库和来源
 
 ```bash
 python3 scripts/validate_knowledge_base.py
-python3 -c 'from pathlib import Path; import subprocess, sys; roots=sorted(Path("knowledge_base/draft_bundles").glob("EB*")); raise SystemExit(any(subprocess.run([sys.executable, "scripts/validate_card_bundle.py", str(root)]).returncode for root in roots))'
+python3 scripts/validate_candidate_matrix.py candidate_pools/enterprise-v1
+python3 -m pytest -q
 ```
 
-## 快速开始
+### B. 选择或挖掘候选
 
-要求 Python 3.11+（本机也可使用 3.14）。
+先读 [scaled-question-generation.md](docs/scaled-question-generation.md)、[candidate-pipeline.md](docs/candidate-pipeline.md) 和 [enterprise-authoring-pipeline.md](docs/enterprise-authoring-pipeline.md)，再查看 `seed_mining_report.json` 和 question briefs。新候选必须能说明语义差异、独立单位、handoff、失败注入和 hidden truth route。
+
+### C. 编译并物化题包
 
 ```bash
-python3 -m benchmark_builder.cli validate config/examples/biomedical-enterprise-adme-audit-001.toml
-python3 -m benchmark_builder.cli score config/examples/biomedical-enterprise-adme-audit-001.toml
-python3 -m benchmark_builder.cli compile \\
-  config/examples/biomedical-enterprise-adme-audit-001.toml \\
-  --out /tmp/biomedical-enterprise-adme-audit-compiled
+python3 scripts/compile_contract_batch.py
+python3 scripts/materialize_mined_candidates.py
 ```
 
-直接运行合成样题 verifier：
+物化后先跑独立 contract audit：
 
 ```bash
-python3 benchmarks/biogen-adme-audit-001/verifier.py \\
-  --submission /path/to/outputs \\
-  --data benchmarks/biogen-adme-audit-001/data \\
-  --reference benchmarks/biogen-adme-audit-001/verifier_only/reference.json
+PYTHONPATH=/path/to/benchmark-verification-agent/src \
+python3 -m benchmark_review_agent.cli review \
+  benchmarks/<task-id> --judge none
 ```
 
-运行测试：
+### D. 控制、baseline、trial
 
 ```bash
-python3 -m pytest
+python3 scripts/run_mined_candidate_controls.py
+python3 scripts/run_mined_candidate_baselines.py
 ```
 
-## 企业真实性分级
+只有 baseline 和 controls 清楚后，才启动 target model。结果写入 `quality/model_trial_results.json`，并保留原始 trial artifact、失败类型和重放命令。
 
-每个来源都要标注口径，不能只因为题目出现企业名称就称为企业真实任务：
+## 重要文档索引
 
-- `A`：企业真实实验或研发项目数据，有可核验出处。
-- `B`：企业发布、整理或维护的公共 benchmark / 数据集。
-- `C`：多家企业参与的联盟数据。
-- `W`：企业公开工作流、工具或示例；示例数据可能是合成数据。
-- `S`：明确的模拟、增强或教学 fixture。
+- [Enterprise Harbor SOP V1.1](docs/enterprise-harbor-sop-v1.1.md)：题包 preflight、contract audit、失败归因和发布门。
+- [Enterprise authoring pipeline](docs/enterprise-authoring-pipeline.md)：企业题从来源到题包的详细任务书。
+- [Scaled question generation](docs/scaled-question-generation.md)：批次选择、候选校验、合同编译和题包物化。
+- [Trial runner](docs/trial-runner.md)：process/Docker runner、artifact 和结果归因。
+- [Evaluation pipeline](docs/evaluation-pipeline.md)：solver、verifier、judge 和发布前评估。
+- [Failure taxonomy](docs/failure-taxonomy.md)：输入、方法、工具、证据、claim boundary 和交付失败分类。
+- [Public benchmark requirements](docs/public-enterprise-benchmark-requirements.md)：REQ01-REQ14 来源契约。
+- [Enterprise value and GPT difficulty](docs/enterprise-value-and-gpt-difficulty.md)：企业价值、语义新意和模型难度的分离。
+- [Current trial analysis](docs/trial-analysis-gpt56-sol-001.md)：已有模型 trial 和合同修订记录。
+- [Reference factory SOP](https://github.com/zehaoli0324-cloud/harbor-science-bench-factory)：来源、oracle/nop、Docker replay 和 trial SOP。
 
-正式发布前还必须独立核对授权、版本、数据哈希、隐藏真值、资源预算和模型试跑结果。当前仓库是框架和校准起点，不代表已经完成任何企业内部数据授权或 Harbor 生产部署。
+## 真实性和安全边界
 
-## 规模化出题与差异性
+来源口径仅表示来源关系：`A` 企业真实实验/研发数据，`B` 企业发布或维护的公共 benchmark，`C` 联盟数据，`W` 企业公开 workflow/工具，`S` 合成或教学 fixture。无论哪一类，都还需要版本、哈希、许可证、隐私、隐藏真值和 claim boundary 审查。
 
-当前已按 12 个登记企业 benchmark 生成 36 张候选决策卡，并按独立单位、业务决策、失败机制、交接产物和 GPT 难度进行语义去重。候选矩阵、第一批跨工作流 tranche 和 contract-only question briefs 见 [`candidate_pools/enterprise-v1/`](candidate_pools/enterprise-v1/)；生成与校验命令见 [`docs/scaled-question-generation.md`](docs/scaled-question-generation.md)。
-
-规模化生成仍然只是候选生产，不是发布。候选需要回到来源要求卡、企业价值卡、控制计划、难度卡和模型试跑卡，任何自动生成的 `ready` 状态都必须经过人工/程序双重审核。
-
-## 设计原则
-
-1. 科学正确性、证据追溯、工程复现、交付完整性和安全边界分开评分。
-2. 任务难度绑定到可观察产物，而不是只在配置里提高分数。
-3. 公开数据必须披露改编关系，并通过新切分、失败注入或新业务规则降低答案捷径。
-4. verifier 必须独立重算关键结果，不能只检查文件存在或 agent 自报分数。
-5. 当真值、许可或输入不足时，任务状态应为 `candidate` / `needs-data`，而不是伪装成 `ready`。
-
-企业题的验收不是“来源看起来像企业”或“模型分数下降”。请先阅读 [`docs/enterprise-value-and-gpt-difficulty.md`](docs/enterprise-value-and-gpt-difficulty.md)，其中定义真实工作节点、业务采用规则、语义新意、控制案例、GPT 难度、训练信号和模型试跑的分离门。
-
-## 参考来源
-
-本项目的候选生成、难度编译和评审结构参考 [`skill-scenario-to-benchmark`](https://github.com/zehaoli0324-cloud/skill-scenario-to-benchmark)。领域候选清单来源于本地的《生物医药企业 Harbor 选题与资源地图》研究表，后续会逐条补充公开来源、许可和运行证据。
-
-改题差异、科学价值控制、正负/不变性对照、solver/judge 隔离和模型试跑流程参考 [`harbor-science-bench-factory`](https://github.com/zehaoli0324-cloud/harbor-science-bench-factory)。
+当前仓库不声称拥有企业内部数据，不把公共 benchmark 的 leaderboard 当作隐藏真值，也不把一次模型失败当作科学结论。

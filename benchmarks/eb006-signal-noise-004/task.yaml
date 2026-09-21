@@ -12,7 +12,7 @@ constraints:
     record_input_checksum: true
     deterministic_output: true
 required_outputs:
-  - {id: signal_noise_report, path: outputs/signal_noise_report.json, required_fields: [raw_effect, adjusted_effect, control_drift, replicate_count, identifiable, decision, rules_version, input_sha256]}
+  - {id: signal_noise_report, path: outputs/signal_noise_report.json, required_fields: [raw_effect, adjusted_effect, control_drift, replicate_count, identifiable, decision, rules_version, input_sha256, claim_boundary]}
   - {id: replicate_diagnostics, path: outputs/replicate_diagnostics.tsv, required_fields: [perturbation, plate, replicate, raw_signal, adjusted_signal, control_status]}
   - {id: profile_review_gate, path: outputs/profile_review_gate.md, required_fields: [signal_result, technical_noise_result, human_review_decision, claim_boundary]}
 hidden_truth:

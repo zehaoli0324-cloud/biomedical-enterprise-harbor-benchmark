@@ -28,7 +28,7 @@ def expected(data: Path) -> dict:
     adjusted_effect = round(sum(float(row["adjusted_signal"]) for row in treated) / len(treated) - sum(float(row["adjusted_signal"]) for row in controls) / len(controls), 4)
     control_drift = round(max(float(row["adjusted_signal"]) for row in controls) - min(float(row["adjusted_signal"]) for row in controls), 4)
     identifiable = adjusted_effect >= rules["minimum_adjusted_effect"] and len(treated) >= rules["minimum_replicates"] and control_drift <= rules["maximum_control_drift"]
-    return {"raw_effect": raw_effect, "adjusted_effect": adjusted_effect, "control_drift": control_drift, "replicate_count": len(treated), "identifiable": identifiable, "decision": "proceed_to_profile_review" if identifiable else "hold_for_human_review", "rules_version": rules["rules_version"], "input_sha256": {name: sha(data / name) for name in ("profiles.csv", "rules.json")}}
+    return {"raw_effect": raw_effect, "adjusted_effect": adjusted_effect, "control_drift": control_drift, "replicate_count": len(treated), "identifiable": identifiable, "decision": "proceed_to_profile_review" if identifiable else "hold_for_human_review", "rules_version": rules["rules_version"], "input_sha256": {name: sha(data / name) for name in ("profiles.csv", "rules.json")}, "claim_boundary": {"mechanism_established": False, "human_review_required": True}}
 
 def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[str]]:
     exp, errors = expected(data), []
@@ -39,11 +39,12 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
     for key in ("raw_effect", "adjusted_effect", "control_drift", "replicate_count", "identifiable", "decision", "rules_version"):
         if report.get(key) != exp[key]: errors.append("signal/noise report mismatch: " + key)
     if report.get("input_sha256") != exp["input_sha256"]: errors.append("signal/noise report provenance mismatch")
+    if report.get("claim_boundary") != exp["claim_boundary"]: errors.append("signal/noise report claim boundary mismatch")
     diagnostics = (submission / "replicate_diagnostics.tsv").read_text(encoding="utf-8").lower()
     for phrase in ("perturbation", "plate", "replicate", "raw_signal", "adjusted_signal", "control_status"):
         if phrase not in diagnostics: errors.append("replicate diagnostics missing " + phrase)
     gate = (submission / "profile_review_gate.md").read_text(encoding="utf-8").lower()
-    for phrase in ("signal", "technical noise", "human review", "not mechanism"):
+    for phrase in ("signal", "technical noise", "human review", "mechanism"):
         if phrase not in gate: errors.append("profile review gate missing " + phrase)
     return not errors, errors
 
@@ -80,7 +81,7 @@ constraints:
     record_input_checksum: true
     deterministic_output: true
 required_outputs:
-  - {id: signal_noise_report, path: outputs/signal_noise_report.json, required_fields: [raw_effect, adjusted_effect, control_drift, replicate_count, identifiable, decision, rules_version, input_sha256]}
+  - {id: signal_noise_report, path: outputs/signal_noise_report.json, required_fields: [raw_effect, adjusted_effect, control_drift, replicate_count, identifiable, decision, rules_version, input_sha256, claim_boundary]}
   - {id: replicate_diagnostics, path: outputs/replicate_diagnostics.tsv, required_fields: [perturbation, plate, replicate, raw_signal, adjusted_signal, control_status]}
   - {id: profile_review_gate, path: outputs/profile_review_gate.md, required_fields: [signal_result, technical_noise_result, human_review_decision, claim_boundary]}
 hidden_truth:
@@ -116,9 +117,9 @@ release_gates:
 Compare raw and nuisance-adjusted perturbation signal, preserve replicate-level provenance, and stop when the biological effect is not identifiable. A residual phenotype signal supports analytical triage only; it does not establish mechanism, target engagement, or efficacy.
 
 Write exactly these files under outputs/:
-- outputs/signal_noise_report.json: raw effect, adjusted effect, control drift, replicate count, identifiability, decision, rules version, and input SHA-256 values.
+- outputs/signal_noise_report.json with this contract: raw_effect, adjusted_effect, and control_drift are numbers; replicate_count is an integer; identifiable is a JSON boolean; decision is exactly proceed_to_profile_review or hold_for_human_review; rules_version is a string; input_sha256 is keyed by profiles.csv and rules.json; claim_boundary contains mechanism_established: false and human_review_required: true.
 - outputs/replicate_diagnostics.tsv: columns perturbation, plate, replicate, raw_signal, adjusted_signal, and control_status.
-- outputs/profile_review_gate.md: signal result, technical noise result, human review decision, and the claim boundary that this is not mechanism.
+- outputs/profile_review_gate.md: signal result, technical noise result, human review decision, and a bounded statement about mechanism, target engagement, and efficacy.
 """)
     write(TASK / "expected_artifacts.md", """# Expected artifacts
 

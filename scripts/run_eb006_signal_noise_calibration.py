@@ -36,7 +36,7 @@ def reference(verifier, out: Path) -> None:
         with (TASK / "data/profiles.csv").open(newline="", encoding="utf-8") as source:
             writer.writerows(csv.DictReader(source))
     (out / "profile_review_gate.md").write_text(
-        "Signal survives technical noise checks; human review remains required; this is not mechanism.\n",
+        "Signal survives technical noise checks; human review remains required; this does not establish mechanism, target engagement, or efficacy.\n",
         encoding="utf-8",
     )
 
