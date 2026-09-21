@@ -2,7 +2,7 @@
   "schema_version": "enterprise_scale_tranche.v1",
   "tranche_id": "TRANCHE-004",
   "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
-  "status": "BLOCKED_TARGET_MODEL_RUNNER_LIFECYCLE",
+  "status": "BLOCKED_FIXED_CONTAINER_REPLAY",
   "selection_policy": {
     "candidate_count": 1,
     "coverage": "complete the fourth semantic candidate mined from legacy seeds",
@@ -21,20 +21,20 @@
       "brief": "enterprise-v1/question_briefs/eb010-measurement-value-004.json",
       "workflow_family": "closed_loop_experimental_design",
       "why_now": "adds measurement-request prioritization before batching, distinct from batch choice, stop rules, and policy replay",
-      "status": "CONTRACT_AUDITED_CONTROLS_BASELINES_COMPLETE_TARGET_OUTPUT_VERIFIED_RUNNER_BLOCKED",
+      "status": "CONTRACT_AUDITED_CONTROLS_BASELINES_COMPLETE_TARGET_REPLAY_PASS",
       "trial_history": [
         {
-          "trial_id": "eb010-measurement-target-001",
+          "trial_id": "eb010-measurement-target-002",
           "model": "gpt-5.6-sol",
-          "classification": "agent_completed_verifier_passed",
-          "runner_status": "timeout",
-          "attribution": "runner_lifecycle_timeout_after_complete_artifact_generation"
+          "classification": "agent_completed_verifier_passed_after_contract_replay",
+          "runner_status": "verifier_fail_then_contract_replay_pass",
+          "attribution": "initial_verifier_schema_defect; unchanged artifacts passed replay"
         }
       ]
     }
   ],
   "shared_release_blockers": [
-    "repair runner process lifecycle and replay the same contract in a fixed container",
+    "replay the contract in a fixed container",
     "independent practitioner review",
     "license/privacy/claim-boundary review"
   ]

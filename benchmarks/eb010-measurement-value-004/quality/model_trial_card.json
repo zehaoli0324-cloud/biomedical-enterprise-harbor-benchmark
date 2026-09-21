@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED",
-  "status": "BLOCKED",
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "status": "BASELINES_COMPLETE",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -55,13 +55,14 @@
     {
       "strategy": "target_model",
       "model": "gpt-5.6-sol",
-      "trial_id": "eb010-measurement-target-001",
-      "status": "agent_completed_verifier_passed",
+      "trial_id": "eb010-measurement-target-002",
+      "status": "pass_after_contract_replay",
       "passed": true,
-      "runner_status": "timeout",
-      "timed_out": true,
-      "artifact_verification": "post_timeout_independent_pass",
-      "failure_attribution": "infrastructure_runner_lifecycle_timeout",
+      "runner_status": "verifier_fail_then_contract_replay_pass",
+      "timed_out": false,
+      "artifact_verification": "unchanged_artifacts_replay_pass",
+      "failure_attribution": "initial_verifier_schema_defect; unchanged artifacts passed replay",
+      "trial_manifest": "/private/tmp/enterprise-eb010-measurement-target-trials-v2/eb010-measurement-target-002/manifest.json",
       "durable_evidence": "quality/target_trial_evidence.json",
       "errors": []
     }

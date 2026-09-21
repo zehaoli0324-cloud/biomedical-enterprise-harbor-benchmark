@@ -283,7 +283,38 @@ def run_trial(
     if event_log.is_file():
         shutil.copy2(event_log, trial.trial_dir / "agent_events.jsonl")
     if timed_out:
-        _update_manifest(trial.manifest_path, status="timeout", finished_at=_now(), timed_out=True)
+        output_hashes = visible_file_hashes(trial.outputs)
+        if output_hashes:
+            verifier_status, verifier_score, verifier_exit_code = _run_verifier(trial)
+            _update_manifest(
+                trial.manifest_path,
+                status="timeout",
+                finished_at=_now(),
+                timed_out=True,
+                timeout_artifact_verification="pass" if verifier_exit_code == 0 and verifier_status == "pass" else "fail",
+                verifier_status=verifier_status,
+                verifier_score=verifier_score,
+                verifier_exit_code=verifier_exit_code,
+                visible_output_hashes=output_hashes,
+            )
+            return TrialResult(
+                trial.task_id,
+                trial.trial_id,
+                trial.trial_dir,
+                "timeout",
+                None,
+                verifier_status,
+                verifier_score,
+                True,
+                trial.manifest_path,
+            )
+        _update_manifest(
+            trial.manifest_path,
+            status="timeout",
+            finished_at=_now(),
+            timed_out=True,
+            timeout_artifact_verification="not_run_no_outputs",
+        )
         return TrialResult(trial.task_id, trial.trial_id, trial.trial_dir, "timeout", None, None, None, True, trial.manifest_path)
     if process_result is None:
         _update_manifest(trial.manifest_path, status="agent_error", finished_at=_now(), timed_out=False)

@@ -5,12 +5,12 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "AUDITED",
   "control_status": "CALIBRATED",
-  "model_trial_status": "BASELINES_COMPLETE",
+  "model_trial_status": "PASS_AFTER_CONTRACT_REPLAY",
   "target_model_failure_policy": "infrastructure_failures_are_not_difficulty_evidence",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
     "source/license/privacy review",
-    "target-model runner lifecycle repair and fixed-container replay"
+    "fixed-container replay and practitioner review"
   ]
 }

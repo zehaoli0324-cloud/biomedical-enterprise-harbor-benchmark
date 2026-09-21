@@ -2,6 +2,7 @@ import json
 import sys
 from pathlib import Path
 
+import benchmark_runner.runner as runner
 from benchmark_runner.runner import prepare_trial, run_trial
 from benchmark_runner.files import RunnerError
 
@@ -80,3 +81,30 @@ def test_timeout_is_archived_without_running_verifier(tmp_path: Path):
     assert result.status == "timeout"
     assert result.timed_out is True
     assert not (result.trial_dir / "verifier_result.json").exists()
+    manifest = json.loads(result.manifest_path.read_text(encoding="utf-8"))
+    assert manifest["timeout_artifact_verification"] == "not_run_no_outputs"
+
+
+def test_timeout_with_outputs_runs_verifier_but_remains_timeout(tmp_path: Path, monkeypatch):
+    calls = []
+
+    def fake_verifier(trial):
+        calls.append(trial.outputs)
+        return "pass", 1.0, 0
+
+    monkeypatch.setattr(runner, "_run_verifier", fake_verifier)
+    command = (
+        f'{sys.executable} -c '
+        '"from pathlib import Path; import os, time; '
+        "output = Path(os.environ['BENCHMARK_OUTPUTS']); output.mkdir(exist_ok=True); "
+        "output.joinpath('result.json').write_text('{}'); time.sleep(2)\""
+    )
+    result = run_trial(TASK, tmp_path, command, "trial-timeout-with-output", timeout_seconds=1)
+    assert result.status == "timeout"
+    assert result.timed_out is True
+    assert result.verifier_status == "pass"
+    assert calls == [result.trial_dir / "agent_workspace/outputs"]
+    manifest = json.loads(result.manifest_path.read_text(encoding="utf-8"))
+    assert manifest["timeout_artifact_verification"] == "pass"
+    assert manifest["verifier_status"] == "pass"
+    assert manifest["visible_output_hashes"]["result.json"]

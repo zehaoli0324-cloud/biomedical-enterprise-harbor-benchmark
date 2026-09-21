@@ -126,8 +126,14 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
     request = (submission / "approval_request.md").read_text(encoding="utf-8").lower()
     if exp["selected_measurement_id"].lower() not in request:
         errors.append("approval request does not name the selected measurement")
-    for concept in ("planning aid", "human review", "experimental improvement", "future-outcome", "redundancy"):
-        if concept not in request:
+    for concept, alternatives in {
+        "planning aid": ("planning aid",),
+        "human review": ("human review",),
+        "experimental improvement": ("experimental improvement",),
+        "future outcome": ("future outcome", "future-outcome"),
+        "redundancy": ("redundancy",),
+    }.items():
+        if not any(variant in request for variant in alternatives):
             errors.append("approval request missing required concept: " + concept)
     return not errors, errors
 
