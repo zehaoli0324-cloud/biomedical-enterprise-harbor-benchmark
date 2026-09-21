@@ -87,7 +87,7 @@
     {
       "check": "target_model_status_attributed",
       "status": "PASS",
-      "detail": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED"
+      "detail": "PASS_AFTER_CONTRACT_REPLAY"
     },
     {
       "check": "sop_card_present",
@@ -106,11 +106,9 @@
     }
   ],
   "blockers": [],
-  "release_status": "BLOCKED",
-  "release_blockers": [
-    "target_model_infrastructure"
-  ],
-  "target_model_status": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED",
-  "target_model_infra_not_difficulty": true,
+  "release_status": "REVIEW_REQUIRED",
+  "release_blockers": [],
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "target_model_infra_not_difficulty": false,
   "release_permitted": false
 }
