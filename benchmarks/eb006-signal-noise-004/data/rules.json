@@ -1,0 +1,6 @@
+{
+  "rules_version": "signal-noise-v1",
+  "minimum_adjusted_effect": 0.03,
+  "minimum_replicates": 2,
+  "maximum_control_drift": 0.02
+}

@@ -2,7 +2,7 @@
   "schema_version": "enterprise_contract_compile_batch.v1",
   "batch_id": "TRANCHE-001",
   "status": "MIXED_CALIBRATION_AND_CONTRACT",
-  "task_count": 8,
+  "task_count": 9,
   "release_policy": "compiled difficulty is not evidence of runnable data, truth, verifier, or model readiness",
   "tasks": [
     {
@@ -65,6 +65,19 @@
       "band": "advanced",
       "adjusted_score": 3.44,
       "spec_digest": "f31e1edc05f8536159fdda882da5025def6d948285d8b21284b503a27867f01a",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
+    },
+    {
+      "task_id": "eb006-signal-noise-004",
+      "config": "candidate_pools/enterprise-v1/contracts/eb006-signal-noise-004.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb006-signal-noise-004/task_manifest.json",
+      "status": "ready_for_calibration",
+      "band": "advanced",
+      "adjusted_score": 3.033,
+      "spec_digest": "de00e0b9400e931695b493046097ebf6514f503b7fdcdfe37644f5bcd1c00612",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",

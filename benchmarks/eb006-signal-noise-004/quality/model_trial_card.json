@@ -1,0 +1,56 @@
+{
+  "model_trial_card_id": "TRIAL-EB006-SIGNAL-NOISE-004-001",
+  "task_id": "eb006-signal-noise-004",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "target_model_status": "NOT_RUN",
+  "status": "BASELINES_COMPLETE",
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: replicate_diagnostics.tsv"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 3,
+      "failure_attribution": "claim_boundary_or_abstention",
+      "errors": [
+        "missing artifact: signal_noise_report.json",
+        "missing artifact: replicate_diagnostics.tsv",
+        "missing artifact: profile_review_gate.md"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "calculation_or_tool",
+      "errors": [
+        "signal/noise report mismatch: adjusted_effect"
+      ]
+    }
+  ]
+}

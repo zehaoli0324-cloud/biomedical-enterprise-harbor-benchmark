@@ -1,0 +1,13 @@
+{
+  "enterprise_value_card_id": "VALUE-EB006-SIGNAL-NOISE-004-001",
+  "task_id": "eb006-signal-noise-004",
+  "enterprise_reality": {
+    "evidence_class": "B",
+    "named_role": "image_analysis_or_phenomics_scientist",
+    "decision": "decide whether a perturbation phenotype survives technical-noise checks before profile review",
+    "downstream_action": "signal_noise_diagnostics->profile_review",
+    "error_consequence": "technical variation can be mistaken for a biological hit",
+    "human_owner": "domain_reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

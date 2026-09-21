@@ -1,0 +1,19 @@
+{
+  "training_value_card_id": "TRAIN-EB006-SIGNAL-NOISE-004-001",
+  "task_id": "eb006-signal-noise-004",
+  "capability_targets": [
+    "evidence reconciliation",
+    "replicate reasoning",
+    "claim boundary",
+    "artifact completeness"
+  ],
+  "error_labels": [
+    "input_understanding",
+    "method_choice",
+    "calculation_or_tool",
+    "claim_overreach",
+    "delivery_failure"
+  ],
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

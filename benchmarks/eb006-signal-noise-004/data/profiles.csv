@@ -1,0 +1,5 @@
+perturbation,plate,replicate,raw_signal,adjusted_signal,control_status
+P-1,PLATE-1,1,1.20,1.05,treated
+P-1,PLATE-2,2,1.18,1.04,treated
+P-1,PLATE-3,1,1.00,1.00,control
+P-1,PLATE-4,2,0.98,0.99,control

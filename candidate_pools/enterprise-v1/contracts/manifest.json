@@ -44,6 +44,11 @@
       "id": "eb009-diversity-coverage-004",
       "source": "EB009",
       "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb006-signal-noise-004",
+      "source": "EB006",
+      "status": "ready_for_calibration"
     }
   ],
   "release_policy": "no task is runnable until data, oracle, verifier, controls, and model trial are independently materialized"

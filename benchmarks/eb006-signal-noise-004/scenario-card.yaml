@@ -1,0 +1,23 @@
+scenario_id: eb006-signal-noise-004
+status: ready
+source_scenarios: [EB006]
+domain: biomedical_enterprise
+scientific_decision: decide whether a perturbation phenotype survives technical-noise checks before profile review
+scientific_judgments:
+  - replicate_and_plate_signal_reconciliation
+  - adjusted_effect_identifiability
+  - analytical_claim_boundary
+workflow_handoffs:
+  - from: images_and_metadata
+    to: signal_noise_diagnostics
+    artifact: outputs/replicate_diagnostics.tsv
+    invariant: preserve replicate and plate provenance
+  - from: signal_noise_diagnostics
+    to: profile_review
+    artifact: outputs/profile_review_gate.md
+    invariant: residual signal is not mechanism evidence
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass

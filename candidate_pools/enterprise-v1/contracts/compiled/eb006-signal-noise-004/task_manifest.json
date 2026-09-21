@@ -1,0 +1,364 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb006-signal-noise-004",
+    "title": "Perturbation signal versus technical noise",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "EB006"
+    ],
+    "data_types": [
+      "csv",
+      "json",
+      "markdown",
+      "tsv"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb006-signal-noise-004",
+    "raw_score": 2.833,
+    "adjusted_score": 3.033,
+    "band": "advanced",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The decision is whether a perturbation phenotype survives technical-noise checks before profile review.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Raw signal must be reconciled with adjusted signal, replicate count and control drift.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "computational_difficulty": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The task joins replicate, plate and nuisance-adjusted measurements.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "tool_call_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The challenge is evidence reconciliation, not tool count.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "retrieval_complexity": {
+        "level": 1,
+        "weight": 1.0,
+        "rationale": "All evidence is in the frozen offline bundle.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "information_noise_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Plate effects and control drift can mimic a biological phenotype.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "data_type_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "CSV measurements and JSON rules require a joined decision.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "data_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The fixture is small but contains replicate-level evidence.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "environment_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The offline environment is fixed and deterministic.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "mathematical_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "Effect and drift summaries are simple but must use the correct subsets.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "long_horizon_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The handoff links profile measurements, noise diagnostics and human review.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "A residual signal is not evidence of mechanism, target engagement or efficacy.",
+        "tags": [
+          "signal",
+          "noise",
+          "profile-review"
+        ]
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence"
+    ],
+    "selected_modules": {
+      "scenario": [
+        {
+          "id": "scenario_reproducibility_audit",
+          "params": {}
+        }
+      ],
+      "judgment": [
+        {
+          "id": "judgment_uncertainty_and_stop_rules",
+          "params": {}
+        },
+        {
+          "id": "judgment_causal_boundary",
+          "params": {}
+        }
+      ],
+      "compute": [
+        {
+          "id": "compute_multistage_analysis",
+          "params": {}
+        }
+      ],
+      "tooling": [
+        {
+          "id": "tool_branching_pipeline",
+          "params": {}
+        }
+      ],
+      "noise": [
+        {
+          "id": "noise_metadata_conflict",
+          "params": {}
+        }
+      ],
+      "data": [
+        {
+          "id": "data_multimodal_join",
+          "params": {}
+        }
+      ],
+      "data_complexity": [
+        {
+          "id": "complexity_sparse_or_missing",
+          "params": {}
+        }
+      ],
+      "environment": [
+        {
+          "id": "environment_pinned_container",
+          "params": {}
+        }
+      ],
+      "math": [
+        {
+          "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        }
+      ],
+      "horizon": [
+        {
+          "id": "horizon_checkpointed_workflow",
+          "params": {}
+        }
+      ],
+      "safety": [
+        {
+          "id": "safety_human_approval_gate",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "csv",
+      "json",
+      "markdown",
+      "tsv"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 60,
+    "memory_mb": 512,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "de00e0b9400e931695b493046097ebf6514f503b7fdcdfe37644f5bcd1c00612",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb006-signal-noise-004/scenario-card.yaml",
+    "digest": "a814bdda1261d08a5ac3a2b4fdbd94fa740d7495f3b58bfa11fc4a28e26a5e8d",
+    "scenario_id": "eb006-signal-noise-004",
+    "status": "ready",
+    "source_scenarios": [
+      "EB006"
+    ],
+    "scientific_judgments": [
+      "replicate_and_plate_signal_reconciliation",
+      "adjusted_effect_identifiability",
+      "analytical_claim_boundary"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "pass",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

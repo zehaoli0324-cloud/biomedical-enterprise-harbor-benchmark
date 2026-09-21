@@ -1,0 +1,22 @@
+{
+  "candidate_set_id": "CSET-EB006-SIGNAL-NOISE-004-001",
+  "source_benchmark_id": "EB006",
+  "candidates": [
+    {
+      "candidate_id": "eb006-signal-noise-004",
+      "selection_status": "MATERIALIZED",
+      "semantic_axes": [
+        "method_choice",
+        "data_multimodal_join",
+        "stopping_rule"
+      ]
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}
