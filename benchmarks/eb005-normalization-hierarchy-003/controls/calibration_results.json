@@ -1,6 +1,39 @@
 {
   "schema_version": "enterprise_control_calibration.v1",
-  "task_id": "eb005-normalization-hierarchy-003",
-  "status": "NOT_RUN",
-  "controls": []
+  "status": "FAILED",
+  "tasks": [
+    {
+      "task_id": "eb005-normalization-hierarchy-003",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-reference",
+          "kind": "positive",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "control_id": "insufficient-evidence",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "errors": [
+            "evidence must cover every decision entity exactly once"
+          ]
+        },
+        {
+          "control_id": "invariance-row-order",
+          "kind": "invariance",
+          "passed": true,
+          "observed": "hierarchical"
+        },
+        {
+          "control_id": "single-factor-decision-flip",
+          "kind": "negative",
+          "passed": true,
+          "observed": "hold",
+          "baseline": "hierarchical"
+        }
+      ]
+    }
+  ]
 }

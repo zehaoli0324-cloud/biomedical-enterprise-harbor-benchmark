@@ -1,6 +1,39 @@
 {
   "schema_version": "enterprise_control_calibration.v1",
-  "task_id": "eb008-route-portfolio-002",
-  "status": "NOT_RUN",
-  "controls": []
+  "status": "FAILED",
+  "tasks": [
+    {
+      "task_id": "eb008-route-portfolio-002",
+      "status": "FAILED",
+      "controls": [
+        {
+          "control_id": "positive-reference",
+          "kind": "positive",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "control_id": "insufficient-evidence",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "errors": [
+            "evidence must cover every decision entity exactly once"
+          ]
+        },
+        {
+          "control_id": "invariance-row-order",
+          "kind": "invariance",
+          "passed": false,
+          "observed": "R-B"
+        },
+        {
+          "control_id": "single-factor-decision-flip",
+          "kind": "negative",
+          "passed": true,
+          "observed": "R-B",
+          "baseline": "R-A"
+        }
+      ]
+    }
+  ]
 }

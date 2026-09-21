@@ -1,7 +1,49 @@
 {
   "task_id": "eb008-route-portfolio-002",
   "protocol_version": "enterprise-model-trial.v1",
-  "status": "NOT_RUN",
+  "status": "BASELINES_COMPLETE",
   "target_model_status": "NOT_RUN",
-  "records": []
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: decision.json"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "delivery_failure",
+      "errors": [
+        "missing artifact: decision.json",
+        "missing artifact: evidence.tsv",
+        "missing artifact: review.md",
+        "missing artifact: manifest.json"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "decision mismatch"
+      ]
+    }
+  ]
 }

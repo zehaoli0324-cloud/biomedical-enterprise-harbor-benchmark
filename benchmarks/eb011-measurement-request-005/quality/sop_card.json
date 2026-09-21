@@ -4,8 +4,8 @@
   "sop_version": "enterprise-harbor-sop-v1.1",
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "CONTRACT_ONLY",
-  "control_status": "NOT_RUN",
-  "model_trial_status": "NOT_RUN",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BASELINES_COMPLETE",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
