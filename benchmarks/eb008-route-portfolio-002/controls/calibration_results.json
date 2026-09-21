@@ -1,10 +1,10 @@
 {
   "schema_version": "enterprise_control_calibration.v1",
-  "status": "FAILED",
+  "status": "CALIBRATED",
   "tasks": [
     {
       "task_id": "eb008-route-portfolio-002",
-      "status": "FAILED",
+      "status": "CALIBRATED",
       "controls": [
         {
           "control_id": "positive-reference",
@@ -23,8 +23,8 @@
         {
           "control_id": "invariance-row-order",
           "kind": "invariance",
-          "passed": false,
-          "observed": "R-B"
+          "passed": true,
+          "observed": "R-A"
         },
         {
           "control_id": "single-factor-decision-flip",

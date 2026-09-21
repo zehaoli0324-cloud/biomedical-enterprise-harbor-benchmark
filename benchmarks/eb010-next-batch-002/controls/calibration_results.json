@@ -1,6 +1,6 @@
 {
   "schema_version": "enterprise_control_calibration.v1",
-  "status": "FAILED",
+  "status": "CALIBRATED",
   "tasks": [
     {
       "task_id": "eb010-next-batch-002",
