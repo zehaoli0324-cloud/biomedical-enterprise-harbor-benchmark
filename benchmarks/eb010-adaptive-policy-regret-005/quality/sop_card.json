@@ -1,0 +1,15 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "MATERIALIZED_V0.7.1",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "PASS",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review"
+  ]
+}

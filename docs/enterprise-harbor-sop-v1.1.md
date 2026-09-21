@@ -1,4 +1,4 @@
-# Enterprise Harbor 出题 SOP V1.1
+# Enterprise Harbor 出题 SOP V1.2
 
 这份 SOP 是企业题从候选到 Harbor trial 的强制门禁。`compiled`、`CALIBRATED` 或静态 schema 通过都不等于可以跑 target model，更不等于 `READY_FOR_HARBOR`。
 
@@ -78,7 +78,21 @@ SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
 
 模块只有在 agent-visible evidence、公开合同、positive/negative/invariance/insufficient-evidence 控制和单因素 mutation 都齐全时才算实现。首轮模型因未声明的枚举和证据标签失败时，必须按 `invalid_contract_defect` 归因并保留原产物 replay；不能把合同缺陷包装成模型科学能力失败。
 
-## 8. L5 低披露、环境复杂性与语义含糊
+## 8. V1.2 本轮优化门禁
+
+上一轮六道 L4 题暴露出“结构 preflight 通过”仍不足以保护 trial 解释。V1.2 对新题增加以下强制要求：
+
+1. **合同审计先于模型难度结论。** `quality/contract_audit.json` 必须记录每个 required output 的路径、字段、单位/枚举、允许等价表示、claim boundary 和可回放样例，并标记 `status=PASS`。模型首轮 verifier failure 必须先在 `scientific_error`、`contract_error`、`delivery_error`、`infrastructure_error` 四类中归因；未完成归因不得写入“模型被考倒”。
+2. **跨 artifact 一致性必须可验证。** 若题目有表格和汇总 JSON，verifier 必须同时检查主键覆盖、数值、状态、排序和 blocker 传播；只检查最终 winner 不算通过。至少有一个单字段 mutation 会被拒绝。
+3. **难度组合要有预算。** `difficulty_card.json` 必须声明一个 `primary_module`、不超过两个 `secondary_modules`、至少三个 held-out variants，以及每个模块对应的 decision-flip control。重复文件、隐藏 enum 和增加格式负担不能计入难度。
+4. **模型前证据冻结。** 在 target trial 前冻结 task/version、instruction、data、verifier、contract audit 和 control digest。任何修订都要增加 version，保留原 artifact，并对原产物 replay；不得边看模型答案边收紧 verifier。
+5. **通过也要做区分度审计。** 单次 target pass 只能记为 `PASS_SINGLE_TRIAL`。要宣称模型区分度，至少需要三个 held-out variants、一次 independent verifier audit 和一次无模型的 contract replay；否则保持 `DIFFICULTY_NOT_DISCRIMINATING` 或 `REVIEW_REQUIRED`。
+
+6. **等价表示必须在 trial 前冻结。** 对每个结构化字段登记 canonical form、允许别名、路径归一化和不可接受的缺失情况；用 reference、field-order、alias、prefix 和 single-deletion fixtures 逐项验证。缺字段、重复主键、漏记录、错误 hash 和错误科学状态不能被“别名兼容”掩盖。
+
+7. **contract replay 必须可审计。** 首轮失败后只允许修改 verifier/contract 版本，必须保存首轮错误集、修订 diff、原始 artifact SHA-256 和 unchanged-artifact replay 结果；修改后不得直接覆盖原 trial 记录。
+
+## 9. L5 低披露、环境复杂性与语义含糊
 
 低披露只能减少重复解释，不能隐藏决定答案所需的规则。输入 schema、semantic lexicon、scope、阈值和环境约束可以分散在嵌套文件中，但必须能由 agent-visible manifest 和确定性 join 完整发现；verifier 必须从同一批公开输入重新推导，不能依赖未披露答案标签。
 

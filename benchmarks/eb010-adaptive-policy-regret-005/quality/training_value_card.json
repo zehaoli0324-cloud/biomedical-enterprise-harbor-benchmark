@@ -1,0 +1,12 @@
+{
+  "training_value_card_id": "TRAIN-EB010-ADAPTIVE-POLICY-REGRET-005-001",
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "capability_targets": [
+    "adaptive policy replay",
+    "minimax regret",
+    "constraint gating",
+    "temporal causality"
+  ],
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

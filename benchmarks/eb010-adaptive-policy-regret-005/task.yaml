@@ -1,0 +1,18 @@
+id: eb010-adaptive-policy-regret-005
+version: "0.7.1"
+status: ready_for_calibration
+title: "Adaptive policy tree selection by minimax regret"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: nested JSON bundle
+constraints:
+  network: off
+required_outputs:
+  - {id: policy, path: outputs/policy.json, required_fields: [selected_policy, rules_version, policies, claim_boundary, human_review_required]}
+  - {id: branches, path: outputs/branches.tsv, required_fields: [policy_id, scenario_id, observation, action, utility, regret]}
+  - {id: audit, path: outputs/audit.md, required_fields: [minimax_regret, budget, future_outcome, branch, human_review]}
+  - {id: manifest, path: outputs/manifest.json, required_fields: [input_sha256, rules_version, deterministic]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

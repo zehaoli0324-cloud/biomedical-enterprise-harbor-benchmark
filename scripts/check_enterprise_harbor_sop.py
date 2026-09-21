@@ -35,6 +35,7 @@ INFRA_FAILURES = {
     "infrastructure_adapter_timeout",
     "provider_error",
 }
+SOP_V12 = "enterprise-harbor-sop-v1.2"
 
 
 def _load_json(path: Path) -> dict[str, Any] | None:
@@ -164,6 +165,20 @@ def evaluate(package: Path) -> dict[str, Any]:
         _check(checks, "independent_verifier_audit", audit_ok, str((audit or {}).get("status", "missing")))
         if not audit_ok:
             pretrial_blockers.append("independent_verifier_audit")
+        if sop_card.get("sop_version") == SOP_V12:
+            contract_audit = _load_json(quality / "contract_audit.json")
+            contract_ok = (contract_audit or {}).get("status") == "PASS" and isinstance((contract_audit or {}).get("checks"), list) and len((contract_audit or {}).get("checks")) >= len(outputs)
+            _check(checks, "v1.2_contract_audit", contract_ok, str((contract_audit or {}).get("status", "missing")))
+            if not contract_ok:
+                pretrial_blockers.append("v1.2_contract_audit")
+            difficulty = _load_json(quality / "difficulty_card.json")
+            primary = (difficulty or {}).get("primary_module")
+            secondary = (difficulty or {}).get("secondary_modules")
+            variants = (difficulty or {}).get("held_out_variants")
+            difficulty_ok = isinstance(primary, str) and bool(primary) and isinstance(secondary, list) and len(secondary) <= 2 and isinstance(variants, list) and len(variants) >= 3
+            _check(checks, "v1.2_difficulty_budget", difficulty_ok, f"primary={primary};secondary={secondary};held_out={len(variants) if isinstance(variants, list) else 0}")
+            if not difficulty_ok:
+                pretrial_blockers.append("v1.2_difficulty_budget")
 
     return {
         "schema_version": "enterprise_harbor_sop_preflight.v1",

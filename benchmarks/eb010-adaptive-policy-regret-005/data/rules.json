@@ -1,0 +1,12 @@
+{
+  "rules_version": "l5.2-regret-v1",
+  "required_scope": "active",
+  "required_observations": [
+    "weak",
+    "mixed",
+    "strong"
+  ],
+  "max_budget": 6.5,
+  "risk_weight": 0.8,
+  "cost_weight": 0.05
+}

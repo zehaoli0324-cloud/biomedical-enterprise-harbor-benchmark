@@ -1,0 +1,112 @@
+{
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "PASS",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "selected_policy mismatch"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: policy.json",
+        "missing artifact: branches.tsv",
+        "missing artifact: audit.md",
+        "missing artifact: manifest.json"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 43,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "policy report must cover every policy exactly once",
+        "P-BALANCED eligible mismatch",
+        "P-BALANCED blockers mismatch",
+        "P-BALANCED max_regret mismatch",
+        "P-BALANCED worst_utility mismatch",
+        "P-BALANCED mean_utility mismatch",
+        "P-BALANCED branches mismatch",
+        "P-CAUTIOUS eligible mismatch",
+        "P-CAUTIOUS blockers mismatch",
+        "P-CAUTIOUS max_regret mismatch",
+        "P-CAUTIOUS worst_utility mismatch",
+        "P-CAUTIOUS mean_utility mismatch",
+        "P-CAUTIOUS branches mismatch",
+        "P-GREEDY eligible mismatch",
+        "P-GREEDY blockers mismatch",
+        "P-GREEDY max_regret mismatch",
+        "P-GREEDY worst_utility mismatch",
+        "P-GREEDY mean_utility mismatch",
+        "P-GREEDY branches mismatch",
+        "P-EXPLORE eligible mismatch",
+        "P-EXPLORE blockers mismatch",
+        "P-EXPLORE max_regret mismatch",
+        "P-EXPLORE worst_utility mismatch",
+        "P-EXPLORE mean_utility mismatch",
+        "P-EXPLORE branches mismatch",
+        "P-STOP eligible mismatch",
+        "P-STOP blockers mismatch",
+        "P-STOP max_regret mismatch",
+        "P-STOP worst_utility mismatch",
+        "P-STOP mean_utility mismatch",
+        "P-STOP branches mismatch",
+        "P-FUTURE eligible mismatch",
+        "P-FUTURE blockers mismatch",
+        "P-FUTURE branches mismatch",
+        "P-INCOMPLETE eligible mismatch",
+        "P-INCOMPLETE blockers mismatch",
+        "P-INCOMPLETE branches mismatch",
+        "P-OVERRUN eligible mismatch",
+        "P-OVERRUN blockers mismatch",
+        "P-OVERRUN branches mismatch",
+        "P-ARCHIVED eligible mismatch",
+        "P-ARCHIVED blockers mismatch",
+        "P-ARCHIVED branches mismatch"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb010-adaptive-policy-regret-005-gpt56sol-001",
+      "status": "pass",
+      "passed": true,
+      "valid_difficulty_evidence": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "pass",
+      "duration_seconds": 534.7,
+      "failure_attribution": null,
+      "artifact_sha256": {
+        "policy.json": "bb35da12d52dfa18f57eac1c145b972e148bd415543deae7ccbd00e3ca0c471c",
+        "branches.tsv": "1dd010c886404696873bae7a030044f802c92e82aa216a5be5fa29cc3ca0de63",
+        "audit.md": "83a9ed95cdec4312e2bec9819fa8794c615ebfbdb70a0e1450b45ece6a9b9a6d",
+        "manifest.json": "5eb590eff9e408fb432940ce96762e17ca734c7ac47f7bf67bbc04b2becdf2d6"
+      },
+      "trial_dir": "/private/tmp/enterprise-l52-target-trials/eb010-adaptive-policy-regret-005-gpt56sol-001"
+    }
+  ]
+}

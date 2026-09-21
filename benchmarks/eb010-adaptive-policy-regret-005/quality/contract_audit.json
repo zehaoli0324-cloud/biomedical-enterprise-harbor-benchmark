@@ -1,0 +1,12 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "status": "PASS",
+  "checks": [
+    {"output": "outputs/policy.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/branches.tsv", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/audit.md", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/manifest.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true}
+  ],
+  "replay_fixture": "reference_solution"
+}

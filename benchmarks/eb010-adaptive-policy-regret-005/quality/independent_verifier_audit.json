@@ -1,0 +1,9 @@
+{
+  "audit_id": "AUDIT-EB010-ADAPTIVE-POLICY-REGRET-005-001",
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": ["structure", "metadata", "readme", "trial-evidence", "enterprise-contract", "scientific-provenance", "oracle-static"],
+  "finding_count": 0,
+  "source_report": "/private/tmp/eb010-policy-regret-review-v2.json"
+}

@@ -1,0 +1,38 @@
+scenario_id: eb010-adaptive-policy-regret-005
+status: ready
+source_scenarios: [EB010]
+domain: biomedical_enterprise
+scientific_decision: select a complete adaptive policy under worst-case regret
+scientific_judgments:
+  - temporal_observation_boundary
+  - minimax_regret_policy_selection
+  - hard_gate_before_utility
+difficulty_modules:
+  - id: horizon_adaptive_policy_replay
+    observable: every observation branch is replayed in every compatible latent scenario
+    decision_flip: a missing branch makes the policy ineligible
+  - id: math_robust_scenario_optimization
+    observable: scenario-best utilities and per-policy regrets are explicitly derived
+    decision_flip: mean-optimal and minimax-regret policies differ
+  - id: horizon_two_stage_acquisition
+    observable: actions are selected only after their declared observation
+    decision_flip: future-outcome use blocks an otherwise high-utility policy
+  - id: judgment_blocker_and_abstention
+    observable: structural and budget gates precede policy ranking
+    decision_flip: an over-budget high-utility tree cannot win
+  - id: data_nested_manifest_join
+    observable: scenarios, actions, policies, rules and environment provenance remain joined
+    decision_flip: a missing or unknown action invalidates the affected tree
+workflow_handoffs:
+  - from: policy_replay_inputs
+    to: adaptive_policy_decision
+    artifact: outputs/policy.json
+    invariant: every observation branch, budget gate and regret value remains aligned
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

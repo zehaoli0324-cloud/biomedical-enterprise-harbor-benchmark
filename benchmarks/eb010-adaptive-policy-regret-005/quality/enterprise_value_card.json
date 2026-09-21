@@ -1,0 +1,10 @@
+{
+  "enterprise_value_card_id": "VALUE-EB010-ADAPTIVE-POLICY-REGRET-005-001",
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "enterprise_reality": {
+    "decision": "choose a complete adaptive experimental policy",
+    "error_consequence": "mean optimization can hide a catastrophic branch",
+    "human_owner": "experimental program reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

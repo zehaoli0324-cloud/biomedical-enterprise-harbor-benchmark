@@ -1,0 +1,37 @@
+{
+  "control_plan_id": "CONTROL-EB010-ADAPTIVE-POLICY-REGRET-005-001",
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-greedy-policy",
+      "kind": "negative"
+    },
+    {
+      "control_id": "negative-cross-artifact-utility",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-policy-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-manifest",
+      "kind": "insufficient_evidence"
+    },
+    {
+      "control_id": "adversarial-over-budget-utility",
+      "kind": "adversarial"
+    },
+    {
+      "control_id": "metamorphic-policy-order",
+      "kind": "metamorphic"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "status": "CALIBRATED"
+}

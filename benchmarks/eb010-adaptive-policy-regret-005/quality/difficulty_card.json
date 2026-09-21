@@ -1,0 +1,37 @@
+{
+  "difficulty_card_id": "DIFF-EB010-ADAPTIVE-POLICY-REGRET-005-001",
+  "task_id": "eb010-adaptive-policy-regret-005",
+  "primary_module": "math_robust_scenario_optimization",
+  "secondary_modules": [
+    "horizon_adaptive_policy_replay",
+    "judgment_minimal_sufficient_disclosure"
+  ],
+  "held_out_variants": [
+    "unique_minimax_winner",
+    "single_budget_blocker",
+    "future-outcome leakage"
+  ],
+  "decision_flip_controls": [
+    "mean-optimal differs from minimax-regret",
+    "over-budget high utility becomes ineligible",
+    "future outcome makes policy ineligible"
+  ],
+  "difficulty_hypothesis": {
+    "reasoning_chain": [
+      "join nested inputs",
+      "replay each policy branch",
+      "apply structural gates",
+      "construct scenario oracle",
+      "minimize worst regret"
+    ],
+    "target_failure_mechanism": "selects a high mean or infeasible policy instead of a complete minimax-regret tree"
+  },
+  "shortcut_probes": [
+    "highest mean",
+    "highest single-scenario utility",
+    "ignore missing branch",
+    "ignore budget",
+    "use future outcome"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

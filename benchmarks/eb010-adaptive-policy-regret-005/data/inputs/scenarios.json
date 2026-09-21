@@ -1,0 +1,18 @@
+[
+  {
+    "scenario_id": "S-W",
+    "observation": "weak"
+  },
+  {
+    "scenario_id": "S-M",
+    "observation": "mixed"
+  },
+  {
+    "scenario_id": "S-H1",
+    "observation": "strong"
+  },
+  {
+    "scenario_id": "S-H2",
+    "observation": "strong"
+  }
+]

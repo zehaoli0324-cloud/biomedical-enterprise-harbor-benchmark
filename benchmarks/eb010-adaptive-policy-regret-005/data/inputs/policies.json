@@ -1,0 +1,111 @@
+[
+  {
+    "policy_id": "P-ROBUST",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSE",
+      "mixed": "EXPLOIT",
+      "strong": "DIVERSE"
+    }
+  },
+  {
+    "policy_id": "P-BALANCED",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "REPLICATE",
+      "mixed": "EXPLOIT",
+      "strong": "DIVERSE"
+    }
+  },
+  {
+    "policy_id": "P-CAUTIOUS",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "REPLICATE",
+      "mixed": "REPLICATE",
+      "strong": "DIVERSE"
+    }
+  },
+  {
+    "policy_id": "P-GREEDY",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "EXPLOIT",
+      "mixed": "EXPLOIT",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-EXPLORE",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSE",
+      "mixed": "REPLICATE",
+      "strong": "REPLICATE"
+    }
+  },
+  {
+    "policy_id": "P-STOP",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "STOP",
+      "mixed": "STOP",
+      "strong": "STOP"
+    }
+  },
+  {
+    "policy_id": "P-FUTURE",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": true,
+    "branches": {
+      "weak": "DIVERSE",
+      "mixed": "EXPLOIT",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-INCOMPLETE",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSE",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-OVERRUN",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "MAXIMIZE",
+      "mixed": "MAXIMIZE",
+      "strong": "MAXIMIZE"
+    }
+  },
+  {
+    "policy_id": "P-ARCHIVED",
+    "scope": "archived",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSE",
+      "mixed": "EXPLOIT",
+      "strong": "DIVERSE"
+    }
+  }
+]
