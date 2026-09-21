@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb010-measurement-value-004",
+  "source_benchmark_id": "EB010",
+  "source_name": "BayBE constrained experimental design",
+  "workflow_id": "WF-BAYBE-CLOSED-LOOP",
+  "enterprise_role": "experimental_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Which additional measurement should be requested before the next experiment batch to reduce decision-critical uncertainty?",
+  "independent_unit": "candidate measurement request and optimization state",
+  "handoff": "optimization_state->measurement_request->next_batch",
+  "error_consequence": "redundant or infeasible measurements consume budget without resolving the decision bottleneck",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "measurement_priority.tsv",
+    "information_value_audit.json",
+    "approval_request.md"
+  ],
+  "failure_injections": [
+    "correlated uncertainty",
+    "missing outcome",
+    "assay infeasibility",
+    "future-outcome leakage"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must link each measurement request to a current uncertainty and avoid using future outcomes when estimating information value",
+    "semantic_axes": [
+      "scientific_decision",
+      "data_visibility",
+      "evidence_reconciliation"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "An information-value ranking is a planning aid, not evidence of experimental improvement.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

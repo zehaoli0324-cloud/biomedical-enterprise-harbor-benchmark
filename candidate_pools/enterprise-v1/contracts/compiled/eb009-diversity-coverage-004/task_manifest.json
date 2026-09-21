@@ -1,0 +1,362 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb009-diversity-coverage-004",
+    "title": "Generated candidate diversity and scaffold coverage",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "EB009"
+    ],
+    "data_types": [
+      "csv",
+      "json",
+      "markdown",
+      "tsv"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb009-diversity-coverage-004",
+    "raw_score": 2.75,
+    "adjusted_score": 2.75,
+    "band": "intermediate",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The decision is whether a generated set covers the intended chemical space before synthesis review.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Objective score must be separated from scaffold and cluster coverage.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "computational_difficulty": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The task joins validity, scaffold and cluster records.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "tool_call_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The challenge is audit reasoning, not tool count.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "retrieval_complexity": {
+        "level": 1,
+        "weight": 1.0,
+        "rationale": "All evidence is in the frozen offline bundle.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "information_noise_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Invalid and near-duplicate candidates create bounded noise.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "data_type_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "CSV candidate rows and JSON rules require reconciliation.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "data_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The fixture is small but contains a collapsed cluster and invalid row.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "environment_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The offline environment is fixed and deterministic.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "mathematical_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "Coverage thresholds are simple but must be applied to valid candidates only.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "long_horizon_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The handoff links generation, diversity audit and human review.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Computed diversity is not biological activity or developability.",
+        "tags": [
+          "diversity",
+          "scaffold",
+          "coverage"
+        ]
+      }
+    },
+    "interactions": [],
+    "selected_modules": {
+      "scenario": [
+        {
+          "id": "scenario_reproducibility_audit",
+          "params": {}
+        }
+      ],
+      "judgment": [
+        {
+          "id": "judgment_uncertainty_and_stop_rules",
+          "params": {}
+        },
+        {
+          "id": "judgment_causal_boundary",
+          "params": {}
+        }
+      ],
+      "compute": [
+        {
+          "id": "compute_multistage_analysis",
+          "params": {}
+        }
+      ],
+      "tooling": [
+        {
+          "id": "tool_branching_pipeline",
+          "params": {}
+        }
+      ],
+      "noise": [
+        {
+          "id": "noise_metadata_conflict",
+          "params": {}
+        }
+      ],
+      "data": [
+        {
+          "id": "data_multimodal_join",
+          "params": {}
+        }
+      ],
+      "data_complexity": [
+        {
+          "id": "complexity_sparse_or_missing",
+          "params": {}
+        }
+      ],
+      "environment": [
+        {
+          "id": "environment_pinned_container",
+          "params": {}
+        }
+      ],
+      "math": [
+        {
+          "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        }
+      ],
+      "horizon": [
+        {
+          "id": "horizon_checkpointed_workflow",
+          "params": {}
+        }
+      ],
+      "safety": [
+        {
+          "id": "safety_human_approval_gate",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "csv",
+      "json",
+      "markdown",
+      "tsv"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 60,
+    "memory_mb": 512,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "8e37e706b56f71bd69d6f215a778904cb38593f1fbfd039bca39d12a39cfe4bc",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb009-diversity-coverage-004/scenario-card.yaml",
+    "digest": "fdd66a46ca4373f57df6b9b8f0717d569e86744f26b414411e6445e7944ecd0b",
+    "scenario_id": "eb009-diversity-coverage-004",
+    "status": "ready",
+    "source_scenarios": [
+      "EB009"
+    ],
+    "scientific_judgments": [
+      "validity_and_identifier_integrity",
+      "scaffold_and_cluster_coverage",
+      "portfolio_triage_claim_boundary"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "pass",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

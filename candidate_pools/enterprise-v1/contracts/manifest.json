@@ -1,8 +1,8 @@
 {
   "schema_version": "enterprise_contract_batch.v1",
-  "batch_id": "TRANCHE-001",
+  "batch_id": "TRANCHE-001_PLUS_MINED-002",
   "status": "MIXED_CALIBRATION_AND_CONTRACT",
-  "task_count": 6,
+  "task_count": 8,
   "source_ledger": "candidate_pools/enterprise-v1/source_ledger.json",
   "tasks": [
     {
@@ -13,7 +13,7 @@
     {
       "id": "eb003-failure-recovery-003",
       "source": "EB003",
-      "status": "contract_only"
+      "status": "ready_for_calibration"
     },
     {
       "id": "eb004-adtte-censoring-002",
@@ -23,17 +23,27 @@
     {
       "id": "eb005-batch-normalization-002",
       "source": "EB005",
-      "status": "contract_only"
+      "status": "ready_for_calibration"
     },
     {
       "id": "eb008-stock-route-001",
       "source": "EB008",
-      "status": "contract_only"
+      "status": "ready_for_calibration"
     },
     {
       "id": "eb010-next-batch-001",
       "source": "EB010",
-      "status": "contract_only"
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb003-replay-provenance-004",
+      "source": "EB003",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb009-diversity-coverage-004",
+      "source": "EB009",
+      "status": "ready_for_calibration"
     }
   ],
   "release_policy": "no task is runnable until data, oracle, verifier, controls, and model trial are independently materialized"

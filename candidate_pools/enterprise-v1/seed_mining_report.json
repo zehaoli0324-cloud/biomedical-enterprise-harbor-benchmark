@@ -1,0 +1,87 @@
+{
+  "schema_version": "enterprise_seed_mining_report.v1",
+  "run_id": "SEED-MINING-2026-09-21-RXRX-ROUND2",
+  "status": "NEW_CANDIDATES_FOUND",
+  "seed_file": "knowledge_base/seeds/official_sources.json",
+  "seed_sha256": "a11b7ace1698084eb039202e41d4472e9165925fdf89c844f7e3a6e9b416f039",
+  "scanned_seed_ids": [
+    "SRC-EXPANSIONRX",
+    "SRC-BIOGEN-ADME",
+    "SRC-POLARIS-BIOGEN",
+    "SRC-GENENTECH-COMPBIO",
+    "SRC-PHARMAVERSE-ADMIRAL",
+    "SRC-JUMP-DATASETS",
+    "SRC-RECURSION-RXRX",
+    "SRC-MERCK-FEP",
+    "SRC-AZ-AIZYNTH",
+    "SRC-AZ-REINVENT",
+    "SRC-MERCK-BAYBE",
+    "SRC-DP-UNIFEP",
+    "SRC-OPENADMET-PXR"
+  ],
+  "mining_method": {
+    "source_evidence": [
+      "knowledge_base/harvest/raw/SRC-GENENTECH-COMPBIO.json",
+      "knowledge_base/harvest/raw/SRC-AZ-REINVENT.json",
+      "knowledge_base/harvest/raw/SRC-MERCK-BAYBE.json"
+    ],
+    "locator": "official source landing pages plus registry workflow contracts",
+    "observed_signal": "verifiable computational artifacts, candidate generation configuration, and constrained closed-loop decisions",
+    "existing_coverage_checked": [
+      "eb003-input-contract-001",
+      "eb003-claim-ledger-002",
+      "eb003-failure-recovery-003",
+      "eb009-constraint-generation-001",
+      "eb009-proxy-robustness-002",
+      "eb009-novelty-review-003",
+      "eb010-next-batch-001",
+      "eb010-stop-uncertainty-002",
+      "eb010-closed-loop-replay-003"
+    ],
+    "surface_only_variants_rejected": [
+      "changing the image filename",
+      "changing the profile output format",
+      "changing the random seed without changing the decision"
+    ]
+  },
+  "new_candidates": [
+    {
+      "candidate_id": "eb006-signal-noise-004",
+      "source_benchmark_id": "EB006",
+      "semantic_delta": [
+        "method_choice",
+        "data_multimodal_join",
+        "stopping_rule"
+      ],
+      "decision_axis": "signal-versus-technical-noise identifiability before profile handoff",
+      "brief_path": "candidate_pools/enterprise-v1/question_briefs/eb006-signal-noise-004.json",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "candidate_id": "eb003-replay-provenance-004",
+      "source_benchmark_id": "EB003",
+      "semantic_delta": ["reproducibility", "evidence_reconciliation", "evaluation_contract"],
+      "decision_axis": "handoff replayability from provenance and environment records",
+      "brief_path": "candidate_pools/enterprise-v1/question_briefs/eb003-replay-provenance-004.json",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "candidate_id": "eb009-diversity-coverage-004",
+      "source_benchmark_id": "EB009",
+      "semantic_delta": ["data_multimodal_join", "evaluation_contract", "coverage"],
+      "decision_axis": "scaffold and chemical-space coverage before synthesis handoff",
+      "brief_path": "candidate_pools/enterprise-v1/question_briefs/eb009-diversity-coverage-004.json",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "candidate_id": "eb010-measurement-value-004",
+      "source_benchmark_id": "EB010",
+      "semantic_delta": ["scientific_decision", "data_visibility", "evidence_reconciliation"],
+      "decision_axis": "information-value measurement request before next batch",
+      "brief_path": "candidate_pools/enterprise-v1/question_briefs/eb010-measurement-value-004.json",
+      "status": "CONTRACT_ONLY"
+    }
+  ],
+  "seed_update_required": false,
+  "next_gate": "independent fixture, hidden truth route, four controls, and baseline/model trials"
+}

@@ -96,6 +96,37 @@
       ],
       "claim_boundary": "Computed novelty is not freedom-to-operate or clinical value.",
       "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb009-diversity-coverage-004",
+      "decision": "Does the generated candidate set cover the intended scaffold and chemical space before synthesis review?",
+      "independent_unit": "candidate set and scaffold cluster",
+      "handoff": "generation->diversity_audit->human_review",
+      "error_consequence": "mode collapse or representation errors can waste synthesis capacity on near-duplicates",
+      "semantic_axes": [
+        "data_multimodal_join",
+        "evaluation_contract",
+        "coverage"
+      ],
+      "failure_injections": [
+        "scaffold collapse",
+        "near-duplicate cluster",
+        "invalid structure representation",
+        "sampling budget skew"
+      ],
+      "required_artifacts": [
+        "diversity_matrix.tsv",
+        "scaffold_cluster_report.json",
+        "coverage_review_gate.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must distinguish objective score from chemical-space coverage and hold when diversity cannot be measured reliably",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "Computed diversity supports portfolio triage only; it does not establish activity or developability.",
+      "selection_status": "PENDING"
     }
   ],
   "deduplication_axes": [

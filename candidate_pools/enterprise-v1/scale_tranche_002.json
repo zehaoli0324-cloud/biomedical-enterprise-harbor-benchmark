@@ -1,0 +1,42 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-002",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "BLOCKED_TARGET_MODEL_INFRASTRUCTURE",
+  "selection_policy": {
+    "candidate_count": 2,
+    "coverage": "two mined decision axes selected for independent fixture and control calibration",
+    "runnable_release_requires": [
+      "enterprise_value_review",
+      "data_card",
+      "independent_truth_route",
+      "control_calibration",
+      "model_trial"
+    ]
+  },
+  "recommended_candidates": [
+    {
+      "candidate_id": "eb003-replay-provenance-004",
+      "brief": "enterprise-v1/question_briefs/eb003-replay-provenance-004.json",
+      "workflow_family": "computational_biology_agent_tasks",
+      "why_now": "extends failure recovery into post-handoff replayability with explicit checksum and environment reconciliation",
+      "next_artifact": "independent replay oracle and target-model trial",
+      "status": "CALIBRATED_CONTROLS_TARGET_MODEL_BLOCKED"
+    },
+    {
+      "candidate_id": "eb009-diversity-coverage-004",
+      "brief": "enterprise-v1/question_briefs/eb009-diversity-coverage-004.json",
+      "workflow_family": "constrained_molecule_design",
+      "why_now": "adds scaffold and chemical-space coverage as a decision gate distinct from objective robustness and novelty review",
+      "next_artifact": "independent coverage oracle and target-model trial",
+      "status": "CALIBRATED_CONTROLS_TARGET_MODEL_BLOCKED"
+    }
+  ],
+  "shared_release_blockers": [
+    "repair Codex app-server target-model adapter timeout before rerun",
+    "target-model trial with failure attribution",
+    "independent practitioner review",
+    "license/privacy/claim-boundary review",
+    "fixed-container Harbor replay"
+  ]
+}

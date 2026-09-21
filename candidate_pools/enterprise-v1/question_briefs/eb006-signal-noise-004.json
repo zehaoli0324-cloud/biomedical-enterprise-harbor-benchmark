@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb006-signal-noise-004",
+  "source_benchmark_id": "EB006",
+  "source_name": "RxRx3 / RxRx3-core",
+  "workflow_id": "WF-PHENOMICS-PROFILE",
+  "enterprise_role": "image_analysis_or_phenomics_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Does a perturbation-level phenotype signal survive nuisance and plate-noise checks before it is passed to profile review?",
+  "independent_unit": "perturbation-level signal estimate with plate replicates",
+  "handoff": "images_and_metadata->signal_noise_diagnostics->profile_review",
+  "error_consequence": "technical variation can be mistaken for a biological hit and consume follow-up capacity",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "signal_noise_report.json",
+    "replicate_diagnostics.tsv",
+    "profile_review_gate.md"
+  ],
+  "failure_injections": [
+    "plate-correlated treatment",
+    "control drift",
+    "replicate imbalance",
+    "missing control wells"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must compare raw and nuisance-adjusted signal, preserve replicate-level provenance, and hold when the biological effect is not identifiable",
+    "semantic_axes": [
+      "method_choice",
+      "data_multimodal_join",
+      "stopping_rule"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A residual phenotype signal supports analytical triage only; it does not establish mechanism, target engagement, or efficacy.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

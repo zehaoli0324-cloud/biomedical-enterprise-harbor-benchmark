@@ -1,0 +1,10 @@
+{
+  "artifact_id": "ART-17",
+  "rules_version": "replay-v1",
+  "input_hashes": {
+    "inputs.tsv": "sha256:inputs-17"
+  },
+  "output_hashes": {
+    "result.tsv": "sha256:result-17"
+  }
+}

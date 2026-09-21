@@ -1,0 +1,49 @@
+{
+  "difficulty_card_id": "DIFF-EB009-DIVERSITY-COVERAGE-004-001",
+  "task_id": "eb009-diversity-coverage-004",
+  "difficulty_hypothesis": {
+    "reasoning_chain": [
+      "inspect visible evidence",
+      "reconcile competing records",
+      "preserve uncertainty",
+      "issue bounded handoff"
+    ],
+    "competing_choices": [
+      "proceed versus hold",
+      "headline score versus independent evidence"
+    ],
+    "stateful_dependencies": [
+      "missing evidence blocks downstream claim"
+    ],
+    "target_failure_mechanism": "fluent shortcut ignores provenance or coverage failure"
+  },
+  "shortcut_probes": [
+    "company-name matching",
+    "always-proceed",
+    "always-abstain",
+    "template copying"
+  ],
+  "baseline_matrix": [
+    {
+      "strategy": "reference_solution",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "always_abstain",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "template_or_keyword",
+      "expected_status": "NOT_RUN"
+    },
+    {
+      "strategy": "target_model",
+      "expected_status": "NOT_RUN"
+    }
+  ],
+  "status": "DRAFT"
+}

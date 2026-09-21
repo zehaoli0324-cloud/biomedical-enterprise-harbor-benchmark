@@ -96,6 +96,37 @@
       ],
       "claim_boundary": "Replay performance does not establish laboratory or commercial benefit.",
       "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb010-measurement-value-004",
+      "decision": "Which additional measurement should be requested before the next experiment batch to reduce decision-critical uncertainty?",
+      "independent_unit": "candidate measurement request and optimization state",
+      "handoff": "optimization_state->measurement_request->next_batch",
+      "error_consequence": "redundant or infeasible measurements consume budget without resolving the decision bottleneck",
+      "semantic_axes": [
+        "scientific_decision",
+        "data_visibility",
+        "evidence_reconciliation"
+      ],
+      "failure_injections": [
+        "correlated uncertainty",
+        "missing outcome",
+        "assay infeasibility",
+        "future-outcome leakage"
+      ],
+      "required_artifacts": [
+        "measurement_priority.tsv",
+        "information_value_audit.json",
+        "approval_request.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must link each measurement request to a current uncertainty and avoid using future outcomes when estimating information value",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "An information-value ranking is a planning aid, not evidence of experimental improvement.",
+      "selection_status": "PENDING"
     }
   ],
   "deduplication_axes": [

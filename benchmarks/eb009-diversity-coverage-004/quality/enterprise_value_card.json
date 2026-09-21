@@ -1,0 +1,24 @@
+{
+  "enterprise_value_card_id": "VALUE-EB009-DIVERSITY-COVERAGE-004-001",
+  "task_id": "eb009-diversity-coverage-004",
+  "enterprise_reality": {
+    "evidence_class": "W",
+    "real_work_node": "Does the generated candidate set cover the intended scaffold and chemical space before synthesis review?",
+    "named_role": "scientific_analyst",
+    "decision": "Does the generated candidate set cover the intended scaffold and chemical space before synthesis review?",
+    "downstream_action": "generation->diversity_audit->human_review",
+    "error_consequence": "mode collapse or representation errors can waste synthesis capacity on near-duplicates",
+    "human_owner": "domain_reviewer"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "preserve an auditable handoff",
+    "risk_reduction": "mode collapse or representation errors can waste synthesis capacity on near-duplicates",
+    "adoption_test": "independent practitioner can reconstruct the decision"
+  },
+  "novelty": {
+    "source_gap": "public workflow does not enforce this decision contract",
+    "new_information_or_control": "synthetic provenance/coverage controls",
+    "not_surface_variant": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

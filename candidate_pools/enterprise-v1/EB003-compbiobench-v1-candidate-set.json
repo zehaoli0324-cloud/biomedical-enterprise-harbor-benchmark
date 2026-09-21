@@ -95,6 +95,37 @@
       ],
       "claim_boundary": "A recovered computational branch still requires scientific and human review.",
       "selection_status": "PENDING"
+    },
+    {
+      "candidate_id": "eb003-replay-provenance-004",
+      "decision": "Can a delivered computational artifact be replayed from its recorded provenance and environment after handoff?",
+      "independent_unit": "analysis artifact and execution manifest",
+      "handoff": "analysis->reproduction_review",
+      "error_consequence": "an untraceable artifact can be accepted despite hidden version, checksum, or nondeterminism drift",
+      "semantic_axes": [
+        "reproducibility",
+        "evidence_reconciliation",
+        "evaluation_contract"
+      ],
+      "failure_injections": [
+        "missing input checksum",
+        "package or reference drift",
+        "nondeterministic rerun",
+        "artifact-manifest mismatch"
+      ],
+      "required_artifacts": [
+        "replay_manifest.json",
+        "provenance_diff.tsv",
+        "handoff_replay_report.md"
+      ],
+      "gpt_difficulty_mechanism": "the model must reconcile artifact claims with hashes, versions, and rerun outputs and route unexplained differences to review",
+      "shortcut_probes": [
+        "company-name or tool-name matching",
+        "constant recommendation or always-abstain",
+        "copying public benchmark labels or leaderboard answers"
+      ],
+      "claim_boundary": "A successful replay supports computational reproducibility only; it does not validate the biological interpretation.",
+      "selection_status": "PENDING"
     }
   ],
   "deduplication_axes": [

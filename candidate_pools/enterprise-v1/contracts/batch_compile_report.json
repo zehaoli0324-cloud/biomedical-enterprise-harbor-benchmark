@@ -2,7 +2,7 @@
   "schema_version": "enterprise_contract_compile_batch.v1",
   "batch_id": "TRANCHE-001",
   "status": "MIXED_CALIBRATION_AND_CONTRACT",
-  "task_count": 6,
+  "task_count": 8,
   "release_policy": "compiled difficulty is not evidence of runnable data, truth, verifier, or model readiness",
   "tasks": [
     {
@@ -12,22 +12,37 @@
       "status": "ready_for_calibration",
       "band": "intermediate",
       "adjusted_score": 2.783,
-      "spec_digest": "87f51f755a536ccdd48f46cd5bea0dd9c6ea5ccf64c665eea3179f0a0a02131a",
+      "spec_digest": "1c1f57b09bf285994359354dbdb777eccdb2e5405c97b8b41701a1a526782e07",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
-      "model_trial_status": "NOT_RUN"
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
     },
     {
       "task_id": "eb003-failure-recovery-003",
       "config": "candidate_pools/enterprise-v1/contracts/eb003-failure-recovery-003.toml",
       "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb003-failure-recovery-003/task_manifest.json",
-      "status": "compiled_contract",
-      "band": "research-grade",
-      "adjusted_score": 4.3,
-      "spec_digest": "840ca2c1ebffefeed7cd9119296a2369ce46170e958ba0ec4de88c4fc5e08657",
-      "data_status": "not_materialized",
-      "verifier_status": "not_authored",
-      "model_trial_status": "NOT_RUN"
+      "status": "ready_for_calibration",
+      "band": "advanced",
+      "adjusted_score": 3.36,
+      "spec_digest": "7b1d35c59b02325704491c5b338fe198d58efa666fd5b2f033a513b7e2ddea61",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
+    },
+    {
+      "task_id": "eb003-replay-provenance-004",
+      "config": "candidate_pools/enterprise-v1/contracts/eb003-replay-provenance-004.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb003-replay-provenance-004/task_manifest.json",
+      "status": "ready_for_calibration",
+      "band": "intermediate",
+      "adjusted_score": 2.833,
+      "spec_digest": "0c9c1bc4076a053312bf6caa02ecf69e25ba18ec83034f5cfdf80b23aaec910a",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BLOCKED"
     },
     {
       "task_id": "eb004-adtte-censoring-002",
@@ -36,46 +51,63 @@
       "status": "ready_for_calibration",
       "band": "advanced",
       "adjusted_score": 3.117,
-      "spec_digest": "073035dccb10a606e01c47c1c3a37a2ad89e482020fef175bdc144602916f1ff",
+      "spec_digest": "e821008f421d0c7e6b865cc522afa740126ced83e3a4ce4ba2739e268d77b04f",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
-      "model_trial_status": "NOT_RUN"
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
     },
     {
       "task_id": "eb005-batch-normalization-002",
       "config": "candidate_pools/enterprise-v1/contracts/eb005-batch-normalization-002.toml",
       "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb005-batch-normalization-002/task_manifest.json",
-      "status": "compiled_contract",
+      "status": "ready_for_calibration",
       "band": "advanced",
-      "adjusted_score": 3.7,
-      "spec_digest": "e4dec3ae40a32c40c63f089717ebdd36bfa078a65df4911193b7889cc16f81a7",
-      "data_status": "not_materialized",
-      "verifier_status": "not_authored",
-      "model_trial_status": "NOT_RUN"
+      "adjusted_score": 3.44,
+      "spec_digest": "f31e1edc05f8536159fdda882da5025def6d948285d8b21284b503a27867f01a",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
     },
     {
       "task_id": "eb008-stock-route-001",
       "config": "candidate_pools/enterprise-v1/contracts/eb008-stock-route-001.toml",
       "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb008-stock-route-001/task_manifest.json",
-      "status": "compiled_contract",
+      "status": "ready_for_calibration",
       "band": "advanced",
-      "adjusted_score": 3.917,
-      "spec_digest": "c63432435822b54fe58ffac531e89a1c0eec6ca27b0c0877ed966f850aac8c09",
-      "data_status": "not_materialized",
-      "verifier_status": "not_authored",
-      "model_trial_status": "NOT_RUN"
+      "adjusted_score": 3.54,
+      "spec_digest": "bae7f1083d5fd7a5f2a114115c936d86f2fd4791ad06f26be9c2f2225985cafb",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
+    },
+    {
+      "task_id": "eb009-diversity-coverage-004",
+      "config": "candidate_pools/enterprise-v1/contracts/eb009-diversity-coverage-004.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb009-diversity-coverage-004/task_manifest.json",
+      "status": "ready_for_calibration",
+      "band": "intermediate",
+      "adjusted_score": 2.75,
+      "spec_digest": "8e37e706b56f71bd69d6f215a778904cb38593f1fbfd039bca39d12a39cfe4bc",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BLOCKED"
     },
     {
       "task_id": "eb010-next-batch-001",
       "config": "candidate_pools/enterprise-v1/contracts/eb010-next-batch-001.toml",
       "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb010-next-batch-001/task_manifest.json",
-      "status": "compiled_contract",
+      "status": "ready_for_calibration",
       "band": "advanced",
-      "adjusted_score": 3.617,
-      "spec_digest": "fb752de5b10a70a576247ed618550bc7bcc6f0b93f2a740e1f5f0fdc138d9eb7",
-      "data_status": "not_materialized",
-      "verifier_status": "not_authored",
-      "model_trial_status": "NOT_RUN"
+      "adjusted_score": 3.44,
+      "spec_digest": "a2a11c9e843145ddcbc5700ac153c3915157d8c5c9fdf5ac046fc75180aa4b45",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
     }
   ]
 }

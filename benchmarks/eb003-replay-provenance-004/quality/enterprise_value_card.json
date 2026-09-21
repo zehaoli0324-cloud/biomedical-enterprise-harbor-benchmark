@@ -1,0 +1,24 @@
+{
+  "enterprise_value_card_id": "VALUE-EB003-REPLAY-PROVENANCE-004-001",
+  "task_id": "eb003-replay-provenance-004",
+  "enterprise_reality": {
+    "evidence_class": "B",
+    "real_work_node": "Can a delivered computational artifact be replayed from its recorded provenance and environment after handoff?",
+    "named_role": "scientific_analyst",
+    "decision": "Can a delivered computational artifact be replayed from its recorded provenance and environment after handoff?",
+    "downstream_action": "analysis->reproduction_review",
+    "error_consequence": "an untraceable artifact can be accepted despite hidden version, checksum, or nondeterminism drift",
+    "human_owner": "domain_reviewer"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "preserve an auditable handoff",
+    "risk_reduction": "an untraceable artifact can be accepted despite hidden version, checksum, or nondeterminism drift",
+    "adoption_test": "independent practitioner can reconstruct the decision"
+  },
+  "novelty": {
+    "source_gap": "public workflow does not enforce this decision contract",
+    "new_information_or_control": "synthetic provenance/coverage controls",
+    "not_surface_variant": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

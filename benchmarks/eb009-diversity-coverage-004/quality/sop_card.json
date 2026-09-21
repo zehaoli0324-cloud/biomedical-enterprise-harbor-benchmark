@@ -1,0 +1,18 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb009-diversity-coverage-004",
+  "sop_version": "enterprise-harbor-sop-v1.1",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "CONTRACT_ONLY",
+  "control_status": "NOT_RUN",
+  "model_trial_status": "NOT_RUN",
+  "target_model_failure_policy": "infrastructure_failures_are_not_difficulty_evidence",
+  "independent_verifier_status": "NOT_RUN",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "source/license/privacy review",
+    "independent verifier contract audit",
+    "control calibration",
+    "target-model trial"
+  ]
+}

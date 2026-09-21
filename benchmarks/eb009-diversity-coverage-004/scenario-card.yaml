@@ -1,0 +1,23 @@
+scenario_id: eb009-diversity-coverage-004
+status: ready
+source_scenarios: [EB009]
+domain: biomedical_enterprise
+scientific_decision: approve candidate diversity coverage for synthesis review
+scientific_judgments:
+  - validity_and_identifier_integrity
+  - scaffold_and_cluster_coverage
+  - portfolio_triage_claim_boundary
+workflow_handoffs:
+  - from: generation
+    to: diversity_audit
+    artifact: outputs/diversity_report.json
+    invariant: only valid candidates contribute to coverage counts
+  - from: diversity_audit
+    to: human_review
+    artifact: outputs/coverage_review_gate.md
+    invariant: computed coverage is not activity or developability evidence
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass

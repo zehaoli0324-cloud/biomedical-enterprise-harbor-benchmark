@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb009-diversity-coverage-004",
+  "source_benchmark_id": "EB009",
+  "source_name": "REINVENT4 molecular design workflow",
+  "workflow_id": "WF-ROUTE-AND-DESIGN",
+  "enterprise_role": "medicinal_chemist_or_design_scientist",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Does the generated candidate set cover the intended scaffold and chemical space before synthesis review?",
+  "independent_unit": "candidate set and scaffold cluster",
+  "handoff": "generation->diversity_audit->human_review",
+  "error_consequence": "mode collapse or representation errors can waste synthesis capacity on near-duplicates",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "diversity_matrix.tsv",
+    "scaffold_cluster_report.json",
+    "coverage_review_gate.md"
+  ],
+  "failure_injections": [
+    "scaffold collapse",
+    "near-duplicate cluster",
+    "invalid structure representation",
+    "sampling budget skew"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must distinguish objective score from chemical-space coverage and hold when diversity cannot be measured reliably",
+    "semantic_axes": [
+      "data_multimodal_join",
+      "evaluation_contract",
+      "coverage"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "Computed diversity supports portfolio triage only; it does not establish activity or developability.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

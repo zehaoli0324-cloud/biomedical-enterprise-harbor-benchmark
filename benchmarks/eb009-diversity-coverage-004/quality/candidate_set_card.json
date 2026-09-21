@@ -1,0 +1,25 @@
+{
+  "candidate_set_id": "CSET-EB009-DIVERSITY-COVERAGE-004-001",
+  "source_benchmark_id": "EB009",
+  "candidates": [
+    {
+      "candidate_id": "eb009-diversity-coverage-004",
+      "decision": "Does the generated candidate set cover the intended scaffold and chemical space before synthesis review?",
+      "unit": "candidate set and scaffold cluster",
+      "error_consequence": "mode collapse or representation errors can waste synthesis capacity on near-duplicates",
+      "semantic_axes": [
+        "data_multimodal_join",
+        "evaluation_contract",
+        "coverage"
+      ],
+      "selection_status": "MATERIALIZED"
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

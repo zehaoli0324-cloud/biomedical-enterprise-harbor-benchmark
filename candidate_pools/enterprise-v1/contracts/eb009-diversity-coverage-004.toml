@@ -1,0 +1,92 @@
+[task]
+id = "eb009-diversity-coverage-004"
+title = "Generated candidate diversity and scaffold coverage"
+domain = "biomedical_enterprise"
+source_scenarios = ["EB009"]
+
+[scenario]
+card = "../../../benchmarks/eb009-diversity-coverage-004/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 4
+weight = 1.0
+rationale = "The decision is whether a generated set covers the intended chemical space before synthesis review."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.scientific_judgment]
+level = 5
+weight = 1.0
+rationale = "Objective score must be separated from scaffold and cluster coverage."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.computational_difficulty]
+level = 3
+weight = 1.0
+rationale = "The task joins validity, scaffold and cluster records."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.tool_call_complexity]
+level = 2
+weight = 1.0
+rationale = "The challenge is audit reasoning, not tool count."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.retrieval_complexity]
+level = 1
+weight = 1.0
+rationale = "All evidence is in the frozen offline bundle."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.information_noise_complexity]
+level = 3
+weight = 1.0
+rationale = "Invalid and near-duplicate candidates create bounded noise."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.data_type_complexity]
+level = 3
+weight = 1.0
+rationale = "CSV candidate rows and JSON rules require reconciliation."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.data_complexity]
+level = 2
+weight = 1.0
+rationale = "The fixture is small but contains a collapsed cluster and invalid row."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.environment_complexity]
+level = 2
+weight = 1.0
+rationale = "The offline environment is fixed and deterministic."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.mathematical_complexity]
+level = 2
+weight = 1.0
+rationale = "Coverage thresholds are simple but must be applied to valid candidates only."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.long_horizon_complexity]
+level = 3
+weight = 1.0
+rationale = "The handoff links generation, diversity audit and human review."
+tags = ["diversity", "scaffold", "coverage"]
+[difficulty.safety_risk]
+level = 3
+weight = 1.0
+rationale = "Computed diversity is not biological activity or developability."
+tags = ["diversity", "scaffold", "coverage"]
+
+[modules]
+scenario = ["scenario_reproducibility_audit"]
+judgment = ["judgment_uncertainty_and_stop_rules", "judgment_causal_boundary"]
+compute = ["compute_multistage_analysis"]
+tooling = ["tool_branching_pipeline"]
+noise = ["noise_metadata_conflict"]
+data = ["data_multimodal_join"]
+data_complexity = ["complexity_sparse_or_missing"]
+environment = ["environment_pinned_container"]
+math = ["math_model_selection_and_sensitivity"]
+horizon = ["horizon_checkpointed_workflow"]
+safety = ["safety_human_approval_gate"]
+
+[data]
+types = ["csv", "json", "markdown", "tsv"]
+
+[constraints]
+network = "off"
+cpu_seconds = 60
+memory_mb = 512
+requires_input_checksum = true
+requires_deterministic_output = true

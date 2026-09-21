@@ -1,0 +1,21 @@
+id: eb009-diversity-coverage-004
+version: "0.1.0"
+status: ready_for_calibration
+title: "Generated candidate diversity and scaffold coverage"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: CSV and JSON
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: candidate_set, path: outputs/candidate_set.tsv, required_fields: [candidate_id, scaffold, cluster, valid]}
+  - {id: diversity_report, path: outputs/diversity_report.json, required_fields: [candidate_count, valid_count, unique_valid_count, scaffolds, clusters, coverage, rules_version, input_sha256]}
+  - {id: coverage_gate, path: outputs/coverage_review_gate.md, required_fields: [coverage_result, scaffold_evidence, human_review_decision, claim_boundary]}
+  - {id: run_manifest, path: outputs/run_manifest.json, required_fields: [input_sha256, rules_version, deterministic]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

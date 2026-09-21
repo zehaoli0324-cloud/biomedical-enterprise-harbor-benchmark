@@ -1,0 +1,30 @@
+{
+  "control_plan_id": "CONTROL-EB003-REPLAY-PROVENANCE-004-001",
+  "task_id": "eb003-replay-provenance-004",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-corruption",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-row-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-evidence",
+      "kind": "insufficient_evidence"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "release_blockers": [
+    "independent practitioner review",
+    "target-model trial",
+    "license/privacy signoff"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

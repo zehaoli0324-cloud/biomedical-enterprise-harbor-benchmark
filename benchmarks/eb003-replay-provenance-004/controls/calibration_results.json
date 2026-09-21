@@ -1,0 +1,41 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "status": "CALIBRATED",
+  "tasks": [
+    {
+      "task_id": "eb003-replay-provenance-004",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-reference-replay",
+          "kind": "positive",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "control_id": "negative-environment-drift",
+          "kind": "negative",
+          "passed": true,
+          "errors": [
+            "environment mismatch"
+          ]
+        },
+        {
+          "control_id": "invariance-report-order",
+          "kind": "invariance",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "control_id": "insufficient-provenance",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "errors": [
+            "provenance hash mismatch",
+            "environment mismatch"
+          ]
+        }
+      ]
+    }
+  ]
+}

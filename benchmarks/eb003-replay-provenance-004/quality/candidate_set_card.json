@@ -1,0 +1,25 @@
+{
+  "candidate_set_id": "CSET-EB003-REPLAY-PROVENANCE-004-001",
+  "source_benchmark_id": "EB003",
+  "candidates": [
+    {
+      "candidate_id": "eb003-replay-provenance-004",
+      "decision": "Can a delivered computational artifact be replayed from its recorded provenance and environment after handoff?",
+      "unit": "analysis artifact and execution manifest",
+      "error_consequence": "an untraceable artifact can be accepted despite hidden version, checksum, or nondeterminism drift",
+      "semantic_axes": [
+        "reproducibility",
+        "evidence_reconciliation",
+        "evaluation_contract"
+      ],
+      "selection_status": "MATERIALIZED"
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

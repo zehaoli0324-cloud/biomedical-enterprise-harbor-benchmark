@@ -1,0 +1,40 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "status": "CALIBRATED",
+  "tasks": [
+    {
+      "task_id": "eb009-diversity-coverage-004",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-reference-coverage",
+          "kind": "positive",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "control_id": "negative-collapsed-coverage",
+          "kind": "negative",
+          "passed": true,
+          "errors": [
+            "diversity report mismatch: coverage"
+          ]
+        },
+        {
+          "control_id": "invariance-candidate-order",
+          "kind": "invariance",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "control_id": "insufficient-provenance",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "errors": [
+            "run manifest provenance mismatch"
+          ]
+        }
+      ]
+    }
+  ]
+}

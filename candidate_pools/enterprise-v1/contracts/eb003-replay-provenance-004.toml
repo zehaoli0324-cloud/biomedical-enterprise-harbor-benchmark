@@ -1,0 +1,92 @@
+[task]
+id = "eb003-replay-provenance-004"
+title = "Computational artifact replay from provenance"
+domain = "biomedical_enterprise"
+source_scenarios = ["EB003"]
+
+[scenario]
+card = "../../../benchmarks/eb003-replay-provenance-004/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 4
+weight = 1.0
+rationale = "The decision is whether a delivered artifact can be reproduced after handoff."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.scientific_judgment]
+level = 5
+weight = 1.0
+rationale = "Checksum, environment and rerun evidence must be reconciled before approval."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.computational_difficulty]
+level = 3
+weight = 1.0
+rationale = "The task compares linked artifact and environment records."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.tool_call_complexity]
+level = 2
+weight = 1.0
+rationale = "The challenge is evidence reconciliation, not tool count."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.retrieval_complexity]
+level = 1
+weight = 1.0
+rationale = "All evidence is in the frozen offline bundle."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.information_noise_complexity]
+level = 3
+weight = 1.0
+rationale = "Version and checksum differences are plausible but bounded."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.data_type_complexity]
+level = 3
+weight = 1.0
+rationale = "Structured JSON records require cross-file joins."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.data_complexity]
+level = 2
+weight = 1.0
+rationale = "The fixture is small but linked."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.environment_complexity]
+level = 4
+weight = 1.0
+rationale = "Environment pinning is itself part of the decision."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.mathematical_complexity]
+level = 1
+weight = 1.0
+rationale = "No complex numerical method is required."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.long_horizon_complexity]
+level = 3
+weight = 1.0
+rationale = "The handoff links artifact, environment and replay records."
+tags = ["provenance", "replay", "handoff"]
+[difficulty.safety_risk]
+level = 3
+weight = 1.0
+rationale = "Unreproducible evidence must not be presented as biological validation."
+tags = ["provenance", "replay", "handoff"]
+
+[modules]
+scenario = ["scenario_reproducibility_audit"]
+judgment = ["judgment_uncertainty_and_stop_rules", "judgment_causal_boundary"]
+compute = ["compute_multistage_analysis"]
+tooling = ["tool_version_and_interface_drift"]
+noise = ["noise_metadata_conflict"]
+data = ["data_multimodal_join"]
+data_complexity = ["complexity_sparse_or_missing"]
+environment = ["environment_pinned_container"]
+math = ["math_model_selection_and_sensitivity"]
+horizon = ["horizon_checkpointed_workflow"]
+safety = ["safety_human_approval_gate"]
+
+[data]
+types = ["json", "markdown", "tsv"]
+
+[constraints]
+network = "off"
+cpu_seconds = 60
+memory_mb = 512
+requires_input_checksum = true
+requires_deterministic_output = true

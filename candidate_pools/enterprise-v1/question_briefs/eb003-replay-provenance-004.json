@@ -1,0 +1,50 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb003-replay-provenance-004",
+  "source_benchmark_id": "EB003",
+  "source_name": "CompBioBench v1",
+  "workflow_id": "WF-COMPBIO-TASK",
+  "enterprise_role": "bioinformatics_or_research_analyst",
+  "status": "CONTRACT_ONLY",
+  "scientific_decision": "Can a delivered computational artifact be replayed from its recorded provenance and environment after handoff?",
+  "independent_unit": "analysis artifact and execution manifest",
+  "handoff": "analysis->reproduction_review",
+  "error_consequence": "an untraceable artifact can be accepted despite hidden version, checksum, or nondeterminism drift",
+  "agent_visible_inputs": [
+    "frozen task-specific input bundle",
+    "rule/specification file",
+    "provenance metadata"
+  ],
+  "required_artifacts": [
+    "replay_manifest.json",
+    "provenance_diff.tsv",
+    "handoff_replay_report.md"
+  ],
+  "failure_injections": [
+    "missing input checksum",
+    "package or reference drift",
+    "nondeterministic rerun",
+    "artifact-manifest mismatch"
+  ],
+  "gpt_difficulty": {
+    "mechanism": "the model must reconcile artifact claims with hashes, versions, and rerun outputs and route unexplained differences to review",
+    "semantic_axes": [
+      "reproducibility",
+      "evidence_reconciliation",
+      "evaluation_contract"
+    ],
+    "shortcut_probes": [
+      "company-name or tool-name matching",
+      "constant recommendation or always-abstain",
+      "copying public benchmark labels or leaderboard answers"
+    ]
+  },
+  "claim_boundary": "A successful replay supports computational reproducibility only; it does not validate the biological interpretation.",
+  "release_blockers": [
+    "freeze source version and license",
+    "materialize agent-visible data without hidden truth leakage",
+    "author independent oracle or expert-equivalence rubric",
+    "run positive, negative, invariance, and insufficient-evidence controls",
+    "run reference, simple legal, always-abstain, template, and target-model trials"
+  ]
+}

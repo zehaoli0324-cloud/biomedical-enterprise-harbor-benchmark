@@ -4,7 +4,7 @@
   "source_registry": "knowledge_base/registry/enterprise_benchmarks.jsonl",
   "workflow_registry": "knowledge_base/registry/workflows.jsonl",
   "benchmark_count": 12,
-  "candidate_count": 36,
+  "candidate_count": 40,
   "semantic_deduplication": {
     "minimum_candidates_per_benchmark": 3,
     "minimum_symmetric_axis_difference": 2
@@ -26,8 +26,8 @@
     {
       "benchmark_id": "EB003",
       "path": "candidate_pools/enterprise-v1/EB003-compbiobench-v1-candidate-set.json",
-      "candidate_count": 3,
-      "sha256": "447fb11cc95d45df4d09cd82567f7c413594134d1c7d8df071337cd9fe3e4359"
+      "candidate_count": 4,
+      "sha256": "06d566f989cd17122111e0ac88261b3045affe106bb78344973019b42a0fc81c"
     },
     {
       "benchmark_id": "EB004",
@@ -44,8 +44,8 @@
     {
       "benchmark_id": "EB006",
       "path": "candidate_pools/enterprise-v1/EB006-rxrx3-rxrx3-core-candidate-set.json",
-      "candidate_count": 3,
-      "sha256": "78b3ced4b8ee0d0729acdf71e2e76732ac9cad53942b5ee6c3268099a2edcc16"
+      "candidate_count": 4,
+      "sha256": "839f644e8b437d8e177c09fbacd1bdfbff745ce86fb2c367f1ed0e87fde9c573"
     },
     {
       "benchmark_id": "EB007",
@@ -62,14 +62,14 @@
     {
       "benchmark_id": "EB009",
       "path": "candidate_pools/enterprise-v1/EB009-reinvent4-molecular-design-workflow-candidate-set.json",
-      "candidate_count": 3,
-      "sha256": "5bd4172ece79ed717e707d4b8a255a4fdf057c7f40e2920fabc14e166453b115"
+      "candidate_count": 4,
+      "sha256": "b684e1e7dcbaa5b36b3ab43a14339f1795a67feba1e3ec2f56cdaf6565d99f42"
     },
     {
       "benchmark_id": "EB010",
       "path": "candidate_pools/enterprise-v1/EB010-baybe-constrained-experimental-design-candidate-set.json",
-      "candidate_count": 3,
-      "sha256": "227fa899b72c5a3ee266dec9c2e16a712adf97de832409adc241bb30374b12e8"
+      "candidate_count": 4,
+      "sha256": "6ac11cf839db13c14b75a85694b5b68e5bb1c366c34b52f5d23bb29bbae5ede2"
     },
     {
       "benchmark_id": "EB011",

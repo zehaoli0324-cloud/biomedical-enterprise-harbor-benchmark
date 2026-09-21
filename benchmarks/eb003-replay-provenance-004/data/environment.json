@@ -1,0 +1,7 @@
+{
+  "python": "3.11",
+  "tool": "compbio-tool",
+  "tool_version": "2.4.0",
+  "reference": "ref-v3",
+  "deterministic": true
+}

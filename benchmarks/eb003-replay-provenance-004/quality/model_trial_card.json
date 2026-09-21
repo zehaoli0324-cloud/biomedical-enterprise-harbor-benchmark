@@ -1,0 +1,14 @@
+{
+  "model_trial_card_id": "TRIAL-EB003-REPLAY-PROVENANCE-004-001",
+  "task_id": "eb003-replay-provenance-004",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "target_model_status": "NOT_RUN",
+  "status": "NOT_RUN"
+}

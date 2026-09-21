@@ -1,0 +1,20 @@
+id: eb003-replay-provenance-004
+version: "0.1.0"
+status: ready_for_calibration
+title: "Computational artifact replay from provenance"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: JSON
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: replay_manifest, path: outputs/replay_manifest.json, required_fields: [artifact_id, rules_version, input_hashes, output_hashes, environment, replay_status]}
+  - {id: provenance_diff, path: outputs/provenance_diff.tsv, required_fields: [field, status, match]}
+  - {id: handoff_report, path: outputs/handoff_replay_report.md, required_fields: [replay_result, checksum_evidence, human_review_decision, claim_boundary]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

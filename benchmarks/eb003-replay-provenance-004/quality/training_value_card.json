@@ -1,0 +1,29 @@
+{
+  "training_value_card_id": "TRAIN-EB003-REPLAY-PROVENANCE-004-001",
+  "task_id": "eb003-replay-provenance-004",
+  "capability_targets": [
+    "evidence reconciliation",
+    "failure diagnosis",
+    "claim boundary",
+    "artifact completeness"
+  ],
+  "error_labels": [
+    "input_understanding",
+    "method_choice",
+    "calculation_or_tool",
+    "claim_overreach",
+    "delivery_failure"
+  ],
+  "feedback_granularity": [
+    "artifact-level",
+    "criterion-level",
+    "failure-injection-level"
+  ],
+  "generalization_plan": {
+    "held_out_axis": "new records and control perturbations",
+    "contamination_control": "hide reference decisions",
+    "transfer_probe": "new missing-evidence cases"
+  },
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

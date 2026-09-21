@@ -1,0 +1,5 @@
+{
+  "rules_version": "diversity-v1",
+  "minimum_scaffolds": 3,
+  "minimum_clusters": 3
+}

@@ -1,0 +1,19 @@
+scenario_id: eb003-replay-provenance-004
+status: ready
+source_scenarios: [EB003]
+domain: biomedical_enterprise
+scientific_decision: approve a reproducible computational handoff
+scientific_judgments:
+  - provenance_and_environment_reconciliation
+  - reproducibility_stop_rule
+  - computational_claim_boundary
+workflow_handoffs:
+  - from: analysis
+    to: reproduction_review
+    artifact: outputs/handoff_replay_report.md
+    invariant: checksums and environment must remain aligned before approval
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass

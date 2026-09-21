@@ -2,7 +2,7 @@
   "schema_version": "enterprise_question_brief_matrix.v1",
   "source_matrix": "candidate_pools/enterprise-v1",
   "status": "CONTRACT_ONLY",
-  "brief_count": 36,
+  "brief_count": 40,
   "selection_policy": "select at most one or two candidates per source after enterprise-value and control review; do not compile every brief automatically",
   "briefs": [
     {
@@ -51,6 +51,11 @@
       "source_benchmark_id": "EB003"
     },
     {
+      "brief_id": "BRIEF-eb003-replay-provenance-004",
+      "path": "enterprise-v1/question_briefs/eb003-replay-provenance-004.json",
+      "source_benchmark_id": "EB003"
+    },
+    {
       "brief_id": "BRIEF-eb004-adsl-population-001",
       "path": "enterprise-v1/question_briefs/eb004-adsl-population-001.json",
       "source_benchmark_id": "EB004"
@@ -93,6 +98,11 @@
     {
       "brief_id": "BRIEF-eb006-dti-priority-003",
       "path": "enterprise-v1/question_briefs/eb006-dti-priority-003.json",
+      "source_benchmark_id": "EB006"
+    },
+    {
+      "brief_id": "BRIEF-eb006-signal-noise-004",
+      "path": "enterprise-v1/question_briefs/eb006-signal-noise-004.json",
       "source_benchmark_id": "EB006"
     },
     {
@@ -141,6 +151,11 @@
       "source_benchmark_id": "EB009"
     },
     {
+      "brief_id": "BRIEF-eb009-diversity-coverage-004",
+      "path": "enterprise-v1/question_briefs/eb009-diversity-coverage-004.json",
+      "source_benchmark_id": "EB009"
+    },
+    {
       "brief_id": "BRIEF-eb010-next-batch-001",
       "path": "enterprise-v1/question_briefs/eb010-next-batch-001.json",
       "source_benchmark_id": "EB010"
@@ -153,6 +168,11 @@
     {
       "brief_id": "BRIEF-eb010-closed-loop-replay-003",
       "path": "enterprise-v1/question_briefs/eb010-closed-loop-replay-003.json",
+      "source_benchmark_id": "EB010"
+    },
+    {
+      "brief_id": "BRIEF-eb010-measurement-value-004",
+      "path": "enterprise-v1/question_briefs/eb010-measurement-value-004.json",
       "source_benchmark_id": "EB010"
     },
     {

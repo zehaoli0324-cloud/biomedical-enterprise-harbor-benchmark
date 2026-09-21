@@ -1,0 +1,6 @@
+candidate_id,scaffold,cluster,valid
+M-1,S-A,C-1,true
+M-2,S-B,C-2,true
+M-3,S-C,C-3,true
+M-4,S-A,C-1,true
+M-5,S-D,C-4,false

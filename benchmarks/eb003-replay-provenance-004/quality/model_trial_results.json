@@ -1,0 +1,59 @@
+{
+  "task_id": "eb003-replay-provenance-004",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "BLOCKED",
+  "target_model_status": "TIMEOUT_INFRASTRUCTURE",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: provenance_diff.tsv"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 3,
+      "failure_attribution": "claim_boundary_or_abstention",
+      "errors": [
+        "missing artifact: replay_manifest.json",
+        "missing artifact: provenance_diff.tsv",
+        "missing artifact: handoff_replay_report.md"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "calculation_or_tool",
+      "errors": [
+        "provenance hash mismatch"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "status": "timeout",
+      "passed": false,
+      "error_count": 0,
+      "failure_attribution": "infrastructure_adapter_timeout",
+      "trial_id": "eb003-target-002",
+      "trial_dir": "/private/tmp/mined-target-trials/eb003-target-002",
+      "verifier_status": "not_run",
+      "errors": ["Codex app-server did not produce a completed agent result within 180 seconds"]
+    }
+  ]
+}
