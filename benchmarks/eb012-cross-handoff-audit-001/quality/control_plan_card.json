@@ -20,6 +20,6 @@
     }
   ],
   "single_factor_policy": true,
-  "calibration_status": "CALIBRATED",
+  "calibration_status": "NOT_RUN",
   "status": "REVIEW_REQUIRED"
 }

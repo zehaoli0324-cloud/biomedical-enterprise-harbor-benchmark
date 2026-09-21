@@ -22,6 +22,7 @@
     {"id": "judgment_route_feasibility", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["score_as_feasibility", "unresolved_selectivity", "unsupported_reaction_scope"]},
     {"id": "judgment_value_of_information", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["pure_exploitation", "pure_uncertainty_sampling", "future_outcome_leakage"]},
     {"id": "judgment_blocker_and_abstention", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["forced_winner", "ignored_stop_condition", "over_abstention"]},
+    {"id": "judgment_claim_permission_lattice", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["permission_inflation", "fallback_claim_drift", "endpoint_overgeneralization"]},
     {"id": "compute_data_schema_discovery", "category": "compute", "dimension": "computational_difficulty", "failure_modes": ["wrong_schema", "wrong_units"]},
     {"id": "compute_multistage_analysis", "category": "compute", "dimension": "computational_difficulty", "failure_modes": ["state_loss", "parameter_drift"]},
     {"id": "compute_failure_recovery", "category": "compute", "dimension": "computational_difficulty", "failure_modes": ["surface_fix", "silent_retry"]},
@@ -40,6 +41,8 @@
     {"id": "data_images_and_structures", "category": "data", "dimension": "data_type_complexity", "failure_modes": ["coordinate_error", "segmentation_error"]},
     {"id": "data_multimodal_join", "category": "data", "dimension": "data_type_complexity", "failure_modes": ["identifier_join_error", "version_mismatch"]},
     {"id": "data_evidence_graph_join", "category": "data", "dimension": "data_type_complexity", "failure_modes": ["source_step_misjoin", "duplicate_evidence_count", "cross_route_leakage"]},
+    {"id": "data_experimental_unit_hierarchy", "category": "data", "dimension": "data_type_complexity", "failure_modes": ["well_as_donor", "cross_level_aggregation", "missing_unit_link"]},
+    {"id": "data_shared_inventory_allocation", "category": "data", "dimension": "data_type_complexity", "failure_modes": ["double_allocation", "lot_reservation_race", "stale_stock"]},
     {"id": "complexity_large_raw_data", "category": "data_complexity", "dimension": "data_complexity", "failure_modes": ["resource_exhaustion", "sampling_bias"]},
     {"id": "complexity_replicates_and_batches", "category": "data_complexity", "dimension": "data_complexity", "failure_modes": ["pseudoreplication", "batch_confounding"]},
     {"id": "complexity_sparse_or_missing", "category": "data_complexity", "dimension": "data_complexity", "failure_modes": ["bad_imputation", "empty_result"]},
@@ -52,9 +55,11 @@
     {"id": "math_hierarchical_batch_sensitivity", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["pooled_mean_confounding", "replicate_imbalance", "unstable_normalization"]},
     {"id": "math_batch_acquisition_under_uncertainty", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["wrong_acquisition", "correlation_double_counting", "risk_budget_omission"]},
     {"id": "math_robust_scenario_optimization", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["mean_for_worst_case", "scenario_omission", "infeasible_optimum"]},
+    {"id": "math_sensitivity_frontier", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["point_estimate_overclaim", "unstable_winner", "scenario_omission"]},
     {"id": "horizon_checkpointed_workflow", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["state_loss", "untracked_decision"]},
     {"id": "horizon_branching_experiments", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["branch_confusion", "budget_drift"]},
     {"id": "horizon_end_to_end_claim", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["local_correct_global_wrong", "claim_drift"]},
+    {"id": "horizon_two_stage_acquisition", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["future_outcome_peeking", "stage_order_violation", "budget_double_spend"]},
     {"id": "safety_human_approval_gate", "category": "safety", "dimension": "safety_risk", "failure_modes": ["unsafe_action", "missing_approval"]},
     {"id": "safety_genetic_or_clinical_boundary", "category": "safety", "dimension": "safety_risk", "failure_modes": ["operational_overreach", "risk_omission"]}
   ]
