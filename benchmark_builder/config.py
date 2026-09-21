@@ -17,6 +17,7 @@ from .models import (
     ModuleSelection,
 )
 from .scenario import load_scenario_card, validate_scenario_link
+from .provenance import validate_registry
 
 
 def _as_module(value: Any) -> ModuleSelection:
@@ -196,6 +197,18 @@ def load_spec(path: str | Path, catalog_path: str | Path | None = None) -> Bench
     scenario_card = load_scenario_card(card_path)
     validate_scenario_link(scenario_card, tuple(task.get("source_scenarios", [])))
 
+    evidence = raw.get("evidence", {})
+    if not isinstance(evidence, dict):
+        raise ValueError("[evidence] must be a table")
+    if evidence.get("required"):
+        registry = evidence.get("registry")
+        if not isinstance(registry, str) or not registry:
+            raise ValueError("[evidence].registry is required when evidence is required")
+        registry_path = config_path.parent / registry
+        result = validate_registry(registry_path)
+        if result["status"] != "PASS":
+            raise ValueError(f"public data/literature registry failed: {result['errors']}")
+        evidence = {**evidence, "registry_sha256": result["registry_sha256"], "validation": result}
     return BenchmarkSpec(
         task_id=task["id"],
         title=task["title"],
@@ -207,4 +220,5 @@ def load_spec(path: str | Path, catalog_path: str | Path | None = None) -> Bench
         constraints=raw.get("constraints", {}),
         evaluation=_load_evaluation(raw.get("evaluation")),
         scenario_card=scenario_card,
+        evidence=evidence,
     )

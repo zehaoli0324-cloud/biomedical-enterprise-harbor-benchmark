@@ -25,7 +25,9 @@ The protocol is provider-neutral. Run the three configured judge roles independe
 
 ## Enterprise batch
 
-`enterprise-v1/` contains the differentiated matrix: 12 source benchmarks, 36 candidate decisions, and question briefs. The first implementation tranche is under `enterprise-v1/contracts/`: six cross-workflow task contracts with compiled manifests and synthetic fixtures. EB001 and EB004 have completed control calibration and author-side baselines; EB003, EB005, EB008, and EB010 are materialized with authored verifiers but their controls and model trials remain pending.
+`enterprise-v1/` contains the differentiated matrix: 12 source benchmarks, 40 candidate decisions, and question briefs. Four candidates were mined from existing seeds: RxRx signal/noise identifiability, CompBioBench replay provenance, REINVENT4 diversity coverage, and BayBE measurement value. The audit is recorded in `enterprise-v1/seed_mining_report.json`. The first implementation tranche is under `enterprise-v1/contracts/`: six cross-workflow task contracts with compiled manifests and synthetic fixtures. EB001 and EB004 have completed control calibration and author-side baselines; EB003, EB005, EB008, and EB010 are materialized with authored verifiers but their controls and model trials remain pending.
+
+The second mined tranche is recorded in `enterprise-v1/scale_tranche_002.json`. `eb003-replay-provenance-004` and `eb009-diversity-coverage-004` are materialized as synthetic calibration tasks with independent verifiers and four controls; both remain evaluation-only until target-model trials and release review are complete.
 
 These are not yet released Harbor tasks. The batch status remains `MIXED_CALIBRATION_AND_CONTRACT` for release-policy compatibility: all six entries are materialized, but four still need positive/negative/invariance/insufficient-evidence controls and model trials, and all six still require the remaining scientific, reproducibility, license, and claim-boundary reviews.
 

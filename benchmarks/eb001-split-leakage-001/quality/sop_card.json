@@ -1,0 +1,15 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb001-split-leakage-001",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "CALIBRATION_READY",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BASELINES_COMPLETE_TARGET_NOT_RUN",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "target-model trial",
+    "independent scientific review",
+    "reproducibility and license signoff"
+  ]
+}

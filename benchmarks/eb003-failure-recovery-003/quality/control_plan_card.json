@@ -1,0 +1,34 @@
+{
+  "control_plan_id": "CONTROL-EB003-FAILURE-RECOVERY-003-001",
+  "task_id": "eb003-failure-recovery-003",
+  "controls": [
+    {
+      "control_id": "positive-equivalent-fallback",
+      "kind": "positive",
+      "expected": "select only the claim-preserving fallback and reject the successful drifted branch"
+    },
+    {
+      "control_id": "negative-scientific-question-drift",
+      "kind": "negative",
+      "expected": "no fallback is selectable after reference drift"
+    },
+    {
+      "control_id": "invariance-branch-order",
+      "kind": "invariance",
+      "expected": "row order does not change recovery semantics"
+    },
+    {
+      "control_id": "insufficient-fallback-evidence",
+      "kind": "insufficient_evidence",
+      "expected": "abstain when fallback evidence is absent"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "release_blockers": [
+    "independent practitioner review",
+    "repeated target-model trials",
+    "license/privacy signoff"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

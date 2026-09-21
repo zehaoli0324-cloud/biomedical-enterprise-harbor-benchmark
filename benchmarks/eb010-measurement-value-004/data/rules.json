@@ -1,0 +1,7 @@
+{
+  "rules_version": "measurement-value-v1",
+  "formula_id": "decision-information-value-v1",
+  "max_cost": 2.0,
+  "numeric_precision": 6,
+  "tie_break": "measurement_id_ascending"
+}

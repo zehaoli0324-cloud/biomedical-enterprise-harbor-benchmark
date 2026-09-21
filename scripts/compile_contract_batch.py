@@ -37,6 +37,15 @@ def main() -> int:
                 root / "benchmarks" / spec.task_id / "verifier_only" / "reference.json",
             )
         )
+        control_result_path = root / "benchmarks" / spec.task_id / "controls" / "calibration_results.json"
+        control_status = "CALIBRATED" if control_result_path.exists() and json.loads(control_result_path.read_text(encoding="utf-8")).get("status") == "CALIBRATED" else "NOT_RUN"
+        trial_result_path = root / "benchmarks" / spec.task_id / "quality" / "model_trial_results.json"
+        trial_status = "NOT_RUN"
+        if trial_result_path.exists():
+            trial_payload = json.loads(trial_result_path.read_text(encoding="utf-8"))
+            recorded_status = trial_payload.get("status")
+            if recorded_status in {"BASELINES_COMPLETE", "TARGET_TRIAL_COMPLETE", "BLOCKED", "COMPLETE"}:
+                trial_status = recorded_status
         records.append({
             "task_id": spec.task_id,
             "config": str(config_path.relative_to(root)),
@@ -47,7 +56,8 @@ def main() -> int:
             "spec_digest": spec_digest(spec),
             "data_status": "synthetic_fixture" if materialized else "not_materialized",
             "verifier_status": "authored" if materialized else "not_authored",
-            "model_trial_status": "NOT_RUN",
+            "control_calibration_status": control_status,
+            "model_trial_status": trial_status,
         })
     batch_status = "MIXED_CALIBRATION_AND_CONTRACT" if any(item["status"] == "ready_for_calibration" for item in records) else "COMPILED_CONTRACT"
     result = {

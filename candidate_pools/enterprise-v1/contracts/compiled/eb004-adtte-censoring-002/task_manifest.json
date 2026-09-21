@@ -246,7 +246,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "073035dccb10a606e01c47c1c3a37a2ad89e482020fef175bdc144602916f1ff",
+  "spec_digest": "c0e309e06f2ac6f85739a7b50365cbb9cd141054f174c4ab1846a224374e7212",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -356,7 +356,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb004-adtte-censoring-002/scenario-card.yaml",
-    "digest": "30a499d01ced3d77486c62af4452aa095a3edebeae7074d81867109a89e35bbd",
+    "digest": "00fc431042063edd09b24e624919f8dc782bc22b80246fe949c3e6b26104f16d",
     "scenario_id": "eb004-adtte-censoring-002",
     "status": "ready",
     "source_scenarios": [
@@ -378,5 +378,6 @@
       "training_value": "not_run"
     }
   },
+  "evidence": {},
   "status": "compiled_contract"
 }

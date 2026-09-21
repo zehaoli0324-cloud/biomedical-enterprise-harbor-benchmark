@@ -29,3 +29,8 @@
 - 对动态工具、模型和仓库，记录访问日期、版本和 commit。
 - 所有“模型能/不能做到”的结论都必须绑定任务、输入、工具权限和评分规则。
 
+## 公开数据与方法证据池
+
+机器可读登记见 [`data/public_data_literature_registry.json`](../data/public_data_literature_registry.json)。当前包括 GEO、NCI ALMANAC、DrugComb、PRIDE、GlycoPOST、MassIVE 和 10x 数据，并登记 ambient RNA、GSEA、BH-FDR、Bliss、Perturb-seq interaction、MS/MS ppm 等公式或方法的文献依据。
+
+登记池不是下载完成证明。开启任务的 `[evidence] required = true` 后，编译器会校验 accession、公开下载入口、citation 和 registry digest；真实题包还必须保存文件级 SHA-256 与变换谱系。合成夹具只能用于工程测试，不能充当科学观测、答案或科学意义依据。

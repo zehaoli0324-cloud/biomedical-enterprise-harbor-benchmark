@@ -1,0 +1,24 @@
+{
+  "enterprise_value_card_id": "VALUE-EB010-NEXT-BATCH-001-001",
+  "task_id": "eb010-next-batch-001",
+  "enterprise_reality": {
+    "evidence_class": "W",
+    "real_work_node": "next-batch experimental design",
+    "named_role": "scientific_analyst",
+    "decision": "next batch selection",
+    "downstream_action": "completed_experiments->next_batch",
+    "error_consequence": "invalid or infeasible batch wastes scarce experimental capacity",
+    "human_owner": "domain_reviewer"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "preserve an auditable handoff",
+    "risk_reduction": "invalid or infeasible batch wastes scarce experimental capacity",
+    "adoption_test": "independent practitioner can reconstruct the stop/proceed rule"
+  },
+  "novelty": {
+    "source_gap": "public workflow does not enforce this handoff contract",
+    "new_information_or_control": "synthetic evidence-boundary and failure controls",
+    "not_surface_variant": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

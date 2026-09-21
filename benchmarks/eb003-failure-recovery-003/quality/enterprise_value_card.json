@@ -1,0 +1,24 @@
+{
+  "enterprise_value_card_id": "VALUE-EB003-FAILURE-RECOVERY-003-001",
+  "task_id": "eb003-failure-recovery-003",
+  "enterprise_reality": {
+    "evidence_class": "W",
+    "real_work_node": "computational biology failure recovery",
+    "named_role": "scientific_analyst",
+    "decision": "failed branch recovery",
+    "downstream_action": "analysis->execution_log->claim_ledger",
+    "error_consequence": "silent fallback or parameter drift changes claims",
+    "human_owner": "domain_reviewer"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "preserve an auditable handoff",
+    "risk_reduction": "silent fallback or parameter drift changes claims",
+    "adoption_test": "independent practitioner can reconstruct the stop/proceed rule"
+  },
+  "novelty": {
+    "source_gap": "public workflow does not enforce this handoff contract",
+    "new_information_or_control": "synthetic evidence-boundary and failure controls",
+    "not_surface_variant": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

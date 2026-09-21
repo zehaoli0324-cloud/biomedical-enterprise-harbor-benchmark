@@ -15,12 +15,12 @@
   },
   "difficulty": {
     "task_id": "eb003-failure-recovery-003",
-    "raw_score": 3.75,
-    "adjusted_score": 4.3,
-    "band": "research-grade",
+    "raw_score": 3.16,
+    "adjusted_score": 3.36,
+    "band": "advanced",
     "dimensions": {
       "scientific_scenario": {
-        "level": 4,
+        "level": 3,
         "weight": 1.0,
         "rationale": "Difficulty comes from preserving state and claim permissions across a failed branch, not from adding more tools.",
         "tags": [
@@ -31,7 +31,7 @@
       },
       "scientific_judgment": {
         "level": 5,
-        "weight": 1.0,
+        "weight": 1.5,
         "rationale": "Difficulty comes from preserving state and claim permissions across a failed branch, not from adding more tools.",
         "tags": [
           "failure-recovery",
@@ -50,7 +50,7 @@
         ]
       },
       "tool_call_complexity": {
-        "level": 4,
+        "level": 3,
         "weight": 1.0,
         "rationale": "Difficulty comes from preserving state and claim permissions across a failed branch, not from adding more tools.",
         "tags": [
@@ -80,7 +80,7 @@
         ]
       },
       "data_type_complexity": {
-        "level": 4,
+        "level": 3,
         "weight": 1.0,
         "rationale": "Difficulty comes from preserving state and claim permissions across a failed branch, not from adding more tools.",
         "tags": [
@@ -90,7 +90,7 @@
         ]
       },
       "data_complexity": {
-        "level": 4,
+        "level": 2,
         "weight": 1.0,
         "rationale": "Difficulty comes from preserving state and claim permissions across a failed branch, not from adding more tools.",
         "tags": [
@@ -100,7 +100,7 @@
         ]
       },
       "environment_complexity": {
-        "level": 4,
+        "level": 2,
         "weight": 1.0,
         "rationale": "Difficulty comes from preserving state and claim permissions across a failed branch, not from adding more tools.",
         "tags": [
@@ -120,7 +120,7 @@
         ]
       },
       "long_horizon_complexity": {
-        "level": 5,
+        "level": 4,
         "weight": 1.0,
         "rationale": "Difficulty comes from preserving state and claim permissions across a failed branch, not from adding more tools.",
         "tags": [
@@ -141,9 +141,7 @@
       }
     },
     "interactions": [
-      "long_horizon_x_tool_orchestration",
-      "judgment_x_noisy_evidence",
-      "data_x_environment"
+      "judgment_x_noisy_evidence"
     ],
     "selected_modules": {
       "scenario": [
@@ -153,6 +151,10 @@
         }
       ],
       "judgment": [
+        {
+          "id": "judgment_claim_preserving_recovery",
+          "params": {}
+        },
         {
           "id": "judgment_uncertainty_and_stop_rules",
           "params": {}
@@ -194,7 +196,7 @@
       ],
       "data": [
         {
-          "id": "data_multimodal_join",
+          "id": "data_text_and_metadata",
           "params": {}
         }
       ],
@@ -206,11 +208,7 @@
       ],
       "environment": [
         {
-          "id": "environment_pinned_container",
-          "params": {}
-        },
-        {
-          "id": "environment_resource_budget",
+          "id": "environment_offline_setup",
           "params": {}
         }
       ],
@@ -250,7 +248,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "840ca2c1ebffefeed7cd9119296a2369ce46170e958ba0ec4de88c4fc5e08657",
+  "spec_digest": "6a266b175debba24ee42ccf970706cfc13b59dca8fc73af0131af1752ffed422",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -360,9 +358,9 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb003-failure-recovery-003/scenario-card.yaml",
-    "digest": "d1966a5a3aa24efdc0c3d3660812e66277260560653be4911123fe97d524d237",
+    "digest": "ff20b4fad4c6b885449b2a2fc4d12b6e73208e24ee4f7ff31174583b9e6754ff",
     "scenario_id": "eb003-failure-recovery-003",
-    "status": "contract_only",
+    "status": "ready",
     "source_scenarios": [
       "EB003"
     ],
@@ -371,16 +369,17 @@
       "competing_choice_and_stop_rule",
       "claim_boundary_and_evidence_quality"
     ],
-    "handoff_count": 2,
+    "handoff_count": 1,
     "release_gates": {
       "scientific_reality": "pass",
-      "observability": "pending",
-      "verifiability": "pending",
-      "naive_resistance": "pending",
-      "reproducibility": "pending",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass",
+      "reproducibility": "pass",
       "enterprise_value": "pending",
       "training_value": "not_run"
     }
   },
+  "evidence": {},
   "status": "compiled_contract"
 }

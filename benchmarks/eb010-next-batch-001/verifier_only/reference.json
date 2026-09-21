@@ -1,0 +1,7 @@
+{
+  "reference_batch": ["C-1", "C-2", "C-6"],
+  "candidate_utility_sum": 1.81,
+  "correlation_penalty": 0.0,
+  "batch_utility": 1.81,
+  "rules_version": "next-batch-v2"
+}

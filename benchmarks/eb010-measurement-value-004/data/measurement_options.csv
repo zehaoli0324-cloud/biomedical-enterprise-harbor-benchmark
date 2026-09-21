@@ -1,0 +1,7 @@
+measurement_id,candidate_id,current_outcome_status,current_uncertainty,decision_sensitivity,expected_variance_reduction,correlation_with_existing,assay_feasible,uses_future_outcome,cost,uncertainty_addressed
+M-01,C-02,missing,0.80,0.90,0.60,0.10,true,false,2.00,response-window uncertainty
+M-02,C-04,missing,0.90,0.80,0.70,0.80,true,false,1.50,pathway-state uncertainty
+M-03,C-01,observed,0.60,0.70,0.80,0.05,true,false,1.00,dose-response uncertainty
+M-04,C-05,missing,0.95,0.95,0.90,0.00,false,false,1.00,phenotype uncertainty
+M-05,C-03,missing,0.85,0.90,0.85,0.05,true,true,1.20,durability uncertainty
+M-06,C-06,missing,0.50,0.75,0.55,0.15,true,false,1.50,selectivity uncertainty

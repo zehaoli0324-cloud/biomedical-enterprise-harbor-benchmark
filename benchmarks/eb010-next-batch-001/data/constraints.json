@@ -1,0 +1,9 @@
+{
+  "rules_version": "next-batch-v2",
+  "batch_size": 3,
+  "material_budget": 8.5,
+  "required_groups": ["A", "B", "C"],
+  "exploration_weight": 0.5,
+  "failure_penalty": 0.8,
+  "correlation_penalty": 0.4
+}

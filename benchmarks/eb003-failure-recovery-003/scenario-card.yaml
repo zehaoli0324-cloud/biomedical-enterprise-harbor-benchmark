@@ -1,54 +1,35 @@
 scenario_id: eb003-failure-recovery-003
-status: contract_only
+status: ready
 source_scenarios: [EB003]
 domain: biomedical_enterprise
-stage: computational_biology_support
-research_role: bioinformatics_or_research_analyst
-scientific_context:
-  object: multimodal omics and sequence input bundle
-  question: After a version-pinned tool branch fails or returns partial output, can the analyst recover without changing the scientific question or overclaiming?
-  decision: recover with an equivalent route, or stop and request the minimum missing information
-  consequence_of_error: silent fallback or parameter drift makes results incomparable and unauditable
+scientific_decision: preserve claims after a failed computational branch
 scientific_judgments:
   - independent_unit_and_handoff
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_claim_preserving_recovery
+    observable: failed primary branch, equivalent fallback and drifted fallback are recorded separately
+    decision_flip: reference/version drift changes select-fallback to hold-for-review
+  - id: compute_failure_recovery
+    observable: partial output and rerun parameters remain in the execution log
+    decision_flip: missing failed-state evidence invalidates the recovery
+  - id: tool_version_and_interface_drift
+    observable: tool and reference hashes are compared across branches
+    decision_flip: a changed version without equivalence evidence blocks the claim ledger
+  - id: horizon_end_to_end_claim
+    observable: downstream claims cite the selected branch and preserve the non-causal boundary
+    decision_flip: operational replay success cannot upgrade a biological claim
 workflow_handoffs:
-  - from: validated_inputs
-    to: analysis
-    artifact: execution_log.jsonl
-    invariant: every branch has a version, parameters, status, and output locator
-  - from: analysis
-    to: claim_ledger
-    artifact: failure_recovery.md
-    invariant: downstream claims only use valid recovered artifacts
-required_artifacts:
-  - outputs/execution_log.jsonl
-  - outputs/failure_recovery.md
-  - outputs/claim_ledger.tsv
-  - outputs/run_manifest.json
-failure_injections:
-  - id: eb003-failure-recovery-003-1
-    trigger: a tool writes an incomplete table with exit status zero
-    expected_behavior: detect incomplete output and prevent downstream use
-    verifier_signal: pending_independent_verifier
-  - id: eb003-failure-recovery-003-2
-    trigger: the pinned tool rejects a legacy argument
-    expected_behavior: record the failure and choose an equivalent pinned route or stop
-    verifier_signal: pending_independent_verifier
-  - id: eb003-failure-recovery-003-3
-    trigger: one branch exceeds the resource budget
-    expected_behavior: preserve the failed state and report a bounded fallback
-    verifier_signal: pending_independent_verifier
+  - from: visible_inputs
+    to: decision_handoff
+    artifact: outputs/decision_record
+    invariant: all required evidence and uncertainty are preserved
 release_gates:
   scientific_reality: pass
-  observability: pending
-  verifiability: pending
-  naive_resistance: pending
-  reproducibility: pending
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
   enterprise_value: pending
   training_value: not_run
-open_questions:
-  - Freeze the task-specific public input version and redistribution terms.
-  - Author an independent oracle or expert-equivalence rubric.
-  - Run positive, negative, invariance, and insufficient-evidence controls.

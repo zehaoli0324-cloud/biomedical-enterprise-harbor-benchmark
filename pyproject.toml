@@ -16,6 +16,6 @@ benchmark-runner = "benchmark_runner.cli:main"
 include = ["benchmark_builder*", "benchmark_runner*"]
 
 [tool.pytest.ini_options]
-testpaths = ["benchmark_builder/tests", "benchmark_runner/tests", "reviewer_agent/tests", "benchmarks"]
+testpaths = ["benchmark_builder/tests", "benchmark_runner/tests", "reviewer_agent/tests", "benchmarks", "tests"]
 pythonpath = [".", "reviewer_agent/src"]
 addopts = "--import-mode=importlib"

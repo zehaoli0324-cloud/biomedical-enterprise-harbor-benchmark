@@ -1,0 +1,17 @@
+{
+  "schema_version": "benchmark_review_agent.v1",
+  "task_id": "eb004-adtte-censoring-002",
+  "review_status": "pass",
+  "status": "PASS",
+  "finding_count": 0,
+  "passed_gates": [
+    "structure",
+    "metadata",
+    "readme",
+    "trial-evidence",
+    "enterprise-contract",
+    "scientific-provenance",
+    "oracle-static"
+  ],
+  "judge": null
+}

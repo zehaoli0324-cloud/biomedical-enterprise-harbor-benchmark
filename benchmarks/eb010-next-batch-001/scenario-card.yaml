@@ -1,54 +1,35 @@
 scenario_id: eb010-next-batch-001
-status: contract_only
+status: ready
 source_scenarios: [EB010]
 domain: biomedical_enterprise
-stage: closed_loop_experimental_optimization
-research_role: experimental_design_scientist
-scientific_context:
-  object: candidate experiments and closed-loop state
-  question: Which next batch is legal under the search space, material budget, and feasibility constraints, and what evidence supports selecting it?
-  decision: select a feasible next batch, stop, or request human review
-  consequence_of_error: an invalid or proxy-gamed batch wastes scarce experimental capacity
+scientific_decision: choose a legal next experiment batch
 scientific_judgments:
   - independent_unit_and_handoff
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_value_of_information
+    observable: each requested measurement is linked to a current uncertainty and action
+    decision_flip: a correlated or infeasible measurement is excluded despite high nominal value
+  - id: math_batch_acquisition_under_uncertainty
+    observable: utility, failure risk, correlation penalty, budget and tie-break are reported
+    decision_flip: budget overflow or future-outcome leakage invalidates the batch
+  - id: horizon_branching_experiments
+    observable: the next batch is selected from the current state without using future outcomes
+    decision_flip: changing uncertainty changes the selected action or triggers a hold
+  - id: judgment_uncertainty_and_stop_rules
+    observable: missing uncertainty produces an explicit request-for-information handoff
+    decision_flip: absent uncertainty blocks a confident batch recommendation
 workflow_handoffs:
-  - from: completed_experiments
-    to: next_batch
-    artifact: next_batch.csv
-    invariant: all selected experiments satisfy hard constraints and budget
-  - from: next_batch
-    to: approval
-    artifact: selection_rationale.md
-    invariant: trade-offs, uncertainty, and stop conditions are explicit
-required_artifacts:
-  - outputs/next_batch.csv
-  - outputs/constraint_check.json
-  - outputs/uncertainty_table.tsv
-  - outputs/selection_rationale.md
-failure_injections:
-  - id: eb010-next-batch-001-1
-    trigger: candidate exceeds material or search-space limits
-    expected_behavior: exclude it and report the violated constraint
-    verifier_signal: pending_independent_verifier
-  - id: eb010-next-batch-001-2
-    trigger: the proposed batch repeats an existing experiment
-    expected_behavior: detect duplicate identity and preserve budget
-    verifier_signal: pending_independent_verifier
-  - id: eb010-next-batch-001-3
-    trigger: outcome coverage is insufficient for a confident next action
-    expected_behavior: choose hold/request-information rather than fabricate improvement
-    verifier_signal: pending_independent_verifier
+  - from: visible_inputs
+    to: decision_handoff
+    artifact: outputs/decision_record
+    invariant: all required evidence and uncertainty are preserved
 release_gates:
   scientific_reality: pass
-  observability: pending
-  verifiability: pending
-  naive_resistance: pending
-  reproducibility: pending
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
   enterprise_value: pending
   training_value: not_run
-open_questions:
-  - Freeze the task-specific public input version and redistribution terms.
-  - Author an independent oracle or expert-equivalence rubric.
-  - Run positive, negative, invariance, and insufficient-evidence controls.

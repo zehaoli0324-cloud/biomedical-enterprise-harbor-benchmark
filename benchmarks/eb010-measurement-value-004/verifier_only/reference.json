@@ -1,0 +1,5 @@
+{
+  "oracle_route": "independent_recomputation_from_agent_visible_inputs",
+  "expected_selection": "M-01",
+  "claim_boundary": "planning_aid_not_experimental_improvement"
+}

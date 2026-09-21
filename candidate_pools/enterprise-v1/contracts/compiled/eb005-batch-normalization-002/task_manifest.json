@@ -15,12 +15,12 @@
   },
   "difficulty": {
     "task_id": "eb005-batch-normalization-002",
-    "raw_score": 3.5,
-    "adjusted_score": 3.7,
+    "raw_score": 3.24,
+    "adjusted_score": 3.44,
     "band": "advanced",
     "dimensions": {
       "scientific_scenario": {
-        "level": 5,
+        "level": 4,
         "weight": 1.0,
         "rationale": "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact.",
         "tags": [
@@ -31,7 +31,7 @@
       },
       "scientific_judgment": {
         "level": 5,
-        "weight": 1.0,
+        "weight": 1.5,
         "rationale": "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact.",
         "tags": [
           "cell-painting",
@@ -50,7 +50,7 @@
         ]
       },
       "tool_call_complexity": {
-        "level": 2,
+        "level": 1,
         "weight": 1.0,
         "rationale": "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact.",
         "tags": [
@@ -80,7 +80,7 @@
         ]
       },
       "data_type_complexity": {
-        "level": 4,
+        "level": 3,
         "weight": 1.0,
         "rationale": "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact.",
         "tags": [
@@ -130,7 +130,7 @@
         ]
       },
       "safety_risk": {
-        "level": 3,
+        "level": 2,
         "weight": 1.0,
         "rationale": "The agent must compare competing preprocessing branches and distinguish a stable phenotype from a batch artifact.",
         "tags": [
@@ -152,6 +152,10 @@
       ],
       "judgment": [
         {
+          "id": "judgment_batch_identifiability",
+          "params": {}
+        },
+        {
           "id": "judgment_experimental_unit",
           "params": {}
         },
@@ -165,6 +169,10 @@
         }
       ],
       "compute": [
+        {
+          "id": "compute_data_schema_discovery",
+          "params": {}
+        },
         {
           "id": "compute_multistage_analysis",
           "params": {}
@@ -182,10 +190,6 @@
       ],
       "data": [
         {
-          "id": "data_images_and_structures",
-          "params": {}
-        },
-        {
           "id": "data_text_and_metadata",
           "params": {}
         }
@@ -193,10 +197,6 @@
       "data_complexity": [
         {
           "id": "complexity_replicates_and_batches",
-          "params": {}
-        },
-        {
-          "id": "complexity_sparse_or_missing",
           "params": {}
         }
       ],
@@ -208,21 +208,17 @@
       ],
       "math": [
         {
-          "id": "math_model_selection_and_sensitivity",
+          "id": "math_hierarchical_batch_sensitivity",
           "params": {}
         },
         {
-          "id": "math_statistics_and_multiple_testing",
+          "id": "math_model_selection_and_sensitivity",
           "params": {}
         }
       ],
       "horizon": [
         {
           "id": "horizon_checkpointed_workflow",
-          "params": {}
-        },
-        {
-          "id": "horizon_end_to_end_claim",
           "params": {}
         }
       ],
@@ -246,7 +242,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "e4dec3ae40a32c40c63f089717ebdd36bfa078a65df4911193b7889cc16f81a7",
+  "spec_digest": "7340b5a39e7a05591f68279a32b5c090ae9611a51c8851fa8c36b7b6326f2c18",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -356,9 +352,9 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb005-batch-normalization-002/scenario-card.yaml",
-    "digest": "80efcc27b573ca10a19b003a0595056ba84b93bd78064cb0bb3bd5041fc93522",
+    "digest": "56ea318561b979dca046ee48caa41b041eff8e81d8d6e077a4e3fb3d601f18cd",
     "scenario_id": "eb005-batch-normalization-002",
-    "status": "contract_only",
+    "status": "ready",
     "source_scenarios": [
       "EB005"
     ],
@@ -367,16 +363,17 @@
       "competing_choice_and_stop_rule",
       "claim_boundary_and_evidence_quality"
     ],
-    "handoff_count": 2,
+    "handoff_count": 1,
     "release_gates": {
       "scientific_reality": "pass",
-      "observability": "pending",
-      "verifiability": "pending",
-      "naive_resistance": "pending",
-      "reproducibility": "pending",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass",
+      "reproducibility": "pass",
       "enterprise_value": "pending",
       "training_value": "not_run"
     }
   },
+  "evidence": {},
   "status": "compiled_contract"
 }

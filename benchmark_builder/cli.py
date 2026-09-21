@@ -16,6 +16,7 @@ from .compiler import compile_spec
 from .config import load_spec
 from .evaluation import EvaluationError, build_iteration_plan, evaluate_submission, evaluation_protocol
 from .scoring import score_spec
+from .provenance import validate_registry
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -71,11 +72,17 @@ def build_parser() -> argparse.ArgumentParser:
     iterate_candidates.add_argument("--selection", required=True)
     iterate_candidates.add_argument("--out", required=True)
     iterate_candidates.add_argument("--catalog")
+    evidence_check = subparsers.add_parser("validate-evidence", help="validate public data and literature registry")
+    evidence_check.add_argument("registry")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command == "validate-evidence":
+        result = validate_registry(args.registry)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 0 if result["status"] == "PASS" else 1
     if args.command in {
         "validate-candidates",
         "candidate-protocol",

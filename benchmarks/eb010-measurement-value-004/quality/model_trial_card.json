@@ -1,0 +1,56 @@
+{
+  "model_trial_card_id": "TRIAL-EB010-MEASUREMENT-VALUE-004-001",
+  "task_id": "eb010-measurement-value-004",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "target_model_status": "NOT_RUN",
+  "status": "BASELINES_COMPLETE",
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: approval_request.md"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 3,
+      "failure_attribution": "abstention",
+      "errors": [
+        "missing artifact: measurement_priority.tsv",
+        "missing artifact: information_value_audit.json",
+        "missing artifact: approval_request.md"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "information value audit mismatch: selected_measurement_id"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "rules_version": "cell-painting-normalization-v2",
+  "candidate_profiles": ["raw_signal", "control_adjusted", "aggressive_adjusted"],
+  "max_control_batch_range": 0.25,
+  "min_effect_retention_fraction": 0.7,
+  "recommended": "control_adjusted"
+}

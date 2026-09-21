@@ -1,0 +1,9 @@
+{
+  "recommended": "control_adjusted",
+  "profiles": {
+    "raw_signal": {"control_batch_range": 0.45, "effect_retention_fraction": 1.0, "eligible": false},
+    "control_adjusted": {"control_batch_range": 0.185, "effect_retention_fraction": 0.907103, "eligible": true},
+    "aggressive_adjusted": {"control_batch_range": 0.0, "effect_retention_fraction": 0.185792, "eligible": false}
+  },
+  "rules_version": "cell-painting-normalization-v2"
+}

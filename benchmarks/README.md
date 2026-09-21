@@ -26,13 +26,16 @@
 | --- | --- | --- |
 | `crispr-resistance-e2e-001` | pooled CRISPR screen + bulk RNA-seq + guide 设计 + 编辑验证 + 引用/图表审计 | 契约已冻结，数据与 verifier 待接入 |
 | [`admiral-adsl-derivation-001`](admiral-adsl-derivation-001/) | pharmaverse 风格 SDTM → ADSL 规则派生、逐行血缘和下游 handoff 审计 | 首个临床统计工作流校准题，合成数据、已具备 verifier |
-| [`eb001-split-leakage-001`](eb001-split-leakage-001/) | ADME 分子身份、canonical structure 与 scaffold split 泄漏审计 | 首批规模化校准题，合成数据、已具备 verifier；待控制实验和模型 trial |
-| [`eb004-adtte-censoring-002`](eb004-adtte-censoring-002/) | ADTTE 事件选择、截止日截断、部分日期和缺失随访审计 | 合成数据、已具备 verifier；待控制实验和模型 trial |
-| [`eb004-adtte-censoring-002`](eb004-adtte-censoring-002/) | ADTTE PFS 事件/删失、cutoff、竞争事件和部分日期审计 | 首批临床统计扩展校准题，合成数据、已具备 verifier；待控制实验和模型 trial |
+| [`eb001-split-leakage-001`](eb001-split-leakage-001/) | ADME 分子身份、canonical structure 与 scaffold split 泄漏审计 | 首批规模化校准题，合成数据、verifier 和四类控制已具备；待模型 trial |
+| [`eb004-adtte-censoring-002`](eb004-adtte-censoring-002/) | ADTTE PFS 事件/删失、cutoff、竞争事件和部分日期审计 | 首批临床统计扩展校准题，合成数据、verifier 和四类控制已具备；待模型 trial |
+| [`eb003-failure-recovery-003`](eb003-failure-recovery-003/) | CompBio 失败分支、等价 fallback、版本/参数漂移和 claim ledger | 第二批合成 development 题包，已物化 verifier；控制和模型 trial 尚未运行 |
+| [`eb005-batch-normalization-002`](eb005-batch-normalization-002/) | Cell Painting 批次混杂、control-adjusted normalization 和 phenotype 保真 | 第二批合成 development 题包，已物化 verifier；控制和模型 trial 尚未运行 |
+| [`eb008-stock-route-001`](eb008-stock-route-001/) | 逆合成路线的库存、反应有效性和步数预算约束 | 第二批合成 development 题包，已物化 verifier；控制和模型 trial 尚未运行 |
+| [`eb010-next-batch-001`](eb010-next-batch-001/) | BayBE 风格下一批实验的预算、组别多样性和不确定性约束 | 第二批合成 development 题包，已物化 verifier；控制和模型 trial 尚未运行 |
 | [`literature-screening-m1-001`](literature-screening-m1-001/) | M1 文献规模化筛读 + A11 证据表构建 | 首个离线 vertical slice，已具备数据、隐藏标签和 verifier |
 | [`research-workflow-stress-test-001`](research-workflow-stress-test-001/) | 多类型科研输入 + 冲突证据 + 失败工具恢复 + 敏感性分析 | 独立高难度任务包，已具备任务书、数据、隐藏标签和 verifier；待真实 trial |
 
-第一批规模化题包位于 [`candidate_pools/enterprise-v1/contracts/`](../candidate_pools/enterprise-v1/contracts/)，覆盖 ADME split、CompBio failure recovery、ADTTE censoring、Cell Painting normalization、retrosynthesis stock constraints 和 BayBE next-batch。当前 EB001 与 EB004 已物化为 synthetic calibration slice；其余四题仍为 contract-only。所有题目的控制实验、独立模型试跑和企业采用证据仍是发布阻塞项。
+第一批规模化题包位于 [`candidate_pools/enterprise-v1/contracts/`](../candidate_pools/enterprise-v1/contracts/)，覆盖 ADME split、CompBio failure recovery、ADTTE censoring、Cell Painting normalization、retrosynthesis stock constraints 和 BayBE next-batch。当前六题均已物化为 synthetic development/calibration fixture；EB001 与 EB004 的四类控制和 author-side baseline 已完成，新四题的控制矩阵和模型 trial 仍为 `NOT_RUN`。独立模型试跑、科学复核和企业采用证据仍是发布阻塞项。
 
 ## 首个可运行 vertical slice
 

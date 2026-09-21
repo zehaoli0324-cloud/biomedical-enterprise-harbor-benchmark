@@ -1,0 +1,18 @@
+{
+  "difficulty_card_id": "DIFF-EB003-FAILURE-RECOVERY-003-001",
+  "task_id": "eb003-failure-recovery-003",
+  "difficulty_hypothesis": {
+    "reasoning_chain": ["validate the failed primary branch and partial-output state", "compare fallback parameters against the pinned question and version", "preserve branch state and provenance across the handoff", "downgrade biological and causal claims after operational recovery"],
+    "competing_choices": ["equivalent fallback vs silent retry", "recover vs hold", "operational completion vs biological claim"],
+    "stateful_dependencies": ["fallback equivalence depends on the primary question/version", "claim permissions depend on preserved failure and provenance"],
+    "uncertainty_sources": ["partial output", "timeout vs parameter drift", "operational success without biological validation"],
+    "target_failure_mechanism": "silently changes the scientific question or treats fallback completion as a biological result",
+    "scientific_difficulty_level": "advanced",
+    "difficulty_boundary": "The fixture now requires discriminating operational success from scientific-question preservation across competing fallbacks; it still does not test algorithmic biology."
+  },
+  "matched_modules": {"primary": ["judgment_claim_preserving_recovery", "compute_failure_recovery", "tool_version_and_interface_drift"], "supporting": ["judgment_causal_boundary", "judgment_uncertainty_and_stop_rules", "compute_multistage_analysis", "tool_branching_pipeline", "scenario_reproducibility_audit", "data_text_and_metadata", "environment_offline_setup"]},
+  "shortcut_probes": ["always accept the fallback without comparing question/version", "always reject any failed primary", "copy the success status without preserving partial output", "claim biological causality from operational completion"],
+  "baseline_matrix": [{"strategy": "reference_solution", "expected_status": "PASS"}, {"strategy": "simple_legal_baseline", "expected_status": "FAIL_SCIENTIFIC_JUDGMENT"}, {"strategy": "always_abstain", "expected_status": "FAIL_DELIVERY"}, {"strategy": "template_or_keyword", "expected_status": "FAIL_SHORTCUT"}, {"strategy": "target_model", "expected_status": "PASS_SINGLE_TRIAL"}],
+  "calibration_interpretation": "Task v0.2.0 adds a successful but scientifically drifted fallback. GPT-5.6 Sol passed one trial, so the task has real scientific judgment structure but no evidence yet that it is discriminative for this target model; repeated trials and expert review remain required.",
+  "status": "REVIEW_REQUIRED"
+}

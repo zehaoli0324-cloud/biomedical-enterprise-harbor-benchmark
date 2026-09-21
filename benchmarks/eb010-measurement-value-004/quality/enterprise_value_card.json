@@ -1,0 +1,13 @@
+{
+  "enterprise_value_card_id": "VALUE-EB010-MEASUREMENT-VALUE-004-001",
+  "task_id": "eb010-measurement-value-004",
+  "enterprise_reality": {
+    "evidence_class": "B",
+    "named_role": "experimental_design_scientist",
+    "decision": "choose an additional measurement before the next batch",
+    "downstream_action": "optimization_state->measurement_request->next_batch_review",
+    "error_consequence": "redundant, infeasible, or leaked measurements consume budget without resolving the decision bottleneck",
+    "human_owner": "experimental_design_lead"
+  },
+  "status": "REVIEW_REQUIRED"
+}

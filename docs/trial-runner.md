@@ -4,7 +4,7 @@
 
 当前实现是 provider-neutral 的命令型 runner。它不绑定 OpenAI、Anthropic 或本地模型 SDK；具体模型由一个外部 adapter command 调用。runner 负责任务材料、工作目录、日志、verifier 和归档。
 
-第一次真实模型 trial 固定使用 GPT-5.5。当前接入方式是本机已登录的 Codex CLI，adapter 位于 [`benchmark_runner/adapters/codex_gpt55.py`](../benchmark_runner/adapters/codex_gpt55.py)，并在代码中拒绝其他模型名。OpenAI 官方模型文档显示 GPT-5.5 可通过 Responses API 使用并支持工具调用；本项目的 Codex CLI adapter 只用于第一次本地 calibration run，正式批量运行仍应使用 Docker/Harbor 隔离和固定凭据策略。[OpenAI GPT-5.5 model documentation](https://developers.openai.com/api/docs/models/gpt-5.5)
+当前目标模型 trial 使用 GPT-5.6。接入方式是本机已登录的 Codex CLI，adapter 位于 [`benchmark_runner/adapters/codex_gpt55.py`](../benchmark_runner/adapters/codex_gpt55.py)，支持 `gpt-5.5`、`gpt-5.6` 和 `gpt-5.6-sol`。本项目的 Codex CLI adapter 只用于本地 calibration run，正式批量运行仍应使用 Docker/Harbor 隔离和固定凭据策略。
 
 ## 1. 当前实现范围
 
@@ -38,6 +38,8 @@
 - 合成小数据校准；
 - 低风险模型 adapter 集成；
 - 验证任务、verifier 和归档格式。
+
+Enterprise trial 的 process backend 只证明模型能否在 agent-visible workspace 中完成任务；它不是 TB-Science 所要求的 separate verifier mode。正式结论还必须在 verifier 独立环境中重放，确保 Agent 无法读取 verifier、测试文件或 hidden reference，也无法在 verifier 阶段修改提交产物。
 
 Docker backend 需要本机 Docker daemon 或 Harbor execution environment。若 daemon 不可用，runner 不会伪装成已完成隔离运行。`manifest.json` 会记录当前执行层：
 
@@ -137,16 +139,21 @@ runner 不假设模型会自动生成正确的文件，也不会把自然语言�
 
 ## 5. 启动一次真实模型 trial
 
-第一次 GPT-5.5 calibration trial 使用本机 Codex CLI adapter：
+GPT-5.6 calibration trial 使用本机 Codex CLI adapter：
 
 ```bash
 python3.11 -m benchmark_runner.cli run \
   benchmarks/literature-screening-m1-001 \
   --out /tmp/benchmark-runs/literature-screening-m1-001 \
-  --trial-id trial-gpt55-codex-001 \
+  --trial-id trial-gpt56-codex-001 \
   --timeout 600 \
-  --command 'python3.11 benchmark_runner/adapters/codex_gpt55.py --model gpt-5.5'
+  --command 'python3.11 /absolute/path/to/benchmark_runner/adapters/codex_gpt55.py --model gpt-5.6-sol'
 ```
+
+The runner changes the agent process working directory to the copied task
+workspace. Use an absolute adapter path (or an installed console entry point);
+`python -m benchmark_runner...` and repository-relative adapter paths may fail
+before the model starts because the package is no longer on `sys.path`.
 
 正式隔离 backend 的启动形式：
 
@@ -154,14 +161,14 @@ python3.11 -m benchmark_runner.cli run \
 python3.11 -m benchmark_runner.cli run \
   benchmarks/literature-screening-m1-001 \
   --out runs/literature-screening-m1-001 \
-  --trial-id trial-gpt55-docker-001 \
+  --trial-id trial-gpt56-docker-001 \
   --backend docker \
   --docker-image research-benchmark-agent:py311 \
   --docker-network none \
   --docker-cpus 2 \
   --docker-memory 1g \
   --timeout 600 \
-  --command 'python3 /adapter/codex_gpt55.py --model gpt-5.5'
+  --command 'python3 /adapter/codex_gpt55.py --model gpt-5.6'
 ```
 
 该 Docker 命令要求镜像内已经存在 adapter 和模型访问凭据策略；本仓库不会把 Codex 登录态或 API key 打包进镜像。
@@ -187,6 +194,10 @@ prepare workspace
 | `agent_error` | Agent 命令非零退出或无法启动 |
 | `timeout` | 超过 runner timeout |
 | `infrastructure_error` | verifier 或归档基础设施异常 |
+
+分析 trial 时要区分 `agent_not_run`、`agent_completed_verifier_failed` 和
+`agent_completed_verifier_passed`。只有模型正常退出、产物已归档、且先排除
+instruction/verifier 合同缺陷后，`verifier_fail` 才能作为模型能力或任务难度证据。
 
 ## 6. Trial 归档结构
 
@@ -215,7 +226,7 @@ trial 结果默认留在 `/tmp/benchmark-runs/` 或对象存储，不应未经�
 
 这些能力不能假装已经完成：
 
-1. **供应商 API 适配器**：GPT-5.5 的本机 Codex CLI adapter 已完成；Docker 内的凭据注入、API adapter 和 token/cost 统计仍需单独配置。
+1. **供应商 API 适配器**：GPT-5.6 的本机 Codex CLI adapter 已完成；Docker 内的凭据注入、API adapter 和 token/cost 统计仍需单独配置。
 2. **Docker daemon/Harbor 实跑**：Docker 命令构造已完成，但必须在有 Docker socket 权限的机器上 smoke test；Harbor adapter 仍未实现。
 3. **资源限制审计**：Docker 已声明 CPU、内存、PID 和 timeout；磁盘配额、子进程树回收和宿主机审计仍需作业层补充。
 4. **工具调用语义解析**：当前 transcript 记录进程输出；真正的 tool call、tool result、退出码和参数需要 adapter 写入结构化事件。
@@ -243,4 +254,12 @@ golden submission
 
 当前仓库已经完成前四步的代码基础：任务有 hidden reference，verifier 有正常和故意失败测试，runner 有 prepare、正常进程、verifier failure 和 timeout 测试。下一步应实现一个具体模型 adapter，并先跑一次单模型 trial；在单模型 trial 的归档和隔离都正确之前，不应批量比较模型。
 
-第一次 GPT-5.5 校准结果见 [`docs/trial-calibration-001.md`](trial-calibration-001.md)。其中明确区分了 adapter 启动错误、workspace 隔离错误、任务契约问题和模型实际筛选结果。
+对于使用 `verifier_only/reference.json` 且 verifier 返回 `{passed: bool}` 的企业校准题，runner 现在同时支持 `reference_labels.json` 和 `reference.json`，并会把 `passed` 归一化为标准 `status`。作者侧的四个非模型基线可用以下命令运行；它们不会访问 agent workspace，也不会被计入目标模型结果：
+
+```bash
+python3 scripts/run_enterprise_baselines.py
+```
+
+该命令只把参考解、简单合法、始终弃答和模板/关键词基线写入任务质量记录，目标模型仍保持 `NOT_RUN`。
+
+历史 GPT-5.5 校准结果见 [`docs/trial-calibration-001.md`](trial-calibration-001.md)。其中明确区分了 adapter 启动错误、workspace 隔离错误、任务契约问题和模型实际筛选结果。GPT-5.6 的每次 trial 必须另存独立目录和 manifest，不得覆盖历史记录。

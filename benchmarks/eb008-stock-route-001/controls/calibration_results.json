@@ -1,0 +1,44 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "status": "CALIBRATED",
+  "tasks": [
+    {
+      "task_id": "eb008-stock-route-001",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-stock-valid-route",
+          "kind": "positive",
+          "passed": true,
+          "observed": [
+            "R-A"
+          ],
+          "expected": "accept only the stock-compliant valid route"
+        },
+        {
+          "control_id": "negative-stock-violation",
+          "kind": "negative",
+          "passed": true,
+          "observed": [],
+          "expected": "reject routes requiring unavailable material"
+        },
+        {
+          "control_id": "invariance-route-order",
+          "kind": "invariance",
+          "passed": true,
+          "observed": [
+            "R-A"
+          ],
+          "expected": "route order does not change acceptance"
+        },
+        {
+          "control_id": "insufficient-reaction-evidence",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "observed": [],
+          "expected": "hold when an otherwise viable route lacks step evidence"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "enterprise_value_card_id": "VALUE-EB008-STOCK-ROUTE-001-001",
+  "task_id": "eb008-stock-route-001",
+  "enterprise_reality": {
+    "evidence_class": "W",
+    "real_work_node": "retrosynthesis stock and reaction audit",
+    "named_role": "scientific_analyst",
+    "decision": "route selection",
+    "downstream_action": "target_and_constraints->search->structure_validation",
+    "error_consequence": "invalid or unavailable route wastes chemistry review time",
+    "human_owner": "domain_reviewer"
+  },
+  "utility_hypothesis": {
+    "decision_quality": "preserve an auditable handoff",
+    "risk_reduction": "invalid or unavailable route wastes chemistry review time",
+    "adoption_test": "independent practitioner can reconstruct the stop/proceed rule"
+  },
+  "novelty": {
+    "source_gap": "public workflow does not enforce this handoff contract",
+    "new_information_or_control": "synthetic evidence-boundary and failure controls",
+    "not_surface_variant": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

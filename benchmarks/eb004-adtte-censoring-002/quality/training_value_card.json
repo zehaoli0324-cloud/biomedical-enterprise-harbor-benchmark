@@ -1,0 +1,10 @@
+{
+  "training_value_card_id": "TRAIN-EB004-ADTTE-002",
+  "task_id": "eb004-adtte-censoring-002",
+  "capability_targets": ["schema and provenance inspection", "endpoint-rule reasoning", "event/censoring distinction", "bounded clinical-programming handoff"],
+  "error_labels": ["input_understanding", "method_choice", "calculation_or_tool", "evidence_and_citation", "claim_boundary", "handoff_and_delivery"],
+  "feedback_granularity": ["row-level", "trace-level", "rule-level", "claim-level"],
+  "generalization_plan": {"held_out_axis": "cutoff, event precedence, date precision and subject identities", "contamination_control": "hide reference rows and hold out mutated event combinations", "transfer_probe": "new endpoint rule and new partial-date cases"},
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

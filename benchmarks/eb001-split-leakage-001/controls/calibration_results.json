@@ -1,0 +1,48 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "status": "CALIBRATED",
+  "tasks": [
+    {
+      "task_id": "eb001-split-leakage-001",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-both-leakage-levels",
+          "kind": "positive",
+          "passed": true,
+          "observed": {
+            "canonical_overlap": 1,
+            "scaffold_overlap": 2,
+            "decision": "block"
+          },
+          "expected": "report both overlap classes and block readiness"
+        },
+        {
+          "control_id": "negative-clean-split",
+          "kind": "negative",
+          "passed": true,
+          "observed": {
+            "canonical_overlap": 0,
+            "scaffold_overlap": 0,
+            "decision": "conditional_proceed"
+          },
+          "expected": "no cross-split identity or scaffold overlap"
+        },
+        {
+          "control_id": "invariance-row-reorder",
+          "kind": "invariance",
+          "passed": true,
+          "observed": "semantic result unchanged",
+          "expected": "preserve overlaps, counts, identity notes, missingness and block decision"
+        },
+        {
+          "control_id": "insufficient-identity-policy",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "observed": "identity policy absent; bounded abstention required",
+          "expected": "request an identity rule and do not assert readiness"
+        }
+      ]
+    }
+  ]
+}

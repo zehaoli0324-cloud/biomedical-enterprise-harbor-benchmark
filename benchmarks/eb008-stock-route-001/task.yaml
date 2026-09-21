@@ -1,50 +1,21 @@
 id: eb008-stock-route-001
-version: "0.1.0"
-status: contract_only
+version: "0.2.0"
+status: ready_for_calibration
 title: "Retrosynthesis route selection under stock and reaction validity constraints"
 domain: biomedical_enterprise
-stage: medicinal_chemistry
-scenario_ids: [EB008]
-scenario_card: scenario-card.yaml
-scientific_decision:
-  question: Which routes satisfy target structure, allowed stock, reaction validity, and search-budget constraints for human chemistry review?
-  target_claim_boundary: an invalid or unavailable route wastes chemistry review time and can trigger unsafe constraint relaxation; this contract does not establish an experimental, clinical, or commercial conclusion.
-  consequence_of_error: an invalid or unavailable route wastes chemistry review time and can trigger unsafe constraint relaxation
 agent_visible_inputs:
   - path: data/
-    format: task-specific bundle
-    contract: pending frozen public or synthetic fixture
+    format: JSON and CSV
 constraints:
-  network: "off"
-  compute:
-    cpu_seconds: 120
-    memory_mb: 1024
+  network: off
   provenance:
     record_input_checksum: true
-    record_tool_version: true
     deterministic_output: true
-  safety:
-    scope: contract-only enterprise workflow analysis
-    prohibited: do not overstate computational evidence or use the task as clinical, efficacy, safety, or wet-lab authorization
 required_outputs:
-  - id: route_table
-    path: outputs/route_table.tsv
-    required_fields: [schema_version]
-  - id: stock_compliance
-    path: outputs/stock_compliance.json
-    required_fields: [schema_version]
-  - id: route_evidence
-    path: outputs/route_evidence.tsv
-    required_fields: [schema_version]
-  - id: approval_gate
-    path: outputs/approval_gate.md
-    required_fields: [schema_version]
+  - {id: route_table, path: outputs/route_table.tsv, required_fields: [route_id, target, stock_evidence, reaction_valid, failed_gates, accepted]}
+  - {id: stock_compliance, path: outputs/stock_compliance.json, required_fields: [routes, selected_route_ids, failed_gates]}
+  - {id: route_evidence, path: outputs/route_evidence.tsv, required_fields: [route_id, step, precedent_scope, chemoselectivity_risk, stereochemistry_resolved, protection_strategy_resolved]}
+  - {id: approval_gate, path: outputs/approval_gate.md, required_fields: [human_review, experimental_boundary, unresolved_chemistry]}
 hidden_truth:
-  status: not_authored
-  policy: verifier-only when materialized
-provenance:
-  source_benchmark: EB008
-  data_status: source workflow observed; task fixture pending
-quality_cards:
-  candidate_set: candidate_pools/enterprise-v1/EB008-aizynthfinder-retrosynthesis-workflow-candidate-set.json
-  question_brief: candidate_pools/enterprise-v1/question_briefs/eb008-stock-route-001.json
+  path: verifier_only/reference.json
+  status: verifier_only

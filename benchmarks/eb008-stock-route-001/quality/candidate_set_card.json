@@ -1,0 +1,25 @@
+{
+  "candidate_set_id": "CSET-EB008-STOCK-ROUTE-001-001",
+  "source_benchmark_id": "EB008",
+  "candidates": [
+    {
+      "candidate_id": "eb008-stock-route-001",
+      "decision": "route selection",
+      "unit": "target molecule and route",
+      "error_consequence": "invalid or unavailable route wastes chemistry review time",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "selection_status": "MATERIALIZED"
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

@@ -1,0 +1,25 @@
+{
+  "candidate_set_id": "CSET-EB003-FAILURE-RECOVERY-003-001",
+  "source_benchmark_id": "EB003",
+  "candidates": [
+    {
+      "candidate_id": "eb003-failure-recovery-003",
+      "decision": "failed branch recovery",
+      "unit": "analysis branch and artifact state",
+      "error_consequence": "silent fallback or parameter drift changes claims",
+      "semantic_axes": [
+        "business_decision",
+        "failure_mode",
+        "claim_boundary"
+      ],
+      "selection_status": "MATERIALIZED"
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

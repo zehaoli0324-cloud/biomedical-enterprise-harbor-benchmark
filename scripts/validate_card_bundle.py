@@ -10,6 +10,9 @@ from pathlib import Path
 
 BASE_CARDS = ("source", "benchmark", "workflow", "transformation", "data", "evaluation", "risk", "harbor", "review")
 QUALITY_CARDS = ("candidate_set", "enterprise_value", "requirements", "control_plan", "difficulty", "training_value", "model_trial")
+REQUIREMENT_IDS = {f"REQ{index:02d}" for index in range(1, 15)}
+SELECTION_REQUIREMENTS = {"REQ02", "REQ03", "REQ04", "REQ06", "REQ08", "REQ09"}
+VERIFIED_STATUSES = {"VERIFIED", "VERIFIED_FROM_OFFICIAL_SOURCE"}
 
 
 def load(path: Path) -> dict:
@@ -73,8 +76,49 @@ def main() -> int:
                     errors.append(f"{card_name} card does not match derived_task_id")
         if loaded.get("requirements", {}).get("source_benchmark_id") != benchmark_id:
             errors.append("requirements card does not match source_benchmark_id")
-        if len(loaded.get("requirements", {}).get("dimensions", [])) < 8:
-            errors.append("requirements card must contain at least 8 requirement dimensions")
+        requirements = loaded.get("requirements", {})
+        dimensions = requirements.get("dimensions", [])
+        dimension_ids = {row.get("requirement_id") for row in dimensions if isinstance(row, dict)}
+        if dimension_ids != REQUIREMENT_IDS:
+            missing = sorted(REQUIREMENT_IDS - dimension_ids)
+            extra = sorted(dimension_ids - REQUIREMENT_IDS)
+            errors.append(f"requirements card must contain exactly REQ01-REQ14 (missing={missing}, extra={extra})")
+        for row in dimensions:
+            if not isinstance(row, dict):
+                errors.append("requirements card dimensions must be objects")
+                continue
+            if not row.get("name") or not row.get("status") or not row.get("harbor_action"):
+                errors.append(f"requirement {row.get('requirement_id')}: name, status, and harbor_action are required")
+        status_by_id = {
+            row.get("requirement_id"): row.get("status")
+            for row in dimensions
+            if isinstance(row, dict)
+        }
+        unresolved_selection_requirements = sorted(
+            requirement_id
+            for requirement_id in SELECTION_REQUIREMENTS
+            if status_by_id.get(requirement_id) not in VERIFIED_STATUSES
+        )
+        selected_candidates = [
+            candidate
+            for candidate in loaded.get("candidate_set", {}).get("candidates", [])
+            if str(candidate.get("selection_status", "")).upper() == "SELECTED"
+        ]
+        selected_bundle = (
+            bool(selected_candidates)
+            or str(loaded.get("benchmark", {}).get("redesign_status", "")).upper() == "SELECTED"
+            or str(loaded.get("transformation", {}).get("status", "")).upper() == "SELECTED"
+        )
+        if selected_bundle and unresolved_selection_requirements:
+            errors.append(
+                "selected candidates require verified REQ02/03/04/06/08/09; "
+                f"unresolved={unresolved_selection_requirements}"
+            )
+        if loaded.get("transformation", {}).get("release_status") == "READY_FOR_HARBOR" and unresolved_selection_requirements:
+            errors.append(
+                "READY_FOR_HARBOR requires verified REQ02/03/04/06/08/09; "
+                f"unresolved={unresolved_selection_requirements}"
+            )
         candidate_count = len(loaded.get("candidate_set", {}).get("candidates", []))
         if not 3 <= candidate_count <= 5:
             errors.append("candidate_set must contain 3-5 candidates")

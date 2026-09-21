@@ -1,54 +1,35 @@
 scenario_id: eb008-stock-route-001
-status: contract_only
+status: ready
 source_scenarios: [EB008]
 domain: biomedical_enterprise
-stage: medicinal_chemistry
-research_role: medicinal_chemist_or_design_scientist
-scientific_context:
-  object: target molecule and candidate retrosynthesis routes
-  question: Which routes satisfy target structure, allowed stock, reaction validity, and search-budget constraints for human chemistry review?
-  decision: handoff a computationally valid route, or stop/request a constraint decision
-  consequence_of_error: an invalid or unavailable route wastes chemistry review time and can trigger unsafe constraint relaxation
+scientific_decision: select a stock-compliant valid route
 scientific_judgments:
   - independent_unit_and_handoff
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_route_feasibility
+    observable: route acceptance requires stock, reaction, selectivity and step evidence together
+    decision_flip: the highest score is rejected when a stock or reaction gate fails
+  - id: judgment_evidence_quality
+    observable: route_evidence.tsv preserves step-level precedent and evidence status
+    decision_flip: missing step evidence changes accept to hold-for-review
+  - id: tool_branching_pipeline
+    observable: multiple routes are evaluated before a human approval gate
+    decision_flip: a red-herring route cannot win by score alone
+  - id: safety_human_approval_gate
+    observable: approval_gate.md states computational evidence is not laboratory proof
+    decision_flip: a valid route remains a synthesis-review recommendation, not authorization
 workflow_handoffs:
-  - from: target_and_constraints
-    to: search
-    artifact: configuration.json
-    invariant: target, stock, policy, and budget are frozen
-  - from: search
-    to: structure_validation
-    artifact: route_table.tsv
-    invariant: every route passes independent structural and stock checks
-required_artifacts:
-  - outputs/route_table.tsv
-  - outputs/stock_compliance.json
-  - outputs/route_evidence.tsv
-  - outputs/approval_gate.md
-failure_injections:
-  - id: eb008-stock-route-001-1
-    trigger: a route uses a reagent outside the allowed stock
-    expected_behavior: flag and exclude the route
-    verifier_signal: pending_independent_verifier
-  - id: eb008-stock-route-001-2
-    trigger: a generated step fails structural validation
-    expected_behavior: retain failure evidence and do not count it as solved
-    verifier_signal: pending_independent_verifier
-  - id: eb008-stock-route-001-3
-    trigger: the budget ends without a valid route
-    expected_behavior: report no-route and preserve the budget
-    verifier_signal: pending_independent_verifier
+  - from: visible_inputs
+    to: decision_handoff
+    artifact: outputs/decision_record
+    invariant: all required evidence and uncertainty are preserved
 release_gates:
   scientific_reality: pass
-  observability: pending
-  verifiability: pending
-  naive_resistance: pending
-  reproducibility: pending
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
   enterprise_value: pending
   training_value: not_run
-open_questions:
-  - Freeze the task-specific public input version and redistribution terms.
-  - Author an independent oracle or expert-equivalence rubric.
-  - Run positive, negative, invariance, and insufficient-evidence controls.

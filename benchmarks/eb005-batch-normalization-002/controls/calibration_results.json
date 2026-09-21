@@ -1,0 +1,108 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "status": "CALIBRATED",
+  "tasks": [
+    {
+      "task_id": "eb005-batch-normalization-002",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-identifiable-normalization",
+          "kind": "positive",
+          "passed": true,
+          "observed": {
+            "raw_signal": {
+              "control_batch_means": {
+                "B1": 1.05,
+                "B2": 1.5,
+                "B3": 1.32
+              },
+              "control_batch_range": 0.45,
+              "within_batch_effects": {
+                "B1": 0.75,
+                "B2": 0.75,
+                "B3": 0.33
+              },
+              "treatment_control_effect": 0.61,
+              "effect_retention_fraction": 1.0,
+              "direction_preserved": true,
+              "eligible": false
+            },
+            "control_adjusted": {
+              "control_batch_means": {
+                "B1": 1.01,
+                "B2": 1.02,
+                "B3": 1.195
+              },
+              "control_batch_range": 0.185,
+              "within_batch_effects": {
+                "B1": 0.675,
+                "B2": 0.695,
+                "B3": 0.29
+              },
+              "treatment_control_effect": 0.553333,
+              "effect_retention_fraction": 0.907103,
+              "direction_preserved": true,
+              "eligible": true
+            },
+            "aggressive_adjusted": {
+              "control_batch_means": {
+                "B1": 1.005,
+                "B2": 1.005,
+                "B3": 1.005
+              },
+              "control_batch_range": 0.0,
+              "within_batch_effects": {
+                "B1": 0.15,
+                "B2": 0.14,
+                "B3": 0.05
+              },
+              "treatment_control_effect": 0.113333,
+              "effect_retention_fraction": 0.185792,
+              "direction_preserved": true,
+              "eligible": false
+            }
+          },
+          "expected": "reduce control drift while rejecting phenotype-erasing over-correction"
+        },
+        {
+          "control_id": "negative-overcorrection-removed",
+          "kind": "negative",
+          "passed": true,
+          "observed": {
+            "control_batch_means": {
+              "B1": 1.01,
+              "B2": 1.02,
+              "B3": 1.195
+            },
+            "control_batch_range": 0.185,
+            "within_batch_effects": {
+              "B1": 0.675,
+              "B2": 0.695,
+              "B3": 0.29
+            },
+            "treatment_control_effect": 0.553333,
+            "effect_retention_fraction": 0.907103,
+            "direction_preserved": true,
+            "eligible": true
+          },
+          "expected": "eligibility changes when aggressive branch no longer erases phenotype"
+        },
+        {
+          "control_id": "invariance-plate-order",
+          "kind": "invariance",
+          "passed": true,
+          "observed": "profile decisions unchanged",
+          "expected": "plate order does not change identifiability"
+        },
+        {
+          "control_id": "insufficient-control-column",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "observed": "missing candidate profiles are rejected",
+          "expected": "abstain without normalization evidence"
+        }
+      ]
+    }
+  ]
+}

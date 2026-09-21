@@ -1,0 +1,8 @@
+{
+  "enterprise_value_card_id": "VALUE-EB004-ADTTE-002",
+  "task_id": "eb004-adtte-censoring-002",
+  "enterprise_reality": {"evidence_class": "W", "real_work_node": "clinical_statistics", "named_role": "statistical_programmer", "decision": "handoff valid ADTTE rows or hold ambiguous records", "downstream_action": "table programming and statistical review", "error_consequence": "incorrect censoring changes the survival estimand", "human_owner": "lead statistical programmer and independent reviewer"},
+  "utility_hypothesis": {"decision_quality": "prevent silent endpoint-rule drift", "cycle_time_or_cost": "reduce manual trace-back of event and censoring records", "risk_reduction": "keep partial dates and post-cutoff events out of unsupported analyses", "adoption_test": "reviewer can reproduce each row from the source event trace"},
+  "novelty": {"source_gap": "workflow examples do not by themselves enforce enterprise handoff controls", "new_information_or_control": "event precedence, cutoff, partial-date and missing-follow-up decisions are separately audited", "not_surface_variant": true},
+  "status": "REVIEW_REQUIRED"
+}

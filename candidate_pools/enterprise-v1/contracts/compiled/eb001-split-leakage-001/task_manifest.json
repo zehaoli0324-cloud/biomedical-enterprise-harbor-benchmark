@@ -226,7 +226,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "87f51f755a536ccdd48f46cd5bea0dd9c6ea5ccf64c665eea3179f0a0a02131a",
+  "spec_digest": "24e9dfa1d1a58cdf5724ebb127390f38e34ccbf7b8e5ea62ea53009b1cbfa916",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -336,9 +336,9 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb001-split-leakage-001/scenario-card.yaml",
-    "digest": "4f93bcbc9268e991367db4efee206cc4390349fddec139516d550d55d5fd6c88",
+    "digest": "cc38b6a4bd67925e645507a58209e8662723469ed934ced9deed95579ca9c6f1",
     "scenario_id": "eb001-split-leakage-001",
-    "status": "contract_only",
+    "status": "ready",
     "source_scenarios": [
       "EB001"
     ],
@@ -350,13 +350,14 @@
     "handoff_count": 2,
     "release_gates": {
       "scientific_reality": "pass",
-      "observability": "pending",
-      "verifiability": "pending",
-      "naive_resistance": "pending",
-      "reproducibility": "pending",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass",
+      "reproducibility": "pass",
       "enterprise_value": "pending",
       "training_value": "not_run"
     }
   },
+  "evidence": {},
   "status": "compiled_contract"
 }

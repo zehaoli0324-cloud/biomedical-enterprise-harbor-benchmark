@@ -1,0 +1,34 @@
+{
+  "control_plan_id": "CONTROL-EB005-BATCH-NORMALIZATION-002-001",
+  "task_id": "eb005-batch-normalization-002",
+  "controls": [
+    {
+      "control_id": "positive-identifiable-normalization",
+      "kind": "positive",
+      "expected": "reduce control drift while rejecting phenotype-erasing over-correction"
+    },
+    {
+      "control_id": "negative-overcorrection-removed",
+      "kind": "negative",
+      "expected": "eligibility changes when the aggressive branch no longer erases phenotype"
+    },
+    {
+      "control_id": "invariance-plate-order",
+      "kind": "invariance",
+      "expected": "plate order does not change identifiability"
+    },
+    {
+      "control_id": "insufficient-control-column",
+      "kind": "insufficient_evidence",
+      "expected": "abstain without normalization evidence"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "release_blockers": [
+    "independent practitioner review",
+    "repeated target-model trials",
+    "license/privacy signoff"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

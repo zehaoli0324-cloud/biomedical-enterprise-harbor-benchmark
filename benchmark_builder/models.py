@@ -92,6 +92,7 @@ class BenchmarkSpec:
     constraints: dict[str, Any] = field(default_factory=dict)
     evaluation: "EvaluationSpec" = field(default_factory=lambda: EvaluationSpec.default())
     scenario_card: ScenarioCard | None = None
+    evidence: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)

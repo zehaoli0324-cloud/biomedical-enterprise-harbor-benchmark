@@ -1,0 +1,18 @@
+{
+  "difficulty_card_id": "DIFF-EB010-NEXT-BATCH-001-001",
+  "task_id": "eb010-next-batch-001",
+  "difficulty_hypothesis": {
+    "reasoning_chain": ["enumerate legal candidate combinations", "apply batch size, group and material constraints", "optimize total uncertainty with the declared gain and ID tie-breaks", "report a planning recommendation without claiming an experimental result"],
+    "competing_choices": ["feasible batch vs infeasible high-gain batch", "lower uncertainty vs higher predicted gain", "planning recommendation vs experimental conclusion"],
+    "stateful_dependencies": ["objective comparison is only valid after legal-batch filtering", "future experimental outcomes are unavailable and must not enter selection"],
+    "uncertainty_sources": ["predicted gain is a tie-break, not measured outcome", "material budget limits feasible exploration", "candidate IDs and group coverage must remain aligned"],
+    "target_failure_mechanism": "chooses a high-gain or hidden-reference batch without enumerating legal combinations and the declared objective",
+    "scientific_difficulty_level": "advanced",
+    "difficulty_boundary": "The fixture now combines exploitation, exploration, failure risk and correlation redundancy under feasibility constraints; it still uses supplied uncertainty rather than fitting a Bayesian surrogate."
+  },
+  "matched_modules": {"primary": ["judgment_value_of_information", "math_batch_acquisition_under_uncertainty", "horizon_branching_experiments"], "supporting": ["judgment_uncertainty_and_stop_rules", "math_model_selection_and_sensitivity", "scenario_reproducibility_audit", "judgment_experimental_unit", "compute_data_schema_discovery", "compute_multistage_analysis", "data_text_and_metadata", "environment_offline_setup", "safety_human_approval_gate"]},
+  "shortcut_probes": ["choose the highest predicted gain without checking legality", "copy a hidden or stale reference batch", "select the lowest-uncertainty items without group and budget checks", "treat the plan as evidence that the experiment will succeed"],
+  "baseline_matrix": [{"strategy": "reference_solution", "expected_status": "PASS"}, {"strategy": "simple_legal_baseline", "expected_status": "FAIL_SCIENTIFIC_JUDGMENT"}, {"strategy": "always_abstain", "expected_status": "FAIL_DELIVERY"}, {"strategy": "template_or_keyword", "expected_status": "FAIL_SHORTCUT"}, {"strategy": "target_model", "expected_status": "PASS_SINGLE_TRIAL"}],
+  "calibration_interpretation": "Task v0.2.0 adds failure risk and correlation redundancy to the acquisition objective. GPT-5.6 Sol passed one trial, so the task exercises the intended reasoning but is not yet shown to discriminate this target model; repeated trials and expert review remain required.",
+  "status": "REVIEW_REQUIRED"
+}

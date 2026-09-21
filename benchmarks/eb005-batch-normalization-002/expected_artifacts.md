@@ -1,10 +1,3 @@
 # Expected artifacts
 
-This contract-only package reserves the following artifacts:
-
-- `outputs/normalization_comparison.tsv`
-- `outputs/batch_report.json`
-- `outputs/sensitivity_summary.md`
-- `outputs/run_manifest.json`
-
-The schema, hidden truth route, accepted equivalence classes, negative matrix, and verifier signals are pending materialization.
+Synthetic offline fixture. The artifacts must compare all candidate profiles using per-batch control drift, within-batch treatment-control effects and effect retention; the smallest batch range alone is insufficient when the correction erases phenotype signal.

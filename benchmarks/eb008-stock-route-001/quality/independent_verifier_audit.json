@@ -1,0 +1,11 @@
+{
+  "schema_version": "benchmark_review_agent.v1",
+  "task_id": "eb008-stock-route-001",
+  "review_status": "pass",
+  "status": "PASS",
+  "finding_count": 0,
+  "passed_gates": ["structure", "metadata", "readme", "trial-evidence", "enterprise-contract", "scientific-provenance", "oracle-static"],
+  "review_agent_revision": "27bdc9ec0dd0cab6c8ed7d484b707f291e3b45ce",
+  "review_agent_worktree_dirty": true,
+  "judge": null
+}

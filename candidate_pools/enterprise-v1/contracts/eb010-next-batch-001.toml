@@ -15,7 +15,7 @@ tags = ["closed-loop", "next-batch", "budget-constraint"]
 
 [difficulty.scientific_judgment]
 level = 5
-weight = 1.0
+weight = 1.5
 rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
 tags = ["closed-loop", "next-batch", "budget-constraint"]
 
@@ -50,44 +50,44 @@ rationale = "The task requires a legal action under uncertainty and budget, not 
 tags = ["closed-loop", "next-batch", "budget-constraint"]
 
 [difficulty.data_complexity]
-level = 4
+level = 3
 weight = 1.0
 rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
 tags = ["closed-loop", "next-batch", "budget-constraint"]
 
 [difficulty.environment_complexity]
-level = 2
+level = 1
 weight = 1.0
 rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
 tags = ["closed-loop", "next-batch", "budget-constraint"]
 
 [difficulty.mathematical_complexity]
-level = 4
-weight = 1.0
-rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
-tags = ["closed-loop", "next-batch", "budget-constraint"]
-
-[difficulty.long_horizon_complexity]
 level = 5
 weight = 1.0
 rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
 tags = ["closed-loop", "next-batch", "budget-constraint"]
 
+[difficulty.long_horizon_complexity]
+level = 4
+weight = 1.0
+rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
+tags = ["closed-loop", "next-batch", "budget-constraint"]
+
 [difficulty.safety_risk]
-level = 3
+level = 2
 weight = 1.0
 rationale = "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking."
 tags = ["closed-loop", "next-batch", "budget-constraint"]
 [modules]
 scenario = ["scenario_reproducibility_audit"]
-judgment = ["judgment_experimental_unit", "judgment_uncertainty_and_stop_rules"]
+judgment = ["judgment_value_of_information", "judgment_experimental_unit", "judgment_uncertainty_and_stop_rules"]
 compute = ["compute_data_schema_discovery", "compute_multistage_analysis"]
-noise = ["noise_metadata_conflict", "noise_missing_and_duplicate_inputs"]
+noise = ["noise_metadata_conflict"]
 data = ["data_text_and_metadata"]
-data_complexity = ["complexity_replicates_and_batches", "complexity_sparse_or_missing"]
-environment = ["environment_offline_setup", "environment_resource_budget"]
-math = ["math_model_selection_and_sensitivity"]
-horizon = ["horizon_branching_experiments", "horizon_end_to_end_claim"]
+data_complexity = ["complexity_sparse_or_missing"]
+environment = ["environment_offline_setup"]
+math = ["math_batch_acquisition_under_uncertainty", "math_model_selection_and_sensitivity"]
+horizon = ["horizon_branching_experiments"]
 safety = ["safety_human_approval_gate"]
 
 [data]

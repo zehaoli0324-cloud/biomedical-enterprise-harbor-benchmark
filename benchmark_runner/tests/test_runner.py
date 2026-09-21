@@ -47,6 +47,18 @@ def test_run_archives_agent_process_and_verifier_result(tmp_path: Path):
     assert manifest["verifier_status"] == "fail"
 
 
+def test_runner_accepts_reference_json_and_passed_verifier_shape(tmp_path: Path):
+    task = ROOT / "benchmarks/eb001-split-leakage-001"
+    command = f'{sys.executable} -c "pass"'
+    result = run_trial(task, tmp_path, command, "trial-reference-json", timeout_seconds=10)
+    assert result.status == "verifier_fail"
+    verifier_result = json.loads((result.trial_dir / "verifier_result.json").read_text(encoding="utf-8"))
+    assert verifier_result["passed"] is False
+    assert verifier_result["status"] == "fail"
+    manifest = json.loads(result.manifest_path.read_text(encoding="utf-8"))
+    assert manifest["verifier_status"] == "fail"
+
+
 def test_explicit_environment_passthrough_is_recorded_without_value(tmp_path: Path, monkeypatch):
     monkeypatch.setenv("TRIAL_TEST_SECRET", "not-written-to-manifest")
     command = (

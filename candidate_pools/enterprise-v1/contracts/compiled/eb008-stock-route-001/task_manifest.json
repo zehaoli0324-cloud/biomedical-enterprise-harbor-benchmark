@@ -15,8 +15,8 @@
   },
   "difficulty": {
     "task_id": "eb008-stock-route-001",
-    "raw_score": 3.417,
-    "adjusted_score": 3.917,
+    "raw_score": 3.24,
+    "adjusted_score": 3.54,
     "band": "advanced",
     "dimensions": {
       "scientific_scenario": {
@@ -30,8 +30,8 @@
         ]
       },
       "scientific_judgment": {
-        "level": 4,
-        "weight": 1.0,
+        "level": 5,
+        "weight": 1.5,
         "rationale": "A high route score is insufficient; the decision requires independent structure, stock, and failure checks before human review.",
         "tags": [
           "retrosynthesis",
@@ -50,7 +50,7 @@
         ]
       },
       "tool_call_complexity": {
-        "level": 4,
+        "level": 2,
         "weight": 1.0,
         "rationale": "A high route score is insufficient; the decision requires independent structure, stock, and failure checks before human review.",
         "tags": [
@@ -80,7 +80,7 @@
         ]
       },
       "data_type_complexity": {
-        "level": 4,
+        "level": 3,
         "weight": 1.0,
         "rationale": "A high route score is insufficient; the decision requires independent structure, stock, and failure checks before human review.",
         "tags": [
@@ -110,7 +110,7 @@
         ]
       },
       "mathematical_complexity": {
-        "level": 3,
+        "level": 2,
         "weight": 1.0,
         "rationale": "A high route score is insufficient; the decision requires independent structure, stock, and failure checks before human review.",
         "tags": [
@@ -141,7 +141,6 @@
       }
     },
     "interactions": [
-      "long_horizon_x_tool_orchestration",
       "judgment_x_noisy_evidence",
       "high_stakes_safety_review"
     ],
@@ -153,6 +152,10 @@
         }
       ],
       "judgment": [
+        {
+          "id": "judgment_route_feasibility",
+          "params": {}
+        },
         {
           "id": "judgment_evidence_quality",
           "params": {}
@@ -172,17 +175,13 @@
           "params": {}
         },
         {
-          "id": "compute_failure_recovery",
+          "id": "compute_multistage_analysis",
           "params": {}
         }
       ],
       "tooling": [
         {
           "id": "tool_branching_pipeline",
-          "params": {}
-        },
-        {
-          "id": "tool_adversarial_failure",
           "params": {}
         }
       ],
@@ -200,10 +199,6 @@
         {
           "id": "data_text_and_metadata",
           "params": {}
-        },
-        {
-          "id": "data_images_and_structures",
-          "params": {}
         }
       ],
       "data_complexity": [
@@ -213,10 +208,6 @@
         }
       ],
       "environment": [
-        {
-          "id": "environment_resource_budget",
-          "params": {}
-        },
         {
           "id": "environment_offline_setup",
           "params": {}
@@ -232,19 +223,11 @@
         {
           "id": "horizon_checkpointed_workflow",
           "params": {}
-        },
-        {
-          "id": "horizon_end_to_end_claim",
-          "params": {}
         }
       ],
       "safety": [
         {
           "id": "safety_human_approval_gate",
-          "params": {}
-        },
-        {
-          "id": "safety_genetic_or_clinical_boundary",
           "params": {}
         }
       ]
@@ -262,7 +245,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "c63432435822b54fe58ffac531e89a1c0eec6ca27b0c0877ed966f850aac8c09",
+  "spec_digest": "02d0f915a0c32ba3ba4d6631947f43e612f5e528ed9ebeb92e1b85e36811ea91",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -372,9 +355,9 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb008-stock-route-001/scenario-card.yaml",
-    "digest": "8452216d9145191e60d8533520016bb417ec9d9bad46b32f1a3736e9aba0e777",
+    "digest": "8f3da7b0d02b5e697ccec2c417e6ad0c7ee9a3f2e86563828a642b6325857907",
     "scenario_id": "eb008-stock-route-001",
-    "status": "contract_only",
+    "status": "ready",
     "source_scenarios": [
       "EB008"
     ],
@@ -383,16 +366,17 @@
       "competing_choice_and_stop_rule",
       "claim_boundary_and_evidence_quality"
     ],
-    "handoff_count": 2,
+    "handoff_count": 1,
     "release_gates": {
       "scientific_reality": "pass",
-      "observability": "pending",
-      "verifiability": "pending",
-      "naive_resistance": "pending",
-      "reproducibility": "pending",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass",
+      "reproducibility": "pass",
       "enterprise_value": "pending",
       "training_value": "not_run"
     }
   },
+  "evidence": {},
   "status": "compiled_contract"
 }

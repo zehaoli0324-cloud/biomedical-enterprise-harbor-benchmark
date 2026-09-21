@@ -1,0 +1,71 @@
+{
+  "model_trial_card_id": "TRIAL-EB008-STOCK-ROUTE-001-001",
+  "task_id": "eb008-stock-route-001",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "fixed_config": {
+    "task_digest": null,
+    "input_hashes": [{"path": "data/reaction_evidence.json", "sha256": "e3e64e2e728f8f99a9d62c0192ef5f9a205501eedb1cfc676d45608026ecba34"}, {"path": "data/routes.json", "sha256": "c88f427d7f68237f365e590d949b96737a767e633c031e138849e82f8e248502"}, {"path": "data/rules.json", "sha256": "5db6ded40cd999127e33f0e0240a7507387076b9404d4580deb6fd8ff6364fbe"}, {"path": "data/stock.csv", "sha256": "47f5b5dd1471a88df38b65e8ea2ebf66778faff2e71340e83759fa28fd994c7c"}, {"path": "instruction.md", "sha256": "5291519404b3c388414408215f6f604088ed4aa054a04d44d2fa8b38ba102132"}],
+    "model_version": "gpt-5.6-sol",
+    "tool_policy": "no task network tools; provider transport required",
+    "network_policy": "off_requested",
+    "network_enforcement": "caller_or_container_required",
+    "isolation_mode": "process_cwd_only",
+    "budget": {
+      "wall_timeout_seconds": 900
+    },
+    "repeat_count": 1
+  },
+  "training_value_evidence": {
+    "signal_quality": "SINGLE_TRIAL_PASS_AFTER_CONTRACT_REPLAY",
+    "error_localization": "BASELINES_AND_CONTRACT_REPLAY_COMPLETE",
+    "generalization": "NOT_RUN",
+    "use_recommendation": "EVAL_ONLY_UNTIL_CALIBRATED"
+  },
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "scientific_judgment"
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "delivery_failure"
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "shortcut_or_calculation"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "task_version": "0.2.0",
+      "trial_id": "trial-gpt56-sol-v02-001",
+      "status": "pass_after_contract_replay",
+      "failure_attribution": "initial verifier schema defect; unchanged artifacts passed replay"
+    }
+  ],
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "status": "BASELINES_COMPLETE"
+}

@@ -1,0 +1,14 @@
+{
+  "control_plan_id": "CONTROL-EB004-ADTTE-002",
+  "task_id": "eb004-adtte-censoring-002",
+  "controls": [
+    {"control_id": "positive-edge-case-fixture", "kind": "positive", "input_change": "frozen fixture with competing, post-cutoff, partial and missing-follow-up records", "expected_behavior": "derive valid rows and route unresolved subjects to review", "verifier_signal": "independent_rows_and_edge_cases", "status": "CALIBRATED"},
+    {"control_id": "negative-clean-events", "kind": "negative", "input_change": "replace partial/post-cutoff/missing-follow-up cases with exact supported records", "expected_behavior": "remove review-only outcomes without changing endpoint rule", "verifier_signal": "zero_review_rows", "status": "CALIBRATED"},
+    {"control_id": "invariance-row-reorder", "kind": "invariance", "input_change": "permute DM, event and follow-up row order", "expected_behavior": "preserve rows, summary and edge-case classes", "verifier_signal": "equivalent_result_class", "status": "CALIBRATED"},
+    {"control_id": "insufficient-follow-up", "kind": "insufficient_evidence", "input_change": "remove the only censoring follow-up for a no-event subject", "expected_behavior": "route the subject to review and hold handoff", "verifier_signal": "bounded_abstention", "status": "CALIBRATED"}
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "release_blockers": ["independent practitioner review", "model trial and failure attribution"],
+  "status": "REVIEW_REQUIRED"
+}

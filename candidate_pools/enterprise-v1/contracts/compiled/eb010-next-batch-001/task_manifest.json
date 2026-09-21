@@ -15,8 +15,8 @@
   },
   "difficulty": {
     "task_id": "eb010-next-batch-001",
-    "raw_score": 3.417,
-    "adjusted_score": 3.617,
+    "raw_score": 3.24,
+    "adjusted_score": 3.44,
     "band": "advanced",
     "dimensions": {
       "scientific_scenario": {
@@ -31,7 +31,7 @@
       },
       "scientific_judgment": {
         "level": 5,
-        "weight": 1.0,
+        "weight": 1.5,
         "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
         "tags": [
           "closed-loop",
@@ -90,7 +90,7 @@
         ]
       },
       "data_complexity": {
-        "level": 4,
+        "level": 3,
         "weight": 1.0,
         "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
         "tags": [
@@ -100,7 +100,7 @@
         ]
       },
       "environment_complexity": {
-        "level": 2,
+        "level": 1,
         "weight": 1.0,
         "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
         "tags": [
@@ -110,16 +110,6 @@
         ]
       },
       "mathematical_complexity": {
-        "level": 4,
-        "weight": 1.0,
-        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
-        "tags": [
-          "closed-loop",
-          "next-batch",
-          "budget-constraint"
-        ]
-      },
-      "long_horizon_complexity": {
         "level": 5,
         "weight": 1.0,
         "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
@@ -129,8 +119,18 @@
           "budget-constraint"
         ]
       },
+      "long_horizon_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
+        "tags": [
+          "closed-loop",
+          "next-batch",
+          "budget-constraint"
+        ]
+      },
       "safety_risk": {
-        "level": 3,
+        "level": 2,
         "weight": 1.0,
         "rationale": "The task requires a legal action under uncertainty and budget, not a retrospective leaderboard ranking.",
         "tags": [
@@ -151,6 +151,10 @@
         }
       ],
       "judgment": [
+        {
+          "id": "judgment_value_of_information",
+          "params": {}
+        },
         {
           "id": "judgment_experimental_unit",
           "params": {}
@@ -174,10 +178,6 @@
         {
           "id": "noise_metadata_conflict",
           "params": {}
-        },
-        {
-          "id": "noise_missing_and_duplicate_inputs",
-          "params": {}
         }
       ],
       "data": [
@@ -188,10 +188,6 @@
       ],
       "data_complexity": [
         {
-          "id": "complexity_replicates_and_batches",
-          "params": {}
-        },
-        {
           "id": "complexity_sparse_or_missing",
           "params": {}
         }
@@ -200,13 +196,13 @@
         {
           "id": "environment_offline_setup",
           "params": {}
-        },
-        {
-          "id": "environment_resource_budget",
-          "params": {}
         }
       ],
       "math": [
+        {
+          "id": "math_batch_acquisition_under_uncertainty",
+          "params": {}
+        },
         {
           "id": "math_model_selection_and_sensitivity",
           "params": {}
@@ -215,10 +211,6 @@
       "horizon": [
         {
           "id": "horizon_branching_experiments",
-          "params": {}
-        },
-        {
-          "id": "horizon_end_to_end_claim",
           "params": {}
         }
       ],
@@ -242,7 +234,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "fb752de5b10a70a576247ed618550bc7bcc6f0b93f2a740e1f5f0fdc138d9eb7",
+  "spec_digest": "5c3a2603b0666f5045061f3cfc609498b95946773216546dab3d72e79bf89ae9",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -352,9 +344,9 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb010-next-batch-001/scenario-card.yaml",
-    "digest": "5cd8f0d534db5bde4e19c7d70a467c86e28a8881525fd3a775811de9818fe92f",
+    "digest": "168ef2de609ed5e3f6e4392744b2e87f0138caa6687b45da4a4943e7720e9335",
     "scenario_id": "eb010-next-batch-001",
-    "status": "contract_only",
+    "status": "ready",
     "source_scenarios": [
       "EB010"
     ],
@@ -363,16 +355,17 @@
       "competing_choice_and_stop_rule",
       "claim_boundary_and_evidence_quality"
     ],
-    "handoff_count": 2,
+    "handoff_count": 1,
     "release_gates": {
       "scientific_reality": "pass",
-      "observability": "pending",
-      "verifiability": "pending",
-      "naive_resistance": "pending",
-      "reproducibility": "pending",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass",
+      "reproducibility": "pass",
       "enterprise_value": "pending",
       "training_value": "not_run"
     }
   },
+  "evidence": {},
   "status": "compiled_contract"
 }

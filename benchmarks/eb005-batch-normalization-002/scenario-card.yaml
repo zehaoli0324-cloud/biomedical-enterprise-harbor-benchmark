@@ -1,54 +1,35 @@
 scenario_id: eb005-batch-normalization-002
-status: contract_only
+status: ready
 source_scenarios: [EB005]
 domain: biomedical_enterprise
-stage: high_content_screening
-research_role: image_analysis_or_phenomics_scientist
-scientific_context:
-  object: plate-level morphological profiles and replicate aggregates
-  question: Which normalization and replicate aggregation choice removes batch effects without erasing a reproducible phenotype?
-  decision: select a defensible preprocessing branch, or hold when the mechanism is not identifiable
-  consequence_of_error: over-correction erases biology while under-correction creates false hits
+scientific_decision: choose normalization without erasing phenotype
 scientific_judgments:
   - independent_unit_and_handoff
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_batch_identifiability
+    observable: control drift, within-batch effect and treatment-control effect are compared across branches
+    decision_flip: aggressive correction that erases phenotype is rejected despite zero control drift
+  - id: math_hierarchical_batch_sensitivity
+    observable: plate/batch/condition hierarchy and replicate imbalance are preserved in normalization_comparison.tsv
+    decision_flip: a branch is eligible only when drift is reduced and effect retention passes the rule
+  - id: noise_missing_and_duplicate_inputs
+    observable: missing control profiles route the task to insufficient evidence
+    decision_flip: removing the control column changes the decision from eligible to hold
+  - id: horizon_checkpointed_workflow
+    observable: normalization choice, sensitivity result and human handoff remain linked
+    decision_flip: a local metric improvement cannot bypass phenotype-preservation review
 workflow_handoffs:
-  - from: images_and_metadata
-    to: profiles
-    artifact: metadata_join_audit.tsv
-    invariant: plate, perturbation, replicate, and control identities are aligned
-  - from: profiles
-    to: batch_diagnostics
-    artifact: batch_report.json
-    invariant: normalization choice and sensitivity are auditable
-required_artifacts:
-  - outputs/normalization_comparison.tsv
-  - outputs/batch_report.json
-  - outputs/sensitivity_summary.md
-  - outputs/run_manifest.json
-failure_injections:
-  - id: eb005-batch-normalization-002-1
-    trigger: treatment and plate are aligned
-    expected_behavior: report non-identifiability and avoid causal language
-    verifier_signal: pending_independent_verifier
-  - id: eb005-batch-normalization-002-2
-    trigger: negative controls shift across plates
-    expected_behavior: compare normalization branches and retain diagnostics
-    verifier_signal: pending_independent_verifier
-  - id: eb005-batch-normalization-002-3
-    trigger: one condition has fewer valid replicates
-    expected_behavior: use the declared unit and report uncertainty
-    verifier_signal: pending_independent_verifier
+  - from: visible_inputs
+    to: decision_handoff
+    artifact: outputs/decision_record
+    invariant: all required evidence and uncertainty are preserved
 release_gates:
   scientific_reality: pass
-  observability: pending
-  verifiability: pending
-  naive_resistance: pending
-  reproducibility: pending
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
   enterprise_value: pending
   training_value: not_run
-open_questions:
-  - Freeze the task-specific public input version and redistribution terms.
-  - Author an independent oracle or expert-equivalence rubric.
-  - Run positive, negative, invariance, and insufficient-evidence controls.

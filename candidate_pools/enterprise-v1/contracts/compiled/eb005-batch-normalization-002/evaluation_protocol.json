@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb005-batch-normalization-002",
-  "spec_digest": "e4dec3ae40a32c40c63f089717ebdd36bfa078a65df4911193b7889cc16f81a7",
+  "spec_digest": "7340b5a39e7a05591f68279a32b5c090ae9611a51c8851fa8c36b7b6326f2c18",
   "evaluation": {
     "scale": {
       "min": 0.0,

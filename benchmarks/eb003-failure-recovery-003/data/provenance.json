@@ -1,0 +1,6 @@
+{
+  "source": "synthetic_compbio_fixture",
+  "license": "internal_calibration_only",
+  "tool": "tool-x",
+  "tool_version": "2.1.0"
+}

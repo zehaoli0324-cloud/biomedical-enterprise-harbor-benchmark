@@ -1,0 +1,12 @@
+{
+  "question_id": "Q-RECOVERY-01",
+  "rules_version": "recovery-v2",
+  "allowed_changes": [
+    "timeout_seconds"
+  ],
+  "fallback_parameters": {
+    "reference": "gene-set-v2",
+    "version": "2.1.0",
+    "timeout_seconds": 60
+  }
+}

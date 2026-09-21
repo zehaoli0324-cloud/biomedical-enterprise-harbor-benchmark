@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb001-split-leakage-001",
-  "spec_digest": "87f51f755a536ccdd48f46cd5bea0dd9c6ea5ccf64c665eea3179f0a0a02131a",
+  "spec_digest": "24e9dfa1d1a58cdf5724ebb127390f38e34ccbf7b8e5ea62ea53009b1cbfa916",
   "evaluation": {
     "scale": {
       "min": 0.0,

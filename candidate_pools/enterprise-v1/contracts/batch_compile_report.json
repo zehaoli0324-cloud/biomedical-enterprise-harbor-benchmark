@@ -2,7 +2,7 @@
   "schema_version": "enterprise_contract_compile_batch.v1",
   "batch_id": "TRANCHE-001",
   "status": "MIXED_CALIBRATION_AND_CONTRACT",
-  "task_count": 9,
+  "task_count": 10,
   "release_policy": "compiled difficulty is not evidence of runnable data, truth, verifier, or model readiness",
   "tasks": [
     {
@@ -12,7 +12,7 @@
       "status": "ready_for_calibration",
       "band": "intermediate",
       "adjusted_score": 2.783,
-      "spec_digest": "1c1f57b09bf285994359354dbdb777eccdb2e5405c97b8b41701a1a526782e07",
+      "spec_digest": "24e9dfa1d1a58cdf5724ebb127390f38e34ccbf7b8e5ea62ea53009b1cbfa916",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
@@ -25,11 +25,11 @@
       "status": "ready_for_calibration",
       "band": "advanced",
       "adjusted_score": 3.36,
-      "spec_digest": "7b1d35c59b02325704491c5b338fe198d58efa666fd5b2f033a513b7e2ddea61",
+      "spec_digest": "6a266b175debba24ee42ccf970706cfc13b59dca8fc73af0131af1752ffed422",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "NOT_RUN"
+      "model_trial_status": "TARGET_TRIAL_COMPLETE"
     },
     {
       "task_id": "eb003-replay-provenance-004",
@@ -51,7 +51,7 @@
       "status": "ready_for_calibration",
       "band": "advanced",
       "adjusted_score": 3.117,
-      "spec_digest": "e821008f421d0c7e6b865cc522afa740126ced83e3a4ce4ba2739e268d77b04f",
+      "spec_digest": "c0e309e06f2ac6f85739a7b50365cbb9cd141054f174c4ab1846a224374e7212",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
@@ -64,11 +64,11 @@
       "status": "ready_for_calibration",
       "band": "advanced",
       "adjusted_score": 3.44,
-      "spec_digest": "f31e1edc05f8536159fdda882da5025def6d948285d8b21284b503a27867f01a",
+      "spec_digest": "7340b5a39e7a05591f68279a32b5c090ae9611a51c8851fa8c36b7b6326f2c18",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "NOT_RUN"
+      "model_trial_status": "TARGET_TRIAL_COMPLETE"
     },
     {
       "task_id": "eb006-signal-noise-004",
@@ -90,11 +90,11 @@
       "status": "ready_for_calibration",
       "band": "advanced",
       "adjusted_score": 3.54,
-      "spec_digest": "bae7f1083d5fd7a5f2a114115c936d86f2fd4791ad06f26be9c2f2225985cafb",
+      "spec_digest": "02d0f915a0c32ba3ba4d6631947f43e612f5e528ed9ebeb92e1b85e36811ea91",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "NOT_RUN"
+      "model_trial_status": "TARGET_TRIAL_COMPLETE"
     },
     {
       "task_id": "eb009-diversity-coverage-004",
@@ -110,17 +110,30 @@
       "model_trial_status": "BLOCKED"
     },
     {
+      "task_id": "eb010-measurement-value-004",
+      "config": "candidate_pools/enterprise-v1/contracts/eb010-measurement-value-004.toml",
+      "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb010-measurement-value-004/task_manifest.json",
+      "status": "ready_for_calibration",
+      "band": "advanced",
+      "adjusted_score": 3.283,
+      "spec_digest": "ef49ff8081c580d48626d4375023821402587857fbf21257eea68623894e4213",
+      "data_status": "synthetic_fixture",
+      "verifier_status": "authored",
+      "control_calibration_status": "CALIBRATED",
+      "model_trial_status": "BASELINES_COMPLETE"
+    },
+    {
       "task_id": "eb010-next-batch-001",
       "config": "candidate_pools/enterprise-v1/contracts/eb010-next-batch-001.toml",
       "compiled_manifest": "candidate_pools/enterprise-v1/contracts/compiled/eb010-next-batch-001/task_manifest.json",
       "status": "ready_for_calibration",
       "band": "advanced",
       "adjusted_score": 3.44,
-      "spec_digest": "a2a11c9e843145ddcbc5700ac153c3915157d8c5c9fdf5ac046fc75180aa4b45",
+      "spec_digest": "5c3a2603b0666f5045061f3cfc609498b95946773216546dab3d72e79bf89ae9",
       "data_status": "synthetic_fixture",
       "verifier_status": "authored",
       "control_calibration_status": "CALIBRATED",
-      "model_trial_status": "NOT_RUN"
+      "model_trial_status": "TARGET_TRIAL_COMPLETE"
     }
   ]
 }

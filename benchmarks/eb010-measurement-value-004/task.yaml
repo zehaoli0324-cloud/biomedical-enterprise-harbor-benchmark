@@ -1,0 +1,20 @@
+id: eb010-measurement-value-004
+version: "0.1.0"
+status: ready_for_calibration
+title: "Decision-critical measurement prioritization"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: CSV and JSON
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: measurement_priority, path: outputs/measurement_priority.tsv, required_fields: [measurement_id, candidate_id, eligible, exclusion_reason, raw_information_gain, redundancy_penalty, net_information_value, rank]}
+  - {id: information_value_audit, path: outputs/information_value_audit.json, required_fields: [selected_measurement_id, eligible_count, max_cost, rules_version, formula_id, input_sha256, claim_boundary]}
+  - {id: approval_request, path: outputs/approval_request.md, required_fields: [selected_measurement, uncertainty_addressed, feasibility_and_leakage_review, human_review, claim_boundary]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

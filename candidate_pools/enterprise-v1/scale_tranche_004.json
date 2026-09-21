@@ -1,0 +1,41 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-004",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "BLOCKED_TARGET_MODEL_RUNNER_LIFECYCLE",
+  "selection_policy": {
+    "candidate_count": 1,
+    "coverage": "complete the fourth semantic candidate mined from legacy seeds",
+    "runnable_release_requires": [
+      "enterprise_value_review",
+      "independent_truth_route",
+      "control_calibration",
+      "independent_contract_audit",
+      "model_trial",
+      "fixed_container_replay"
+    ]
+  },
+  "recommended_candidates": [
+    {
+      "candidate_id": "eb010-measurement-value-004",
+      "brief": "enterprise-v1/question_briefs/eb010-measurement-value-004.json",
+      "workflow_family": "closed_loop_experimental_design",
+      "why_now": "adds measurement-request prioritization before batching, distinct from batch choice, stop rules, and policy replay",
+      "status": "CONTRACT_AUDITED_CONTROLS_BASELINES_COMPLETE_TARGET_OUTPUT_VERIFIED_RUNNER_BLOCKED",
+      "trial_history": [
+        {
+          "trial_id": "eb010-measurement-target-001",
+          "model": "gpt-5.6-sol",
+          "classification": "agent_completed_verifier_passed",
+          "runner_status": "timeout",
+          "attribution": "runner_lifecycle_timeout_after_complete_artifact_generation"
+        }
+      ]
+    }
+  ],
+  "shared_release_blockers": [
+    "repair runner process lifecycle and replay the same contract in a fixed container",
+    "independent practitioner review",
+    "license/privacy/claim-boundary review"
+  ]
+}

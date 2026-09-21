@@ -46,6 +46,18 @@ def test_pretrial_pass_does_not_require_target_model(tmp_path):
     assert result["release_blockers"] == ["target_model_not_run"]
 
 
+def test_multiline_required_outputs_are_detected(tmp_path):
+    package = tmp_path / "enterprise-task-001"
+    make_package(package)
+    (package / "task.yaml").write_text(
+        f"id: {package.name}\nrequired_outputs:\n  - id: result\n    path: outputs/result.json\n    required_fields: [status]\nhidden_truth:\n  status: verifier_only\n",
+        encoding="utf-8",
+    )
+    result = module.evaluate(package)
+    assert result["status"] == "PASS"
+    assert result["blockers"] == []
+
+
 def test_infrastructure_failure_is_not_difficulty_evidence(tmp_path):
     package = tmp_path / "enterprise-task-001"
     make_package(package, target_status="TIMEOUT_INFRASTRUCTURE")

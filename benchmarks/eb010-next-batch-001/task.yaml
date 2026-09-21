@@ -1,50 +1,21 @@
 id: eb010-next-batch-001
-version: "0.1.0"
-status: contract_only
+version: "0.2.0"
+status: ready_for_calibration
 title: "Next-batch experimental design under feasibility and budget constraints"
 domain: biomedical_enterprise
-stage: closed_loop_experimental_optimization
-scenario_ids: [EB010]
-scenario_card: scenario-card.yaml
-scientific_decision:
-  question: Which next batch is legal under the search space, material budget, and feasibility constraints, and what evidence supports selecting it?
-  target_claim_boundary: an invalid or proxy-gamed batch wastes scarce experimental capacity; this contract does not establish an experimental, clinical, or commercial conclusion.
-  consequence_of_error: an invalid or proxy-gamed batch wastes scarce experimental capacity
 agent_visible_inputs:
   - path: data/
-    format: task-specific bundle
-    contract: pending frozen public or synthetic fixture
+    format: CSV and JSON
 constraints:
-  network: "off"
-  compute:
-    cpu_seconds: 120
-    memory_mb: 1024
+  network: off
   provenance:
     record_input_checksum: true
-    record_tool_version: true
     deterministic_output: true
-  safety:
-    scope: contract-only enterprise workflow analysis
-    prohibited: do not overstate computational evidence or use the task as clinical, efficacy, safety, or wet-lab authorization
 required_outputs:
-  - id: next_batch
-    path: outputs/next_batch.csv
-    required_fields: [schema_version]
-  - id: constraint_check
-    path: outputs/constraint_check.json
-    required_fields: [schema_version]
-  - id: uncertainty_table
-    path: outputs/uncertainty_table.tsv
-    required_fields: [schema_version]
-  - id: selection_rationale
-    path: outputs/selection_rationale.md
-    required_fields: [schema_version]
+  - {id: next_batch, path: outputs/next_batch.csv, required_fields: [candidate_id, group, material_cost, predicted_gain, uncertainty, failure_probability, candidate_utility]}
+  - {id: constraint_check, path: outputs/constraint_check.json, required_fields: [legal, material_cost, group_coverage, candidate_utility_sum, correlation_penalty, batch_utility, rules_version]}
+  - {id: uncertainty_table, path: outputs/uncertainty_table.tsv, required_fields: [candidate_id, uncertainty, selected]}
+  - {id: selection_rationale, path: outputs/selection_rationale.md, required_fields: [exploration, exploitation, failure_risk, redundancy, feasibility, planning_boundary]}
 hidden_truth:
-  status: not_authored
-  policy: verifier-only when materialized
-provenance:
-  source_benchmark: EB010
-  data_status: source workflow observed; task fixture pending
-quality_cards:
-  candidate_set: candidate_pools/enterprise-v1/EB010-baybe-constrained-experimental-design-candidate-set.json
-  question_brief: candidate_pools/enterprise-v1/question_briefs/eb010-next-batch-001.json
+  path: verifier_only/reference.json
+  status: verifier_only

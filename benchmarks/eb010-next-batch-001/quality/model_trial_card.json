@@ -1,0 +1,71 @@
+{
+  "model_trial_card_id": "TRIAL-EB010-NEXT-BATCH-001-001",
+  "task_id": "eb010-next-batch-001",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "fixed_config": {
+    "task_digest": null,
+    "input_hashes": [{"path": "data/candidates.csv", "sha256": "94c083e6a4d6f6a1e6bb74573321f6a08f4348925928051994e5888830b3cfce"}, {"path": "data/constraints.json", "sha256": "ecf4ecd5db40e53612266655cbdeec397127aa6d1166159f6a591d3ee0dd8124"}, {"path": "data/pairwise_correlation.csv", "sha256": "14509bbb0314b485d2819931dacd1f8b4ca8538878f4f2f7ff06c372500f04f6"}, {"path": "instruction.md", "sha256": "8ae38f738051766cebfadd843422e2d1597022153c73abe09e441dad1fabf358"}],
+    "model_version": "gpt-5.6-sol",
+    "tool_policy": "no task network tools; provider transport required",
+    "network_policy": "off_requested",
+    "network_enforcement": "caller_or_container_required",
+    "isolation_mode": "process_cwd_only",
+    "budget": {
+      "wall_timeout_seconds": 900
+    },
+    "repeat_count": 1
+  },
+  "training_value_evidence": {
+    "signal_quality": "SINGLE_TRIAL_PASS",
+    "error_localization": "BASELINES_COMPLETE",
+    "generalization": "NOT_RUN",
+    "use_recommendation": "EVAL_ONLY_UNTIL_CALIBRATED"
+  },
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "scientific_judgment"
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "delivery_failure"
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "shortcut_or_calculation"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "task_version": "0.2.0",
+      "trial_id": "trial-gpt56-sol-v02-001",
+      "status": "pass",
+      "failure_attribution": null
+    }
+  ],
+  "target_model_status": "PASS",
+  "status": "BASELINES_COMPLETE"
+}

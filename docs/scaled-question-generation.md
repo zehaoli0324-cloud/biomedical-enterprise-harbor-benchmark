@@ -2,7 +2,15 @@
 
 ## Capacity and batching
 
-The authoring pipeline can generate 3-5 distinct candidate decisions per source workflow. With the current registry of 12 enterprise benchmarks, the first matrix contains 36 candidates. This is a candidate-generation capacity, not a promise that 36 runnable tasks are ready for release.
+The authoring pipeline can generate 3-5 distinct candidate decisions per source workflow. With the current registry of 12 enterprise benchmarks, the matrix contains 40 candidates after two rounds of mining existing seeds for four new semantic decisions. This is a candidate-generation capacity, not a promise that 40 runnable tasks are ready for release.
+
+The seed-mining audit is recorded in [`candidate_pools/enterprise-v1/seed_mining_report.json`](../candidate_pools/enterprise-v1/seed_mining_report.json). It found semantic decisions in existing `SRC-RECURSION-RXRX`, `SRC-GENENTECH-COMPBIO`, `SRC-AZ-REINVENT`, and `SRC-MERCK-BAYBE` evidence, so no seed-file update was required.
+
+The selected second tranche is [`candidate_pools/enterprise-v1/scale_tranche_002.json`](../candidate_pools/enterprise-v1/scale_tranche_002.json). Its two materialized tasks can be recalibrated with:
+
+```bash
+python3 scripts/run_mined_candidate_controls.py
+```
 
 For review and implementation, use tranches of 4-8 candidates. A tranche should cover different workflow families and should not contain multiple surface variants of one decision. The first tranche is recorded in [`candidate_pools/enterprise-v1/scale_tranche_001.json`](../candidate_pools/enterprise-v1/scale_tranche_001.json).
 

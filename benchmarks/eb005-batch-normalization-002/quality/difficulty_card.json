@@ -1,0 +1,18 @@
+{
+  "difficulty_card_id": "DIFF-EB005-BATCH-NORMALIZATION-002-001",
+  "task_id": "eb005-batch-normalization-002",
+  "difficulty_hypothesis": {
+    "reasoning_chain": ["identify batch as a nuisance factor and controls as the adjustment anchor", "compare raw and control-adjusted batch means", "check treatment-control direction within each batch", "recommend a descriptive normalization while withholding mechanism claims"],
+    "competing_choices": ["raw vs control-adjusted profile", "preserve phenotype vs over-correct", "proceed with descriptive normalization vs hold for more controls"],
+    "stateful_dependencies": ["normalization choice depends on control availability", "mechanism claim remains prohibited even when batch gap decreases"],
+    "uncertainty_sources": ["one control/treatment pair per batch", "no inferential uncertainty estimate", "correction may depend on control layout"],
+    "target_failure_mechanism": "optimizes the batch-gap metric while erasing phenotype or overstates descriptive correction as mechanism evidence",
+    "scientific_difficulty_level": "advanced",
+    "difficulty_boundary": "The fixture now tests identifiability across batches, replicates and competing corrections, including an attractive over-corrected branch; it still does not test raw-image representation learning."
+  },
+  "matched_modules": {"primary": ["judgment_batch_identifiability", "math_hierarchical_batch_sensitivity", "complexity_replicates_and_batches"], "supporting": ["judgment_experimental_unit", "judgment_causal_boundary", "scenario_omics_analysis", "judgment_uncertainty_and_stop_rules", "compute_multistage_analysis", "noise_metadata_conflict", "data_text_and_metadata", "math_model_selection_and_sensitivity"]},
+  "shortcut_probes": ["always choose the adjusted column", "choose the profile with the smallest batch gap without checking phenotype direction", "treat correction as mechanism confirmation", "average all plates without preserving batch and control structure"],
+  "baseline_matrix": [{"strategy": "reference_solution", "expected_status": "PASS"}, {"strategy": "simple_legal_baseline", "expected_status": "FAIL_SCIENTIFIC_JUDGMENT"}, {"strategy": "always_abstain", "expected_status": "FAIL_DELIVERY"}, {"strategy": "template_or_keyword", "expected_status": "FAIL_SHORTCUT"}, {"strategy": "target_model", "expected_status": "PASS_SINGLE_TRIAL"}],
+  "calibration_interpretation": "Task v0.2.0 adds replicate-aware identifiability and an attractive phenotype-erasing correction. GPT-5.6 Sol passed one trial, so the scientific judgment is activated but target-model discrimination is not established; repeated trials and expert review remain required.",
+  "status": "REVIEW_REQUIRED"
+}

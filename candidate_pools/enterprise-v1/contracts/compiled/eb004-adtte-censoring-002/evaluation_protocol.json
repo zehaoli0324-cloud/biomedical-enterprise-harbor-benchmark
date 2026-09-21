@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb004-adtte-censoring-002",
-  "spec_digest": "073035dccb10a606e01c47c1c3a37a2ad89e482020fef175bdc144602916f1ff",
+  "spec_digest": "c0e309e06f2ac6f85739a7b50365cbb9cd141054f174c4ab1846a224374e7212",
   "evaluation": {
     "scale": {
       "min": 0.0,

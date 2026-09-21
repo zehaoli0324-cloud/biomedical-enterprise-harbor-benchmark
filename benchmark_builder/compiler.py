@@ -21,6 +21,7 @@ def spec_digest(spec: BenchmarkSpec) -> str:
         "constraints": spec.constraints,
         "evaluation": spec.evaluation.to_dict(),
         "scenario_card": spec.scenario_card.to_dict() if spec.scenario_card else None,
+        "evidence": spec.evidence,
     }
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
@@ -43,6 +44,7 @@ def compile_spec(spec: BenchmarkSpec, report: DifficultyReport, output: str | Pa
         "spec_digest": spec_digest(spec),
         "evaluation": spec.evaluation.to_dict(),
         "scenario_card": spec.scenario_card.to_dict() if spec.scenario_card else None,
+        "evidence": spec.evidence,
         "status": "compiled_contract",
     }
     manifest_path = output_path / "task_manifest.json"

@@ -1,0 +1,9 @@
+{
+  "accepted_routes": ["R-A"],
+  "rejected_routes": {
+    "R-B": ["stock"],
+    "R-C": ["precedent_scope", "chemoselectivity", "protection_strategy"],
+    "R-D": ["stereochemistry"]
+  },
+  "rules_version": "route-stock-v2"
+}

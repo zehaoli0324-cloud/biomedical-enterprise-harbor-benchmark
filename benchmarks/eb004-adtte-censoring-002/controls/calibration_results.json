@@ -1,0 +1,60 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "status": "CALIBRATED",
+  "tasks": [
+    {
+      "task_id": "eb004-adtte-censoring-002",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-edge-case-fixture",
+          "kind": "positive",
+          "passed": true,
+          "observed": {
+            "edge_cases": [
+              "competing_events",
+              "missing_followup",
+              "partial_date",
+              "post_cutoff_event"
+            ],
+            "review_count": 2,
+            "decision": "hold_for_review"
+          },
+          "expected": "preserve valid derivations and route ambiguous subjects to review"
+        },
+        {
+          "control_id": "negative-clean-events",
+          "kind": "negative",
+          "passed": true,
+          "observed": {
+            "review_count": 0,
+            "edge_cases": [
+              {
+                "id": "SUBJ-202",
+                "type": "competing_events"
+              }
+            ]
+          },
+          "expected": "remove review-only outcomes when all required evidence is exact and present"
+        },
+        {
+          "control_id": "invariance-row-reorder",
+          "kind": "invariance",
+          "passed": true,
+          "observed": "semantic result unchanged",
+          "expected": "preserve endpoint rows, trace decisions, summary and edge-case classes"
+        },
+        {
+          "control_id": "insufficient-follow-up",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "observed": {
+            "review_count": 3,
+            "decision": "hold_for_review"
+          },
+          "expected": "removing the only censoring follow-up increases bounded review rather than inventing ADT"
+        }
+      ]
+    }
+  ]
+}

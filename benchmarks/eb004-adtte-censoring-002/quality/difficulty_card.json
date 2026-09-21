@@ -1,0 +1,8 @@
+{
+  "difficulty_card_id": "DIFF-EB004-ADTTE-002",
+  "task_id": "eb004-adtte-censoring-002",
+  "difficulty_hypothesis": {"reasoning_chain": ["inspect date precision and cutoff", "apply event precedence", "separate censoring from event", "trace source records", "hold unsupported rows"], "competing_choices": ["death versus progression", "event versus censoring", "derive versus review"], "stateful_dependencies": ["cutoff changes event eligibility", "partial-date policy changes handoff"], "uncertainty_sources": ["partial dates", "missing follow-up", "synthetic versus sponsor claim boundary"], "target_failure_mechanism": "a fluent report treats all parseable date strings as exact events"},
+  "shortcut_probes": ["date arithmetic without rule inspection", "always derive", "always abstain", "public-answer copying"],
+  "baseline_matrix": [{"strategy": "reference_solution", "expected_status": "NOT_RUN"}, {"strategy": "simple_legal_baseline", "expected_status": "NOT_RUN"}, {"strategy": "always_abstain", "expected_status": "NOT_RUN"}, {"strategy": "template_or_keyword", "expected_status": "NOT_RUN"}, {"strategy": "target_model", "expected_status": "NOT_RUN"}],
+  "status": "REVIEW_REQUIRED"
+}

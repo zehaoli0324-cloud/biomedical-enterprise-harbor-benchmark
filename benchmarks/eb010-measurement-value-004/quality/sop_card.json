@@ -1,0 +1,16 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb010-measurement-value-004",
+  "sop_version": "enterprise-harbor-sop-v1.1",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "AUDITED",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BASELINES_COMPLETE",
+  "target_model_failure_policy": "infrastructure_failures_are_not_difficulty_evidence",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "source/license/privacy review",
+    "target-model runner lifecycle repair and fixed-container replay"
+  ]
+}

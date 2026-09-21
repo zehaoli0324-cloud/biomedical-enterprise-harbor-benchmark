@@ -1,0 +1,34 @@
+{
+  "control_plan_id": "CONTROL-EB010-NEXT-BATCH-001-001",
+  "task_id": "eb010-next-batch-001",
+  "controls": [
+    {
+      "control_id": "positive-risk-adjusted-optimum",
+      "kind": "positive",
+      "expected": "select the maximum risk-adjusted, redundancy-penalized feasible batch"
+    },
+    {
+      "control_id": "negative-budget-overflow",
+      "kind": "negative",
+      "expected": "reject batches over the material budget"
+    },
+    {
+      "control_id": "invariance-candidate-order",
+      "kind": "invariance",
+      "expected": "candidate order does not change the optimum"
+    },
+    {
+      "control_id": "insufficient-uncertainty",
+      "kind": "insufficient_evidence",
+      "expected": "hold when uncertainty is absent"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "release_blockers": [
+    "independent practitioner review",
+    "repeated target-model trials",
+    "license/privacy signoff"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

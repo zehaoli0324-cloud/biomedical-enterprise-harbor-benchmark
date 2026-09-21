@@ -1,0 +1,11 @@
+{
+  "candidate_set_id": "CSET-EB004-ADTTE-002",
+  "source_benchmark_id": "EB004",
+  "candidates": [
+    {"candidate_id": "eb004-adsl-population-001", "decision": "derive subject population flags", "unit": "subject", "handoff": "SDTM->ADSL", "semantic_axes": ["business_decision", "split_and_unit", "failure_mode"]},
+    {"candidate_id": "eb004-adtte-censoring-002", "decision": "derive event and censoring dates", "unit": "subject-parameter-event record", "handoff": "ADSL->ADTTE->table_or_analysis", "semantic_axes": ["scientific_decision", "evaluation_contract", "claim_boundary"]},
+    {"candidate_id": "eb004-rule-mutation-003", "decision": "audit rule conformance under mutations", "unit": "subject-rule assertion", "handoff": "derivation_code->review_record", "semantic_axes": ["failure_mode", "evaluation_contract", "tool_and_trace_reliability"]}
+  ],
+  "selection_gate": {"minimum_candidates": 3, "maximum_candidates": 5, "require_two_semantic_differences": true, "require_independent_review": true, "require_positive_negative_invariance_controls": true},
+  "status": "REVIEW_REQUIRED"
+}

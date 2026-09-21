@@ -58,3 +58,5 @@ provenance:
 quality_cards:
   candidate_set: candidate_pools/enterprise-v1/EB004-pharmaverse-admiral-derivation-workflows-candidate-set.json
   question_brief: candidate_pools/enterprise-v1/question_briefs/eb004-adtte-censoring-002.json
+  task_quality_dir: benchmarks/eb004-adtte-censoring-002/quality
+  control_results: benchmarks/eb004-adtte-censoring-002/controls/calibration_results.json

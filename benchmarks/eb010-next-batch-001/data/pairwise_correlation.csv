@@ -1,0 +1,4 @@
+candidate_a,candidate_b,correlation
+C-1,C-3,0.90
+C-2,C-4,0.85
+C-5,C-6,0.80

@@ -1,0 +1,45 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "status": "CALIBRATED",
+  "tasks": [
+    {
+      "task_id": "eb003-failure-recovery-003",
+      "status": "CALIBRATED",
+      "controls": [
+        {
+          "control_id": "positive-equivalent-fallback",
+          "kind": "positive",
+          "passed": true,
+          "observed": {
+            "selected": "fallback_safe",
+            "drifted": [
+              "fallback_drifted"
+            ]
+          },
+          "expected": "select only the claim-preserving fallback and reject the successful drifted branch"
+        },
+        {
+          "control_id": "negative-scientific-question-drift",
+          "kind": "negative",
+          "passed": true,
+          "observed": null,
+          "expected": "no fallback is selectable after reference drift"
+        },
+        {
+          "control_id": "invariance-branch-order",
+          "kind": "invariance",
+          "passed": true,
+          "observed": "branch decisions unchanged",
+          "expected": "row order does not change recovery semantics"
+        },
+        {
+          "control_id": "insufficient-fallback-evidence",
+          "kind": "insufficient_evidence",
+          "passed": true,
+          "observed": null,
+          "expected": "abstain when fallback evidence is absent"
+        }
+      ]
+    }
+  ]
+}

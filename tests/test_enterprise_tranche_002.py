@@ -57,6 +57,38 @@ def test_eb008_reference_shape_passes(tmp_path):
     assert ok, errors
 
 
+def test_eb008_documented_equivalent_route_fields_pass(tmp_path):
+    verifier, root = load("eb008-stock-route-001")
+    exp = verifier.expected(root / "data")
+    gate_text = {
+        "R-A": "none",
+        "R-B": "stock availability (M-9 unavailable)",
+        "R-C": "precedent scope; chemoselectivity; protection strategy",
+        "R-D": "stereochemistry unresolved",
+    }
+    validity = {row["route_id"]: "valid under supplied rules" if row["reaction_valid"] else "invalid under supplied rules" for row in exp["routes"]}
+    (tmp_path / "route_table.tsv").write_text(
+        "route_id\tstock_evidence\tderived_reaction_validity\tfailed_gates\taccepted\n"
+        + "\n".join(
+            f"{row['route_id']}\tstock recorded\t{validity[row['route_id']]}\t{gate_text[row['route_id']]}\t{str(row['accepted']).lower()}"
+            for row in exp["routes"]
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    routes = [
+        {"route_id": row["route_id"], "stock_available": row["stock_ok"], "accepted": row["accepted"]}
+        for row in exp["routes"]
+    ]
+    (tmp_path / "stock_compliance.json").write_text(json.dumps({"selected_route_ids": exp["accepted_routes"], "routes": routes}), encoding="utf-8")
+    evidence = json.loads((root / "data/reaction_evidence.json").read_text())
+    fields = list(evidence[0])
+    (tmp_path / "route_evidence.tsv").write_text("\t".join(fields) + "\n" + "\n".join("\t".join(str(row[field]).lower() for field in fields) for row in evidence) + "\n", encoding="utf-8")
+    (tmp_path / "approval_gate.md").write_text("Human chemist review of precedent and stereochemistry is required; computational selection is not experimental proof.\n", encoding="utf-8")
+    ok, errors = verifier.verify(tmp_path, root / "data", root / "verifier_only/reference.json")
+    assert ok, errors
+
+
 def test_eb010_reference_shape_passes(tmp_path):
     verifier, root = load("eb010-next-batch-001")
     exp = verifier.expected(root / "data")
@@ -90,4 +122,6 @@ def test_scientific_difficulty_modules_match_compiled_contracts():
         selected_modules = {module for values in contract["modules"].values() for module in values}
         assert set(card["matched_modules"]["primary"]) <= selected_modules
         assert records[task_id]["band"] == band
+        assert records[task_id]["control_calibration_status"] == "CALIBRATED"
+        assert records[task_id]["model_trial_status"] == "TARGET_TRIAL_COMPLETE"
         assert card["difficulty_hypothesis"]["difficulty_boundary"]

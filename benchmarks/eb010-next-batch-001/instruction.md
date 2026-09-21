@@ -1,18 +1,5 @@
-# Contract-only task: Next-batch experimental design under feasibility and budget constraints
+# Next-batch experimental design
 
-You are acting as a experimental_design_scientist in the closed_loop_experimental_optimization workflow. The enterprise decision is:
+Select the feasible batch with maximum risk-adjusted acquisition utility. Candidate utility is `predicted_gain + exploration_weight * uncertainty - failure_penalty * failure_probability`. Batch utility is the sum of candidate utilities minus `correlation_penalty * abs(correlation)` for every selected pair listed in `pairwise_correlation.csv`; unlisted pairs have correlation zero. Enforce material budget, batch size and required group coverage. Break utility ties lexicographically by candidate IDs. This is a planning recommendation, not an experimental result.
 
-> Which next batch is legal under the search space, material budget, and feasibility constraints, and what evidence supports selecting it?
-
-The task must preserve the independent unit (`candidate experiment and batch`), record the handoff, and stop or request review when the evidence is insufficient. It must not turn a computational result into a clinical, efficacy, safety, synthesizability, or causal claim.
-
-This package is currently `contract_only`. The final agent-visible data bundle, hidden oracle, verifier, and resource-pinned environment are not yet attached. When materialized, the agent must record input checksums, versions, parameters, failures, and deterministic rerun information.
-
-Required artifact contract:
-
-- `outputs/next_batch.csv`
-- `outputs/constraint_check.json`
-- `outputs/uncertainty_table.tsv`
-- `outputs/selection_rationale.md`
-
-Release blockers are listed in the linked enterprise quality cards and must remain explicit until independently tested.
+Required outputs: `outputs/next_batch.csv` with candidate_id/group/material_cost/predicted_gain/uncertainty/failure_probability/candidate_utility; `outputs/constraint_check.json` with legal, material_cost, group coverage, candidate utility sum, correlation penalty, batch utility and rules_version; `outputs/uncertainty_table.tsv` covering every candidate and whether selected; and `outputs/selection_rationale.md` explaining exploration/exploitation, failure risk, redundancy, feasibility and the planning boundary. The verifier derives the optimum from the declared objective; do not assume a hidden reference batch.

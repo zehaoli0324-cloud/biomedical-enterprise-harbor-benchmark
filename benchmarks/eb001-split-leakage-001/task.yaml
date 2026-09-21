@@ -1,6 +1,6 @@
 id: eb001-split-leakage-001
 version: "0.1.0"
-status: contract_only
+status: ready_for_calibration
 title: "Molecular identity and scaffold leakage audit before ADME model comparison"
 domain: biomedical_enterprise
 stage: discovery_and_lead_optimization
@@ -12,8 +12,8 @@ scientific_decision:
   consequence_of_error: leakage inflates benchmark performance and misdirects compound selection
 agent_visible_inputs:
   - path: data/
-    format: task-specific bundle
-    contract: pending frozen public or synthetic fixture
+    format: CSV and JSON bundle
+    contract: frozen synthetic calibration fixture; not sponsor data
 constraints:
   network: "off"
   compute:
@@ -40,11 +40,14 @@ required_outputs:
     path: outputs/run_manifest.json
     required_fields: [schema_version]
 hidden_truth:
-  status: not_authored
-  policy: verifier-only when materialized
+  path: verifier_only/reference.json
+  status: verifier_only
+  policy: do not mount into the agent-visible workspace
 provenance:
   source_benchmark: EB001
-  data_status: source workflow observed; task fixture pending
+  data_status: synthetic frozen fixture for contract calibration; not sponsor or patient data
 quality_cards:
   candidate_set: candidate_pools/enterprise-v1/EB001-biogen-adme-fang-v1-candidate-set.json
   question_brief: candidate_pools/enterprise-v1/question_briefs/eb001-split-leakage-001.json
+  task_quality_dir: benchmarks/eb001-split-leakage-001/quality
+  control_results: benchmarks/eb001-split-leakage-001/controls/calibration_results.json

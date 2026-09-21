@@ -1,0 +1,35 @@
+[
+  {
+    "branch": "primary",
+    "status": "failed",
+    "question_id": "Q-RECOVERY-01",
+    "parameters": {
+      "reference": "gene-set-v2",
+      "version": "2.1.0",
+      "timeout_seconds": 15
+    },
+    "partial_output": true
+  },
+  {
+    "branch": "fallback_safe",
+    "status": "success",
+    "question_id": "Q-RECOVERY-01",
+    "parameters": {
+      "reference": "gene-set-v2",
+      "version": "2.1.0",
+      "timeout_seconds": 60
+    },
+    "partial_output": false
+  },
+  {
+    "branch": "fallback_drifted",
+    "status": "success",
+    "question_id": "Q-RECOVERY-01",
+    "parameters": {
+      "reference": "gene-set-v3",
+      "version": "3.0.0",
+      "timeout_seconds": 60
+    },
+    "partial_output": false
+  }
+]

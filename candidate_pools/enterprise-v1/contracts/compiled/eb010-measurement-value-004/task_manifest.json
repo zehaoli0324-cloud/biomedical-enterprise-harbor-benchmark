@@ -1,0 +1,364 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb010-measurement-value-004",
+    "title": "Decision-critical measurement prioritization",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "EB010"
+    ],
+    "data_types": [
+      "csv",
+      "json",
+      "markdown",
+      "tsv"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb010-measurement-value-004",
+    "raw_score": 3.083,
+    "adjusted_score": 3.283,
+    "band": "advanced",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The task chooses one additional measurement before the next experimental batch.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Eligibility, uncertainty reduction, redundancy, cost, and evidence visibility must be reconciled.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "computational_difficulty": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The agent computes and ranks information value for all options under explicit constraints.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "tool_call_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The challenge is disciplined evidence reconciliation rather than tool breadth.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "retrieval_complexity": {
+        "level": 1,
+        "weight": 1.0,
+        "rationale": "All evidence is contained in the frozen offline bundle.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "information_noise_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "High apparent gains include correlated, infeasible, observed, and future-leaking distractors.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "data_type_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "CSV options and JSON rules feed TSV, JSON, and Markdown deliverables.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "data_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Several candidate states and measurement constraints must be evaluated jointly.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "environment_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The environment is offline and deterministic.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "mathematical_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The score combines uncertainty, sensitivity, variance reduction, correlation, and cost.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "long_horizon_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The artifact hands an optimization state into a reviewed measurement request before batching.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "A planning score must not be represented as evidence of experimental improvement.",
+        "tags": [
+          "experimental-design",
+          "information-value",
+          "measurement"
+        ]
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence"
+    ],
+    "selected_modules": {
+      "scenario": [
+        {
+          "id": "scenario_reproducibility_audit",
+          "params": {}
+        }
+      ],
+      "judgment": [
+        {
+          "id": "judgment_uncertainty_and_stop_rules",
+          "params": {}
+        },
+        {
+          "id": "judgment_causal_boundary",
+          "params": {}
+        }
+      ],
+      "compute": [
+        {
+          "id": "compute_multistage_analysis",
+          "params": {}
+        }
+      ],
+      "tooling": [
+        {
+          "id": "tool_branching_pipeline",
+          "params": {}
+        }
+      ],
+      "noise": [
+        {
+          "id": "noise_metadata_conflict",
+          "params": {}
+        }
+      ],
+      "data": [
+        {
+          "id": "data_multimodal_join",
+          "params": {}
+        }
+      ],
+      "data_complexity": [
+        {
+          "id": "complexity_sparse_or_missing",
+          "params": {}
+        }
+      ],
+      "environment": [
+        {
+          "id": "environment_pinned_container",
+          "params": {}
+        }
+      ],
+      "math": [
+        {
+          "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        }
+      ],
+      "horizon": [
+        {
+          "id": "horizon_checkpointed_workflow",
+          "params": {}
+        }
+      ],
+      "safety": [
+        {
+          "id": "safety_human_approval_gate",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "csv",
+      "json",
+      "markdown",
+      "tsv"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 60,
+    "memory_mb": 512,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "ef49ff8081c580d48626d4375023821402587857fbf21257eea68623894e4213",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb010-measurement-value-004/scenario-card.yaml",
+    "digest": "6257bf56ba714de05d67435d5bb607e57214ab84abf2cc6c2fd644ea3657407b",
+    "scenario_id": "eb010-measurement-value-004",
+    "status": "ready",
+    "source_scenarios": [
+      "EB010"
+    ],
+    "scientific_judgments": [
+      "information_value_under_correlated_uncertainty",
+      "measurement_feasibility_and_visibility",
+      "bounded_planning_claim"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "pass",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

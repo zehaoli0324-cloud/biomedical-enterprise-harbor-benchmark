@@ -1,0 +1,8 @@
+{
+  "rules_version": "route-stock-v2",
+  "max_steps": 3,
+  "allowed_precedent_scope": ["direct", "close_analogue"],
+  "allowed_risk": ["low", "moderate"],
+  "require_stereochemistry_resolved": true,
+  "require_protection_strategy_resolved": true
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "public_data_literature_registry.v1",
+  "policy": {
+    "scientific_data_must_be_public_or_derived_from_public": true,
+    "synthetic_fixture_allowed_only_for_engineering_tests": true,
+    "untracked_stitching_forbidden": true,
+    "formula_and_method_citation_required": true
+  },
+  "sources": [
+    {"source_id":"SRC-GEO-GSE90546","families":["perturbseq"],"accession":"GSE90546","project_url":"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90546","download_url":"https://ftp.ncbi.nlm.nih.gov/geo/series/GSE90nnn/GSE90546/suppl/GSE90546_RAW.tar","citation_urls":["https://doi.org/10.1126/science.aau5630"]},
+    {"source_id":"SRC-GEO-GSE92742","families":["l1000"],"accession":"GSE92742","project_url":"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742","download_url":"https://clue.io/connectopedia/guide_to_geo_l1000_data","citation_urls":["https://doi.org/10.1016/j.cell.2017.10.049"]},
+    {"source_id":"SRC-NCI-ALMANAC","families":["drug-combination"],"accession":"NCI-ALMANAC","project_url":"https://discover.nci.nih.gov/cellminer/html/drug_almanac_combo_score.html","download_url":"https://discover.nci.nih.gov/cellminer/loadDownload.do","citation_urls":["https://doi.org/10.1158/1535-7163.MCT-16-0852"]},
+    {"source_id":"SRC-DRUGCOMB-ZENODO-18449193","families":["drug-combination"],"accession":"10.5281/zenodo.18449193","project_url":"https://zenodo.org/records/18449193","download_url":"https://zenodo.org/records/18449193","citation_urls":["https://doi.org/10.1093/nar/gkab438"]},
+    {"source_id":"SRC-PRIDE-PXD021673","families":["proteomics","gsea"],"accession":"PXD021673","project_url":"https://www.ebi.ac.uk/pride/archive/projects/PXD021673","download_url":"https://ftp.pride.ebi.ac.uk/pride/data/archive/2021/05/PXD021673","citation_urls":["https://doi.org/10.1371/journal.pone.0240956"]},
+    {"source_id":"SRC-GLYCOPOST-GPST000206","families":["glycan-msms"],"accession":"GPST000206","project_url":"https://glycopost.glycosmos.org/entry/GPST000206","download_url":"https://glycopost.glycosmos.org/entry/GPST000206","citation_urls":["https://doi.org/10.1093/nar/gkaa1012"]},
+    {"source_id":"SRC-MASSIVE-MSV000083727","families":["glycan-msms"],"accession":"MSV000083727","project_url":"https://massive.ucsd.edu/ProteoSAFe/datasets.jsp?task=MSV000083727","download_url":"ftp://massive-ftp.ucsd.edu/MSV000083727/","citation_urls":["https://doi.org/10.1093/nar/gkaa1012"]},
+    {"source_id":"SRC-10X-PBMC3K","families":["ambient-rna"],"accession":"10x-PBMC3k","project_url":"https://www.10xgenomics.com/resources/datasets","download_url":"https://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz","citation_urls":["https://doi.org/10.1038/s41592-023-01943-7"]},
+    {"source_id":"SRC-GEO-GSE171668","families":["ambient-rna","single-cell"],"accession":"GSE171668","project_url":"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE171668","download_url":"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE171668","citation_urls":["https://doi.org/10.1038/s41467-021-25568-8"]}
+  ],
+  "claims": [
+    {"claim_id":"CLM-AMBIENT-001","claim_text":"Droplet single-cell assays contain ambient RNA and require explicit background evidence.","citation_urls":["https://doi.org/10.1093/gigascience/giaa151","https://doi.org/10.1038/s41592-023-01943-7"]},
+    {"claim_id":"CLM-PERTURBSEQ-001","claim_text":"Perturb-seq links pooled CRISPR perturbations to single-cell transcriptomes and can expose genetic interactions.","citation_urls":["https://doi.org/10.1126/science.aau5630"]},
+    {"claim_id":"CLM-L1000-001","claim_text":"Perturbational signatures require cell context, dose, time and replicate metadata.","citation_urls":["https://doi.org/10.1016/j.cell.2017.10.049"]},
+    {"claim_id":"CLM-DRUGCOMB-001","claim_text":"Combination activity must be compared with matched single-agent dose responses.","citation_urls":["https://doi.org/10.1158/1535-7163.MCT-16-0852","https://doi.org/10.1093/nar/gkab438"]},
+    {"claim_id":"CLM-PROTEOMICS-001","claim_text":"The public psoriasis proteomics study reports coordinated protein-metabolism and RNA-processing changes.","citation_urls":["https://doi.org/10.1371/journal.pone.0240956","https://www.ebi.ac.uk/pride/archive/projects/PXD021673"]},
+    {"claim_id":"CLM-GLYCAN-001","claim_text":"MS/MS constrains glycan composition and motifs but does not automatically prove linkage or topology.","citation_urls":["https://doi.org/10.1007/BF01049915","https://doi.org/10.1093/nar/gkaa1012"]}
+  ],
+  "formula_methods": [
+    {"formula_id":"FML-AMBIENT-SUBTRACTION","expression":"x_prime_cg = max(0, x_cg - rho_c * a_g)","citation_urls":["https://doi.org/10.1093/gigascience/giaa151","https://doi.org/10.1038/s41592-023-01943-7"]},
+    {"formula_id":"FML-BH-FDR","expression":"q_i = min_{j>=i}(m/j * p_j)","citation_urls":["https://doi.org/10.1111/j.2517-6161.1995.tb02031.x"]},
+    {"formula_id":"FML-GSEA-ES","expression":"ranked-list enrichment score with permutation-based nominal P and FDR","citation_urls":["https://doi.org/10.1073/pnas.0506580102"]},
+    {"formula_id":"FML-BLISS","expression":"E_Bliss = E_A + E_B - E_A * E_B","citation_urls":["https://doi.org/10.1158/1535-7163.MCT-16-0852"]},
+    {"formula_id":"FML-PERTURB-EPISTASIS","expression":"Delta = y_AB - y_A - y_B + y_ctrl","citation_urls":["https://doi.org/10.1126/science.aau5630"]},
+    {"formula_id":"FML-MS-PPM","expression":"ppm = 1e6 * (m_obs - m_calc) / m_calc","citation_urls":["https://doi.org/10.1007/BF01049915"]},
+    {"formula_id":"MTH-NB-GLM","expression":"K_ij ~ NB(mu_ij, alpha_i)","citation_urls":["https://doi.org/10.1186/s13059-014-0550-8"]}
+  ],
+  "required_fields":["source_id","accession","project_url","download_url","citation_urls","data_files","sha256","transformations","claim_id","formula_id"]
+}

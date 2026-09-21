@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb008-stock-route-001",
-  "spec_digest": "c63432435822b54fe58ffac531e89a1c0eec6ca27b0c0877ed966f850aac8c09",
+  "spec_digest": "02d0f915a0c32ba3ba4d6631947f43e612f5e528ed9ebeb92e1b85e36811ea91",
   "evaluation": {
     "scale": {
       "min": 0.0,

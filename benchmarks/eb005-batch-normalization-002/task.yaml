@@ -1,50 +1,21 @@
 id: eb005-batch-normalization-002
-version: "0.1.0"
-status: contract_only
+version: "0.2.0"
+status: ready_for_calibration
 title: "Cell Painting normalization choice under controlled batch confounding"
 domain: biomedical_enterprise
-stage: high_content_screening
-scenario_ids: [EB005]
-scenario_card: scenario-card.yaml
-scientific_decision:
-  question: Which normalization and replicate aggregation choice removes batch effects without erasing a reproducible phenotype?
-  target_claim_boundary: over-correction erases biology while under-correction creates false hits; this contract does not establish an experimental, clinical, or commercial conclusion.
-  consequence_of_error: over-correction erases biology while under-correction creates false hits
 agent_visible_inputs:
   - path: data/
-    format: task-specific bundle
-    contract: pending frozen public or synthetic fixture
+    format: CSV and JSON
 constraints:
-  network: "off"
-  compute:
-    cpu_seconds: 120
-    memory_mb: 1024
+  network: off
   provenance:
     record_input_checksum: true
-    record_tool_version: true
     deterministic_output: true
-  safety:
-    scope: contract-only enterprise workflow analysis
-    prohibited: do not overstate computational evidence or use the task as clinical, efficacy, safety, or wet-lab authorization
 required_outputs:
-  - id: normalization_comparison
-    path: outputs/normalization_comparison.tsv
-    required_fields: [schema_version]
-  - id: batch_report
-    path: outputs/batch_report.json
-    required_fields: [schema_version]
-  - id: sensitivity_summary
-    path: outputs/sensitivity_summary.md
-    required_fields: [schema_version]
-  - id: run_manifest
-    path: outputs/run_manifest.json
-    required_fields: [schema_version]
+  - {id: normalization_comparison, path: outputs/normalization_comparison.tsv, required_fields: [plate, batch, condition, replicate, raw_signal, control_adjusted, aggressive_adjusted]}
+  - {id: batch_report, path: outputs/batch_report.json, required_fields: [recommended_profile, profiles, control_batch_range, effect_retention_fraction, eligible]}
+  - {id: sensitivity_summary, path: outputs/sensitivity_summary.md, required_fields: [batch_identifiability, control, phenotype_retention, overcorrection, limitation]}
+  - {id: run_manifest, path: outputs/run_manifest.json, required_fields: [inputs, rules_version, deterministic]}
 hidden_truth:
-  status: not_authored
-  policy: verifier-only when materialized
-provenance:
-  source_benchmark: EB005
-  data_status: source workflow observed; task fixture pending
-quality_cards:
-  candidate_set: candidate_pools/enterprise-v1/EB005-jump-cell-painting-datasets-candidate-set.json
-  question_brief: candidate_pools/enterprise-v1/question_briefs/eb005-batch-normalization-002.json
+  path: verifier_only/reference.json
+  status: verifier_only

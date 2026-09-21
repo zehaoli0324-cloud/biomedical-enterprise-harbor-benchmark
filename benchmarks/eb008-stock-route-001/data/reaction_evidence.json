@@ -1,0 +1,10 @@
+[
+  {"route_id": "R-A", "step": 1, "precedent_scope": "direct", "chemoselectivity_risk": "low", "stereochemistry_resolved": true, "protection_strategy_resolved": true},
+  {"route_id": "R-A", "step": 2, "precedent_scope": "close_analogue", "chemoselectivity_risk": "moderate", "stereochemistry_resolved": true, "protection_strategy_resolved": true},
+  {"route_id": "R-B", "step": 1, "precedent_scope": "direct", "chemoselectivity_risk": "low", "stereochemistry_resolved": true, "protection_strategy_resolved": true},
+  {"route_id": "R-B", "step": 2, "precedent_scope": "direct", "chemoselectivity_risk": "low", "stereochemistry_resolved": true, "protection_strategy_resolved": true},
+  {"route_id": "R-C", "step": 1, "precedent_scope": "direct", "chemoselectivity_risk": "low", "stereochemistry_resolved": true, "protection_strategy_resolved": true},
+  {"route_id": "R-C", "step": 2, "precedent_scope": "out_of_scope", "chemoselectivity_risk": "high", "stereochemistry_resolved": true, "protection_strategy_resolved": false},
+  {"route_id": "R-D", "step": 1, "precedent_scope": "direct", "chemoselectivity_risk": "low", "stereochemistry_resolved": true, "protection_strategy_resolved": true},
+  {"route_id": "R-D", "step": 2, "precedent_scope": "close_analogue", "chemoselectivity_risk": "moderate", "stereochemistry_resolved": false, "protection_strategy_resolved": true}
+]

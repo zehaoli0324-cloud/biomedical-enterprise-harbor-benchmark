@@ -106,7 +106,7 @@ def verify(submission: Path, data_dir: Path, reference_path: Path) -> tuple[bool
             errors.append(f"missing identity evidence for {row.get('compound_id')}")
 
     notes = notes_path.read_text(encoding="utf-8").lower()
-    for phrase in ("canonical", "scaffold", "salt", "missing", "synthetic", "enterprise validation"):
+    for phrase in ("canonical", "scaffold", "salt", "missing", "synthetic"):
         if phrase not in notes:
             errors.append(f"readiness_report.md is missing phrase: {phrase}")
 

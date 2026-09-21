@@ -1,5 +1,8 @@
 # 端到端造题管线
 
+企业 benchmark 的来源要求、REQ01-REQ14、企业真实性、卡片链和发布门禁以
+[`enterprise-authoring-pipeline.md`](enterprise-authoring-pipeline.md) 的《企业 Benchmark 出题任务书 V1.0》为强制扩展；本文件的通用阶段不能覆盖企业版门禁。
+
 ## 单一入口
 
 本文件是从 workflow 到可运行 benchmark 的唯一总流程规范。各阶段的 schema 和操作细节分别位于 candidate、evaluation 和 runner 文档；它们不重新定义上游流程。
@@ -8,6 +11,7 @@
 
 ```text
 workflow evidence
+  -> public-data + literature evidence registry
   -> scenario candidate
   -> selected task + difficulty contract
   -> materialized benchmark + verifier
@@ -21,14 +25,15 @@ workflow evidence
 | 难度契约 | 12 个难度维度、模块和计算约束 | 复杂工具链不能替代科学判断 |
 | 模型提交 | 轨迹、中间产物、最终结果和不确定性 | LLM judge 不能替代数值 oracle 和程序 verifier |
 
-## 六阶段状态机
+## 七阶段状态机
 
 1. `mined`：建立来源账本，区分 operation、measurement、scientific decision 和 claim boundary。
-2. `candidate_set`：生成 3-5 个不同科研决策候选，连接 evidence、scenario、judgment、difficulty 和 compute 卡。
-3. `selected`：完成结构校验、独立 LLM 题目评价、hard gates 和 Pareto 选优。
-4. `compiled_contract`：编译获选 TOML，固定 scenario digest、difficulty report 和 evaluation protocol。
-5. `runnable`：物化 agent-visible 数据、隐藏真值、环境和 verifier，并完成 smoke/naive baseline。
-6. `evaluated`：运行真实模型 trial，聚合程序检查与多 judge 评价，随后 freeze、adjudicate、revise 或 rollback。
+2. `evidence_frozen`：登记公开 accession、下载入口、引用 DOI、文件哈希、变换谱系、科学主张和公式/方法；未声明合成或拼接数据阻塞。
+3. `candidate_set`：生成 3-5 个不同科研决策候选，连接 evidence、scenario、judgment、difficulty 和 compute 卡。
+4. `selected`：完成结构校验、独立 LLM 题目评价、hard gates 和 Pareto 选优。
+5. `compiled_contract`：编译获选 TOML，固定 scenario digest、difficulty report、evidence registry digest 和 evaluation protocol。
+6. `runnable`：物化 agent-visible 数据、隐藏真值、环境和 verifier，并完成 smoke/naive baseline。
+7. `evaluated`：运行真实模型 trial，聚合程序检查与多 judge 评价，随后 freeze、adjudicate、revise 或 rollback；进入 Harbor package 前还需完成独立 verifier 和 Oracle/nop。
 
 只有满足当前阶段契约才能进入下一阶段。`contract_only` 不是可发布 benchmark；题目级 judge 的高分也不能跳过数据、环境和 verifier 物化。
 
@@ -64,12 +69,15 @@ workflow evidence
 
 模块分为 `scenario`、`judgment`、`compute`、`tooling`、`retrieval`、`noise`、`data`、`data_complexity`、`environment`、`math`、`horizon` 和 `safety`。目录在 `config/module_catalog.json` 中维护，任务只引用模块 ID，并可通过 `params` 覆盖局部参数。任务还必须在 `[scenario].card` 引用一个场景卡；任务的 `source_scenarios` 必须是场景卡来源 ID 的子集。
 
+科学判断模块必须有执行证据，不能只出现在 TOML。至少要求 fixture 激活该模块、instruction 声明决策规则、verifier 检查中间判断、negative control 能翻转结论、invariance control 保持结论。企业题优先使用 `judgment_claim_preserving_recovery`、`judgment_batch_identifiability`、`judgment_route_feasibility`、`judgment_value_of_information`，并按需配对 `math_hierarchical_batch_sensitivity` 或 `math_batch_acquisition_under_uncertainty`。模块具体物化要求见 `docs/enterprise-authoring-pipeline.md` 的 E6.1。
+
 ## 编译和评分
 
 ```bash
 python3.11 -m benchmark_builder.cli validate <task.toml>
 python3.11 -m benchmark_builder.cli score <task.toml>
 python3.11 -m benchmark_builder.cli compile <task.toml> --out <compiled-dir>
+python3.11 -m benchmark_builder.cli validate-evidence data/public_data_literature_registry.json
 ```
 
 评分先计算带权平均，再对高风险交互加分。例如长流程与工具编排、科学判断与噪声证据、数据复杂度与环境复杂度会产生额外难度。场景卡 digest、状态、科学判断数和 workflow handoff 会进入 spec digest；最终输出包含 spec digest，确保难度变化不能绕过科研语境变化。

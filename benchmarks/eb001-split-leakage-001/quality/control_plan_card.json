@@ -3,12 +3,12 @@
   "task_id": "eb001-split-leakage-001",
   "controls": [
     {"control_id": "positive-both-leakage-levels", "kind": "positive", "input_change": "frozen fixture with canonical and scaffold overlap", "expected_behavior": "report both overlaps and block readiness", "verifier_signal": "canonical_and_scaffold_match", "status": "CALIBRATED"},
-    {"control_id": "negative-clean-split", "kind": "negative", "input_change": "remove cross-split canonical and scaffold overlaps", "expected_behavior": "allow split readiness if other gates pass", "verifier_signal": "no_overlap_and_conditional_proceed", "status": "NOT_RUN"},
-    {"control_id": "invariance-row-reorder", "kind": "invariance", "input_change": "permute input row order", "expected_behavior": "preserve overlaps, counts, and decision", "verifier_signal": "equivalent_result_class", "status": "NOT_RUN"},
-    {"control_id": "insufficient-identity-policy", "kind": "insufficient_evidence", "input_change": "remove canonicalization policy", "expected_behavior": "request identity rule and do not assert readiness", "verifier_signal": "bounded_abstention", "status": "NOT_RUN"}
+    {"control_id": "negative-clean-split", "kind": "negative", "input_change": "remove cross-split canonical and scaffold overlaps", "expected_behavior": "allow split readiness if other gates pass", "verifier_signal": "no_overlap_and_conditional_proceed", "status": "CALIBRATED"},
+    {"control_id": "invariance-row-reorder", "kind": "invariance", "input_change": "permute input row order", "expected_behavior": "preserve overlaps, counts, and decision", "verifier_signal": "equivalent_result_class", "status": "CALIBRATED"},
+    {"control_id": "insufficient-identity-policy", "kind": "insufficient_evidence", "input_change": "remove canonicalization policy", "expected_behavior": "request identity rule and do not assert readiness", "verifier_signal": "bounded_abstention", "status": "CALIBRATED"}
   ],
   "single_factor_policy": true,
-  "calibration_status": "PARTIAL",
-  "release_blockers": ["run clean-split, reorder, and missing-policy controls", "record false-positive and false-negative cases"],
+  "calibration_status": "CALIBRATED",
+  "release_blockers": ["independent practitioner review", "run reference/simple/abstain/template/target-model trials"],
   "status": "REVIEW_REQUIRED"
 }

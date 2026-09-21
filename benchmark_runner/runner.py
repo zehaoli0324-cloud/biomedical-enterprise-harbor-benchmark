@@ -183,9 +183,13 @@ def _run_process(
 
 def _run_verifier(trial: PreparedTrial) -> tuple[str, float | None, int]:
     verifier = trial.task_dir / "verifier.py"
-    reference = trial.task_dir / "verifier_only" / "reference_labels.json"
-    if not verifier.is_file() or not reference.is_file():
-        raise RunnerError("task needs verifier.py and verifier_only/reference_labels.json")
+    reference_candidates = (
+        trial.task_dir / "verifier_only" / "reference_labels.json",
+        trial.task_dir / "verifier_only" / "reference.json",
+    )
+    reference = next((path for path in reference_candidates if path.is_file()), None)
+    if not verifier.is_file() or reference is None:
+        raise RunnerError("task needs verifier.py and verifier_only/reference_labels.json or reference.json")
     command = [
         sys.executable,
         str(verifier),
@@ -211,6 +215,8 @@ def _run_verifier(trial: PreparedTrial) -> tuple[str, float | None, int]:
             "errors": ["verifier did not return a JSON object"],
             "raw_stdout": result.stdout[-2000:],
         }
+    if "status" not in verifier_result and isinstance(verifier_result.get("passed"), bool):
+        verifier_result["status"] = "pass" if verifier_result["passed"] else "fail"
     verifier_result["runner_verifier_exit_code"] = result.returncode
     verifier_result["runner_verifier_seconds"] = elapsed
     write_json(trial.trial_dir / "verifier_result.json", verifier_result)

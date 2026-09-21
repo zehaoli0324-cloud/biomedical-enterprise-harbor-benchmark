@@ -1,0 +1,22 @@
+{
+  "candidate_set_id": "CSET-EB010-MEASUREMENT-VALUE-004-001",
+  "source_benchmark_id": "EB010",
+  "candidates": [
+    {
+      "candidate_id": "eb010-measurement-value-004",
+      "selection_status": "MATERIALIZED",
+      "semantic_axes": [
+        "scientific_decision",
+        "data_visibility",
+        "evidence_reconciliation"
+      ]
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

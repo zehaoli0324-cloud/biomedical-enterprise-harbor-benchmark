@@ -5,7 +5,7 @@
 - Raw score: 2.917/5
 - Adjusted score: 3.117/5
 - Band: advanced
-- Spec digest: `073035dccb10a606e01c47c1c3a37a2ad89e482020fef175bdc144602916f1ff`
+- Spec digest: `c0e309e06f2ac6f85739a7b50365cbb9cd141054f174c4ab1846a224374e7212`
 
 ## Dimensions
 

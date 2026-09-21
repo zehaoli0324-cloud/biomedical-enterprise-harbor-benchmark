@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb003-failure-recovery-003",
-  "spec_digest": "840ca2c1ebffefeed7cd9119296a2369ce46170e958ba0ec4de88c4fc5e08657",
+  "spec_digest": "6a266b175debba24ee42ccf970706cfc13b59dca8fc73af0131af1752ffed422",
   "evaluation": {
     "scale": {
       "min": 0.0,

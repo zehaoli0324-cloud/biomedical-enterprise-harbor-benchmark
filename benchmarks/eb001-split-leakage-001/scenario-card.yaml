@@ -1,5 +1,5 @@
 scenario_id: eb001-split-leakage-001
-status: contract_only
+status: ready
 source_scenarios: [EB001]
 domain: biomedical_enterprise
 stage: discovery_and_lead_optimization
@@ -13,6 +13,19 @@ scientific_judgments:
   - independent_unit_and_handoff
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
+difficulty_modules:
+  - id: judgment_experimental_unit
+    observable: canonical structure, scaffold, salt and missing endpoint rows are reported separately
+    decision_flip: removing the identity policy changes proceed to bounded abstention
+  - id: noise_metadata_conflict
+    observable: split_rules.json and row-level identity notes are reconciled before overlap counts
+    decision_flip: a conflicting salt/stereochemistry rule blocks model comparison
+  - id: math_model_selection_and_sensitivity
+    observable: readiness distinguishes molecule-level and scaffold-level leakage rather than one aggregate score
+    decision_flip: either overlap class independently changes the handoff to block
+  - id: horizon_checkpointed_workflow
+    observable: manifest checksums and identity evidence survive the split-audit handoff
+    decision_flip: missing provenance prevents downstream prediction handoff
 workflow_handoffs:
   - from: measurement_table
     to: curated_split
@@ -31,24 +44,24 @@ failure_injections:
   - id: eb001-split-leakage-001-1
     trigger: same canonical structure appears under multiple IDs
     expected_behavior: report identity overlap and block readiness
-    verifier_signal: pending_independent_verifier
+    verifier_signal: canonical_and_scaffold_overlap
   - id: eb001-split-leakage-001-2
     trigger: a scaffold crosses train/test
     expected_behavior: report the overlap and distinguish molecule from scaffold policy
-    verifier_signal: pending_independent_verifier
+    verifier_signal: no_cross_split_overlap
   - id: eb001-split-leakage-001-3
     trigger: stereochemistry or salt normalization changes identity
     expected_behavior: preserve the conflict and request a rule decision
-    verifier_signal: pending_independent_verifier
+    verifier_signal: bounded_abstention
 release_gates:
   scientific_reality: pass
-  observability: pending
-  verifiability: pending
-  naive_resistance: pending
-  reproducibility: pending
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
   enterprise_value: pending
   training_value: not_run
 open_questions:
-  - Freeze the task-specific public input version and redistribution terms.
-  - Author an independent oracle or expert-equivalence rubric.
-  - Run positive, negative, invariance, and insufficient-evidence controls.
+  - Freeze the task-specific public input version and redistribution terms for any public release.
+  - Obtain independent practitioner review of the block/proceed handoff.
+  - Run the calibrated controls through the target model trial protocol.

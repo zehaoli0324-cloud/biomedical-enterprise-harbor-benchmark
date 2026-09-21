@@ -1,0 +1,34 @@
+{
+  "control_plan_id": "CONTROL-EB008-STOCK-ROUTE-001-001",
+  "task_id": "eb008-stock-route-001",
+  "controls": [
+    {
+      "control_id": "positive-stock-valid-route",
+      "kind": "positive",
+      "expected": "accept only the stock-compliant route whose step evidence passes every reaction gate"
+    },
+    {
+      "control_id": "negative-stock-violation",
+      "kind": "negative",
+      "expected": "reject routes requiring unavailable material"
+    },
+    {
+      "control_id": "invariance-route-order",
+      "kind": "invariance",
+      "expected": "route order does not change acceptance"
+    },
+    {
+      "control_id": "insufficient-reaction-evidence",
+      "kind": "insufficient_evidence",
+      "expected": "hold when an otherwise viable route lacks step evidence"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "release_blockers": [
+    "independent practitioner review",
+    "repeated target-model trials",
+    "license/privacy signoff"
+  ],
+  "status": "REVIEW_REQUIRED"
+}
