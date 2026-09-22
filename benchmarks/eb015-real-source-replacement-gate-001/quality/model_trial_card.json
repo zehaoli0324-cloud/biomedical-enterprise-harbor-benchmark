@@ -1,0 +1,23 @@
+{
+  "schema_version": "enterprise_model_trial_card.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "strategies": ["reference_solution", "simple_legal_baseline", "always_abstain", "template_or_keyword", "target_model"],
+  "run_records": [
+    {"strategy": "reference_solution", "status": "PASS", "passed": true},
+    {"strategy": "simple_legal_baseline", "status": "NOT_RUN", "passed": false, "valid_difficulty_evidence": false},
+    {"strategy": "always_abstain", "status": "NOT_RUN", "passed": false, "valid_difficulty_evidence": false},
+    {"strategy": "template_or_keyword", "status": "NOT_RUN", "passed": false, "valid_difficulty_evidence": false},
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb015-real-source-gpt56sol-002",
+      "status": "raw_fail_contract_replay_pass",
+      "passed": true,
+      "failure_attribution": "contract representation only",
+      "valid_difficulty_evidence": false
+    }
+  ],
+  "release_blockers": ["source rights review", "file-level SHA-256 freeze", "verifier rebind", "fixed-container replay", "practitioner review"]
+}

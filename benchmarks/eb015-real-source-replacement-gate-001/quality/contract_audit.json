@@ -1,0 +1,8 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "status": "PASS",
+  "canonical_outputs": ["source_audit.tsv", "release_plan.json", "provenance.json", "audit.md"],
+  "checks": ["exact TSV columns", "one row per source", "full or registered shorthand hash", "map/object/array provenance equivalence", "scientific non-claim boundary", "wrong hash rejection"]
+}

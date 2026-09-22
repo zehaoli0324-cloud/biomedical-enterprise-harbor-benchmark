@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "artifacts": {
+    "source_audit.tsv": "One row per registered source with columns source_id, task_id, source_kind, release_track, release_status, blockers, claim_boundary. blockers is a JSON array.",
+    "release_plan.json": "Object with rules_version, selected_sources, blocked_sources, next_actions, claim_boundary and input_sha256. input_sha256 may be the full data-file object or the registered sources.json hash shorthand.",
+    "provenance.json": "Object with every data input SHA-256, source URLs (map, one object per source, or a sources array with source_id/project_url/download_url/access_date), access date and deterministic true.",
+    "audit.md": "Nonempty Markdown that states rights, hash, verifier-rebind and scientific claim boundaries."
+  },
+  "release_statuses": ["BLOCKED_RIGHTS", "BLOCKED_HASH", "STAGING_REBIND_REQUIRED", "READY_FOR_REVIEW"],
+  "missing_semantics": "Missing freeze evidence is a blocker, never an implicit pass. Equivalent representation is canonicalized only when all required scientific values remain unchanged."
+}

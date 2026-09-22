@@ -74,6 +74,7 @@
     {"id": "data_dependency_graph_routing", "category": "data", "dimension": "data_type_complexity", "failure_modes": ["missing_prerequisite", "route_order_error", "orphan_request"]},
     {"id": "math_correlation_adjusted_reduction", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["correlation_double_counting", "wrong_residual", "wrong_tie_break"]},
     {"id": "math_minimax_evidence_route_selection", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["threshold_satisficing", "dominated_route", "lexicographic_objective_error"]},
-    {"id": "retrieval_provenance_temporal_boundary", "category": "retrieval", "dimension": "retrieval_complexity", "failure_modes": ["archived_evidence_reuse", "future_outcome_leakage", "hash_mismatch"]}
+    {"id": "retrieval_provenance_temporal_boundary", "category": "retrieval", "dimension": "retrieval_complexity", "failure_modes": ["archived_evidence_reuse", "future_outcome_leakage", "hash_mismatch"]},
+    {"id": "provenance_hash_license_rebind", "category": "provenance", "dimension": "provenance_complexity", "failure_modes": ["rights_as_license", "md5_as_sha256", "moving_verifier", "claim_boundary_inflation"]}
   ]
 }

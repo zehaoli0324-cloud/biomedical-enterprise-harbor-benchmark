@@ -1,0 +1,20 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-018",
+  "title": "Real-data replacement release gates",
+  "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY_RELEASE_BLOCKED",
+  "source_plan": "Downloads/ten-task-real-data-replacement-plan.md",
+  "candidates": [
+    {
+      "candidate_id": "eb015-real-source-replacement-gate-001",
+      "level": "L4",
+      "primary_module": "provenance_hash_license_rebind",
+      "secondary_modules": ["retrieval_provenance_temporal_boundary", "judgment_claim_transportability_boundary"],
+      "target_trial": "eb015-real-source-gpt56sol-002",
+      "trial_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+      "difficulty_evidence": false,
+      "release_status": "BLOCKED"
+    }
+  ],
+  "release_blockers": ["source rights review", "file-level SHA-256 freeze", "verifier rebind", "fixed-container replay", "practitioner review"]
+}

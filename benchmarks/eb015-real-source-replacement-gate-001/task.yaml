@@ -1,0 +1,36 @@
+id: eb015-real-source-replacement-gate-001
+version: "0.1.0"
+status: ready_for_calibration
+title: "真实来源替换的许可、哈希与 verifier 发布门"
+domain: biomedical_enterprise
+stage: l4_contract
+agent_visible_inputs:
+  - path: data/
+    format: JSON
+    contract: "公开来源登记与输出合同；不含下载数据或隐藏答案"
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: source_audit, path: outputs/source_audit.tsv, required_fields: [source_id, task_id, source_kind, release_track, release_status, blockers, claim_boundary]}
+  - {id: release_plan, path: outputs/release_plan.json, required_fields: [rules_version, selected_sources, blocked_sources, next_actions, claim_boundary, input_sha256]}
+  - {id: provenance, path: outputs/provenance.json, required_fields: [input_sha256, source_urls, access_date, deterministic]}
+  - {id: audit, path: outputs/audit.md, required_fields: [rights_boundary, hash_boundary, verifier_boundary, claim_boundary]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only
+evaluation:
+  hard_gates:
+    - id: HG1
+      rule: "每个来源逐字段检查 accession、URL、版本、许可、文件清单、SHA-256、变换和选择规则"
+    - id: HG2
+      rule: "rights、hash 和 verifier rebind 失败必须分别可观察，不能把缺失证据当作通过"
+    - id: HG3
+      rule: "来源审计不升级为基因、图像测量或力场科学结论"
+  difficulty_modules:
+    retrieval: [retrieval_public_source_freeze]
+    judgment: [judgment_claim_boundary_abstention]
+    provenance: [provenance_hash_license_rebind]
+  claim_boundary: "source_audit_only_not_scientific_claim"

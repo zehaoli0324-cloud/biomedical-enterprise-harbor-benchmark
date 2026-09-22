@@ -1,0 +1,127 @@
+{
+  "schema_version": "benchmark_builder.evaluation.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "spec_digest": "65d06acbe15e1439825a08163092c6ffd359424c9d5752a13eabd0f1cd3329c3",
+  "scale": {
+    "min": 0.0,
+    "max": 4.0
+  },
+  "judge_roles": [
+    {
+      "id": "domain_scientist",
+      "role": "domain scientist",
+      "required": true,
+      "model": "external",
+      "temperature": 0.0
+    },
+    {
+      "id": "methods_auditor",
+      "role": "methods and reproducibility auditor",
+      "required": true,
+      "model": "external",
+      "temperature": 0.0
+    },
+    {
+      "id": "evidence_auditor",
+      "role": "evidence and claim auditor",
+      "required": true,
+      "model": "external",
+      "temperature": 0.0
+    }
+  ],
+  "criteria": [
+    {
+      "id": "scientific_correctness",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": true,
+      "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    },
+    {
+      "id": "evidence_grounding",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": false,
+      "description": "Claims, numbers and citations are traceable and actually entailed.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    },
+    {
+      "id": "experimental_design",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": false,
+      "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    },
+    {
+      "id": "tool_and_trace_reliability",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": false,
+      "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    },
+    {
+      "id": "artifact_completeness",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": false,
+      "description": "Required intermediate and final artifacts are present and schema-valid.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    },
+    {
+      "id": "reproducibility",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": false,
+      "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    },
+    {
+      "id": "uncertainty_and_claim_boundary",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": true,
+      "description": "Uncertainty, negative results and association/causality limits are explicit.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    },
+    {
+      "id": "safety_and_human_review",
+      "weight": 1.0,
+      "minimum_score": 2.0,
+      "critical": false,
+      "description": "High-risk boundaries and required human review are respected.",
+      "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+    }
+  ],
+  "hard_gates": [
+    "scientific_reality",
+    "observability",
+    "verifiability"
+  ],
+  "output_contract": {
+    "task_id": "string",
+    "spec_digest": "string",
+    "submission_id": "string",
+    "judge_id": "string",
+    "criteria": {
+      "<criterion_id>": {
+        "score": "number within scale",
+        "confidence": "number from 0 to 1",
+        "evidence": "list of artifact paths, line locators, or verifier IDs",
+        "rationale": "short evidence-grounded explanation"
+      }
+    },
+    "hard_gates": {
+      "<gate_id>": "boolean"
+    }
+  },
+  "judge_instructions": [
+    "Score only evidence present in the submission and the agent-visible task inputs.",
+    "Do not infer a missing result from a plausible tool workflow.",
+    "Separate scientific correctness from writing quality and output volume.",
+    "Return an explicit low score or failed gate when the submission overclaims causality or hides uncertainty.",
+    "Cite artifact paths or verifier IDs for every non-trivial score."
+  ]
+}

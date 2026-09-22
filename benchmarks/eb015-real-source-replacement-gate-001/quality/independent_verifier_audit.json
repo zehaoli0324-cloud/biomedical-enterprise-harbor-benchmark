@@ -1,0 +1,9 @@
+{
+  "schema_version": "enterprise_independent_verifier_audit.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "status": "PASS",
+  "review_status": "pass",
+  "method": "Independent recomputation of ordered blocker status, source order, input hashes and claim boundary; mutated rights/hash/rebind fixtures were checked.",
+  "human_review": "NOT_RUN",
+  "scientific_claim_review": "source audit only; no scientific result authorized"
+}

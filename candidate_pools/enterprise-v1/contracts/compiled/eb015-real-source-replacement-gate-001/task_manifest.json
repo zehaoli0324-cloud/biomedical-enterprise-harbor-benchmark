@@ -1,0 +1,298 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb015-real-source-replacement-gate-001",
+    "title": "Real-source replacement release gate",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "A11",
+      "C20",
+      "D3",
+      "R6"
+    ],
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb015-real-source-replacement-gate-001",
+    "raw_score": 3.906,
+    "adjusted_score": 4.356,
+    "band": "research-grade",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Three public-source replacement tracks must be kept separate without upgrading metadata to scientific evidence.",
+        "tags": [
+          "real-data",
+          "source-audit"
+        ]
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.3,
+        "rationale": "Rights, hash and verifier blockers must remain distinct and claims must be bounded.",
+        "tags": [
+          "abstention",
+          "rights"
+        ]
+      },
+      "computational_difficulty": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Per-source required-field and ordered-blocker computation is deterministic but multi-artifact.",
+        "tags": [
+          "provenance-join"
+        ]
+      },
+      "tool_call_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Offline JSON/TSV/Markdown delivery with an explicit nested contract.",
+        "tags": [
+          "offline"
+        ]
+      },
+      "retrieval_complexity": {
+        "level": 5,
+        "weight": 1.2,
+        "rationale": "CRISPR, BBBC021 and Zenodo source records expose different publication, metadata and archive boundaries.",
+        "tags": [
+          "accession",
+          "rights"
+        ]
+      },
+      "information_noise_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "A publication license, an archive MD5 and a metadata page are tempting but insufficient substitutes.",
+        "tags": [
+          "red-herring",
+          "md5"
+        ]
+      },
+      "data_type_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Nested source records, JSON contracts, TSV rows and bounded prose must agree.",
+        "tags": [
+          "json",
+          "tsv",
+          "markdown"
+        ]
+      },
+      "data_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Three task/source mappings carry independent rights, integrity and verifier state.",
+        "tags": [
+          "multi-source"
+        ]
+      },
+      "environment_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "The gate is deterministic and network-free.",
+        "tags": [
+          "offline"
+        ]
+      },
+      "mathematical_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Ordered blocker classification and exact input-hash coverage are required.",
+        "tags": [
+          "ordered-rules"
+        ]
+      },
+      "long_horizon_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The release plan must preserve the sequence from rights and hash freeze to verifier rebinding.",
+        "tags": [
+          "release-gate"
+        ]
+      },
+      "safety_risk": {
+        "level": 5,
+        "weight": 1.3,
+        "rationale": "The main risk is publishing synthetic or incompletely licensed material as real scientific evidence.",
+        "tags": [
+          "claim-boundary",
+          "human-review"
+        ]
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence",
+      "retrieval_x_scientific_judgment",
+      "high_stakes_safety_review"
+    ],
+    "selected_modules": {
+      "retrieval": [
+        {
+          "id": "retrieval_provenance_temporal_boundary",
+          "params": {}
+        }
+      ],
+      "judgment": [
+        {
+          "id": "judgment_claim_transportability_boundary",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 120,
+    "memory_mb": 1024,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "65d06acbe15e1439825a08163092c6ffd359424c9d5752a13eabd0f1cd3329c3",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb015-real-source-replacement-gate-001/scenario-card.yaml",
+    "digest": "4f4e9f0566e466449878683d8d12996e4b6c824b0bc0d433bb6cbae759257b18",
+    "scenario_id": "eb015-real-source-replacement-gate-001",
+    "status": "ready",
+    "source_scenarios": [
+      "A11",
+      "C20",
+      "D3",
+      "R6"
+    ],
+    "scientific_judgments": [
+      "source_rights",
+      "file_hash_completeness",
+      "verifier_snapshot_alignment",
+      "claim_boundary"
+    ],
+    "handoff_count": 1,
+    "release_gates": {
+      "scientific_reality": "source_audit_only",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass",
+      "reproducibility": "deterministic_hashes",
+      "release_status": "blocked_until_rights_hash_rebind"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

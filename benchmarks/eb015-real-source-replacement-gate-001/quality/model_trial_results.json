@@ -1,0 +1,25 @@
+{
+  "schema_version": "enterprise_model_trial_results.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "records": [
+    {"strategy": "reference_solution", "status": "PASS", "passed": true, "valid_difficulty_evidence": false},
+    {"strategy": "simple_legal_baseline", "status": "NOT_RUN", "passed": false, "valid_difficulty_evidence": false},
+    {"strategy": "always_abstain", "status": "NOT_RUN", "passed": false, "valid_difficulty_evidence": false},
+    {"strategy": "template_or_keyword", "status": "NOT_RUN", "passed": false, "valid_difficulty_evidence": false},
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb015-real-source-gpt56sol-002",
+      "status": "raw_fail_contract_replay_pass",
+      "passed": true,
+      "runner_status": "verifier_fail",
+      "timed_out": false,
+      "scientific_decision_unchanged": true,
+      "failure_attribution": "initial output representation mismatch; unchanged artifact passed canonical replay",
+      "valid_difficulty_evidence": false,
+      "trial_evidence": "quality/target_trial_evidence.json"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "rules_version": "real-source-gate-v1",
+  "decision_date": "2026-09-22",
+  "required_freeze_fields": [
+    "accession_or_doi",
+    "project_url",
+    "download_url",
+    "version_or_access_date",
+    "license_or_rights",
+    "file_inventory",
+    "sha256",
+    "derivation_steps",
+    "row_image_frame_selection"
+  ],
+  "allowed_rights_statuses": ["explicit_license", "metadata_only_permitted", "open_access_reuse_declared"],
+  "verifier_rebound_required": true,
+  "claim_boundary": "source_audit_only_not_scientific_claim",
+  "required_next_actions": [
+    "request_rights_and_freeze_crispr_workbook",
+    "request_bbbc_terms_and_freeze_metadata_hash",
+    "download_zenodo_subset_and_record_sha256",
+    "rebind_verifiers_from_same_snapshot"
+  ]
+}

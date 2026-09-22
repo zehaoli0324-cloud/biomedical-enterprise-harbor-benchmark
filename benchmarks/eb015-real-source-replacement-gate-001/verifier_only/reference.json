@@ -1,0 +1,11 @@
+{
+  "schema_version": "enterprise_hidden_reference.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "expected_statuses": {
+    "SRC-CRISPR-PMC7006212": "BLOCKED_RIGHTS",
+    "SRC-BBBC021-V1": "BLOCKED_RIGHTS",
+    "SRC-ZENODO-10362368": "BLOCKED_RIGHTS"
+  },
+  "selected_sources": [],
+  "claim_boundary": "source_audit_only_not_scientific_claim"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "source_status": "PUBLIC_SOURCE_METADATA_ONLY_STAGING",
+  "contract_status": "PASS",
+  "control_status": "PASS",
+  "model_trial_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": ["source rights review", "file-level SHA-256 freeze", "verifier rebind", "fixed-container replay", "practitioner review"],
+  "human_review_required": true
+}

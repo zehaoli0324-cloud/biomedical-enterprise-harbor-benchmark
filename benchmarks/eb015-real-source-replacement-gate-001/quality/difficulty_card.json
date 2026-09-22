@@ -1,0 +1,13 @@
+{
+  "schema_version": "enterprise_difficulty_card.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "level": "L4",
+  "primary_module": "provenance_hash_license_rebind",
+  "secondary_modules": ["retrieval_provenance_temporal_boundary", "judgment_claim_transportability_boundary"],
+  "held_out_variants": ["one source rights cleared", "one source SHA-256 frozen", "verifier snapshot drift", "rights withdrawal"],
+  "observable_modules": ["required-freeze-field audit", "rights blocker", "SHA-256 blocker", "verifier rebind blocker", "bounded claim"],
+  "decision_flips": ["rights cleared and SHA-256 frozen can move a source to READY_FOR_REVIEW", "MD5-only or missing rights keeps it blocked"],
+  "controls": ["all three sources blocked", "one source independently completed", "row order invariance", "missing hash negative"],
+  "claim_boundary": "source_audit_only_not_scientific_claim",
+  "status": "PRETRIAL_VALIDATED"
+}

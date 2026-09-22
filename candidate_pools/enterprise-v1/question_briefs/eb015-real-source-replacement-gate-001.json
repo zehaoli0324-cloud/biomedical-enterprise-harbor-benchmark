@@ -1,0 +1,11 @@
+{
+  "brief_id": "BRIEF-eb015-real-source-replacement-gate-001",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "level": "L4",
+  "decision": "whether three public-source records can enter a real-data release review",
+  "primary_module": "provenance_hash_license_rebind",
+  "observable_bindings": ["rights", "SHA-256", "verifier rebind", "claim boundary"],
+  "secondary_modules": ["retrieval_provenance_temporal_boundary", "judgment_claim_transportability_boundary"],
+  "source_plan": "Downloads/ten-task-real-data-replacement-plan.md",
+  "status": "PRETRIAL_VALIDATED"
+}

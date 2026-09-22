@@ -1,0 +1,27 @@
+{
+  "schema_version": "real_data_replacement_registry.v1",
+  "plan": "Downloads/ten-task-real-data-replacement-plan.md",
+  "standard": "No hand-authored scientific number is evidence or hidden truth. Numbers must be copied from a public source, deterministically derived, or declared as a method/control parameter.",
+  "required_freeze_fields": ["accession_or_doi", "project_url", "download_url", "version_or_access_date", "license_or_rights", "file_inventory", "sha256", "derivation_steps", "row_image_frame_selection"],
+  "tasks": [
+    {"task_id":"ambient-rna-001","source":"10x PBMC3k public archive","status":"STAGING_REBIND_REQUIRED","blockers":["recompute verifier from release manifest","do not invent ambient profile or cell labels"]},
+    {"task_id":"perturbseq-interaction-001","source":"GEO GSE90546 / GSM2406675","status":"STAGING_REBIND_REQUIRED","blockers":["rebuild real guide/expression slice","abstain if contrast is not identifiable"]},
+    {"task_id":"glycan-msms-001","source":"GlycoPOST GPST000206","status":"STAGING_REBIND_REQUIRED","blockers":["raw spectra and calibration files required","structural claims remain abstained"]},
+    {"task_id":"l1000-moa-inference-001","source":"LINCS L1000 GSE70138 and pinned upstream commit","status":"STAGING_REBIND_REQUIRED","blockers":["bind snapshot to verifier and hidden labels"]},
+    {"task_id":"experimental-design-m2-001","source":"PeerJ protocol-reporting and Chest power-planning guidance","status":"RECIPE_ONLY","blockers":["effect size and variance are absent; do not fabricate observed power"]},
+    {"task_id":"omics-c10-001","source":"10x PBMC3k public archive","status":"STAGING_REBIND_REQUIRED","blockers":["rebuild annotation/QC from snapshot","exclude legacy summaries"]},
+    {"task_id":"crispr-resistance-e2e-001","source":"GEO GSE90546","status":"STAGING_REBIND_REQUIRED","blockers":["rebuild guide/QC/contrast labels","do not claim drug resistance from this slice alone"]},
+    {"task_id":"crispr-screen-hit-robustness-l4-contract-001","source":"Lau et al. 2020 PMC7006212 supplementary workbooks","status":"STAGING_REBIND_REQUIRED","blockers":["use publisher workbook and published MAGeCK rows","exclude manual guide counts"]},
+    {"task_id":"microscopy-replicate-l4-contract-001","source":"Official BBBC021 metadata, compound table and MoA ground truth","status":"STAGING_REBIND_REQUIRED","blockers":["license real image subset","exclude local PGM/mask calibration"]},
+    {"task_id":"md-replica-convergence-l4-contract-001","source":"Zenodo DOI 10.5281/zenodo.10362368","status":"STAGING_REBIND_REQUIRED","blockers":["freeze bounded licensed trajectory subset or remain archive/protocol audit","exclude local trajectories"]}
+  ],
+  "source_links": {
+    "crispr_paper": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7006212/",
+    "bbbc021": "https://bbbc.broadinstitute.org/BBBC021",
+    "zenodo_md": "https://zenodo.org/records/10362368",
+    "tenx_datasets": "https://www.10xgenomics.com/resources/datasets",
+    "geo_gse90546": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90546",
+    "glycopost": "https://glycopost.glycosmos.org/entry/GPST000206"
+  },
+  "release_interpretation": "The repository may contain real snapshots and task environments while STAGING tasks remain non-final. Legacy calibration data is regression-only and must not enter agent-visible release inputs."
+}

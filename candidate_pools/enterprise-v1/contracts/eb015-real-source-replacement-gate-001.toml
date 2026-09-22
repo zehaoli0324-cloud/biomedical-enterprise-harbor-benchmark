@@ -1,0 +1,83 @@
+[task]
+id = "eb015-real-source-replacement-gate-001"
+title = "Real-source replacement release gate"
+domain = "biomedical_enterprise"
+source_scenarios = ["A11", "C20", "D3", "R6"]
+
+[scenario]
+card = "../../../benchmarks/eb015-real-source-replacement-gate-001/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 4
+weight = 1.0
+rationale = "Three public-source replacement tracks must be kept separate without upgrading metadata to scientific evidence."
+tags = ["real-data", "source-audit"]
+[difficulty.scientific_judgment]
+level = 5
+weight = 1.3
+rationale = "Rights, hash and verifier blockers must remain distinct and claims must be bounded."
+tags = ["abstention", "rights"]
+[difficulty.computational_difficulty]
+level = 4
+weight = 1.0
+rationale = "Per-source required-field and ordered-blocker computation is deterministic but multi-artifact."
+tags = ["provenance-join"]
+[difficulty.tool_call_complexity]
+level = 3
+weight = 1.0
+rationale = "Offline JSON/TSV/Markdown delivery with an explicit nested contract."
+tags = ["offline"]
+[difficulty.retrieval_complexity]
+level = 5
+weight = 1.2
+rationale = "CRISPR, BBBC021 and Zenodo source records expose different publication, metadata and archive boundaries."
+tags = ["accession", "rights"]
+[difficulty.information_noise_complexity]
+level = 4
+weight = 1.0
+rationale = "A publication license, an archive MD5 and a metadata page are tempting but insufficient substitutes."
+tags = ["red-herring", "md5"]
+[difficulty.data_type_complexity]
+level = 4
+weight = 1.0
+rationale = "Nested source records, JSON contracts, TSV rows and bounded prose must agree."
+tags = ["json", "tsv", "markdown"]
+[difficulty.data_complexity]
+level = 4
+weight = 1.0
+rationale = "Three task/source mappings carry independent rights, integrity and verifier state."
+tags = ["multi-source"]
+[difficulty.environment_complexity]
+level = 2
+weight = 1.0
+rationale = "The gate is deterministic and network-free."
+tags = ["offline"]
+[difficulty.mathematical_complexity]
+level = 3
+weight = 1.0
+rationale = "Ordered blocker classification and exact input-hash coverage are required."
+tags = ["ordered-rules"]
+[difficulty.long_horizon_complexity]
+level = 3
+weight = 1.0
+rationale = "The release plan must preserve the sequence from rights and hash freeze to verifier rebinding."
+tags = ["release-gate"]
+[difficulty.safety_risk]
+level = 5
+weight = 1.3
+rationale = "The main risk is publishing synthetic or incompletely licensed material as real scientific evidence."
+tags = ["claim-boundary", "human-review"]
+
+[modules]
+retrieval = ["retrieval_provenance_temporal_boundary"]
+judgment = ["judgment_claim_transportability_boundary"]
+
+[data]
+types = ["json", "tsv", "markdown"]
+
+[constraints]
+network = "off"
+cpu_seconds = 120
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

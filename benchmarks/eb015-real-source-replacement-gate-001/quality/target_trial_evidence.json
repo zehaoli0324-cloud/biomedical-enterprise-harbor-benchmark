@@ -1,0 +1,23 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "trial_id": "eb015-real-source-gpt56sol-002",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail_then_contract_replay_pass",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "required_artifacts_written": true,
+  "initial_verifier_errors": [
+    "release_plan.json: exact plan mismatch",
+    "provenance.json: exact provenance mismatch",
+    "audit.md missing required boundary: not a scientific"
+  ],
+  "classification": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+  "scientific_decision_unchanged": true,
+  "canonical_replay_result": "pass",
+  "selected_sources": [],
+  "blocked_sources": ["SRC-CRISPR-PMC7006212", "SRC-BBBC021-V1", "SRC-ZENODO-10362368"],
+  "claim_boundary": "source_audit_only_not_scientific_claim",
+  "trial_dir": "/private/tmp/eb015-real-source-trial2.7d7HHY/eb015-real-source-gpt56sol-002",
+  "release_effect": "blocked_pending_source_rights_hash_verifier_rebind_fixed_container_replay_and_practitioner_review"
+}

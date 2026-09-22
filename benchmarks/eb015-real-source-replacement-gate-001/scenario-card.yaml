@@ -1,0 +1,36 @@
+scenario_id: eb015-real-source-replacement-gate-001
+status: ready
+source_scenarios: [A11, C20, D3, R6]
+domain: biomedical_enterprise
+stage: l4_contract
+research_role: real_data_release_auditor
+scientific_context:
+  object: public-data replacement for CRISPR, microscopy and molecular-dynamics task packages
+  question: which source records are frozen enough for a benchmark release review?
+  decision: release gate and next action selection
+  consequence_of_error: synthetic calibration or incompletely licensed source is mistaken for real evidence
+scientific_judgments:
+  - source_rights
+  - file_hash_completeness
+  - verifier_snapshot_alignment
+  - claim_boundary
+workflow_handoffs:
+  - from: source_registry
+    to: release_gate
+    artifact: source_audit.tsv
+    invariant: source IDs and blocker statuses agree with the frozen input snapshot
+difficulty_modules:
+  retrieval: [retrieval_public_source_freeze]
+  judgment: [judgment_claim_boundary_abstention]
+  provenance: [provenance_hash_license_rebind]
+release_gates:
+  scientific_reality: source_audit_only
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: deterministic_hashes
+  release_status: blocked_until_rights_hash_rebind
+open_questions:
+  - Which publisher or dataset terms permit redistribution of the selected rows or pixels?
+  - Which exact files and selections will be frozen in the release manifest?
+  - Has the verifier been rebuilt from the same snapshot as the agent-visible inputs?

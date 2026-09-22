@@ -1,0 +1,12 @@
+{
+  "schema_version": "enterprise_control_plan.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "calibration_status": "PASS",
+  "controls": [
+    {"id": "reference-all-blocked", "kind": "positive", "status": "PASS"},
+    {"id": "missing-hash", "kind": "negative", "status": "PASS"},
+    {"id": "row-order", "kind": "invariance", "status": "PASS"},
+    {"id": "rights-or-source-missing", "kind": "insufficient_evidence", "status": "PASS"}
+  ],
+  "claim_boundary": "source_audit_only_not_scientific_claim"
+}
