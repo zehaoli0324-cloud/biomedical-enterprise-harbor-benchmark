@@ -1,0 +1,37 @@
+{
+  "control_plan_id": "CONTROL-EB012-CROSS-STAGE-CHAIN-002-001",
+  "task_id": "eb012-cross-stage-chain-002",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-hash-substitution",
+      "kind": "negative"
+    },
+    {
+      "control_id": "negative-cross-artifact-hash",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-artifact-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-manifest",
+      "kind": "insufficient_evidence"
+    },
+    {
+      "control_id": "adversarial-high-cvar-conflict",
+      "kind": "adversarial"
+    },
+    {
+      "control_id": "metamorphic-chain-order",
+      "kind": "metamorphic"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "status": "CALIBRATED"
+}

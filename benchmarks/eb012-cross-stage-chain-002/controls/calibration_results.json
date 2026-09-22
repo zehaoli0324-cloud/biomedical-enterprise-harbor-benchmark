@@ -1,0 +1,53 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "task_id": "eb012-cross-stage-chain-002",
+  "status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "negative-high-cvar-conflict",
+      "kind": "negative",
+      "passed": true,
+      "errors": [
+        "selected_chain mismatch"
+      ]
+    },
+    {
+      "control_id": "negative-cross-artifact-hash",
+      "kind": "negative",
+      "passed": true,
+      "errors": [
+        "handoff content_hash mismatch"
+      ]
+    },
+    {
+      "control_id": "invariance-artifact-order",
+      "kind": "invariance",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "insufficient-manifest",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "errors": [
+        "manifest provenance mismatch"
+      ]
+    },
+    {
+      "control_id": "adversarial-high-cvar-conflict",
+      "kind": "adversarial",
+      "passed": true
+    },
+    {
+      "control_id": "metamorphic-chain-order",
+      "kind": "metamorphic",
+      "passed": true
+    }
+  ]
+}

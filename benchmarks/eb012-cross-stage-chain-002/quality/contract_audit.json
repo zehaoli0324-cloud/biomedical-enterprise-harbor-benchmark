@@ -1,0 +1,35 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb012-cross-stage-chain-002",
+  "status": "PASS",
+  "checks": [
+    {
+      "output": "outputs/chain.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/handoff.tsv",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/audit.md",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/manifest.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true
+    }
+  ]
+}

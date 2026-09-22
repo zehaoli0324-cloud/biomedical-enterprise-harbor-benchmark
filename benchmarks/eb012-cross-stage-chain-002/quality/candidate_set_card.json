@@ -1,0 +1,22 @@
+{
+  "candidate_set_id": "CSET-EB012-CROSS-STAGE-CHAIN-002-001",
+  "source_benchmark_id": "L5.4-TRANCHE-010",
+  "candidates": [
+    {
+      "candidate_id": "eb012-cross-stage-chain-002",
+      "selection_status": "MATERIALIZED",
+      "semantic_axes": [
+        "cross_stage_handoff",
+        "claim_lattice",
+        "resource_constrained_policy"
+      ]
+    }
+  ],
+  "selection_gate": {
+    "minimum_candidates": 3,
+    "maximum_candidates": 5,
+    "require_two_semantic_differences": true,
+    "require_independent_review": true
+  },
+  "status": "REVIEW_REQUIRED"
+}

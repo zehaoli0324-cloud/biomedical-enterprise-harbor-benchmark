@@ -1,0 +1,20 @@
+{
+  "difficulty_card_id": "DIFF-EB012-CROSS-STAGE-CHAIN-002-001",
+  "task_id": "eb012-cross-stage-chain-002",
+  "primary_module": "horizon_end_to_end_claim",
+  "secondary_modules": [
+    "judgment_claim_permission_lattice",
+    "data_evidence_graph_join"
+  ],
+  "held_out_variants": [
+    "hash substitution",
+    "claim downgrade",
+    "inventory conflict"
+  ],
+  "decision_flip_controls": [
+    "broken upstream hash blocks chain",
+    "weakest permission blocks claim",
+    "resource conflict blocks high CVaR"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

@@ -1,0 +1,38 @@
+scenario_id: eb012-cross-stage-chain-002
+status: ready
+source_scenarios: [L4-TRANCHE-001, L5.4-TRANCHE-010]
+domain: biomedical_enterprise
+scientific_decision: authorize a cross-stage handoff without inflating claims
+scientific_judgments:
+  - provenance_chain_integrity
+  - claim_permission_intersection
+  - robust_policy_handoff_gate
+difficulty_modules:
+  - id: horizon_end_to_end_claim
+    observable: four ordered stage artifacts are joined through upstream hashes
+    decision_flip: one broken link blocks a chain despite locally valid artifacts
+  - id: judgment_claim_permission_lattice
+    observable: requested claim is bounded by the weakest stage permission
+    decision_flip: a descriptive-only stage prevents an associational handoff
+  - id: data_evidence_graph_join
+    observable: IDs, hashes, versions and stages remain aligned
+    decision_flip: cross-chain hash substitution invalidates a high-score chain
+  - id: tool_version_and_interface_drift
+    observable: schema/status and version transitions are checked at each handoff
+    decision_flip: stale interface blocks propagation
+  - id: math_robust_scenario_optimization
+    observable: robust policy threshold is applied after provenance and safety gates
+    decision_flip: high-CVaR chain with inventory conflict cannot win
+workflow_handoffs:
+  - from: recovery_normalization_route_policy
+    to: bounded_handoff_decision
+    artifact: outputs/chain.json
+    invariant: no claim, hash or resource permission increases downstream
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

@@ -1,0 +1,11 @@
+{
+  "enterprise_value_card_id": "VALUE-EB012-CROSS-STAGE-CHAIN-002-001",
+  "task_id": "eb012-cross-stage-chain-002",
+  "enterprise_reality": {
+    "decision": "authorize downstream consumption only when the cross-stage handoff is coherent",
+    "downstream_action": "decision->review->handoff",
+    "error_consequence": "a locally attractive result can corrupt a downstream scientific decision",
+    "human_owner": "domain_reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

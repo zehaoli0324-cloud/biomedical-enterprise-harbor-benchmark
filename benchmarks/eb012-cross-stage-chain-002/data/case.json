@@ -1,0 +1,324 @@
+{
+  "kind": "cross_stage_chain",
+  "artifacts": [
+    {
+      "artifact_id": "R-A",
+      "stage": "recovery",
+      "version": "v1",
+      "content_hash": "r-a",
+      "reported_hash": "r-a",
+      "upstream_hash": null,
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ]
+    },
+    {
+      "artifact_id": "N-A",
+      "stage": "normalization",
+      "version": "v1",
+      "content_hash": "n-a",
+      "reported_hash": "n-a",
+      "upstream_hash": "r-a",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "sensitivity": "stable"
+    },
+    {
+      "artifact_id": "T-A",
+      "stage": "route",
+      "version": "v1",
+      "content_hash": "t-a",
+      "reported_hash": "t-a",
+      "upstream_hash": "n-a",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "inventory_reservation": "reserved",
+      "evidence_quorum": 2
+    },
+    {
+      "artifact_id": "P-A",
+      "stage": "policy",
+      "version": "v1",
+      "content_hash": "p-a",
+      "reported_hash": "p-a",
+      "upstream_hash": "t-a",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "future_outcome_leakage": false,
+      "robust_cvar": 0.82,
+      "human_review": true
+    },
+    {
+      "artifact_id": "R-B",
+      "stage": "recovery",
+      "version": "v1",
+      "content_hash": "r-b",
+      "reported_hash": "r-b",
+      "upstream_hash": null,
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ]
+    },
+    {
+      "artifact_id": "N-B",
+      "stage": "normalization",
+      "version": "v1",
+      "content_hash": "n-b",
+      "reported_hash": "n-b",
+      "upstream_hash": "r-b",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "sensitivity": "stable"
+    },
+    {
+      "artifact_id": "T-B",
+      "stage": "route",
+      "version": "v1",
+      "content_hash": "t-b",
+      "reported_hash": "wrong-t-b",
+      "upstream_hash": "n-b",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "inventory_reservation": "reserved",
+      "evidence_quorum": 2
+    },
+    {
+      "artifact_id": "P-B",
+      "stage": "policy",
+      "version": "v1",
+      "content_hash": "p-b",
+      "reported_hash": "p-b",
+      "upstream_hash": "wrong-t-b",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "future_outcome_leakage": false,
+      "robust_cvar": 0.95,
+      "human_review": true
+    },
+    {
+      "artifact_id": "R-C",
+      "stage": "recovery",
+      "version": "v1",
+      "content_hash": "r-c",
+      "reported_hash": "r-c",
+      "upstream_hash": null,
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ]
+    },
+    {
+      "artifact_id": "N-C",
+      "stage": "normalization",
+      "version": "v1",
+      "content_hash": "n-c",
+      "reported_hash": "n-c",
+      "upstream_hash": "r-c",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "sensitivity": "stable"
+    },
+    {
+      "artifact_id": "T-C",
+      "stage": "route",
+      "version": "v1",
+      "content_hash": "t-c",
+      "reported_hash": "t-c",
+      "upstream_hash": "n-c",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "inventory_reservation": "conflict",
+      "evidence_quorum": 3
+    },
+    {
+      "artifact_id": "P-C",
+      "stage": "policy",
+      "version": "v1",
+      "content_hash": "p-c",
+      "reported_hash": "p-c",
+      "upstream_hash": "t-c",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ],
+      "future_outcome_leakage": false,
+      "robust_cvar": 0.99,
+      "human_review": true
+    },
+    {
+      "artifact_id": "R-D",
+      "stage": "recovery",
+      "version": "v1",
+      "content_hash": "r-d",
+      "reported_hash": "r-d",
+      "upstream_hash": null,
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive",
+        "associational"
+      ]
+    },
+    {
+      "artifact_id": "N-D",
+      "stage": "normalization",
+      "version": "v1",
+      "content_hash": "n-d",
+      "reported_hash": "n-d",
+      "upstream_hash": "r-d",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive"
+      ],
+      "sensitivity": "sensitive"
+    },
+    {
+      "artifact_id": "T-D",
+      "stage": "route",
+      "version": "v1",
+      "content_hash": "t-d",
+      "reported_hash": "t-d",
+      "upstream_hash": "n-d",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive"
+      ],
+      "inventory_reservation": "reserved",
+      "evidence_quorum": 2
+    },
+    {
+      "artifact_id": "P-D",
+      "stage": "policy",
+      "version": "v1",
+      "content_hash": "p-d",
+      "reported_hash": "p-d",
+      "upstream_hash": "t-d",
+      "scope": "active",
+      "schema_ok": true,
+      "status": "pass",
+      "claim_permissions": [
+        "operational",
+        "descriptive"
+      ],
+      "future_outcome_leakage": false,
+      "robust_cvar": 0.91,
+      "human_review": true
+    }
+  ],
+  "chains": [
+    {
+      "chain_id": "CHAIN-A",
+      "artifact_ids": [
+        "R-A",
+        "N-A",
+        "T-A",
+        "P-A"
+      ],
+      "requested_claim": "associational"
+    },
+    {
+      "chain_id": "CHAIN-B",
+      "artifact_ids": [
+        "R-B",
+        "N-B",
+        "T-B",
+        "P-B"
+      ],
+      "requested_claim": "associational"
+    },
+    {
+      "chain_id": "CHAIN-C",
+      "artifact_ids": [
+        "R-C",
+        "N-C",
+        "T-C",
+        "P-C"
+      ],
+      "requested_claim": "associational"
+    },
+    {
+      "chain_id": "CHAIN-D",
+      "artifact_ids": [
+        "R-D",
+        "N-D",
+        "T-D",
+        "P-D"
+      ],
+      "requested_claim": "associational"
+    }
+  ]
+}

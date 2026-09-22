@@ -1,0 +1,78 @@
+{
+  "task_id": "eb012-cross-stage-chain-002",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "VERIFIER_FAIL",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "selected_chain mismatch"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: chain.json",
+        "missing artifact: handoff.tsv",
+        "missing artifact: audit.md",
+        "missing artifact: manifest.json"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "chains mismatch"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb012-cross-stage-chain-002-gpt56sol-002",
+      "task_version": "0.9.0",
+      "status": "verifier_fail",
+      "passed": false,
+      "valid_difficulty_evidence": true,
+      "runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "fail",
+      "failure_attribution": "required_manifest_rules_version_missing",
+      "verifier_errors": [
+        "manifest provenance mismatch"
+      ],
+      "stored_runner_verifier_errors": [
+        "chains mismatch",
+        "handoff claim_permission mismatch",
+        "manifest provenance mismatch"
+      ],
+      "artifact_sha256": {
+        "chain.json": "60a3985c31ac11ffc46d6a1e223cacab34876de327ba1a61cd8bfd92d836f374",
+        "handoff.tsv": "b5693838c4f6efcd484538b4c2365c429844689f43fcfc475e9df47604e0999d",
+        "audit.md": "81ec878e78c753f3f74ebdd7d6e846af57a810355531243f1da214256ee3799f",
+        "manifest.json": "7683119f12d7e8e6088a117d519af2251705f4969ad6b33805af5f003ef9abb4"
+      },
+      "trial_dir": "/private/tmp/enterprise-l54-target-trials-v2/eb012-cross-stage-chain-002-gpt56sol-002"
+    }
+  ]
+}

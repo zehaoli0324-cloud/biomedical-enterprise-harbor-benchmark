@@ -1,0 +1,5 @@
+{
+  "selected_chain": "CHAIN-A",
+  "rules_version": "l5.4-cross-stage-chain-v1",
+  "status": "verifier_only"
+}

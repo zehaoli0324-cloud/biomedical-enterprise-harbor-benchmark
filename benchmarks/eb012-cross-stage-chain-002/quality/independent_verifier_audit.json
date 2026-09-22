@@ -1,0 +1,8 @@
+{
+  "audit_id": "AUDIT-EB012-CROSS-STAGE-CHAIN-002-001",
+  "task_id": "eb012-cross-stage-chain-002",
+  "review_status": "pass",
+  "finding_count": 0,
+  "source_report": "/private/tmp/eb012-cross-stage-chain-review.json",
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "rules_version": "l5.4-cross-stage-chain-v1",
+  "required_stage_order": [
+    "recovery",
+    "normalization",
+    "route",
+    "policy"
+  ],
+  "claim_levels": {
+    "operational": 1,
+    "descriptive": 2,
+    "associational": 3,
+    "causal": 4
+  },
+  "min_evidence_quorum": 2,
+  "min_robust_cvar": 0.8
+}
