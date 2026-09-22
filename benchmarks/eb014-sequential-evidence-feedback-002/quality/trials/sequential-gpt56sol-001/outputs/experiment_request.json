@@ -1,0 +1,7 @@
+{
+  "round": 1,
+  "action_id": "audit_quality",
+  "question_id": "Q-QUALITY",
+  "rationale": "The registered-cohort and target-context effects are both marked quality-unresolved, so quality must be audited before interpreting degradation as context shift or failed replication.",
+  "expected_information": "Whether the observed measurements pass quality review or require a quality repair before downstream comparison and replication."
+}

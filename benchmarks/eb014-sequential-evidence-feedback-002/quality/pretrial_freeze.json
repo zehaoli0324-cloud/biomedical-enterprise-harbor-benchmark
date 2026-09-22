@@ -1,0 +1,14 @@
+{
+  "task_version": "1.0.0",
+  "files": {
+    "task.yaml": "29542a2ebfb2a7e2248b343f8ea157899d90534d54169a5a1d4977b8b1d10a1f",
+    "instruction.md": "1dc8fecad62d8f9d53b0644baf90787590e9ba642e20c8b74c5be12bc127244c",
+    "verifier.py": "a5d5972c040f228de3c2a2c73df685f2d47210139b25b1bd8dd2a3b8cd145c0a",
+    "data/action_catalog.json": "6fad856ef9237e848a0c8478c08a7977ab77948a21d1a20a6c6149448534b13f",
+    "data/action_contract.json": "19d6c1cca861ebbbd7d1c10c1fd18291047f6ff8f591065729e0b0e15dc07da3",
+    "data/initial_state.json": "0248726a0d821dd53011421a4255c733892b95e2f12d4d1e34f362fed001b41f",
+    "data/output_contract.json": "3066ccb36d493e1bf2550d0499fd2726aec130bdc08f90590355c33ebc0689e0",
+    "data/rules.json": "f4c9fb3aba4ed3c52c2a41957229030e00d1af512059f747cfb594ff000b13a7",
+    "verifier_only/scenario.json": "83b2876bb300afe904bffaee32da38d33f5688e221c89c99e3006c9b485de25f"
+  }
+}

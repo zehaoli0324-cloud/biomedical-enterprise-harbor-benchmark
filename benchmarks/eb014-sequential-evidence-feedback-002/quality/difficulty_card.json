@@ -1,0 +1,16 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "status": "CALIBRATED",
+  "primary_module": "horizon_sequential_evidence_feedback",
+  "secondary_modules": [
+    "judgment_evidence_sufficiency_abstention",
+    "retrieval_independence_quorum"
+  ],
+  "held_out_variants": [
+    "wrong-outcome",
+    "missing-handoff",
+    "budget-overspend"
+  ],
+  "max_public_action_rounds": 8,
+  "long_trace_target": "over_40_model_turns_measured_not_required"
+}

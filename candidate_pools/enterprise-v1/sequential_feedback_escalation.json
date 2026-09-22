@@ -1,0 +1,30 @@
+{
+  "schema_version": "enterprise_difficulty_escalation.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "predecessor": "eb014-evidence-gap-followup-001",
+  "version": "1.0.0",
+  "status": "CALIBRATED_TARGET_PENDING",
+  "primary_module": "horizon_sequential_evidence_feedback",
+  "secondary_modules": [
+    "judgment_evidence_sufficiency_abstention",
+    "retrieval_independence_quorum"
+  ],
+  "retained_module": "math_ex_ante_shared_setup",
+  "strengthened_dimensions": [
+    "long_horizon_complexity",
+    "scientific_judgment",
+    "retrieval_complexity",
+    "trajectory_complexity"
+  ],
+  "interaction_protocol": "one action request -> one hidden deterministic response -> next model turn",
+  "public_action_budget": 8,
+  "long_trace_target": "over_40_observable_model_turns_is_measured_not_required",
+  "target_model_status": "INFRASTRUCTURE_FAIL",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "target-model trial",
+    "trajectory analysis",
+    "fixed-container replay",
+    "practitioner review"
+  ]
+}

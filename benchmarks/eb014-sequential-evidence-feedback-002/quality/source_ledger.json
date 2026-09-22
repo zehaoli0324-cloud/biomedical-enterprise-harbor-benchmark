@@ -1,0 +1,9 @@
+{
+  "schema_version": "source_ledger.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "fixture_type": "synthetic_deterministic_environment",
+  "source_status": "SYNTHETIC_DISCLOSED",
+  "hidden_scenario_policy": "scenario is verifier-side and never mounted into the agent workspace",
+  "claim_boundary": "registered_cohort_only",
+  "human_scientific_review": "NOT_RUN"
+}

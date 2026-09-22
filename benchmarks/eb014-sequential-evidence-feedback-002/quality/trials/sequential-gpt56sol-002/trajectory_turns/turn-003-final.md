@@ -1,0 +1,1 @@
+Recorded round 2 as observed `context_shift` and updated the status to `SUPPORTED`. The next legal, result-dependent action is round 3 `independent_replicate`, registered in `outputs/experiment_request.json`; no outcome is inferred yet.

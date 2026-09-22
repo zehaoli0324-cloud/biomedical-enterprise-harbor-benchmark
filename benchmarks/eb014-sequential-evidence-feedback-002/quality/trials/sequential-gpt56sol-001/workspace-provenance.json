@@ -1,0 +1,11 @@
+{
+  "project_id": "SEQ-EB014-002",
+  "protocol": "data/action_contract.json",
+  "catalog": "data/action_catalog.json",
+  "rules": "data/rules.json",
+  "initial_state": "data/initial_state.json",
+  "submitted_requests": ["outputs/experiment_request.json"],
+  "received_feedback": [],
+  "replay_note": "The request was submitted in the workspace. No response file or isolated runner response became available; parent directories, hidden files, and the verifier were not read.",
+  "synthetic_planning_only": true
+}

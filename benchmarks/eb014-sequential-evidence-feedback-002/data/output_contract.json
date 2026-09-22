@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "required_files": ["research_log.json", "completion.json", "provenance.json", "audit.md"],
+  "event_fields": ["round", "action_id", "observed_outcome", "cost", "question_id", "next_question"],
+  "claim_fields": ["quality_status", "context_status", "replication_status", "claim_boundary"],
+  "completion_fields": ["checks", "stop_reason", "human_review_required", "claim_boundary"],
+  "allowed_statuses": ["PASS", "HOLD", "SUPPORTED", "UNRESOLVED", "REVIEW_REQUIRED"],
+  "equivalents": ["JSON key order", "finite numeric strings", "event array order only by round"],
+  "forbidden": ["future outcome before action", "duplicate round", "budget overspend", "hidden score query", "missing handoff"]
+}

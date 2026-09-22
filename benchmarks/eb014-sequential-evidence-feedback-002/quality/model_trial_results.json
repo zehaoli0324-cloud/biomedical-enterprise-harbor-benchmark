@@ -1,0 +1,141 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "status": "COMPLETED_WITH_ATTRIBUTION",
+  "target_model_status": "INFRASTRUCTURE_FAIL",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "passed": true,
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "passed": false,
+      "status": "fail",
+      "errors": [
+        "baseline is not a valid stateful feedback policy"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "passed": false,
+      "status": "fail",
+      "errors": [
+        "baseline is not a valid stateful feedback policy"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "passed": false,
+      "status": "fail",
+      "errors": [
+        "baseline is not a valid stateful feedback policy"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "trial_id": "sequential-gpt56sol-001",
+      "model": "gpt-5.6-sol",
+      "classification": "INFRASTRUCTURE_FAIL",
+      "runner_status": "agent_error",
+      "raw_verifier_result": {
+        "passed": false,
+        "errors": [
+          "delivery: [Errno 2] No such file or directory: '/private/tmp/enterprise-sequential-trials/sequential-gpt56sol-001/agent_workspace/outputs/research_log.json'"
+        ],
+        "status": "fail",
+        "runner_verifier_exit_code": 1,
+        "runner_verifier_seconds": 0.045
+      },
+      "trajectory": {
+        "model_turns": 0,
+        "completed_turns": 0,
+        "tool_calls_started": null,
+        "tool_calls_completed": null,
+        "agent_messages": null,
+        "completion_gate_events": 0,
+        "completion_gate_statuses": {},
+        "long_trace_target": "over_40_model_turns",
+        "over_40_model_turns": false
+      },
+      "event_log_sha256": null,
+      "agent_exit_code": 1,
+      "timed_out": false,
+      "isolation_mode": "process_cwd_only",
+      "counted_as_difficulty_failure": false,
+      "target_model_defeated": false,
+      "artifact_path": "benchmarks/eb014-sequential-evidence-feedback-002/quality/trials/sequential-gpt56sol-001"
+    },
+    {
+      "strategy": "target_model",
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "trial_id": "sequential-gpt56sol-002",
+      "model": "gpt-5.6-sol",
+      "classification": "INFRASTRUCTURE_INCOMPLETE",
+      "runner_status": "running",
+      "raw_verifier_result": {},
+      "trajectory": {
+        "model_turns": 0,
+        "completed_turns": 0,
+        "tool_calls_started": null,
+        "tool_calls_completed": null,
+        "agent_messages": null,
+        "completion_gate_events": 0,
+        "completion_gate_statuses": {},
+        "long_trace_target": "over_40_model_turns",
+        "over_40_model_turns": false
+      },
+      "event_log_sha256": null,
+      "agent_exit_code": null,
+      "timed_out": false,
+      "isolation_mode": "process_cwd_only",
+      "counted_as_difficulty_failure": false,
+      "target_model_defeated": false,
+      "artifact_path": "benchmarks/eb014-sequential-evidence-feedback-002/quality/trials/sequential-gpt56sol-002"
+    },
+    {
+      "strategy": "target_model",
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "trial_id": "sequential-gpt56sol-003",
+      "model": "gpt-5.6-sol",
+      "classification": "INFRASTRUCTURE_FAIL",
+      "runner_status": "agent_error",
+      "raw_verifier_result": {
+        "passed": false,
+        "errors": [
+          "delivery: [Errno 2] No such file or directory: '/private/tmp/enterprise-sequential-trials/sequential-gpt56sol-003/agent_workspace/outputs/research_log.json'"
+        ],
+        "status": "fail",
+        "runner_verifier_exit_code": 1,
+        "runner_verifier_seconds": 0.044
+      },
+      "trajectory": {
+        "model_turns": 0,
+        "completed_turns": 0,
+        "tool_calls_started": 0,
+        "tool_calls_completed": 0,
+        "agent_messages": 0,
+        "completion_gate_events": 0,
+        "completion_gate_statuses": {},
+        "long_trace_target": "over_40_model_turns",
+        "over_40_model_turns": false
+      },
+      "event_log_sha256": "3573d6ea706bf64d38bec641ecd09283457c44cf5769b785ee7be221cad362ca",
+      "agent_exit_code": 124,
+      "timed_out": false,
+      "isolation_mode": "process_cwd_only",
+      "counted_as_difficulty_failure": false,
+      "target_model_defeated": false,
+      "artifact_path": "benchmarks/eb014-sequential-evidence-feedback-002/quality/trials/sequential-gpt56sol-003"
+    }
+  ]
+}

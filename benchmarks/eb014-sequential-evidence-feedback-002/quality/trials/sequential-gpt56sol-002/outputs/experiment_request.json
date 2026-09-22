@@ -1,0 +1,7 @@
+{
+  "round": 4,
+  "action_id": "stop",
+  "question_id": "Q-STOP",
+  "rationale": "The quality audit passed, the context comparison detected a shift, and the independent registered-cohort replicate reproduced the effect. The required evidence checks are recorded, so stop before extending the claim beyond the registered cohort.",
+  "expected_information": "Completion of the registered-cohort evidence review without making a target-context causal claim."
+}

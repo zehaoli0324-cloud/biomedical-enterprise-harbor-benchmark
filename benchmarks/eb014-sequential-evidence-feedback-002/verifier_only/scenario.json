@@ -1,0 +1,9 @@
+{
+  "outcomes": {
+    "audit_quality": {"outcome": "quality_ok", "cost": 1, "measurements": [{"id": "M-QC", "status": "PASS"}]},
+    "compare_context": {"outcome": "context_shift", "cost": 2, "measurements": [{"id": "M-CONTEXT", "effect": 0.08, "status": "SHIFT_DETECTED"}]},
+    "independent_replicate": {"outcome": "replicate_ok", "cost": 2, "measurements": [{"id": "M-REPL", "effect": 0.39, "status": "REPRODUCED"}]},
+    "orthogonal_assay": {"outcome": "orthogonal_confirmed", "cost": 2, "measurements": [{"id": "M-ORTHO", "status": "QUALITY_NOT_CAUSAL"}]},
+    "repair_quality": {"outcome": "quality_repaired", "cost": 1, "measurements": [{"id": "M-QC-REPAIR", "status": "PASS"}]}
+  }
+}

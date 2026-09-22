@@ -1,0 +1,40 @@
+scenario_id: eb014-sequential-evidence-feedback-002
+status: ready
+source_scenarios: [eb014-evidence-gap-followup-001, eb013-cross-context-evidence-portfolio-005]
+domain: biomedical_enterprise
+scientific_decision: update a claim boundary after sequential quality, context and independent-replication feedback
+scientific_judgments:
+  - distinguish measurement-quality failure from a target-context shift
+  - select independent replication only after the quality state is known
+  - stop or hand off without promoting an unobserved target-context claim
+workflow_handoffs:
+  - from: quality_audit
+    to: context_comparison
+    artifact: outputs/research_log.json
+    invariant: context action follows an observed quality result
+  - from: independent_replication
+    to: claim_boundary_review
+    artifact: outputs/completion.json
+    invariant: registered-cohort evidence does not authorize target-context transport
+difficulty_modules:
+  - id: horizon_sequential_evidence_feedback
+    observable: later legal actions depend on prior environment observations
+    decision_flip: context_shift requires bounded handoff while context_aligned permits a different claim path
+  - id: judgment_evidence_sufficiency_abstention
+    observable: quality failure, unresolved context and replication failure are distinct states
+    decision_flip: evidence insufficiency produces HOLD rather than forced support
+  - id: retrieval_independence_quorum
+    observable: independent replication cannot be replaced by a repeated measurement
+    decision_flip: related repetition leaves replication unresolved
+difficulty_budget:
+  primary: horizon_sequential_evidence_feedback
+  secondary: [judgment_evidence_sufficiency_abstention, retrieval_independence_quorum]
+  long_trace_target: over_40_observable_model_turns_is_measured_not_required
+release_gates:
+  scientific_reality: synthetic_feedback_only
+  observability: pass
+  verifiability: pass
+  interaction_protocol: pending_runtime_replay
+  naive_resistance: pending_controls
+  reproducibility: fixed_scenario_replay_required
+  target_model: not_run

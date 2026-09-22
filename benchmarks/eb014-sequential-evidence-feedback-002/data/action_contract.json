@@ -1,0 +1,8 @@
+{
+  "request": "outputs/experiment_request.json",
+  "response": "outputs/experiment_feedback.json",
+  "request_fields": ["round", "action_id", "question_id", "rationale", "expected_information"],
+  "response_fields": ["round", "action_id", "outcome", "cost_charged", "observed_measurements", "remaining_budget"],
+  "feedback_boundary": "The environment returns only the declared measurement result and cost; it does not return the hidden answer, score, or recommended next action.",
+  "replay_rule": "Repeated action IDs are rejected unless the action explicitly declares an independent unit. The same frozen scenario is used for all replayed requests."
+}

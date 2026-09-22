@@ -1,0 +1,12 @@
+{
+  "project_id": "SEQ-EB014-002",
+  "initial_questions": [
+    {"id": "Q-QUALITY", "status": "unknown", "decision": "is the observed degradation a measurement-quality artifact?"},
+    {"id": "Q-CONTEXT", "status": "unknown", "decision": "does the result transfer to the target context?"},
+    {"id": "Q-REPLICATION", "status": "unknown", "decision": "does an independent unit reproduce the registered-cohort effect?"}
+  ],
+  "visible_measurements": [
+    {"id": "M-BASELINE", "scope": "registered_cohort", "effect": 0.42, "quality": "unresolved"},
+    {"id": "M-TARGET", "scope": "target_context", "effect": 0.08, "quality": "unresolved"}
+  ]
+}

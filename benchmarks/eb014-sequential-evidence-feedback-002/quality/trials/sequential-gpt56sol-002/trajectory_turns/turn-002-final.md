@@ -1,0 +1,1 @@
+Recorded round 1 (`audit_quality`) as observed `quality_ok` with cost 1. The next legal action is round 2 `compare_context`, selected because quality passed and context transfer remains unresolved.

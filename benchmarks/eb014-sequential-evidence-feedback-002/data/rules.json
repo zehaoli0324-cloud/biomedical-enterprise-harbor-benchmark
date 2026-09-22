@@ -1,0 +1,10 @@
+{
+  "rules_version": "sequential-evidence-feedback-v1",
+  "decision_date": "2026-09-21",
+  "budget": 8,
+  "max_rounds": 8,
+  "stop_rule": "stop after quality, context, replication and claim-boundary checks are recorded, or explicitly hand off an unresolved blocker",
+  "required_checks": ["quality_audit", "context_comparison", "independent_replication", "stop_rule", "handoff"],
+  "claim_boundary": "registered_cohort_only",
+  "long_trace_target": "over_40_model_turns_is_a_trajectory_attribute_not_a_minimum"
+}

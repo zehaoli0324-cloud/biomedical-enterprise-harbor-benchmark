@@ -123,6 +123,7 @@ def _run_process(
     env.update(
         {
             "BENCHMARK_TASK_ID": trial.task_id,
+            "BENCHMARK_HIDDEN_TASK_DIR": str(trial.task_dir),
             "BENCHMARK_TRIAL_ID": trial.trial_id,
             "BENCHMARK_WORKSPACE": str(trial.workspace),
             "BENCHMARK_OUTPUTS": str(trial.outputs),

@@ -1,0 +1,7 @@
+{
+  "round": 2,
+  "action_id": "compare_context",
+  "question_id": "Q-CONTEXT",
+  "rationale": "The quality audit passed, so compare the registered cohort with the target context to test whether the degradation reflects a context shift rather than a measurement-quality artifact.",
+  "expected_information": "Whether the effect is context-shifted or context-aligned after quality control passes."
+}

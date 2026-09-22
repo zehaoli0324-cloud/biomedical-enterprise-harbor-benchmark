@@ -1,0 +1,59 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "sequential-gpt56sol-001",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb014-sequential-evidence-feedback-002",
+  "trial_dir": "/private/tmp/enterprise-sequential-trials/sequential-gpt56sol-001",
+  "workspace": "/private/tmp/enterprise-sequential-trials/sequential-gpt56sol-001/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-22T09:49:55.712005+00:00",
+  "input_hashes": {
+    "data/action_catalog.json": "6fad856ef9237e848a0c8478c08a7977ab77948a21d1a20a6c6149448534b13f",
+    "data/action_contract.json": "19d6c1cca861ebbbd7d1c10c1fd18291047f6ff8f591065729e0b0e15dc07da3",
+    "data/initial_state.json": "0248726a0d821dd53011421a4255c733892b95e2f12d4d1e34f362fed001b41f",
+    "data/output_contract.json": "3066ccb36d493e1bf2550d0499fd2726aec130bdc08f90590355c33ebc0689e0",
+    "data/rules.json": "f4c9fb3aba4ed3c52c2a41957229030e00d1af512059f747cfb594ff000b13a7",
+    "instruction.md": "64048b9283a0be2273a3a1b41dce61012e1fe5d13bae81ca852df2f7deebb91a"
+  },
+  "status": "agent_error",
+  "agent_command": [
+    "/Users/zehaoli0324/.local/bin/python3.11",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_sequential_feedback.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--timeout",
+    "180",
+    "--max-turns",
+    "20"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-22T09:49:55.712794+00:00",
+  "timeout_seconds": 900,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-22T10:00:41.545169+00:00",
+  "agent_exit_code": 1,
+  "verifier_status": "fail",
+  "verifier_score": null,
+  "verifier_exit_code": 1,
+  "visible_output_hashes": {
+    "experiment_request.json": "5bf00397315d41b8ac6899c70349ba2235895356f98c577a548bd2ca5c2b091a"
+  }
+}

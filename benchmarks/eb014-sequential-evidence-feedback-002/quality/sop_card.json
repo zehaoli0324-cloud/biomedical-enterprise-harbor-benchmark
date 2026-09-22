@@ -1,0 +1,17 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "SYNTHETIC_DISCLOSED",
+  "contract_status": "FROZEN_V1.0.0",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "NOT_RUN",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "target-model trial",
+    "trajectory analysis",
+    "fixed-container replay",
+    "practitioner review"
+  ]
+}

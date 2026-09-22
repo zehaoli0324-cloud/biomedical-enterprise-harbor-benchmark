@@ -1,0 +1,25 @@
+{
+  "project_id": "SEQ-EB014-002",
+  "protocol": "sequential-evidence-feedback-v1",
+  "decision_date": "2026-09-21",
+  "source_scope": "public action contract, action catalogue, initial state, and recorded environment feedback",
+  "request_records": [
+    "outputs/feedback_history/round-001-request.json",
+    "outputs/feedback_history/round-002-request.json",
+    "outputs/feedback_history/round-003-request.json",
+    "outputs/feedback_history/round-004-request.json"
+  ],
+  "response_records": [
+    "outputs/feedback_history/round-001-response.json",
+    "outputs/feedback_history/round-002-response.json",
+    "outputs/feedback_history/round-003-response.json",
+    "outputs/feedback_history/round-004-response.json"
+  ],
+  "budget": {
+    "initial": 8,
+    "charged": 5,
+    "remaining": 3
+  },
+  "hidden_information_used": false,
+  "claim_boundary": "registered_cohort_only"
+}

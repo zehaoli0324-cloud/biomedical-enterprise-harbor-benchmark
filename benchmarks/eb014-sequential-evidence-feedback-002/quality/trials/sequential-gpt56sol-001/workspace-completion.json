@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "quality_audit": "HOLD",
+    "context_comparison": "HOLD",
+    "independent_replication": "HOLD",
+    "stop_rule": "PASS",
+    "handoff": "REVIEW_REQUIRED"
+  },
+  "stop_reason": "Handed off unresolved blocker: no environment feedback was available for the submitted audit_quality request, so no observation-dependent action could be taken safely.",
+  "human_review_required": true,
+  "claim_boundary": "registered_cohort_only"
+}

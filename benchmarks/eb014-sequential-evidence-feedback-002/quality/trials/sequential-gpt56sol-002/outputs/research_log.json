@@ -1,0 +1,43 @@
+{
+  "project_id": "SEQ-EB014-002",
+  "events": [
+    {
+      "round": 1,
+      "action_id": "audit_quality",
+      "observed_outcome": "quality_ok",
+      "cost": 1,
+      "question_id": "Q-QUALITY",
+      "next_question": "Q-CONTEXT"
+    },
+    {
+      "round": 2,
+      "action_id": "compare_context",
+      "observed_outcome": "context_shift",
+      "cost": 2,
+      "question_id": "Q-CONTEXT",
+      "next_question": "Q-REPLICATION"
+    },
+    {
+      "round": 3,
+      "action_id": "independent_replicate",
+      "observed_outcome": "replicate_ok",
+      "cost": 2,
+      "question_id": "Q-REPLICATION",
+      "next_question": "Q-STOP"
+    },
+    {
+      "round": 4,
+      "action_id": "stop",
+      "observed_outcome": "stopped",
+      "cost": 0,
+      "question_id": "Q-STOP",
+      "next_question": "Q-COMPLETE"
+    }
+  ],
+  "status": {
+    "quality_status": "PASS",
+    "context_status": "SUPPORTED",
+    "replication_status": "PASS",
+    "claim_boundary": "registered_cohort_only"
+  }
+}

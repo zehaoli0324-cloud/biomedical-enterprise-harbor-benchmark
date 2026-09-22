@@ -1,0 +1,61 @@
+[task]
+id = "eb014-sequential-evidence-feedback-002"
+title = "Sequential evidence feedback and claim-boundary review"
+domain = "biomedical_enterprise"
+source_scenarios = ["eb014-evidence-gap-followup-001", "eb013-cross-context-evidence-portfolio-005"]
+
+[scenario]
+card = "../../../benchmarks/eb014-sequential-evidence-feedback-002/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 5
+rationale = "Stateful synthetic evidence review where new measurements alter legal follow-up actions."
+[difficulty.scientific_judgment]
+level = 5
+rationale = "The model must hold a target-context claim after a context shift while preserving registered-cohort replication."
+[difficulty.computational_difficulty]
+level = 3
+rationale = "Maintain a bounded action ledger and cumulative budget across feedback rounds."
+[difficulty.tool_call_complexity]
+level = 4
+rationale = "One request and one response are exchanged per model interaction."
+[difficulty.retrieval_complexity]
+level = 4
+rationale = "Independent replication and context evidence have different claim permissions."
+[difficulty.information_noise_complexity]
+level = 4
+rationale = "The environment returns measurements and costs but no recommendation or score."
+[difficulty.data_type_complexity]
+level = 3
+rationale = "JSON request, response, event ledger and completion contract."
+[difficulty.data_complexity]
+level = 4
+rationale = "The same evidence state is updated after each action and feedback event."
+[difficulty.environment_complexity]
+level = 5
+rationale = "Feedback is host-controlled, deterministic and hidden from the visible workspace."
+[difficulty.mathematical_complexity]
+level = 3
+rationale = "Cumulative budget and dependency legality are recomputed after each response."
+[difficulty.long_horizon_complexity]
+level = 5
+rationale = "Each next action depends on a prior observation; early stopping and handoff are legal."
+[difficulty.safety_risk]
+level = 3
+rationale = "Synthetic planning only with an explicit registered-cohort claim boundary."
+
+[modules]
+horizon = ["horizon_sequential_evidence_feedback"]
+judgment = ["judgment_evidence_sufficiency_abstention"]
+retrieval = ["retrieval_independence_quorum"]
+math = ["math_ex_ante_shared_setup"]
+
+[data]
+types = ["json", "markdown"]
+
+[constraints]
+network = "off"
+cpu_seconds = 300
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

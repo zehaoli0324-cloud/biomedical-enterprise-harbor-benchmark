@@ -1,0 +1,11 @@
+{
+  "project_id": "SEQ-EB014-002",
+  "events": [],
+  "pending_request": {
+    "round": 1,
+    "action_id": "audit_quality",
+    "question_id": "Q-QUALITY",
+    "status": "AWAITING_ENVIRONMENT_FEEDBACK"
+  },
+  "unresolved_blocker": "The isolated environment response was not made available in the workspace after the request was submitted; no dependent action was taken."
+}

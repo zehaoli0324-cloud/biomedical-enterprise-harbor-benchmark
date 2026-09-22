@@ -1,0 +1,26 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "sequential-gpt56sol-002",
+  "model": "gpt-5.6-sol",
+  "classification": "INFRASTRUCTURE_INCOMPLETE",
+  "runner_status": "running",
+  "raw_verifier_result": {},
+  "trajectory": {
+    "model_turns": 0,
+    "completed_turns": 0,
+    "tool_calls_started": null,
+    "tool_calls_completed": null,
+    "agent_messages": null,
+    "completion_gate_events": 0,
+    "completion_gate_statuses": {},
+    "long_trace_target": "over_40_model_turns",
+    "over_40_model_turns": false
+  },
+  "event_log_sha256": null,
+  "agent_exit_code": null,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "counted_as_difficulty_failure": false,
+  "target_model_defeated": false,
+  "artifact_path": "benchmarks/eb014-sequential-evidence-feedback-002/quality/trials/sequential-gpt56sol-002"
+}

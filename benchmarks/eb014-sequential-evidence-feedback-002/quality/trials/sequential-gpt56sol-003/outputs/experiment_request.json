@@ -1,0 +1,7 @@
+{
+  "round": 1,
+  "action_id": "audit_quality",
+  "question_id": "Q-QUALITY",
+  "rationale": "The target-context effect is much lower than the registered-cohort baseline, but both measurements have unresolved quality. Audit measurement quality before attributing the gap to context or replication.",
+  "expected_information": "Whether the observed degradation passes quality checks or has a quality issue requiring repair."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "sequential-gpt56sol-002",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb014-sequential-evidence-feedback-002",
+  "trial_dir": "/private/tmp/enterprise-sequential-trials/sequential-gpt56sol-002",
+  "workspace": "/private/tmp/enterprise-sequential-trials/sequential-gpt56sol-002/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-22T10:06:11.612137+00:00",
+  "input_hashes": {
+    "data/action_catalog.json": "6fad856ef9237e848a0c8478c08a7977ab77948a21d1a20a6c6149448534b13f",
+    "data/action_contract.json": "19d6c1cca861ebbbd7d1c10c1fd18291047f6ff8f591065729e0b0e15dc07da3",
+    "data/initial_state.json": "0248726a0d821dd53011421a4255c733892b95e2f12d4d1e34f362fed001b41f",
+    "data/output_contract.json": "3066ccb36d493e1bf2550d0499fd2726aec130bdc08f90590355c33ebc0689e0",
+    "data/rules.json": "f4c9fb3aba4ed3c52c2a41957229030e00d1af512059f747cfb594ff000b13a7",
+    "instruction.md": "1dc8fecad62d8f9d53b0644baf90787590e9ba642e20c8b74c5be12bc127244c"
+  },
+  "status": "running",
+  "agent_command": [
+    "/Users/zehaoli0324/.local/bin/python3.11",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_sequential_feedback.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--timeout",
+    "600",
+    "--max-turns",
+    "8"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-22T10:06:11.612820+00:00",
+  "timeout_seconds": 3600,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null
+}

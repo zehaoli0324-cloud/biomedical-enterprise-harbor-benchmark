@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "quality_audit": "PASS",
+    "context_comparison": "PASS",
+    "independent_replication": "PASS",
+    "stop_rule": "PASS",
+    "handoff": "PASS"
+  },
+  "stop_reason": "The quality audit passed, the context comparison observed a shift, and an independent registered-cohort replicate passed. The accepted stop action completed the registered-cohort review; no unresolved blocker required handoff.",
+  "human_review_required": true,
+  "claim_boundary": "registered_cohort_only"
+}

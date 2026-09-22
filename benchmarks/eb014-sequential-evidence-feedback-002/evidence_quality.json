@@ -1,0 +1,13 @@
+{
+  "schema_version": "evidence_quality.v1",
+  "package": "eb014-sequential-evidence-feedback-002",
+  "fixture_classification": "SYNTHETIC_HIDDEN_FEEDBACK_FIXTURE",
+  "source_status": "NO_AUTOMATED_DEFECT",
+  "claim_policy": "CALIBRATION_ONLY",
+  "finding_severity": "NONE",
+  "findings": [],
+  "synthetic_evidence_files": ["data/initial_state.json", "data/action_catalog.json", "verifier_only/scenario.json"],
+  "manual_review_required": true,
+  "release_recommendation": "BLOCKED",
+  "generated_on": "2026-09-22"
+}

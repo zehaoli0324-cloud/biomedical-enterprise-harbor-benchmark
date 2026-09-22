@@ -1,0 +1,10 @@
+{
+  "actions": [
+    {"id": "audit_quality", "cost": 1, "requires": [], "resolves": "quality_audit", "outcomes": ["quality_ok", "quality_issue"]},
+    {"id": "repair_quality", "cost": 1, "requires": ["quality_issue"], "resolves": "quality_audit", "outcomes": ["quality_repaired", "quality_unresolved"]},
+    {"id": "compare_context", "cost": 2, "requires_any": ["quality_ok", "quality_repaired"], "resolves": "context_comparison", "outcomes": ["context_shift", "context_aligned"]},
+    {"id": "independent_replicate", "cost": 2, "requires_any": ["quality_ok", "quality_repaired"], "resolves": "independent_replication", "outcomes": ["replicate_ok", "replicate_failed"]},
+    {"id": "orthogonal_assay", "cost": 2, "requires": ["context_shift"], "resolves": "handoff", "outcomes": ["orthogonal_confirmed", "orthogonal_unresolved"]},
+    {"id": "stop", "cost": 0, "requires": [], "resolves": "stop_rule", "outcomes": ["stopped"]}
+  ]
+}

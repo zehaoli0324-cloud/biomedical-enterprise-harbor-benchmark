@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "output": "research_log.json",
+      "schema_declared": true
+    },
+    {
+      "output": "completion.json",
+      "schema_declared": true
+    },
+    {
+      "output": "provenance.json",
+      "schema_declared": true
+    },
+    {
+      "output": "audit.md",
+      "schema_declared": true
+    }
+  ],
+  "controls": [
+    {
+      "control_id": "reference",
+      "kind": "positive",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "wrong-outcome",
+      "kind": "negative",
+      "passed": true,
+      "errors": [
+        "scientific: outcome mismatch for compare_context",
+        "scientific: unmet dependency for orthogonal_assay"
+      ]
+    },
+    {
+      "control_id": "missing-handoff",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "errors": [
+        "contract: rounds must be contiguous",
+        "scientific: context shift requires handoff",
+        "contract: missing completion check handoff"
+      ]
+    },
+    {
+      "control_id": "duplicate-action",
+      "kind": "invariance",
+      "passed": true,
+      "errors": [
+        "scientific: repeated action audit_quality",
+        "scientific: outcome mismatch for audit_quality",
+        "contract: cost mismatch for audit_quality",
+        "contract: missing completion check independent_replication"
+      ]
+    },
+    {
+      "control_id": "budget-overspend",
+      "kind": "negative",
+      "passed": true,
+      "errors": [
+        "scientific: unmet dependency for repair_quality",
+        "contract: rounds must be contiguous"
+      ]
+    }
+  ],
+  "completion_boundary": "public completeness only; no scientific score feedback"
+}

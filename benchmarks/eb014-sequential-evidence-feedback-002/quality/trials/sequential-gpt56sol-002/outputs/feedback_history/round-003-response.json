@@ -1,0 +1,15 @@
+{
+  "round": 3,
+  "action_id": "independent_replicate",
+  "outcome": "replicate_ok",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-REPL",
+      "effect": 0.39,
+      "status": "REPRODUCED"
+    }
+  ],
+  "remaining_budget": 3,
+  "accepted": true
+}

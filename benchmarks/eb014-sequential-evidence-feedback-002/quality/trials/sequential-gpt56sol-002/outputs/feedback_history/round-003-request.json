@@ -1,0 +1,7 @@
+{
+  "round": 3,
+  "action_id": "independent_replicate",
+  "question_id": "Q-REPLICATION",
+  "rationale": "The quality audit passed and the context comparison detected a shift. Test an independent unit in the registered cohort to determine whether the registered-cohort effect reproduces before making any broader claim.",
+  "expected_information": "Whether an independent unit reproduces the registered-cohort effect after quality control passes."
+}

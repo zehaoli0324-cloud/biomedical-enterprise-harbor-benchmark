@@ -1,0 +1,21 @@
+id: eb014-sequential-evidence-feedback-002
+version: "1.0.0"
+status: ready_for_calibration
+title: "Sequential evidence feedback and claim-boundary review"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: JSON
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: research_log, path: outputs/research_log.json, required_fields: [events, final_claims]}
+  - {id: completion, path: outputs/completion.json, required_fields: [checks, stop_reason, human_review_required, claim_boundary]}
+  - {id: provenance, path: outputs/provenance.json, required_fields: [input_sha256, rules_version, network, deterministic]}
+  - {id: audit, path: outputs/audit.md, required_fields: [explanation]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only
