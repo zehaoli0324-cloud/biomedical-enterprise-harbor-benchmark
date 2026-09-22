@@ -1,0 +1,44 @@
+scenario_id: eb013-evidence-budget-routing-002
+status: ready
+source_scenarios: [L6-TRANCHE-012]
+domain: biomedical_enterprise
+scientific_decision: select a prospective two-stage evidence policy under bounded uncertainty
+scientific_judgments:
+  - preserve the observation-before-action boundary
+  - compare adaptive policies by worst-case critical residual
+  - exclude future outcomes and unresolved prerequisites
+difficulty_modules:
+  - id: horizon_two_stage_acquisition
+    observable: stage-2 request is selected only after a declared stage-1 observation
+    decision_flip: adaptive observation policy succeeds where any fixed stage-2 choice fails
+  - id: judgment_evidence_route_selection
+    observable: policy minimizes worst-case critical residual rather than nominal value
+    decision_flip: nominal high-value route is ineligible or dominated
+  - id: math_correlation_adjusted_reduction
+    observable: correlated reductions are not double-counted
+    decision_flip: correlated shortcut misses a threshold
+  - id: math_minimax_evidence_route_selection
+    observable: policies are ranked by worst-case maximum critical residual before cost
+    decision_flip: a fixed policy that crosses one state cannot beat a valid adaptive policy
+  - id: judgment_uncertainty_and_stop_rules
+    observable: an unresolved policy boundary escalates instead of forcing an action
+    decision_flip: an incomplete observation policy is held for human review
+  - id: math_minimax_evidence_route_selection
+    observable: the policy is ranked by worst-case residual before cost
+    decision_flip: nominally cheap policy loses to the robust adaptive policy
+  - id: retrieval_provenance_temporal_boundary
+    observable: future-outcome and unavailable-request records are excluded before stage-2 selection
+    decision_flip: a nominal future request cannot make an otherwise invalid policy eligible
+workflow_handoffs:
+  - from: stage1_observation
+    to: stage2_policy
+    artifact: outputs/decision.json
+    invariant: future outcomes and unavailable requests cannot influence stage-2 selection
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

@@ -1,0 +1,7 @@
+# Two-stage evidence budget routing
+
+Use only the supplied nested JSON bundle. Choose a stage-1 request before observing its declared outcome. After that observation, choose exactly one dependency-valid stage-2 request allowed for that observation. The stage-1 cost plus the largest stage-2 cost must remain within the total budget. Do not use future-outcome requests, archived scope, or missing prerequisites.
+
+For every observation state, subtract the stage-1 and selected stage-2 reductions plus the declared observation adjustment. Within one correlation group, only the largest reduction per uncertainty counts. A policy is eligible only if every observation state reaches both critical thresholds. Select the eligible policy by lowest worst-case maximum critical residual, then lowest worst-case cost, then lexical stage-1 request ID and stage-2 mapping. This is a planning task, not experimental proof.
+
+Write exactly `outputs/plan.json`, `outputs/route.tsv`, `outputs/decision.json`, `outputs/provenance.json`, and `outputs/audit.md`. Keep the same output schema as the prior evidence-routing task, with `stage1_request_id`, `stage2_policy`, `worst_case_max_critical_residual`, `worst_case_cost`, and complete `policies` added to plan/decision. `route.tsv` must contain one row per enumerated policy. `provenance.json` must contain input SHA-256 values, the rules version, `network="off"`, and `deterministic=true`. The audit must explain observation gating, stages, dependency, budget, future-outcome exclusion, human review, and not experimental proof.

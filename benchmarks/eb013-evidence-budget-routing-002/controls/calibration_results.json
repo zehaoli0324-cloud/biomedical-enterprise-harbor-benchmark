@@ -1,0 +1,47 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "negative-fixed-stage2",
+      "kind": "negative",
+      "passed": true,
+      "errors": [
+        "decision selected policy mismatch"
+      ]
+    },
+    {
+      "control_id": "invariance-observation-order",
+      "kind": "invariance",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "insufficient-input-hash",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "errors": [
+        "provenance mismatch"
+      ]
+    },
+    {
+      "control_id": "adversarial-nominal-value",
+      "kind": "adversarial",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "metamorphic-policy-order",
+      "kind": "metamorphic",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

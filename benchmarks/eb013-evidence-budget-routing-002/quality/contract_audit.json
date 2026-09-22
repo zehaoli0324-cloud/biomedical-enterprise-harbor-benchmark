@@ -1,0 +1,98 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "task_version": "0.2.0",
+  "status": "PASS",
+  "checks": [
+    {
+      "output": "outputs/plan.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true,
+      "canonical_ir_declared": true
+    },
+    {
+      "output": "outputs/route.tsv",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true,
+      "canonical_ir_declared": true
+    },
+    {
+      "output": "outputs/decision.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true,
+      "canonical_ir_declared": true
+    },
+    {
+      "output": "outputs/provenance.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true,
+      "canonical_ir_declared": true
+    },
+    {
+      "output": "outputs/audit.md",
+      "path_declared": true,
+      "schema_declared": true,
+      "equivalents_declared": true,
+      "claim_boundary_declared": true,
+      "canonical_ir_declared": true
+    }
+  ],
+  "canonical_outputs": {
+    "plan.json": {
+      "equivalents": [
+        "stage1_request_id plus stage2_policy mapping",
+        "policy object or policy list"
+      ],
+      "forbidden": [
+        "stage2 selected before observation",
+        "unknown request",
+        "budget overflow"
+      ]
+    },
+    "route.tsv": {
+      "equivalents": [
+        "row order permutation",
+        "semicolon blocker list"
+      ],
+      "forbidden": [
+        "duplicate policy row",
+        "missing observation state"
+      ]
+    }
+  },
+  "mutation_matrix": [
+    {
+      "fixture": "reference",
+      "expected": "pass"
+    },
+    {
+      "fixture": "observation-order permutation",
+      "expected": "pass"
+    },
+    {
+      "fixture": "fixed stage-2 shortcut",
+      "expected": "fail"
+    },
+    {
+      "fixture": "future-outcome request",
+      "expected": "fail"
+    },
+    {
+      "fixture": "correlation double-count",
+      "expected": "fail"
+    },
+    {
+      "fixture": "missing input hash",
+      "expected": "fail"
+    }
+  ],
+  "replay_policy": "preserve raw trial artifacts and replay unchanged artifacts after contract repair"
+}

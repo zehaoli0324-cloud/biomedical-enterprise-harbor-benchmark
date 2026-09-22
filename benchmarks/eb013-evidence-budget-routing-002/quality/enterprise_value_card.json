@@ -1,0 +1,10 @@
+{
+  "enterprise_value_card_id": "VALUE-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "enterprise_reality": {
+    "decision": "fund a prospective evidence policy or escalate",
+    "error_consequence": "using a post-observation result before its declared checkpoint can authorize unsupported work",
+    "human_owner": "translational evidence review lead"
+  },
+  "status": "REVIEW_REQUIRED"
+}

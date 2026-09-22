@@ -1,0 +1,20 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb013-evidence-budget-routing-002",
+  "source_benchmark_id": "EB013",
+  "source_name": "Synthetic enterprise evidence routing and decision-boundary calibration",
+  "workflow_id": "WF-TWO-STAGE-EVIDENCE-BUDGET",
+  "enterprise_role": "experimental_program_reviewer",
+  "status": "MATERIALIZED_CALIBRATION_READY",
+  "scientific_decision": "Which stage-one evidence request and observation-conditioned stage-two policy should be executed?",
+  "independent_unit": "stage-one observation, stage-two request policy and critical uncertainty state",
+  "handoff": "stage1_observation->stage2_policy->bounded_decision",
+  "error_consequence": "using a fixed or future-outcome stage-two action can spend budget on a route that fails in one observation state",
+  "agent_visible_inputs": ["nested stage-one and stage-two request catalogs", "observation-conditioned reductions", "dependency and budget rules", "offline provenance manifest"],
+  "required_artifacts": ["plan.json", "route.tsv", "decision.json", "provenance.json", "audit.md"],
+  "failure_injections": ["fixed stage-two shortcut", "future-outcome request", "stage budget overflow", "correlated reduction double-count", "observation-order dependence"],
+  "reusable_modules": ["math_minimax_evidence_route_selection", "judgment_evidence_route_selection", "horizon_two_stage_acquisition"],
+  "gpt_difficulty": {"mechanism": "the model must compare adaptive policies by worst-case residual rather than choose a nominally attractive fixed action", "semantic_axes": ["two_stage_planning", "observation_gating", "robust_route_selection"], "shortcut_probes": ["fixed stage-two choice", "highest nominal value", "future outcome", "always abstain"]},
+  "claim_boundary": "An adaptive evidence policy is a planning and review aid, not experimental validation.",
+  "release_blockers": ["control calibration", "baseline matrix", "target-model trial", "fixed-container replay", "practitioner review"]
+}

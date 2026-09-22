@@ -1,0 +1,22 @@
+id: eb013-evidence-budget-routing-002
+version: "0.2.0"
+status: ready_for_calibration
+title: "Two-stage evidence budget routing under observed uncertainty"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: nested JSON bundle
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: plan, path: outputs/plan.json, required_fields: [stage1_request_id, stage2_policy, worst_case_max_critical_residual, stop_condition]}
+  - {id: route, path: outputs/route.tsv, required_fields: [stage1_request_id, observation, stage2_request_id, eligible, blockers]}
+  - {id: decision, path: outputs/decision.json, required_fields: [decision, selected_stage1_request_id, selected_stage2_policy, policies]}
+  - {id: provenance, path: outputs/provenance.json, required_fields: [input_sha256, rules_version, network, deterministic]}
+  - {id: audit, path: outputs/audit.md, required_fields: [observation, dependency, budget, human_review]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

@@ -1,0 +1,25 @@
+{
+  "difficulty_card_id": "DIFF-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "primary_module": "horizon_two_stage_acquisition",
+  "secondary_modules": [
+    "judgment_evidence_route_selection",
+    "math_correlation_adjusted_reduction"
+  ],
+  "supporting_modules": [
+    "retrieval_provenance_temporal_boundary"
+  ],
+  "held_out_variants": [
+    "observation label swap",
+    "stage-2 budget contraction",
+    "dependency repair",
+    "correlation reassignment"
+  ],
+  "decision_flip_controls": [
+    "fixed-stage2 shortcut",
+    "future nominal winner",
+    "correlated pair",
+    "missing prerequisite"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

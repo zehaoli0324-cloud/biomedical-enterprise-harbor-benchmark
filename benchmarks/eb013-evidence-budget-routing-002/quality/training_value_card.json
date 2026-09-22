@@ -1,0 +1,12 @@
+{
+  "training_value_card_id": "TRAIN-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "capability_targets": [
+    "two-stage planning",
+    "dependency-aware routing",
+    "correlation-adjusted residuals",
+    "prospective provenance boundary"
+  ],
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

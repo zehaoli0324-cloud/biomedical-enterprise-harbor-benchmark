@@ -1,0 +1,19 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "MATERIALIZED_V0.2.0",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BASELINES_COMPLETE",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "controls",
+    "baselines",
+    "target-model trial",
+    "fixed-container replay",
+    "practitioner review"
+  ],
+  "status": "PASS"
+}

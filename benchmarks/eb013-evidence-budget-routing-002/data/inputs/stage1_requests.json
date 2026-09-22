@@ -1,0 +1,66 @@
+{
+  "requests": [
+    {
+      "request_id": "R-ADAPTIVE",
+      "stage": 1,
+      "cost": 3.0,
+      "correlation_group": "G0",
+      "covers": {
+        "signal": 0.35,
+        "selectivity": 0.3
+      },
+      "outcomes": {
+        "signal_high": {
+          "signal": 0.2
+        },
+        "signal_low": {
+          "selectivity": 0.2
+        }
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 0.9
+    },
+    {
+      "request_id": "R-FIXED",
+      "stage": 1,
+      "cost": 3.0,
+      "correlation_group": "G1",
+      "covers": {
+        "signal": 0.5,
+        "selectivity": 0.2
+      },
+      "outcomes": {
+        "chem_clean": {
+          "selectivity": 0.1
+        },
+        "chem_risk": {
+          "signal": 0.05
+        }
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 0.95
+    },
+    {
+      "request_id": "R-CHEAP",
+      "stage": 1,
+      "cost": 2.0,
+      "correlation_group": "G2",
+      "covers": {
+        "signal": 0.25,
+        "selectivity": 0.15
+      },
+      "outcomes": {
+        "screen_positive": {},
+        "screen_negative": {}
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 1.1
+    }
+  ]
+}

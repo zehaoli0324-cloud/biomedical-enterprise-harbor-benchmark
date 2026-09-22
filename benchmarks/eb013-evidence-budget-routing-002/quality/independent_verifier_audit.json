@@ -1,0 +1,14 @@
+{
+  "audit_id": "AUDIT-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": [
+    "oracle-static",
+    "positive-control",
+    "negative-control",
+    "invariance",
+    "provenance-boundary"
+  ],
+  "finding_count": 0
+}

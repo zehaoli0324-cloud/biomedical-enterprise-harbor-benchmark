@@ -1,0 +1,46 @@
+{
+  "task_id": "eb013-evidence-budget-routing-002",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "BASELINES_COMPLETE",
+  "target_model_status": "NOT_RUN",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "fixed stage-2 choice ignores observation gate"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "eligible adaptive policy exists"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing policy replay and provenance"
+      ]
+    }
+  ]
+}
