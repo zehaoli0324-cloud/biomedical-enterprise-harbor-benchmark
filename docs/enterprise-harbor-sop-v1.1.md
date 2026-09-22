@@ -117,3 +117,25 @@ SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
 target trial 结果必须同时保存 `raw_verifier_result`、`canonical_replay_result`、首轮错误、修订版本、原始 artifact SHA-256 和 unchanged-artifact replay。推荐状态为 `RAW_FAIL_CONTRACT_REPLAY_PASS`、`RAW_PASS`、`SCIENTIFIC_FAIL`、`DELIVERY_FAIL` 和 `INFRASTRUCTURE_FAIL`；只有 canonical replay 仍失败时，才把结果写入“模型被考倒”或难度区分度统计。合同修复不得覆盖原始 trial，且不得改变 scientific decision、blocker 集合或 claim boundary。
 
 这条门禁解决的是“严格但不公平”的 verifier，而不是把 verifier 变宽松：允许的只是事先登记的等价表示；遗漏、重复、篡改 provenance、未来信息泄漏和越级 claim 仍必须拒绝。
+
+这条门禁解决的是“严格但不公平”的 verifier，而不是把 verifier 变宽松：允许的只是事先登记的等价表示；遗漏、重复、篡改 provenance、未来信息泄漏和越级 claim 仍必须拒绝。
+
+## 11. 先修合同，再升难度
+
+同一批题不得同时修复输出合同和增加科学难度。处理顺序固定为：
+
+```text
+CONTRACT_TRIAGE
+-> CANONICAL_CONTRACT_FROZEN
+-> RAW_TRIAL_REPLAYED
+-> CONTRACT_STABLE
+-> DIFFICULTY_ESCALATION
+-> HELD_OUT_DIFFICULTY_TRIAL
+```
+
+- `CONTRACT_TRIAGE`：按 delivery、contract、scientific、infrastructure 四类归因首轮失败。
+- `CANONICAL_CONTRACT_FROZEN`：冻结 required outputs、字段 registry、等价表示、禁止表示、mutation matrix 和 verifier 版本。
+- `RAW_TRIAL_REPLAYED`：用未修改 artifact 完成 canonical replay；原始错误、hash 和修订 diff 必须保留。
+- `CONTRACT_STABLE`：至少一个 reference、一个等价表示、一个字段删除、一个错误 hash 和一个错误科学状态 fixture 的结果符合预期；不能有未归因的格式失败。
+- `DIFFICULTY_ESCALATION`：只新增一个 primary difficulty module，最多两个 secondary modules；不得借增加字段、枚举或输出格式制造难度。
+- `HELD_OUT_DIFFICULTY_TRIAL`：用新的单因素 decision-flip / held-out variant 验证新增难度，不能把合同修复 replay 当成难度证据。

@@ -17,5 +17,20 @@
     "failure_class": ["delivery_error", "contract_error", "scientific_error", "infrastructure_error"],
     "preserve": ["raw_errors", "contract_revision", "artifact_sha256", "unchanged_artifact_replay", "scientific_decision_before_after"]
   },
-  "difficulty_rule": "Count a model failure as scientific difficulty only when canonical replay still fails without changing the scientific decision boundary."
+  "difficulty_rule": "Count a model failure as scientific difficulty only when canonical replay still fails without changing the scientific decision boundary.",
+  "promotion_state_machine": [
+    "CONTRACT_TRIAGE",
+    "CANONICAL_CONTRACT_FROZEN",
+    "RAW_TRIAL_REPLAYED",
+    "CONTRACT_STABLE",
+    "DIFFICULTY_ESCALATION",
+    "HELD_OUT_DIFFICULTY_TRIAL"
+  ],
+  "escalation_gate": {
+    "blocked_until": "CONTRACT_STABLE",
+    "unresolved_failures_blocking_escalation": ["RAW_FAIL_CONTRACT_REPLAY_PASS", "contract_error", "delivery_schema_drift"],
+    "new_primary_modules_per_revision": 1,
+    "max_secondary_modules_per_revision": 2,
+    "required_new_controls": ["decision_flip_negative", "invariance", "held_out_variant"]
+  }
 }

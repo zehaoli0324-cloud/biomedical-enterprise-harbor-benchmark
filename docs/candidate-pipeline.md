@@ -13,7 +13,7 @@ workflow evidence
   -> 三个独立 LLM judge
   -> hard gates + criterion floors
   -> Pareto front + 推荐候选
-  -> compile -> agent trial -> submission evaluation
+  -> compile -> contract stabilization -> agent trial -> submission evaluation
 ```
 
 ## 五类卡片
@@ -45,6 +45,12 @@ workflow evidence
 先应用 hard gates 和各维度最低分，再在六个主要目标上计算 Pareto front。只有每个评价维度的评审一致性都达到阈值的前沿候选才能被推荐；声明的权重只用于前沿内部 tie-break。报告始终保留完整前沿，避免把有意义的“科学价值与执行成本”权衡压成伪精确总分。
 
 没有合格候选时，`iterate-candidates` 会选择最接近合格的候选，只指定一张卡和一个最弱缺陷进行修改。修订后必须重新生成 digest 并重跑三位 judge。选出候选后，selection report 中的 difficulty-card 路径直接进入已有 `compile`、trial runner、submission evaluation 和迭代管线。
+
+## 合同稳定与难度升级的顺序
+
+候选进入真实模型 trial 前，先完成输出合同归一化和 contract replay。只要存在 `RAW_FAIL_CONTRACT_REPLAY_PASS`、未归因的 `contract_error` 或 delivery schema 漂移，就只能修复合同、补充 canonical equivalence registry 和 mutation fixtures；不能同时增加新的科学 blocker、时间阶段、资源约束或 claim lattice。
+
+合同稳定后，才允许升难度。每次升级只新增一个 primary difficulty module，最多两个 secondary modules，并为新增模块添加一个 decision-flip negative control、一个 invariance control 和至少一个 held-out variant。格式字段增加、枚举隐藏、输出文件增多不计入难度；这些只属于合同复杂度，必须在升级前单独消化。
 
 ## 命令
 

@@ -82,3 +82,5 @@ def test_output_contract_normalization_template_separates_failure_layers():
     assert template["trial_result_schema"]["failure_class"] == [
         "delivery_error", "contract_error", "scientific_error", "infrastructure_error"
     ]
+    assert template["promotion_state_machine"][-2:] == ["DIFFICULTY_ESCALATION", "HELD_OUT_DIFFICULTY_TRIAL"]
+    assert template["escalation_gate"]["blocked_until"] == "CONTRACT_STABLE"
