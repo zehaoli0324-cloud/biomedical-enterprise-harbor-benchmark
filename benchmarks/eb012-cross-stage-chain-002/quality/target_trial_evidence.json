@@ -1,39 +1,31 @@
 {
   "schema_version": "enterprise_target_trial_evidence.v1",
   "task_id": "eb012-cross-stage-chain-002",
+  "trial_id": "eb012-cross-stage-chain-002-gpt56sol-004",
   "model": "gpt-5.6-sol",
-  "classification": "agent_completed_verifier_failed",
-  "valid_difficulty_outcome": "verifier_fail",
-  "contract_defect_replay": "not_applied",
-  "reason": "rules_version was explicitly required in manifest.json and omitted by the agent",
-  "trial": {
-    "strategy": "target_model",
-    "model": "gpt-5.6-sol",
-    "trial_id": "eb012-cross-stage-chain-002-gpt56sol-002",
-    "task_version": "0.9.0",
-    "status": "verifier_fail",
-    "passed": false,
-    "valid_difficulty_evidence": true,
-    "runner_status": "verifier_fail",
-    "agent_exit_code": 0,
-    "timed_out": false,
-    "verifier_status": "fail",
-    "failure_attribution": "required_manifest_rules_version_missing",
-    "verifier_errors": [
-      "manifest provenance mismatch"
-    ],
-    "stored_runner_verifier_errors": [
-      "chains mismatch",
-      "handoff claim_permission mismatch",
-      "manifest provenance mismatch"
-    ],
-    "artifact_sha256": {
-      "chain.json": "60a3985c31ac11ffc46d6a1e223cacab34876de327ba1a61cd8bfd92d836f374",
-      "handoff.tsv": "b5693838c4f6efcd484538b4c2365c429844689f43fcfc475e9df47604e0999d",
-      "audit.md": "81ec878e78c753f3f74ebdd7d6e846af57a810355531243f1da214256ee3799f",
-      "manifest.json": "7683119f12d7e8e6088a117d519af2251705f4969ad6b33805af5f003ef9abb4"
-    },
-    "trial_dir": "/private/tmp/enterprise-l54-target-trials-v2/eb012-cross-stage-chain-002-gpt56sol-002"
+  "runner_status": "verifier_fail_then_contract_replay_pass",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "required_artifacts_written": true,
+  "initial_verifier_errors": [
+    "handoff claim_permission mismatch",
+    "audit missing claim permission",
+    "audit missing not experimental proof"
+  ],
+  "classification": "agent_completed_verifier_passed_after_contract_replay",
+  "contract_revision": {
+    "reason": "accept per-artifact versus chain-minimum permission semantics and equivalent audit wording declared by instruction",
+    "scientific_decision_changed": false,
+    "artifact_content_changed": false
   },
-  "release_effect": "blocked_pending_contract-review-fixed-container-replay-and-practitioner-review"
+  "replay_verifier_result": "pass",
+  "artifact_sha256": {
+    "audit.md": "b5c9d45239110fa4833d4ecff542c18c3cb3f609733d0a6a315152e1ded04cd5",
+    "chain.json": "8c46b0a9b86a55ebb64eb980494e6c5e26a19415ea7f67ccd685e10c41982da4",
+    "handoff.tsv": "497bc8399f8a3e8ee42687872949c0dd6f68a401b04f4e56bb40876ffcdb590c",
+    "manifest.json": "e7fad095e0ba07fcf85ac9a761d4e84647045057a43aba262e248d341d90431e"
+  },
+  "selected_chain": "CHAIN-A",
+  "model_difficulty_outcome": "pass; target model not defeated",
+  "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"
 }

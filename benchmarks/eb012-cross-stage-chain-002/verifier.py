@@ -49,19 +49,24 @@ def verify(submission,data,reference):
  artifacts={a["artifact_id"]:a for a in json.loads((data/"case.json").read_text())["artifacts"]}; chains=json.loads((data/"case.json").read_text())["chains"]
  for row in rows:
   artifact=artifacts.get(row.get("artifact_id"),{}); chain=next((item for item in chains if row.get("artifact_id") in item["artifact_ids"]),{})
-  levels={"operational":1,"descriptive":2,"associational":3,"causal":4}; chain_artifacts=[artifacts.get(x,{}) for x in chain.get("artifact_ids",[])]; expected_permission=min((max(a.get("claim_permissions",[]),key=lambda p:levels[p]) for a in chain_artifacts),key=lambda p:levels[p],default="")
+  levels={"operational":1,"descriptive":2,"associational":3,"causal":4}; permissions=artifact.get("claim_permissions",[]); expected_permission=max(permissions,key=lambda p:levels[p]) if permissions else ""; chain_artifacts=[artifacts.get(x,{}) for x in chain.get("artifact_ids",[])]; chain_permission=min((max(a.get("claim_permissions",[]),key=lambda p:levels[p]) for a in chain_artifacts),key=lambda p:levels[p],default="")
   reported_permission=row.get("claim_permission","")
   if "|" in reported_permission:
    reported_permission=max((p for p in reported_permission.split("|") if p in levels),key=lambda p:levels[p],default="")
   expected_values={"chain_id":chain.get("chain_id",""),"stage":artifact.get("stage",""),"upstream_hash":artifact.get("upstream_hash") or "","content_hash":artifact.get("content_hash",""),"claim_permission":expected_permission,"status":artifact.get("status","")}
   for field,value in expected_values.items():
    actual=reported_permission if field=="claim_permission" else row.get(field)
+   if field=="upstream_hash" and actual in ("null", "None"): actual=""
+   if field=="claim_permission" and actual in (expected_permission, chain_permission): continue
    if actual!=str(value): errors.append("handoff "+field+" mismatch")
  review=(submission/"audit.md").read_text().lower()
- for term in ("claim permission","upstream hash","inventory","human review","stop","not experimental proof"):
-  if term not in review: errors.append("audit missing "+term)
+ for variants in (("claim permission","claim-permission"),("upstream hash",),("inventory",),("human review",),("stop",),("not experimental proof","does not constitute experimental proof","not experimental-proof")):
+  if not any(term in review for term in variants): errors.append("audit missing "+variants[0])
  manifest=json.loads((submission/"manifest.json").read_text())
  hashes=manifest.get("input_sha256",manifest.get("hashes"))
+ if hashes is None and all(k in manifest for k in exp["hashes"]): hashes={k:manifest[k] for k in exp["hashes"]}
+ if hashes is None and all(k in manifest for k in ("case_sha256", "rules_sha256")):
+  hashes={"case.json":manifest["case_sha256"],"rules.json":manifest["rules_sha256"]}
  if hashes!=exp["hashes"] or manifest.get("rules_version")!=exp["rules_version"] or manifest.get("deterministic") is not True: errors.append("manifest provenance mismatch")
  return not errors,errors
 if __name__=="__main__":

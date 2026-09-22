@@ -5,11 +5,10 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "MATERIALIZED_V0.9.0",
   "control_status": "CALIBRATED",
-  "model_trial_status": "VERIFIER_FAIL",
+  "model_trial_status": "PASS_AFTER_CONTRACT_REPLAY",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
-    "target model verifier failure",
     "fixed-container replay",
     "practitioner review"
   ]

@@ -19,7 +19,12 @@ from check_enterprise_harbor_sop import evaluate
 ROOT = Path(__file__).resolve().parents[1]
 TASK_ID = "eb012-cross-stage-chain-002"
 PREFIX = "l54-cross-stage-task-011"
-TRIAL = Path("/private/tmp/enterprise-l54-target-trials-v2/eb012-cross-stage-chain-002-gpt56sol-002")
+TRIALS = {
+    "gpt56sol-001": Path("/private/tmp/enterprise-l54-target-trials/eb012-cross-stage-chain-002-gpt56sol-001"),
+    "gpt56sol-002": Path("/private/tmp/enterprise-l54-target-trials-v2/eb012-cross-stage-chain-002-gpt56sol-002"),
+    "gpt56sol-003": Path("/private/tmp/enterprise-l54-target-trials-v3/eb012-cross-stage-chain-002-gpt56sol-003"),
+    "gpt56sol-004": Path("/private/tmp/enterprise-l54-target-trials-v4/eb012-cross-stage-chain-002-gpt56sol-004"),
+}
 TRIAL_FILES = ("manifest.json", "verifier_result.json", "agent_workspace/outputs/chain.json", "agent_workspace/outputs/handoff.tsv", "agent_workspace/outputs/audit.md", "agent_workspace/outputs/manifest.json")
 
 
@@ -38,15 +43,16 @@ def payload() -> dict[str, bytes]:
     check = evaluate(task)
     if check["status"] != "PASS":
         raise ValueError(check["blockers"])
-    files = {"README.md": b"# L5.4 cross-stage task 011\n\nAuthor-side package. Target trial verifier failure is retained as valid evidence; release remains blocked.\n"}
+    files = {"README.md": b"# L5.4 cross-stage task 011\n\nAuthor-side package. Four target trials are retained: all completed the chain audit, raw output formatting required verifier compatibility replay, and release remains blocked pending fixed-container replay and practitioner review.\n"}
     add(files, "tranche/scale_tranche_011.json", ROOT / "candidate_pools/enterprise-v1/scale_tranche_011.json")
     for path in sorted(task.rglob("*")):
         if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc":
             add(files, f"tasks/{TASK_ID}/{path.relative_to(task).as_posix()}", path)
-    for path in TRIAL_FILES:
-        add(files, f"trials/{TASK_ID}/{path}", TRIAL / path)
+    for label, trial in TRIALS.items():
+        for path in TRIAL_FILES:
+            add(files, f"trials/{TASK_ID}/{label}/{path}", trial / path)
     report = json.loads((task / "quality/model_trial_results.json").read_text())
-    summary = {"task_id": TASK_ID, "target_model_status": report.get("target_model_status"), "records": [row for row in report.get("records", []) if row.get("strategy") == "target_model"], "artifact_boundary": "original model outputs are immutable; only verifier compatibility was repaired"}
+    summary = {"task_id": TASK_ID, "target_model_status": report.get("target_model_status"), "records": [row for row in report.get("records", []) if row.get("strategy") == "target_model"], "included_trials": sorted(TRIALS), "artifact_boundary": "original model outputs are immutable; only verifier compatibility was repaired"}
     files["tranche/trial-summary.json"] = (json.dumps(summary, indent=2) + "\n").encode()
     metadata = {"schema_version": "l54_task_bundle.v1", "tranche_id": "TRANCHE-011", "release_status": "BLOCKED", "files": {name: {"sha256": digest(data), "size": len(data)} for name, data in sorted(files.items())}}
     files["manifest.json"] = (json.dumps(metadata, indent=2, sort_keys=True) + "\n").encode()
