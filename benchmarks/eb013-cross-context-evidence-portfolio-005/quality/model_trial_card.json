@@ -1,0 +1,102 @@
+{
+  "task_id": "eb013-cross-context-evidence-portfolio-005",
+  "status": "COMPLETED",
+  "target_model_status": "PASS",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "passed": true,
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "passed": false,
+      "status": "fail",
+      "errors": [
+        "plan.selected_followups: mismatch",
+        "plan.total_cost: wrong number",
+        "plan.supported_count: wrong number",
+        "plan.conflicted_count: wrong number",
+        "plan.insufficient_count: wrong number",
+        "decision.selected_followups: mismatch",
+        "decision.total_cost: wrong number",
+        "decision.supported_count: wrong number",
+        "decision.conflicted_count: wrong number",
+        "decision.insufficient_count: wrong number",
+        "contexts.C2.mean_effect: wrong number",
+        "contexts.C2.min_effect: wrong number",
+        "contexts.C2.decision: mismatch",
+        "contexts.C2.pooled_shortcut_invalid: wrong boolean",
+        "contexts.C3.n_independent: wrong number",
+        "contexts.C3.mean_effect: wrong number",
+        "contexts.C3.min_effect: wrong number",
+        "contexts.C3.decision: mismatch",
+        "portfolio.F1.selected: wrong boolean",
+        "portfolio.F4.selected: wrong boolean",
+        "context_tsv.C2.mean_effect: wrong number",
+        "context_tsv.C2.min_effect: wrong number",
+        "context_tsv.C2.decision: mismatch",
+        "context_tsv.C2.pooled_shortcut_invalid: wrong boolean",
+        "context_tsv.C3.n_independent: wrong number",
+        "context_tsv.C3.mean_effect: wrong number",
+        "context_tsv.C3.min_effect: wrong number",
+        "context_tsv.C3.decision: mismatch"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "passed": false,
+      "status": "fail",
+      "errors": [
+        "decision.decision: mismatch"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "passed": false,
+      "status": "fail",
+      "errors": [
+        "plan.selected_followups: missing",
+        "plan.total_cost: missing",
+        "plan.supported_count: missing",
+        "plan.conflicted_count: missing",
+        "plan.insufficient_count: missing",
+        "contract_error: missing row key: context_id"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "cross-context-gpt56sol-002",
+      "status": "pass",
+      "passed": true,
+      "raw_verifier_passed": true,
+      "counted_in_target_rate": true,
+      "turn_completed": true,
+      "replay_passed": true,
+      "replay_errors": [],
+      "event_log_sha256": "a2d5db20373bec4f859d8a2a80c70c29933d83202b2a976b46a9b0fee54f7c5a",
+      "event_log_path": "/private/tmp/enterprise-cross-context-trials/cross-context-gpt56sol-002/agent_workspace/agent_events.jsonl",
+      "freeze_sha256": "3284f93039d0673deb48f028d1f761b056105d9ff3b7f0ac2b698d9c680b698d",
+      "completion_policy": "process_exit_only",
+      "adapter_source_sha256": {
+        "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+        "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+      },
+      "adapter_capture": "post-run source snapshot; no adapter edits occurred during execution",
+      "isolation_mode": "process_cwd_only",
+      "limitation": "Local process trial, not container-isolated or held-out evaluation.",
+      "evidence_path": "benchmarks/eb013-cross-context-evidence-portfolio-005/quality/trials/cross-context-gpt56sol-002",
+      "raw_verdict_class": "RAW_PASS",
+      "trial_analysis": "The revised contract explicitly nests provenance hashes under input_sha256."
+    }
+  ]
+}

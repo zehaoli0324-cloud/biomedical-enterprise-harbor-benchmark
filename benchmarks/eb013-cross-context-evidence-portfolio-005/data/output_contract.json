@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "numeric_tolerance": 1e-06,
+  "required_hash_paths": [
+    "rules.json",
+    "evidence.json",
+    "followups.json",
+    "output_contract.json"
+  ],
+  "selected_fields": [
+    "selected_followups",
+    "total_cost",
+    "supported_count",
+    "conflicted_count",
+    "insufficient_count"
+  ],
+  "context_fields": [
+    "context_id",
+    "n_independent",
+    "mean_effect",
+    "min_effect",
+    "max_effect",
+    "decision",
+    "pooled_shortcut_invalid"
+  ],
+  "portfolio_columns": [
+    "option_id",
+    "selected",
+    "cost",
+    "kind",
+    "description"
+  ],
+  "context_columns": [
+    "context_id",
+    "n_independent",
+    "mean_effect",
+    "min_effect",
+    "max_effect",
+    "decision",
+    "pooled_shortcut_invalid"
+  ],
+  "equivalents": [
+    "JSON key order",
+    "keyed row order",
+    "selected_followups order",
+    "finite numeric strings",
+    "data/ hash prefix"
+  ],
+  "forbidden": [
+    "duplicate keys/rows",
+    "pooled-only decision",
+    "related replicate counted as independent",
+    "missing context",
+    "wrong hash",
+    "nonfinite number"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "enterprise_target_trial_replay.v1",
+  "task_id": "eb013-cross-context-evidence-portfolio-005",
+  "trial_id": "cross-context-gpt56sol-001",
+  "task_version": "1.0.0",
+  "raw_status": "RAW_FAIL_CONTRACT",
+  "verifier_passed": false,
+  "errors": ["provenance: wrong or missing hash"],
+  "scientific_decision_check": {
+    "selected_followups": ["F1", "F4"],
+    "expected_selected_followups": ["F1", "F4"],
+    "context_decisions_match": true,
+    "portfolio_table_match": true
+  },
+  "contract_failure": {
+    "field": "provenance.json.input_sha256",
+    "cause": "checksums were emitted at the JSON top level",
+    "repair": "task version 1.0.1 adds an explicit nested JSON example"
+  },
+  "release_eligible": false
+}

@@ -1,0 +1,14 @@
+{
+  "task_version": "1.0.1",
+  "files": {
+    "task.yaml": "06da6d082c93bb6d9230721b3f4b950c09f26ba7998449c3974a52ef39368e7e",
+    "instruction.md": "087cfdc54b409e93f9d4ffee2308662fd7fd8debb5894bacc48aaf369ac15097",
+    "verifier.py": "6d1a90819f9c4e020b8e0bba6bc83fb650855a0eca3ad551698d259a3fe93365",
+    "quality/contract_audit.json": "94c5879c5052b76538e74262d53d7b67b1ce2ebff969c267e101eee1b73f62a6",
+    "controls/calibration_results.json": "1d31ee06400f81e866fb1547f2d7535c194fb59a79a47eb09a50ccca39fdbd63",
+    "data/evidence.json": "647ab350178fc6b8925707877c9a3f35e3680fffcb046df8c6f26f65864b1c7f",
+    "data/followups.json": "7d504739bb889b8b8f9965d3de2fa5c69de65bf7adf5955e6563b7980de3afe3",
+    "data/output_contract.json": "976b67f5ee511de09c1176684eb36e43bc76c9718244ea8a20c7e0d4f9763506",
+    "data/rules.json": "871c776605b9f3bb0ea8f25889fc9c0a77370cd18568e835ad74db0642308e6f"
+  }
+}

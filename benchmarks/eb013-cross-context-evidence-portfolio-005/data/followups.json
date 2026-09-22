@@ -1,0 +1,75 @@
+{
+  "options": [
+    {
+      "option_id": "F1",
+      "kind": "add",
+      "cost": 1.0,
+      "description": "new independent C3 group",
+      "evidence": {
+        "record_id": "F1-C3-G6",
+        "context_id": "C3",
+        "group_id": "G6",
+        "independence": "independent",
+        "quality": "pass",
+        "effect": 0.44
+      }
+    },
+    {
+      "option_id": "F2",
+      "kind": "add",
+      "cost": 0.8,
+      "description": "related C3 replicate",
+      "evidence": {
+        "record_id": "F2-C3-G5R",
+        "context_id": "C3",
+        "group_id": "G5R",
+        "independence": "related",
+        "quality": "pass",
+        "effect": 0.46
+      }
+    },
+    {
+      "option_id": "F3",
+      "kind": "add",
+      "cost": 0.7,
+      "description": "redundant independent C1 group",
+      "evidence": {
+        "record_id": "F3-C1-G7",
+        "context_id": "C1",
+        "group_id": "G7",
+        "independence": "independent",
+        "quality": "pass",
+        "effect": 0.36
+      }
+    },
+    {
+      "option_id": "F4",
+      "kind": "replace",
+      "cost": 1.4,
+      "description": "quality-reviewed C2 replacement",
+      "replaces": "C2-G2",
+      "evidence": {
+        "record_id": "F4-C2-G8",
+        "context_id": "C2",
+        "group_id": "G8",
+        "independence": "independent",
+        "quality": "pass",
+        "effect": 0.41
+      }
+    },
+    {
+      "option_id": "F5",
+      "kind": "add",
+      "cost": 1.2,
+      "description": "new independent C2 group without resolving conflict",
+      "evidence": {
+        "record_id": "F5-C2-G9",
+        "context_id": "C2",
+        "group_id": "G9",
+        "independence": "independent",
+        "quality": "pass",
+        "effect": 0.4
+      }
+    }
+  ]
+}

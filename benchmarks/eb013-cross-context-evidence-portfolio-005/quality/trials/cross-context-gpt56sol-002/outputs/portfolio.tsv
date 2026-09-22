@@ -1,0 +1,6 @@
+option_id	selected	cost	kind	description
+F1	true	1.0	add	new independent C3 group
+F2	false	0.8	add	related C3 replicate
+F3	false	0.7	add	redundant independent C1 group
+F4	true	1.4	replace	quality-reviewed C2 replacement
+F5	false	1.2	add	new independent C2 group without resolving conflict

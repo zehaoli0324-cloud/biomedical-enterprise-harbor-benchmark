@@ -1,0 +1,51 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-014",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "TARGET_PASS_REVIEW_REQUIRED",
+  "selection_policy": {
+    "candidate_count": 1,
+    "coverage": "cross-context evidence sufficiency with independent follow-up portfolio and explicit output-shape contract",
+    "shared_contract": "docs/enterprise-harbor-sop-v1.1.md",
+    "required_before_release": [
+      "fixed-container replay",
+      "independent practitioner review",
+      "held-out target trials"
+    ]
+  },
+  "recommended_candidates": [
+    {
+      "candidate_id": "eb013-cross-context-evidence-portfolio-005",
+      "level": "L5.5",
+      "upgrade": "stratified evidence states, related-versus-independent follow-up, and budgeted portfolio optimization",
+      "primary_module": "judgment_evidence_sufficiency_abstention",
+      "secondary_modules": [
+        "data_context_stratified_concordance",
+        "math_followup_information_gain"
+      ],
+      "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY",
+      "target_trial": "cross-context-gpt56sol-002"
+    }
+  ],
+  "sop_v12_checks": [
+    "contract_audit",
+    "cross_artifact_mutation",
+    "difficulty_budget",
+    "held_out_variant_plan",
+    "trial_failure_attribution",
+    "explicit_nested_json_shape"
+  ],
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review",
+    "held-out target trials"
+  ],
+  "difficulty_result": {
+    "model": "gpt-5.6-sol",
+    "outcome": "pass",
+    "interpretation": "The target model selected the information-gain portfolio and preserved context-level claim boundaries; the first raw failure was an output-contract defect and the unchanged scientific decision passed after the explicit JSON-shape revision.",
+    "invalid_failures_excluded": [
+      "top-level versus nested provenance checksum placement"
+    ]
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "reference",
+      "kind": "positive",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "missing-context",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "context_tsv: exact coverage required"
+      ]
+    },
+    {
+      "control_id": "pooled-only",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.supported_count: wrong number"
+      ]
+    },
+    {
+      "control_id": "wrong-independent-count",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "context_tsv.C1.n_independent: wrong number"
+      ]
+    },
+    {
+      "control_id": "wrong-hash",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "provenance: wrong or missing hash"
+      ]
+    },
+    {
+      "control_id": "claim-inflation",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.claim_boundary: mismatch"
+      ]
+    },
+    {
+      "control_id": "pooled-shortcut",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "related-repeat",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "independent-gain",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "budget-contraction",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "conflict-resolution",
+      "kind": "invariance",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    },
+    {
+      "control_id": "order-invariance",
+      "kind": "invariance",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    },
+    {
+      "control_id": "insufficient",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "pooled-shortcut",
+      "selected": {
+        "selected_followups": [
+          "F1"
+        ],
+        "total_cost": 1.0,
+        "supported_count": 3,
+        "conflicted_count": 0,
+        "insufficient_count": 0
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "related-repeat",
+      "selected": {
+        "selected_followups": [],
+        "total_cost": 0.0,
+        "supported_count": 1,
+        "conflicted_count": 1,
+        "insufficient_count": 1
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "independent-gain",
+      "selected": {
+        "selected_followups": [
+          "F1"
+        ],
+        "total_cost": 1.0,
+        "supported_count": 2,
+        "conflicted_count": 1,
+        "insufficient_count": 0
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "budget-contraction",
+      "selected": {
+        "selected_followups": [
+          "F4"
+        ],
+        "total_cost": 1.4,
+        "supported_count": 2,
+        "conflicted_count": 0,
+        "insufficient_count": 1
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "conflict-resolution",
+      "selected": {
+        "selected_followups": [
+          "F1",
+          "F4"
+        ],
+        "total_cost": 2.4,
+        "supported_count": 3,
+        "conflicted_count": 0,
+        "insufficient_count": 0
+      },
+      "decision_flip": false
+    },
+    {
+      "name": "order-invariance",
+      "selected": {
+        "selected_followups": [
+          "F1",
+          "F4"
+        ],
+        "total_cost": 2.4,
+        "supported_count": 3,
+        "conflicted_count": 0,
+        "insufficient_count": 0
+      },
+      "decision_flip": false
+    },
+    {
+      "name": "insufficient",
+      "selected": {
+        "selected_followups": [
+          "F4"
+        ],
+        "total_cost": 1.4,
+        "supported_count": 2,
+        "conflicted_count": 0,
+        "insufficient_count": 1
+      },
+      "decision_flip": true
+    }
+  ]
+}

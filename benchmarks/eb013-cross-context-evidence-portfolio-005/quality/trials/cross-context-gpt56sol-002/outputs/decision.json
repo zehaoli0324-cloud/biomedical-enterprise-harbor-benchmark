@@ -1,0 +1,13 @@
+{
+  "selected_followups": [
+    "F1",
+    "F4"
+  ],
+  "total_cost": 2.4,
+  "supported_count": 3,
+  "conflicted_count": 0,
+  "insufficient_count": 0,
+  "decision": "execute_followups",
+  "human_review_required": true,
+  "claim_boundary": "context_evidence_only"
+}

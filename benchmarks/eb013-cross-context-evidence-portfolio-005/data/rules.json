@@ -1,0 +1,19 @@
+{
+  "rules_version": "context-evidence-portfolio-v1",
+  "followup_budget": 2.4,
+  "minimum_independent_groups": 2,
+  "effect_threshold": 0.3,
+  "contexts": [
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "objective": [
+    "supported_count_desc",
+    "conflicted_count_asc",
+    "insufficient_count_asc",
+    "cost_asc",
+    "sorted_followup_ids"
+  ],
+  "claim_boundary": "context_evidence_only"
+}

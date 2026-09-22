@@ -1,0 +1,17 @@
+{
+  "schema_version": "evidence_quality.v1",
+  "package": "eb013-cross-context-evidence-portfolio-005",
+  "fixture_classification": "SYNTHETIC_FIXTURE",
+  "source_status": "NO_AUTOMATED_DEFECT",
+  "claim_policy": "CALIBRATION_ONLY",
+  "finding_severity": "NONE",
+  "findings": [],
+  "synthetic_evidence_files": [
+    "data/evidence.json",
+    "data/followups.json",
+    "data/rules.json"
+  ],
+  "manual_review_required": true,
+  "release_recommendation": "BLOCKED",
+  "generated_on": "2026-09-22"
+}

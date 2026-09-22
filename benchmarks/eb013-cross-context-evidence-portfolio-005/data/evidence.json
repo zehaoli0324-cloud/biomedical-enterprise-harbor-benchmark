@@ -1,0 +1,44 @@
+{
+  "baseline": [
+    {
+      "record_id": "C1-G1",
+      "context_id": "C1",
+      "group_id": "G1",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": 0.55
+    },
+    {
+      "record_id": "C1-G2",
+      "context_id": "C1",
+      "group_id": "G2",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": 0.45
+    },
+    {
+      "record_id": "C2-G1",
+      "context_id": "C2",
+      "group_id": "G3",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": 0.5
+    },
+    {
+      "record_id": "C2-G2",
+      "context_id": "C2",
+      "group_id": "G4",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": -0.42
+    },
+    {
+      "record_id": "C3-G1",
+      "context_id": "C3",
+      "group_id": "G5",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": 0.48
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "status": "PASS",
+  "canonical_outputs": {
+    "version": "1.0.0",
+    "numeric_tolerance": 1e-06,
+    "required_hash_paths": [
+      "rules.json",
+      "evidence.json",
+      "followups.json",
+      "output_contract.json"
+    ],
+    "selected_fields": [
+      "selected_followups",
+      "total_cost",
+      "supported_count",
+      "conflicted_count",
+      "insufficient_count"
+    ],
+    "context_fields": [
+      "context_id",
+      "n_independent",
+      "mean_effect",
+      "min_effect",
+      "max_effect",
+      "decision",
+      "pooled_shortcut_invalid"
+    ],
+    "portfolio_columns": [
+      "option_id",
+      "selected",
+      "cost",
+      "kind",
+      "description"
+    ],
+    "context_columns": [
+      "context_id",
+      "n_independent",
+      "mean_effect",
+      "min_effect",
+      "max_effect",
+      "decision",
+      "pooled_shortcut_invalid"
+    ],
+    "equivalents": [
+      "JSON key order",
+      "keyed row order",
+      "selected_followups order",
+      "finite numeric strings",
+      "data/ hash prefix"
+    ],
+    "forbidden": [
+      "duplicate keys/rows",
+      "pooled-only decision",
+      "related replicate counted as independent",
+      "missing context",
+      "wrong hash",
+      "nonfinite number"
+    ]
+  },
+  "checks": [
+    {
+      "output": "plan.json",
+      "schema_declared": true
+    },
+    {
+      "output": "decision.json",
+      "schema_declared": true
+    },
+    {
+      "output": "portfolio.tsv",
+      "schema_declared": true
+    },
+    {
+      "output": "context.tsv",
+      "schema_declared": true
+    },
+    {
+      "output": "provenance.json",
+      "schema_declared": true
+    },
+    {
+      "output": "audit.md",
+      "schema_declared": true
+    }
+  ],
+  "mutation_matrix": [
+    {
+      "control_id": "reference",
+      "kind": "positive",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "missing-context",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "context_tsv: exact coverage required"
+      ]
+    },
+    {
+      "control_id": "pooled-only",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.supported_count: wrong number"
+      ]
+    },
+    {
+      "control_id": "wrong-independent-count",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "context_tsv.C1.n_independent: wrong number"
+      ]
+    },
+    {
+      "control_id": "wrong-hash",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "provenance: wrong or missing hash"
+      ]
+    },
+    {
+      "control_id": "claim-inflation",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.claim_boundary: mismatch"
+      ]
+    },
+    {
+      "control_id": "pooled-shortcut",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "related-repeat",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "independent-gain",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "budget-contraction",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "conflict-resolution",
+      "kind": "invariance",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    },
+    {
+      "control_id": "order-invariance",
+      "kind": "invariance",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    },
+    {
+      "control_id": "insufficient",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    }
+  ]
+}

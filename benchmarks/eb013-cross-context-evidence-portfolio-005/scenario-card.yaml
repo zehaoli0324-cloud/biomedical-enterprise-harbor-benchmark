@@ -1,0 +1,36 @@
+scenario_id: eb013-cross-context-evidence-portfolio-005
+status: ready
+source_scenarios: [eb013-partial-observation-risk-004]
+domain: biomedical_enterprise
+scientific_decision: allocate limited follow-up evidence to maximize context-supported claims without hiding conflicts
+scientific_judgments:
+  - count independent evidence units rather than related repeats
+  - classify each context as supported, conflicted, or insufficient
+  - stop claims when one context lacks sufficient or concordant evidence
+workflow_handoffs:
+  - from: context_stratified_evidence_review
+    to: followup_portfolio_selection
+    artifact: outputs/context.tsv
+    invariant: pooled summaries cannot replace context-level decisions
+  - from: followup_portfolio_selection
+    to: bounded_claim_handoff
+    artifact: outputs/decision.json
+    invariant: only supported contexts enter the claim count
+difficulty_modules:
+  - id: judgment_evidence_sufficiency_abstention
+    observable: explicit insufficient state and independent-group count
+    decision_flip: related repeat leaves insufficient while independent follow-up supports
+  - id: data_context_stratified_concordance
+    observable: per-context effect signs and support rows
+    decision_flip: pooled-positive but context-reversed evidence becomes conflicted
+  - id: math_followup_information_gain
+    observable: portfolio objective and marginal supported-context gain
+    decision_flip: independent follow-up dominates cheaper related repetition
+  - id: math_ex_ante_shared_setup
+    observable: selected option costs paid once under one budget
+    decision_flip: budget contraction changes the portfolio
+release_gates:
+  scientific_reality: synthetic_planning_only
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
