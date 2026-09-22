@@ -1,0 +1,78 @@
+{
+  "model_trial_card_id": "TRIAL-EB010-CLOSED-LOOP-REPLAY-003-001",
+  "task_id": "eb010-closed-loop-replay-003",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "selected policy mismatch"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: policy.json",
+        "missing artifact: replay.tsv",
+        "missing artifact: audit.md",
+        "missing artifact: manifest.json"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 21,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "policy report must cover every policy exactly once",
+        "policy_peek budget_ok mismatch",
+        "policy_peek order_ok mismatch",
+        "policy_peek future_outcome_leakage mismatch",
+        "policy_peek seed_count mismatch",
+        "policy_peek stable mismatch",
+        "policy_peek eligible mismatch",
+        "policy_peek cost mismatch",
+        "policy_peek utility mismatch",
+        "policy_peek utility_range mismatch",
+        "policy_peek blocker reasons mismatch",
+        "policy_overrun budget_ok mismatch",
+        "policy_overrun order_ok mismatch",
+        "policy_overrun future_outcome_leakage mismatch",
+        "policy_overrun seed_count mismatch",
+        "policy_overrun stable mismatch",
+        "policy_overrun eligible mismatch",
+        "policy_overrun cost mismatch",
+        "policy_overrun utility mismatch",
+        "policy_overrun utility_range mismatch",
+        "policy_overrun blocker reasons mismatch"
+      ]
+    }
+  ],
+  "target_model_trial": "quality/target_trial_evidence.json"
+}

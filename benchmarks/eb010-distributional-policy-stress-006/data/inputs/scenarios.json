@@ -1,0 +1,32 @@
+[
+  {
+    "scenario_id": "S-W-A",
+    "observation": "weak",
+    "site": "A"
+  },
+  {
+    "scenario_id": "S-W-B",
+    "observation": "weak",
+    "site": "B"
+  },
+  {
+    "scenario_id": "S-M-A",
+    "observation": "mixed",
+    "site": "A"
+  },
+  {
+    "scenario_id": "S-M-B",
+    "observation": "mixed",
+    "site": "B"
+  },
+  {
+    "scenario_id": "S-S-A",
+    "observation": "strong",
+    "site": "A"
+  },
+  {
+    "scenario_id": "S-S-B",
+    "observation": "strong",
+    "site": "B"
+  }
+]

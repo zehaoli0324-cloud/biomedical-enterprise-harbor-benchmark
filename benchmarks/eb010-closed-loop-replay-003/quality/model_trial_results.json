@@ -1,0 +1,79 @@
+{
+  "task_id": "eb010-closed-loop-replay-003",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "selected policy mismatch"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing artifact: policy.json",
+        "missing artifact: replay.tsv",
+        "missing artifact: audit.md",
+        "missing artifact: manifest.json"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 21,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "policy report must cover every policy exactly once",
+        "policy_peek budget_ok mismatch",
+        "policy_peek order_ok mismatch",
+        "policy_peek future_outcome_leakage mismatch",
+        "policy_peek seed_count mismatch",
+        "policy_peek stable mismatch",
+        "policy_peek eligible mismatch",
+        "policy_peek cost mismatch",
+        "policy_peek utility mismatch",
+        "policy_peek utility_range mismatch",
+        "policy_peek blocker reasons mismatch",
+        "policy_overrun budget_ok mismatch",
+        "policy_overrun order_ok mismatch",
+        "policy_overrun future_outcome_leakage mismatch",
+        "policy_overrun seed_count mismatch",
+        "policy_overrun stable mismatch",
+        "policy_overrun eligible mismatch",
+        "policy_overrun cost mismatch",
+        "policy_overrun utility mismatch",
+        "policy_overrun utility_range mismatch",
+        "policy_overrun blocker reasons mismatch"
+      ]
+    }
+  ],
+  "target_model": {
+    "model": "gpt-5.6-sol",
+    "trial_id": "trial-gpt56-sol-001",
+    "status": "pass_after_contract_replay",
+    "runner_status": "verifier_fail_then_contract_replay_pass",
+    "timed_out": false,
+    "artifact_verification": "unchanged_artifacts_replay_pass",
+    "failure_attribution": "initial_verifier_schema_defect; unchanged artifacts passed replay",
+    "durable_evidence": "quality/target_trial_evidence.json"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "audit_id": "AUDIT-EB010-CLOSED-LOOP-AMBIGUITY-004-001",
+  "task_id": "eb010-closed-loop-ambiguity-004",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": [
+    "structure",
+    "metadata",
+    "readme",
+    "trial-evidence",
+    "enterprise-contract",
+    "scientific-provenance",
+    "oracle-static"
+  ],
+  "finding_count": 0,
+  "source_report": "/private/tmp/eb010-ambiguity-review-v2.json"
+}

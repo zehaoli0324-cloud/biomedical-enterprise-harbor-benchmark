@@ -1,0 +1,5 @@
+{
+  "selected_policy": "policy_safe",
+  "rules_version": "l5-replay-v1",
+  "status": "verifier_only"
+}

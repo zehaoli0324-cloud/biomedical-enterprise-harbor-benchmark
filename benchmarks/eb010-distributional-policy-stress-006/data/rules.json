@@ -1,0 +1,54 @@
+{
+  "rules_version": "l5.3-distributional-stress-v1",
+  "required_scope": "active",
+  "required_observations": [
+    "weak",
+    "mixed",
+    "strong"
+  ],
+  "max_budget": 7.0,
+  "cvar_alpha": 0.4,
+  "nominal_profile": "nominal",
+  "weight_profiles": {
+    "nominal": {
+      "S-W-A": 0.16666666666666666,
+      "S-W-B": 0.16666666666666666,
+      "S-M-A": 0.16666666666666666,
+      "S-M-B": 0.16666666666666666,
+      "S-S-A": 0.16666666666666666,
+      "S-S-B": 0.16666666666666666
+    },
+    "weak_shift": {
+      "S-W-A": 0.35,
+      "S-W-B": 0.25,
+      "S-M-A": 0.1,
+      "S-M-B": 0.1,
+      "S-S-A": 0.1,
+      "S-S-B": 0.1
+    },
+    "mixed_shift": {
+      "S-W-A": 0.1,
+      "S-W-B": 0.1,
+      "S-M-A": 0.3,
+      "S-M-B": 0.2,
+      "S-S-A": 0.15,
+      "S-S-B": 0.15
+    },
+    "strong_shift": {
+      "S-W-A": 0.1,
+      "S-W-B": 0.1,
+      "S-M-A": 0.1,
+      "S-M-B": 0.1,
+      "S-S-A": 0.25,
+      "S-S-B": 0.35
+    },
+    "site_b_shift": {
+      "S-W-A": 0.0,
+      "S-W-B": 0.3,
+      "S-M-A": 0.0,
+      "S-M-B": 0.3,
+      "S-S-A": 0.0,
+      "S-S-B": 0.4
+    }
+  }
+}

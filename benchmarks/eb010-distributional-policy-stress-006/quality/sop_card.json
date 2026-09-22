@@ -1,0 +1,15 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "MATERIALIZED_V0.8.1",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review"
+  ]
+}

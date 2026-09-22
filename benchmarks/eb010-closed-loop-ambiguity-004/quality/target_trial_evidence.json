@@ -1,0 +1,168 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-closed-loop-ambiguity-004",
+  "model": "gpt-5.6-sol",
+  "classification": "agent_completed_verifier_passed_after_contract_replay",
+  "valid_difficulty_outcome": "pass",
+  "contract_defects_are_not_difficulty_evidence": true,
+  "trials": [
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb010-closed-loop-ambiguity-004-gpt56sol-001",
+      "status": "invalid_contract_defect",
+      "passed": false,
+      "valid_difficulty_evidence": false,
+      "runner_status": "verifier_fail",
+      "timed_out": false,
+      "failure_attribution": "undocumented_output_schema",
+      "verifier_errors": [
+        "selected record mismatch",
+        "rules version mismatch",
+        "decision must cover every policy record exactly once",
+        "P-ALPHA semantic_status mismatch",
+        "P-ALPHA replay_count mismatch",
+        "P-ALPHA eligible mismatch",
+        "P-ALPHA utility mismatch",
+        "P-ALPHA utility_range mismatch",
+        "P-BETA semantic_status mismatch",
+        "P-BETA replay_count mismatch",
+        "P-BETA eligible mismatch",
+        "P-BETA utility mismatch",
+        "P-BETA utility_range mismatch",
+        "P-BETA blocker reasons mismatch",
+        "P-GAMMA semantic_status mismatch",
+        "P-GAMMA replay_count mismatch",
+        "P-GAMMA eligible mismatch",
+        "P-GAMMA utility mismatch",
+        "P-GAMMA utility_range mismatch",
+        "P-GAMMA blocker reasons mismatch",
+        "P-DELTA semantic_status mismatch",
+        "P-DELTA replay_count mismatch",
+        "P-DELTA eligible mismatch",
+        "P-DELTA utility mismatch",
+        "P-DELTA utility_range mismatch",
+        "P-DELTA blocker reasons mismatch",
+        "P-ARCHIVE semantic_status mismatch",
+        "P-ARCHIVE replay_count mismatch",
+        "P-ARCHIVE eligible mismatch",
+        "P-ARCHIVE utility mismatch",
+        "P-ARCHIVE utility_range mismatch",
+        "P-ARCHIVE blocker reasons mismatch",
+        "P-ALPHA evidence decision mismatch",
+        "P-BETA evidence decision mismatch",
+        "P-GAMMA evidence decision mismatch",
+        "P-DELTA evidence decision mismatch",
+        "P-ARCHIVE evidence decision mismatch",
+        "discovery manifest mismatch",
+        "environment provenance mismatch",
+        "audit missing not experimental proof"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb010-closed-loop-ambiguity-004-gpt56sol-002",
+      "status": "pass_after_contract_replay",
+      "passed": true,
+      "runner_status": "verifier_fail_then_unchanged_artifact_replay_pass",
+      "original_runner_status": "verifier_fail",
+      "timed_out": false,
+      "failure_attribution": "initial_redundant_semantic_encoding_contract_defect",
+      "original_verifier_errors": [
+        "P-GAMMA blocker reasons mismatch",
+        "P-DELTA semantic_status mismatch",
+        "P-ARCHIVE semantic_status mismatch",
+        "P-DELTA evidence decision mismatch",
+        "P-ARCHIVE evidence decision mismatch"
+      ],
+      "artifact_sha256": {
+        "decision.json": "1eb852166344d6bbbbfc46d3fc3d9ba45a4907a603bdfcd4160b8ab0b033f704",
+        "evidence.tsv": "bb8ba9b6bfae2f1636f9e415bd6337f4984e342362e0e740d14c4dc71fbbfe80",
+        "discovery.json": "b345a3c9303aec0600e9f452b000a3b7333b8ac1f2dba1d7b4e7f3252c940edd",
+        "audit.md": "1ea1bc69af962f853ff55478a8872da3c8a737b22379a540271deb863e1eafe2"
+      },
+      "trial_dir": "/private/tmp/enterprise-l51-target-trials-v2/eb010-closed-loop-ambiguity-004-gpt56sol-002"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-001",
+      "status": "pass_after_contract_replay",
+      "passed": true,
+      "runner_status": "verifier_fail_then_unchanged_artifact_replay_pass",
+      "original_runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "failure_attribution": "equivalent_representation_contract_compatibility",
+      "original_verifier_error_count": 39,
+      "compatibility_changes": [
+        "record list keyed by record_id",
+        "eligible and eligibility aliases",
+        "canonical semantic status and blocker aliases",
+        "data-relative discovery paths",
+        "claim boundary token normalization"
+      ],
+      "unchanged_artifact_replay": {
+        "passed": true,
+        "errors": []
+      },
+      "artifact_sha256": {
+        "audit.md": "1aa83241e145d407062e74e76d2fb36349069d78c259d2b6a66c13ddedae1a3f",
+        "decision.json": "81b3f50cd9a13f2b383cd87385a008a2b01c877d52241532f5c0bd2cbcb735c0",
+        "discovery.json": "e493ade55c7f0aedd0191566baa31aba5b916156b34f3a19a3da077093313c08",
+        "evidence.tsv": "a1c8dbb249f57e997586acb4906f6f40bf00134487cbc20385597d947931e9ef"
+      },
+      "trial_dir": "/private/tmp/benchmark-runs/eb010-closed-loop-ambiguity-004/trial-gpt56-sol-001"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-002",
+      "task_version": "0.6.1",
+      "status": "pass_after_contract_replay",
+      "passed": true,
+      "runner_status": "verifier_fail_then_unchanged_artifact_replay_pass",
+      "original_runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "failure_attribution": "remaining_semantic_alias_and_audit_synonym_contract_gap",
+      "original_verifier_errors": [
+        "P-DELTA semantic_status mismatch",
+        "P-ARCHIVE semantic_status mismatch",
+        "P-DELTA evidence decision mismatch",
+        "P-ARCHIVE evidence decision mismatch",
+        "audit missing stability"
+      ],
+      "unchanged_artifact_replay": {"passed": true, "errors": []},
+      "artifact_sha256": {
+        "audit.md": "56c0e8d43b66e0a989a89840fc7704934be1d469f5a26db86450631e3580f1cc",
+        "decision.json": "ab79099948672c1316c95133445cdddb10dcb11214ab12c34a2d1b463bce0657",
+        "discovery.json": "b345a3c9303aec0600e9f452b000a3b7333b8ac1f2dba1d7b4e7f3252c940edd",
+        "evidence.tsv": "79b9be80ce8f6a522dad286f4ef8c33b4499583884582f71a56c46ff5681dcd5"
+      },
+      "trial_dir": "/private/tmp/benchmark-runs/eb010-closed-loop-ambiguity-004-v061/trial-gpt56-sol-002"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-003",
+      "task_version": "0.6.1",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "verifier_exit_code": 0,
+      "timed_out": false,
+      "failure_attribution": null,
+      "artifact_sha256": {
+        "audit.md": "c650d19eb5ead7b520d7aeda54569f6b103e3dea3ec03b9bff76f9c29a8774fa",
+        "decision.json": "330d5769c6c7503012d0ccccd7b30eed1eb006a6dd978c972fc029b66a65cf0a",
+        "discovery.json": "b345a3c9303aec0600e9f452b000a3b7333b8ac1f2dba1d7b4e7f3252c940edd",
+        "evidence.tsv": "0f9c78f3f5db019a337ae8ee9b4c1a164fe7250f3a20fc316d47a6cabe9392a5"
+      },
+      "trial_dir": "/private/tmp/benchmark-runs/eb010-closed-loop-ambiguity-004-v061/trial-gpt56-sol-003"
+    }
+  ],
+  "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"
+}

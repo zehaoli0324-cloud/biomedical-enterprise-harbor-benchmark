@@ -1,0 +1,133 @@
+[
+  {
+    "policy_id": "P-ADAPT",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSIFY",
+      "mixed": "HEDGE",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-NOMINAL",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "CONFIRM",
+      "mixed": "EXPLOIT",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-BALANCED",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "HEDGE",
+      "mixed": "HEDGE",
+      "strong": "DIVERSIFY"
+    }
+  },
+  {
+    "policy_id": "P-HEDGE",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "HEDGE",
+      "mixed": "HEDGE",
+      "strong": "HEDGE"
+    }
+  },
+  {
+    "policy_id": "P-DIVERSE",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSIFY",
+      "mixed": "DIVERSIFY",
+      "strong": "DIVERSIFY"
+    }
+  },
+  {
+    "policy_id": "P-CONFIRM",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "CONFIRM",
+      "mixed": "CONFIRM",
+      "strong": "CONFIRM"
+    }
+  },
+  {
+    "policy_id": "P-STOP",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "STOP",
+      "mixed": "STOP",
+      "strong": "STOP"
+    }
+  },
+  {
+    "policy_id": "P-FUTURE",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": true,
+    "branches": {
+      "weak": "DIVERSIFY",
+      "mixed": "EXPLOIT",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-INCOMPLETE",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSIFY",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-OVERRUN",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "MAXIMIZE",
+      "mixed": "MAXIMIZE",
+      "strong": "MAXIMIZE"
+    }
+  },
+  {
+    "policy_id": "P-ARCHIVED",
+    "scope": "archived",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSIFY",
+      "mixed": "HEDGE",
+      "strong": "EXPLOIT"
+    }
+  },
+  {
+    "policy_id": "P-UNKNOWN",
+    "scope": "active",
+    "initial_cost": 2.0,
+    "uses_future_outcome": false,
+    "branches": {
+      "weak": "DIVERSIFY",
+      "mixed": "UNLISTED",
+      "strong": "EXPLOIT"
+    }
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "rules_version": "l5-replay-v1",
+  "max_budget": 7.0,
+  "min_seed_count": 2,
+  "max_utility_range": 0.35
+}

@@ -1,0 +1,38 @@
+scenario_id: eb010-distributional-policy-stress-006
+status: ready
+source_scenarios: [EB010]
+domain: biomedical_enterprise
+scientific_decision: select an adaptive policy robust to declared distribution shifts
+scientific_judgments:
+  - distribution_shift_boundary
+  - lower_tail_risk_selection
+  - temporal_hard_gate_before_optimization
+difficulty_modules:
+  - id: math_robust_scenario_optimization
+    observable: expected utility, lower-tail CVaR and profile regret are recomputed for five distributions
+    decision_flip: the nominal expected-utility winner is not the robust winner
+  - id: math_sensitivity_frontier
+    observable: leave-one-profile-out winners are reported for every ambiguity-set member
+    decision_flip: removing a binding shift profile can change the selected policy
+  - id: horizon_adaptive_policy_replay
+    observable: all observation-conditioned branches are evaluated across six latent scenarios
+    decision_flip: a missing branch makes the full policy ineligible
+  - id: judgment_blocker_and_abstention
+    observable: temporal, scope, action and budget gates precede every distributional score
+    decision_flip: an apparently dominant but invalid policy cannot define the optimum
+  - id: data_nested_manifest_join
+    observable: scenarios, actions, policies, profiles and hashes remain joined across outputs
+    decision_flip: a cross-artifact mismatch fails verification
+workflow_handoffs:
+  - from: adaptive_policy_inputs
+    to: distributional_stress_decision
+    artifact: outputs/policy.json
+    invariant: hard gates, profile metrics and sensitivity winners remain aligned
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

@@ -1,0 +1,33 @@
+{
+  "control_plan_id": "CONTROL-EB010-DISTRIBUTIONAL-POLICY-STRESS-006-001",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-nominal-winner",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-row-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-manifest",
+      "kind": "insufficient_evidence"
+    },
+    {
+      "control_id": "adversarial-over-budget",
+      "kind": "adversarial"
+    },
+    {
+      "control_id": "metamorphic-profile-order",
+      "kind": "metamorphic"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "status": "CALIBRATED"
+}

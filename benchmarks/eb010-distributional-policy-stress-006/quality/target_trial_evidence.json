@@ -1,0 +1,57 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "model": "gpt-5.6-sol",
+  "classification": "agent_completed_verifier_passed_after_contract_replay",
+  "valid_difficulty_outcome": "pass",
+  "contract_defects_are_not_difficulty_evidence": true,
+  "scientific_result": {
+    "selected_policy": "P-ADAPT",
+    "nominal_winner": "P-NOMINAL",
+    "robust_winner": "P-ADAPT"
+  },
+  "trials": [
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb010-distributional-policy-stress-006-gpt56sol-001",
+      "status": "invalid_contract_defect",
+      "passed": false,
+      "valid_difficulty_evidence": false,
+      "runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 642.7,
+      "failure_attribution": "undocumented branch container, numeric rounding and lexical equivalence",
+      "unchanged_artifact_replay": "pass",
+      "original_verifier_error_count": 156
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb010-distributional-policy-stress-006-gpt56sol-002",
+      "status": "pass_after_contract_replay",
+      "passed": true,
+      "valid_difficulty_evidence": true,
+      "runner_status": "verifier_fail_then_unchanged_artifact_replay_pass",
+      "original_runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 421.925,
+      "failure_attribution": "one-unit-last-place intermediate-rounding verifier boundary",
+      "original_verifier_errors": [
+        "P-CONFIRM profiles mismatch",
+        "profile evidence regret mismatch"
+      ],
+      "artifact_sha256": {
+        "policy.json": "24d7da2206eab209a3dbedbb16014656bc609b6a9943c341f4169396d1badb5a",
+        "branches.tsv": "b0026895b985d04c297f7cf8f2dbe3eb45fe1570eb4199efdb18b23be6e2d632",
+        "profiles.tsv": "46cf11277199253b4f151e8bec3b1b97dbfbfaec18a14a39cb68b555e1379bd5",
+        "audit.md": "9d2a3831b87fb1ee28857e8a85638d669d8c51107b7c89141a16d3150f7f2ebe",
+        "manifest.json": "3f2790ce08bd7f926dfba2258786423a00b2db503fb53ca972a44545e42d5c1b"
+      },
+      "trial_dir": "/private/tmp/enterprise-l53-target-trials-v2/eb010-distributional-policy-stress-006-gpt56sol-002"
+    }
+  ],
+  "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"
+}

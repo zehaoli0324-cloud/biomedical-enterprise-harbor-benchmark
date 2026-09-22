@@ -1,0 +1,5 @@
+{
+  "selected_policy": "P-ADAPT",
+  "rules_version": "l5.3-distributional-stress-v1",
+  "status": "verifier_only"
+}

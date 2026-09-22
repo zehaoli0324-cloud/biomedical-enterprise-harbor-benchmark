@@ -1,0 +1,49 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb010-closed-loop-ambiguity-004",
+  "task_version": "0.7.0",
+  "status": "PASS",
+  "checks": [
+    {"output": "outputs/plan.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/decision.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/evidence.tsv", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/discovery.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/audit.md", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true}
+  ],
+  "canonical_outputs": {
+    "plan.json": {
+      "required": ["operations", "total_cost", "network_used", "stop_condition"],
+      "equivalents": ["operation strings or operation objects", "any valid topological order"],
+      "forbidden": ["duplicate operation", "missing dependency", "network_used=true", "unknown operation"]
+    },
+    "decision.json": {
+      "required": ["selected_record", "rules_version", "claim_boundary", "human_review_required", "records"],
+      "equivalents": ["records object or record list keyed by record_id", "eligible or eligibility", "unresolved plus explicit scope/future blocker", "canonical semantic/blocker aliases"],
+      "forbidden": ["missing record", "duplicate record_id", "unknown record_id"]
+    },
+    "evidence.tsv": {
+      "required": ["one row per record_id", "semantic_status", "eligible", "blocker_reasons"],
+      "equivalents": ["semicolon/comma blocker separators", "eligible or eligibility"]
+    },
+    "discovery.json": {
+      "required": ["discovered_files", "input_hashes", "network", "deterministic"],
+      "equivalents": ["data/ path prefix may be present or omitted", "files list with path/sha256"],
+      "forbidden": ["missing hash", "unexpected file", "network-on provenance"]
+    },
+    "audit.md": {
+      "required": ["ambiguity", "scope", "future outcome", "stability", "human review", "claim boundary"],
+      "equivalents": ["planning_only_not_experimental_proof token or exact prose", "stable or replay range/count/spread as stability evidence"]
+    }
+  },
+  "mutation_matrix": [
+    {"fixture": "reference", "expected": "pass"},
+    {"fixture": "record-order permutation", "expected": "pass"},
+    {"fixture": "alias and data-prefix normalization", "expected": "pass"},
+    {"fixture": "single missing record", "expected": "fail"},
+    {"fixture": "single hash mutation", "expected": "fail"},
+    {"fixture": "ambiguous high-utility forced winner", "expected": "fail"}
+  ],
+  "scientific_error_boundary": ["wrong selected_record", "semantic blocker bypass", "future outcome accepted", "out-of-scope record accepted"],
+  "contract_error_boundary": ["undocumented output representation", "missing required artifact", "duplicate or missing primary key"],
+  "replay_policy": "preserve initial errors and artifact hashes; never overwrite an earlier trial"
+}

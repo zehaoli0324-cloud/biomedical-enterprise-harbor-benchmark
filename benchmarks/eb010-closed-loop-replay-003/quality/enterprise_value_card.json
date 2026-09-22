@@ -1,0 +1,1 @@
+{"enterprise_value_card_id":"VALUE-EB010-CLOSED-LOOP-REPLAY-003-001","task_id":"eb010-closed-loop-replay-003","enterprise_reality":{"decision":"approve a closed-loop policy","error_consequence":"future leakage or unstable replay can cause invalid resource allocation","human_owner":"experimental program reviewer"},"status":"REVIEW_REQUIRED"}

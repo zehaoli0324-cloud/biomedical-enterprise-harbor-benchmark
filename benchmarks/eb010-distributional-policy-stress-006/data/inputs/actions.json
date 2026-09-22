@@ -1,0 +1,74 @@
+[
+  {
+    "action_id": "STOP",
+    "cost": 0.0,
+    "net_utility": {
+      "S-W-A": 0.1,
+      "S-W-B": 0.1,
+      "S-M-A": 0.2,
+      "S-M-B": 0.2,
+      "S-S-A": 0.3,
+      "S-S-B": 0.25
+    }
+  },
+  {
+    "action_id": "CONFIRM",
+    "cost": 2.0,
+    "net_utility": {
+      "S-W-A": 0.8,
+      "S-W-B": 0.7,
+      "S-M-A": 0.9,
+      "S-M-B": 0.75,
+      "S-S-A": 0.65,
+      "S-S-B": 0.6
+    }
+  },
+  {
+    "action_id": "EXPLOIT",
+    "cost": 4.0,
+    "net_utility": {
+      "S-W-A": 0.1,
+      "S-W-B": 0.0,
+      "S-M-A": 1.6,
+      "S-M-B": 1.2,
+      "S-S-A": 1.9,
+      "S-S-B": 1.4
+    }
+  },
+  {
+    "action_id": "DIVERSIFY",
+    "cost": 3.0,
+    "net_utility": {
+      "S-W-A": 1.2,
+      "S-W-B": 1.0,
+      "S-M-A": 0.8,
+      "S-M-B": 1.1,
+      "S-S-A": 1.0,
+      "S-S-B": 1.5
+    }
+  },
+  {
+    "action_id": "HEDGE",
+    "cost": 3.5,
+    "net_utility": {
+      "S-W-A": 0.95,
+      "S-W-B": 0.95,
+      "S-M-A": 1.0,
+      "S-M-B": 1.0,
+      "S-S-A": 1.05,
+      "S-S-B": 1.05
+    }
+  },
+  {
+    "action_id": "MAXIMIZE",
+    "cost": 6.0,
+    "net_utility": {
+      "S-W-A": 2.5,
+      "S-W-B": 2.5,
+      "S-M-A": 2.5,
+      "S-M-B": 2.5,
+      "S-S-A": 2.5,
+      "S-S-B": 2.5
+    }
+  }
+]

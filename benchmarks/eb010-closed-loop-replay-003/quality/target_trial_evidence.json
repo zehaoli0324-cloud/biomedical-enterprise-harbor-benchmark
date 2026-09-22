@@ -1,0 +1,25 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-closed-loop-replay-003",
+  "model": "gpt-5.6-sol",
+  "trial_id": "trial-gpt56-sol-001",
+  "initial_status": "verifier_fail",
+  "initial_failure_attribution": "initial_verifier_schema_defect; model exited normally",
+  "initial_errors": [
+    "policy_overrun blocker reasons mismatch",
+    "replay table coverage mismatch"
+  ],
+  "contract_replay_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "artifact_changed": false,
+  "replay_verifier_errors": [],
+  "trial_manifest": "/private/tmp/benchmark-runs/eb010-closed-loop-replay-003/trial-gpt56-sol-001/manifest.json",
+  "output_hashes": {
+    "policy.json": "31c3bf9d141301fa558be636a98d865dc494805aa0cd47c40117dd7d2881ab0a",
+    "replay.tsv": "abcc3b3f657db3efc97cea83a317419bafd3f874d264ba8711c71dcbb88deb5d",
+    "audit.md": "178980f3c7bcc4ae307910474c0948d78b02872152f0647826e446baf45da14c",
+    "manifest.json": "8cd5468854927de8a2dc9e5f5446903a82309f63154404009bba0f6b149d53085"
+  },
+  "scientific_decision": "policy_safe",
+  "claim_boundary": "planning_only_not_experimental_proof",
+  "release_note": "One local process trial; fixed-container replay and practitioner review remain outstanding."
+}

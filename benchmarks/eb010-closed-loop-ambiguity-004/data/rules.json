@@ -1,0 +1,10 @@
+{
+  "rules_version":"l5-ambiguity-v1",
+  "max_budget":6.0,
+  "min_replay_count":2,
+  "max_utility_range":0.20,
+  "required_scope":"active",
+  "required_decision":"proceed_or_human_review",
+  "required_network":"off",
+  "plan_schema_version":"policy-review-plan-v1"
+}

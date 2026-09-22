@@ -1,0 +1,7 @@
+[
+  {"record_id":"P-ALPHA","scope":"active","label":"advance","narrative":"Proceed when the signal is above 0.50.","signal":0.62,"uncertainty":0.12,"cost":4.5,"future_outcome_used":false,"replays":[0.92,0.88]},
+  {"record_id":"P-BETA","scope":"active","label":"advance","narrative":"Proceed if promising, but review if the readout is not decisive.","signal":0.74,"uncertainty":0.31,"cost":4.0,"future_outcome_used":false,"replays":[1.30,1.20]},
+  {"record_id":"P-GAMMA","scope":"active","label":"hold","narrative":"Hold pending a clearer signal.","signal":0.45,"uncertainty":0.18,"cost":3.0,"future_outcome_used":false,"replays":[0.70,0.68]},
+  {"record_id":"P-DELTA","scope":"active","label":"advance","narrative":"Proceed using the later outcome estimate when available.","signal":0.81,"uncertainty":0.09,"cost":3.5,"future_outcome_used":true,"replays":[1.55,1.48]},
+  {"record_id":"P-ARCHIVE","scope":"archived","label":"advance","narrative":"Proceed when signal is above 0.50.","signal":0.95,"uncertainty":0.02,"cost":2.0,"future_outcome_used":false,"replays":[1.80,1.75]}
+]

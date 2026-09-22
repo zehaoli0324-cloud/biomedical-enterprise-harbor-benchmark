@@ -1,0 +1,12 @@
+{
+  "training_value_card_id": "TRAIN-EB010-DISTRIBUTIONAL-POLICY-STRESS-006-001",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "capability_targets": [
+    "distributionally robust optimization",
+    "weighted lower-tail CVaR",
+    "adaptive policy replay",
+    "sensitivity analysis"
+  ],
+  "training_use": "EVAL_ONLY_UNTIL_CALIBRATED",
+  "status": "REVIEW_REQUIRED"
+}

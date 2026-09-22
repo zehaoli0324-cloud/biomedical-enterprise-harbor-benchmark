@@ -1,0 +1,19 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-010",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "V1_2_SOP_PREFLIGHT_PASS_TARGET_EVIDENCE_RETAINED_RELEASE_BLOCKED",
+  "selection_policy": {
+    "candidate_count": 3,
+    "coverage": "temporal replay, semantic ambiguity and distributionally robust policy selection",
+    "shared_contract": "docs/enterprise-harbor-sop-v1.1.md",
+    "required_before_release": ["three held-out variants per task", "fixed-container replay", "independent practitioner review", "claim-boundary review"]
+  },
+  "recommended_candidates": [
+    {"candidate_id": "eb010-closed-loop-replay-003", "level": "L5", "upgrade": "closed-loop replay with temporal causality, budget and seed stability", "primary_module": "horizon_adaptive_policy_replay", "secondary_modules": ["math_replay_stability", "judgment_minimal_sufficient_disclosure"], "status": "PREFLIGHT_PASS_TARGET_CONTRACT_REPLAY_RELEASE_BLOCKED"},
+    {"candidate_id": "eb010-closed-loop-ambiguity-004", "level": "L5.1", "upgrade": "nested discovery, semantic ambiguity and dependency-ordered planning", "primary_module": "judgment_agent_planned_workflow", "secondary_modules": ["retrieval_schema_discovery", "judgment_semantic_ambiguity_resolution"], "status": "PREFLIGHT_PASS_TARGET_EVIDENCE_RETAINED_RELEASE_BLOCKED"},
+    {"candidate_id": "eb010-distributional-policy-stress-006", "level": "L5.3", "upgrade": "weighted lower-tail CVaR, distribution shift and leave-one-profile-out replay", "primary_module": "math_robust_scenario_optimization", "secondary_modules": ["math_sensitivity_frontier", "horizon_adaptive_policy_replay"], "status": "PREFLIGHT_PASS_TARGET_CONTRACT_REPLAY_RELEASE_BLOCKED"}
+  ],
+  "sop_v12_checks": ["contract_audit", "cross_artifact_mutation", "difficulty_budget", "held_out_variant_plan", "trial_failure_attribution"],
+  "release_blockers": ["fixed-container replay", "practitioner review", "held-out variant replay"]
+}

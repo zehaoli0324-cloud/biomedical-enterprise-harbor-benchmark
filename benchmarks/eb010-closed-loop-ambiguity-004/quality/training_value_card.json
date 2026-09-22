@@ -1,0 +1,1 @@
+{"training_value_card_id":"TRAIN-EB010-CLOSED-LOOP-AMBIGUITY-004-001","task_id":"eb010-closed-loop-ambiguity-004","capability_targets":["schema discovery","semantic disambiguation","bounded abstention","environment provenance"],"training_use":"EVAL_ONLY_UNTIL_CALIBRATED","status":"REVIEW_REQUIRED"}

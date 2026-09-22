@@ -1,0 +1,14 @@
+{
+  "difficulty_card_id": "DIFF-EB010-CLOSED-LOOP-REPLAY-003-001",
+  "task_id": "eb010-closed-loop-replay-003",
+  "primary_module": "horizon_adaptive_policy_replay",
+  "secondary_modules": ["math_replay_stability", "judgment_minimal_sufficient_disclosure"],
+  "held_out_variants": ["future-outcome leakage", "single unstable seed", "over-budget high utility"],
+  "decision_flip_controls": ["future outcome invalidates policy", "seed spread changes selection to request_information", "budget gate precedes utility"],
+  "difficulty_hypothesis": {
+    "reasoning_chain": ["replay each policy in order", "reject future-outcome leakage", "test budget and seed stability", "select or request information"],
+    "target_failure_mechanism": "chooses a high-utility policy that is temporally invalid or seed-specific"
+  },
+  "shortcut_probes": ["choose highest nominal utility", "ignore stage order", "accept future outcome fields", "force a winner when policies are unstable"],
+  "status": "REVIEW_REQUIRED"
+}

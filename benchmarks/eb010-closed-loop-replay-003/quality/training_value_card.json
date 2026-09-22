@@ -1,0 +1,1 @@
+{"training_value_card_id":"TRAIN-EB010-CLOSED-LOOP-REPLAY-003-001","task_id":"eb010-closed-loop-replay-003","capability_targets":["temporal causality","policy replay","stability analysis","bounded abstention"],"training_use":"EVAL_ONLY_UNTIL_CALIBRATED","status":"REVIEW_REQUIRED"}

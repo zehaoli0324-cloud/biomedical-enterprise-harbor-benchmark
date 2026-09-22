@@ -1,0 +1,23 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb010-closed-loop-ambiguity-004",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "MATERIALIZED_V0.7.0",
+  "contract_audit_status": "PASS",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "TARGET_TRIAL_PENDING_V0.7.0",
+  "independent_verifier_status": "PASS",
+  "difficulty_modules": [
+    "judgment_agent_planned_workflow",
+    "horizon_planning_stop_condition",
+    "retrieval_schema_discovery",
+    "judgment_semantic_ambiguity_resolution",
+    "environment_schema_discovery_under_offline"
+  ],
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review"
+  ]
+}

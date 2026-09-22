@@ -1,0 +1,20 @@
+{
+  "audit_id": "AUDIT-EB010-CLOSED-LOOP-REPLAY-003-001",
+  "task_id": "eb010-closed-loop-replay-003",
+  "review_status": "pass",
+  "status": "PASS",
+  "reviewer": "benchmark_review_agent-plus-author-side-controls",
+  "scope": "independent fixture and verifier contract audit; not practitioner signoff",
+  "passed_gates": [
+    "structure",
+    "metadata",
+    "required output paths",
+    "enterprise contract",
+    "scientific provenance",
+    "oracle static checks",
+    "positive reference",
+    "future-outcome leakage negative",
+    "replay-order invariance",
+    "insufficient provenance"
+  ]
+}

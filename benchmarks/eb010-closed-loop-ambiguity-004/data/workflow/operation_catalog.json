@@ -1,0 +1,10 @@
+{
+  "schema_version": "policy-review-operations.v1",
+  "operations": [
+    {"operation_id":"inventory","purpose":"discover and hash the input bundle","depends_on":[],"cost":1.0,"network":false},
+    {"operation_id":"interpret","purpose":"join the semantic lexicon to policy text","depends_on":["inventory"],"cost":1.5,"network":false},
+    {"operation_id":"screen","purpose":"apply scope, future-outcome and explicit review gates","depends_on":["interpret"],"cost":1.0,"network":false},
+    {"operation_id":"replay","purpose":"compute replay utility, spread and numeric blockers","depends_on":["screen"],"cost":2.0,"network":false},
+    {"operation_id":"decide","purpose":"select an eligible record or escalate","depends_on":["replay"],"cost":1.0,"network":false}
+  ]
+}

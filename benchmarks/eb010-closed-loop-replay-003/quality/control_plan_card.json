@@ -1,0 +1,29 @@
+{
+  "control_plan_id": "CONTROL-EB010-CLOSED-LOOP-REPLAY-003-001",
+  "task_id": "eb010-closed-loop-replay-003",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-future-leakage",
+      "kind": "negative"
+    },
+    {
+      "control_id": "negative-cross-artifact-replay-gain",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-replay-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-provenance",
+      "kind": "insufficient_evidence"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "status": "CALIBRATED"
+}

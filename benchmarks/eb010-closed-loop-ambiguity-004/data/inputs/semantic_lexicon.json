@@ -1,0 +1,11 @@
+{
+  "rules_version":"l5-ambiguity-v1",
+  "precedence":["explicit_review","future_outcome","scope","threshold","replay_stability","utility"],
+  "terms":{
+    "proceed":["proceed","advance","continue"],
+    "review":["review","hold","uncertain","not decisive","promising"],
+    "future_outcome":["later outcome","future outcome","outcome estimate"]
+  },
+  "thresholds":{"minimum_signal":0.50,"maximum_uncertainty_for_proceed":0.20},
+  "ambiguity_policy":"if proceed and review cues both apply, classify human_review"
+}

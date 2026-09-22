@@ -1,0 +1,1 @@
+{"candidate_set_id":"CSET-EB010-CLOSED-LOOP-REPLAY-003-001","source_benchmark_id":"EB010","candidates":[{"candidate_id":"eb010-closed-loop-replay-003","selection_status":"MATERIALIZED","semantic_axes":["temporal_causality","replay_stability","future_outcome_boundary"]}],"status":"REVIEW_REQUIRED"}

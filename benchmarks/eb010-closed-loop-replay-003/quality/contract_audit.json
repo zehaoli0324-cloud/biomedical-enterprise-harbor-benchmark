@@ -1,0 +1,19 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb010-closed-loop-replay-003",
+  "status": "PASS",
+  "checks": [
+    {"output": "outputs/policy.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/replay.tsv", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/audit.md", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/manifest.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true}
+  ],
+  "mutation_matrix": [
+    {"fixture": "reference", "expected": "pass"},
+    {"fixture": "replay observed_gain mutation", "expected": "fail"},
+    {"fixture": "future-outcome blocker mutation", "expected": "fail"},
+    {"fixture": "replay row-order permutation", "expected": "pass"},
+    {"fixture": "manifest hash deletion", "expected": "fail"}
+  ],
+  "replay_policy": "preserve initial contract-replay evidence and never overwrite the original artifact"
+}

@@ -1,0 +1,1 @@
+{"candidate_set_id":"CSET-EB010-CLOSED-LOOP-AMBIGUITY-004-001","source_benchmark_id":"EB010","candidates":[{"candidate_id":"eb010-closed-loop-ambiguity-004","selection_status":"MATERIALIZED","semantic_axes":["semantic_ambiguity","schema_discovery","offline_environment_contract"]}],"status":"REVIEW_REQUIRED"}

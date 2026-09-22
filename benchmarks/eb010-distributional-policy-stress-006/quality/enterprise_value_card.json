@@ -1,0 +1,10 @@
+{
+  "enterprise_value_card_id": "VALUE-EB010-DISTRIBUTIONAL-POLICY-STRESS-006-001",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "enterprise_reality": {
+    "decision": "choose an adaptive experimental policy robust to plausible cohort shift",
+    "error_consequence": "nominal optimization can select a policy with poor shifted-cohort tail behavior",
+    "human_owner": "experimental program reviewer"
+  },
+  "status": "REVIEW_REQUIRED"
+}

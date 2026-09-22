@@ -1,0 +1,19 @@
+id: eb010-distributional-policy-stress-006
+version: "0.8.1"
+status: ready_for_calibration
+title: "Distributionally robust adaptive-policy stress test"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: nested JSON bundle
+constraints:
+  network: off
+required_outputs:
+  - {id: policy, path: outputs/policy.json, required_fields: [selected_policy, rules_version, policies, profile_best_expected, leave_one_profile_out_winners]}
+  - {id: branches, path: outputs/branches.tsv, required_fields: [policy_id, scenario_id, observation, action, utility]}
+  - {id: profiles, path: outputs/profiles.tsv, required_fields: [policy_id, profile, expected_utility, lower_tail_cvar, regret]}
+  - {id: audit, path: outputs/audit.md, required_fields: [distribution_shift, lower_tail_cvar, profile_regret, human_review]}
+  - {id: manifest, path: outputs/manifest.json, required_fields: [input_sha256, rules_version, deterministic]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

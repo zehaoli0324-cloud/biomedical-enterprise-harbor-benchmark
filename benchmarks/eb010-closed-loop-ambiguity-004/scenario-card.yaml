@@ -1,0 +1,54 @@
+scenario_id: eb010-closed-loop-ambiguity-004
+status: ready
+source_scenarios: [EB010]
+domain: biomedical_enterprise
+scientific_decision: select a bounded policy or escalate semantic ambiguity
+scientific_judgments:
+  - semantic ambiguity and conservative escalation
+  - provenance-aware input discovery
+  - agent-planned evidence workflow
+  - bounded planning claim
+difficulty_modules:
+  - id: horizon_adaptive_policy_replay
+    observable: every policy is evaluated after discovery and semantic resolution
+    decision_flip: a high utility record is rejected when semantics are ambiguous
+  - id: math_replay_stability
+    observable: replay range and count are explicit
+    decision_flip: unstable or incomplete replay blocks selection
+  - id: judgment_blocker_and_abstention
+    observable: human_review is selected when no unambiguous policy remains
+    decision_flip: forced winner is rejected
+  - id: retrieval_inclusion_exclusion
+    observable: nested manifest files and archived scope are joined explicitly
+    decision_flip: archived or untracked records cannot become the winner
+  - id: environment_offline_setup
+    observable: discovery and network state are recorded
+    decision_flip: missing deterministic environment evidence blocks release
+  - id: judgment_semantic_ambiguity_resolution
+    observable: conflicting proceed and review cues produce an explicit ambiguity status
+    decision_flip: semantic conflict changes selection to human_review
+  - id: retrieval_schema_discovery
+    observable: nested files are discovered from the manifest rather than assumed flat
+    decision_flip: omitted or untracked input hashes block the decision
+  - id: environment_schema_discovery_under_offline
+    observable: discovery is deterministic and records network-off provenance
+    decision_flip: a network fallback or non-deterministic file set blocks release
+  - id: judgment_agent_planned_workflow
+    observable: the submitted plan covers required operations in a dependency-valid order
+    decision_flip: skipping interpretation or replay invalidates the plan
+  - id: horizon_planning_stop_condition
+    observable: the plan names a stop condition aligned with the final action
+    decision_flip: an unbounded or contradictory plan is rejected
+workflow_handoffs:
+  - from: discovered_inputs
+    to: semantic_decision
+    artifact: outputs/decision.json
+    invariant: source hashes, semantic status and claim boundary remain aligned
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

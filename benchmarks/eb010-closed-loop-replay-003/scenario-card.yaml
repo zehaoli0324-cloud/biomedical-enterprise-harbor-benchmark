@@ -1,0 +1,35 @@
+scenario_id: eb010-closed-loop-replay-003
+status: ready
+source_scenarios: [EB010]
+domain: biomedical_enterprise
+scientific_decision: approve a temporally causal and replay-stable next-batch policy
+scientific_judgments:
+  - temporal_causality_and_observation_boundary
+  - robust_policy_selection_and_abstention
+  - claim_boundary_and_human_review
+difficulty_modules:
+  - id: horizon_adaptive_policy_replay
+    observable: stage order and observation availability are audited per replay
+    decision_flip: future-outcome leakage invalidates an otherwise attractive policy
+  - id: math_replay_stability
+    observable: utility range across seeds is explicit
+    decision_flip: seed instability changes selection to request_information
+  - id: judgment_blocker_and_abstention
+    observable: an ineligible policy produces an explicit request_information outcome
+    decision_flip: no policy may be selected when leakage, budget, or stability gates fail
+  - id: judgment_value_of_information
+    observable: replay evidence is separated from future outcomes and claim permissions
+    decision_flip: apparent utility cannot override an information-boundary violation
+workflow_handoffs:
+  - from: replay_inputs
+    to: policy_decision
+    artifact: outputs/policy_audit.json
+    invariant: stage order, budget, provenance and claim boundary remain aligned
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

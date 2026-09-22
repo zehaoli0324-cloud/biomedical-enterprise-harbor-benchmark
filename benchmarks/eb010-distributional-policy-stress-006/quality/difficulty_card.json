@@ -1,0 +1,38 @@
+{
+  "difficulty_card_id": "DIFF-EB010-DISTRIBUTIONAL-POLICY-STRESS-006-001",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "primary_module": "math_robust_scenario_optimization",
+  "secondary_modules": [
+    "math_sensitivity_frontier",
+    "horizon_adaptive_policy_replay"
+  ],
+  "held_out_variants": [
+    "nominal-versus-tail winner",
+    "shift-profile stability",
+    "future-outcome decoy"
+  ],
+  "decision_flip_controls": [
+    "nominal winner differs from robust winner",
+    "leave-one-profile-out confirms the robust winner",
+    "over-budget utility cannot define profile best"
+  ],
+  "difficulty_hypothesis": {
+    "reasoning_chain": [
+      "join five inputs",
+      "replay 72 branches",
+      "apply hard gates",
+      "integrate five distributions",
+      "compute fractional lower-tail CVaR",
+      "construct profile regrets",
+      "repeat leave-one-profile-out selection"
+    ],
+    "target_failure_mechanism": "optimizes the nominal mean or computes unweighted tail risk instead of distribution-specific CVaR"
+  },
+  "shortcut_probes": [
+    "nominal mean only",
+    "unweighted worst scenarios",
+    "ineligible policy in profile best",
+    "omit sensitivity replay"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

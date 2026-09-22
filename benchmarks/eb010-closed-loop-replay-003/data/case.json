@@ -1,0 +1,18 @@
+{
+  "rules_version": "l5-replay-v1",
+  "budget": 7.0,
+  "stage_order": ["observe", "act", "stop_or_continue"],
+  "policies": [
+    {"policy_id": "policy_safe", "scope": "active", "actions": [{"stage": "observe", "action": "measure_M02", "cost": 1.0}, {"stage": "act", "action": "batch_C2", "cost": 2.5, "gain": 0.65}, {"stage": "stop_or_continue", "action": "continue_if_signal_ge_0.5", "cost": 2.0, "gain": 0.45}]},
+    {"policy_id": "policy_peek", "scope": "active", "actions": [{"stage": "observe", "action": "measure_M02", "cost": 1.0}, {"stage": "act", "action": "batch_C2", "cost": 2.5, "gain": 0.65, "uses_future_outcome": true}, {"stage": "stop_or_continue", "action": "continue_if_signal_ge_0.5", "cost": 2.0, "gain": 0.90}]},
+    {"policy_id": "policy_overrun", "scope": "active", "actions": [{"stage": "observe", "action": "measure_M02", "cost": 1.0}, {"stage": "act", "action": "batch_C2", "cost": 4.0, "gain": 0.80}, {"stage": "stop_or_continue", "action": "continue_always", "cost": 3.0, "gain": 0.80}]}
+  ],
+  "replays": [
+    {"replay_id": "seed_01", "policy_id": "policy_safe", "observed_gain": 1.10},
+    {"replay_id": "seed_02", "policy_id": "policy_safe", "observed_gain": 0.85},
+    {"replay_id": "seed_01", "policy_id": "policy_peek", "observed_gain": 1.55},
+    {"replay_id": "seed_02", "policy_id": "policy_peek", "observed_gain": 1.20},
+    {"replay_id": "seed_01", "policy_id": "policy_overrun", "observed_gain": 1.60},
+    {"replay_id": "seed_02", "policy_id": "policy_overrun", "observed_gain": 1.40}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "audit_id": "AUDIT-EB010-DISTRIBUTIONAL-POLICY-STRESS-006-001",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "review_status": "pass",
+  "status": "PASS",
+  "passed_gates": ["structure", "metadata", "readme", "trial-evidence", "enterprise-contract", "scientific-provenance", "oracle-static"],
+  "finding_count": 0,
+  "source_report": "/private/tmp/eb010-distributional-policy-stress-review-v4.json"
+}

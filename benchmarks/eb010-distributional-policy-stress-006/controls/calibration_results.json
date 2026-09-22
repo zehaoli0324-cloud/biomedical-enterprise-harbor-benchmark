@@ -1,0 +1,45 @@
+{
+  "schema_version": "enterprise_control_calibration.v1",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "negative-nominal-winner",
+      "kind": "negative",
+      "passed": true,
+      "errors": [
+        "selected_policy mismatch"
+      ]
+    },
+    {
+      "control_id": "invariance-row-order",
+      "kind": "invariance",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "insufficient-manifest",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "errors": [
+        "manifest provenance mismatch"
+      ]
+    },
+    {
+      "control_id": "adversarial-over-budget",
+      "kind": "adversarial",
+      "passed": true
+    },
+    {
+      "control_id": "metamorphic-profile-order",
+      "kind": "metamorphic",
+      "passed": true
+    }
+  ]
+}

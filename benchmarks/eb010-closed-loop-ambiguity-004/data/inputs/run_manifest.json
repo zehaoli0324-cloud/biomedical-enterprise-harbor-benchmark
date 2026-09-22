@@ -1,0 +1,7 @@
+{
+  "schema_version":"discovery-manifest.v1",
+  "input_files":["policy_records.json","semantic_lexicon.json"],
+  "expected_scope":"active policy review",
+  "network":"off",
+  "decision_date":"2026-09-21"
+}

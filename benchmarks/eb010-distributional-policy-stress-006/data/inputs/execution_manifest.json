@@ -1,0 +1,11 @@
+{
+  "network": "off",
+  "stage_order": [
+    "observe",
+    "branch",
+    "stress",
+    "select",
+    "audit"
+  ],
+  "future_outcome_visible": false
+}

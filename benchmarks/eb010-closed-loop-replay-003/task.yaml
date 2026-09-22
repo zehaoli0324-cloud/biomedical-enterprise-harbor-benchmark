@@ -1,0 +1,21 @@
+id: eb010-closed-loop-replay-003
+version: "0.5.0"
+status: ready_for_calibration
+title: "Closed-loop policy replay with temporal causality and stability gates"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: JSON
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: policy, path: outputs/policy.json, required_fields: [selected_policy, policies, rules_version, claim_boundary, human_review_required]}
+  - {id: replay, path: outputs/replay.tsv, required_fields: [replay_id, policy_id, observed_gain]}
+  - {id: audit, path: outputs/audit.md, required_fields: [stage_order, budget, future_outcome, seed, stop, human_review]}
+  - {id: manifest, path: outputs/manifest.json, required_fields: [input_sha256, rules_version, deterministic]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only
