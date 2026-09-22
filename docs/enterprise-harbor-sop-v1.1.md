@@ -92,6 +92,8 @@ SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
 
 7. **contract replay 必须可审计。** 首轮失败后只允许修改 verifier/contract 版本，必须保存首轮错误集、修订 diff、原始 artifact SHA-256 和 unchanged-artifact replay 结果；修改后不得直接覆盖原 trial 记录。
 
+8. **自主规划必须有公开工作包边界。** 当题目要求 agent 自己规划任务时，mission 的 required capabilities、可用 operation、每个 operation 的 provides/depends_on、资源/网络预算和停止条件必须存在于 agent-visible 输入；catalog 可以包含明确可识别的诱导捷径，但不能隐藏关键规则。verifier 检查能力完备子图、依赖有效性、预算、离线约束和 stop-condition 与最终动作的一致性，但接受任意合法拓扑顺序。不能用隐藏的 canonical plan 作为答案，也不能把多写一个步骤当作难度。
+
 ## 9. L5 低披露、环境复杂性与语义含糊
 
 低披露只能减少重复解释，不能隐藏决定答案所需的规则。输入 schema、semantic lexicon、scope、阈值和环境约束可以分散在嵌套文件中，但必须能由 agent-visible manifest 和确定性 join 完整发现；verifier 必须从同一批公开输入重新推导，不能依赖未披露答案标签。
@@ -104,6 +106,23 @@ SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
 
 这类题至少增加两项控制：高 utility 的 ambiguous adversarial case，以及不改变语义的 synonym/path-prefix metamorphic case。首轮 verifier fail 后必须对原始 artifact 做 hash 固定的 contract replay：路径前缀、布尔/枚举别名和冗余语义编码属于等价表示；缺文件、漏记录、错误 scope、未来 outcome 泄漏或越过 blocker 才属于能力失败。任何 verifier 兼容修订都要保留首轮错误、修订理由和 unchanged-artifact hash，不能悄悄覆盖 trial 结果。
 
+## 9.1 L6 证据预算路由与 minimax 难度模块
+
+`eb013-evidence-budget-routing-001` 是第一道 L6 低披露 evidence-routing 题；`eb013-evidence-budget-routing-002` 在同一合同基础上只增加一个新的主轴：先观察、后按观测状态选择第二阶段证据。两道题都把 L5 的策略/闭环约束提升为“在预算内选择依赖有效、时间有效且能最小化最坏关键残差的证据 route”。输入仍必须全部 agent-visible；难度来自公开依赖图、观测条件、相关证据的边际收益、minimax 目标和 future-outcome 边界的联合推理，不来自隐藏 oracle 或额外格式字段。
+
+该题的可迁移模块登记如下：
+
+- `judgment_evidence_route_selection`（primary）：不能在找到任一 threshold-crossing route 后停止，必须比较所有合法 route 的最大 critical residual，并按公开的二级规则选择。`R-ASSAY` 单独通过局部阈值但被 `R-ASSAY + R-CORR` 支配的分支，是该模块的 decision-flip control。
+- `data_dependency_graph_routing`（secondary）：route 必须满足 `depends_on`、required capability 和 temporal gate；缺少前置证据时只能请求信息或 hold，不能用高 nominal value 越级。
+- `math_minimax_evidence_route_selection`（secondary）：按 `(maximum critical residual, total cost, lexical request ids)` 的公开顺序优化；必须同时报告 route、成本、残差和 tie-break witness。
+- `math_correlation_adjusted_reduction`（supporting）：同一 correlation group 的证据不能重复计入 reduction，只能计入声明的最大边际降低量。该模块支持科学计算，但不替代 primary/secondary 难度预算。
+- `retrieval_provenance_temporal_boundary`（supporting contract/safety）：只能使用决策时点前且未撤回的来源；future outcome、archived-only 记录和错误 hash 必须被拒绝。它是 provenance 边界，不作为额外 secondary 难度轴。
+- `horizon_two_stage_acquisition`（EB013-002 primary）：第一阶段只能提交公开且依赖有效的 observation request；第二阶段必须为每个 agent-visible observation state 声明合法 policy，不能提前消耗第二阶段预算、漏掉状态、固定套用 nominal winner 或读取 future outcome。该模块的 decision-flip 是“同一第一阶段请求在 signal-high 与 signal-low 下需要不同的第二阶段 route”。
+
+L6 的难度预算仍遵守“一主、最多两辅、至少三个 held-out variants”规则。EB013-001 的 held-outs 为 dependency graph repair、critical threshold shift、correlation group reassignment 和 budget contraction；EB013-002 额外固定 observation-label、stage-one budget、dependency-edge、future-source withdrawal 和 correlated stage-two pair 五类单因素变体。decision flips 为 future nominal winner、correlated cheap pair、missing-prerequisite request、dominated threshold-crossing route，以及 signal-high/signal-low 的条件 route 翻转。重复文件、别名枚举、输出路径或字段数量都不计入难度。
+
+EB013-001 的既有 gpt-5.6-sol trial 给出了可归因的 mixed evidence：首轮 scientific trial 选了只满足局部阈值的 `R-ASSAY`，漏掉 `R-CORR`，因此是对 minimax route objective 的有效失败；retry 找到 `R-ASSAY + R-CORR`，初始 raw failure 仅涉及输出路径和等价 decision enum，未改动 artifact 的 contract replay 通过。后者只能记录为 `RAW_FAIL_CONTRACT_REPLAY_PASS`，不能抵销首轮的科学失败。EB013-002 在本文写入时仅完成 contract audit、无模型控制和 calibration，target-model trial 必须另行记录 raw/canonical replay，不能借用 EB013-001 的结果作为两阶段难度证据。固定容器 replay、held-out difficulty trial 和 practitioner review 仍是发布门。
+
 ## 10. 输出合同归一化门（V1.2 增补）
 
 格式失败不能直接当作科学能力失败。每道题在 target trial 前必须把 verifier 拆成三个顺序层，并在 `quality/contract_audit.json` 中记录同一份规则：
@@ -115,8 +134,6 @@ SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
 合同审计至少要有 `canonical_outputs` 或 `equivalence_registry`，每个输出字段都要列出 `canonical`、`equivalents`、`forbidden` 和 `missing_semantics`。每道题在模型前运行无模型矩阵：canonical reference、字段/行顺序变化、已声明别名、路径前缀或根节点空值、单字段删除、重复主键/错误 hash/错误科学状态。前四项应在归一化后保持语义结果，后三项必须失败或进入人工复核。
 
 target trial 结果必须同时保存 `raw_verifier_result`、`canonical_replay_result`、首轮错误、修订版本、原始 artifact SHA-256 和 unchanged-artifact replay。推荐状态为 `RAW_FAIL_CONTRACT_REPLAY_PASS`、`RAW_PASS`、`SCIENTIFIC_FAIL`、`DELIVERY_FAIL` 和 `INFRASTRUCTURE_FAIL`；只有 canonical replay 仍失败时，才把结果写入“模型被考倒”或难度区分度统计。合同修复不得覆盖原始 trial，且不得改变 scientific decision、blocker 集合或 claim boundary。
-
-这条门禁解决的是“严格但不公平”的 verifier，而不是把 verifier 变宽松：允许的只是事先登记的等价表示；遗漏、重复、篡改 provenance、未来信息泄漏和越级 claim 仍必须拒绝。
 
 这条门禁解决的是“严格但不公平”的 verifier，而不是把 verifier 变宽松：允许的只是事先登记的等价表示；遗漏、重复、篡改 provenance、未来信息泄漏和越级 claim 仍必须拒绝。
 
@@ -139,3 +156,5 @@ CONTRACT_TRIAGE
 - `CONTRACT_STABLE`：至少一个 reference、一个等价表示、一个字段删除、一个错误 hash 和一个错误科学状态 fixture 的结果符合预期；不能有未归因的格式失败。
 - `DIFFICULTY_ESCALATION`：只新增一个 primary difficulty module，最多两个 secondary modules；不得借增加字段、枚举或输出格式制造难度。
 - `HELD_OUT_DIFFICULTY_TRIAL`：用新的单因素 decision-flip / held-out variant 验证新增难度，不能把合同修复 replay 当成难度证据。
+
+如果仍存在 `RAW_FAIL_CONTRACT_REPLAY_PASS` 或未解决的 `contract_error`，题目只能停留在 `CONTRACT_STABLE` 之前，禁止进入下一档难度设计。

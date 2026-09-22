@@ -1,0 +1,47 @@
+{
+  "schema_version": "reusable_difficulty_modules.v1",
+  "selection_rule": "A module is reusable only when its observable computation, decision flip, controls and claim boundary are domain-independent.",
+  "modules": [
+    {
+      "id": "math_minimax_evidence_route_selection",
+      "catalog_id": "math_minimax_evidence_route_selection",
+      "category": "math",
+      "dimension": "mathematical_complexity",
+      "core_question": "Does the agent compare all valid routes by worst-case critical residual before applying cost and lexical tie-breaks?",
+      "canonical_inputs": ["critical uncertainties", "thresholds", "candidate reductions", "hard blockers", "budget", "objective order"],
+      "canonical_computation": ["enumerate blocker-valid routes", "apply correlation-group maximum reduction", "compute residuals", "minimize maximum critical residual", "apply secondary tie-breaks"],
+      "observable_outputs": ["route set", "critical residual map", "objective tuple", "selected route", "stop or human-review condition"],
+      "decision_flip": "A route that merely crosses every threshold is rejected when another valid route has a lower maximum critical residual.",
+      "failure_modes": ["threshold_satisficing", "dominated_route", "lexicographic_objective_error", "correlation_double_counting"],
+      "required_controls": ["positive-reference", "negative-dominated-threshold-crossing", "invariance-input-order", "insufficient-evidence", "adversarial-high-nominal", "metamorphic-correlation-change"],
+      "claim_boundary": "The selected route is a planning recommendation, not experimental validation or mechanism proof.",
+      "reusable_across": ["evidence request routing", "two-stage acquisition", "batch design", "route portfolio", "assay prioritization", "resource-constrained follow-up"],
+      "applied_tasks": ["eb013-evidence-budget-routing-001", "eb013-evidence-budget-routing-002"],
+      "held_out_designs": ["worst-case scenario residual", "interval threshold", "shared resource allocation", "human-review fallback"]
+    },
+    {
+      "id": "horizon_two_stage_acquisition",
+      "catalog_id": "horizon_two_stage_acquisition",
+      "category": "horizon",
+      "dimension": "long_horizon_complexity",
+      "core_question": "Can the agent commit a legal first-stage observation plan and choose the second-stage evidence policy only from the observed state, without spending budget twice or using future outcomes?",
+      "canonical_inputs": ["stage-one requests", "observation states", "stage-two policies", "depends_on graph", "stage budgets", "decision-time cutoff", "stop and human-review rules"],
+      "canonical_computation": ["enumerate legal stage-one actions", "enumerate stage-two policy mappings for every observable state", "enforce dependency and temporal gates", "apply stage-specific and total budgets", "evaluate worst-case residual and stop condition"],
+      "observable_outputs": ["stage-one request", "observation-to-stage-two policy map", "per-state legality", "total cost", "residual or stop rationale", "provenance boundary"],
+      "decision_flip": "A fixed or nominally best second-stage request is rejected when the observed state requires a different legal request, or when it consumes budget before the observation is available.",
+      "failure_modes": ["future_outcome_peeking", "stage_order_violation", "budget_double_spend", "fixed_policy_shortcut", "state_coverage_omission"],
+      "required_controls": ["positive-adaptive-policy", "negative-fixed-stage-two", "invariance-observation-order", "insufficient-budget", "future-provenance-leak", "held-out-state-label"],
+      "claim_boundary": "The policy is a conditional evidence-acquisition plan; it is not an experimental result, causal estimate, or mechanism proof.",
+      "reusable_across": ["evidence request routing", "adaptive assay planning", "batch follow-up", "clinical measurement triage", "resource-constrained validation"],
+      "applied_tasks": ["eb013-evidence-budget-routing-002"],
+      "held_out_designs": ["new observation label", "stage-one budget contraction", "dependency edge repair", "future-source withdrawal", "correlated stage-two pair"]
+    }
+  ],
+  "authoring_requirements": [
+    "Keep the objective order agent-visible and compute the oracle independently.",
+    "Include at least one threshold-crossing but dominated route.",
+    "Separate intrinsic blockers from non-selected status in route evidence.",
+    "Replay unchanged artifacts after any output-contract repair.",
+    "Do not treat one target-model trial as universal difficulty evidence; require a held-out variant."
+  ]
+}
