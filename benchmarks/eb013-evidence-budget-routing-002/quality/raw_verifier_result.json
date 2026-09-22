@@ -1,0 +1,10 @@
+{
+  "passed": false,
+  "errors": [
+    "decision policies mismatch",
+    "plan policies mismatch"
+  ],
+  "status": "fail",
+  "runner_verifier_exit_code": 1,
+  "runner_verifier_seconds": 0.055
+}

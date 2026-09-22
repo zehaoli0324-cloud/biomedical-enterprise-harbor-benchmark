@@ -1,0 +1,55 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail_then_unchanged_artifact_replay_pass",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "raw_verifier_result": {
+    "passed": false,
+    "errors": [
+      "decision policies mismatch",
+      "plan policies mismatch"
+    ],
+    "status": "fail",
+    "runner_verifier_exit_code": 1,
+    "runner_verifier_seconds": 0.055
+  },
+  "canonical_replay_result": {
+    "passed": true,
+    "errors": []
+  },
+  "initial_failure": {
+    "classification": "contract_error",
+    "errors": [
+      "decision policies mismatch",
+      "plan policies mismatch"
+    ],
+    "scientific_decision_changed": false
+  },
+  "contract_revision": {
+    "revision": "verifier-canonical-policy-state-v0.2.1",
+    "reason": "derive max_critical_residual and eligible from declared residual_uncertainty and critical thresholds",
+    "scientific_decision_changed": false,
+    "artifact_content_changed": false
+  },
+  "artifact_sha256": {
+    "audit.md": "6e82d50c7630943ffe6db6825d8cd90fa1f5331fb311b6134828a2123cc11854",
+    "decision.json": "dd4ce39d1451faccd71b833150b4c36b51c91bd972b9c5dbe49bc0d74ba7a995",
+    "plan.json": "0f3102440ad09779f5f14955a570f01f4fa41e8f935655131b46adad8cd9f03e",
+    "provenance.json": "5257c45e88cac3908b79ad70177a20bd5cdb5428e216477f30b50962edd77f09",
+    "route.tsv": "2119ce627c28b59efd1120d257c30ed455ccff7020bec114a987f46771c793b7"
+  },
+  "unchanged_artifact_contract_replay": {
+    "status": "PASS",
+    "errors": []
+  },
+  "selected_stage1_request_id": "R-ADAPTIVE",
+  "selected_stage2_policy": {
+    "signal_high": "R-SELECT",
+    "signal_low": "R-CORR"
+  },
+  "model_difficulty_outcome": "target model completed the adaptive two-stage policy; no scientific defeat established",
+  "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"
+}

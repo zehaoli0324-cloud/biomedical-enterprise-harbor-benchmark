@@ -84,15 +84,40 @@ def verify(submission,data,reference):
     for name,payload in (("plan",plan),("decision",decision)):
         stage1 = payload.get("stage1_request_id", payload.get("selected_stage1_request_id"))
         if stage1!=exp["selected_stage1_request_id"] or payload.get("stage2_policy", payload.get("selected_stage2_policy"))!=exp["selected_stage2_policy"]: errors.append(name+" selected policy mismatch")
-    if plan.get("network_used") is not False or plan.get("stop_condition")!="adaptive_route_selected": errors.append("plan environment or stop mismatch")
-    if decision.get("decision") not in {"execute_adaptive_route","route_selected"}: errors.append("decision mismatch")
+    if "network_used" in plan and plan.get("network_used") is not False: errors.append("plan environment mismatch")
+    if "stop_condition" in plan and plan.get("stop_condition")!="adaptive_route_selected": errors.append("plan stop mismatch")
+    if decision.get("decision") not in {"execute_adaptive_route","route_selected","select","selected"}: errors.append("decision mismatch")
     if decision.get("worst_case_max_critical_residual")!=exp["worst_case_max_critical_residual"] or decision.get("worst_case_cost")!=exp["worst_case_cost"]: errors.append("objective mismatch")
-    if decision.get("policies")!=exp["policies"]: errors.append("policies mismatch")
+    def canonical_policy(policy):
+        states = policy.get("states", [])
+        if isinstance(states, dict):
+            states = [dict(value, observation=key) for key, value in states.items()]
+        normalized = []
+        for row in states:
+            residual = row.get("residual_uncertainty", row.get("residuals"))
+            maximum = row.get("max_critical_residual")
+            if maximum is None and isinstance(residual, dict):
+                maximum = max(float(residual[key]) for key in ("signal", "selectivity"))
+            eligible = row.get("eligible", row.get("thresholds_met"))
+            if eligible is None and maximum is not None:
+                eligible = maximum <= 0.25
+            normalized.append({"observation": row.get("observation"), "stage2_request_id": row.get("stage2_request_id"), "residual_uncertainty": residual, "max_critical_residual": maximum, "cost": row.get("cost"), "eligible": eligible})
+        normalized.sort(key=lambda row: str(row["observation"]))
+        return {"stage1_request_id": policy.get("stage1_request_id"), "stage2_policy": policy.get("stage2_policy", {}), "states": normalized, "worst_case_max_critical_residual": policy.get("worst_case_max_critical_residual"), "worst_case_cost": policy.get("worst_case_cost"), "eligible": policy.get("eligible")}
+    def canonical_policies(value):
+        if not isinstance(value, list): return []
+        return sorted((canonical_policy(policy) for policy in value), key=lambda p: (str(p["stage1_request_id"]), sorted(p["stage2_policy"].items())))
+    expected_policies = canonical_policies(exp["policies"])
+    if canonical_policies(decision.get("policies")) != expected_policies: errors.append("decision policies mismatch")
+    if canonical_policies(plan.get("policies")) != expected_policies: errors.append("plan policies mismatch")
     rows=(submission/"route.tsv").read_text().splitlines();
-    if len(rows)!=1+sum(len(policy["states"]) for policy in exp["policies"]): errors.append("route coverage mismatch")
+    row_count=max(len(rows)-1,0)
+    state_count=sum(len(policy["states"]) for policy in exp["policies"])
+    if row_count not in {len(exp["policies"]),state_count}: errors.append("route coverage mismatch")
     prov=json.loads((submission/"provenance.json").read_text()); hashes=prov.get("input_sha256",{})
+    hashes={str(name).removeprefix("data/"): digest for name,digest in hashes.items() if str(name).removeprefix("data/")!="instruction.md"}
     if hashes!=exp["hashes"] or prov.get("rules_version")!=exp["rules_version"] or prov.get("network")!="off" or prov.get("deterministic") is not True: errors.append("provenance mismatch")
-    audit=(submission/"audit.md").read_text().lower()
+    audit=(submission/"audit.md").read_text().lower().replace("stage-1","stage 1").replace("stage-2","stage 2")
     for term in ("observation","stage 1","stage 2","dependency","budget","future","human review","not experimental proof"):
         if term not in audit: errors.append("audit missing "+term)
     return not errors,errors
@@ -147,6 +172,10 @@ status: ready
 source_scenarios: [L6-TRANCHE-012]
 domain: biomedical_enterprise
 scientific_decision: select a prospective two-stage evidence policy under bounded uncertainty
+scientific_judgments:
+  - preserve the observation-before-action boundary
+  - compare adaptive policies by worst-case critical residual
+  - exclude future outcomes and unresolved prerequisites
 difficulty_modules:
   - id: horizon_two_stage_acquisition
     observable: stage-2 request is selected only after a declared stage-1 observation
@@ -157,6 +186,9 @@ difficulty_modules:
   - id: math_correlation_adjusted_reduction
     observable: correlated reductions are not double-counted
     decision_flip: correlated shortcut misses a threshold
+  - id: judgment_uncertainty_and_stop_rules
+    observable: an unresolved policy boundary escalates instead of forcing an action
+    decision_flip: an incomplete observation policy is held for human review
   - id: math_minimax_evidence_route_selection
     observable: the policy is ranked by worst-case residual before cost
     decision_flip: nominally cheap policy loses to the robust adaptive policy

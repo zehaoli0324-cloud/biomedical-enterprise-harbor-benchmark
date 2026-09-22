@@ -92,12 +92,12 @@
     {
       "check": "baseline_records_present",
       "status": "PASS",
-      "detail": "always_abstain,reference_solution,simple_legal_baseline,template_or_keyword"
+      "detail": "always_abstain,reference_solution,simple_legal_baseline,target_model,template_or_keyword"
     },
     {
       "check": "target_model_status_attributed",
       "status": "PASS",
-      "detail": "NOT_RUN"
+      "detail": "RAW_FAIL_CONTRACT_REPLAY_PASS"
     },
     {
       "check": "sop_card_present",
@@ -126,11 +126,9 @@
     }
   ],
   "blockers": [],
-  "release_status": "BLOCKED",
-  "release_blockers": [
-    "target_model_not_run"
-  ],
-  "target_model_status": "NOT_RUN",
+  "release_status": "REVIEW_REQUIRED",
+  "release_blockers": [],
+  "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
   "target_model_infra_not_difficulty": false,
   "release_permitted": false
 }

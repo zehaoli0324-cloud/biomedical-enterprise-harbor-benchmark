@@ -16,7 +16,7 @@
       "required_controls": ["positive-reference", "negative-dominated-threshold-crossing", "invariance-input-order", "insufficient-evidence", "adversarial-high-nominal", "metamorphic-correlation-change"],
       "claim_boundary": "The selected route is a planning recommendation, not experimental validation or mechanism proof.",
       "reusable_across": ["evidence request routing", "two-stage acquisition", "batch design", "route portfolio", "assay prioritization", "resource-constrained follow-up"],
-      "applied_tasks": ["eb013-evidence-budget-routing-001", "eb013-evidence-budget-routing-002"],
+      "applied_tasks": ["eb013-evidence-budget-routing-001", "eb013-evidence-budget-routing-002", "eb010-stop-uncertainty-002", "eb011-reproduction-manifest-001"],
       "held_out_designs": ["worst-case scenario residual", "interval threshold", "shared resource allocation", "human-review fallback"]
     },
     {

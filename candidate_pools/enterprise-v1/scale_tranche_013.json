@@ -2,7 +2,7 @@
   "schema_version": "enterprise_scale_tranche.v1",
   "tranche_id": "TRANCHE-013",
   "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
-  "status": "CONTRACT_STABLE_CALIBRATED_TARGET_NOT_RUN",
+  "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY_FIXED_CONTAINER_PENDING",
   "selection_policy": {
     "candidate_count": 1,
     "coverage": "two-stage evidence acquisition after observed uncertainty",
@@ -15,17 +15,29 @@
       "level": "L6.1",
       "upgrade": "stage-one observation gates dependency-valid stage-two evidence policy under budget and future-outcome boundaries",
       "primary_module": "horizon_two_stage_acquisition",
-      "secondary_modules": ["judgment_evidence_route_selection", "math_correlation_adjusted_reduction"],
-      "supporting_modules": ["retrieval_provenance_temporal_boundary"],
-      "status": "CONTRACT_STABLE_CALIBRATED",
-      "target_model_status": "NOT_RUN"
+      "secondary_modules": [
+        "judgment_evidence_route_selection",
+        "math_correlation_adjusted_reduction"
+      ],
+      "supporting_modules": [
+        "retrieval_provenance_temporal_boundary"
+      ],
+      "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY",
+      "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+      "target_trial": "eb013-evidence-budget-routing-002-gpt56sol-001"
     }
   ],
   "difficulty_result": {
     "model": "gpt-5.6-sol",
-    "outcome": "not_run",
-    "interpretation": "The output contract was stabilized first. The only new scientific axis is two-stage acquisition; target-model evidence is intentionally pending.",
-    "contract_controls": ["reference", "equivalent representation", "field deletion", "wrong hash", "fixed-stage2 shortcut", "observation-order invariance"]
+    "outcome": "pass_after_contract_replay",
+    "interpretation": "target model completed the adaptive two-stage policy; no scientific defeat established",
+    "invalid_failures_excluded": [
+      "decision policies mismatch",
+      "plan policies mismatch"
+    ]
   },
-  "release_blockers": ["target-model trial", "fixed-container replay", "practitioner review"]
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review"
+  ]
 }

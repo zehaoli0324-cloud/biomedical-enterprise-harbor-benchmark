@@ -14,9 +14,8 @@ def write(path: Path, value: object) -> None:
 
 def reference(out: Path) -> dict:
     exp = verifier.expected(TASK / "data"); out.mkdir(parents=True, exist_ok=True)
-    write(out / "plan.json", {"stage1_request_id": exp["selected_stage1_request_id"], "stage2_policy": exp["selected_stage2_policy"], "worst_case_max_critical_residual": exp["worst_case_max_critical_residual"], "worst_case_cost": exp["worst_case_cost"], "network_used": False, "stop_condition": "adaptive_route_selected"})
+    write(out / "plan.json", {"stage1_request_id": exp["selected_stage1_request_id"], "stage2_policy": exp["selected_stage2_policy"], "worst_case_max_critical_residual": exp["worst_case_max_critical_residual"], "worst_case_cost": exp["worst_case_cost"], "policies": exp["policies"], "network_used": False, "stop_condition": "adaptive_route_selected"})
     write(out / "decision.json", {"decision": exp["decision"], "selected_stage1_request_id": exp["selected_stage1_request_id"], "selected_stage2_policy": exp["selected_stage2_policy"], "worst_case_max_critical_residual": exp["worst_case_max_critical_residual"], "worst_case_cost": exp["worst_case_cost"], "policies": exp["policies"]})
-    lines = ["stage1_request_id\tobservation\tstage2_request_id\tel igible\tblockers"]
     lines = ["stage1_request_id\tobservation\tstage2_request_id\teligible\tblockers"]
     for policy in exp["policies"]:
         for state in policy["states"]:

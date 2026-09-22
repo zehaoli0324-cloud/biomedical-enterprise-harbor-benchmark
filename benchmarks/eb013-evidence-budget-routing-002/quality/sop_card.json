@@ -5,13 +5,10 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "MATERIALIZED_V0.2.0",
   "control_status": "CALIBRATED",
-  "model_trial_status": "BASELINES_COMPLETE",
+  "model_trial_status": "TARGET_TRIAL_COMPLETE",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
-    "controls",
-    "baselines",
-    "target-model trial",
     "fixed-container replay",
     "practitioner review"
   ],

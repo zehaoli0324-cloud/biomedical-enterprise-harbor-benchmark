@@ -123,6 +123,12 @@ L6 的难度预算仍遵守“一主、最多两辅、至少三个 held-out vari
 
 EB013-001 的既有 gpt-5.6-sol trial 给出了可归因的 mixed evidence：首轮 scientific trial 选了只满足局部阈值的 `R-ASSAY`，漏掉 `R-CORR`，因此是对 minimax route objective 的有效失败；retry 找到 `R-ASSAY + R-CORR`，初始 raw failure 仅涉及输出路径和等价 decision enum，未改动 artifact 的 contract replay 通过。后者只能记录为 `RAW_FAIL_CONTRACT_REPLAY_PASS`，不能抵销首轮的科学失败。EB013-002 在本文写入时仅完成 contract audit、无模型控制和 calibration，target-model trial 必须另行记录 raw/canonical replay，不能借用 EB013-001 的结果作为两阶段难度证据。固定容器 replay、held-out difficulty trial 和 practitioner review 仍是发布门。
 
+### L6.2 跨域迁移批次
+
+同一难度模块只有在跨业务域 held-out 中仍产生相同的可观察 decision flip，才算可迁移。TRANCHE-014 使用三个题包验证这一点：EB013 的一般两阶段 evidence policy、EB010 的 stop/uncertainty policy，以及 EB011 的 reproduction remediation policy。三题共享 `math_minimax_evidence_route_selection`、`horizon_two_stage_acquisition` 和 `judgment_evidence_route_selection`，但不得共享隐藏答案、候选 ID 或领域标签捷径。
+
+EB010 必须在 `plateau` 与 `discordant` 后选择不同的 replicate/reconcile 请求；EB011 必须在 `topology_mismatch` 与 `parameter_drift` 后选择不同的 rebuild/pin 请求。每题都要包含高 nominal value 的固定策略、future-outcome 诱导项、dependency-invalid 路径，以及刚好过阈值但被更低 worst-case residual 支配的策略。只有 reference、六类 controls、独立 verifier audit 和 target trial 均按相同归因规则完成后，结果才可计入跨域难度证据。
+
 ## 10. 输出合同归一化门（V1.2 增补）
 
 格式失败不能直接当作科学能力失败。每道题在 target trial 前必须把 verifier 拆成三个顺序层，并在 `quality/contract_audit.json` 中记录同一份规则：

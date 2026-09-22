@@ -49,7 +49,8 @@
     "plan.json": {
       "equivalents": [
         "stage1_request_id plus stage2_policy mapping",
-        "policy object or policy list"
+        "policy object or policy list",
+        "state residual_uncertainty with max_critical_residual and eligible derived from declared critical thresholds"
       ],
       "forbidden": [
         "stage2 selected before observation",

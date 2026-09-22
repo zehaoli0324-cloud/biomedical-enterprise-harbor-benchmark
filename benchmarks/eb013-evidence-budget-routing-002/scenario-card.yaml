@@ -18,14 +18,11 @@ difficulty_modules:
     observable: correlated reductions are not double-counted
     decision_flip: correlated shortcut misses a threshold
   - id: math_minimax_evidence_route_selection
-    observable: policies are ranked by worst-case maximum critical residual before cost
-    decision_flip: a fixed policy that crosses one state cannot beat a valid adaptive policy
+    observable: the policy is ranked by worst-case residual before cost
+    decision_flip: nominally cheap policy loses to the robust adaptive policy
   - id: judgment_uncertainty_and_stop_rules
     observable: an unresolved policy boundary escalates instead of forcing an action
     decision_flip: an incomplete observation policy is held for human review
-  - id: math_minimax_evidence_route_selection
-    observable: the policy is ranked by worst-case residual before cost
-    decision_flip: nominally cheap policy loses to the robust adaptive policy
   - id: retrieval_provenance_temporal_boundary
     observable: future-outcome and unavailable-request records are excluded before stage-2 selection
     decision_flip: a nominal future request cannot make an otherwise invalid policy eligible
