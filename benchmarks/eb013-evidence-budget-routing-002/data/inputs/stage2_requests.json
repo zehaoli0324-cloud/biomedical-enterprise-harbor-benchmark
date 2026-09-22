@@ -37,6 +37,25 @@
       "nominal_value": 0.86
     },
     {
+      "request_id": "R-BALANCE",
+      "stage": 2,
+      "cost": 1.0,
+      "correlation_group": "G7",
+      "covers": {
+        "signal": 0.2,
+        "selectivity": 0.2
+      },
+      "allowed_observations": [
+        "signal_mid"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "R-ADAPTIVE"
+      ],
+      "nominal_value": 0.82
+    },
+    {
       "request_id": "R-REPL",
       "stage": 2,
       "cost": 2.0,

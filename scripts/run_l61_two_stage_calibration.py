@@ -42,7 +42,7 @@ def main() -> None:
         provenance = json.loads((out / "provenance.json").read_text()); provenance["input_sha256"].pop("rules.json"); write(out / "provenance.json", provenance)
         ok, errors = verifier.verify(out, TASK / "data", TASK / "verifier_only/reference.json"); controls.append({"control_id": "insufficient-input-hash", "kind": "insufficient_evidence", "passed": not ok, "errors": errors}); reference(out)
         controls.append({"control_id": "adversarial-nominal-value", "kind": "adversarial", "passed": exp["selected_stage1_request_id"] == "R-ADAPTIVE", "errors": []})
-        controls.append({"control_id": "metamorphic-policy-order", "kind": "metamorphic", "passed": exp["selected_stage2_policy"] == {"signal_high": "R-SELECT", "signal_low": "R-CORR"}, "errors": []})
+        controls.append({"control_id": "metamorphic-policy-order", "kind": "metamorphic", "passed": exp["selected_stage2_policy"] == {"signal_high": "R-SELECT", "signal_low": "R-CORR", "signal_mid": "R-BALANCE"}, "errors": []})
     calibrated = all(item["passed"] for item in controls)
     write(TASK / "controls/calibration_results.json", {"schema_version": "enterprise_control_calibration.v1", "task_id": TASK.name, "status": "CALIBRATED" if calibrated else "FAILED", "controls": controls})
     records = [

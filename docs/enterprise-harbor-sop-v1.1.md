@@ -164,3 +164,11 @@ CONTRACT_TRIAGE
 - `HELD_OUT_DIFFICULTY_TRIAL`：用新的单因素 decision-flip / held-out variant 验证新增难度，不能把合同修复 replay 当成难度证据。
 
 如果仍存在 `RAW_FAIL_CONTRACT_REPLAY_PASS` 或未解决的 `contract_error`，题目只能停留在 `CONTRACT_STABLE` 之前，禁止进入下一档难度设计。
+
+## 12. Adaptive-policy replay 难度模块
+
+`horizon_adaptive_policy_replay` 用于检验 agent 是否覆盖 stage-1 输入中声明的全部 observation states，而不是只回答题面示例或常见分支。题面必须公开 state 列表、每个 state 的合法 action、依赖、预算、逐状态计算和 worst-case 聚合规则；verifier 必须从 agent-visible 输入枚举完整 policy，不能依赖隐藏 canonical branch 名称。
+
+该模块至少包含六类控制：完整三状态 positive、缺少一个状态 negative、状态顺序 invariance、单分支预算不足、依赖无效 action，以及新增 held-out state。decision flip 必须由“补入或撤回一个可观察状态后，原 policy 从 eligible 变为 incomplete/hold，或最优 action mapping 改变”产生。只增加行数、文件数或输出字段不算难度。
+
+`states`/`observation_states`、`observation`/`observation_state` 等预登记别名只在 canonicalization 层处理；别名归一化不得生成缺失分支、补造 residual、修复错误 action 或忽略 provenance hash。target trial 必须同时保存 raw verdict 与 unchanged-artifact replay，只有完整 state coverage 和科学计算都通过，才能认定该模块通过。

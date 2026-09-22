@@ -1,0 +1,39 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "task_version": "0.3.0",
+  "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-003",
+  "model": "gpt-5.6-sol",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "classification": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+  "raw_verifier_result": {
+    "passed": false,
+    "errors": [
+      "plan policies mismatch"
+    ],
+    "status": "fail",
+    "runner_verifier_exit_code": 1,
+    "runner_verifier_seconds": 0.04
+  },
+  "canonical_replay_result": {
+    "passed": true,
+    "errors": []
+  },
+  "artifact_sha256": {
+    "audit.md": "2b26cb6951b983465842953c2c3db5823857d29687e6f038134739b80e0ea665",
+    "decision.json": "1584a76b8120a3920b7ff102aa1bfd990b71943d2848c6b20442ff9362b88483",
+    "plan.json": "c40b228f934053682aece2070946e23b3fc0e4b506d066c348554c1f7c91b3b3",
+    "provenance.json": "65ec9bacc631a9239770a9e79a2e5f538b709f75e21403147226778d7e053648",
+    "route.tsv": "f1b0fb0496bb4d28c5145ac9c370e947cb679ba85c33999c6e7d919a2438c931"
+  },
+  "artifact_content_changed": false,
+  "scientific_decision_changed": false,
+  "selected_stage1_request_id": "R-ADAPTIVE",
+  "selected_stage2_policy": {
+    "signal_high": "R-SELECT",
+    "signal_low": "R-CORR",
+    "signal_mid": "R-BALANCE"
+  },
+  "interpretation": "Three-state adaptive policy passed; the raw failure was limited to declared field aliases."
+}

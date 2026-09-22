@@ -8,21 +8,21 @@ scientific_judgments:
   - compare adaptive policies by worst-case critical residual
   - exclude future outcomes and unresolved prerequisites
 difficulty_modules:
-  - id: horizon_two_stage_acquisition
-    observable: stage-2 request is selected only after a declared stage-1 observation
-    decision_flip: adaptive observation policy succeeds where any fixed stage-2 choice fails
+  - id: horizon_adaptive_policy_replay
+    observable: every declared stage-1 observation is replayed through a legal stage-2 action
+    decision_flip: the added signal_mid branch requires R-BALANCE and invalidates a two-branch policy
   - id: judgment_evidence_route_selection
     observable: policy minimizes worst-case critical residual rather than nominal value
     decision_flip: nominal high-value route is ineligible or dominated
   - id: math_correlation_adjusted_reduction
     observable: correlated reductions are not double-counted
     decision_flip: correlated shortcut misses a threshold
-  - id: math_minimax_evidence_route_selection
-    observable: the policy is ranked by worst-case residual before cost
-    decision_flip: nominally cheap policy loses to the robust adaptive policy
   - id: judgment_uncertainty_and_stop_rules
     observable: an unresolved policy boundary escalates instead of forcing an action
     decision_flip: an incomplete observation policy is held for human review
+  - id: math_minimax_evidence_route_selection
+    observable: the policy is ranked by worst-case residual before cost
+    decision_flip: nominally cheap policy loses to the robust adaptive policy
   - id: retrieval_provenance_temporal_boundary
     observable: future-outcome and unavailable-request records are excluded before stage-2 selection
     decision_flip: a nominal future request cannot make an otherwise invalid policy eligible

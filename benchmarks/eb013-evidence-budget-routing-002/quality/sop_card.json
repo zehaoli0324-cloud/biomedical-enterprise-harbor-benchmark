@@ -3,9 +3,9 @@
   "task_id": "eb013-evidence-budget-routing-002",
   "sop_version": "enterprise-harbor-sop-v1.2",
   "source_status": "REVIEW_REQUIRED",
-  "contract_status": "MATERIALIZED_V0.2.0",
+  "contract_status": "MATERIALIZED_V0.3.0",
   "control_status": "CALIBRATED",
-  "model_trial_status": "TARGET_TRIAL_COMPLETE",
+  "model_trial_status": "TARGET_TRIAL_COMPLETE_V0.3",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [

@@ -2,8 +2,9 @@
   "selected_stage1_request_id": "R-ADAPTIVE",
   "selected_stage2_policy": {
     "signal_high": "R-SELECT",
-    "signal_low": "R-CORR"
+    "signal_low": "R-CORR",
+    "signal_mid": "R-BALANCE"
   },
-  "rules_version": "l6.1-two-stage-evidence-v1",
+  "rules_version": "l6.1-two-stage-evidence-v2",
   "status": "verifier_only"
 }

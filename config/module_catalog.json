@@ -61,7 +61,15 @@
     {"id": "horizon_branching_experiments", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["branch_confusion", "budget_drift"]},
     {"id": "horizon_end_to_end_claim", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["local_correct_global_wrong", "claim_drift"]},
     {"id": "horizon_two_stage_acquisition", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["future_outcome_peeking", "stage_order_violation", "budget_double_spend"]},
+    {"id": "horizon_adaptive_policy_replay", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["policy_branch_confusion", "replay_state_loss", "future_outcome_peeking"]},
+    {"id": "horizon_planning_stop_condition", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["unbounded_workflow", "premature_stop", "contradictory_stop_reason"]},
+    {"id": "math_replay_stability", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["seed_specific_winner", "unstable_utility", "budget_drift"]},
     {"id": "safety_human_approval_gate", "category": "safety", "dimension": "safety_risk", "failure_modes": ["unsafe_action", "missing_approval"]},
-    {"id": "safety_genetic_or_clinical_boundary", "category": "safety", "dimension": "safety_risk", "failure_modes": ["operational_overreach", "risk_omission"]}
+    {"id": "safety_genetic_or_clinical_boundary", "category": "safety", "dimension": "safety_risk", "failure_modes": ["operational_overreach", "risk_omission"]},
+    {"id": "judgment_evidence_route_selection", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["nominal_value_shortcut", "binding_uncertainty_ignored", "forced_route"]},
+    {"id": "data_dependency_graph_routing", "category": "data", "dimension": "data_type_complexity", "failure_modes": ["missing_prerequisite", "route_order_error", "orphan_request"]},
+    {"id": "math_correlation_adjusted_reduction", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["correlation_double_counting", "wrong_residual", "wrong_tie_break"]},
+    {"id": "math_minimax_evidence_route_selection", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["threshold_satisficing", "dominated_route", "lexicographic_objective_error"]},
+    {"id": "retrieval_provenance_temporal_boundary", "category": "retrieval", "dimension": "retrieval_complexity", "failure_modes": ["archived_evidence_reuse", "future_outcome_leakage", "hash_mismatch"]}
   ]
 }

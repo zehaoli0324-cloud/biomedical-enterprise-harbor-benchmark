@@ -1,5 +1,5 @@
 id: eb013-evidence-budget-routing-002
-version: "0.2.0"
+version: "0.3.0"
 status: ready_for_calibration
 title: "Two-stage evidence budget routing under observed uncertainty"
 domain: biomedical_enterprise

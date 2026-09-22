@@ -97,7 +97,7 @@
     {
       "check": "target_model_status_attributed",
       "status": "PASS",
-      "detail": "RAW_FAIL_CONTRACT_REPLAY_PASS"
+      "detail": "INFRASTRUCTURE_FAIL"
     },
     {
       "check": "sop_card_present",
@@ -122,13 +122,15 @@
     {
       "check": "v1.2_difficulty_budget",
       "status": "PASS",
-      "detail": "primary=horizon_two_stage_acquisition;secondary=['judgment_evidence_route_selection', 'math_correlation_adjusted_reduction'];held_out=4"
+      "detail": "primary=horizon_adaptive_policy_replay;secondary=['judgment_evidence_route_selection', 'math_correlation_adjusted_reduction'];held_out=5"
     }
   ],
   "blockers": [],
-  "release_status": "REVIEW_REQUIRED",
-  "release_blockers": [],
-  "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
-  "target_model_infra_not_difficulty": false,
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "target_model_infrastructure"
+  ],
+  "target_model_status": "INFRASTRUCTURE_FAIL",
+  "target_model_infra_not_difficulty": true,
   "release_permitted": false
 }

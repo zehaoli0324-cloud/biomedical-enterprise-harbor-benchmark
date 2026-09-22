@@ -15,6 +15,10 @@
         },
         "signal_low": {
           "selectivity": 0.2
+        },
+        "signal_mid": {
+          "signal": 0.1,
+          "selectivity": 0.05
         }
       },
       "status": "current",

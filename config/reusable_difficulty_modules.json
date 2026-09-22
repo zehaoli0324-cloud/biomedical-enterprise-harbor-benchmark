@@ -3,6 +3,23 @@
   "selection_rule": "A module is reusable only when its observable computation, decision flip, controls and claim boundary are domain-independent.",
   "modules": [
     {
+      "id": "horizon_adaptive_policy_replay",
+      "catalog_id": "horizon_adaptive_policy_replay",
+      "category": "horizon",
+      "dimension": "long_horizon_complexity",
+      "core_question": "Does the agent replay every declared observation state and choose a dependency-valid action for that state, rather than applying a fixed second-stage shortcut?",
+      "canonical_inputs": ["stage-one outcomes", "observation states", "conditional actions", "dependency graph", "budget", "stop rules"],
+      "canonical_computation": ["enumerate all observable states", "construct a complete state-to-action map", "enforce branch-specific legality", "replay residuals and costs per state", "aggregate worst-case objective"],
+      "observable_outputs": ["complete policy map", "state coverage", "per-state action legality", "per-state residual and cost", "worst-case objective", "uncovered-state hold"],
+      "decision_flip": "A policy with a correct action for common states is rejected when one declared intermediate state is omitted or routed to an invalid action.",
+      "failure_modes": ["state_coverage_omission", "fixed_policy_shortcut", "branch_dependency_error", "worst_case_state_omission"],
+      "required_controls": ["positive-three-state-policy", "negative-missing-state", "invariance-state-order", "insufficient-branch-budget", "invalid-dependency-action", "held-out-new-state"],
+      "claim_boundary": "The replayed policy is a conditional planning recommendation, not an observed experimental result or mechanism claim.",
+      "reusable_across": ["adaptive evidence routing", "assay triage", "batch follow-up", "clinical measurement planning", "resource-constrained validation"],
+      "applied_tasks": ["eb013-evidence-budget-routing-002"],
+      "held_out_designs": ["three-way observation", "new intermediate state", "branch-specific budget contraction", "state-specific dependency withdrawal"]
+    },
+    {
       "id": "math_minimax_evidence_route_selection",
       "catalog_id": "math_minimax_evidence_route_selection",
       "category": "math",

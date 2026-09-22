@@ -122,7 +122,7 @@
     {
       "check": "v1.2_difficulty_budget",
       "status": "PASS",
-      "detail": "primary=horizon_two_stage_acquisition;secondary=['judgment_evidence_route_selection', 'math_correlation_adjusted_reduction'];held_out=4"
+      "detail": "primary=horizon_adaptive_policy_replay;secondary=['judgment_evidence_route_selection', 'math_correlation_adjusted_reduction'];held_out=5"
     }
   ],
   "blockers": [],

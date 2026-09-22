@@ -10,7 +10,7 @@
     "target_model"
   ],
   "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
-  "status": "TARGET_TRIAL_COMPLETE",
+  "status": "TARGET_TRIAL_COMPLETE_V0.3",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -53,15 +53,29 @@
     {
       "strategy": "target_model",
       "model": "gpt-5.6-sol",
-      "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-001",
+      "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-002",
+      "status": "delivery_fail_provenance",
+      "passed": false,
+      "runner_status": "verifier_fail",
+      "timed_out": false,
+      "artifact_verification": "unchanged_artifacts_replay_fail",
+      "failure_attribution": "delivery_fail_provenance",
+      "trial_dir": "/private/tmp/enterprise-l61-target-trials/eb013-evidence-budget-routing-002-gpt56sol-002/eb013-evidence-budget-routing-002-gpt56sol-002",
+      "errors": [
+        "provenance mismatch"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-003",
       "status": "pass_after_contract_replay",
       "passed": true,
-      "runner_status": "verifier_fail_then_unchanged_artifact_replay_pass",
-      "original_runner_status": "verifier_fail",
+      "runner_status": "verifier_fail",
       "timed_out": false,
       "artifact_verification": "unchanged_artifacts_replay_pass",
-      "failure_attribution": "initial_policy_state_contract_defect; unchanged artifacts passed replay",
-      "trial_dir": "/private/tmp/enterprise-l61-target-trials/eb013-evidence-budget-routing-002-gpt56sol-001/eb013-evidence-budget-routing-002-gpt56sol-001",
+      "failure_attribution": "raw_fail_contract_replay_pass",
+      "trial_dir": "/private/tmp/enterprise-l61-target-trials/eb013-evidence-budget-routing-002-gpt56sol-003/eb013-evidence-budget-routing-002-gpt56sol-003",
       "errors": []
     }
   ]

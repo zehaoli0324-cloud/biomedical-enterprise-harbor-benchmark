@@ -1,0 +1,44 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "task_version": "0.3.0",
+  "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-002",
+  "model": "gpt-5.6-sol",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "classification": "DELIVERY_FAIL_PROVENANCE",
+  "raw_verifier_result": {
+    "passed": false,
+    "errors": [
+      "decision mismatch",
+      "decision policies mismatch",
+      "plan policies mismatch",
+      "provenance mismatch"
+    ],
+    "status": "fail",
+    "runner_verifier_exit_code": 1,
+    "runner_verifier_seconds": 0.045
+  },
+  "canonical_replay_result": {
+    "passed": false,
+    "errors": [
+      "provenance mismatch"
+    ]
+  },
+  "artifact_sha256": {
+    "audit.md": "2e0e809713f3fbca5ed6017e3893591fca9cc37cfe831e2036becc6982996376",
+    "decision.json": "f2b02ef5d798c3cac1e76d2b2bd30ca91ef5d3a7e0f9376749f5ec682509388c",
+    "plan.json": "650b6c18952ec1ed40f923885438fa05aab6e687ec98337f0142c025306562e7",
+    "provenance.json": "36e66f54efdef01cdaa20dc640ae37ff599b2a4f2c7d6c67e64000f38ac87b6f",
+    "route.tsv": "38bc758a3d6fcca60f86568ec7ec3daf13a30a5b7afbeeabd2ca16dfff5ffcdb"
+  },
+  "artifact_content_changed": false,
+  "scientific_decision_changed": false,
+  "selected_stage1_request_id": "R-ADAPTIVE",
+  "selected_stage2_policy": {
+    "signal_high": "R-SELECT",
+    "signal_low": "R-CORR",
+    "signal_mid": "R-BALANCE"
+  },
+  "interpretation": "Scientific policy passed; canonical replay still rejects the missing run_manifest SHA-256."
+}

@@ -1,7 +1,7 @@
 {
   "difficulty_card_id": "DIFF-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
   "task_id": "eb013-evidence-budget-routing-002",
-  "primary_module": "horizon_two_stage_acquisition",
+  "primary_module": "horizon_adaptive_policy_replay",
   "secondary_modules": [
     "judgment_evidence_route_selection",
     "math_correlation_adjusted_reduction"
@@ -13,7 +13,8 @@
     "observation label swap",
     "stage-2 budget contraction",
     "dependency repair",
-    "correlation reassignment"
+    "correlation reassignment",
+    "three-way observation branch"
   ],
   "decision_flip_controls": [
     "fixed-stage2 shortcut",
@@ -21,5 +22,5 @@
     "correlated pair",
     "missing prerequisite"
   ],
-  "status": "REVIEW_REQUIRED"
+  "status": "CALIBRATION_REQUIRED"
 }

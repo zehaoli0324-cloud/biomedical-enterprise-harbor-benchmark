@@ -12,9 +12,9 @@
   "recommended_candidates": [
     {
       "candidate_id": "eb013-evidence-budget-routing-002",
-      "level": "L6.1",
-      "upgrade": "stage-one observation gates dependency-valid stage-two evidence policy under budget and future-outcome boundaries",
-      "primary_module": "horizon_two_stage_acquisition",
+      "level": "L6.3",
+      "upgrade": "complete three-state adaptive-policy replay under dependency, budget, provenance and future-outcome boundaries",
+      "primary_module": "horizon_adaptive_policy_replay",
       "secondary_modules": [
         "judgment_evidence_route_selection",
         "math_correlation_adjusted_reduction"
@@ -24,16 +24,16 @@
       ],
       "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY",
       "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
-      "target_trial": "eb013-evidence-budget-routing-002-gpt56sol-001"
+      "target_trial": "eb013-evidence-budget-routing-002-gpt56sol-003"
     }
   ],
   "difficulty_result": {
     "model": "gpt-5.6-sol",
     "outcome": "pass_after_contract_replay",
-    "interpretation": "target model completed the adaptive two-stage policy; no scientific defeat established",
+    "interpretation": "target model completed the three-state adaptive policy; no scientific defeat established. Trial 002 retained a real missing-manifest-hash delivery failure, while trial 003 passed unchanged-artifact replay after declared field-alias normalization.",
     "invalid_failures_excluded": [
-      "decision policies mismatch",
-      "plan policies mismatch"
+      "observation_state alias",
+      "critical_residual_max alias"
     ]
   },
   "release_blockers": [
