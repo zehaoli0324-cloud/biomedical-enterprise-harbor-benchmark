@@ -1,0 +1,20 @@
+{
+  "probe_id": "P2",
+  "observation_policy": {
+    "a": "B",
+    "b": "A",
+    "c": "B",
+    "d": "C"
+  },
+  "setup_families": [
+    "basic",
+    "select"
+  ],
+  "setup_cost": 1.5,
+  "worst_cost": 3.5,
+  "robust_cvar": 0.215,
+  "worst_mean_loss": 0.1565,
+  "decision": "execute_policy",
+  "human_review_required": true,
+  "claim_boundary": "synthetic_planning_only"
+}

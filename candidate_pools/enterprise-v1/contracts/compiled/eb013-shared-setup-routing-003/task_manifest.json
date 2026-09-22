@@ -1,0 +1,269 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb013-shared-setup-routing-003",
+    "title": "Prospective evidence routing with shared setup commitments",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "eb013-evidence-budget-routing-002"
+    ],
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb013-shared-setup-routing-003",
+    "raw_score": 3.917,
+    "adjusted_score": 4.117,
+    "band": "research-grade",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Synthetic assay planning with ex-ante commitments and contingent execution.",
+        "tags": []
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Preparation timing couples the branches before observations.",
+        "tags": []
+      },
+      "computational_difficulty": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Enumerate 108 complete legal policy mappings.",
+        "tags": []
+      },
+      "tool_call_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Small JSON inputs with self-contained output contract.",
+        "tags": []
+      },
+      "retrieval_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Check complete source availability and prerequisites.",
+        "tags": []
+      },
+      "information_noise_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Future, retracted and partially satisfied dependency decoys.",
+        "tags": []
+      },
+      "data_type_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Structured JSON and synchronized TSV.",
+        "tags": []
+      },
+      "data_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Three stage-one alternatives and shared branch preparations.",
+        "tags": []
+      },
+      "environment_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Deterministic offline calculation and input checksums.",
+        "tags": []
+      },
+      "mathematical_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Setup union couples discrete policies; lexicographic minimax objective.",
+        "tags": []
+      },
+      "long_horizon_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Preparation must be committed before observation-specific actions.",
+        "tags": []
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Synthetic planning only, with explicit human review.",
+        "tags": []
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence"
+    ],
+    "selected_modules": {
+      "math": [
+        {
+          "id": "math_ex_ante_shared_setup",
+          "params": {}
+        },
+        {
+          "id": "math_minimax_evidence_route_selection",
+          "params": {}
+        }
+      ],
+      "horizon": [
+        {
+          "id": "horizon_adaptive_policy_replay",
+          "params": {}
+        }
+      ],
+      "retrieval": [
+        {
+          "id": "retrieval_provenance_temporal_boundary",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 300,
+    "memory_mb": 1024,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "07cfb1806735982bfde08e19fa01120d146f1271c5dbf99e1c79f6fe29b98ada",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003/scenario-card.yaml",
+    "digest": "9efdc0e0984ae4f095e229f1f2d551e69cf20255312bea2b64a5e21496f34c90",
+    "scenario_id": "eb013-shared-setup-routing-003",
+    "status": "ready",
+    "source_scenarios": [
+      "eb013-evidence-budget-routing-002"
+    ],
+    "scientific_judgments": [
+      "charge all prospective preparations before any outcome is known",
+      "choose globally among multiple eligible policies",
+      "reject unavailable and future evidence"
+    ],
+    "handoff_count": 1,
+    "release_gates": {
+      "scientific_reality": "synthetic_planning_only",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass",
+      "reproducibility": "automated_controls",
+      "enterprise_value": "pending",
+      "training_value": "evaluation_only"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

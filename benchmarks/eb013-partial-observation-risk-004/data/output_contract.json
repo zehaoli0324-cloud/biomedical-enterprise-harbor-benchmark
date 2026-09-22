@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "numeric_tolerance": 1e-06,
+  "selected_fields": [
+    "probe_id",
+    "observation_policy",
+    "setup_families",
+    "setup_cost",
+    "worst_cost",
+    "robust_cvar",
+    "worst_mean_loss"
+  ],
+  "plan_extra_fields": [
+    "policies",
+    "risk_by_model",
+    "evidence_resolution"
+  ],
+  "route_columns": [
+    "state",
+    "observation",
+    "action_id",
+    "signal_residual",
+    "selectivity_residual",
+    "loss",
+    "cost"
+  ],
+  "required_hash_paths": [
+    "rules.json",
+    "catalog.json",
+    "evidence.json",
+    "output_contract.json"
+  ],
+  "equivalents": [
+    "JSON field order",
+    "all keyed row orders",
+    "setup family order",
+    "finite numeric strings",
+    "data/ hash prefix"
+  ],
+  "forbidden": [
+    "duplicate keys/rows",
+    "extra observation keys",
+    "NaN/Infinity",
+    "missing values",
+    "invented hash",
+    "hidden-state-conditioned actions"
+  ]
+}

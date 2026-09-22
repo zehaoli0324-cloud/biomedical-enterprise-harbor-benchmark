@@ -1,0 +1,36 @@
+scenario_id: eb013-partial-observation-risk-004
+status: ready
+source_scenarios: [eb013-shared-setup-routing-003]
+domain: biomedical_enterprise
+scientific_decision: select a feasible observable assay policy across uncertain population models
+scientific_judgments:
+  - distinguish planner-visible hypothetical states from execution-visible observations
+  - optimize exact tail risk under every listed probability model
+  - resolve temporal snapshots before capability and budget gates
+workflow_handoffs:
+  - from: evidence_snapshot_resolution
+    to: pre_observation_commitment
+    artifact: outputs/plan.json
+    invariant: latest visible withdrawal forbids older active fallback
+  - from: setup_commitment
+    to: observation_conditioned_execution
+    artifact: outputs/route.tsv
+    invariant: indistinguishable states receive the same action
+difficulty_modules:
+  - id: horizon_observation_nonanticipativity
+    observable: observation-keyed policy and world replay
+    decision_flip: revealing hidden state changes the feasible optimum
+  - id: math_distributionally_robust_cvar
+    observable: model-specific mean and fractional tail mass
+    decision_flip: removing shifted population models changes selection; tail confidence changes risk numerically
+  - id: retrieval_asof_tombstone_resolution
+    observable: selected revision and source availability per action
+    decision_flip: removing a current withdrawal restores a formerly unavailable option
+  - id: math_ex_ante_shared_setup
+    observable: union setup cost enters every world cost
+    decision_flip: commitment budget contraction changes the selected probe
+release_gates:
+  scientific_reality: synthetic_planning_only
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass

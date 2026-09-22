@@ -1,0 +1,71 @@
+{
+  "rules_version": "partial-observation-risk-v1",
+  "decision_date": "2026-09-22",
+  "states": [
+    "W1",
+    "W2",
+    "W3",
+    "W4",
+    "W5",
+    "W6"
+  ],
+  "initial_uncertainty": {
+    "signal": 1,
+    "selectivity": 1
+  },
+  "critical_thresholds": {
+    "signal": 0.42,
+    "selectivity": 0.42
+  },
+  "alpha": 0.6,
+  "commitment_budget": 2.8,
+  "total_budget": 4.2,
+  "setup_costs": {
+    "basic": 0.6,
+    "select": 0.9,
+    "targeted": 1.1
+  },
+  "probability_models": [
+    {
+      "id": "nominal",
+      "probabilities": {
+        "W1": 0.3,
+        "W2": 0.25,
+        "W3": 0.1,
+        "W4": 0.15,
+        "W5": 0.15,
+        "W6": 0.05
+      }
+    },
+    {
+      "id": "shift",
+      "probabilities": {
+        "W1": 0.05,
+        "W2": 0.05,
+        "W3": 0.2,
+        "W4": 0.1,
+        "W5": 0.25,
+        "W6": 0.35
+      }
+    },
+    {
+      "id": "rare",
+      "probabilities": {
+        "W1": 0.1,
+        "W2": 0.15,
+        "W3": 0.1,
+        "W4": 0.25,
+        "W5": 0.2,
+        "W6": 0.2
+      }
+    }
+  ],
+  "objective": [
+    "robust_cvar",
+    "worst_mean_loss",
+    "worst_cost",
+    "setup_cost",
+    "probe_id",
+    "sorted_observation_policy"
+  ]
+}

@@ -1,0 +1,55 @@
+[task]
+id = "eb013-partial-observation-risk-004"
+title = "Partial-observation assay policy with robust tail risk"
+domain = "biomedical_enterprise"
+source_scenarios = ["eb013-shared-setup-routing-003"]
+[scenario]
+card = "../../../benchmarks/eb013-partial-observation-risk-004/scenario-card.yaml"
+[difficulty.scientific_scenario]
+level = 5
+rationale = "Synthetic assay planning under hidden execution states and distribution shift."
+[difficulty.scientific_judgment]
+level = 5
+rationale = "Distinguish observable decisions from planner-visible counterfactual worlds."
+[difficulty.computational_difficulty]
+level = 4
+rationale = "346 complete policies with world replay and model-specific tail integration."
+[difficulty.tool_call_complexity]
+level = 3
+rationale = "Offline structured calculation and artifact validation."
+[difficulty.retrieval_complexity]
+level = 5
+rationale = "As-of full snapshots, future revisions and withdrawal tombstones."
+[difficulty.information_noise_complexity]
+level = 4
+rationale = "Optimistic old estimates and unavailable apparent winners."
+[difficulty.data_type_complexity]
+level = 3
+rationale = "Explicit JSON contracts and keyed TSV replay."
+[difficulty.data_complexity]
+level = 5
+rationale = "Join world, observation, action, capability, snapshot and probability model."
+[difficulty.environment_complexity]
+level = 3
+rationale = "Deterministic offline arithmetic and SHA-256 provenance."
+[difficulty.mathematical_complexity]
+level = 5
+rationale = "Exact fractional CVaR boundary mass and distributionally robust lexicographic optimization."
+[difficulty.long_horizon_complexity]
+level = 5
+rationale = "Probe and shared setup committed before partial observation; nonanticipative execution."
+[difficulty.safety_risk]
+level = 3
+rationale = "Synthetic planning only with mandatory human review."
+[modules]
+horizon = ["horizon_observation_nonanticipativity"]
+math = ["math_distributionally_robust_cvar", "math_ex_ante_shared_setup"]
+retrieval = ["retrieval_asof_tombstone_resolution"]
+[data]
+types = ["json", "tsv", "markdown"]
+[constraints]
+network = "off"
+cpu_seconds = 300
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

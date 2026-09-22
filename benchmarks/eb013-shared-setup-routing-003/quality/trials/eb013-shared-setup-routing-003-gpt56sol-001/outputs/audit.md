@@ -1,0 +1,5 @@
+This is a prospective planning recommendation for human review only. Stage-1 request P01 is selected because it yields the best eligible worst-case objective. Before observing the stage-1 outcome, the policy commits to high -> M03, low -> M06, and mid -> M09.
+
+All three selected actions use setup family F2, so the shared setup commitment is paid once: setup cost S = 1.5. The per-state total is stage-1 cost 1.5 plus shared setup 1.5 plus the selected execution cost 1.6, for 4.6 in each branch. Mutually exclusive branch execution costs were not summed. Coverage after correlation-group maxima leaves signal and selectivity residuals at 0.0 in every branch, within each axis threshold.
+
+P02 and P03 also have eligible mappings, but their best worst-case costs are 5.1 and 5.6 respectively, so they lose to P01 after the residual tie-break. Actions that are future, retracted, or dependent on unavailable prerequisites were rejected. This recommendation does not authorize experiments and does not establish scientific efficacy; any execution requires human review.

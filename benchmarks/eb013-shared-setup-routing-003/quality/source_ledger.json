@@ -1,0 +1,7 @@
+{
+  "status": "SYNTHETIC_DISCLOSED",
+  "source": "locally authored analytic fixture",
+  "license": "repository license",
+  "empirical_claim": false,
+  "transformation": "literal planning parameters in scripts/materialize_shared_setup_routing.py"
+}

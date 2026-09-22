@@ -1,0 +1,10 @@
+{
+  "input_sha256": {
+    "data/rules.json": "4122c97751d0a54980942e1341dbcc06a7c14ed205d28b9faea3dd259ba0f00b",
+    "data/requests.json": "9bdfc68adcd8bfa89dde5c3a38f438d2ad10db0ee3120e326b02232d042b7398",
+    "data/output_contract.json": "6f7d39d4e6f27139a57aed823b80d9f73dfef9df9c8e9e4f83cda23e845ba813"
+  },
+  "rules_version": "shared-setup-v1",
+  "network": "off",
+  "deterministic": true
+}

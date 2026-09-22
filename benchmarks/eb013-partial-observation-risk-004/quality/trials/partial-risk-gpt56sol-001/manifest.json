@@ -1,0 +1,60 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb013-partial-observation-risk-004",
+  "trial_id": "partial-risk-gpt56sol-001",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004",
+  "trial_dir": "/private/tmp/enterprise-partial-risk-trials/partial-risk-gpt56sol-001",
+  "workspace": "/private/tmp/enterprise-partial-risk-trials/partial-risk-gpt56sol-001/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-22T06:44:34.383173+00:00",
+  "input_hashes": {
+    "data/catalog.json": "d3ae22ef34996801fd504475fac4cb2aa223f9fc43447af8932da3d744d47944",
+    "data/evidence.json": "89638a5a5fc8a95ebd8e509dc86c6198a623d1cd770b5afbf64f146356980c8c",
+    "data/output_contract.json": "7a9c49104df2cfc158617b7f6555636c0fdf5751d16971d79b1484cf9b817fb8",
+    "data/rules.json": "7e326fec27a2028bcbbf23ef0488e85f4366a74f207532ce06c183870c31781b",
+    "instruction.md": "13b9dd8873f7767d83501403129f206931bca78160a6350fb85741a732a13b17"
+  },
+  "status": "pass",
+  "agent_command": [
+    "/Users/zehaoli0324/.local/bin/python3.11",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_complete_turn.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--timeout",
+    "840"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-22T06:44:34.383814+00:00",
+  "timeout_seconds": 900,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-22T06:56:53.814739+00:00",
+  "agent_exit_code": 0,
+  "verifier_status": "pass",
+  "verifier_score": null,
+  "verifier_exit_code": 0,
+  "visible_output_hashes": {
+    "audit.md": "43c93c023abce5ac7e463114d39c64715f75ec633db9b9243cc66174978e081c",
+    "decision.json": "75b9d1a2cc73ef553bf9a2e859484d1fed1c4ae36cf5f1dea16c665befb75700",
+    "plan.json": "47986c9fb730058b529bf75f62aa77d56df8ff009d853a9f02a1a674e295697f",
+    "provenance.json": "2ce93fc3c6a9f036304b2cd0ffdefd1c68c839220b27c67b6db3c08d85c34331",
+    "route.tsv": "669440aa45d84a49963aa9109c6c5097bff39c3eeaf61a6318a55ee8cc2adf7b"
+  }
+}

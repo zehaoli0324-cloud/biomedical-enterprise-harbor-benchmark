@@ -1,0 +1,22 @@
+{
+  "schema_version": "enterprise_difficulty_escalation.v1",
+  "task_id": "eb013-shared-setup-routing-003",
+  "predecessor": "eb013-evidence-budget-routing-002",
+  "version": "1.0.0",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "primary_module": "math_ex_ante_shared_setup",
+  "new_scientific_axis": "Prepare the union of all contingent setup families before observation.",
+  "legal_policy_count": 108,
+  "counterfactuals": [
+    "budget contraction",
+    "setup price reduction",
+    "action retraction"
+  ],
+  "target_model_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review",
+    "held-out target trials"
+  ]
+}

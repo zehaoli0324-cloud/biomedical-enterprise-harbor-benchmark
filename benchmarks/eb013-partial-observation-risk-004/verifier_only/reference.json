@@ -1,0 +1,196 @@
+{
+  "winner": {
+    "probe_id": "P2",
+    "observation_policy": {
+      "a": "B",
+      "b": "A",
+      "c": "B",
+      "d": "C"
+    },
+    "setup_families": [
+      "basic",
+      "select"
+    ],
+    "setup_cost": 1.5,
+    "worst_cost": 3.5,
+    "robust_cvar": 0.215,
+    "worst_mean_loss": 0.1565,
+    "eligible": true,
+    "states": [
+      {
+        "state": "W1",
+        "observation": "a",
+        "action_id": "B",
+        "signal_residual": 0.08,
+        "selectivity_residual": 0.1,
+        "loss": 0.1,
+        "cost": 3.1
+      },
+      {
+        "state": "W2",
+        "observation": "b",
+        "action_id": "A",
+        "signal_residual": 0.22,
+        "selectivity_residual": 0.22,
+        "loss": 0.22,
+        "cost": 3.5
+      },
+      {
+        "state": "W3",
+        "observation": "b",
+        "action_id": "A",
+        "signal_residual": 0.22,
+        "selectivity_residual": 0.22,
+        "loss": 0.22,
+        "cost": 3.5
+      },
+      {
+        "state": "W4",
+        "observation": "c",
+        "action_id": "B",
+        "signal_residual": 0.12,
+        "selectivity_residual": 0.18,
+        "loss": 0.18,
+        "cost": 3.1
+      },
+      {
+        "state": "W5",
+        "observation": "d",
+        "action_id": "C",
+        "signal_residual": 0.09,
+        "selectivity_residual": 0.11,
+        "loss": 0.11,
+        "cost": 3.2
+      },
+      {
+        "state": "W6",
+        "observation": "d",
+        "action_id": "C",
+        "signal_residual": 0.12,
+        "selectivity_residual": 0.1,
+        "loss": 0.12,
+        "cost": 3.2
+      }
+    ],
+    "risk_by_model": [
+      {
+        "model_id": "nominal",
+        "mean_loss": 0.1565,
+        "cvar": 0.215
+      },
+      {
+        "model_id": "shift",
+        "mean_loss": 0.1475,
+        "cvar": 0.1975
+      },
+      {
+        "model_id": "rare",
+        "mean_loss": 0.156,
+        "cvar": 0.205
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "probe_id": "P0",
+      "best_policy": {
+        "probe_id": "P0",
+        "observation_policy": {
+          "blue": "A",
+          "red": "A"
+        },
+        "setup_families": [
+          "basic"
+        ],
+        "setup_cost": 0.6,
+        "worst_cost": 2.2,
+        "robust_cvar": 0.22,
+        "worst_mean_loss": 0.22
+      }
+    },
+    {
+      "probe_id": "P1",
+      "best_policy": {
+        "probe_id": "P1",
+        "observation_policy": {
+          "a": "B",
+          "b": "C",
+          "c": "A",
+          "d": "C"
+        },
+        "setup_families": [
+          "basic",
+          "select"
+        ],
+        "setup_cost": 1.5,
+        "worst_cost": 3.6,
+        "robust_cvar": 0.22,
+        "worst_mean_loss": 0.158
+      }
+    },
+    {
+      "probe_id": "P2",
+      "best_policy": {
+        "probe_id": "P2",
+        "observation_policy": {
+          "a": "B",
+          "b": "A",
+          "c": "B",
+          "d": "C"
+        },
+        "setup_families": [
+          "basic",
+          "select"
+        ],
+        "setup_cost": 1.5,
+        "worst_cost": 3.5,
+        "robust_cvar": 0.215,
+        "worst_mean_loss": 0.1565
+      }
+    }
+  ],
+  "evidence_resolution": [
+    {
+      "action_id": "A",
+      "revision": 1,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "B",
+      "revision": 2,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "C",
+      "revision": 1,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "D",
+      "revision": 1,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "E",
+      "revision": 2,
+      "status": "withdrawn",
+      "usable": false
+    },
+    {
+      "action_id": "F",
+      "revision": null,
+      "status": "unavailable",
+      "usable": false
+    }
+  ],
+  "hashes": {
+    "catalog.json": "d3ae22ef34996801fd504475fac4cb2aa223f9fc43447af8932da3d744d47944",
+    "evidence.json": "89638a5a5fc8a95ebd8e509dc86c6198a623d1cd770b5afbf64f146356980c8c",
+    "output_contract.json": "7a9c49104df2cfc158617b7f6555636c0fdf5751d16971d79b1484cf9b817fb8",
+    "rules.json": "7e326fec27a2028bcbbf23ef0488e85f4366a74f207532ce06c183870c31781b"
+  }
+}

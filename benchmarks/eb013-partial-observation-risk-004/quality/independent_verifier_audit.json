@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "review_status": "pass",
+  "method": "Automated independent implementation: world-first Fraction enumeration and CVaR threshold minimization, versus observation-first Decimal sorted-tail integration.",
+  "human_or_agent_review": "NOT_RUN",
+  "cases": [
+    "base",
+    "reveal-world",
+    "nominal-only",
+    "tail-confidence",
+    "commitment-budget",
+    "remove-withdrawal",
+    "no-feasible-policy",
+    "order-invariance"
+  ]
+}

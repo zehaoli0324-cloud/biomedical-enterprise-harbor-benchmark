@@ -1,0 +1,17 @@
+{
+  "stage1_request_id": "P01",
+  "stage2_policy": {
+    "high": "M03",
+    "low": "M06",
+    "mid": "M09"
+  },
+  "setup_families": [
+    "F2"
+  ],
+  "setup_cost": 1.5,
+  "worst_case_cost": 4.6,
+  "worst_case_max_critical_residual": 0.0,
+  "decision": "execute_adaptive_route",
+  "human_review_required": true,
+  "claim_boundary": "planning_only"
+}

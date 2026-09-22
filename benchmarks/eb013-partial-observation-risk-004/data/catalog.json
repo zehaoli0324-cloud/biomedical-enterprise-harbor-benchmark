@@ -1,0 +1,85 @@
+{
+  "probes": [
+    {
+      "id": "P0",
+      "cost": 0.4,
+      "capabilities": [],
+      "observations": {
+        "W1": "red",
+        "W2": "red",
+        "W3": "red",
+        "W4": "blue",
+        "W5": "blue",
+        "W6": "blue"
+      }
+    },
+    {
+      "id": "P1",
+      "cost": 0.9,
+      "capabilities": [],
+      "observations": {
+        "W1": "a",
+        "W2": "a",
+        "W3": "b",
+        "W4": "c",
+        "W5": "c",
+        "W6": "d"
+      }
+    },
+    {
+      "id": "P2",
+      "cost": 0.8,
+      "capabilities": [
+        "orthogonal"
+      ],
+      "observations": {
+        "W1": "a",
+        "W2": "b",
+        "W3": "b",
+        "W4": "c",
+        "W5": "d",
+        "W6": "d"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "A",
+      "cost": 1.2,
+      "family": "basic",
+      "requires": []
+    },
+    {
+      "id": "B",
+      "cost": 0.8,
+      "family": "select",
+      "requires": []
+    },
+    {
+      "id": "C",
+      "cost": 0.9,
+      "family": "select",
+      "requires": []
+    },
+    {
+      "id": "D",
+      "cost": 1,
+      "family": "targeted",
+      "requires": [
+        "orthogonal"
+      ]
+    },
+    {
+      "id": "E",
+      "cost": 0.1,
+      "family": "basic",
+      "requires": []
+    },
+    {
+      "id": "F",
+      "cost": 0.1,
+      "family": "basic",
+      "requires": []
+    }
+  ]
+}

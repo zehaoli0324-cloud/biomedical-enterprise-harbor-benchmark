@@ -1,0 +1,4 @@
+observation	stage2_request_id	residual_uncertainty	cost	eligible
+high	M03	"{""signal"": 0.0, ""selectivity"": 0.0}"	4.6	true
+low	M06	"{""signal"": 0.0, ""selectivity"": 0.0}"	4.6	true
+mid	M09	"{""signal"": 0.0, ""selectivity"": 0.0}"	4.6	true

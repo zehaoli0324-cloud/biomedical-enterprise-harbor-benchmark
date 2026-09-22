@@ -1,0 +1,112 @@
+{
+  "schema_version": "benchmark_builder.evaluation.v1",
+  "task_id": "eb013-shared-setup-routing-003",
+  "spec_digest": "07cfb1806735982bfde08e19fa01120d146f1271c5dbf99e1c79f6fe29b98ada",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  }
+}

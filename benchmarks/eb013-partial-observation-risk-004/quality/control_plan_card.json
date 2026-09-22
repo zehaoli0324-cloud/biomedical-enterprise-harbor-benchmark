@@ -1,0 +1,171 @@
+{
+  "status": "CALIBRATED",
+  "calibration_status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "canonical-reference",
+      "kind": "positive",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "missing-field",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.robust_cvar: missing"
+      ]
+    },
+    {
+      "control_id": "hidden-world-policy",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision: exact observation policy required; hidden states cannot be policy keys"
+      ]
+    },
+    {
+      "control_id": "missing-observation",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.observation_policy.b: missing",
+        "decision: exact observation policy required; hidden states cannot be policy keys"
+      ]
+    },
+    {
+      "control_id": "wrong-tail",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.robust_cvar: wrong number"
+      ]
+    },
+    {
+      "control_id": "claim-inflation",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.human_review_required: incorrect boolean"
+      ]
+    },
+    {
+      "control_id": "nonfinite",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.worst_cost: invalid number"
+      ]
+    },
+    {
+      "control_id": "wrong-hash",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "provenance: wrong or missing hash"
+      ]
+    },
+    {
+      "control_id": "withdrawal-fallback",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "evidence.E.revision: wrong number",
+        "evidence.E.status: mismatch",
+        "evidence.E.usable: incorrect boolean"
+      ]
+    },
+    {
+      "control_id": "missing-model",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "risk: coverage mismatch"
+      ]
+    },
+    {
+      "control_id": "duplicate-alternative",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "contract_error: duplicate row: P0"
+      ]
+    },
+    {
+      "control_id": "duplicate-world",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "contract_error: duplicate row: W1"
+      ]
+    },
+    {
+      "control_id": "declared-equivalences",
+      "kind": "invariance",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "reveal-world",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "nominal-only",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "tail-confidence",
+      "kind": "sensitivity",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    },
+    {
+      "control_id": "commitment-budget",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "remove-withdrawal",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "no-feasible-policy",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "order-invariance",
+      "kind": "invariance",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    }
+  ]
+}

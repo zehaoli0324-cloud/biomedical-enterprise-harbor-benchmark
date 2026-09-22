@@ -1,0 +1,131 @@
+{
+  "probe_id": "P2",
+  "observation_policy": {
+    "a": "B",
+    "b": "A",
+    "c": "B",
+    "d": "C"
+  },
+  "setup_families": [
+    "basic",
+    "select"
+  ],
+  "setup_cost": 1.5,
+  "worst_cost": 3.5,
+  "robust_cvar": 0.215,
+  "worst_mean_loss": 0.1565,
+  "policies": [
+    {
+      "probe_id": "P0",
+      "best_policy": {
+        "probe_id": "P0",
+        "observation_policy": {
+          "blue": "A",
+          "red": "A"
+        },
+        "setup_families": [
+          "basic"
+        ],
+        "setup_cost": 0.6,
+        "worst_cost": 2.2,
+        "robust_cvar": 0.22,
+        "worst_mean_loss": 0.22
+      }
+    },
+    {
+      "probe_id": "P1",
+      "best_policy": {
+        "probe_id": "P1",
+        "observation_policy": {
+          "a": "B",
+          "b": "C",
+          "c": "A",
+          "d": "C"
+        },
+        "setup_families": [
+          "basic",
+          "select"
+        ],
+        "setup_cost": 1.5,
+        "worst_cost": 3.6,
+        "robust_cvar": 0.22,
+        "worst_mean_loss": 0.158
+      }
+    },
+    {
+      "probe_id": "P2",
+      "best_policy": {
+        "probe_id": "P2",
+        "observation_policy": {
+          "a": "B",
+          "b": "A",
+          "c": "B",
+          "d": "C"
+        },
+        "setup_families": [
+          "basic",
+          "select"
+        ],
+        "setup_cost": 1.5,
+        "worst_cost": 3.5,
+        "robust_cvar": 0.215,
+        "worst_mean_loss": 0.1565
+      }
+    }
+  ],
+  "risk_by_model": [
+    {
+      "model_id": "nominal",
+      "mean_loss": 0.1565,
+      "cvar": 0.215
+    },
+    {
+      "model_id": "shift",
+      "mean_loss": 0.1475,
+      "cvar": 0.1975
+    },
+    {
+      "model_id": "rare",
+      "mean_loss": 0.156,
+      "cvar": 0.205
+    }
+  ],
+  "evidence_resolution": [
+    {
+      "action_id": "A",
+      "revision": 1,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "B",
+      "revision": 2,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "C",
+      "revision": 1,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "D",
+      "revision": 1,
+      "status": "active",
+      "usable": true
+    },
+    {
+      "action_id": "E",
+      "revision": 2,
+      "status": "withdrawn",
+      "usable": false
+    },
+    {
+      "action_id": "F",
+      "revision": null,
+      "status": "unavailable",
+      "usable": false
+    }
+  ]
+}

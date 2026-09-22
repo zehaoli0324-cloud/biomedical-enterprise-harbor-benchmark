@@ -1,0 +1,142 @@
+{
+  "task_id": "eb013-shared-setup-routing-003",
+  "status": "COMPLETED",
+  "target_model_status": "PASS",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "passed": true,
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "fail",
+      "passed": false,
+      "errors": [
+        "plan.stage2_policy.high: mismatch",
+        "plan.stage2_policy.low: mismatch",
+        "plan.stage2_policy.mid: mismatch",
+        "plan.setup_families: mismatch",
+        "plan.setup_cost: wrong number",
+        "plan.worst_case_cost: wrong number",
+        "plan.worst_case_max_critical_residual: wrong number",
+        "plan: exact observation coverage required",
+        "decision.stage2_policy.high: mismatch",
+        "decision.stage2_policy.low: mismatch",
+        "decision.stage2_policy.mid: mismatch",
+        "decision.setup_families: mismatch",
+        "decision.setup_cost: wrong number",
+        "decision.worst_case_cost: wrong number",
+        "decision.worst_case_max_critical_residual: wrong number",
+        "decision: exact observation coverage required",
+        "route.mid.stage2_request_id: mismatch",
+        "route.mid.residual_uncertainty.signal: wrong number",
+        "route.mid.residual_uncertainty.selectivity: wrong number",
+        "route.mid.cost: wrong number",
+        "route.high.stage2_request_id: mismatch",
+        "route.high.residual_uncertainty.signal: wrong number",
+        "route.high.residual_uncertainty.selectivity: wrong number",
+        "route.high.cost: wrong number",
+        "route.low.stage2_request_id: mismatch",
+        "route.low.residual_uncertainty.signal: wrong number",
+        "route.low.residual_uncertainty.selectivity: wrong number",
+        "route.low.cost: wrong number"
+      ],
+      "selection": {
+        "high": "M03",
+        "low": "M06",
+        "mid": "M09"
+      }
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "fail",
+      "passed": false,
+      "errors": [
+        "decision.decision: mismatch"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "fail",
+      "passed": false,
+      "errors": [
+        "plan.stage1_request_id: missing",
+        "plan.stage2_policy: missing",
+        "plan.setup_families: missing",
+        "plan.setup_cost: missing",
+        "plan.worst_case_cost: missing",
+        "plan.worst_case_max_critical_residual: missing",
+        "plan: exact observation coverage required",
+        "contract: missing row key: stage1_request_id"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "shared-setup-gpt56sol-002",
+      "status": "pass",
+      "passed": true,
+      "raw_verifier_passed": true,
+      "counted_in_target_rate": true,
+      "turn_completed": true,
+      "replay_passed": true,
+      "replay_errors": [],
+      "event_log_sha256": "88b6f276fd6301b57e35fa2067d76fbcb2098fd8e93672fa6e3c8cf73faf17fd",
+      "event_log_path": "/private/tmp/enterprise-shared-setup-complete/shared-setup-gpt56sol-002/agent_workspace/agent_events.jsonl",
+      "freeze_sha256": "e57f3703106753bfd21b65cb5eb7730b4adeb669ac555b1468ffc9652673904e",
+      "completion_policy": "process_exit_only",
+      "adapter_source_sha256": {
+        "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+        "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+      },
+      "adapter_capture": "post-run source snapshot; no adapter edits occurred during execution",
+      "isolation_mode": "process_cwd_only",
+      "limitation": "Local process trial, not container-isolated or held-out evaluation.",
+      "evidence_path": "benchmarks/eb013-shared-setup-routing-003/quality/trials/shared-setup-gpt56sol-002"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb013-shared-setup-routing-003-gpt56sol-001",
+      "status": "INVALID_ADAPTER_EARLY_COMPLETION",
+      "passed": null,
+      "raw_verifier_passed": false,
+      "counted_in_target_rate": false,
+      "turn_completed": false,
+      "replay_passed": false,
+      "replay_errors": [
+        "plan.stage2_policy.high: mismatch",
+        "plan.stage2_policy.low: mismatch",
+        "plan.stage2_policy.mid: mismatch",
+        "plan.setup_families: mismatch",
+        "plan.setup_cost: wrong number",
+        "plan.worst_case_cost: wrong number",
+        "plan.worst_case_max_critical_residual: wrong number",
+        "plan: exact observation coverage required",
+        "decision.stage2_policy.high: mismatch",
+        "decision.stage2_policy.low: mismatch",
+        "decision.stage2_policy.mid: mismatch",
+        "decision.setup_families: mismatch",
+        "decision.setup_cost: wrong number",
+        "decision.worst_case_cost: wrong number",
+        "decision.worst_case_max_critical_residual: wrong number",
+        "decision: exact observation coverage required",
+        "plan.policies.P03.best_policy: mismatch",
+        "contract: 'NoneType' object is not subscriptable"
+      ],
+      "event_log_sha256": "8164e4c389cf4d4d8aea7376b15f0aad195e6b8629c43a83e3439ca53522a1a4",
+      "event_log_path": "/private/tmp/enterprise-l63-target-trials/eb013-shared-setup-routing-003-gpt56sol-001/eb013-shared-setup-routing-003-gpt56sol-001/agent_workspace/agent_events.jsonl",
+      "freeze_sha256": "e57f3703106753bfd21b65cb5eb7730b4adeb669ac555b1468ffc9652673904e",
+      "completion_policy": "artifact_existence_early_stop",
+      "adapter_source_sha256": {
+        "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+      },
+      "adapter_capture": "post-run source snapshot; no adapter edits occurred during execution",
+      "isolation_mode": "process_cwd_only",
+      "limitation": "Local process trial, not container-isolated or held-out evaluation.",
+      "evidence_path": "benchmarks/eb013-shared-setup-routing-003/quality/trials/eb013-shared-setup-routing-003-gpt56sol-001"
+    }
+  ]
+}

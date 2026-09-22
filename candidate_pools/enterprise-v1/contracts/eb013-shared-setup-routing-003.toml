@@ -1,0 +1,55 @@
+[task]
+id = "eb013-shared-setup-routing-003"
+title = "Prospective evidence routing with shared setup commitments"
+domain = "biomedical_enterprise"
+source_scenarios = ["eb013-evidence-budget-routing-002"]
+[scenario]
+card = "../../../benchmarks/eb013-shared-setup-routing-003/scenario-card.yaml"
+[difficulty.scientific_scenario]
+level = 5
+rationale = "Synthetic assay planning with ex-ante commitments and contingent execution."
+[difficulty.scientific_judgment]
+level = 5
+rationale = "Preparation timing couples the branches before observations."
+[difficulty.computational_difficulty]
+level = 4
+rationale = "Enumerate 108 complete legal policy mappings."
+[difficulty.tool_call_complexity]
+level = 3
+rationale = "Small JSON inputs with self-contained output contract."
+[difficulty.retrieval_complexity]
+level = 3
+rationale = "Check complete source availability and prerequisites."
+[difficulty.information_noise_complexity]
+level = 4
+rationale = "Future, retracted and partially satisfied dependency decoys."
+[difficulty.data_type_complexity]
+level = 3
+rationale = "Structured JSON and synchronized TSV."
+[difficulty.data_complexity]
+level = 4
+rationale = "Three stage-one alternatives and shared branch preparations."
+[difficulty.environment_complexity]
+level = 3
+rationale = "Deterministic offline calculation and input checksums."
+[difficulty.mathematical_complexity]
+level = 5
+rationale = "Setup union couples discrete policies; lexicographic minimax objective."
+[difficulty.long_horizon_complexity]
+level = 5
+rationale = "Preparation must be committed before observation-specific actions."
+[difficulty.safety_risk]
+level = 3
+rationale = "Synthetic planning only, with explicit human review."
+[modules]
+math = ["math_ex_ante_shared_setup", "math_minimax_evidence_route_selection"]
+horizon = ["horizon_adaptive_policy_replay"]
+retrieval = ["retrieval_provenance_temporal_boundary"]
+[data]
+types = ["json", "tsv", "markdown"]
+[constraints]
+network = "off"
+cpu_seconds = 300
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

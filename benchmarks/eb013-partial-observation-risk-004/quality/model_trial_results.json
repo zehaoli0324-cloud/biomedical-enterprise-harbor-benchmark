@@ -1,0 +1,132 @@
+{
+  "task_id": "eb013-partial-observation-risk-004",
+  "status": "COMPLETED",
+  "target_model_status": "PASS",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "fail",
+      "passed": false,
+      "errors": [
+        "plan.probe_id: mismatch",
+        "plan.observation_policy.a: missing",
+        "plan.observation_policy.b: missing",
+        "plan.observation_policy.c: missing",
+        "plan.observation_policy.d: missing",
+        "plan.setup_families: mismatch",
+        "plan.setup_cost: wrong number",
+        "plan.worst_cost: wrong number",
+        "plan.robust_cvar: wrong number",
+        "plan.worst_mean_loss: wrong number",
+        "plan: exact observation policy required; hidden states cannot be policy keys",
+        "decision.probe_id: mismatch",
+        "decision.observation_policy.a: missing",
+        "decision.observation_policy.b: missing",
+        "decision.observation_policy.c: missing",
+        "decision.observation_policy.d: missing",
+        "decision.setup_families: mismatch",
+        "decision.setup_cost: wrong number",
+        "decision.worst_cost: wrong number",
+        "decision.robust_cvar: wrong number",
+        "decision.worst_mean_loss: wrong number",
+        "decision: exact observation policy required; hidden states cannot be policy keys",
+        "risk.shift.mean_loss: wrong number",
+        "risk.shift.cvar: wrong number",
+        "risk.rare.mean_loss: wrong number",
+        "risk.rare.cvar: wrong number",
+        "risk.nominal.mean_loss: wrong number",
+        "risk.nominal.cvar: wrong number",
+        "route.W5.observation: mismatch",
+        "route.W5.action_id: mismatch",
+        "route.W5.signal_residual: wrong number",
+        "route.W5.selectivity_residual: wrong number",
+        "route.W5.loss: wrong number",
+        "route.W5.cost: wrong number",
+        "route.W4.observation: mismatch",
+        "route.W4.cost: wrong number",
+        "route.W3.observation: mismatch",
+        "route.W3.action_id: mismatch",
+        "route.W3.signal_residual: wrong number",
+        "route.W3.selectivity_residual: wrong number",
+        "route.W3.loss: wrong number",
+        "route.W3.cost: wrong number",
+        "route.W1.observation: mismatch",
+        "route.W1.cost: wrong number",
+        "route.W2.observation: mismatch",
+        "route.W2.action_id: mismatch",
+        "route.W2.signal_residual: wrong number",
+        "route.W2.selectivity_residual: wrong number",
+        "route.W2.loss: wrong number",
+        "route.W2.cost: wrong number",
+        "route.W6.observation: mismatch",
+        "route.W6.action_id: mismatch",
+        "route.W6.signal_residual: wrong number",
+        "route.W6.selectivity_residual: wrong number",
+        "route.W6.loss: wrong number",
+        "route.W6.cost: wrong number"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "fail",
+      "passed": false,
+      "errors": [
+        "decision.decision: mismatch"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "fail",
+      "passed": false,
+      "errors": [
+        "plan.probe_id: missing",
+        "plan.observation_policy: missing",
+        "plan.setup_families: missing",
+        "plan.setup_cost: missing",
+        "plan.worst_cost: missing",
+        "plan.robust_cvar: missing",
+        "plan.worst_mean_loss: missing",
+        "plan: exact observation policy required; hidden states cannot be policy keys",
+        "contract_error: missing row key: probe_id"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "partial-risk-gpt56sol-001",
+      "status": "pass",
+      "passed": true,
+      "raw_verifier_passed": true,
+      "counted_in_target_rate": true,
+      "turn_completed": true,
+      "replay_passed": true,
+      "replay_errors": [],
+      "event_log_sha256": "8f39454a74b5455f11a3014a01545fe759d711477ce53cbe16717f6d782e3c1c",
+      "event_log_path": "/private/tmp/enterprise-partial-risk-trials/partial-risk-gpt56sol-001/agent_workspace/agent_events.jsonl",
+      "freeze_sha256": "92a44a4719cf9ff22cab71d518622e6dcf89046a3081c180e98044a05219a67d",
+      "completion_policy": "process_exit_only",
+      "adapter_source_sha256": {
+        "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+        "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+      },
+      "adapter_capture": "post-run source snapshot; no adapter edits occurred during execution",
+      "isolation_mode": "process_cwd_only",
+      "limitation": "Local process trial, not container-isolated or held-out evaluation.",
+      "evidence_path": "benchmarks/eb013-partial-observation-risk-004/quality/trials/partial-risk-gpt56sol-001",
+      "raw_verdict_class": "RAW_PASS"
+    }
+  ]
+}

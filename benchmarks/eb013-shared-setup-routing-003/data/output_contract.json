@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "units": "abstract planning cost and bounded uncertainty; synthetic, not empirical efficacy",
+  "required_hash_paths": [
+    "rules.json",
+    "requests.json",
+    "output_contract.json"
+  ],
+  "numeric_tolerance": 1e-06,
+  "equivalents": [
+    "JSON field order",
+    "policies and route row order",
+    "setup family order",
+    "data/ hash prefix",
+    "finite numeric strings"
+  ],
+  "forbidden": [
+    "duplicate keys or rows",
+    "missing observations",
+    "invented hashes",
+    "wrong scientific values"
+  ],
+  "selected_fields": [
+    "stage1_request_id",
+    "stage2_policy",
+    "setup_families",
+    "setup_cost",
+    "worst_case_cost",
+    "worst_case_max_critical_residual"
+  ],
+  "route_fields": [
+    "observation",
+    "stage2_request_id",
+    "residual_uncertainty",
+    "cost",
+    "eligible"
+  ]
+}

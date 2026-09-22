@@ -1,0 +1,59 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb013-shared-setup-routing-003",
+  "trial_id": "shared-setup-gpt56sol-002",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003",
+  "trial_dir": "/private/tmp/enterprise-shared-setup-complete/shared-setup-gpt56sol-002",
+  "workspace": "/private/tmp/enterprise-shared-setup-complete/shared-setup-gpt56sol-002/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-22T06:15:41.659347+00:00",
+  "input_hashes": {
+    "data/output_contract.json": "6f7d39d4e6f27139a57aed823b80d9f73dfef9df9c8e9e4f83cda23e845ba813",
+    "data/requests.json": "9bdfc68adcd8bfa89dde5c3a38f438d2ad10db0ee3120e326b02232d042b7398",
+    "data/rules.json": "4122c97751d0a54980942e1341dbcc06a7c14ed205d28b9faea3dd259ba0f00b",
+    "instruction.md": "dce4effc6da205823a388e9470d794926cc079e8b7a4eeea45ea454ebf9f1c15"
+  },
+  "status": "pass",
+  "agent_command": [
+    "/Users/zehaoli0324/.local/bin/python3.11",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_complete_turn.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--timeout",
+    "840"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-22T06:15:41.659912+00:00",
+  "timeout_seconds": 900,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-22T06:24:08.574226+00:00",
+  "agent_exit_code": 0,
+  "verifier_status": "pass",
+  "verifier_score": null,
+  "verifier_exit_code": 0,
+  "visible_output_hashes": {
+    "audit.md": "952bfdfaf4049f80e09a0559e0e29b015390f240e131ec705ee3973d431499e0",
+    "decision.json": "d0c2554a36b9a635003acf6b1c1754b5af5bdd0411025ed49794d05b0b7bfc1f",
+    "plan.json": "5289921a33c1a00bb8f4dfd9ccb59ec309ad7cdb59263c96478c86ac1ddb91e4",
+    "provenance.json": "02a84c30c31d974e67f1410f6a5044164dde1a3fb0b8a4474176a43587c756ae",
+    "route.tsv": "5765223f743991f574e977b1a44e75d3f896551e0b4a79f78c2b05b92c93c634"
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "canonical-reference",
+      "kind": "positive",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "missing-field",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.robust_cvar: missing"
+      ]
+    },
+    {
+      "control_id": "hidden-world-policy",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision: exact observation policy required; hidden states cannot be policy keys"
+      ]
+    },
+    {
+      "control_id": "missing-observation",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.observation_policy.b: missing",
+        "decision: exact observation policy required; hidden states cannot be policy keys"
+      ]
+    },
+    {
+      "control_id": "wrong-tail",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.robust_cvar: wrong number"
+      ]
+    },
+    {
+      "control_id": "claim-inflation",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.human_review_required: incorrect boolean"
+      ]
+    },
+    {
+      "control_id": "nonfinite",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.worst_cost: invalid number"
+      ]
+    },
+    {
+      "control_id": "wrong-hash",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "provenance: wrong or missing hash"
+      ]
+    },
+    {
+      "control_id": "withdrawal-fallback",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "evidence.E.revision: wrong number",
+        "evidence.E.status: mismatch",
+        "evidence.E.usable: incorrect boolean"
+      ]
+    },
+    {
+      "control_id": "missing-model",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "risk: coverage mismatch"
+      ]
+    },
+    {
+      "control_id": "duplicate-alternative",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "contract_error: duplicate row: P0"
+      ]
+    },
+    {
+      "control_id": "duplicate-world",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "contract_error: duplicate row: W1"
+      ]
+    },
+    {
+      "control_id": "declared-equivalences",
+      "kind": "invariance",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "reveal-world",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "nominal-only",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "tail-confidence",
+      "kind": "sensitivity",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    },
+    {
+      "control_id": "commitment-budget",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "remove-withdrawal",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "no-feasible-policy",
+      "kind": "metamorphic",
+      "passed": true,
+      "decision_flip": true,
+      "errors": []
+    },
+    {
+      "control_id": "order-invariance",
+      "kind": "invariance",
+      "passed": true,
+      "decision_flip": false,
+      "errors": []
+    }
+  ],
+  "variants": [
+    {
+      "name": "reveal-world",
+      "selected": {
+        "probe_id": "P0",
+        "observation_policy": {
+          "W1": "B",
+          "W2": "B",
+          "W3": "C",
+          "W4": "B",
+          "W5": "C",
+          "W6": "C"
+        },
+        "setup_families": [
+          "select"
+        ],
+        "setup_cost": 0.9,
+        "worst_cost": 2.2,
+        "robust_cvar": 0.1575,
+        "worst_mean_loss": 0.126
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "nominal-only",
+      "selected": {
+        "probe_id": "P2",
+        "observation_policy": {
+          "a": "B",
+          "b": "B",
+          "c": "D",
+          "d": "C"
+        },
+        "setup_families": [
+          "select",
+          "targeted"
+        ],
+        "setup_cost": 2.0,
+        "worst_cost": 3.8,
+        "robust_cvar": 0.17625,
+        "worst_mean_loss": 0.1275
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "tail-confidence",
+      "selected": {
+        "probe_id": "P2",
+        "observation_policy": {
+          "a": "B",
+          "b": "A",
+          "c": "B",
+          "d": "C"
+        },
+        "setup_families": [
+          "basic",
+          "select"
+        ],
+        "setup_cost": 1.5,
+        "worst_cost": 3.5,
+        "robust_cvar": 0.22,
+        "worst_mean_loss": 0.1565
+      },
+      "decision_flip": false
+    },
+    {
+      "name": "commitment-budget",
+      "selected": {
+        "probe_id": "P0",
+        "observation_policy": {
+          "blue": "A",
+          "red": "A"
+        },
+        "setup_families": [
+          "basic"
+        ],
+        "setup_cost": 0.6,
+        "worst_cost": 2.2,
+        "robust_cvar": 0.22,
+        "worst_mean_loss": 0.22
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "remove-withdrawal",
+      "selected": {
+        "probe_id": "P0",
+        "observation_policy": {
+          "blue": "E",
+          "red": "E"
+        },
+        "setup_families": [
+          "basic"
+        ],
+        "setup_cost": 0.6,
+        "worst_cost": 1.1,
+        "robust_cvar": 0.01,
+        "worst_mean_loss": 0.01
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "no-feasible-policy",
+      "selected": {
+        "probe_id": null,
+        "observation_policy": {},
+        "setup_families": [],
+        "setup_cost": null,
+        "worst_cost": null,
+        "robust_cvar": null,
+        "worst_mean_loss": null
+      },
+      "decision_flip": true
+    },
+    {
+      "name": "order-invariance",
+      "selected": {
+        "probe_id": "P2",
+        "observation_policy": {
+          "a": "B",
+          "b": "A",
+          "c": "B",
+          "d": "C"
+        },
+        "setup_families": [
+          "basic",
+          "select"
+        ],
+        "setup_cost": 1.5,
+        "worst_cost": 3.5,
+        "robust_cvar": 0.215,
+        "worst_mean_loss": 0.1565
+      },
+      "decision_flip": false
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "strategy": "target_model",
+  "model": "gpt-5.6-sol",
+  "trial_id": "eb013-shared-setup-routing-003-gpt56sol-001",
+  "status": "INVALID_ADAPTER_EARLY_COMPLETION",
+  "passed": null,
+  "raw_verifier_passed": false,
+  "counted_in_target_rate": false,
+  "turn_completed": false,
+  "replay_passed": false,
+  "replay_errors": [
+    "plan.stage2_policy.high: mismatch",
+    "plan.stage2_policy.low: mismatch",
+    "plan.stage2_policy.mid: mismatch",
+    "plan.setup_families: mismatch",
+    "plan.setup_cost: wrong number",
+    "plan.worst_case_cost: wrong number",
+    "plan.worst_case_max_critical_residual: wrong number",
+    "plan: exact observation coverage required",
+    "decision.stage2_policy.high: mismatch",
+    "decision.stage2_policy.low: mismatch",
+    "decision.stage2_policy.mid: mismatch",
+    "decision.setup_families: mismatch",
+    "decision.setup_cost: wrong number",
+    "decision.worst_case_cost: wrong number",
+    "decision.worst_case_max_critical_residual: wrong number",
+    "decision: exact observation coverage required",
+    "plan.policies.P03.best_policy: mismatch",
+    "contract: 'NoneType' object is not subscriptable"
+  ],
+  "event_log_sha256": "8164e4c389cf4d4d8aea7376b15f0aad195e6b8629c43a83e3439ca53522a1a4",
+  "event_log_path": "/private/tmp/enterprise-l63-target-trials/eb013-shared-setup-routing-003-gpt56sol-001/eb013-shared-setup-routing-003-gpt56sol-001/agent_workspace/agent_events.jsonl",
+  "freeze_sha256": "e57f3703106753bfd21b65cb5eb7730b4adeb669ac555b1468ffc9652673904e",
+  "completion_policy": "artifact_existence_early_stop",
+  "adapter_source_sha256": {
+    "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+  },
+  "adapter_capture": "post-run source snapshot; no adapter edits occurred during execution",
+  "isolation_mode": "process_cwd_only",
+  "limitation": "Local process trial, not container-isolated or held-out evaluation.",
+  "evidence_path": "benchmarks/eb013-shared-setup-routing-003/quality/trials/eb013-shared-setup-routing-003-gpt56sol-001"
+}

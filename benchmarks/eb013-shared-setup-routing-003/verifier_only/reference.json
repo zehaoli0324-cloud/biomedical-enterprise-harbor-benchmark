@@ -1,0 +1,102 @@
+{
+  "winner": {
+    "stage1_request_id": "P01",
+    "stage2_policy": {
+      "high": "M01",
+      "low": "M05",
+      "mid": "M08"
+    },
+    "setup_families": [
+      "F1",
+      "F3"
+    ],
+    "setup_cost": 4.0,
+    "worst_case_cost": 6.8,
+    "worst_case_max_critical_residual": 0.23,
+    "budget_ok": true,
+    "eligible": true,
+    "states": [
+      {
+        "observation": "high",
+        "stage2_request_id": "M01",
+        "residual_uncertainty": {
+          "signal": 0.1,
+          "selectivity": 0.05
+        },
+        "max_critical_residual": 0.1,
+        "cost": 6.5,
+        "eligible": true
+      },
+      {
+        "observation": "low",
+        "stage2_request_id": "M05",
+        "residual_uncertainty": {
+          "signal": 0.17,
+          "selectivity": 0.2
+        },
+        "max_critical_residual": 0.2,
+        "cost": 6.8,
+        "eligible": true
+      },
+      {
+        "observation": "mid",
+        "stage2_request_id": "M08",
+        "residual_uncertainty": {
+          "signal": 0.23,
+          "selectivity": 0.18
+        },
+        "max_critical_residual": 0.23,
+        "cost": 6.8,
+        "eligible": true
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "stage1_request_id": "P01",
+      "best_policy": {
+        "stage1_request_id": "P01",
+        "stage2_policy": {
+          "high": "M01",
+          "low": "M05",
+          "mid": "M08"
+        },
+        "setup_families": [
+          "F1",
+          "F3"
+        ],
+        "setup_cost": 4.0,
+        "worst_case_cost": 6.8,
+        "worst_case_max_critical_residual": 0.23,
+        "eligible": true
+      }
+    },
+    {
+      "stage1_request_id": "P02",
+      "best_policy": {
+        "stage1_request_id": "P02",
+        "stage2_policy": {
+          "high": "M03",
+          "low": "M06",
+          "mid": "M09"
+        },
+        "setup_families": [
+          "F2"
+        ],
+        "setup_cost": 1.5,
+        "worst_case_cost": 5.1,
+        "worst_case_max_critical_residual": 0.25,
+        "eligible": true
+      }
+    },
+    {
+      "stage1_request_id": "P03",
+      "best_policy": null
+    }
+  ],
+  "hashes": {
+    "output_contract.json": "6f7d39d4e6f27139a57aed823b80d9f73dfef9df9c8e9e4f83cda23e845ba813",
+    "requests.json": "9bdfc68adcd8bfa89dde5c3a38f438d2ad10db0ee3120e326b02232d042b7398",
+    "rules.json": "4122c97751d0a54980942e1341dbcc06a7c14ed205d28b9faea3dd259ba0f00b"
+  }
+}

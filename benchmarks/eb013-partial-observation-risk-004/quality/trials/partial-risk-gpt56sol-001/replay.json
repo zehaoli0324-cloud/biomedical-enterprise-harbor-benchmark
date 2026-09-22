@@ -1,0 +1,24 @@
+{
+  "strategy": "target_model",
+  "model": "gpt-5.6-sol",
+  "trial_id": "partial-risk-gpt56sol-001",
+  "status": "pass",
+  "passed": true,
+  "raw_verifier_passed": true,
+  "counted_in_target_rate": true,
+  "turn_completed": true,
+  "replay_passed": true,
+  "replay_errors": [],
+  "event_log_sha256": "8f39454a74b5455f11a3014a01545fe759d711477ce53cbe16717f6d782e3c1c",
+  "event_log_path": "/private/tmp/enterprise-partial-risk-trials/partial-risk-gpt56sol-001/agent_workspace/agent_events.jsonl",
+  "freeze_sha256": "92a44a4719cf9ff22cab71d518622e6dcf89046a3081c180e98044a05219a67d",
+  "completion_policy": "process_exit_only",
+  "adapter_source_sha256": {
+    "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+    "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+  },
+  "adapter_capture": "post-run source snapshot; no adapter edits occurred during execution",
+  "isolation_mode": "process_cwd_only",
+  "limitation": "Local process trial, not container-isolated or held-out evaluation.",
+  "evidence_path": "benchmarks/eb013-partial-observation-risk-004/quality/trials/partial-risk-gpt56sol-001"
+}

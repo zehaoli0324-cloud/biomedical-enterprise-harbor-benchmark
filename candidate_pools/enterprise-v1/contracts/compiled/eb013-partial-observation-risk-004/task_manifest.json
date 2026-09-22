@@ -1,0 +1,267 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb013-partial-observation-risk-004",
+    "title": "Partial-observation assay policy with robust tail risk",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "eb013-shared-setup-routing-003"
+    ],
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb013-partial-observation-risk-004",
+    "raw_score": 4.167,
+    "adjusted_score": 4.517,
+    "band": "research-grade",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Synthetic assay planning under hidden execution states and distribution shift.",
+        "tags": []
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Distinguish observable decisions from planner-visible counterfactual worlds.",
+        "tags": []
+      },
+      "computational_difficulty": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "346 complete policies with world replay and model-specific tail integration.",
+        "tags": []
+      },
+      "tool_call_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Offline structured calculation and artifact validation.",
+        "tags": []
+      },
+      "retrieval_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "As-of full snapshots, future revisions and withdrawal tombstones.",
+        "tags": []
+      },
+      "information_noise_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Optimistic old estimates and unavailable apparent winners.",
+        "tags": []
+      },
+      "data_type_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Explicit JSON contracts and keyed TSV replay.",
+        "tags": []
+      },
+      "data_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Join world, observation, action, capability, snapshot and probability model.",
+        "tags": []
+      },
+      "environment_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Deterministic offline arithmetic and SHA-256 provenance.",
+        "tags": []
+      },
+      "mathematical_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Exact fractional CVaR boundary mass and distributionally robust lexicographic optimization.",
+        "tags": []
+      },
+      "long_horizon_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Probe and shared setup committed before partial observation; nonanticipative execution.",
+        "tags": []
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Synthetic planning only with mandatory human review.",
+        "tags": []
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence",
+      "retrieval_x_scientific_judgment"
+    ],
+    "selected_modules": {
+      "horizon": [
+        {
+          "id": "horizon_observation_nonanticipativity",
+          "params": {}
+        }
+      ],
+      "math": [
+        {
+          "id": "math_distributionally_robust_cvar",
+          "params": {}
+        },
+        {
+          "id": "math_ex_ante_shared_setup",
+          "params": {}
+        }
+      ],
+      "retrieval": [
+        {
+          "id": "retrieval_asof_tombstone_resolution",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 300,
+    "memory_mb": 1024,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "5485928afd963e53fd8438c4ad0a68d1650aa74f088fc6e7a21e49ecfc8a1ba3",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/scenario-card.yaml",
+    "digest": "4142ec34ac5ceba67e13c1128c2437198e1d5ac1aad9b55c11f0f9f116a77b0e",
+    "scenario_id": "eb013-partial-observation-risk-004",
+    "status": "ready",
+    "source_scenarios": [
+      "eb013-shared-setup-routing-003"
+    ],
+    "scientific_judgments": [
+      "distinguish planner-visible hypothetical states from execution-visible observations",
+      "optimize exact tail risk under every listed probability model",
+      "resolve temporal snapshots before capability and budget gates"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "synthetic_planning_only",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

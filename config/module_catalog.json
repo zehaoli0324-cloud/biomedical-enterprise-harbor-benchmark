@@ -8,6 +8,10 @@
     "5": "research-grade, cross-domain, adversarial or safety-sensitive"
   },
   "modules": [
+    {"id": "horizon_observation_nonanticipativity", "category": "horizon", "dimension": "long_horizon_complexity", "failure_modes": ["clairvoyant_policy", "hidden_state_branching", "probe_after_observation"]},
+    {"id": "math_distributionally_robust_cvar", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["nominal_only", "mean_as_tail", "unweighted_tail", "boundary_mass_omission"]},
+    {"id": "retrieval_asof_tombstone_resolution", "category": "retrieval", "dimension": "retrieval_complexity", "failure_modes": ["future_revision", "withdrawal_fallback", "partial_snapshot_merge"]},
+    {"id": "math_ex_ante_shared_setup", "category": "math", "dimension": "mathematical_complexity", "failure_modes": ["branchwise_greedy", "observed_setup_only", "shared_setup_double_charge", "anticipative_commitment"]},
     {"id": "scenario_literature_review", "category": "scenario", "dimension": "scientific_scenario", "outputs": ["evidence_table", "citation_checks"]},
     {"id": "scenario_omics_analysis", "category": "scenario", "dimension": "scientific_scenario", "outputs": ["qc", "analysis_table", "claim_ledger"]},
     {"id": "scenario_structure_design", "category": "scenario", "dimension": "scientific_scenario", "outputs": ["structure_report", "candidate_table"]},

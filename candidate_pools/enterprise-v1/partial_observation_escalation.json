@@ -1,0 +1,28 @@
+{
+  "schema_version": "enterprise_difficulty_escalation.v1",
+  "task_id": "eb013-partial-observation-risk-004",
+  "predecessor": "eb013-shared-setup-routing-003",
+  "version": "1.0.0",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "primary_module": "horizon_observation_nonanticipativity",
+  "secondary_modules": [
+    "math_distributionally_robust_cvar",
+    "retrieval_asof_tombstone_resolution"
+  ],
+  "retained_module": "math_ex_ante_shared_setup",
+  "strengthened_dimensions": [
+    "scientific_judgment",
+    "long_horizon_complexity",
+    "mathematical_complexity",
+    "retrieval_complexity",
+    "data_complexity"
+  ],
+  "legal_policy_count": 346,
+  "target_model_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review",
+    "held-out target trials"
+  ]
+}

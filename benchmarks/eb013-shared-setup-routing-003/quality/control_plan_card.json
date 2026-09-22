@@ -1,0 +1,139 @@
+{
+  "calibration_status": "CALIBRATED",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "wrong-hash",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "provenance: missing or wrong input hash"
+      ]
+    },
+    {
+      "control_id": "missing-hash",
+      "kind": "insufficient_evidence",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "provenance: missing or wrong input hash"
+      ]
+    },
+    {
+      "control_id": "field-deletion",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.setup_cost: missing"
+      ]
+    },
+    {
+      "control_id": "wrong-selected-action",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.stage2_policy.high: mismatch",
+        "decision: exact observation coverage required"
+      ]
+    },
+    {
+      "control_id": "missing-state",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.stage2_policy.mid: missing",
+        "decision: exact observation coverage required"
+      ]
+    },
+    {
+      "control_id": "extra-state",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision: exact observation coverage required"
+      ]
+    },
+    {
+      "control_id": "claim-inflation",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "decision.claim_boundary: mismatch"
+      ]
+    },
+    {
+      "control_id": "duplicate-route-row",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "contract: duplicate row key: high"
+      ]
+    },
+    {
+      "control_id": "wrong-route-cost",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "route.mid.cost: wrong number",
+        "route.low.cost: wrong number"
+      ]
+    },
+    {
+      "control_id": "order-and-path-equivalence",
+      "kind": "invariance",
+      "passed": true,
+      "verifier_passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "branchwise-greedy-overspends",
+      "kind": "adversarial",
+      "passed": true,
+      "worst_case_cost": 8.5
+    },
+    {
+      "control_id": "budget-contraction",
+      "kind": "metamorphic",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "setup-price",
+      "kind": "metamorphic",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "retraction",
+      "kind": "metamorphic",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "no-feasible-policy",
+      "kind": "metamorphic",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "input-order",
+      "kind": "invariance",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

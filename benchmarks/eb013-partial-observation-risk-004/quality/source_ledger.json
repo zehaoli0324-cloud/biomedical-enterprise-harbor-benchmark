@@ -1,0 +1,6 @@
+{
+  "status": "SYNTHETIC_DISCLOSED",
+  "source": "scripts/materialize_partial_observation_risk.py",
+  "empirical_claim": false,
+  "scope": "Finite illustrative assay planning; probabilities and reductions are synthetic."
+}

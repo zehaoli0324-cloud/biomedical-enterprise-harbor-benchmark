@@ -1,0 +1,20 @@
+{
+  "task_id": "eb013-shared-setup-routing-003",
+  "primary_module": "math_ex_ante_shared_setup",
+  "secondary_modules": [
+    "horizon_adaptive_policy_replay",
+    "math_minimax_evidence_route_selection"
+  ],
+  "held_out_variants": [
+    "total budget contraction",
+    "setup price reduction",
+    "action retraction"
+  ],
+  "decision_flip_controls": [
+    "branchwise greedy overspends",
+    "charge only observed setup changes winner",
+    "shared setup charged once",
+    "threshold crossing dominated policy"
+  ],
+  "status": "CALIBRATION_REQUIRED"
+}

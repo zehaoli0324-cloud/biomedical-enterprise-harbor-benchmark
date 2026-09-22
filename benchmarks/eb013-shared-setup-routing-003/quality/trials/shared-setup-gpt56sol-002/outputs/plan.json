@@ -1,0 +1,58 @@
+{
+  "stage1_request_id": "P01",
+  "stage2_policy": {
+    "high": "M01",
+    "low": "M05",
+    "mid": "M08"
+  },
+  "setup_families": [
+    "F1",
+    "F3"
+  ],
+  "setup_cost": 4.0,
+  "worst_case_cost": 6.8,
+  "worst_case_max_critical_residual": 0.23,
+  "policies": [
+    {
+      "stage1_request_id": "P01",
+      "best_policy": {
+        "stage1_request_id": "P01",
+        "stage2_policy": {
+          "high": "M01",
+          "low": "M05",
+          "mid": "M08"
+        },
+        "setup_families": [
+          "F1",
+          "F3"
+        ],
+        "setup_cost": 4.0,
+        "worst_case_cost": 6.8,
+        "worst_case_max_critical_residual": 0.23,
+        "eligible": true
+      }
+    },
+    {
+      "stage1_request_id": "P02",
+      "best_policy": {
+        "stage1_request_id": "P02",
+        "stage2_policy": {
+          "high": "M03",
+          "low": "M06",
+          "mid": "M09"
+        },
+        "setup_families": [
+          "F2"
+        ],
+        "setup_cost": 1.5,
+        "worst_case_cost": 5.1,
+        "worst_case_max_critical_residual": 0.25,
+        "eligible": true
+      }
+    },
+    {
+      "stage1_request_id": "P03",
+      "best_policy": null
+    }
+  ]
+}

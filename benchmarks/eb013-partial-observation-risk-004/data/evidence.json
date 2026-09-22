@@ -1,0 +1,265 @@
+[
+  {
+    "action_id": "A",
+    "revision": 1,
+    "published_at": "2026-09-01",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 0.78,
+        "selectivity": 0.78
+      },
+      "W2": {
+        "signal": 0.78,
+        "selectivity": 0.78
+      },
+      "W3": {
+        "signal": 0.78,
+        "selectivity": 0.78
+      },
+      "W4": {
+        "signal": 0.78,
+        "selectivity": 0.78
+      },
+      "W5": {
+        "signal": 0.78,
+        "selectivity": 0.78
+      },
+      "W6": {
+        "signal": 0.78,
+        "selectivity": 0.78
+      }
+    }
+  },
+  {
+    "action_id": "B",
+    "revision": 1,
+    "published_at": "2026-09-01",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W2": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W3": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W4": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W5": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W6": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      }
+    }
+  },
+  {
+    "action_id": "C",
+    "revision": 1,
+    "published_at": "2026-09-01",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 0.68,
+        "selectivity": 0.72
+      },
+      "W2": {
+        "signal": 0.72,
+        "selectivity": 0.64
+      },
+      "W3": {
+        "signal": 0.9,
+        "selectivity": 0.92
+      },
+      "W4": {
+        "signal": 0.7,
+        "selectivity": 0.72
+      },
+      "W5": {
+        "signal": 0.91,
+        "selectivity": 0.89
+      },
+      "W6": {
+        "signal": 0.88,
+        "selectivity": 0.9
+      }
+    }
+  },
+  {
+    "action_id": "D",
+    "revision": 1,
+    "published_at": "2026-09-01",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 0.86,
+        "selectivity": 0.84
+      },
+      "W2": {
+        "signal": 0.6,
+        "selectivity": 0.6
+      },
+      "W3": {
+        "signal": 0.84,
+        "selectivity": 0.84
+      },
+      "W4": {
+        "signal": 0.93,
+        "selectivity": 0.92
+      },
+      "W5": {
+        "signal": 0.6,
+        "selectivity": 0.65
+      },
+      "W6": {
+        "signal": 0.85,
+        "selectivity": 0.86
+      }
+    }
+  },
+  {
+    "action_id": "E",
+    "revision": 1,
+    "published_at": "2026-09-01",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W2": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W3": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W4": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W5": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      },
+      "W6": {
+        "signal": 0.99,
+        "selectivity": 0.99
+      }
+    }
+  },
+  {
+    "action_id": "F",
+    "revision": 1,
+    "published_at": "2026-09-25",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 0.999,
+        "selectivity": 0.999
+      },
+      "W2": {
+        "signal": 0.999,
+        "selectivity": 0.999
+      },
+      "W3": {
+        "signal": 0.999,
+        "selectivity": 0.999
+      },
+      "W4": {
+        "signal": 0.999,
+        "selectivity": 0.999
+      },
+      "W5": {
+        "signal": 0.999,
+        "selectivity": 0.999
+      },
+      "W6": {
+        "signal": 0.999,
+        "selectivity": 0.999
+      }
+    }
+  },
+  {
+    "action_id": "B",
+    "revision": 2,
+    "published_at": "2026-09-15",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 0.92,
+        "selectivity": 0.9
+      },
+      "W2": {
+        "signal": 0.92,
+        "selectivity": 0.9
+      },
+      "W3": {
+        "signal": 0.62,
+        "selectivity": 0.7
+      },
+      "W4": {
+        "signal": 0.88,
+        "selectivity": 0.82
+      },
+      "W5": {
+        "signal": 0.72,
+        "selectivity": 0.78
+      },
+      "W6": {
+        "signal": 0.6,
+        "selectivity": 0.65
+      }
+    }
+  },
+  {
+    "action_id": "E",
+    "revision": 2,
+    "published_at": "2026-09-20",
+    "status": "withdrawn",
+    "reductions": {}
+  },
+  {
+    "action_id": "B",
+    "revision": 3,
+    "published_at": "2026-09-25",
+    "status": "active",
+    "reductions": {
+      "W1": {
+        "signal": 1,
+        "selectivity": 1
+      },
+      "W2": {
+        "signal": 1,
+        "selectivity": 1
+      },
+      "W3": {
+        "signal": 1,
+        "selectivity": 1
+      },
+      "W4": {
+        "signal": 1,
+        "selectivity": 1
+      },
+      "W5": {
+        "signal": 1,
+        "selectivity": 1
+      },
+      "W6": {
+        "signal": 1,
+        "selectivity": 1
+      }
+    }
+  }
+]

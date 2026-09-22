@@ -1,0 +1,11 @@
+{
+  "input_sha256": {
+    "rules.json": "7e326fec27a2028bcbbf23ef0488e85f4366a74f207532ce06c183870c31781b",
+    "catalog.json": "d3ae22ef34996801fd504475fac4cb2aa223f9fc43447af8932da3d744d47944",
+    "evidence.json": "89638a5a5fc8a95ebd8e509dc86c6198a623d1cd770b5afbf64f146356980c8c",
+    "output_contract.json": "7a9c49104df2cfc158617b7f6555636c0fdf5751d16971d79b1484cf9b817fb8"
+  },
+  "rules_version": "partial-observation-risk-v1",
+  "network": "off",
+  "deterministic": true
+}

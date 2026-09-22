@@ -1,0 +1,57 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb013-shared-setup-routing-003",
+  "trial_id": "eb013-shared-setup-routing-003-gpt56sol-001",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003",
+  "trial_dir": "/private/tmp/enterprise-l63-target-trials/eb013-shared-setup-routing-003-gpt56sol-001/eb013-shared-setup-routing-003-gpt56sol-001",
+  "workspace": "/private/tmp/enterprise-l63-target-trials/eb013-shared-setup-routing-003-gpt56sol-001/eb013-shared-setup-routing-003-gpt56sol-001/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-22T06:13:25.743843+00:00",
+  "input_hashes": {
+    "data/output_contract.json": "6f7d39d4e6f27139a57aed823b80d9f73dfef9df9c8e9e4f83cda23e845ba813",
+    "data/requests.json": "9bdfc68adcd8bfa89dde5c3a38f438d2ad10db0ee3120e326b02232d042b7398",
+    "data/rules.json": "4122c97751d0a54980942e1341dbcc06a7c14ed205d28b9faea3dd259ba0f00b",
+    "instruction.md": "dce4effc6da205823a388e9470d794926cc079e8b7a4eeea45ea454ebf9f1c15"
+  },
+  "status": "verifier_fail",
+  "agent_command": [
+    "/Users/zehaoli0324/.local/bin/python3.11",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_gpt55.py",
+    "--model",
+    "gpt-5.6-sol"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-22T06:13:25.744570+00:00",
+  "timeout_seconds": 900,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-22T06:19:13.226059+00:00",
+  "agent_exit_code": 0,
+  "verifier_status": "fail",
+  "verifier_score": null,
+  "verifier_exit_code": 1,
+  "visible_output_hashes": {
+    "audit.md": "6fe1461d4dcc26651a050df499d0dcb79af072fe2f5c3b39d78b72928845f26a",
+    "decision.json": "4fdb8e59cc71bf41434216fe03c46106efc53f359cebcf14969a7d7250d6204b",
+    "plan.json": "7a02679b3e4348fe6d36ddca99765046ce5c7f8bd934b3b0aedfe4cc1e3a64f8",
+    "provenance.json": "02a84c30c31d974e67f1410f6a5044164dde1a3fb0b8a4474176a43587c756ae",
+    "route.tsv": "945cd91daf3fd56092222356817bfb43e32c6e6937a5592c883dc9554584cce6"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "rules_version": "shared-setup-v1",
+  "decision_date": "2026-09-22",
+  "stage1_budget": 2.5,
+  "commitment_budget": 5.5,
+  "total_budget": 6.8,
+  "initial_uncertainty": {
+    "signal": 0.8,
+    "selectivity": 0.7
+  },
+  "critical_thresholds": {
+    "signal": 0.25,
+    "selectivity": 0.25
+  },
+  "setup_costs": {
+    "F1": 2.0,
+    "F2": 1.5,
+    "F3": 2.0,
+    "F4": 2.0,
+    "F5": 2.0
+  },
+  "objective": [
+    "worst_case_max_critical_residual",
+    "worst_case_cost",
+    "setup_cost",
+    "stage1_request_id",
+    "sorted_stage2_policy"
+  ],
+  "cost_semantics": "pay the union of all policy setup families before observing; only one branch execution is paid"
+}

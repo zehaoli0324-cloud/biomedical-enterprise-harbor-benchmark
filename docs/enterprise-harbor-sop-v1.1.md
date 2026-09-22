@@ -172,3 +172,21 @@ CONTRACT_TRIAGE
 该模块至少包含六类控制：完整三状态 positive、缺少一个状态 negative、状态顺序 invariance、单分支预算不足、依赖无效 action，以及新增 held-out state。decision flip 必须由“补入或撤回一个可观察状态后，原 policy 从 eligible 变为 incomplete/hold，或最优 action mapping 改变”产生。只增加行数、文件数或输出字段不算难度。
 
 `states`/`observation_states`、`observation`/`observation_state` 等预登记别名只在 canonicalization 层处理；别名归一化不得生成缺失分支、补造 residual、修复错误 action 或忽略 provenance hash。target trial 必须同时保存 raw verdict 与 unchanged-artifact replay，只有完整 state coverage 和科学计算都通过，才能认定该模块通过。
+
+## 13. 观测前共享准备成本
+
+`math_ex_ante_shared_setup` 要求先承诺所有分支可能需要的准备，再观察结果。准备费按整张策略使用的 family 并集计一次，执行费按实际分支计；分别检查 stage-1、commitment 和最坏分支总预算。必须公开成本时点、共用关系、全部依赖、逐轴阈值和排序规则。
+
+实现时至少保留两个可行竞争策略，并证明逐分支 greedy、只付观测分支准备费、重复计共享准备费会产生错误成本或选择。预算、准备价格、action 撤回三个单因素变体应实测产生决策翻转。用不同搜索顺序和精确数值实现交叉核对 oracle；自动数学核对与人工科学复核分别记录。跨业务迁移未经检验时标记 NOT_RUN。
+
+新题必须提供自包含输出合同。逐行校验表格主键、动作、数值与 JSON 决策，不能只比较行数。试跑使用冻结的题包与 verifier，并等待 agent 正常退出；文件出现不是完成信号。保存原始 verdict、产物 hash、重放结果和 adapter 版本，避免构建脚本重置历史 trial。
+
+## 15. 部分可观测、分布风险与时点证据
+
+增加难度维度时，把一个新的 primary module 与最多两个 secondary modules 组合；原有预算约束可作为保留机制，但不得把同一失败重复计入多个维度。`eb013-partial-observation-risk-004` 的组合为：`horizon_observation_nonanticipativity`（主）、`math_distributionally_robust_cvar`、`retrieval_asof_tombstone_resolution`，保留共享准备预算。
+
+- **信息与时序维度**：规划者可见的假设 world 不等于执行时可见的 observation。同一 observation 下必须用同一 action；先定 probe 和准备，再观察。公开 observation map，禁止隐藏关键规则。以 world revelation 对照检验最优策略是否翻转。
+- **数学与不确定性维度**：声明每个概率模型、风险水平、尾部质量分摊与排序规则。CVaR 的边界 world 必须按概率质量截取，不能退化成 mean 或 max。通过 nominal-only ablation 检验决策翻转，用 alpha 变化检验数值敏感性；两者分别记录。
+- **检索与证据时点维度**：先按 decision date 过滤，再选最新完整 snapshot；withdrawal 是禁用标记，不能回退旧 active 记录。校验每个动作的 revision、availability、capabilities，再进入优化。以撤回移除对照检验决策翻转。
+
+至少提供一套算法结构不同的精确 oracle：例如 observation-first + Decimal + 尾部积分，与 world-first + Fraction + 阈值最小化交叉核对。自动交叉核对不等于人工科学复核。观测、分布、证据和预算的单因素控制需分别留下实际结果；只改变数值而未改变选择的实验标记 sensitivity，不计为 decision flip。跨域迁移与模型 held-out trial 未执行时必须标记 NOT_RUN。

@@ -1,0 +1,134 @@
+{
+  "schema_version": "enterprise_harbor_sop_preflight.v1",
+  "task_id": "eb013-partial-observation-risk-004",
+  "package": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "file:task.yaml",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file:instruction.md",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file:verifier.py",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "file:verifier_only/reference.json",
+      "status": "PASS",
+      "detail": "present"
+    },
+    {
+      "check": "data_nonempty",
+      "status": "PASS",
+      "detail": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/data"
+    },
+    {
+      "check": "tests_present",
+      "status": "PASS",
+      "detail": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/tests"
+    },
+    {
+      "check": "required_outputs_declared",
+      "status": "PASS",
+      "detail": "['outputs/plan.json', 'outputs/route.tsv', 'outputs/decision.json', 'outputs/provenance.json', 'outputs/audit.md']"
+    },
+    {
+      "check": "output:outputs/plan.json",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "output:outputs/route.tsv",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "output:outputs/decision.json",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "output:outputs/provenance.json",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "output:outputs/audit.md",
+      "status": "PASS",
+      "detail": "instruction_reference_and_outputs_path"
+    },
+    {
+      "check": "hidden_boundary:verifier_only/",
+      "status": "PASS",
+      "detail": "not_named_in_instruction"
+    },
+    {
+      "check": "hidden_boundary:verifier.py",
+      "status": "PASS",
+      "detail": "not_named_in_instruction"
+    },
+    {
+      "check": "hidden_boundary:tests/",
+      "status": "PASS",
+      "detail": "not_named_in_instruction"
+    },
+    {
+      "check": "four_control_kinds",
+      "status": "PASS",
+      "detail": "insufficient_evidence,invariance,metamorphic,negative,positive,sensitivity"
+    },
+    {
+      "check": "five_trial_strategies",
+      "status": "PASS",
+      "detail": "always_abstain,reference_solution,simple_legal_baseline,target_model,template_or_keyword"
+    },
+    {
+      "check": "baseline_records_present",
+      "status": "PASS",
+      "detail": "always_abstain,reference_solution,simple_legal_baseline,target_model,template_or_keyword"
+    },
+    {
+      "check": "target_model_status_attributed",
+      "status": "PASS",
+      "detail": "PASS"
+    },
+    {
+      "check": "sop_card_present",
+      "status": "PASS",
+      "detail": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/quality/sop_card.json"
+    },
+    {
+      "check": "sop_card_identity",
+      "status": "PASS",
+      "detail": "enterprise_harbor_sop_card.v1"
+    },
+    {
+      "check": "independent_verifier_audit",
+      "status": "PASS",
+      "detail": "PASS"
+    },
+    {
+      "check": "v1.2_contract_audit",
+      "status": "PASS",
+      "detail": "PASS"
+    },
+    {
+      "check": "v1.2_difficulty_budget",
+      "status": "PASS",
+      "detail": "primary=horizon_observation_nonanticipativity;secondary=['math_distributionally_robust_cvar', 'retrieval_asof_tombstone_resolution'];held_out=5"
+    }
+  ],
+  "blockers": [],
+  "release_status": "REVIEW_REQUIRED",
+  "release_blockers": [],
+  "target_model_status": "PASS",
+  "target_model_infra_not_difficulty": false,
+  "release_permitted": false
+}
