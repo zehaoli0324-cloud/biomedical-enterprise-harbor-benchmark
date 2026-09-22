@@ -22,6 +22,7 @@
     {"id": "judgment_route_feasibility", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["score_as_feasibility", "unresolved_selectivity", "unsupported_reaction_scope"]},
     {"id": "judgment_value_of_information", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["pure_exploitation", "pure_uncertainty_sampling", "future_outcome_leakage"]},
     {"id": "judgment_blocker_and_abstention", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["forced_winner", "ignored_stop_condition", "over_abstention"]},
+    {"id": "judgment_contract_normalization_gate", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["format_as_scientific_failure", "undocumented_alias", "fabricated_default", "replay_overwrite"]},
     {"id": "judgment_claim_permission_lattice", "category": "judgment", "dimension": "scientific_judgment", "failure_modes": ["permission_inflation", "fallback_claim_drift", "endpoint_overgeneralization"]},
     {"id": "compute_data_schema_discovery", "category": "compute", "dimension": "computational_difficulty", "failure_modes": ["wrong_schema", "wrong_units"]},
     {"id": "compute_multistage_analysis", "category": "compute", "dimension": "computational_difficulty", "failure_modes": ["state_loss", "parameter_drift"]},

@@ -103,3 +103,17 @@ SOURCE_OBSERVED -> REQUIREMENTS_REVIEWED -> CANDIDATE_SET
 - `environment_schema_discovery_under_offline`：记录 network state、determinism 和输入边界；离线约束必须在 runner 或容器层可执行，不能只靠题面声明。
 
 这类题至少增加两项控制：高 utility 的 ambiguous adversarial case，以及不改变语义的 synonym/path-prefix metamorphic case。首轮 verifier fail 后必须对原始 artifact 做 hash 固定的 contract replay：路径前缀、布尔/枚举别名和冗余语义编码属于等价表示；缺文件、漏记录、错误 scope、未来 outcome 泄漏或越过 blocker 才属于能力失败。任何 verifier 兼容修订都要保留首轮错误、修订理由和 unchanged-artifact hash，不能悄悄覆盖 trial 结果。
+
+## 10. 输出合同归一化门（V1.2 增补）
+
+格式失败不能直接当作科学能力失败。每道题在 target trial 前必须把 verifier 拆成三个顺序层，并在 `quality/contract_audit.json` 中记录同一份规则：
+
+1. **Raw delivery**：只检查 required output 是否存在、可读取、编码正确、没有越界路径。该层失败记为 `delivery_error`，不得推断科学判断。
+2. **Canonicalization**：把允许的表示映射到 canonical intermediate representation（IR）。字段级 registry 必须声明 canonical 类型、允许别名/分隔符/路径前缀/根节点空值、缺失语义和禁止表示。归一化不得补造缺失记录、吞掉重复主键、修复错误 hash、改变数值或提升 claim permission。
+3. **Scientific verification**：只对 canonical IR 检查 join、阈值、顺序、敏感性、provenance、claim boundary 和最终决策。该层失败才可归因为 `scientific_error`。
+
+合同审计至少要有 `canonical_outputs` 或 `equivalence_registry`，每个输出字段都要列出 `canonical`、`equivalents`、`forbidden` 和 `missing_semantics`。每道题在模型前运行无模型矩阵：canonical reference、字段/行顺序变化、已声明别名、路径前缀或根节点空值、单字段删除、重复主键/错误 hash/错误科学状态。前四项应在归一化后保持语义结果，后三项必须失败或进入人工复核。
+
+target trial 结果必须同时保存 `raw_verifier_result`、`canonical_replay_result`、首轮错误、修订版本、原始 artifact SHA-256 和 unchanged-artifact replay。推荐状态为 `RAW_FAIL_CONTRACT_REPLAY_PASS`、`RAW_PASS`、`SCIENTIFIC_FAIL`、`DELIVERY_FAIL` 和 `INFRASTRUCTURE_FAIL`；只有 canonical replay 仍失败时，才把结果写入“模型被考倒”或难度区分度统计。合同修复不得覆盖原始 trial，且不得改变 scientific decision、blocker 集合或 claim boundary。
+
+这条门禁解决的是“严格但不公平”的 verifier，而不是把 verifier 变宽松：允许的只是事先登记的等价表示；遗漏、重复、篡改 provenance、未来信息泄漏和越级 claim 仍必须拒绝。

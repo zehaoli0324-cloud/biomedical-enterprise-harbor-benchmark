@@ -1,0 +1,21 @@
+{
+  "schema_version": "enterprise_output_contract_normalization.v1",
+  "purpose": "Separate delivery, representation, and scientific failures before target-model difficulty attribution.",
+  "layers": ["raw_delivery", "canonicalization", "scientific_verification"],
+  "field_registry_schema": {
+    "output": "outputs/result.json",
+    "field": "decision",
+    "canonical": {"type": "enum", "values": ["proceed", "hold", "request_information"]},
+    "equivalents": ["documented alias", "case/whitespace normalization", "declared path prefix normalization"],
+    "missing_semantics": "missing_is_error",
+    "forbidden": ["unknown enum", "duplicate primary key", "fabricated default", "claim escalation"],
+    "mutation_fixtures": {"alias": "pass", "field_order": "pass", "single_deletion": "fail", "wrong_hash": "fail", "wrong_scientific_state": "fail"}
+  },
+  "trial_result_schema": {
+    "raw_verifier_result": "RAW_FAIL or RAW_PASS",
+    "canonical_replay_result": "PASS or FAIL",
+    "failure_class": ["delivery_error", "contract_error", "scientific_error", "infrastructure_error"],
+    "preserve": ["raw_errors", "contract_revision", "artifact_sha256", "unchanged_artifact_replay", "scientific_decision_before_after"]
+  },
+  "difficulty_rule": "Count a model failure as scientific difficulty only when canonical replay still fails without changing the scientific decision boundary."
+}

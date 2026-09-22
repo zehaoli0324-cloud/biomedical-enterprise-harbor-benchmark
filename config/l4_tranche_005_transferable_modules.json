@@ -17,8 +17,8 @@
       "category": "judgment",
       "question": "Is a semantically correct decision accepted across explicitly allowed representations and replayed after a contract repair?",
       "inputs": ["decision enum", "equivalent labels", "nested evidence paths", "task version", "verifier revision"],
-      "required_controls": ["equivalent representation", "wrong semantic choice", "old artifact replay after contract repair", "schema mutation"],
-      "failure_modes": ["semantic_answer_rejected_by_format", "undocumented_equivalence", "contract_defect_misclassified_as_scientific_error", "revision_without_replay"],
+      "required_controls": ["raw delivery check", "canonical IR equivalence", "equivalent representation", "wrong semantic choice", "old artifact replay after contract repair", "schema mutation"],
+      "failure_modes": ["semantic_answer_rejected_by_format", "undocumented_equivalence", "canonicalizer_fabricates_missing_data", "contract_defect_misclassified_as_scientific_error", "revision_without_replay"],
       "appears_in": ["all six L4 tasks"]
     },
     {

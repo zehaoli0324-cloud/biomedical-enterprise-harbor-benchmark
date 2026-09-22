@@ -72,3 +72,13 @@ def test_missing_package_is_fail_closed(tmp_path):
     assert result["status"] == "BLOCKED"
     assert "file:task.yaml" in result["blockers"]
     assert result["release_permitted"] is False
+
+
+def test_output_contract_normalization_template_separates_failure_layers():
+    template = json.loads((ROOT / "config/output_contract_normalization_v1.json").read_text())
+    assert template["layers"] == ["raw_delivery", "canonicalization", "scientific_verification"]
+    registry = template["field_registry_schema"]
+    assert all(key in registry for key in ("canonical", "equivalents", "forbidden", "missing_semantics"))
+    assert template["trial_result_schema"]["failure_class"] == [
+        "delivery_error", "contract_error", "scientific_error", "infrastructure_error"
+    ]
