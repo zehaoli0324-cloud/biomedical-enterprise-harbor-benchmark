@@ -9,7 +9,9 @@
       "INSUFFICIENT_BY_DESIGN": 4,
       "CONTROL_PARAMETER": 5
     },
-    "score_weights_declared": false
+    "score_weights_declared": true,
+    "unit_weight": 0.047619,
+    "weight_method": "equal_weight_per_independent_unit"
   },
   "existing_always_abstain_baseline": {
     "status": "verifier_fail",
@@ -27,36 +29,83 @@
     {
       "variant_id": "all_abstain",
       "description": "所有独立判断单元均输出弃权",
-      "status": "NOT_RUN",
-      "score": null,
-      "score_weight": null,
-      "abstention_fraction": null
+      "status": "PASS",
+      "score": 0.190476,
+      "score_weight": 0.047619,
+      "abstention_score_weight": 1.0,
+      "abstention_fraction": 1.0,
+      "correct_units": 4,
+      "total_units": 21
     },
     {
       "variant_id": "all_definite",
       "description": "所有有证据判断单元均输出确定回答",
-      "status": "NOT_RUN",
-      "score": null,
-      "score_weight": null,
-      "abstention_fraction": null
+      "status": "PASS",
+      "score": 0.809524,
+      "score_weight": 0.047619,
+      "abstention_score_weight": 0.0,
+      "abstention_fraction": 0.0,
+      "correct_units": 17,
+      "total_units": 21
     },
     {
       "variant_id": "positive_plus_insufficient_abstain",
       "description": "正例确定回答，设计内证据不足分支弃权",
-      "status": "NOT_RUN",
-      "score": null,
-      "score_weight": null,
-      "abstention_fraction": null
+      "status": "PASS",
+      "score": 1.0,
+      "score_weight": 0.047619,
+      "abstention_score_weight": 0.190476,
+      "abstention_fraction": 0.190476,
+      "correct_units": 21,
+      "total_units": 21
     },
     {
       "variant_id": "positive_as_wrong_abstain",
       "description": "把一个正例错误改为弃权，验证正例覆盖确实计分",
-      "status": "NOT_RUN",
-      "score": null,
-      "score_weight": null,
-      "abstention_fraction": null
+      "status": "PASS",
+      "score": 0.952381,
+      "score_weight": 0.047619,
+      "abstention_score_weight": 0.238095,
+      "abstention_fraction": 0.238095,
+      "correct_units": 20,
+      "total_units": 21
     }
   ],
-  "gate_status": "BLOCKED_VARIANTS_NOT_RECORDED",
-  "blocking_reason": "verifier pass/fail records do not expose independent-unit scores or score weights"
+  "gate_status": "PASS",
+  "blocking_reason": null,
+  "unit_definition": {
+    "source": "quality/claim_evidence_map.tsv",
+    "independent_units": 21,
+    "control_units_excluded": 5,
+    "weight_method": "equal_weight_per_independent_unit",
+    "unit_weight": 0.047619,
+    "expected_actions": {
+      "P-ALPHA": "definite",
+      "P-EPSILON": "definite",
+      "P-ETA": "definite",
+      "P-NU": "definite",
+      "P-OMICRON": "definite",
+      "P-ARCHIVE": "definite",
+      "P-DELTA": "definite",
+      "P-GAMMA": "definite",
+      "P-IOTA": "definite",
+      "P-KAPPA": "definite",
+      "P-MU": "definite",
+      "P-PHI": "definite",
+      "P-RHO": "definite",
+      "P-SIGMA": "definite",
+      "P-TAU": "definite",
+      "P-UPSILON": "definite",
+      "P-XI": "definite",
+      "P-BETA": "abstain",
+      "P-LAMBDA": "abstain",
+      "P-PI": "abstain",
+      "P-ZETA": "abstain"
+    }
+  },
+  "limits": {
+    "max_independent_sample_fraction": 0.3,
+    "max_score_weight": 0.25,
+    "blanket_abstain_max_fraction_of_reference_score": 0.7
+  }
 }

@@ -1,12 +1,12 @@
 {
   "schema_version": "optimization_progress.v1",
   "task_id": "eb010-closed-loop-ambiguity-004",
-  "status": "OPTIMIZED_PRETRIAL",
+  "status": "OPTIMIZED_PRETRIAL_ABSTENTION_AUDITED",
   "control_calibration": "CALIBRATED",
-  "focused_tests": "7 passed",
+  "focused_tests": "8 passed",
   "data_surface": {"record_count": 22, "map_rows": 4, "independent_example_units": 21, "insufficient_by_design": 4},
   "verified_controls": 6,
   "trial_status_preserved": "BASELINES_COMPLETE / NOT_RUN",
-  "remaining_blocker": "post-expansion target recalibration and auditable abstention score weights",
+  "remaining_blocker": "post-expansion target recalibration, fixed-container replay and practitioner review",
   "next_window_action": "run the fresh target calibration on the 22-record fixture; do not reuse superseded trial status"
 }

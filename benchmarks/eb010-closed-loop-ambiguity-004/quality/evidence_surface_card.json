@@ -5,9 +5,14 @@
   "task_scope": "mixed_analysis",
   "claim_evidence_map": "quality/claim_evidence_map.tsv",
   "variant_plan": "quality/abstention_variant_plan.json",
-  "abstention_limits": {"max_independent_sample_fraction": 0.30, "max_score_weight": 0.25, "blanket_abstain_max_fraction_of_reference_score": 0.70},
-  "variant_status": "BLOCKED_VARIANTS_NOT_RECORDED",
+  "abstention_limits": {
+    "max_independent_sample_fraction": 0.3,
+    "max_score_weight": 0.25,
+    "blanket_abstain_max_fraction_of_reference_score": 0.7
+  },
+  "variant_status": "PASS",
   "status": "READY_FOR_RECALIBRATION",
   "fixture_version": "data-expanded-20260924-v2",
-  "record_count": 22
+  "record_count": 22,
+  "abstention_variant_results": "quality/abstention_variant_results.json"
 }
