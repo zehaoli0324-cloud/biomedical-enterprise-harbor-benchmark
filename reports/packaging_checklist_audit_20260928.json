@@ -1,0 +1,2832 @@
+{
+  "schema_version": "packaging_checklist_audit.v1",
+  "generated_on": "2026-09-28",
+  "checklist_source": "docs/改题方案与检查标准-v1.0.md",
+  "pipeline_schema": "config/task_pipeline_schema.v1.json",
+  "summary": {
+    "task_count": 46,
+    "formal_count": 32,
+    "candidate_count": 14,
+    "formal_without_any_archive": 15,
+    "candidate_without_any_archive": 6,
+    "all_without_any_archive": 21,
+    "formal_with_valid_sha256_archive": 10,
+    "candidate_with_valid_sha256_archive": 5,
+    "all_with_valid_sha256_archive": 15,
+    "release_ready": 0,
+    "identity_blocked": 6,
+    "missing_contract": 46,
+    "missing_release_evidence": 46,
+    "missing_fixed_replay": 45,
+    "missing_review": 46
+  },
+  "tasks": [
+    {
+      "task_id": "admiral-adsl-derivation-001",
+      "scope": "formal",
+      "identity_task_id": "admiral-adsl-derivation-001",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "file:quality/sop_card.json"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "file:quality/sop_card.json",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "missing:quality/sop_card.json",
+        "scientific_review"
+      ],
+      "source_status": "NO_AUTOMATED_DEFECT",
+      "controls_status": "",
+      "target_model_status": "",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json",
+        "quality/sop_card.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FOUR_CONTROL_CALIBRATION",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "biogen-adme-audit-001",
+      "scope": "formal",
+      "identity_task_id": "biogen-adme-audit-001",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "file:quality/sop_card.json"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "file:quality/sop_card.json",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "missing:quality/sop_card.json",
+        "scientific_review"
+      ],
+      "source_status": "NO_AUTOMATED_DEFECT",
+      "controls_status": "",
+      "target_model_status": "",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json",
+        "quality/sop_card.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FOUR_CONTROL_CALIBRATION",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "crispr-resistance-e2e-001",
+      "scope": "formal",
+      "identity_task_id": "crispr-resistance-e2e-001",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "file:quality/sop_card.json",
+        "file:verifier",
+        "file:verifier_only/reference.json"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "file:quality/sop_card.json",
+        "file:verifier",
+        "file:verifier_only/reference.json",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "missing:quality/sop_card.json",
+        "scientific_review",
+        "source_status:UNKNOWN"
+      ],
+      "source_status": null,
+      "controls_status": "",
+      "target_model_status": "",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json",
+        "quality/sop_card.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FOUR_CONTROL_CALIBRATION",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb001-split-leakage-001",
+      "scope": "formal",
+      "identity_task_id": "eb001-split-leakage-001",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb003-failure-recovery-003",
+      "scope": "formal",
+      "identity_task_id": "eb003-failure-recovery-003",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb003-recovery-chain-005",
+      "scope": "formal",
+      "identity_task_id": "eb003-recovery-chain-005",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb003-replay-provenance-004",
+      "scope": "formal",
+      "identity_task_id": "eb003-replay-provenance-004",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb004-adtte-censoring-002",
+      "scope": "formal",
+      "identity_task_id": "eb004-adtte-censoring-002",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb005-batch-normalization-002",
+      "scope": "formal",
+      "identity_task_id": "eb005-batch-normalization-002",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb005-normalization-hierarchy-003",
+      "scope": "formal",
+      "identity_task_id": "eb005-normalization-hierarchy-003",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-signal-noise-004",
+      "scope": "formal",
+      "identity_task_id": "eb006-signal-noise-004",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "BLOCKED_INFRASTRUCTURE_AFTER_CONTRACT_REVISION",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb008-route-portfolio-002",
+      "scope": "formal",
+      "identity_task_id": "eb008-route-portfolio-002",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb008-stock-route-001",
+      "scope": "formal",
+      "identity_task_id": "eb008-stock-route-001",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb009-diversity-coverage-004",
+      "scope": "formal",
+      "identity_task_id": "eb009-diversity-coverage-004",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-adaptive-policy-regret-005",
+      "scope": "formal",
+      "identity_task_id": "eb010-adaptive-policy-regret-005",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/queue14-20260924/eb010-adaptive-policy-regret-005-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-closed-loop-ambiguity-004",
+      "scope": "formal",
+      "identity_task_id": "eb010-closed-loop-ambiguity-004",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "NOT_RUN",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l5-next-batch-010-20260922.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l51-ambiguity-self-plan-012-v071.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb010-closed-loop-ambiguity-004-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 3,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-closed-loop-replay-003",
+      "scope": "formal",
+      "identity_task_id": "eb010-closed-loop-replay-003",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l5-next-batch-010-20260922.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb010-closed-loop-replay-003-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-distributional-policy-stress-006",
+      "scope": "formal",
+      "identity_task_id": "eb010-distributional-policy-stress-006",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "NOT_RUN",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l5-next-batch-010-20260922.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb010-distributional-policy-stress-006-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-measurement-value-004",
+      "scope": "formal",
+      "identity_task_id": "eb010-measurement-value-004",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-next-batch-001",
+      "scope": "formal",
+      "identity_task_id": "eb010-next-batch-001",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-next-batch-002",
+      "scope": "formal",
+      "identity_task_id": "eb010-next-batch-002",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb011-measurement-request-005",
+      "scope": "formal",
+      "identity_task_id": "eb011-measurement-request-005",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb012-cross-handoff-audit-001",
+      "scope": "formal",
+      "identity_task_id": "eb012-cross-handoff-audit-001",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l4-tranche-005-provisional-20260921.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb012-cross-stage-chain-002",
+      "scope": "formal",
+      "identity_task_id": "eb012-cross-stage-chain-002",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l54-cross-stage-task-011-20260922-v2.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l54-cross-stage-task-011-20260922-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/l54-cross-stage-task-011-20260922.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 3,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb013-cross-context-evidence-portfolio-005",
+      "scope": "formal",
+      "identity_task_id": "eb013-cross-context-evidence-portfolio-005",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RAW_PASS",
+      "missing_contract": [
+        "candidate_design.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/queue14-20260924/eb013-cross-context-evidence-portfolio-005-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        },
+        {
+          "path": "dist/selected-four-v3-calibrated-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 2,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb013-evidence-budget-routing-002",
+      "scope": "formal",
+      "identity_task_id": "eb013-evidence-budget-routing-002",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "NOT_RUN",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/queue14-20260924/eb013-evidence-budget-routing-002-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb013-partial-observation-risk-004",
+      "scope": "formal",
+      "identity_task_id": "eb013-partial-observation-risk-004",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/queue14-20260924/eb013-partial-observation-risk-004-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb013-shared-setup-routing-003",
+      "scope": "formal",
+      "identity_task_id": "eb013-shared-setup-routing-003",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS",
+      "missing_contract": [
+        "candidate_design.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/queue14-20260924/eb013-shared-setup-routing-003-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "scope": "formal",
+      "identity_task_id": "eb014-sequential-evidence-feedback-002",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "task_identity"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review",
+        "task_identity"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RAW_PASS",
+      "missing_contract": [
+        "candidate_design.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": true,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/completion-evidence-tranche-019.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923-v2.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb014-sequential-evidence-feedback-002-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        },
+        {
+          "path": "dist/selected-four-v3-calibrated-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 6,
+      "sha256_archive_count": 2,
+      "sha256_valid_archive": true,
+      "actions": [
+        "FIX_TASK_IDENTITY",
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb015-real-source-replacement-gate-001",
+      "scope": "formal",
+      "identity_task_id": "eb015-real-source-replacement-gate-001",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "task_identity"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review",
+        "task_identity"
+      ],
+      "source_status": "PUBLIC_SOURCE_METADATA_ONLY_STAGING",
+      "controls_status": "",
+      "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+      "missing_contract": [
+        "candidate_design.json"
+      ],
+      "missing_evidence": [
+        "data/source_freeze_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/continued-build-selection-20260923-v2.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb015-real-source-replacement-gate-001-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        },
+        {
+          "path": "dist/selected-four-v3-calibrated-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 5,
+      "sha256_archive_count": 2,
+      "sha256_valid_archive": true,
+      "actions": [
+        "FIX_TASK_IDENTITY",
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FOUR_CONTROL_CALIBRATION",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "literature-screening-m1-001",
+      "scope": "formal",
+      "identity_task_id": "literature-screening-m1-001",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "file:quality/sop_card.json",
+        "file:verifier_only/reference.json"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "file:quality/sop_card.json",
+        "file:verifier_only/reference.json",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "missing:quality/sop_card.json",
+        "scientific_review",
+        "source_status:PLACEHOLDER_OR_MISSING"
+      ],
+      "source_status": "PLACEHOLDER_OR_MISSING",
+      "controls_status": "",
+      "target_model_status": "",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json",
+        "quality/sop_card.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FOUR_CONTROL_CALIBRATION",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "research-workflow-stress-test-001",
+      "scope": "formal",
+      "identity_task_id": "research-workflow-stress-test-001",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "file:quality/sop_card.json",
+        "file:verifier_only/reference.json"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "file:quality/sop_card.json",
+        "file:verifier_only/reference.json",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "missing:quality/sop_card.json",
+        "scientific_review",
+        "source_status:PLACEHOLDER_OR_MISSING"
+      ],
+      "source_status": "PLACEHOLDER_OR_MISSING",
+      "controls_status": "",
+      "target_model_status": "",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json",
+        "quality/sop_card.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FOUR_CONTROL_CALIBRATION",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-donor-stratified-signal-005",
+      "scope": "candidate",
+      "identity_task_id": "eb006-donor-stratified-signal-005",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "RAW_PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/queue14-20260924/eb006-donor-stratified-signal-005-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-research-completion-006",
+      "scope": "candidate",
+      "identity_task_id": "eb006-research-completion-006",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-research-completion-007",
+      "scope": "candidate",
+      "identity_task_id": "eb006-research-completion-007",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "file:quality/sop_card.json"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "file:quality/sop_card.json",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "missing:quality/sop_card.json",
+        "scientific_review",
+        "source_status:UNKNOWN"
+      ],
+      "source_status": null,
+      "controls_status": "PASS",
+      "target_model_status": "",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json",
+        "quality/sop_card.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-research-completion-008",
+      "scope": "candidate",
+      "identity_task_id": "eb006-research-completion-008",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "RAW_PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/completion-evidence-tranche-019.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb006-research-completion-008-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-research-completion-009",
+      "scope": "candidate",
+      "identity_task_id": "eb006-research-completion-009",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "task_identity"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review",
+        "task_identity"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "RAW_FAIL_CONTRACT_AMBIGUITY",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/eb006-research-completion-family-20260924.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "FIX_TASK_IDENTITY",
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-research-completion-010",
+      "scope": "candidate",
+      "identity_task_id": "terminal-bench-science/eb006-research-completion-010",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "task_identity"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review",
+        "task_identity"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "NOT_RUN",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/eb006-research-completion-family-20260924.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "FIX_TASK_IDENTITY",
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb006-research-completion-011",
+      "scope": "candidate",
+      "identity_task_id": "terminal-bench-science/eb006-research-completion-011",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "task_identity"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review",
+        "task_identity"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "TIMEOUT_OUTPUT_COMPLETE_SCIENCE_PASS",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/completion-evidence-tranche-019.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923-v2.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923-v3.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/continued-build-selection-20260923.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/eb006-research-completion-family-20260924.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb006-research-completion-011-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        },
+        {
+          "path": "dist/selected-four-v3-calibrated-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 7,
+      "sha256_archive_count": 2,
+      "sha256_valid_archive": true,
+      "actions": [
+        "FIX_TASK_IDENTITY",
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb010-stop-uncertainty-002",
+      "scope": "candidate",
+      "identity_task_id": "eb010-stop-uncertainty-002",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RECALIBRATION_REQUIRED",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb011-reproduction-manifest-001",
+      "scope": "candidate",
+      "identity_task_id": "eb011-reproduction-manifest-001",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "RECALIBRATION_REQUIRED",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb012-revocation-portfolio-003",
+      "scope": "candidate",
+      "identity_task_id": "eb012-revocation-portfolio-003",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb013-evidence-budget-routing-001",
+      "scope": "candidate",
+      "identity_task_id": "eb013-evidence-budget-routing-001",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/output_contract.json",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_CALIBRATION_REVIEW_REQUIRED",
+      "controls_status": "CALIBRATED",
+      "target_model_status": "NOT_RUN",
+      "missing_contract": [
+        "candidate_design.json",
+        "data/output_contract.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": true,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/l6-evidence-budget-routing-013.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        },
+        {
+          "path": "dist/queue14-20260924/eb013-evidence-budget-routing-001-optimized-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 2,
+      "sha256_archive_count": 1,
+      "sha256_valid_archive": true,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb013-observation-boundary-004",
+      "scope": "candidate",
+      "identity_task_id": "eb013-observation-boundary-004",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "RAW_PASS",
+      "missing_contract": [
+        "candidate_design.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [],
+      "archive_count": 0,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "BUILD_PACKAGE_AND_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb014-adaptive-evidence-ladder-003",
+      "scope": "candidate",
+      "identity_task_id": "terminal-bench-science/eb014-adaptive-evidence-ladder-003",
+      "pipeline_status": "CONTRACT_ONLY",
+      "evidence_status": "PENDING",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [
+        "task_identity"
+      ],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/scientific_review.json",
+        "missing:scenario-card.yaml",
+        "scientific_review",
+        "task_identity"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED_CALIBRATION_ONLY",
+      "controls_status": "",
+      "target_model_status": "",
+      "missing_contract": [
+        "candidate_design.json",
+        "scenario-card.yaml"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": true,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/eb014-adaptive-evidence-ladder-003-l12-data-heavy-20260924-v020-final.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        },
+        {
+          "path": "dist/eb014-adaptive-evidence-ladder-003-l12-data-heavy-20260924-v020.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        },
+        {
+          "path": "dist/eb014-adaptive-evidence-ladder-003-l12-data-heavy-20260924.tar.gz",
+          "sha256_sidecar": true,
+          "sha256_matches": true
+        }
+      ],
+      "archive_count": 3,
+      "sha256_archive_count": 3,
+      "sha256_valid_archive": true,
+      "actions": [
+        "FIX_TASK_IDENTITY",
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_FOUR_CONTROL_CALIBRATION",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    },
+    {
+      "task_id": "eb014-evidence-gap-followup-001",
+      "scope": "candidate",
+      "identity_task_id": "eb014-evidence-gap-followup-001",
+      "pipeline_status": "DEVELOPMENT_BUILT",
+      "evidence_status": "STATIC_REVIEW_PASS",
+      "review_status": "NOT_RUN",
+      "release_status": "BLOCKED",
+      "blockers": [],
+      "release_blockers": [
+        "dynamic_oracle_nop",
+        "missing:candidate_design.json",
+        "missing:data/numeric_provenance.tsv",
+        "missing:data/release_input_manifest.json",
+        "missing:data/source_freeze_manifest.json",
+        "missing:data/source_manifest.json",
+        "missing:quality/claim_evidence_map.tsv",
+        "missing:quality/scientific_review.json",
+        "scientific_review"
+      ],
+      "source_status": "SYNTHETIC_DISCLOSED",
+      "controls_status": "PASS",
+      "target_model_status": "NOT_RUN",
+      "missing_contract": [
+        "candidate_design.json"
+      ],
+      "missing_evidence": [
+        "data/source_manifest.json",
+        "data/source_freeze_manifest.json",
+        "data/numeric_provenance.tsv",
+        "data/release_input_manifest.json",
+        "quality/claim_evidence_map.tsv",
+        "quality/scientific_review.json"
+      ],
+      "claim_map": false,
+      "abstention_plan": false,
+      "fixed_container_replay": false,
+      "practitioner_review": false,
+      "archives": [
+        {
+          "path": "dist/completion-evidence-tranche-019.tar.gz",
+          "sha256_sidecar": false,
+          "sha256_matches": false
+        }
+      ],
+      "archive_count": 1,
+      "sha256_archive_count": 0,
+      "sha256_valid_archive": false,
+      "actions": [
+        "COMPLETE_CONTRACT_FILES",
+        "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
+        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
+        "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
+        "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
+        "REPACKAGE_WITH_VALID_SHA256",
+        "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
+      ]
+    }
+  ]
+}

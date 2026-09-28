@@ -28,6 +28,7 @@ This index is the entry point for auditing the current repository snapshot. It s
 | Evidence-surface and abstention audit | `reports/evidence_surface_abstention_audit_2026-09-24.md` |
 | Abstention variant gate | `reports/abstention_variant_gate_2026-09-24.md` |
 | EB010 v0.8.0 abstention audit | `reports/eb010-abstention-variant-audit-20260928.md` |
+| Packaging and checklist audit | `reports/packaging_checklist_audit_20260928.md` and `.json` |
 | Per-task repair ledger | `reports/per_task_repair_plans_2026-09-24.md` |
 | Fast replay queue | `reports/queue8_replay_checkpoint_2026-09-24.md` and `reports/queue10_fast_gate_check_2026-09-24.md` |
 | Packaging inventory | `reports/queue14_packaging_2026-09-24.md` |
@@ -45,6 +46,7 @@ These counts intentionally use different denominators:
 - Source manifests: **3** `source_manifest.json` files are present locally.
 - Frozen source manifests: **0** `source_freeze_manifest.json` files are present locally.
 - Named scientific reviews: **0** `scientific_review.json` files are present locally.
+- Packaging audit: **21/46** tasks have no identifiable archive; only **15/46** have an archive with a matching `.sha256` sidecar; **0/46** are `READY_FOR_HARBOR`.
 
 The first current-version optimization closure is recorded for `eb010-closed-loop-ambiguity-004` v0.8.0: controls are calibrated, author baselines are complete, and the four independent-unit abstention variants have a passing auditable score record. Target-model calibration, fixed-container replay, source freeze, and practitioner review remain open.
 
