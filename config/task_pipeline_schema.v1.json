@@ -1,0 +1,58 @@
+{
+  "schema_version": "task_pipeline.v1",
+  "description": "Fail-closed lifecycle contract for biomedical Harbor task packages.",
+  "canonical_source": {
+    "task_identity": ["task_id", "task_version", "source_commit", "data_fingerprint", "contract_fingerprint"],
+    "write_direction": "candidate_pools -> benchmarks -> dist",
+    "generated_copies": ["environment/instruction.md", "environment/data", "tests/verification_data", "tests/verifier.py", "verifier.py"]
+  },
+  "promotion_states": [
+    "SOURCE_OBSERVED",
+    "REQUIREMENTS_REVIEWED",
+    "CANDIDATE_SET",
+    "SELECTED",
+    "CONTRACT_ONLY",
+    "CALIBRATION_READY",
+    "MODEL_TRIAL_COMPLETE",
+    "READY_FOR_HARBOR",
+    "PUBLISHED"
+  ],
+  "status_axes": {
+    "pipeline_status": ["CONTRACT_ONLY", "DEVELOPMENT_BUILT", "MODEL_TRIALED", "RELEASE_CANDIDATE", "PUBLISHED"],
+    "evidence_status": ["PENDING", "EVIDENCE_CONTRACT_VALIDATED", "STATIC_REVIEW_PASS", "ENGINEERING_VALIDATED", "MODEL_TRIAL_ANALYZED"],
+    "review_status": ["NOT_RUN", "REVIEW_REQUIRED", "APPROVED", "BLOCKED", "NOT_APPLICABLE"],
+    "release_status": ["BLOCKED", "REVIEW_REQUIRED", "READY_FOR_HARBOR", "PUBLISHED"]
+  },
+  "required_contract_files": [
+    "candidate_design.json",
+    "scenario-card.yaml",
+    "data/output_contract.json",
+    "quality/sop_card.json"
+  ],
+  "release_evidence_files": [
+    "data/source_manifest.json",
+    "data/source_freeze_manifest.json",
+    "data/numeric_provenance.tsv",
+    "data/release_input_manifest.json",
+    "quality/claim_evidence_map.tsv",
+    "quality/scientific_review.json"
+  ],
+  "dynamic_gates": [
+    "oracle",
+    "nop",
+    "delete_required_artifact",
+    "tamper_required_field",
+    "semantic_equivalence",
+    "mutation",
+    "fixed_container_replay"
+  ],
+  "release_gates": [
+    "source_rights_and_privacy",
+    "source_freeze",
+    "source_derived_replay",
+    "independent_scientific_review",
+    "practitioner_review",
+    "archive_hash_and_unpack_replay"
+  ],
+  "fail_closed": true
+}

@@ -10,9 +10,9 @@
 
 当前范围分开统计：
 
-- 正式 Git 题目范围：32 道。
-- 工作区题目范围：46 道。
-- 尚未晋级正式范围的候选题：14 道。
+- 正式发布范围：32 道（由 `config/task_scope.v1.json` 明确维护）。
+- 已版本化工作区题目范围：46 道。
+- 尚未晋级正式范围的候选题：14 道；提交到 Git 不代表晋级。
 - 最近全量测试：318 passed, 6 skipped。
 - `crispr-resistance-e2e-001` 仍缺完整 verifier/reference。
 - 本地 evidence map 11 份，source manifest 3 份，source freeze manifest 0 份，named scientific review 0 份。
@@ -145,4 +145,3 @@
 - [ ] 正式发布题全部通过静态、动态、mutation、来源、科学审阅、fixed-container、包装和人工复核门禁。
 - [ ] 所有模型结果按当前题目版本和数据 fingerprint 归档，`NOT_RUN`、`SUPERSEDED`、`INFRASTRUCTURE_BLOCKED` 不进入难度结论。
 - [ ] GitHub issue、仓库审计索引和最终发布 manifest 可以相互链接并复核同一版本。
-

@@ -8,8 +8,8 @@ Scope: latest local benchmark, quality, replay, packaging, and release-gate work
 
 This index is the entry point for auditing the current repository snapshot. It separates:
 
-- **tracked release scope**: the 32 task packages represented by `benchmarks/*/task.yaml` at the repository baseline;
-- **working-tree candidate scope**: additional task packages materialized locally but not yet promoted to the formal release scope;
+- **formal release scope**: the 32 task packages listed in `config/task_scope.v1.json`;
+- **versioned candidate scope**: additional task packages committed for auditability but still listed under `candidate_only_scope`;
 - **evidence artifacts**: quality cards, trial records, replay records, audit reports, package manifests, and SHA-256 sidecars;
 - **release gates**: checks that must pass before Harbor publication, even when local tests or target-model trials pass.
 
@@ -36,8 +36,8 @@ This index is the entry point for auditing the current repository snapshot. It s
 
 These counts intentionally use different denominators:
 
-- Formal repository scope: **32** task packages.
-- Local working-tree scope: **46** task packages.
+- Formal release scope: **32** task packages.
+- Versioned working-tree scope: **46** task packages.
 - Candidate-only additions: **14** packages; they are not formal release tasks until promoted.
 - Standardization audit: **46** packages scanned, all with non-empty data and no syntax errors in the recorded scan; `crispr-resistance-e2e-001` remains the one package without a verifier and reference.
 - Evidence maps: **11** `claim_evidence_map.tsv` files are present locally.
@@ -86,4 +86,3 @@ git diff --check
 ```
 
 For fixed-container work, use the queue reports and preserve the task data fingerprint, container image digest, verifier result, and archive SHA-256 together. Do not overwrite older trial records when a task version or data fingerprint changes.
-
