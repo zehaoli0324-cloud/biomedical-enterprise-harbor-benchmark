@@ -3,9 +3,9 @@
   "task_id": "eb013-cross-context-evidence-portfolio-005",
   "sop_version": "enterprise-harbor-sop-v1.2",
   "source_status": "SYNTHETIC_DISCLOSED",
-  "contract_status": "FROZEN_V1.0.1",
+  "contract_status": "FROZEN_V1.2.0",
   "control_status": "CALIBRATED",
-  "model_trial_status": "PASS",
+  "model_trial_status": "RAW_PASS_CURRENT_VERSION",
   "independent_verifier_status": "AUTOMATED_CROSSCHECK_PASS",
   "release_status": "BLOCKED",
   "release_blockers": [

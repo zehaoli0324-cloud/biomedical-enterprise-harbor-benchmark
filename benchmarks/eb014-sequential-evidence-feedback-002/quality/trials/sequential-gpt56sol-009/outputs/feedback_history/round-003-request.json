@@ -1,0 +1,7 @@
+{
+  "round": 3,
+  "action_id": "orthogonal_assay",
+  "question_id": "Q-CONTEXT",
+  "rationale": "The quality audit passed and the context comparison detected a shift, so an orthogonal assay is the next legal test to determine whether that shift is independently confirmed before handoff.",
+  "expected_information": "Whether the context shift is orthogonal_confirmed or orthogonal_unresolved."
+}

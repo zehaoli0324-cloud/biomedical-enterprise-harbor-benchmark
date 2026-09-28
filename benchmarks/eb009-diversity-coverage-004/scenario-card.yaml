@@ -7,6 +7,16 @@ scientific_judgments:
   - validity_and_identifier_integrity
   - scaffold_and_cluster_coverage
   - portfolio_triage_claim_boundary
+difficulty_modules:
+  - id: data_evidence_graph_join
+    observable: each valid candidate is linked to one scaffold and one cluster without duplicate evidence counting
+    decision_flip: an identifier or cluster join conflict removes the affected candidate from coverage rather than imputing validity
+  - id: math_sensitivity_frontier
+    observable: coverage is recomputed under leave-one-cluster-out and validity-threshold perturbations
+    decision_flip: a portfolio that only passes at one threshold is marked sensitive or hold
+  - id: judgment_blocker_and_abstention
+    observable: invalid structure, collapsed cluster and insufficient coverage are separate review blockers
+    decision_flip: a high objective score cannot approve a portfolio when coverage evidence is insufficient
 workflow_handoffs:
   - from: generation
     to: diversity_audit

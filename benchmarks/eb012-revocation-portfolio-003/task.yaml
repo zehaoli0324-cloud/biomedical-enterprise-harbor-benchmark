@@ -1,0 +1,18 @@
+id: eb012-revocation-portfolio-003
+version: "1.0.0"
+status: ready_for_calibration
+title: "Revocation-aware cross-stage portfolio replay"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: JSON event replay inputs
+constraints:
+  network: off
+required_outputs:
+  - {id: decision, path: outputs/decision.json, required_fields: [rules_version, selected_portfolio, robust_score, portfolios]}
+  - {id: replay, path: outputs/replay.tsv, required_fields: [chain_id, checkpoint, source_active, sensitivity, eligible, blockers, effective_claim, utility, lot_id]}
+  - {id: audit, path: outputs/audit.md, required_fields: [retraction, checkpoint, shared_lot, claim_boundary, human_review]}
+  - {id: manifest, path: outputs/manifest.json, required_fields: [input_sha256, rules_version, deterministic]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

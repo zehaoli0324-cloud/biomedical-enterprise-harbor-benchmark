@@ -1,0 +1,14 @@
+{
+  "schema_version": "task_optimization_queue.v1",
+  "task_id": "eb010-closed-loop-ambiguity-004",
+  "status": "QUEUED_FOR_DATA_OPTIMIZATION",
+  "trial_owner": "parallel_window",
+  "target_trial_status_before_merge": "BASELINES_COMPLETE / NOT_RUN",
+  "objectives": [
+    "Finish the data-expansion recalibration already required by the current evidence card",
+    "Increase ambiguous-state coverage with enough numeric evidence for multiple decisions",
+    "Recompute oracle, difficulty card, and held-out mutation results",
+    "Keep the ambiguity boundary explicit and prevent a blanket-abstain solution"
+  ],
+  "merge_gates": ["recalibration PASS", "evidence surface PASS", "focused tests PASS", "target trial result imported without status rewriting"]
+}

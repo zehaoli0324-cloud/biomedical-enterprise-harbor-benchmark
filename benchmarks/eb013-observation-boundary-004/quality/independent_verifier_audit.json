@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "review_status": "pass",
+  "human_review": "NOT_RUN",
+  "method": "label-first Decimal oracle vs world-first Fraction oracle",
+  "variant_count": 8
+}

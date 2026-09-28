@@ -1,5 +1,5 @@
 from __future__ import annotations
-import argparse, hashlib, itertools, json
+import argparse, csv, hashlib, io, itertools, json
 from pathlib import Path
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def _route_reduction(requests):
@@ -37,7 +37,14 @@ def verify(submission,data,reference):
     for n in ("plan.json","route.tsv","decision.json","provenance.json","audit.md"):
         if not (submission/n).is_file(): errors.append("missing artifact: "+n)
     if errors:return False,errors
-    plan=json.loads((submission/"plan.json").read_text()); decision=json.loads((submission/"decision.json").read_text())
+    parsed={}
+    for name in ("plan.json","decision.json","provenance.json"):
+        try:
+            parsed[name]=json.loads((submission/name).read_text())
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            errors.append(f"invalid JSON: {name} ({exc.__class__.__name__})")
+    if errors:return False,errors
+    plan,decision=parsed["plan.json"],parsed["decision.json"]
     for name,payload in (("plan",plan),("decision",decision)):
         stage1 = payload.get("stage1_request_id", payload.get("selected_stage1_request_id"))
         if stage1!=exp["selected_stage1_request_id"] or payload.get("stage2_policy", payload.get("selected_stage2_policy"))!=exp["selected_stage2_policy"]: errors.append(name+" selected policy mismatch")
@@ -50,6 +57,9 @@ def verify(submission,data,reference):
         states = policy.get("states", policy.get("observation_states", []))
         if isinstance(states, dict):
             states = [dict(value, observation=key) for key, value in states.items()]
+        if states and all(isinstance(row, str) for row in states):
+            states = []
+            states_present = False
         normalized = []
         for row in states:
             residual = row.get("residual_uncertainty", row.get("residuals"))
@@ -61,7 +71,9 @@ def verify(submission,data,reference):
                 eligible = maximum <= 0.25
             normalized.append({"observation": row.get("observation", row.get("observation_state")), "stage2_request_id": row.get("stage2_request_id"), "residual_uncertainty": residual, "max_critical_residual": maximum, "cost": row.get("cost", row.get("total_cost")), "eligible": eligible})
         normalized.sort(key=lambda row: str(row["observation"]))
-        return {"stage1_request_id": policy.get("stage1_request_id"), "stage2_policy": policy.get("stage2_policy", {}), "states": normalized, "states_present": states_present, "worst_case_max_critical_residual": policy.get("worst_case_max_critical_residual"), "worst_case_cost": policy.get("worst_case_cost"), "eligible": policy.get("eligible"), "complete": policy.get("complete", True)}
+        stage2_policy = policy.get("stage2_policy", {})
+        incomplete = bool(stage2_policy) and all(value is None for value in stage2_policy.values())
+        return {"stage1_request_id": policy.get("stage1_request_id"), "stage2_policy": stage2_policy, "states": normalized, "states_present": states_present, "worst_case_max_critical_residual": None if incomplete else policy.get("worst_case_max_critical_residual"), "worst_case_cost": None if incomplete else policy.get("worst_case_cost"), "eligible": False if incomplete else policy.get("eligible"), "complete": False if incomplete else policy.get("complete", True)}
     def canonical_policies(value):
         if not isinstance(value, list): return []
         return sorted((canonical_policy(policy) for policy in value), key=lambda p: (str(p["stage1_request_id"]), sorted(p["stage2_policy"].items())))
@@ -74,17 +86,35 @@ def verify(submission,data,reference):
         expected_by_id = {row["stage1_request_id"]: row for row in expected_rows}
         for row in actual_rows:
             expected_row = expected_by_id.get(row["stage1_request_id"])
-            if row["states_present"] and row["states"] != expected_row["states"]:
+            if expected_row["complete"] and row["states_present"] and row["states"] != expected_row["states"]:
                 return False
         return True
     expected_policies = canonical_policies(exp["policies"])
     if not policies_equivalent(decision.get("policies"), exp["policies"]): errors.append("decision policies mismatch")
     if not policies_equivalent(plan.get("policies"), exp["policies"]): errors.append("plan policies mismatch")
-    rows=(submission/"route.tsv").read_text().splitlines();
-    row_count=max(len(rows)-1,0)
-    state_count=sum(len(policy["states"]) for policy in exp["policies"])
-    if row_count not in {len(exp["policies"]),state_count}: errors.append("route coverage mismatch")
-    prov=json.loads((submission/"provenance.json").read_text()); hashes=prov.get("input_sha256",{})
+    try:
+        route_rows=list(csv.DictReader(io.StringIO((submission/"route.tsv").read_text()), delimiter="\t"))
+    except (OSError, UnicodeDecodeError, csv.Error):
+        route_rows=[]
+    required_route_fields={"stage1_request_id","observation","stage2_request_id","eligible","blockers"}
+    expected_route={(policy["stage1_request_id"], state["observation"]): state for policy in exp["policies"] for state in policy["states"]}
+    actual_route={}
+    for row in route_rows:
+        key=(row.get("stage1_request_id",""), row.get("observation",""))
+        if key in actual_route or not required_route_fields.issubset(row):
+            errors.append("route schema mismatch")
+            break
+        actual_route[key]=row
+    if set(actual_route)!=set(expected_route): errors.append("route coverage mismatch")
+    elif not errors:
+        for key, expected_state in expected_route.items():
+            row=actual_route[key]
+            expected_stage2=expected_state["stage2_request_id"] or ""
+            expected_eligible=str(expected_state["eligible"]).lower()
+            if row.get("stage2_request_id","")!=expected_stage2 or row.get("eligible","").lower()!=expected_eligible:
+                errors.append("route state mismatch")
+                break
+    prov=parsed["provenance.json"]; hashes=prov.get("input_sha256",{})
     hashes={str(name).removeprefix("data/"): digest for name,digest in hashes.items() if str(name).removeprefix("data/")!="instruction.md"}
     if hashes!=exp["hashes"] or prov.get("rules_version")!=exp["rules_version"] or prov.get("network")!="off" or prov.get("deterministic") is not True: errors.append("provenance mismatch")
     audit=(submission/"audit.md").read_text().lower().replace("stage-1","stage 1").replace("stage-2","stage 2")

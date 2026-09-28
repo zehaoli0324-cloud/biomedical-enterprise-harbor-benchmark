@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb006-signal-noise-004",
-  "spec_digest": "de00e0b9400e931695b493046097ebf6514f503b7fdcdfe37644f5bcd1c00612",
+  "spec_digest": "788121e3c7f87e96bb4e5f205879452353659d7839d8f747de22348371374807",
   "evaluation": {
     "scale": {
       "min": 0.0,

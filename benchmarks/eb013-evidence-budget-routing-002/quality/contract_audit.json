@@ -50,6 +50,7 @@
       "equivalents": [
         "stage1_request_id plus stage2_policy mapping",
         "policy object or policy list",
+        "explicit incomplete policy with null stage2 actions",
         "states or observation_states",
         "observation or observation_state",
         "max_critical_residual or critical_residual_max",
@@ -108,5 +109,18 @@
       "expected": "fail"
     }
   ],
+  "representation_matrix": [
+    {"fixture": "complete object observation states", "expected": "pass"},
+    {"fixture": "summary-only string observation states", "expected": "pass"},
+    {"fixture": "incomplete all-null stage2 policy summary", "expected": "pass"},
+    {"fixture": "malformed mixed state row types", "expected": "structured contract_error"}
+  ],
+  "crash_regression": {
+    "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-006",
+    "initial_error": "AttributeError from treating summary observation-state strings as objects",
+    "unchanged_artifact_replay": "PASS",
+    "unhandled_exception_allowed": false,
+    "difficulty_evidence": false
+  },
   "replay_policy": "preserve raw trial artifacts and replay unchanged artifacts after contract repair"
 }

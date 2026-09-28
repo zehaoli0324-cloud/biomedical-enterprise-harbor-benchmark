@@ -1,0 +1,7 @@
+{
+  "round": 2,
+  "action_id": "compare_context",
+  "question_id": "Q-CONTEXT",
+  "rationale": "Quality audit passed, so the remaining target degradation can be tested as a context-transfer question before interpreting it as a quality artifact.",
+  "expected_information": "Whether the registered-cohort effect transfers to the target context (context_shift or context_aligned)."
+}

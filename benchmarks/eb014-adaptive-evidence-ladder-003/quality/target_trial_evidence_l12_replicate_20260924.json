@@ -1,0 +1,21 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "difficulty_level": "L12_STATIC_CONTINGENT_POLICY_REPLAY",
+  "trial_id": "adaptive-ladder-l12-gpt56sol-003",
+  "model": "gpt-5.6-sol",
+  "trial_path": "/private/tmp/eb014-l12-target-trial-20260924-retry/adaptive-ladder-l12-gpt56sol-003",
+  "runner_status": "agent_error",
+  "agent_exit_code": 124,
+  "timed_out": true,
+  "accepted_actions": 10,
+  "last_action": "confounding_audit",
+  "completion_attempts": 0,
+  "verifier_status": "not_reached_with_complete_submission",
+  "classification": "MULTIROUND_BEHAVIOR_PARTIAL_INFRASTRUCTURE_TIMEOUT",
+  "scientific_failure": false,
+  "infrastructure_failure": true,
+  "target_model_defeated": false,
+  "interpretation": "The model accepted the first ten evidence observations and reached the final robustness prerequisite, but the adapter budget expired while it was repairing the research log. No stop or L12 policy submission was available for assessment.",
+  "release_effect": "exclude from difficulty denominator; retain as adapter-budget evidence"
+}

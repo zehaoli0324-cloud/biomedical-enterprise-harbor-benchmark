@@ -58,6 +58,39 @@ def test_multiline_required_outputs_are_detected(tmp_path):
     assert result["blockers"] == []
 
 
+def test_inline_required_outputs_are_detected(tmp_path):
+    package = tmp_path / "enterprise-task-001"
+    make_package(package)
+    result = module.evaluate(package)
+    assert result["status"] == "PASS"
+    assert result["blockers"] == []
+
+
+def test_empty_strategy_entries_do_not_crash_and_release_blockers_propagate(tmp_path):
+    package = tmp_path / "enterprise-task-001"
+    make_package(package)
+    write_json(package / "quality/model_trial_card.json", {
+        "strategies": sorted(module.REQUIRED_STRATEGIES),
+        "target_model_status": "PASS",
+        "run_records": [{"strategy": None}, {"strategy": "reference_solution"}, {"strategy": "simple_legal_baseline"}, {"strategy": "always_abstain"}, {"strategy": "template_or_keyword"}],
+    })
+    write_json(package / "quality/sop_card.json", {
+        "schema_version": "enterprise_harbor_sop_card.v1",
+        "task_id": package.name,
+        "source_status": "REVIEW_REQUIRED",
+        "contract_status": "CONTRACT_ONLY",
+        "control_status": "CALIBRATED",
+        "model_trial_status": "PASS",
+        "independent_verifier_status": "PASS",
+        "release_status": "BLOCKED",
+        "release_blockers": ["fixed-container replay"],
+    })
+    result = module.evaluate(package)
+    assert result["status"] == "PASS"
+    assert result["release_status"] == "BLOCKED"
+    assert result["release_blockers"] == ["fixed-container replay"]
+
+
 def test_infrastructure_failure_is_not_difficulty_evidence(tmp_path):
     package = tmp_path / "enterprise-task-001"
     make_package(package, target_status="TIMEOUT_INFRASTRUCTURE")
@@ -84,3 +117,10 @@ def test_output_contract_normalization_template_separates_failure_layers():
     ]
     assert template["promotion_state_machine"][-2:] == ["DIFFICULTY_ESCALATION", "HELD_OUT_DIFFICULTY_TRIAL"]
     assert template["escalation_gate"]["blocked_until"] == "CONTRACT_STABLE"
+
+
+def test_output_contract_requires_summary_representation_and_crash_regression():
+    template = json.loads((ROOT / "config/output_contract_normalization_v1.json").read_text())
+    assert template["representation_matrix"]["positive_cases_must_replay"] is True
+    assert template["representation_matrix"]["unhandled_exception_is_forbidden"] is True
+    assert "crash_regression" in template["trial_result_schema"]["preserve"]

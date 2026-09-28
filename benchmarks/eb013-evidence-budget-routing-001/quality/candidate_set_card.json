@@ -1,0 +1,1 @@
+{"candidate_set_id":"CSET-EB013-EVIDENCE-BUDGET-ROUTING-001-001","source_benchmark_id":"EB013-SYNTHETIC","candidates":[{"candidate_id":"eb013-evidence-budget-routing-001","selection_status":"MATERIALIZED","semantic_axes":["binding_uncertainty","dependency_route","correlated_evidence","temporal_provenance"]}],"status":"REVIEW_REQUIRED"}

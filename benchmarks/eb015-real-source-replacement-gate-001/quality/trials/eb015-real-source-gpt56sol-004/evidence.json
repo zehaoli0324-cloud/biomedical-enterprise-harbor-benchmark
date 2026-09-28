@@ -1,0 +1,15 @@
+{
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "trial_id": "eb015-real-source-gpt56sol-004",
+  "model": "gpt-5.6-sol",
+  "classification": "RAW_PASS",
+  "runner_status": "pass",
+  "agent_exit_code": 0,
+  "verifier_status": "pass",
+  "timed_out": false,
+  "elapsed_seconds": 316.28919,
+  "required_artifacts_written": true,
+  "valid_difficulty_evidence": false,
+  "target_model_defeated": false,
+  "trial_dir": "/private/tmp/biomedical-three-trials-rerun-20260923/eb015/eb015-real-source-gpt56sol-004"
+}

@@ -1,0 +1,372 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb006-research-completion-006",
+    "title": "Completion-gated donor evidence research",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "EB006"
+    ],
+    "data_types": [
+      "csv",
+      "json",
+      "python",
+      "markdown"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb006-research-completion-006",
+    "raw_score": 4.52,
+    "adjusted_score": 5.0,
+    "band": "frontier",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "A profile-review handoff must reconcile donor-balanced, pooled, and influence-robust evidence.",
+        "tags": [
+          "donor",
+          "research-completion"
+        ]
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.5,
+        "rationale": "The nominal, pooled, and LODO-robust winners differ and require a bounded resolution.",
+        "tags": [
+          "influence",
+          "competing-estimands"
+        ]
+      },
+      "computational_difficulty": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "A standalone program computes 24 unit effects, 30 scenario checks, pooled diagnostics, summaries, and decisions.",
+        "tags": [
+          "executable-analysis",
+          "scenario-enumeration"
+        ]
+      },
+      "tool_call_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "The submission is executed repeatedly in clean directories and on reordered input.",
+        "tags": [
+          "replay",
+          "completion-gate"
+        ]
+      },
+      "retrieval_complexity": {
+        "level": 2,
+        "weight": 1.0,
+        "rationale": "All evidence and the public completion contract are offline.",
+        "tags": [
+          "offline"
+        ]
+      },
+      "information_noise_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Unequal technical replication makes the pooled winner scientifically misleading.",
+        "tags": [
+          "pooled-adversary",
+          "missing-pair"
+        ]
+      },
+      "data_type_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "CSV inputs, JSON policy/contract, executable Python, JSON outputs, provenance, and audit text must agree.",
+        "tags": [
+          "multi-artifact",
+          "executable"
+        ]
+      },
+      "data_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "The design crosses candidate, donor, state, condition, replicate, and omission scenario.",
+        "tags": [
+          "nested-units",
+          "lodo"
+        ]
+      },
+      "environment_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "The analysis must replay deterministically under a shared budget without network access.",
+        "tags": [
+          "offline",
+          "clean-replay"
+        ]
+      },
+      "mathematical_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Exact aggregation, precedence, thresholds, omission stability, and three ranking objectives interact.",
+        "tags": [
+          "robustness",
+          "stratified"
+        ]
+      },
+      "long_horizon_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Submission is accepted only after executable primary, alternative, sensitivity, and resolution evidence passes the public gate.",
+        "tags": [
+          "returnable-submission",
+          "research-completion"
+        ]
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "The recommendation remains analytical triage requiring human review.",
+        "tags": [
+          "claim-boundary"
+        ]
+      }
+    },
+    "interactions": [
+      "long_horizon_x_tool_orchestration",
+      "judgment_x_noisy_evidence",
+      "data_x_environment"
+    ],
+    "selected_modules": {
+      "scenario": [
+        {
+          "id": "scenario_omics_analysis",
+          "params": {}
+        }
+      ],
+      "judgment": [
+        {
+          "id": "judgment_influence_reconciliation",
+          "params": {}
+        },
+        {
+          "id": "judgment_experimental_unit",
+          "params": {}
+        }
+      ],
+      "compute": [
+        {
+          "id": "compute_multistage_analysis",
+          "params": {}
+        }
+      ],
+      "tooling": [
+        {
+          "id": "tool_branching_pipeline",
+          "params": {}
+        }
+      ],
+      "retrieval": [
+        {
+          "id": "retrieval_schema_discovery",
+          "params": {}
+        }
+      ],
+      "noise": [
+        {
+          "id": "noise_pooled_stratified_adversary",
+          "params": {}
+        }
+      ],
+      "data": [
+        {
+          "id": "data_experimental_unit_hierarchy",
+          "params": {}
+        }
+      ],
+      "data_complexity": [
+        {
+          "id": "complexity_replicates_and_batches",
+          "params": {}
+        },
+        {
+          "id": "complexity_sparse_or_missing",
+          "params": {}
+        }
+      ],
+      "environment": [
+        {
+          "id": "environment_offline_setup",
+          "params": {}
+        },
+        {
+          "id": "environment_resource_budget",
+          "params": {}
+        }
+      ],
+      "math": [
+        {
+          "id": "math_stratified_partial_identifiability",
+          "params": {}
+        },
+        {
+          "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        }
+      ],
+      "horizon": [
+        {
+          "id": "horizon_verified_research_completion",
+          "params": {}
+        }
+      ],
+      "safety": [
+        {
+          "id": "safety_human_approval_gate",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "csv",
+      "json",
+      "python",
+      "markdown"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 900,
+    "memory_mb": 1024,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "90aabdc7ade3300d7f61404f6de2f64a3dbfdee5b102d73b5e84d3f2bbd019ab",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb006-research-completion-006/scenario-card.yaml",
+    "digest": "ba5ac5fcd596e608f9283dbc34925745d293627ec3551d057dc274af8d0ec557",
+    "scenario_id": "eb006-research-completion-006",
+    "status": "ready",
+    "source_scenarios": [
+      "EB006"
+    ],
+    "scientific_judgments": [
+      "technical repeats are not independent donors",
+      "a nominal winner can fail an influential-unit sensitivity",
+      "reproducible output is not scientific correctness"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "synthetic_disclosed",
+      "observability": "pass",
+      "verifiability": "automated_controls",
+      "naive_resistance": "automated_controls",
+      "human_review": "NOT_RUN",
+      "isolated_replay": "NOT_RUN"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

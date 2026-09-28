@@ -1,0 +1,13 @@
+{
+  "input_sha256": {
+    "data/actions.json": "e6cddd2232e387d0e500544911c3e934c4513f3f62b2cdf82d2a8d2fa7ae619b",
+    "data/evidence.json": "3dd615bb8eb1e9d9a71d015e29c8a5a1daad7269cb06da52850766c659181a82",
+    "data/feedback.json": "da6c3e6ff2a5bb407ca0cd6c5900a3a5fbd3aad24eb809e3dadccbf857946eac",
+    "data/output_contract.json": "b197ae0402ab284b62c44ec1043b5ea844f2e9fd4bee1849257a6279b43fcfd7",
+    "data/rules.json": "7e4bb54a41e8980fee693c1666b24903e051c65c5d8a33cffd464e064c4efb1d",
+    "data/sources.json": "e839babbd1e60f15109defc95da69767572a0e9b9de957a9e58525832d4f07a3"
+  },
+  "rules_version": "evidence-gap-followup-v1",
+  "network": "off",
+  "deterministic": true
+}

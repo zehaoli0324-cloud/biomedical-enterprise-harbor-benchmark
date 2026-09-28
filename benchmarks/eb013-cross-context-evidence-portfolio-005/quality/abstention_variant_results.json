@@ -1,0 +1,88 @@
+{
+  "schema_version": "selected_four_dynamic_controls.v1",
+  "task_id": "eb013-cross-context-evidence-portfolio-005",
+  "status": "PASS",
+  "oracle_nop_mutation": {
+    "oracle": {
+      "variant_id": "oracle",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    "nop": {
+      "variant_id": "nop",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "delivery_error: missing or invalid plan.json",
+        "delivery_error: missing or invalid decision.json",
+        "delivery_error: missing or invalid portfolio.tsv",
+        "delivery_error: missing or invalid context.tsv",
+        "delivery_error: missing or invalid provenance.json",
+        "delivery_error: missing or invalid audit.md",
+        "delivery_error: missing or invalid planner.py"
+      ],
+      "note": ""
+    },
+    "mutation": {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "contexts.C1.decision: mismatch"
+      ],
+      "note": ""
+    }
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "decision.decision: mismatch"
+      ],
+      "note": ""
+    },
+    {
+      "variant_id": "all_definite",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": "No insufficient unit exists; the control confirms that none may be invented."
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "contexts.C1.decision: mismatch"
+      ],
+      "note": ""
+    }
+  ],
+  "blanket_abstain_fraction_of_reference_score": 0.0,
+  "generated_by": "scripts/check_selected_four_v2.py"
+}

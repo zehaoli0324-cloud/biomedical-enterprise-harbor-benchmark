@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
-  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "NOT_RUN",
+  "status": "BASELINES_COMPLETE",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -48,7 +48,7 @@
       "strategy": "template_or_keyword",
       "status": "verifier_fail",
       "passed": false,
-      "error_count": 63,
+      "error_count": 104,
       "failure_attribution": "method_choice",
       "errors": [
         "policy report must cover every policy exactly once",
@@ -113,49 +113,56 @@
         "P-UNKNOWN eligible mismatch",
         "P-UNKNOWN blockers mismatch",
         "P-UNKNOWN branches mismatch",
-        "P-UNKNOWN profiles mismatch"
+        "P-UNKNOWN profiles mismatch",
+        "P-ROBUST eligible mismatch",
+        "P-ROBUST blockers mismatch",
+        "P-ROBUST robust_cvar mismatch",
+        "P-ROBUST max_profile_regret mismatch",
+        "P-ROBUST nominal_expected_utility mismatch",
+        "P-ROBUST branches mismatch",
+        "P-ROBUST profiles mismatch",
+        "P-LOWCOST eligible mismatch",
+        "P-LOWCOST blockers mismatch",
+        "P-LOWCOST robust_cvar mismatch",
+        "P-LOWCOST max_profile_regret mismatch",
+        "P-LOWCOST nominal_expected_utility mismatch",
+        "P-LOWCOST branches mismatch",
+        "P-LOWCOST profiles mismatch",
+        "P-RISKY eligible mismatch",
+        "P-RISKY blockers mismatch",
+        "P-RISKY branches mismatch",
+        "P-RISKY profiles mismatch",
+        "P-SIGNAL eligible mismatch",
+        "P-SIGNAL blockers mismatch",
+        "P-SIGNAL robust_cvar mismatch",
+        "P-SIGNAL max_profile_regret mismatch",
+        "P-SIGNAL nominal_expected_utility mismatch",
+        "P-SIGNAL branches mismatch",
+        "P-SIGNAL profiles mismatch",
+        "P-LEAKED-2 eligible mismatch",
+        "P-LEAKED-2 blockers mismatch",
+        "P-LEAKED-2 branches mismatch",
+        "P-LEAKED-2 profiles mismatch",
+        "P-ARCHIVED-2 eligible mismatch",
+        "P-ARCHIVED-2 blockers mismatch",
+        "P-ARCHIVED-2 branches mismatch",
+        "P-ARCHIVED-2 profiles mismatch",
+        "P-MISSING-MIXED eligible mismatch",
+        "P-MISSING-MIXED blockers mismatch",
+        "P-MISSING-MIXED branches mismatch",
+        "P-MISSING-MIXED profiles mismatch",
+        "P-UNLISTED-STRONG eligible mismatch",
+        "P-UNLISTED-STRONG blockers mismatch",
+        "P-UNLISTED-STRONG branches mismatch",
+        "P-UNLISTED-STRONG profiles mismatch"
       ]
-    },
-    {
-      "strategy": "target_model",
-      "model": "gpt-5.6-sol",
-      "trial_id": "eb010-distributional-policy-stress-006-gpt56sol-001",
-      "status": "invalid_contract_defect",
-      "passed": false,
-      "valid_difficulty_evidence": false,
-      "runner_status": "verifier_fail",
-      "agent_exit_code": 0,
-      "timed_out": false,
-      "duration_seconds": 642.7,
-      "failure_attribution": "undocumented branch container, numeric rounding and lexical equivalence",
-      "unchanged_artifact_replay": "pass",
-      "original_verifier_error_count": 156
-    },
-    {
-      "strategy": "target_model",
-      "model": "gpt-5.6-sol",
-      "trial_id": "eb010-distributional-policy-stress-006-gpt56sol-002",
-      "status": "pass_after_contract_replay",
-      "passed": true,
-      "valid_difficulty_evidence": true,
-      "runner_status": "verifier_fail_then_unchanged_artifact_replay_pass",
-      "original_runner_status": "verifier_fail",
-      "agent_exit_code": 0,
-      "timed_out": false,
-      "duration_seconds": 421.925,
-      "failure_attribution": "one-unit-last-place intermediate-rounding verifier boundary",
-      "original_verifier_errors": [
-        "P-CONFIRM profiles mismatch",
-        "profile evidence regret mismatch"
-      ],
-      "artifact_sha256": {
-        "policy.json": "24d7da2206eab209a3dbedbb16014656bc609b6a9943c341f4169396d1badb5a",
-        "branches.tsv": "b0026895b985d04c297f7cf8f2dbe3eb45fe1570eb4199efdb18b23be6e2d632",
-        "profiles.tsv": "46cf11277199253b4f151e8bec3b1b97dbfbfaec18a14a39cb68b555e1379bd5",
-        "audit.md": "9d2a3831b87fb1ee28857e8a85638d669d8c51107b7c89141a16d3150f7f2ebe",
-        "manifest.json": "3f2790ce08bd7f926dfba2258786423a00b2db503fb53ca972a44545e42d5c1b"
-      },
-      "trial_dir": "/private/tmp/enterprise-l53-target-trials-v2/eb010-distributional-policy-stress-006-gpt56sol-002"
     }
-  ]
+  ],
+  "data_expansion": {
+    "status": "SUPERSEDES_PREVIOUS_TRIAL",
+    "expanded_on": "2026-09-24",
+    "fixture_version": "data-expanded-20260924",
+    "previous_status": "BASELINES_COMPLETE",
+    "recalibration_required": true
+  }
 }

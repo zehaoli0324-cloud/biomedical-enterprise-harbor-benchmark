@@ -1,0 +1,15 @@
+{
+  "schema_version": "evidence_surface_card.v1",
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "task_version": "0.2.0",
+  "fixture_status": "SYNTHETIC_DISCLOSED",
+  "source_status": "calibration_fixture_not_external_scientific_evidence",
+  "agent_visible_data": "data/",
+  "hidden_feedback_source": "verifier_only/scenario.json",
+  "measurement_domains": 11,
+  "raw_measurement_rows_after_action": 76,
+  "policy_information_sets": 17,
+  "claim_evidence_map": "quality/claim_evidence_map.tsv",
+  "abstention_policy": "No new blanket-abstention branch; hold/review outcomes remain unchanged.",
+  "status": "READY_FOR_RECALIBRATION"
+}

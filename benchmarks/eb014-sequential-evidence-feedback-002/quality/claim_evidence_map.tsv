@@ -1,0 +1,7 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb014-sequential-evidence-feedback-002	quality_issue	NEGATIVE_OBSERVABLE	outputs/feedback_history/	sequential-response	M-QC	no	The broker exposes batch drift after the registered audit.
+eb014-sequential-evidence-feedback-002	quality_repair	POSITIVE_OBSERVABLE	outputs/feedback_history/	sequential-response	M-QC-REPAIR	no	Registered recalibration resolves the observable quality blocker.
+eb014-sequential-evidence-feedback-002	context_shift	NEGATIVE_OBSERVABLE	outputs/feedback_history/	sequential-response	M-CONTEXT	no	Observed context shift requires the orthogonal handoff.
+eb014-sequential-evidence-feedback-002	replication	POSITIVE_OBSERVABLE	outputs/feedback_history/	sequential-response	M-REPL	no	Independent replication is observable and determinate.
+eb014-sequential-evidence-feedback-002	orthogonal_handoff	POSITIVE_OBSERVABLE	outputs/feedback_history/	sequential-response	M-ORTHO	no	Orthogonal confirmation closes the bounded handoff.
+eb014-sequential-evidence-feedback-002	budget_and_dependencies	CONTROL_PARAMETER	data/rules.json;data/action_catalog.json	rule	costs,requires,max_rounds	no	Action costs and dependencies are controls, not experimental results.

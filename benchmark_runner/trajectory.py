@@ -30,6 +30,10 @@ def summarize(events: Iterable[dict]) -> dict[str, object]:
             current_message_has_tool = True
     if current_message_has_tool:
         agent_messages_with_tools += 1
+    # Some adapters emit explicit turn.started events; the sequential feedback
+    # adapter records observable model messages and turn.completed events
+    # instead. Prefer the richer interaction count and fall back to explicit
+    # events for older logs.
     interaction_rounds = agent_messages_with_tools or turn_started
     gate_events = [row for row in rows if row.get("type") == "completion_gate"]
     statuses = Counter(row.get("status") for row in gate_events)
@@ -44,7 +48,7 @@ def summarize(events: Iterable[dict]) -> dict[str, object]:
         "completion_gate_events": len(gate_events),
         "completion_gate_statuses": dict(sorted((str(k), v) for k, v in statuses.items())),
         "long_trace_target": "over_40_model_turns",
-        "over_40_model_turns": turn_started > 40,
+        "over_40_model_turns": interaction_rounds > 40,
     }
 
 

@@ -2,10 +2,10 @@
   "schema_version": "enterprise_scale_tranche.v1",
   "tranche_id": "TRANCHE-005",
   "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
-  "status": "CONTRACT_ONLY_DIFFICULTY_ESCALATION",
+  "status": "TARGET_TRIALS_PASS_RELEASE_BLOCKED",
   "selection_policy": {
-    "candidate_count": 4,
-    "coverage": "parallel v0.4 difficulty upgrade across provenance, phenomics, route evidence, and closed-loop acquisition",
+    "candidate_count": 6,
+    "coverage": "parallel L4 difficulty upgrade across recovery, normalization, route portfolio, acquisition, measurement request and cross-handoff audit",
     "shared_contract": "docs/enterprise-difficulty-escalation-v1.md",
     "required_before_target_trial": [
       "materialize the declared intermediate artifacts",
@@ -15,13 +15,14 @@
     ]
   },
   "recommended_candidates": [
-    {"candidate_id": "eb003-replay-provenance-004", "upgrade": "v0.4 claim-permission lattice and evidence graph", "primary_modules": ["judgment_claim_permission_lattice", "data_evidence_graph_join"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"},
-    {"candidate_id": "eb006-signal-noise-004", "upgrade": "v0.4 experimental-unit hierarchy and sensitivity-qualified normalization", "primary_modules": ["data_experimental_unit_hierarchy", "math_sensitivity_frontier"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"},
-    {"candidate_id": "eb009-diversity-coverage-004", "upgrade": "v0.4 evidence graph and threshold sensitivity", "primary_modules": ["data_evidence_graph_join", "math_sensitivity_frontier"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"},
-    {"candidate_id": "eb010-next-batch-001", "upgrade": "v0.4 two-stage acquisition and sensitivity frontier", "primary_modules": ["horizon_two_stage_acquisition", "math_sensitivity_frontier"], "status": "CONTRACT_BOUND_REVIEW_REQUIRED"}
+    {"candidate_id": "eb003-recovery-chain-005", "upgrade": "L4 claim-permission lattice and irreversible-side-effect recovery", "primary_modules": ["judgment_claim_permission_lattice", "data_evidence_graph_join"], "status": "TARGET_TRIAL_PASS_6_OF_6; DIFFICULTY_NOT_DISCRIMINATING"},
+    {"candidate_id": "eb005-normalization-hierarchy-003", "upgrade": "L4 experimental-unit hierarchy and sensitivity-qualified normalization", "primary_modules": ["data_experimental_unit_hierarchy", "math_sensitivity_frontier"], "status": "TARGET_TRIAL_PASS_6_OF_6; DIFFICULTY_NOT_DISCRIMINATING"},
+    {"candidate_id": "eb008-route-portfolio-002", "upgrade": "L4 shared-inventory route portfolio and dependent evidence", "primary_modules": ["data_shared_inventory_allocation", "data_evidence_graph_join"], "status": "TARGET_TRIAL_PASS_6_OF_6; DIFFICULTY_NOT_DISCRIMINATING"},
+    {"candidate_id": "eb010-next-batch-002", "upgrade": "L4 robust next-batch planning across failure scenarios", "primary_modules": ["horizon_two_stage_acquisition", "math_sensitivity_frontier"], "status": "TARGET_TRIAL_PASS_6_OF_6; DIFFICULTY_NOT_DISCRIMINATING"},
+    {"candidate_id": "eb011-measurement-request-005", "upgrade": "L4 active measurement request under correlated uncertainty", "primary_modules": ["judgment_value_of_information", "math_sensitivity_frontier"], "status": "TARGET_TRIAL_PASS_6_OF_6; DIFFICULTY_NOT_DISCRIMINATING"},
+    {"candidate_id": "eb012-cross-handoff-audit-001", "upgrade": "L4 cross-stage artifact handoff and claim-boundary audit", "primary_modules": ["data_evidence_graph_join", "judgment_claim_permission_lattice"], "status": "TARGET_TRIAL_PASS_6_OF_6; DIFFICULTY_NOT_DISCRIMINATING"}
   ],
   "release_blockers": [
-    "v0.4 fixtures and intermediate artifact schemas are not yet materialized",
     "fixed-container replay",
     "independent practitioner review",
     "license/privacy/claim-boundary review"

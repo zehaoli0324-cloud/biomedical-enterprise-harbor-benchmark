@@ -1,0 +1,15 @@
+{
+  "schema_version": "research_completion_receipt.v1",
+  "task_id": "eb006-research-completion-006",
+  "trial_id": "eb006-research-completion-gpt56sol-002",
+  "accepted": true,
+  "issues": [],
+  "feedback_boundary": "Completion and reproducibility only; no hidden scientific answers returned.",
+  "replays": [
+    {"mode": "replay_a", "exit_code": 0, "script_sha256": "5717880d62800b0e81de3af1ee660466622757bee829142f3fcb874aec0277fc", "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"mode": "replay_b", "exit_code": 0, "script_sha256": "5717880d62800b0e81de3af1ee660466622757bee829142f3fcb874aec0277fc", "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"mode": "row_order", "exit_code": 0, "script_sha256": "5717880d62800b0e81de3af1ee660466622757bee829142f3fcb874aec0277fc", "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+  ],
+  "runner_status_preserved": "timeout",
+  "upgrades_trial_to_pass": false
+}

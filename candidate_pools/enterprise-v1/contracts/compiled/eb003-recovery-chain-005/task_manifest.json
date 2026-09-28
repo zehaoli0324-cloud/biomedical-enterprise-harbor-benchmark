@@ -131,6 +131,10 @@
         {
           "id": "judgment_claim_preserving_recovery",
           "params": {}
+        },
+        {
+          "id": "judgment_claim_permission_lattice",
+          "params": {}
         }
       ],
       "compute": [
@@ -149,11 +153,19 @@
         {
           "id": "horizon_checkpointed_workflow",
           "params": {}
+        },
+        {
+          "id": "horizon_end_to_end_claim",
+          "params": {}
         }
       ],
       "data": [
         {
           "id": "data_text_and_metadata",
+          "params": {}
+        },
+        {
+          "id": "data_evidence_graph_join",
           "params": {}
         }
       ],
@@ -196,7 +208,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "3c756a73628e30debbda3d3f44c371c7ab0edfaa841d10c5e2573d348c6b0d37",
+  "spec_digest": "7f2b53064d1e595016c9e002e0a58a280e8ce7cee71b81a5ce81e2052e482f47",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -306,7 +318,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb003-recovery-chain-005/scenario-card.yaml",
-    "digest": "2f080ed8c22f37233f79bfe1a280c6064a991bb5da2470bf011237072915bee7",
+    "digest": "71eee5bf622d9e003045019630f946111a9467f5f8248dac525595b8962cfc1e",
     "scenario_id": "eb003-recovery-chain-005",
     "status": "ready",
     "source_scenarios": [

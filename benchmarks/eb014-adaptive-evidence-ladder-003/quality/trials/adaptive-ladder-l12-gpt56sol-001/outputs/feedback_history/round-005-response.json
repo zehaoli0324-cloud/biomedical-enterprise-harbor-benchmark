@@ -1,0 +1,15 @@
+{
+  "round": 5,
+  "action_id": "orthogonal_assay",
+  "outcome": "orthogonal_confirmed",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-ORTHO",
+      "status": "LOCAL_SIGNAL_CONFIRMED"
+    }
+  ],
+  "remaining_budget": 10,
+  "accepted": true,
+  "state_token": "f46d01a9277477666e3a931d4795d1b6c7fe2af124e4425ec48fa098d70a5831"
+}

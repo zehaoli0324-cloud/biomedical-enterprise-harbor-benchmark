@@ -1,0 +1,17 @@
+{
+  "task_id": "eb013-observation-boundary-004",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "RAW_PASS",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "trial_id": "observation-boundary-gpt56sol-001",
+  "evidence": "target_trial_evidence.json",
+  "records": "model_trial_results.json",
+  "release_status": "BLOCKED"
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "eb014-evidence-gap-followup-001",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "status": "BASELINES_COMPLETE",
+  "target_model_status": "NOT_RUN",
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "target_model",
+      "status": "RAW_PASS",
+      "classification": "RAW_PASS",
+      "passed": true,
+      "contract_version": "1.0.0",
+      "historical": true,
+      "applies_to_current_contract": false
+    }
+  ]
+}

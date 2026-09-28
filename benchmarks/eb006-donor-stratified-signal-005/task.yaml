@@ -1,0 +1,21 @@
+id: eb006-donor-stratified-signal-005
+version: "1.0.0"
+status: ready_for_calibration
+title: "Donor-stratified perturbation signal under partial identifiability"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: CSV and JSON
+constraints:
+  network: off
+  provenance:
+    record_input_checksum: true
+    deterministic_output: true
+required_outputs:
+  - {id: candidate_summary, path: outputs/candidate_summary.tsv, required_fields: [candidate_id, decision, eligible, worst_state_mean_effect, maximum_state_effect_range, rank]}
+  - {id: state_diagnostics, path: outputs/state_diagnostics.tsv, required_fields: [candidate_id, state, identifiable_donor_count, missing_donors, nonpositive_donors, mean_effect, effect_range, status]}
+  - {id: decision, path: outputs/decision.json, required_fields: [decision, selected_candidate, rules_version, claim_boundary, human_review_required]}
+  - {id: provenance, path: outputs/provenance.json, required_fields: [input_sha256, rules_version, network, deterministic]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

@@ -1,0 +1,24 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb013-evidence-budget-routing-001",
+  "source_benchmark_id": "EB013",
+  "source_name": "Synthetic enterprise evidence routing and decision-boundary calibration",
+  "workflow_id": "WF-EVIDENCE-BUDGET-ROUTING",
+  "enterprise_role": "experimental_program_reviewer",
+  "status": "MATERIALIZED_CALIBRATION_READY",
+  "scientific_decision": "Which evidence request should be executed next, in what order, or should the program stop and escalate?",
+  "independent_unit": "evidence request, dependency edge and decision-critical uncertainty",
+  "handoff": "uncertainty_map->evidence_route->stop_or_human_review",
+  "error_consequence": "spending the limited evidence budget on redundant or non-decision-critical work can authorize a scientifically unsupported next step",
+  "agent_visible_inputs": ["nested uncertainty map with decision consequences", "evidence-request catalog with costs, dependencies and coverage", "scope/provenance manifest", "offline rules and stopping thresholds"],
+  "required_artifacts": ["plan.json", "route.tsv", "decision.json", "provenance.json", "audit.md"],
+  "failure_injections": ["high-value request that does not reduce the binding uncertainty", "correlated evidence requests that double-count coverage", "request whose prerequisite is missing or out of scope", "future-outcome or post-decision evidence leakage", "apparently cheap request that forces an incompatible downstream route", "no single request crosses the stop threshold"],
+  "gpt_difficulty": {
+    "mechanism": "the model must infer the actual decision bottleneck, construct a dependency-valid evidence route under a shared budget, avoid correlation double-counting, and stop or escalate when the route cannot justify a bounded decision",
+    "semantic_axes": ["task_goal_discovery", "evidence_dependency_planning", "uncertainty_reduction_vs_nominal_value", "bounded_abstention"],
+    "shortcut_probes": ["choose the highest nominal value request", "choose the cheapest request", "select all independent-looking requests without checking correlation", "force a route when no stop threshold is met", "use post-decision evidence as if it were prospective"],
+    "held_out_variants": ["same winner with reversed input order", "correlated request pair replaces an independent request", "budget reduction makes the route infeasible", "one request changes from current to archived provenance"]
+  },
+  "claim_boundary": "An evidence route is a planning and review aid, not experimental validation or proof of mechanism.",
+  "release_blockers": ["freeze synthetic fixture and public contract", "materialize a discoverable but non-leaking dependency graph", "define canonical semantics and accepted equivalent output encodings", "run positive, negative, invariance, adversarial and insufficient-evidence controls", "run reference, simple legal, always-abstain, template and target-model trials", "complete fixed-container replay and practitioner review"]
+}

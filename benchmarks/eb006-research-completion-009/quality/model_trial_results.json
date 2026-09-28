@@ -1,0 +1,34 @@
+{
+  "task_id": "eb006-research-completion-009",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "RAW_FAIL_CONTRACT_AMBIGUITY",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "target_model",
+      "status": "RAW_FAIL_CONTRACT_AMBIGUITY",
+      "classification": "RAW_FAIL_CONTRACT_AMBIGUITY",
+      "passed": false
+    }
+  ]
+}

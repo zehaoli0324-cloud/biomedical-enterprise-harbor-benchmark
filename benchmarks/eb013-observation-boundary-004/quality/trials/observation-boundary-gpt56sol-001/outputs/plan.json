@@ -1,0 +1,168 @@
+{
+  "alternatives": [
+    {
+      "stage1_id": "Q1",
+      "policy_count": 49,
+      "eligible_count": 23,
+      "best": {
+        "stage1_id": "Q1",
+        "policy": {
+          "amber": "A6",
+          "green": "A4"
+        },
+        "setup_families": [
+          "common",
+          "select"
+        ],
+        "setup_cost": 2.5,
+        "setup_slots": 3,
+        "worst_cost": 4.5,
+        "risk": 0.5
+      }
+    },
+    {
+      "stage1_id": "Q2",
+      "policy_count": 2401,
+      "eligible_count": 511,
+      "best": {
+        "stage1_id": "Q2",
+        "policy": {
+          "a": "A1",
+          "b": "A2",
+          "c": "A2",
+          "d": "A4"
+        },
+        "setup_families": [
+          "common",
+          "select"
+        ],
+        "setup_cost": 2.5,
+        "setup_slots": 3,
+        "worst_cost": 5.5,
+        "risk": 0.5
+      }
+    },
+    {
+      "stage1_id": "Q3",
+      "policy_count": 7,
+      "eligible_count": 1,
+      "best": {
+        "stage1_id": "Q3",
+        "policy": {
+          "same": "A6"
+        },
+        "setup_families": [
+          "common"
+        ],
+        "setup_cost": 1,
+        "setup_slots": 1,
+        "worst_cost": 2.5,
+        "risk": 0.75
+      }
+    }
+  ],
+  "source_audit": [
+    {
+      "action_id": "A1",
+      "blockers": []
+    },
+    {
+      "action_id": "A2",
+      "blockers": []
+    },
+    {
+      "action_id": "A3",
+      "blockers": []
+    },
+    {
+      "action_id": "A4",
+      "blockers": []
+    },
+    {
+      "action_id": "A5",
+      "blockers": []
+    },
+    {
+      "action_id": "A6",
+      "blockers": []
+    },
+    {
+      "action_id": "A7",
+      "blockers": []
+    },
+    {
+      "action_id": "A8",
+      "blockers": [
+        "source_status"
+      ]
+    },
+    {
+      "action_id": "A9",
+      "blockers": [
+        "future_source"
+      ]
+    },
+    {
+      "action_id": "A10",
+      "blockers": [
+        "source_scope"
+      ]
+    },
+    {
+      "action_id": "A11",
+      "blockers": [
+        "future_outcome"
+      ]
+    }
+  ],
+  "replay": [
+    {
+      "world_id": "W1",
+      "observation": "amber",
+      "action_id": "A6",
+      "residuals": {
+        "signal": 0.15,
+        "selectivity": 0
+      },
+      "cost": 4.5,
+      "hours": 3,
+      "blockers": []
+    },
+    {
+      "world_id": "W2",
+      "observation": "amber",
+      "action_id": "A6",
+      "residuals": {
+        "signal": 0.15,
+        "selectivity": 0
+      },
+      "cost": 4.5,
+      "hours": 3,
+      "blockers": []
+    },
+    {
+      "world_id": "W3",
+      "observation": "green",
+      "action_id": "A4",
+      "residuals": {
+        "signal": 0.15,
+        "selectivity": 0
+      },
+      "cost": 4.5,
+      "hours": 3,
+      "blockers": []
+    },
+    {
+      "world_id": "W4",
+      "observation": "green",
+      "action_id": "A4",
+      "residuals": {
+        "signal": 0.13,
+        "selectivity": 0.03
+      },
+      "cost": 4.5,
+      "hours": 3,
+      "blockers": []
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "evidence_surface": {
+    "independent_example_units": 9,
+    "example_units_by_type": {
+      "POSITIVE_OBSERVABLE": 3,
+      "NEGATIVE_OBSERVABLE": 6,
+      "INSUFFICIENT_BY_DESIGN": 0
+    },
+    "insufficient_fraction": 0.0,
+    "insufficient_score_weight": 0.0
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "case_matrix.tsv: control-case classification mismatch"
+      ],
+      "note": ""
+    },
+    {
+      "variant_id": "all_definite",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": "No insufficient case exists; all nine cases must be classified."
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "case_matrix.tsv: control-case classification mismatch"
+      ],
+      "note": ""
+    }
+  ],
+  "gate_status": "PASS"
+}

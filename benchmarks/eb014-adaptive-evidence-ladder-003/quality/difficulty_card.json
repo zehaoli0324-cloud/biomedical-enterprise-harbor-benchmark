@@ -1,0 +1,12 @@
+{
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "difficulty_mechanisms": ["observation_dependent_unlocking", "conditional_counterevidence", "token_bound_state", "trusted_completion_gate", "delayed_hidden_state_feedback", "adversarial_partial_observability", "minimax_information_set_policy", "high_volume_numeric_evidence", "cross_assay_numeric_synthesis", "auditable_measurement_citations"],
+  "expected_evidence_actions": 11,
+  "expected_stop_actions": 1,
+  "minimum_rounds_for_submission": null,
+  "target_model_status": "DATA_EXPANDED_RECALIBRATION_REQUIRED",
+  "task_version": "0.2.0",
+  "data_expansion": "22 supplemental numeric fields across 11 measurement domains; no new abstention branch",
+  "current_level": "L12_STATIC_CONTINGENT_POLICY_REPLAY",
+  "claim_boundary": "Static contingent-policy replay only; this package does not claim live same-session server-side state revelation."
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "eb014-broker-smoke-20260924b",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb014-sequential-evidence-feedback-002",
+  "trial_dir": "/private/tmp/eb014-container-smoke.suGj6y/eb014-broker-smoke-20260924b",
+  "workspace": "/private/tmp/eb014-container-smoke.suGj6y/eb014-broker-smoke-20260924b/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "docker_hardened_baseline_with_host_feedback_broker",
+  "network_enforcement": "docker_network_namespace",
+  "prepared_at": "2026-09-24T03:13:40.784167+00:00",
+  "input_hashes": {
+    "data/action_catalog.json": "6fad856ef9237e848a0c8478c08a7977ab77948a21d1a20a6c6149448534b13f",
+    "data/action_contract.json": "19d6c1cca861ebbbd7d1c10c1fd18291047f6ff8f591065729e0b0e15dc07da3",
+    "data/initial_state.json": "0248726a0d821dd53011421a4255c733892b95e2f12d4d1e34f362fed001b41f",
+    "data/output_contract.json": "23343a4b496548ba68eaea3c5af0885142f9dd52c9c33342ac3362859ef30e5a",
+    "data/rules.json": "f4c9fb3aba4ed3c52c2a41957229030e00d1af512059f747cfb594ff000b13a7",
+    "instruction.md": "00e8ab6d49cb692456a0f856707eec5e9974e9c6080dee49ad0a1228e8233fe7"
+  },
+  "status": "pass",
+  "agent_command": [
+    "python",
+    "/opt/broker_smoke_agent.py"
+  ],
+  "started_at": 1790219620.785312,
+  "timeout_seconds": 180,
+  "execution_backend": "docker",
+  "docker_image": "eb014-sequential-feedback-broker-smoke:20260924",
+  "docker_network": "none",
+  "feedback_broker": "host_process_hidden_task_not_mounted",
+  "finished_at": 1790219622.507652,
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "verifier_status": "pass",
+  "verifier_score": null,
+  "verifier_exit_code": 0,
+  "visible_output_hashes": {
+    "audit.md": "69ea4d2a12b547f4bff2c091a821c0f18ac96177ba295b04692168b04e5a2b74",
+    "completion.json": "546b963e9f7e3b752209cd07e248d60c6470637cda0dc97610bd8cbfcfbfe7cf",
+    "experiment_feedback.json": "80b510a2b9d743c0563c33a09143c79d18e777fbf99dc34783d8debbfd0b2454",
+    "feedback_history/round-001-request.json": "1c38b5f587e0e882e0b28b348ea45c8d25a212b72fd04711a0d2b5b5be53ed29",
+    "feedback_history/round-001-response.json": "ea4159bb85c365d623efe2cd17c30388e62c6cdc78335149eb5aeeabd9f522f4",
+    "feedback_history/round-002-request.json": "a496b3dbab8f5b289399cd0ff480121b89add1c1609a638c49c183d3a91e9014",
+    "feedback_history/round-002-response.json": "e93270e19fbdf4c1482f09a6af73023fc8e94c433c270465c27e31f3f7b0bc9c",
+    "feedback_history/round-003-request.json": "ee89c0d05e3f504d6b78f08d9f065a8262c63d44aa04120676917cae402aa55e",
+    "feedback_history/round-003-response.json": "f6609d7a9ac67684eb20162e9f836f76b9a99df9848761ae1e3ce49ef9bc7acb",
+    "feedback_history/round-004-request.json": "5da7de4c7b729fa815a34099520443bb89ec987ab44645a5fc9d2c0161ef2de5",
+    "feedback_history/round-004-response.json": "8e6aec512e1dcbf9c46b7e629f3d3dae3d10fb1840246c5cb29b4c6d670a0e8a",
+    "feedback_history/round-005-request.json": "e6b063aad1b7ed43dda7b606d2cddb3c9164a9cf0b46e16b1f930e136e889d2f",
+    "feedback_history/round-005-response.json": "80b510a2b9d743c0563c33a09143c79d18e777fbf99dc34783d8debbfd0b2454",
+    "provenance.json": "6e4992e0c370fabfb2474121ba2d7635ca53d7d51acbd19491b5635b6987b91e",
+    "research_log.json": "b5d178ca507868fc67db61650d6f2c7509618895307894ae3777a7b6c614e43b"
+  },
+  "elapsed_seconds": 1.722
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "optimization_progress.v1",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "status": "OPTIMIZED_PRETRIAL",
+  "control_calibration": "CALIBRATED",
+  "focused_tests": "3 passed",
+  "data_surface": {"map_rows": 6, "independent_example_units": 32, "positive_observable": 21, "negative_observable": 11},
+  "verified_controls": 6,
+  "trial_status_preserved": "BASELINES_COMPLETE / NOT_RUN",
+  "remaining_blocker": "evidence-surface trial and auditable abstention score weights; target trial still pending",
+  "next_window_action": "run target trial across all six scenarios and retain profile/CVaR replay artifacts"
+}

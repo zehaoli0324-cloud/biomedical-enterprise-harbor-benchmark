@@ -1,0 +1,89 @@
+{
+  "schema_version": "continued_build_selection.v1",
+  "decision_date": "2026-09-23",
+  "source_documents": [
+    "Harbor_SOP_难度与长流程重构修改方案_2026-09-23.md",
+    "Harbor_持续尝试与交卷控制改进方案_2026-09-22 (1).md",
+    "Harbor_超过40轮的科研任务设计方案_2026-09-22.md"
+  ],
+  "selection_policy": {
+    "priority_order": [
+      "real_source_and_claim_boundary",
+      "continuation_and_completion_gate",
+      "multi_stage_research_completion"
+    ],
+    "long_trace_rule": "over_40_turns_is_measured_trajectory_attribute_not_submission_minimum",
+    "promotion_rule": "continue_building_does_not_imply_ready_for_harbor"
+  },
+  "selected": [
+    {
+      "task_id": "eb015-real-source-replacement-gate-001",
+      "priority": "P0",
+      "build_stage": "real_source_freeze",
+      "why_selected": "It is the prerequisite release gate for real-data replacement: rights, file hashes, provenance and verifier rebind are independently observable.",
+      "current_evidence": {
+        "local_tests": "PASS",
+        "sop_preflight": "PASS",
+        "target_model": "PASS_AFTER_CONTRACT_REPLAY",
+        "release_status": "REVIEW_REQUIRED"
+      },
+      "next_actions": [
+        "freeze source-specific rights and file-level SHA-256 evidence",
+        "rebind the verifier to the frozen source snapshot",
+        "run fixed-container replay and practitioner review",
+        "keep the claim boundary source_audit_only_not_scientific_claim"
+      ]
+    },
+    {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "priority": "P1",
+      "build_stage": "continuation_e2e",
+      "why_selected": "It already has stateful actions, observation-dependent next steps and a public completion contract, making it the smallest representative for real continuation and交卷退回验收.",
+      "current_evidence": {
+        "local_tests": "PASS",
+        "contract_audit": "PASS",
+        "independent_verifier": "PASS",
+        "target_model": "PASS",
+        "over_40_turns": false
+      },
+      "next_actions": [
+        "run a fixed-version continuation end-to-end replay",
+        "verify rejected submission -> concrete feedback -> same-workspace continuation -> accepted submission",
+        "record complete event history and separate scientific quality from trajectory length",
+        "keep early stopping legal and do not add a minimum-round requirement"
+      ]
+    },
+    {
+      "task_id": "eb006-research-completion-011",
+      "priority": "P1",
+      "build_stage": "completion_gated_research",
+      "why_selected": "It exercises executable analysis, pooled and leave-one-donor-out sensitivity, cross-assay hold logic and bounded continuation without manufacturing extra iterations.",
+      "current_evidence": {
+        "local_tests": "PASS",
+        "completion_gate": "PASS",
+        "scientific_verifier": "PASS",
+        "target_model": "TIMEOUT_OUTPUT_COMPLETE_SCIENCE_PASS",
+        "release_ready": false
+      },
+      "next_actions": [
+        "run isolated fixed-container replay",
+        "verify the three-attempt continuation adapter with preserved workspace and cumulative budget",
+        "audit that missing validation produces actionable feedback rather than hidden answers",
+        "keep the synthetic-data boundary explicit until a real-data replacement is available"
+      ]
+    }
+  ],
+  "reserve": [
+    {
+      "task_id": "eb013-cross-context-evidence-portfolio-005",
+      "reason": "Good follow-up for cross-context evidence and portfolio selection, but it should follow the source-freeze and continuation E2E checks.",
+      "current_evidence": "local_and_target_trials_pass; source_ledger_is_synthetic_disclosed"
+    }
+  ],
+  "verification": {
+    "selected_task_local_tests": "9 passed",
+    "selected_tasks_have_task_yaml": true,
+    "selected_tasks_are_not_in_dist_archives": true,
+    "no_project_packaging_process_detected": true
+  }
+}

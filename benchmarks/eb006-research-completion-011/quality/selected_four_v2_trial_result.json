@@ -1,0 +1,9 @@
+{
+  "task_id": "eb006-research-completion-011",
+  "trial_id": "selected4-eb006-gpt56sol-v2-002",
+  "model": "gpt-5.6-sol",
+  "classification": "SCIENTIFIC_FAIL_CONTRACT_PASS",
+  "valid_difficulty_evidence": true,
+  "target_model_defeated": true,
+  "report": "reports/selected-four-v2-target-trials-20260924.json"
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "A-REPLICATE",
+    "cost": 2,
+    "status": "current",
+    "available_on": "2026-09-01",
+    "depends_on": [],
+    "premise_id": "P-REPRO",
+    "scope": "registered_primary_cohort",
+    "independence_group": "G-NEW-REPRO",
+    "outcomes": "replication"
+  },
+  {
+    "id": "A-REPLICATE-EXPRESS",
+    "cost": 3,
+    "status": "current",
+    "available_on": "2026-09-01",
+    "depends_on": [],
+    "premise_id": "P-REPRO",
+    "scope": "registered_primary_cohort",
+    "independence_group": "G-EXPRESS",
+    "outcomes": "replication"
+  },
+  {
+    "id": "A-BRIDGE",
+    "cost": 2,
+    "status": "current",
+    "available_on": "2026-09-01",
+    "depends_on": [
+      "P-REPRO"
+    ],
+    "premise_id": "P-BRIDGE",
+    "scope": "target_population",
+    "independence_group": "G-NEW-BRIDGE",
+    "outcomes": "bridge"
+  },
+  {
+    "id": "A-INTERVENTION",
+    "cost": 3,
+    "status": "current",
+    "available_on": "2026-09-01",
+    "depends_on": [
+      "P-REPRO",
+      "P-BRIDGE"
+    ],
+    "premise_id": "P-CAUSAL",
+    "scope": "target_population",
+    "independence_group": "G-NEW-INTERVENTION",
+    "outcomes": "intervention"
+  },
+  {
+    "id": "A-CHEAP-DUP",
+    "cost": 1,
+    "status": "current",
+    "available_on": "2026-09-01",
+    "depends_on": [],
+    "premise_id": "P-REPRO",
+    "scope": "registered_primary_cohort",
+    "independence_group": "G-B1",
+    "outcomes": "replication"
+  },
+  {
+    "id": "A-FUTURE",
+    "cost": 1,
+    "status": "current",
+    "available_on": "2026-10-01",
+    "depends_on": [],
+    "premise_id": "P-BRIDGE",
+    "scope": "target_population",
+    "independence_group": "G-FUTURE",
+    "outcomes": "bridge"
+  }
+]

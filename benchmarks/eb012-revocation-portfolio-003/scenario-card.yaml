@@ -1,0 +1,38 @@
+scenario_id: eb012-revocation-portfolio-003
+status: ready
+source_scenarios: [L5.5-TRANCHE-011]
+domain: biomedical_enterprise
+scientific_decision: select a portfolio that survives evidence revocation and shared-resource constraints
+scientific_judgments:
+  - temporal_revocation_propagation
+  - checkpoint_robustness
+  - shared_inventory_portfolio_selection
+difficulty_modules:
+  - id: horizon_checkpointed_workflow
+    observable: source and sensitivity state persist across three ordered checkpoints
+    decision_flip: transient invalidity disqualifies an otherwise high-utility chain
+  - id: data_evidence_graph_join
+    observable: source events propagate to dependent chain decisions
+    decision_flip: source retraction invalidates the nominal winner
+  - id: data_shared_inventory_allocation
+    observable: selected chains must use distinct exclusive lots
+    decision_flip: the two highest local scores cannot form a portfolio
+  - id: judgment_claim_permission_lattice
+    observable: effective claim is the weakest of four stage permissions
+    decision_flip: a high-utility descriptive chain cannot satisfy an associational request
+  - id: math_robust_scenario_optimization
+    observable: portfolios rank by minimum checkpoint total rather than nominal total
+    decision_flip: maximin selection differs from single-checkpoint ranking
+workflow_handoffs:
+  - from: ordered_event_replay
+    to: resource_constrained_portfolio
+    artifact: outputs/decision.json
+    invariant: revoked evidence and weak claims never regain authority without an explicit event
+release_gates:
+  scientific_reality: pass
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: pass
+  enterprise_value: pending
+  training_value: not_run

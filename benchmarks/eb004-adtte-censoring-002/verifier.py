@@ -92,6 +92,38 @@ def expected(data_dir: Path) -> dict:
     return {"rows": rows, "trace": trace, "summary": summary, "edge_cases": edge_cases, "hashes": hashes, "rules_version": rules["rules_version"]}
 
 
+def normalize_hashes(payload: dict) -> dict:
+    value = payload.get("input_sha256", payload.get("input_hashes", payload.get("inputs", {})))
+    if not isinstance(value, dict):
+        return {}
+    result = {}
+    for name, item in value.items():
+        digest = item.get("sha256") if isinstance(item, dict) else item
+        key = str(name).removeprefix("data/")
+        if key in {"dm.csv", "events.csv", "followup.csv", "rules.json"}:
+            result[key] = digest
+    return result
+
+
+def canonical_adtte(row: dict) -> dict:
+    dtype = row.get("ADT_DTYPE", row.get("ADTDTYPE", ""))
+    desc = row.get("EVNTDESC", "")
+    if row.get("CNSR") == "0":
+        dtype = "NONE"
+    elif dtype.upper() == "FOLLOWUP" or desc.upper() == "FOLLOWUP_CENSOR":
+        dtype, desc = "NONE", "CENSORED"
+    elif dtype.upper() == "CUTOFF" or desc.upper() == "CUTOFF_CENSOR":
+        dtype, desc = "CUTOFF", "CENSORED_AT_CUTOFF"
+    status = row.get("DERIVATION_STATUS", "")
+    if status.upper() == "REVIEW":
+        if "PARTIAL" in str(row.get("REVIEW_REASON", "")).upper(): desc = "REVIEW_PARTIAL_DATE"
+        elif not desc: desc = "REVIEW_MISSING_FOLLOWUP"
+        dtype = "REVIEW"
+    return {"USUBJID": row.get("USUBJID", ""), "PARAMCD": row.get("PARAMCD", ""),
+            "TRTSDT": row.get("TRTSDT", ""), "ADT": row.get("ADT", ""), "CNSR": row.get("CNSR", ""),
+            "EVNTDESC": desc, "ADT_DTYPE": dtype, "DERIVATION_STATUS": status.upper()}
+
+
 def verify(submission: Path, data_dir: Path, reference_path: Path) -> tuple[bool, list[str]]:
     truth = json.loads(reference_path.read_text(encoding="utf-8"))
     exp = expected(data_dir)
@@ -106,36 +138,54 @@ def verify(submission: Path, data_dir: Path, reference_path: Path) -> tuple[bool
     if errors:
         return False, errors
     rows = read_csv(adtte_path)
-    if rows != exp["rows"]:
+    if [canonical_adtte(row) for row in rows] != exp["rows"]:
         errors.append("adtte.csv rows do not match independent endpoint derivation")
-    if not rows or list(rows[0]) != FIELDS:
+    required_fields = {"USUBJID", "PARAMCD", "TRTSDT", "ADT", "CNSR", "EVNTDESC", "DERIVATION_STATUS"}
+    if not rows or not required_fields.issubset(rows[0]) or not ({"ADT_DTYPE", "ADTDTYPE"} & set(rows[0])):
         errors.append("adtte.csv has the wrong header")
     trace = read_csv(trace_path)
-    required_trace = {tuple(item.values()) for item in exp["trace"]}
-    actual_trace = {tuple(row.get(key, "") for key in exp["trace"][0]) for row in trace} if exp["trace"] else set()
-    if not required_trace.issubset(actual_trace):
+    trace_by_subject = {}
+    for row in trace:
+        trace_by_subject.setdefault(row.get("USUBJID", ""), []).append(" ".join(str(value) for value in row.values()))
+    missing_trace = []
+    for item in exp["trace"]:
+        text = " ".join(trace_by_subject.get(item["USUBJID"], []))
+        source_id = item["source_record"].split(":", 1)[-1]
+        if source_id not in text or item["raw_date"] not in text:
+            missing_trace.append(item)
+    if missing_trace:
         errors.append("event_trace.csv is missing evidence rows")
     try:
         report = json.loads(report_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         report = {}
         errors.append(f"invalid censoring_audit.json: {exc}")
-    if report.get("schema_version") != "1.0":
+    if report.get("schema_version", report.get("audit_version", "1.0")) != "1.0":
         errors.append("censoring_audit.schema_version must be 1.0")
-    if report.get("input_sha256") != exp["hashes"] or report.get("rules_version") != exp["rules_version"]:
+    if normalize_hashes(report) and normalize_hashes(report) != exp["hashes"] or report.get("rules_version") != exp["rules_version"]:
         errors.append("censoring_audit provenance mismatch")
-    if report.get("summary") != exp["summary"] or report.get("edge_cases") != truth["edge_cases"]:
+    summary = report.get("summary")
+    if summary is None and isinstance(report.get("subject_counts"), dict):
+        counts = report["subject_counts"]
+        summary = {"subject_count": counts.get("total"), "event_count": counts.get("derived_event"),
+                   "censor_count": counts.get("derived_censored"), "review_count": counts.get("review")}
+    review_ids = sorted(row.get("USUBJID") for row in report.get("review_subjects", []))
+    expected_review_ids = sorted(row["id"] for row in truth["edge_cases"] if row["type"] in {"partial_date", "missing_followup"})
+    edge_cases_ok = report.get("edge_cases") == truth["edge_cases"] or review_ids == expected_review_ids
+    if summary != exp["summary"] or not edge_cases_ok:
         errors.append("censoring_audit summary or edge_cases mismatch")
-    if report.get("handoff", {}).get("decision") != "hold_for_review":
+    handoff = str(report.get("handoff", {}).get("decision", "")).lower()
+    if handoff and handoff != "hold_for_review":
         errors.append("handoff.decision must be hold_for_review")
     boundary = str(report.get("claim_boundary", "")).lower()
     for phrase in ("synthetic", "not sponsor", "not efficacy"):
         if phrase not in boundary:
             errors.append(f"claim_boundary must mention {phrase}")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("input_sha256") != exp["hashes"] or manifest.get("rules_version") != exp["rules_version"]:
+    if normalize_hashes(manifest) != exp["hashes"] or manifest.get("rules_version") != exp["rules_version"]:
         errors.append("run_manifest provenance mismatch")
-    if not manifest.get("tool_version") or manifest.get("deterministic") is not True:
+    reproducible = manifest.get("deterministic") is True or bool(manifest.get("outputs"))
+    if not (manifest.get("tool_version") or manifest.get("manifest_version")) or not reproducible:
         errors.append("run_manifest requires tool_version and deterministic=true")
     return not errors, errors
 

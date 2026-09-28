@@ -1,0 +1,19 @@
+id: eb006-research-completion-009
+version: "1.3.0"
+status: ready_for_calibration
+title: "Completion-gated donor evidence research, cross-assay hold"
+domain: biomedical_enterprise
+agent_visible_inputs:
+  - path: data/
+    format: CSV and JSON
+constraints:
+  network: off
+  deterministic: true
+required_outputs:
+  - {id: analysis, path: outputs/analysis.py, required_fields: [executable]}
+  - {id: results, path: outputs/results.json, required_fields: [unit_effects, checks, pooled, summaries, decision]}
+  - {id: provenance, path: outputs/provenance.json, required_fields: [input_sha256, analysis_sha256, rules_version, network, deterministic]}
+  - {id: audit, path: outputs/research_audit.md, required_fields: [research_boundary]}
+hidden_truth:
+  path: verifier_only/reference.json
+  status: verifier_only

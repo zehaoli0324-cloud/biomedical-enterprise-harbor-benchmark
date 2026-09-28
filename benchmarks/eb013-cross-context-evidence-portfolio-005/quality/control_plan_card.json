@@ -55,6 +55,26 @@
       ]
     },
     {
+      "control_id": "constant-output-planner",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "replay.budget_contraction.delivery_error: missing or invalid plan.json",
+        "replay.budget_contraction.delivery_error: missing or invalid decision.json",
+        "replay.budget_contraction.delivery_error: missing or invalid portfolio.tsv",
+        "replay.budget_contraction.delivery_error: missing or invalid context.tsv",
+        "replay.budget_contraction.delivery_error: missing or invalid provenance.json",
+        "replay.budget_contraction.delivery_error: missing or invalid audit.md",
+        "replay.relationship_and_order.delivery_error: missing or invalid plan.json",
+        "replay.relationship_and_order.delivery_error: missing or invalid decision.json",
+        "replay.relationship_and_order.delivery_error: missing or invalid portfolio.tsv",
+        "replay.relationship_and_order.delivery_error: missing or invalid context.tsv",
+        "replay.relationship_and_order.delivery_error: missing or invalid provenance.json",
+        "replay.relationship_and_order.delivery_error: missing or invalid audit.md"
+      ]
+    },
+    {
       "control_id": "pooled-shortcut",
       "kind": "metamorphic",
       "passed": true,
@@ -84,9 +104,9 @@
     },
     {
       "control_id": "conflict-resolution",
-      "kind": "invariance",
+      "kind": "metamorphic",
       "passed": true,
-      "decision_flip": false,
+      "decision_flip": true,
       "errors": []
     },
     {

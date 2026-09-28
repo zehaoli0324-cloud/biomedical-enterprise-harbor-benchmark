@@ -1,0 +1,18 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb011-reproduction-manifest-001",
+  "trial_id": "eb011-reproduction-manifest-001-gpt56sol-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "timeout_outputs_partial",
+  "agent_execution_observed": true,
+  "required_artifacts_written": false,
+  "written_artifacts": ["plan.json", "route.tsv", "decision.json"],
+  "missing_artifacts": ["provenance.json", "audit.md"],
+  "verifier_status": "fail_delivery_missing_artifacts",
+  "selected_stage1_request_id": "D-MANIFEST",
+  "selected_stage2_policy": {"topology_mismatch": "D-REBUILD", "parameter_drift": "D-PIN"},
+  "scientific_route_match": true,
+  "difficulty_evidence": false,
+  "infrastructure_attribution": "adapter_process_did_not_exit_before_timeout",
+  "interpretation": "The model selected the correct observation-conditioned remediation policy, but the trial is not a pass because required provenance and audit artifacts were missing."
+}

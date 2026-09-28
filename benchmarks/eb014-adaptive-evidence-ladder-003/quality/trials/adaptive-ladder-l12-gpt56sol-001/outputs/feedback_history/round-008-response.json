@@ -1,0 +1,19 @@
+{
+  "round": 8,
+  "action_id": "independent_replicate",
+  "outcome": "replicate_heterogeneous",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-REPL-A",
+      "effect": 0.39
+    },
+    {
+      "id": "M-REPL-B",
+      "effect": 0.18
+    }
+  ],
+  "remaining_budget": 5,
+  "accepted": true,
+  "state_token": "e5b1044f6c8a93e01412ccaf7107ec7895c541b38e40c8448b8385588e43c8a1"
+}

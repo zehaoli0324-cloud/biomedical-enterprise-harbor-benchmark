@@ -70,6 +70,63 @@
         "quality": "pass",
         "effect": 0.4
       }
+    },
+    {
+      "option_id": "F6",
+      "kind": "replace",
+      "cost": 1.1,
+      "description": "quality-reviewed C4 replacement that crosses the mean threshold",
+      "replaces": "C4-G2",
+      "evidence": {
+        "record_id": "F6-C4-G13",
+        "context_id": "C4",
+        "group_id": "G13",
+        "independence": "independent",
+        "quality": "pass",
+        "effect": 0.52
+      }
+    },
+    {
+      "option_id": "F7",
+      "kind": "add",
+      "cost": 0.9,
+      "description": "new independent C5 group",
+      "evidence": {
+        "record_id": "F7-C5-G14",
+        "context_id": "C5",
+        "group_id": "G14",
+        "independence": "independent",
+        "quality": "pass",
+        "effect": 0.43
+      }
+    },
+    {
+      "option_id": "F8",
+      "kind": "add",
+      "cost": 0.6,
+      "description": "negative independent C4 row that preserves conflict",
+      "evidence": {
+        "record_id": "F8-C4-G15",
+        "context_id": "C4",
+        "group_id": "G15",
+        "independence": "independent",
+        "quality": "pass",
+        "effect": -0.41
+      }
+    },
+    {
+      "option_id": "F9",
+      "kind": "add",
+      "cost": 0.5,
+      "description": "related C5 repeat that does not satisfy independence",
+      "evidence": {
+        "record_id": "F9-C5-G12R2",
+        "context_id": "C5",
+        "group_id": "G12R2",
+        "independence": "related",
+        "quality": "pass",
+        "effect": 0.47
+      }
     }
   ]
 }

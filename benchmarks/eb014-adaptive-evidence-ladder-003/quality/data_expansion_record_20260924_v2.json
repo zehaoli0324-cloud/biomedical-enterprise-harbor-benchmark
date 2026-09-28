@@ -1,0 +1,25 @@
+{
+  "schema_version": "data_expansion_record.v1",
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "from_version": "0.1.0",
+  "to_version": "0.2.0",
+  "expanded_on": "2026-09-24",
+  "source_status": "synthetic_disclosed_calibration_fixture",
+  "purpose": "increase numeric evidence available to the model without adding blanket-abstention branches",
+  "changes": {
+    "quality_replicates": {"sample_count_before": 8, "sample_count_after": 12, "added_fields": ["batch_ids", "batch_means"]},
+    "paired_deltas": {"complete_pairs_before": 4, "complete_pairs_after": 8, "added_fields": ["pair_ids", "delta_ci95"]},
+    "primary_estimate": {"sample_count_before": 32, "sample_count_after": 48, "added_fields": ["stratum_effects", "stratum_counts", "bootstrap_ci95"]},
+    "context_comparison": {"target_sample_count_before": 24, "target_sample_count_after": 36, "added_fields": ["registered_ci95", "target_ci95", "replicate_deltas"]},
+    "independent_replication": {"unit_count_before": 6, "unit_count_after": 10, "added_fields": ["unit_ids", "unit_weights"]},
+    "negative_control": {"added_fields": ["replicate_effects", "batch_adjusted_effect", "sample_count"]},
+    "orthogonal_assay": {"added_fields": ["marker_ids", "marker_effects", "discordant_markers"]},
+    "bridge_assay": {"added_fields": ["bridge_replicates", "context_pair_count"]},
+    "influence_analysis": {"added_fields": ["leave_one_out_effects", "influence_threshold"]},
+    "confounding_audit": {"added_fields": ["strata_counts", "adjusted_ci95", "sensitivity_adjusted_effects"]},
+    "robustness_analysis": {"grid_points_before": 4, "grid_points_after": 6, "added_fields": ["grid_labels", "registered_ci95_by_grid"]}
+  },
+  "unchanged_contracts": ["12-action scientific ladder", "17-information-set policy", "state-token derivation", "final claim values", "claim boundary"],
+  "recalibration": {"required": true, "historical_trials_superseded": true, "target_model_trial_status": "NOT_RUN"},
+  "release_status": "BLOCKED"
+}

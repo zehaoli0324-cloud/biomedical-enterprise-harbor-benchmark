@@ -1,0 +1,7 @@
+{
+  "round": 1,
+  "action_id": "audit_quality",
+  "question_id": "Q-QUALITY",
+  "rationale": "The baseline and target measurements both have unresolved quality, so quality must be audited before interpreting the target-context degradation or selecting downstream tests.",
+  "expected_information": "Whether the observed degradation is a measurement-quality artifact (quality_ok or quality_issue)."
+}

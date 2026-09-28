@@ -159,6 +159,10 @@
         {
           "id": "judgment_causal_boundary",
           "params": {}
+        },
+        {
+          "id": "judgment_blocker_and_abstention",
+          "params": {}
         }
       ],
       "compute": [
@@ -177,11 +181,19 @@
         {
           "id": "noise_metadata_conflict",
           "params": {}
+        },
+        {
+          "id": "noise_operational_distractors",
+          "params": {}
         }
       ],
       "data": [
         {
           "id": "data_multimodal_join",
+          "params": {}
+        },
+        {
+          "id": "data_experimental_unit_hierarchy",
           "params": {}
         }
       ],
@@ -200,6 +212,10 @@
       "math": [
         {
           "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        },
+        {
+          "id": "math_sensitivity_frontier",
           "params": {}
         }
       ],
@@ -230,7 +246,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "de00e0b9400e931695b493046097ebf6514f503b7fdcdfe37644f5bcd1c00612",
+  "spec_digest": "788121e3c7f87e96bb4e5f205879452353659d7839d8f747de22348371374807",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -340,7 +356,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb006-signal-noise-004/scenario-card.yaml",
-    "digest": "a814bdda1261d08a5ac3a2b4fdbd94fa740d7495f3b58bfa11fc4a28e26a5e8d",
+    "digest": "ea98ed753670819dbf46a059662c0f4ec04b5e5eedc4360ff808c95f736cd80f",
     "scenario_id": "eb006-signal-noise-004",
     "status": "ready",
     "source_scenarios": [

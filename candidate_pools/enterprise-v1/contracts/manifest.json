@@ -1,8 +1,8 @@
 {
   "schema_version": "enterprise_contract_batch.v1",
-  "batch_id": "TRANCHE-001_PLUS_MINED-002",
+  "batch_id": "TRANCHE-001_PLUS_MINED-002_PLUS_L5-006",
   "status": "MIXED_CALIBRATION_AND_CONTRACT",
-  "task_count": 10,
+  "task_count": 28,
   "source_ledger": "candidate_pools/enterprise-v1/source_ledger.json",
   "tasks": [
     {
@@ -54,6 +54,96 @@
       "id": "eb010-measurement-value-004",
       "source": "EB010",
       "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb003-recovery-chain-005",
+      "source": "L4-TRANCHE-001",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb005-normalization-hierarchy-003",
+      "source": "L4-TRANCHE-001",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb008-route-portfolio-002",
+      "source": "L4-TRANCHE-001",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb010-next-batch-002",
+      "source": "L4-TRANCHE-001",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb011-measurement-request-005",
+      "source": "L4-TRANCHE-001",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb012-cross-handoff-audit-001",
+      "source": "L4-TRANCHE-001",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb010-closed-loop-replay-003",
+      "source": "L5-TRANCHE-006",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb010-closed-loop-ambiguity-004",
+      "source": "L5.1-TRANCHE-007",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb010-adaptive-policy-regret-005",
+      "source": "L5.2-TRANCHE-008",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb010-distributional-policy-stress-006",
+      "source": "L5.3-TRANCHE-009",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb012-cross-stage-chain-002",
+      "source": "L5.4-TRANCHE-010",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb012-revocation-portfolio-003",
+      "source": "L5.5-TRANCHE-011",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb013-evidence-budget-routing-001",
+      "source": "L6-TRANCHE-012",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb013-evidence-budget-routing-002",
+      "source": "L6.1-TRANCHE-013",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb010-stop-uncertainty-002",
+      "source": "L6.2-TRANCHE-014",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb011-reproduction-manifest-001",
+      "source": "L6.2-TRANCHE-014",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb006-donor-stratified-signal-005",
+      "source": "L7-TRANCHE-015",
+      "status": "ready_for_calibration"
+    },
+    {
+      "id": "eb006-research-completion-006",
+      "source": "L8-TRANCHE-016",
+      "status": "target_infrastructure_blocked"
     }
   ],
   "release_policy": "no task is runnable until data, oracle, verifier, controls, and model trial are independently materialized"

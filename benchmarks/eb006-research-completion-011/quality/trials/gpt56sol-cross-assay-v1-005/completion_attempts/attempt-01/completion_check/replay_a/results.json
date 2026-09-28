@@ -1,0 +1,584 @@
+{
+  "unit_effects": [
+    {
+      "id": "C17|early|D1",
+      "effect": 0.7,
+      "control_rows": 2,
+      "treatment_rows": 2
+    },
+    {
+      "id": "C17|early|D2",
+      "effect": 0.5,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C17|early|D3",
+      "effect": 0.4,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C17|early|D4",
+      "effect": 0.3,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C17|late|D1",
+      "effect": 0.42,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C17|late|D2",
+      "effect": 0.4,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C17|late|D3",
+      "effect": 0.39,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C17|late|D4",
+      "effect": 0.38,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C28|early|D1",
+      "effect": 0.75,
+      "control_rows": 10,
+      "treatment_rows": 10
+    },
+    {
+      "id": "C28|early|D2",
+      "effect": 0.45,
+      "control_rows": 2,
+      "treatment_rows": 2
+    },
+    {
+      "id": "C28|early|D3",
+      "effect": 0.35,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C28|early|D4",
+      "effect": -0.25,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C28|late|D1",
+      "effect": 0.6,
+      "control_rows": 10,
+      "treatment_rows": 10
+    },
+    {
+      "id": "C28|late|D2",
+      "effect": 0.4,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C28|late|D3",
+      "effect": 0.25,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C28|late|D4",
+      "effect": -0.2,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|early|D1",
+      "effect": 0.62,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|early|D2",
+      "effect": 0.47,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|early|D3",
+      "effect": 0.42,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|early|D4",
+      "effect": 0.34,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|late|D1",
+      "effect": 0.58,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|late|D2",
+      "effect": 0.35,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|late|D3",
+      "effect": 0.32,
+      "control_rows": 1,
+      "treatment_rows": 1
+    },
+    {
+      "id": "C43|late|D4",
+      "effect": null,
+      "control_rows": 1,
+      "treatment_rows": 0
+    }
+  ],
+  "checks": [
+    {
+      "id": "base|C17|early",
+      "count": 4,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.475,
+      "effect_range": 0.4,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "base|C17|late",
+      "count": 4,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.3975,
+      "effect_range": 0.04,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "base|C28|early",
+      "count": 4,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.325,
+      "effect_range": 1.0,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "base|C28|late",
+      "count": 4,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.2625,
+      "effect_range": 0.8,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "base|C43|early",
+      "count": 4,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.4625,
+      "effect_range": 0.28,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "base|C43|late",
+      "count": 3,
+      "missing_donors": [
+        "D4"
+      ],
+      "nonpositive_donors": [],
+      "mean_effect": 0.416667,
+      "effect_range": 0.26,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D1|C17|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.4,
+      "effect_range": 0.2,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D1|C17|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.39,
+      "effect_range": 0.02,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D1|C28|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.183333,
+      "effect_range": 0.7,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "omit:D1|C28|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.15,
+      "effect_range": 0.6,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "omit:D1|C43|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.41,
+      "effect_range": 0.13,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D1|C43|late",
+      "count": 2,
+      "missing_donors": [
+        "D4"
+      ],
+      "nonpositive_donors": [],
+      "mean_effect": 0.335,
+      "effect_range": 0.03,
+      "status": "WEAK"
+    },
+    {
+      "id": "omit:D2|C17|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.466667,
+      "effect_range": 0.4,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D2|C17|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.396667,
+      "effect_range": 0.04,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D2|C28|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.283333,
+      "effect_range": 1.0,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "omit:D2|C28|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.216667,
+      "effect_range": 0.8,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "omit:D2|C43|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.46,
+      "effect_range": 0.28,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D2|C43|late",
+      "count": 2,
+      "missing_donors": [
+        "D4"
+      ],
+      "nonpositive_donors": [],
+      "mean_effect": 0.45,
+      "effect_range": 0.26,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D3|C17|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.5,
+      "effect_range": 0.4,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D3|C17|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.4,
+      "effect_range": 0.04,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D3|C28|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.316667,
+      "effect_range": 1.0,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "omit:D3|C28|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [
+        "D4"
+      ],
+      "mean_effect": 0.266667,
+      "effect_range": 0.8,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "omit:D3|C43|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.476667,
+      "effect_range": 0.28,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D3|C43|late",
+      "count": 2,
+      "missing_donors": [
+        "D4"
+      ],
+      "nonpositive_donors": [],
+      "mean_effect": 0.465,
+      "effect_range": 0.23,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D4|C17|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.533333,
+      "effect_range": 0.3,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D4|C17|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.403333,
+      "effect_range": 0.03,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D4|C28|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.516667,
+      "effect_range": 0.4,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D4|C28|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.416667,
+      "effect_range": 0.35,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D4|C43|early",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.503333,
+      "effect_range": 0.2,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "omit:D4|C43|late",
+      "count": 3,
+      "missing_donors": [],
+      "nonpositive_donors": [],
+      "mean_effect": 0.416667,
+      "effect_range": 0.26,
+      "status": "SUPPORTED"
+    }
+  ],
+  "pooled": [
+    {
+      "id": "C17|early",
+      "effect": 0.52,
+      "control_rows": 5,
+      "treatment_rows": 5
+    },
+    {
+      "id": "C17|late",
+      "effect": 0.3975,
+      "control_rows": 4,
+      "treatment_rows": 4
+    },
+    {
+      "id": "C28|early",
+      "effect": 0.607143,
+      "control_rows": 14,
+      "treatment_rows": 14
+    },
+    {
+      "id": "C28|late",
+      "effect": 0.496154,
+      "control_rows": 13,
+      "treatment_rows": 13
+    },
+    {
+      "id": "C43|early",
+      "effect": 0.4625,
+      "control_rows": 4,
+      "treatment_rows": 4
+    },
+    {
+      "id": "C43|late",
+      "effect": 0.416667,
+      "control_rows": 4,
+      "treatment_rows": 3
+    }
+  ],
+  "summaries": [
+    {
+      "id": "C17",
+      "nominal_eligible": true,
+      "robust_eligible": true,
+      "nominal_worst_mean": 0.3975,
+      "robust_worst_mean": 0.39,
+      "pooled_worst_mean": 0.3975,
+      "failed_scenarios": []
+    },
+    {
+      "id": "C28",
+      "nominal_eligible": false,
+      "robust_eligible": false,
+      "nominal_worst_mean": 0.2625,
+      "robust_worst_mean": 0.15,
+      "pooled_worst_mean": 0.496154,
+      "failed_scenarios": [
+        "base",
+        "omit:D1",
+        "omit:D2",
+        "omit:D3"
+      ]
+    },
+    {
+      "id": "C43",
+      "nominal_eligible": true,
+      "robust_eligible": false,
+      "nominal_worst_mean": 0.416667,
+      "robust_worst_mean": 0.335,
+      "pooled_worst_mean": 0.416667,
+      "failed_scenarios": [
+        "omit:D1"
+      ]
+    }
+  ],
+  "assay_checks": [
+    {
+      "id": "C17|early",
+      "assay_a_effect": 0.475,
+      "assay_b_effect": 0.475,
+      "direction_concordant": true,
+      "effect_range": 0.0,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "C17|late",
+      "assay_a_effect": 0.3975,
+      "assay_b_effect": 0.2775,
+      "direction_concordant": true,
+      "effect_range": 0.12,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "C28|early",
+      "assay_a_effect": 0.325,
+      "assay_b_effect": 0.325,
+      "direction_concordant": true,
+      "effect_range": 0.0,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "C28|late",
+      "assay_a_effect": 0.2625,
+      "assay_b_effect": 0.2625,
+      "direction_concordant": true,
+      "effect_range": 0.0,
+      "status": "CONTRADICTORY"
+    },
+    {
+      "id": "C43|early",
+      "assay_a_effect": 0.4625,
+      "assay_b_effect": 0.4625,
+      "direction_concordant": true,
+      "effect_range": 0.0,
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "C43|late",
+      "assay_a_effect": 0.416667,
+      "assay_b_effect": 0.416667,
+      "direction_concordant": true,
+      "effect_range": 0.0,
+      "status": "SUPPORTED"
+    }
+  ],
+  "decision": {
+    "nominal_selected": "C43",
+    "pooled_selected": "C28",
+    "selected": null,
+    "assay_selected": null,
+    "cross_assay_hold": true,
+    "reason_codes": [
+      "cross_assay_disagreement",
+      "missing_pair_evidence",
+      "nominal_selection_not_robust",
+      "pooled_ranking_disagrees",
+      "technical_replication_imbalance"
+    ],
+    "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy",
+    "human_review_required": true
+  }
+}

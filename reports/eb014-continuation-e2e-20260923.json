@@ -1,0 +1,76 @@
+{
+  "schema_version": "continuation_e2e_replay.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "same_workspace": true,
+  "action_events": [
+    {
+      "round": 1,
+      "action_id": "audit_quality",
+      "cost": 1
+    },
+    {
+      "round": 2,
+      "action_id": "compare_context",
+      "cost": 2
+    },
+    {
+      "round": 3,
+      "action_id": "independent_replicate",
+      "cost": 2
+    },
+    {
+      "round": 4,
+      "action_id": "orthogonal_assay",
+      "cost": 2
+    },
+    {
+      "round": 5,
+      "action_id": "stop",
+      "cost": 0
+    }
+  ],
+  "spent_before_reload": 7,
+  "spent_after_reload": 7,
+  "used_actions_after_reload": [
+    "audit_quality",
+    "compare_context",
+    "independent_replicate",
+    "orthogonal_assay",
+    "stop"
+  ],
+  "completion_events": [
+    {
+      "attempt": 1,
+      "state": "NEEDS_REVISION",
+      "issues": [
+        "completion.checks must map every required check to boolean true"
+      ],
+      "reason": null,
+      "submission_fingerprint": "7409341823a5a711bae578732baaa6a5c59fd927fa8c4a5a7795fdb1d501406e"
+    },
+    {
+      "attempt": 2,
+      "state": "ACCEPTED",
+      "issues": [],
+      "reason": null,
+      "submission_fingerprint": "97fb5a3e4093d671b043cc88fd7407eb501a78cbea212eaa1a0ddf47ed75ab6d"
+    }
+  ],
+  "first_submission": {
+    "state": "NEEDS_REVISION",
+    "issues": [
+      "completion.checks must map every required check to boolean true"
+    ]
+  },
+  "second_submission": {
+    "state": "ACCEPTED",
+    "issues": []
+  },
+  "public_completion_errors_after_repair": [],
+  "verifier": {
+    "passed": true,
+    "errors": []
+  },
+  "early_stop_legal": true,
+  "scientific_score_feedback_exposed": false
+}

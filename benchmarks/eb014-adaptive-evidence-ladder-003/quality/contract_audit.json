@@ -1,0 +1,18 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "task_version": "0.2.0",
+  "status": "PASS",
+  "checks": [
+    {"output": "outputs/research_log.json", "path_declared": true, "schema_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/completion.json", "path_declared": true, "schema_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/provenance.json", "path_declared": true, "schema_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/audit.md", "path_declared": true, "schema_declared": true, "measurement_citations_declared": true},
+    {"output": "outputs/contingent_policy.json", "path_declared": true, "schema_declared": true, "all_information_sets_declared": true},
+    {"output": "outputs/policy_certificate.json", "path_declared": true, "schema_declared": true, "protocol_hash_declared": true},
+    {"output": "outputs/feedback_history/", "path_declared": true, "state_token_chain_declared": true}
+  ],
+  "replay_controls": ["state-token mutation fails", "early stop fails", "missing policy row fails", "pending wait bypass fails", "provenance hash mutation fails"],
+  "release_status": "BLOCKED",
+  "release_blockers": ["post-expansion target trial", "complete enterprise quality review", "fixed-container replay"]
+}

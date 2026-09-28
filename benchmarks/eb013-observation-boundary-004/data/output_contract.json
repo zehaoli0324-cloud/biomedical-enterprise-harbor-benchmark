@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "numeric_tolerance": 1e-06,
+  "decision.json": {
+    "decision": "execute or hold",
+    "selected": "policy summary below, or null on hold",
+    "claim_boundary": "planning_only",
+    "human_review_required": true
+  },
+  "policy_summary": {
+    "stage1_id": "string",
+    "policy": "exact observable-label to action-ID object",
+    "setup_families": "sorted unique array",
+    "setup_cost": "number",
+    "setup_slots": "integer",
+    "worst_cost": "number",
+    "risk": "number"
+  },
+  "plan.json": {
+    "alternatives": "one {stage1_id, policy_count, eligible_count, best} per stage1; best is eligible policy summary or null",
+    "source_audit": "one {action_id, blockers} per stage2; source-only blockers sorted from source_status, future_source, source_scope, future_outcome",
+    "replay": "selected policy: one {world_id, observation, action_id, residuals, cost, hours, blockers} per world; [] on hold; blockers sorted from critical_threshold,total_budget,deadline"
+  },
+  "enumeration": "For policy_count enumerate mappings after source/dependency/observation gates, BEFORE budget/capacity/deadline/threshold gates. One action per observable label. Include all labels, including those shared by several worlds.",
+  "provenance.json": {
+    "input_sha256": "hash every data/*.json including this contract, paths with or without data/",
+    "rules_version": "rules.json value",
+    "network": "off",
+    "deterministic": true
+  },
+  "audit.md": "Nonempty explanation of observability boundary, resource commitment, alternative comparisons and human-review planning boundary.",
+  "equivalences": [
+    "JSON object and keyed row order",
+    "extra explanatory keys",
+    "numeric strings",
+    "data-prefixed hashes"
+  ],
+  "forbidden": [
+    "duplicate keys or rows",
+    "missing or fabricated worlds",
+    "world-ID action map",
+    "future evidence",
+    "nonfinite or boolean numbers"
+  ]
+}

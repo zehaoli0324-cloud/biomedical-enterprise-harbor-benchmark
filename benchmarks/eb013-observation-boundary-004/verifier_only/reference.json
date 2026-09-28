@@ -1,0 +1,192 @@
+{
+  "winner": {
+    "stage1_id": "Q1",
+    "policy": {
+      "amber": "A6",
+      "green": "A4"
+    },
+    "setup_families": [
+      "common",
+      "select"
+    ],
+    "setup_cost": 2.5,
+    "setup_slots": 3,
+    "worst_cost": 4.5,
+    "risk": 0.5,
+    "blockers": [],
+    "eligible": true,
+    "replay": [
+      {
+        "world_id": "W1",
+        "observation": "amber",
+        "action_id": "A6",
+        "residuals": {
+          "signal": 0.15,
+          "selectivity": 0.0
+        },
+        "cost": 4.5,
+        "hours": 3.0,
+        "blockers": []
+      },
+      {
+        "world_id": "W2",
+        "observation": "amber",
+        "action_id": "A6",
+        "residuals": {
+          "signal": 0.15,
+          "selectivity": 0.0
+        },
+        "cost": 4.5,
+        "hours": 3.0,
+        "blockers": []
+      },
+      {
+        "world_id": "W3",
+        "observation": "green",
+        "action_id": "A4",
+        "residuals": {
+          "signal": 0.15,
+          "selectivity": 0.0
+        },
+        "cost": 4.5,
+        "hours": 3.0,
+        "blockers": []
+      },
+      {
+        "world_id": "W4",
+        "observation": "green",
+        "action_id": "A4",
+        "residuals": {
+          "signal": 0.13,
+          "selectivity": 0.03
+        },
+        "cost": 4.5,
+        "hours": 3.0,
+        "blockers": []
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "stage1_id": "Q1",
+      "policy_count": 49,
+      "eligible_count": 23,
+      "best": {
+        "stage1_id": "Q1",
+        "policy": {
+          "amber": "A6",
+          "green": "A4"
+        },
+        "setup_families": [
+          "common",
+          "select"
+        ],
+        "setup_cost": 2.5,
+        "setup_slots": 3,
+        "worst_cost": 4.5,
+        "risk": 0.5
+      }
+    },
+    {
+      "stage1_id": "Q2",
+      "policy_count": 2401,
+      "eligible_count": 511,
+      "best": {
+        "stage1_id": "Q2",
+        "policy": {
+          "a": "A1",
+          "b": "A2",
+          "c": "A2",
+          "d": "A4"
+        },
+        "setup_families": [
+          "common",
+          "select"
+        ],
+        "setup_cost": 2.5,
+        "setup_slots": 3,
+        "worst_cost": 5.5,
+        "risk": 0.5
+      }
+    },
+    {
+      "stage1_id": "Q3",
+      "policy_count": 7,
+      "eligible_count": 1,
+      "best": {
+        "stage1_id": "Q3",
+        "policy": {
+          "same": "A6"
+        },
+        "setup_families": [
+          "common"
+        ],
+        "setup_cost": 1.0,
+        "setup_slots": 1,
+        "worst_cost": 2.5,
+        "risk": 0.75
+      }
+    }
+  ],
+  "source_audit": [
+    {
+      "action_id": "A1",
+      "blockers": []
+    },
+    {
+      "action_id": "A2",
+      "blockers": []
+    },
+    {
+      "action_id": "A3",
+      "blockers": []
+    },
+    {
+      "action_id": "A4",
+      "blockers": []
+    },
+    {
+      "action_id": "A5",
+      "blockers": []
+    },
+    {
+      "action_id": "A6",
+      "blockers": []
+    },
+    {
+      "action_id": "A7",
+      "blockers": []
+    },
+    {
+      "action_id": "A8",
+      "blockers": [
+        "source_status"
+      ]
+    },
+    {
+      "action_id": "A9",
+      "blockers": [
+        "future_source"
+      ]
+    },
+    {
+      "action_id": "A10",
+      "blockers": [
+        "source_scope"
+      ]
+    },
+    {
+      "action_id": "A11",
+      "blockers": [
+        "future_outcome"
+      ]
+    }
+  ],
+  "hashes": {
+    "output_contract.json": "4efea2f2a9a0c02e9c0d702bd7b58e07fcda587dd9f5c2a1b4c2fef864b2883c",
+    "requests.json": "15ec7f8502c6bc6ad7a1ce883a3db28e8c7908a4a8a33836982b0bd2824866b4",
+    "rules.json": "f647e5e60c25622d8eaedc16d875d3b4610cff94b1eb30afddb14adafcdecae9",
+    "sources.json": "75a0bb5b3edb0ac47b2ff06c77e2ac379aecf446fa284ae7eeb3b55b022982e9",
+    "worlds.json": "20e6588c9957a7bfd1f3a7615ceb35d0f959c5ad630b92183cf73e8de56e88ec"
+  }
+}

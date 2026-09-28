@@ -15,7 +15,14 @@
     "raw_verifier_result": "RAW_FAIL or RAW_PASS",
     "canonical_replay_result": "PASS or FAIL",
     "failure_class": ["delivery_error", "contract_error", "scientific_error", "infrastructure_error"],
-    "preserve": ["raw_errors", "contract_revision", "artifact_sha256", "unchanged_artifact_replay", "scientific_decision_before_after"]
+    "preserve": ["raw_errors", "contract_revision", "artifact_sha256", "unchanged_artifact_replay", "scientific_decision_before_after", "representation_matrix", "crash_regression"],
+    "unhandled_exception_policy": "verifier crashes are infrastructure_error until replayed; never scientific difficulty"
+  },
+  "representation_matrix": {
+    "required_cases": ["complete_object_rows", "summary_only_rows", "keyed_state_map", "declared_aliases", "incomplete_policy_null_summary"],
+    "positive_cases_must_replay": true,
+    "type_errors_must_return_structured_failure": true,
+    "unhandled_exception_is_forbidden": true
   },
   "difficulty_rule": "Count a model failure as scientific difficulty only when canonical replay still fails without changing the scientific decision boundary.",
   "promotion_state_machine": [

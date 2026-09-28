@@ -1,0 +1,27 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-009",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "L5_3_TARGET_PASS_AFTER_CONTRACT_REPLAY_FIXED_CONTAINER_PENDING",
+  "selection_policy": {
+    "candidate_count": 1,
+    "coverage": "distributionally robust adaptive policy selection with weighted lower-tail risk and sensitivity replay",
+    "shared_contract": "docs/enterprise-difficulty-escalation-v1.md"
+  },
+  "recommended_candidates": [
+    {
+      "candidate_id": "eb010-distributional-policy-stress-006",
+      "upgrade": "L5.3 weighted CVaR, distributional regret and leave-one-profile-out replay",
+      "primary_modules": ["math_robust_scenario_optimization", "math_sensitivity_frontier", "horizon_adaptive_policy_replay"],
+      "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY",
+      "target_trial": "eb010-distributional-policy-stress-006-gpt56sol-002"
+    }
+  ],
+  "difficulty_result": {
+    "model": "gpt-5.6-sol",
+    "outcome": "pass",
+    "interpretation": "weighted CVaR and sensitivity replay increased execution load but did not defeat the target model",
+    "invalid_failures_excluded": ["output-representation contract defect", "one-unit-last-place verifier tolerance"]
+  },
+  "release_blockers": ["fixed-container replay", "practitioner review"]
+}

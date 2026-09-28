@@ -1,0 +1,12 @@
+{
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "trial_id": "selected4-eb015-gpt56sol-v2-002",
+  "model": "gpt-5.6-sol",
+  "classification": "HISTORICAL_PASS_SUPERSEDED",
+  "trial_task_version": "0.1.0",
+  "current_task_version": "2.0.0",
+  "applicable_to_current_version": false,
+  "valid_difficulty_evidence": false,
+  "target_model_defeated": false,
+  "report": "reports/selected-four-v2-target-trials-20260924.json"
+}

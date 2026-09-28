@@ -1,0 +1,5 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb013-cross-context-evidence-portfolio-005	selected_followups	POSITIVE_OBSERVABLE	data/evidence.json;data/followups.json	option	F1,F4,F6,F7	no	These four options increase supported contexts within the registered budget.
+eb013-cross-context-evidence-portfolio-005	rejected_followups	NEGATIVE_OBSERVABLE	data/evidence.json;data/followups.json	option	F2,F3,F5,F8,F9	no	Related, redundant or conflict-preserving options are observable negative choices.
+eb013-cross-context-evidence-portfolio-005	final_contexts	POSITIVE_OBSERVABLE	data/evidence.json;data/followups.json	context	C1,C2,C3,C4,C5	no	The selected portfolio makes all five context decisions determinate.
+eb013-cross-context-evidence-portfolio-005	optimization_rules	CONTROL_PARAMETER	data/rules.json	rule	budget,threshold,independence,objective	no	Optimization parameters are controls rather than empirical findings.

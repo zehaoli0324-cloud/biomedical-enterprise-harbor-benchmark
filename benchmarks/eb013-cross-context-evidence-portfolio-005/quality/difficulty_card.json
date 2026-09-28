@@ -4,7 +4,7 @@
   "primary_module": "judgment_evidence_sufficiency_abstention",
   "secondary_modules": [
     "data_context_stratified_concordance",
-    "math_followup_information_gain"
+    "executable_schema_preserving_replay"
   ],
   "retained_module": "math_ex_ante_shared_setup",
   "held_out_variants": [
@@ -14,7 +14,9 @@
     "budget-contraction",
     "conflict-resolution",
     "order-invariance",
-    "insufficient"
+    "insufficient",
+    "budget_contraction_replay",
+    "relationship_and_order_replay"
   ],
-  "legal_portfolio_count": 32
+  "legal_portfolio_count": 512
 }

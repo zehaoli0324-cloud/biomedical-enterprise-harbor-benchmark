@@ -164,3 +164,69 @@
 ## 推荐实施顺序
 
 下一轮先做 EB003 v0.4、EB005 v0.4、EB008 v0.4、EB010 v0.4，分别只引入 claim lattice、实验单元层级、共享库存分配、两阶段 acquisition 这四个主轴。四题 v0.4 全部通过控制校准后，再并行推进 v0.5 的敏感性/鲁棒性层；跨题组合放到四题至少达到 v0.5 后。
+
+## L5 首个物化任务
+
+`eb010-closed-loop-replay-003` 是首个 L5 package。它把静态 next-batch 选择升级为 policy replay：每个 policy 必须经过 `observe -> act -> stop_or_continue`，并同时通过预算、未来 outcome 防泄漏、至少两个 seed 和最大 utility spread 门槛。verifier 逐 policy 校验 eligibility、逐 replay 校验覆盖，并在无 eligible policy 时返回 `request_information`。
+
+该题的 controls 位于 `scripts/run_l5_controls.py`，author-side 状态为 `CALIBRATED`；`gpt-5.6-sol` 已完成一次本地 process trial，初始 verifier schema 缺陷经未改动 artifact contract replay 后通过。固定容器 replay 和 practitioner review 仍是 release blockers。
+
+## L5.1 低披露与语义含糊
+
+`eb010-closed-loop-ambiguity-004` 不再在 instruction 中逐字段解释输入。agent 必须递归发现嵌套 JSON、读取 discovery manifest、重建 semantic lexicon 与 policy record 的连接，并记录所有输入 hash。策略文本同时包含明确 proceed、显式 review、未来 outcome、archived scope 和 proceed/review 冲突等记录；冲突必须输出 `human_review`，高 utility 不能越过语义 blocker。
+
+该题把难度增加在环境、语意和 agent-planned workflow 层，而不是隐藏答案：规则仍在 agent-visible 输入中，但 agent 必须发现 mission 的 required capabilities，自行从包含诱导捷径的 operation catalog 中选择能力完备子图，再执行 lexicon、scope、leakage、stability 和 selection 判断。v0.7.1 的 `trial-gpt56-sol-005` 首轮通过，避开 label-only、top-only、联网和 blanket-defer 捷径，计划覆盖 `inventory -> interpret -> screen -> replay -> decide`，总规划成本 6.5，离线执行并在选出 eligible record 后停止。fixed-container replay、held-out variants 和 practitioner review 尚未完成。
+
+## L5.2-L5.3 鲁棒策略优化
+
+`eb010-adaptive-policy-regret-005` 把完整策略树放入四个 latent scenarios，先执行 scope、branch、future-outcome 和 budget 硬门，再按逐情景 minimax regret 选择。`gpt-5.6-sol` 的正式本地 trial 通过，因此该题证明了工作量和能力覆盖，但没有形成目标模型区分度。
+
+`eb010-distributional-policy-stress-006` 进一步把情景权重从单一可信分布升级为五个 ambiguity-set profiles。agent 必须为 72 个 policy/scenario 分支重放状态，计算 profile-specific expected utility、允许 fractional boundary 的 weighted lower-tail CVaR、profile regret，并重复 leave-one-profile-out 稳定性选择。nominal winner 与 robust winner 被刻意分离；所有公式、tie-break 和输出 schema 仍对 agent 可见，因此难度来自鲁棒推理与交叉产物一致性，不来自隐藏规则。
+
+## L5.4 跨阶段 claim/provenance handoff
+
+`eb012-cross-stage-chain-002` 将 recovery、normalization、route 和 policy 四个阶段连接为一个可重放的 handoff graph。agent 必须沿每个 `upstream_hash` 传递版本、接口状态、资源 reservation 和 claim permission，并在 provenance、safety 和 robust-CVaR 门全部通过后授权一条 chain。高 CVaR 但 hash 错误、库存冲突或 claim 越界的 decoy chain 不能获胜；输出同时包含 chain decision、逐阶段 handoff ledger、审计说明和 artifact manifest。该升级增加的是跨题状态、弱链权限和多产物一致性，不是隐藏 oracle。
+
+## L5.5 撤回感知的组合重放
+
+`eb012-revocation-portfolio-003` 把单次 handoff 扩展到 T0/T1/T2 三个 checkpoint。source retraction、restoration 和 sensitivity 事件按顺序持久化；一条 chain 即使随后恢复，只要任一 checkpoint 无效，就不能进入最终 portfolio。两个 checkpoint-robust chain 还必须使用不同的 exclusive lot，最终按三阶段合计 utility 的最小值做 maximin 排序。最高单点分数、最终时点恢复和两个局部最优链都不能绕过历史撤回、claim 权限或共享资源门。
+
+## L6：可复用 minimax evidence-route 模块
+
+`math_minimax_evidence_route_selection` 是一个跨领域可复用模块，而不是 EB013 的题面别名。它要求 agent 枚举所有 blocker-valid routes，按 correlation group 做最大减免，计算每个关键不确定性的 residual，并先最小化最大关键 residual，再应用 cost 与 lexical tie-break。只“刚好跨过阈值”的 route 不能提前停止。
+
+模块的可迁移接口固定为：`critical uncertainties + thresholds + candidate reductions + blockers + budget + objective order -> route set + residual map + objective tuple + selected route/hold`。必须包含一个 threshold-crossing 但被更低 worst-case residual 支配的 negative control；任何输出合同修复都要对原始 artifact 做 unchanged replay。正式注册和跨题适用范围见 `config/reusable_difficulty_modules.json`。
+
+## L6：低披露 evidence routing 与 minimax residual
+
+`eb013-evidence-budget-routing-001` 是 L6 的首个物化题。agent 必须从嵌套 catalog 和 uncertainty map 重建依赖图，在总预算内选择证据 route，并以最大 critical residual 为首要目标、总成本为次要目标、request id lexical order 为最终 tie-break。相关证据组只允许声明的最大边际 reduction 计入，未来 outcome、过期来源和缺失前置能力都不能作为当前决策依据。
+
+该题的 primary module 是 `judgment_evidence_route_selection`；secondary modules 是 `data_dependency_graph_routing` 和 `math_minimax_evidence_route_selection`；`math_correlation_adjusted_reduction` 与 `retrieval_provenance_temporal_boundary` 为 supporting contract/safety modules。这个组合把难度放在“不要满足于任何可行 route，而要证明最坏关键残差最小”，同时保留 L5 的 provenance 与 temporal boundary。held-out 变体至少覆盖依赖修复、阈值移动、相关组重分配和预算收缩；必须通过单因素 mutation 验证每个变体会改变 route 或 decision。
+
+EB013 的 trial 也说明了 L6 的归因规则：首轮 gpt-5.6-sol 选择了 threshold-crossing 的 `R-ASSAY`，没有选择能将最大关键残差降到 `0.15` 的 `R-CORR`，属于 scientific minimax failure；第二轮的正确 route 在 raw delivery/enum 上出现合同缺陷，经过 unchanged-artifact replay 后通过，归类为 `RAW_FAIL_CONTRACT_REPLAY_PASS`。合同 replay 不计入能力通过，且不能覆盖首轮 scientific failure。固定容器、held-out trial 和独立 practitioner review 完成前，题包只能处于 `REVIEW_REQUIRED`/`BLOCKED`。
+
+## L6.2：跨域 evidence-policy transfer
+
+### L6.3：三状态 adaptive-policy replay
+
+`eb013-evidence-budget-routing-002` 的 v0.3.0 在合同稳定后只新增一个 primary module：`horizon_adaptive_policy_replay`。`R-ADAPTIVE` 现在产生 `signal_high`、`signal_low` 和 `signal_mid` 三种可观察状态；`signal_mid` 只能使用依赖有效的 `R-BALANCE`。模型必须覆盖所有状态、逐状态重算 residual/cost，并保留最坏状态作为 policy objective。缺失 `signal_mid`、复用 `R-CORR` 或提前按高 nominal value 停止都会触发 decision-flip negative control。该变体保留相同 claim boundary 和 provenance 规则，且在新的 clean target trial 前不计入能力通过。
+
+TRANCHE-014 将相同 minimax 模块迁移到 EB010 stop/uncertainty 与 EB011 reproduction manifest。迁移任务保持公开的 objective order 和两阶段 observation gate，但使用独立的 uncertainty axes、依赖图、decoy 与 decision flips；跨域通过不能由复用候选名称或固定 stage-2 模板获得。该批次用于区分“模型记住 EB013 route”与“模型真正掌握 observation-conditioned minimax evidence routing”。
+
+## EB013-004：信息边界与组合压力
+
+`eb013-observation-boundary-004` 是独立题包，保留旧 EB013-002 的输入和 trial 记录。新增可复用模块 `horizon_observation_equivalence` 和 `math_distributional_minimax`，与已有共享准备成本组合。六个支持维度分别是信息分组、跨分支资源承诺、压力情景、来源时间/作用域、相关证据去重和不对称阈值。规则和输出合同公开，算法与工作顺序由模型自主规划。
+
+原题含 3 个 stage-1、11 个 stage-2、4 个 world，来源过滤后有 2,457 个完整观测策略。独立 world-first Fraction 与 label-first Decimal 实现核对了最优解和每个替代方案的可行计数。18 个产物控制及朴素基线、8 个输入变体在 trial 前完成；7 个单因素变体改变决策，顺序变体保持不变。模块有可迁移接口，但跨领域目标模型迁移尚未验证。
+
+冻结与校准：`scripts/calibrate_observation_boundary.py`；目标模型结果与局限记录在新题的 `quality/target_trial_evidence.json` 和 `quality/trial_analysis.md`。不得在模型失败后修改冻结输入来制造能力失败。
+
+两次本地完整回合 `gpt56sol-v1-001` 与 `observation-boundary-gpt56sol-001` 均为 `RAW_PASS`，正常退出且冻结重放通过。两次模型都选出 Q1 的 `amber -> A6, green -> A4`，risk=0.5，worst_cost=4.5；除 prose audit 外，decision、plan 和 provenance 哈希一致。新增维度能区分朴素基线，但仍没有难住目标模型。下一版必须增加一个新的 primary difficulty axis，不能再靠输出字段、候选数量或同类约束堆叠；固定容器、跨域 held-out 和领域审查完成前仍保持 BLOCKED。
+
+## EB014-002：序贯反馈与可退回研究交卷
+
+`horizon_sequential_evidence_feedback` 将静态策略树升级为真实的多轮状态机。每轮模型只能提交一个动作；host 在隐藏但冻结的 scenario 中返回声明过的 measurement 与 cost，下一动作必须满足已观察依赖和剩余预算。模型最终要区分质量通过、目标 context shift、注册队列独立复现与 transport claim 权限，不能把“复现成功”错误提升为目标环境可迁移。
+
+难度不来自隐藏格式。v1.0.0-v1.0.1 trial 暴露的 `final_claims` 容器、状态含义、布尔 checks、stop reason 和 provenance shape 均已在 v1.0.2 公开；旧失败保留为合同/基础设施诊断，不进入难度分母。公共 completion gate 只返回交付缺项，隐藏 scientific verifier 不参与逐轮提示。
+
+冻结 trial `sequential-gpt56sol-007` 为 `RAW_PASS`：模型使用 5 个实验动作、10 个可观察 turn 和 47 次工具调用完成闭环，completion gate 一次接受，未发生预算、依赖、future-outcome 或 claim-boundary 错误。当前模块能排除固定路径、一次性交卷和 blanket abstention 基线，但没有难住目标模型。下一版若继续加难，只能新增一个科学 primary axis，例如让第一轮结果改变可用实验集合、预算与最优停止时点；不得靠增加输出字段、延长轮数或隐藏枚举升级难度。

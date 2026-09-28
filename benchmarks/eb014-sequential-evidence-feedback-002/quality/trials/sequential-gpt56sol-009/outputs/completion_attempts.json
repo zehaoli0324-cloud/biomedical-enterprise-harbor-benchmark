@@ -1,0 +1,18 @@
+{
+  "schema_version": "benchmark_runner.continuation_ledger.v1",
+  "max_attempts": 3,
+  "max_no_progress": 3,
+  "duplicate_count": 0,
+  "events": [
+    {
+      "attempt": 1,
+      "state": "ACCEPTED",
+      "receipt": {
+        "accepted": true,
+        "issues": []
+      },
+      "reason": null,
+      "submission_fingerprint": "7e6ec39eca7b9598a85d80c0642a701239309b2e084ddab91e444457ed19f236"
+    }
+  ]
+}

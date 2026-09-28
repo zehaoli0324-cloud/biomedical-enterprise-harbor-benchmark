@@ -1,0 +1,14 @@
+{
+  "root_action": "REQUEST_CONTEXT_A",
+  "root_worst_case_value": -6,
+  "evaluated_information_set_count": 17,
+  "delayed_reveal_state_count": 4,
+  "adversarial_branch_count": 25,
+  "hidden_scenarios": [
+    {"id":"H_A_HIGH","signals":["A_HIGH","A_HIGH","TERMINAL"],"terminal":"T_A_HIGH"},
+    {"id":"H_A_LOW_PASS","signals":["A_HIGH","A_LOW","A_CONFIRM_PENDING","A_CONFIRM_PASS","TERMINAL"],"terminal":"T_A_CONFIRMED"},
+    {"id":"H_A_LOW_CONFLICT","signals":["A_HIGH","A_LOW","A_CONFIRM_PENDING","A_CONFIRM_CONFLICT","TERMINAL"],"terminal":"T_A_CONFIRM_UNSAFE"},
+    {"id":"H_A_CONFLICT","signals":["A_HIGH","A_CONFLICT","TERMINAL"],"terminal":"T_SAFE"},
+    {"id":"H_A_LOW_FAIL","signals":["A_HIGH","A_LOW","A_CONFIRM_PENDING","A_CONFIRM_FAIL","TERMINAL"],"terminal":"T_A_FAIL_UNSAFE"}
+  ]
+}

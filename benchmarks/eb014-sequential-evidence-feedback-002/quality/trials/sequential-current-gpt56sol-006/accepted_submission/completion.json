@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "quality_audit": true,
+    "context_comparison": true,
+    "independent_replication": true,
+    "stop_rule": true,
+    "handoff": true
+  },
+  "stop_reason": "evidence_complete",
+  "human_review_required": true,
+  "claim_boundary": "registered_cohort_only"
+}

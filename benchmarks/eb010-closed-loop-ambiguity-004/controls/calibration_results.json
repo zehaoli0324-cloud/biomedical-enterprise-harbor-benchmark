@@ -35,13 +35,13 @@
       "control_id": "adversarial-high-utility-ambiguous",
       "kind": "adversarial",
       "passed": true,
-      "observed": "P-ALPHA"
+      "observed": "P-OMICRON"
     },
     {
       "control_id": "metamorphic-proceed-synonym",
       "kind": "metamorphic",
       "passed": true,
-      "observed": "P-ALPHA"
+      "observed": "P-OMICRON"
     }
   ]
 }

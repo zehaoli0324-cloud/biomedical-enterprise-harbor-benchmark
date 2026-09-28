@@ -97,7 +97,7 @@
     {
       "check": "target_model_status_attributed",
       "status": "PASS",
-      "detail": "TARGET_TRIAL_PENDING_V0.7.0"
+      "detail": "PASS_CLEAN_V0.7.1"
     },
     {
       "check": "sop_card_present",
@@ -128,7 +128,7 @@
   "blockers": [],
   "release_status": "REVIEW_REQUIRED",
   "release_blockers": [],
-  "target_model_status": "TARGET_TRIAL_PENDING_V0.7.0",
+  "target_model_status": "PASS_CLEAN_V0.7.1",
   "target_model_infra_not_difficulty": false,
   "release_permitted": false
 }

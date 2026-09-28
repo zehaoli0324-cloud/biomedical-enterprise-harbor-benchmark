@@ -1,0 +1,8 @@
+{
+  "trial_id": "eb014-broker-smoke-20260924b",
+  "trial_dir": "/private/tmp/eb014-container-smoke.suGj6y/eb014-broker-smoke-20260924b",
+  "status": "pass",
+  "verifier_status": "pass",
+  "broker_exit_code": 0,
+  "timed_out": false
+}

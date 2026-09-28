@@ -1,0 +1,62 @@
+{
+  "hypothetical": true,
+  "leaves": [
+    {
+      "id": "[\"A-REPLICATE:consistent\",\"A-BRIDGE:bridge_supported\"]",
+      "path": ["A-REPLICATE:consistent", "A-BRIDGE:bridge_supported"],
+      "cost": 4,
+      "premises": {
+        "P-EFFECT": "supported",
+        "P-REPRO": "supported",
+        "P-BRIDGE": "supported",
+        "P-CAUSAL": "unknown"
+      },
+      "claims": {
+        "C-DESC": "supported",
+        "C-ASSOC": "supported",
+        "C-TRANSPORT": "supported",
+        "C-CAUSAL": "unknown"
+      },
+      "claim_ceiling": "transportable_association",
+      "resolved_weight": 5
+    },
+    {
+      "id": "[\"A-REPLICATE:consistent\",\"A-BRIDGE:bridge_failed\"]",
+      "path": ["A-REPLICATE:consistent", "A-BRIDGE:bridge_failed"],
+      "cost": 4,
+      "premises": {
+        "P-EFFECT": "supported",
+        "P-REPRO": "supported",
+        "P-BRIDGE": "refuted",
+        "P-CAUSAL": "unknown"
+      },
+      "claims": {
+        "C-DESC": "supported",
+        "C-ASSOC": "supported",
+        "C-TRANSPORT": "refuted",
+        "C-CAUSAL": "refuted"
+      },
+      "claim_ceiling": "registered_association",
+      "resolved_weight": 5
+    },
+    {
+      "id": "[\"A-REPLICATE:inconsistent\"]",
+      "path": ["A-REPLICATE:inconsistent"],
+      "cost": 2,
+      "premises": {
+        "P-EFFECT": "supported",
+        "P-REPRO": "refuted",
+        "P-BRIDGE": "unknown",
+        "P-CAUSAL": "unknown"
+      },
+      "claims": {
+        "C-DESC": "supported",
+        "C-ASSOC": "refuted",
+        "C-TRANSPORT": "refuted",
+        "C-CAUSAL": "refuted"
+      },
+      "claim_ceiling": "descriptive",
+      "resolved_weight": 5
+    }
+  ]
+}

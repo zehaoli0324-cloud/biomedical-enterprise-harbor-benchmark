@@ -1,0 +1,23 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb011-reproduction-manifest-001",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "REVIEW_REQUIRED",
+  "contract_status": "CONTRACT_REPLAY_STABLE_V0.2.1",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review"
+  ],
+  "status": "PASS",
+  "data_expansion": {
+    "status": "SUPERSEDES_PREVIOUS_TRIAL",
+    "expanded_on": "2026-09-24",
+    "fixture_version": "data-expanded-20260924",
+    "previous_status": "PASS",
+    "recalibration_required": true
+  }
+}

@@ -102,3 +102,16 @@ python3 benchmarks/admiral-adsl-derivation-001/verifier.py \
   --data benchmarks/admiral-adsl-derivation-001/data \
   --reference benchmarks/admiral-adsl-derivation-001/verifier_only/reference.json
 ```
+
+## 题包标准化检查
+
+对照《改题方案与检查标准 v1.0》，仓库级静态检查兼容 `task.yaml` 和
+`task.toml` 两种题包格式，覆盖题目 ID、required outputs、题面可见性、隐藏边界、
+instruction/verifier 副本、Docker 基础镜像、语法和运行缓存卫生：
+
+```bash
+python3 scripts/check_task_standardization.py \
+  --output reports/task-standardization-20260924.json
+```
+
+该检查只证明工程契约一致，不替代四类控制、科学审阅、真实 agent trial 或发布门禁。

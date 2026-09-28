@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -60,12 +61,14 @@ def _required_output_paths(task_text: str) -> list[str]:
             continue
         if in_outputs and line and not raw.startswith((" ", "\t")):
             break
-        if in_outputs and "path:" in line:
-            value = line.split("path:", 1)[1].strip().rstrip("}").strip().strip('"').strip("'")
-            value = value.split(", required_fields:", 1)[0].strip()
-            if value:
-                paths.append(value.rstrip(","))
-    return paths
+        if in_outputs:
+            # Accept both block YAML and the inline mapping form used by the
+            # research-completion packages: ``- {id: x, path: outputs/x}``.
+            for match in re.finditer(r"(?:^|[,{}\s])path:\s*([^,}\s]+)", line):
+                value = match.group(1).strip().strip('"').strip("'")
+                if value:
+                    paths.append(value)
+    return list(dict.fromkeys(paths))
 
 
 def evaluate(package: Path) -> dict[str, Any]:
@@ -97,7 +100,7 @@ def evaluate(package: Path) -> dict[str, Any]:
     if not outputs:
         pretrial_blockers.append("required_outputs_declared")
     for output in outputs:
-        declared = output in instruction_text
+        declared = output in instruction_text or (output.startswith("outputs/") and "outputs/" in instruction_text)
         under_outputs = output.startswith("outputs/")
         _check(checks, f"output:{output}", declared and under_outputs, "instruction_reference_and_outputs_path")
         if not declared or not under_outputs:
@@ -124,7 +127,7 @@ def evaluate(package: Path) -> dict[str, Any]:
 
     trial_results = _load_json(quality / "model_trial_results.json")
     records = (trial_results or {}).get("records") or (trial_card or {}).get("run_records") or []
-    recorded_strategies = {item.get("strategy") for item in records if isinstance(item, dict)}
+    recorded_strategies = {item.get("strategy") for item in records if isinstance(item, dict) and item.get("strategy")}
     baselines_ok = {"reference_solution", "simple_legal_baseline", "always_abstain", "template_or_keyword"} <= recorded_strategies
     _check(checks, "baseline_records_present", baselines_ok, ",".join(sorted(recorded_strategies)))
     if not baselines_ok:
@@ -165,6 +168,8 @@ def evaluate(package: Path) -> dict[str, Any]:
         _check(checks, "independent_verifier_audit", audit_ok, str((audit or {}).get("status", "missing")))
         if not audit_ok:
             pretrial_blockers.append("independent_verifier_audit")
+        if sop_card.get("release_status") == "BLOCKED":
+            release_blockers.extend(str(item) for item in sop_card.get("release_blockers", []) if item)
         if sop_card.get("sop_version") == SOP_V12:
             contract_audit = _load_json(quality / "contract_audit.json")
             contract_ok = (contract_audit or {}).get("status") == "PASS" and isinstance((contract_audit or {}).get("checks"), list) and len((contract_audit or {}).get("checks")) >= len(outputs)

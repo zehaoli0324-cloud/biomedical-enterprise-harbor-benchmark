@@ -1,0 +1,7 @@
+field	source_locator	derivation_rule	status	claim_scope
+SRC-CRISPR-PMC7006212.accession_or_doi	data/sources.json:source_id=SRC-CRISPR-PMC7006212	copied from public source registry; no scientific value derived	PUBLIC_SOURCE	published_screen_rows_do_not_prove_single_gene_causality
+SRC-CRISPR-PMC7006212.file_inventory	data/sources.json:source_id=SRC-CRISPR-PMC7006212	workbook bytes and SHA-256 remain pending; excluded from release	CALIBRATION_EXCLUDED	published_screen_rows_do_not_prove_single_gene_causality
+SRC-BBBC021-V1.accession_or_doi	data/sources.json:source_id=SRC-BBBC021-V1	copied from public source registry; no image measurement derived	PUBLIC_SOURCE	metadata_and_moa_labels_do_not_validate_image_measurements
+SRC-BBBC021-V1.file_inventory	data/sources.json:source_id=SRC-BBBC021-V1	selected image rights and hashes remain pending; excluded from release	CALIBRATION_EXCLUDED	metadata_and_moa_labels_do_not_validate_image_measurements
+SRC-ZENODO-10362368.accession_or_doi	data/sources.json:source_id=SRC-ZENODO-10362368	copied from public source registry; no trajectory statistic derived	PUBLIC_SOURCE	trajectory_convergence_audit_does_not_establish_force_field_validity
+SRC-ZENODO-10362368.file_inventory	data/sources.json:source_id=SRC-ZENODO-10362368	MD5-only archive is not a release SHA-256; excluded from release	CALIBRATION_EXCLUDED	trajectory_convergence_audit_does_not_establish_force_field_validity

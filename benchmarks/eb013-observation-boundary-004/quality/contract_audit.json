@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "contract": "data/output_contract.json",
+  "checks": [
+    {"output": "outputs/plan.json", "schema_declared": true},
+    {"output": "outputs/decision.json", "schema_declared": true},
+    {"output": "outputs/provenance.json", "schema_declared": true},
+    {"output": "outputs/audit.md", "schema_declared": true}
+  ],
+  "mutation_controls": [
+    {
+      "id": "reference",
+      "expected_pass": true,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "missing-field",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected: missing",
+        "decision: exact observation mapping required"
+      ]
+    },
+    {
+      "id": "wrong-action",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.policy.amber: mismatch",
+        "decision: exact observation mapping required"
+      ]
+    },
+    {
+      "id": "world-id-shortcut",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.policy.amber: missing",
+        "decision.selected.policy.green: missing",
+        "decision: exact observation mapping required"
+      ]
+    },
+    {
+      "id": "extra-observation",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision: exact observation mapping required"
+      ]
+    },
+    {
+      "id": "mean-risk",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.risk: numeric mismatch"
+      ]
+    },
+    {
+      "id": "missing-world",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "replay: row coverage mismatch"
+      ]
+    },
+    {
+      "id": "duplicate-world",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "delivery_or_contract: duplicate row: W1"
+      ]
+    },
+    {
+      "id": "wrong-residual",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "replay.W1.residuals.signal: numeric mismatch"
+      ]
+    },
+    {
+      "id": "wrong-source-join",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "source_audit.A11.blockers: mismatch"
+      ]
+    },
+    {
+      "id": "wrong-hash",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "provenance: hash mismatch"
+      ]
+    },
+    {
+      "id": "claim-inflation",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.claim_boundary: mismatch"
+      ]
+    },
+    {
+      "id": "nan-risk",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.risk: invalid number"
+      ]
+    },
+    {
+      "id": "boolean-risk",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.risk: invalid number"
+      ]
+    },
+    {
+      "id": "row-order-path-numeric-equivalence",
+      "expected_pass": true,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "mean-objective-baseline",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.stage1_id: mismatch",
+        "decision.selected.policy.amber: missing",
+        "decision.selected.policy.green: missing",
+        "decision.selected.worst_cost: numeric mismatch",
+        "decision: exact observation mapping required",
+        "replay.W1.observation: mismatch",
+        "replay.W1.action_id: mismatch",
+        "replay.W1.residuals.signal: numeric mismatch",
+        "replay.W1.cost: numeric mismatch",
+        "replay.W1.hours: numeric mismatch",
+        "replay.W2.observation: mismatch",
+        "replay.W2.action_id: mismatch",
+        "replay.W2.residuals.selectivity: numeric mismatch",
+        "replay.W2.cost: numeric mismatch",
+        "replay.W2.hours: numeric mismatch",
+        "replay.W4.observation: mismatch",
+        "replay.W4.residuals.signal: numeric mismatch",
+        "replay.W4.residuals.selectivity: numeric mismatch",
+        "replay.W4.cost: numeric mismatch",
+        "replay.W4.hours: numeric mismatch",
+        "replay.W3.observation: mismatch",
+        "replay.W3.action_id: mismatch",
+        "replay.W3.residuals.signal: numeric mismatch",
+        "replay.W3.residuals.selectivity: numeric mismatch",
+        "replay.W3.cost: numeric mismatch",
+        "replay.W3.hours: numeric mismatch"
+      ]
+    },
+    {
+      "id": "absolute-residual-baseline",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.stage1_id: mismatch",
+        "decision.selected.policy.amber: missing",
+        "decision.selected.policy.green: missing",
+        "decision.selected.setup_families: mismatch",
+        "decision.selected.setup_cost: numeric mismatch",
+        "decision.selected.setup_slots: numeric mismatch",
+        "decision.selected.worst_cost: numeric mismatch",
+        "decision.selected.risk: numeric mismatch",
+        "decision: exact observation mapping required",
+        "replay.W1.observation: mismatch",
+        "replay.W1.cost: numeric mismatch",
+        "replay.W2.observation: mismatch",
+        "replay.W2.cost: numeric mismatch",
+        "replay.W4.observation: mismatch",
+        "replay.W4.action_id: mismatch",
+        "replay.W4.residuals.signal: numeric mismatch",
+        "replay.W4.residuals.selectivity: numeric mismatch",
+        "replay.W4.cost: numeric mismatch",
+        "replay.W3.observation: mismatch",
+        "replay.W3.action_id: mismatch",
+        "replay.W3.residuals.signal: numeric mismatch",
+        "replay.W3.residuals.selectivity: numeric mismatch",
+        "replay.W3.cost: numeric mismatch"
+      ]
+    },
+    {
+      "id": "cheapest-baseline",
+      "expected_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.selected.policy.amber: mismatch",
+        "decision.selected.policy.green: mismatch",
+        "decision.selected.setup_families: mismatch",
+        "decision.selected.setup_cost: numeric mismatch",
+        "decision.selected.setup_slots: numeric mismatch",
+        "decision.selected.worst_cost: numeric mismatch",
+        "decision.selected.risk: numeric mismatch",
+        "decision: exact observation mapping required",
+        "replay.W1.action_id: mismatch",
+        "replay.W1.residuals.signal: numeric mismatch",
+        "replay.W1.residuals.selectivity: numeric mismatch",
+        "replay.W1.cost: numeric mismatch",
+        "replay.W1.hours: numeric mismatch",
+        "replay.W2.action_id: mismatch",
+        "replay.W2.residuals.signal: numeric mismatch",
+        "replay.W2.residuals.selectivity: numeric mismatch",
+        "replay.W2.cost: numeric mismatch",
+        "replay.W2.hours: numeric mismatch",
+        "replay.W4.action_id: mismatch",
+        "replay.W4.residuals.selectivity: numeric mismatch",
+        "replay.W4.cost: numeric mismatch",
+        "replay.W4.hours: numeric mismatch",
+        "replay.W3.action_id: mismatch",
+        "replay.W3.residuals.signal: numeric mismatch",
+        "replay.W3.residuals.selectivity: numeric mismatch",
+        "replay.W3.cost: numeric mismatch",
+        "replay.W3.hours: numeric mismatch"
+      ]
+    }
+  ]
+}

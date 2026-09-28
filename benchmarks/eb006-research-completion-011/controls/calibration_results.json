@@ -1,0 +1,175 @@
+{
+  "status": "PASS",
+  "controls": [
+    {
+      "id": "reference",
+      "completion": true,
+      "science": true
+    },
+    {
+      "id": "missing-sensitivity",
+      "completion": false,
+      "issues": [
+        "record_coverage:checks"
+      ]
+    },
+    {
+      "id": "missing-alternative",
+      "completion": false,
+      "issues": [
+        "missing_table:pooled"
+      ]
+    },
+    {
+      "id": "duplicate-record",
+      "completion": false,
+      "issues": [
+        "record_coverage:checks"
+      ]
+    },
+    {
+      "id": "reproducible-wrong-answer",
+      "completion": true,
+      "science": false,
+      "errors": [
+        "results.decision.selected: mismatch",
+        "perturbation.unit_effects[C17|early|D1].effect: numeric mismatch",
+        "perturbation.unit_effects[C17|early|D2].effect: numeric mismatch",
+        "perturbation.unit_effects[C17|early|D3].effect: numeric mismatch",
+        "perturbation.unit_effects[C17|early|D4].effect: numeric mismatch",
+        "perturbation.unit_effects[C17|late|D1].effect: numeric mismatch",
+        "perturbation.unit_effects[C17|late|D2].effect: numeric mismatch",
+        "perturbation.unit_effects[C17|late|D3].effect: numeric mismatch",
+        "perturbation.unit_effects[C17|late|D4].effect: numeric mismatch",
+        "perturbation.pooled[C17|early].effect: numeric mismatch",
+        "perturbation.pooled[C17|late].effect: numeric mismatch",
+        "perturbation.checks[base|C17|early].mean_effect: numeric mismatch",
+        "perturbation.checks[base|C17|early].status: mismatch",
+        "perturbation.checks[omit:D1|C17|early].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D1|C17|early].status: mismatch",
+        "perturbation.checks[omit:D2|C17|early].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D2|C17|early].status: mismatch",
+        "perturbation.checks[omit:D3|C17|early].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D3|C17|early].status: mismatch",
+        "perturbation.checks[omit:D4|C17|early].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D4|C17|early].status: mismatch",
+        "perturbation.checks[base|C17|late].mean_effect: numeric mismatch",
+        "perturbation.checks[base|C17|late].status: mismatch",
+        "perturbation.checks[omit:D1|C17|late].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D1|C17|late].status: mismatch",
+        "perturbation.checks[omit:D2|C17|late].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D2|C17|late].status: mismatch",
+        "perturbation.checks[omit:D3|C17|late].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D3|C17|late].status: mismatch",
+        "perturbation.checks[omit:D4|C17|late].mean_effect: numeric mismatch",
+        "perturbation.checks[omit:D4|C17|late].status: mismatch",
+        "perturbation.summaries[C17].nominal_eligible: mismatch",
+        "perturbation.summaries[C17].robust_eligible: mismatch",
+        "perturbation.summaries[C17].nominal_worst_mean: numeric mismatch",
+        "perturbation.summaries[C17].robust_worst_mean: numeric mismatch",
+        "perturbation.summaries[C17].pooled_worst_mean: numeric mismatch",
+        "perturbation.summaries[C17].failed_scenarios: members mismatch",
+        "perturbation.decision.selected: mismatch"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "row-order",
+      "oracle_agreement": true,
+      "decision": {
+        "nominal_selected": "C43",
+        "pooled_selected": "C28",
+        "selected": null,
+        "assay_selected": null,
+        "cross_assay_hold": true,
+        "reason_codes": [
+          "cross_assay_disagreement",
+          "missing_pair_evidence",
+          "nominal_selection_not_robust",
+          "pooled_ranking_disagrees",
+          "technical_replication_imbalance"
+        ],
+        "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy",
+        "human_review_required": true
+      }
+    },
+    {
+      "id": "replicate-balance",
+      "oracle_agreement": true,
+      "decision": {
+        "nominal_selected": "C43",
+        "pooled_selected": "C43",
+        "selected": null,
+        "assay_selected": null,
+        "cross_assay_hold": true,
+        "reason_codes": [
+          "cross_assay_disagreement",
+          "missing_pair_evidence",
+          "nominal_selection_not_robust",
+          "technical_replication_imbalance"
+        ],
+        "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy",
+        "human_review_required": true
+      }
+    },
+    {
+      "id": "influence-repair",
+      "oracle_agreement": true,
+      "decision": {
+        "nominal_selected": "C43",
+        "pooled_selected": "C28",
+        "selected": null,
+        "assay_selected": null,
+        "cross_assay_hold": true,
+        "reason_codes": [
+          "cross_assay_disagreement",
+          "missing_pair_evidence",
+          "pooled_ranking_disagrees",
+          "technical_replication_imbalance"
+        ],
+        "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy",
+        "human_review_required": true
+      }
+    },
+    {
+      "id": "scope-noise",
+      "oracle_agreement": true,
+      "decision": {
+        "nominal_selected": "C43",
+        "pooled_selected": "C28",
+        "selected": null,
+        "assay_selected": null,
+        "cross_assay_hold": true,
+        "reason_codes": [
+          "cross_assay_disagreement",
+          "missing_pair_evidence",
+          "nominal_selection_not_robust",
+          "pooled_ranking_disagrees",
+          "technical_replication_imbalance"
+        ],
+        "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy",
+        "human_review_required": true
+      }
+    },
+    {
+      "id": "threshold-hold",
+      "oracle_agreement": true,
+      "decision": {
+        "nominal_selected": null,
+        "pooled_selected": "C28",
+        "selected": null,
+        "assay_selected": null,
+        "cross_assay_hold": true,
+        "reason_codes": [
+          "cross_assay_disagreement",
+          "missing_pair_evidence",
+          "pooled_ranking_disagrees",
+          "technical_replication_imbalance"
+        ],
+        "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy",
+        "human_review_required": true
+      }
+    }
+  ]
+}

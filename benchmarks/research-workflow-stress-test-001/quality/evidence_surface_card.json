@@ -1,0 +1,9 @@
+{
+  "schema_version": "evidence_surface_card.v1",
+  "task_id": "research-workflow-stress-test-001",
+  "fixture_status": "SYNTHETIC_DISCLOSED_REQUIRED",
+  "task_scope": "research_workflow_calibration",
+  "repair_plan": "quality/repair_plan.json",
+  "variant_status": "BLOCKED_SOURCE_CLOSURE",
+  "status": "CALIBRATION_ONLY"
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb012-cross-handoff-audit-001",
-  "spec_digest": "254d923fbcf4f95c3d25c7a74a6a3c66321b083e0307ad1e3399ca04d2e06db8",
+  "spec_digest": "51c4ef27a5a260e485c95c272182a1ff38b52eb201b3f998fd91ff1330ad1c50",
   "evaluation": {
     "scale": {
       "min": 0.0,

@@ -1,0 +1,165 @@
+{
+  "premises": [
+    {
+      "id": "P-EFFECT",
+      "scope": "registered_primary_cohort",
+      "quorum": 1,
+      "min_effect": 0.2
+    },
+    {
+      "id": "P-REPRO",
+      "scope": "registered_primary_cohort",
+      "quorum": 2,
+      "min_effect": 0.2
+    },
+    {
+      "id": "P-BRIDGE",
+      "scope": "target_population",
+      "quorum": 1,
+      "min_effect": 0.2
+    },
+    {
+      "id": "P-CAUSAL",
+      "scope": "target_population",
+      "quorum": 2,
+      "min_effect": 0.2
+    }
+  ],
+  "claims": [
+    {
+      "id": "C-DESC",
+      "scope": "registered_primary_cohort",
+      "permission": "descriptive",
+      "requires": [
+        "P-EFFECT"
+      ],
+      "resolution_weight": 0
+    },
+    {
+      "id": "C-ASSOC",
+      "scope": "registered_primary_cohort",
+      "permission": "registered_association",
+      "requires": [
+        "P-EFFECT",
+        "P-REPRO"
+      ],
+      "resolution_weight": 1
+    },
+    {
+      "id": "C-TRANSPORT",
+      "scope": "target_population",
+      "permission": "transportable_association",
+      "requires": [
+        "P-EFFECT",
+        "P-REPRO",
+        "P-BRIDGE"
+      ],
+      "resolution_weight": 4
+    },
+    {
+      "id": "C-CAUSAL",
+      "scope": "target_population",
+      "permission": "causal",
+      "requires": [
+        "P-EFFECT",
+        "P-REPRO",
+        "P-BRIDGE",
+        "P-CAUSAL"
+      ],
+      "resolution_weight": 0
+    }
+  ],
+  "observations": [
+    {
+      "id": "O-1",
+      "source_id": "E-DIRECT",
+      "premise_id": "P-EFFECT",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.5,
+        1.6
+      ]
+    },
+    {
+      "id": "O-2",
+      "source_id": "E-BATCH-1",
+      "premise_id": "P-REPRO",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.4,
+        1.5
+      ]
+    },
+    {
+      "id": "O-3",
+      "source_id": "E-BATCH-2",
+      "premise_id": "P-REPRO",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.6,
+        1.7
+      ]
+    },
+    {
+      "id": "O-4",
+      "source_id": "E-BATCH-DUP",
+      "premise_id": "P-REPRO",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.4,
+        1.5
+      ]
+    },
+    {
+      "id": "O-5",
+      "source_id": "E-OLD-BRIDGE",
+      "premise_id": "P-BRIDGE",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.6,
+        1.7
+      ]
+    },
+    {
+      "id": "O-6",
+      "source_id": "E-WRONG-BRIDGE",
+      "premise_id": "P-BRIDGE",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.6,
+        1.7
+      ]
+    },
+    {
+      "id": "O-7",
+      "source_id": "E-FUTURE-INT",
+      "premise_id": "P-CAUSAL",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.9,
+        2
+      ]
+    }
+  ]
+}

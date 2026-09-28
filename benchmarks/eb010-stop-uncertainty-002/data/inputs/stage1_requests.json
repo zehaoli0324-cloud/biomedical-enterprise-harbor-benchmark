@@ -1,0 +1,74 @@
+{
+  "requests": [
+    {
+      "request_id": "S-UNCERTAINTY",
+      "stage": 1,
+      "cost": 3.0,
+      "correlation_group": "G0",
+      "covers": {
+        "improvement": 0.25,
+        "model_disagreement": 0.2
+      },
+      "outcomes": {
+        "plateau": {
+          "improvement": 0.2
+        },
+        "discordant": {
+          "model_disagreement": 0.15
+        }
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 0.9
+    },
+    {
+      "request_id": "S-GAIN",
+      "stage": 1,
+      "cost": 2.0,
+      "correlation_group": "G1",
+      "covers": {
+        "improvement": 0.45,
+        "model_disagreement": 0.05
+      },
+      "outcomes": {
+        "gain": {},
+        "no_gain": {}
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 1.2
+    },
+    {
+      "request_id": "S-CHEAP",
+      "stage": 1,
+      "cost": 1.0,
+      "correlation_group": "G2",
+      "covers": {
+        "improvement": 0.2,
+        "model_disagreement": 0.1
+      },
+      "outcomes": {
+        "screen_positive": {},
+        "screen_negative": {}
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 1.35
+    },
+    {
+      "request_id": "S-CONTEXT",
+      "stage": 1,
+      "cost": 1.5,
+      "correlation_group": "G8",
+      "covers": {"improvement": 0.15, "model_disagreement": 0.25},
+      "outcomes": {"context_clear": {"improvement": 0.1}, "context_conflict": {"model_disagreement": 0.2}},
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 1.05
+    }
+  ]
+}

@@ -8,18 +8,18 @@ scientific_judgments:
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
 difficulty_modules:
-  - id: scenario_reproducibility_audit
-    observable: module 1 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of scenario_reproducibility_audit changes selection or triggers a bounded hold
-  - id: compute_data_schema_discovery
-    observable: module 2 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of compute_data_schema_discovery changes selection or triggers a bounded hold
-  - id: judgment_causal_boundary
-    observable: module 3 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of judgment_causal_boundary changes selection or triggers a bounded hold
+  - id: data_evidence_graph_join
+    observable: every upstream artifact is joined to scope, schema, hash and claim-boundary evidence
+    decision_flip: one stale or missing edge blocks downstream consumption despite other artifacts passing
+  - id: judgment_claim_permission_lattice
+    observable: downstream claim permissions are the intersection of upstream artifact permissions
+    decision_flip: one artifact with a downgraded permission prevents an unqualified downstream claim
   - id: horizon_end_to_end_claim
-    observable: module 4 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of horizon_end_to_end_claim changes selection or triggers a bounded hold
+    observable: the audit preserves order, version and handoff state across all upstream artifacts
+    decision_flip: a later artifact cannot repair an earlier provenance failure without a declared replay
+  - id: compute_data_schema_discovery
+    observable: artifact schemas and required fields are compared before the claim lattice is evaluated
+    decision_flip: a schema mismatch blocks the handoff even when hashes and claim text appear valid
 workflow_handoffs:
   - from: visible_inputs
     to: decision_handoff

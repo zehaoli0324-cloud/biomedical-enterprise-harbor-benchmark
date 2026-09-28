@@ -1,0 +1,52 @@
+{
+  "task_id": "eb006-research-completion-006",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "BLOCKED",
+  "target_model_status": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "scientific_error": false,
+      "contract_error": false
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "fail",
+      "passed": false,
+      "failure_attribution": "nominal-only or pooled shortcut omits LODO reconciliation",
+      "scientific_error": true,
+      "contract_error": false
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "fail",
+      "passed": false,
+      "failure_attribution": "does not report computable robust candidate",
+      "scientific_error": true,
+      "contract_error": false
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "fail",
+      "passed": false,
+      "failure_attribution": "structured executable coverage absent",
+      "scientific_error": false,
+      "contract_error": true
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb006-research-completion-gpt56sol-002",
+      "status": "agent_completed_verifier_passed",
+      "passed": true,
+      "runner_status": "timeout",
+      "timed_out": true,
+      "artifact_verification": "post_timeout_completion_and_scientific_replay_pass",
+      "failure_attribution": "adapter_stream_lifecycle_timeout",
+      "valid_difficulty_evidence": false,
+      "errors": []
+    }
+  ]
+}

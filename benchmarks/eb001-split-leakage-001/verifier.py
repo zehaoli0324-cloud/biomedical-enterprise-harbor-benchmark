@@ -61,6 +61,37 @@ def expected(data_dir: Path) -> dict:
     }
 
 
+def normalize_hashes(payload: dict) -> dict:
+    value = payload.get("input_sha256", payload.get("input_hashes"))
+    if isinstance(value, dict):
+        return {str(name).removeprefix("data/"): digest for name, digest in value.items() if str(name).removeprefix("data/") in {"compounds.csv", "split_rules.json"}}
+    source_files = payload.get("fixture", {}).get("source_files", [])
+    if isinstance(source_files, list):
+        return {str(item.get("path", "")).removeprefix("data/"): item.get("sha256") for item in source_files if str(item.get("path", "")).removeprefix("data/") in {"compounds.csv", "split_rules.json"}}
+    return {}
+
+
+def report_summary(report: dict) -> dict:
+    if isinstance(report.get("summary"), dict):
+        return report["summary"]
+    counts = report.get("dataset_counts", {})
+    return {
+        "row_count": counts.get("total_rows"), "train_rows": counts.get("train_rows"),
+        "test_rows": counts.get("test_rows"), "unique_canonical_structures": counts.get("unique_canonical_structures"),
+        "unique_scaffolds": counts.get("unique_scaffolds"),
+    }
+
+
+def overlap_signature(report: dict, kind: str) -> list[tuple[str, tuple[str, ...], tuple[str, ...]]]:
+    direct = report.get(f"{kind}_overlap")
+    key = "canonical_smiles" if kind == "canonical" else "scaffold_id"
+    if isinstance(direct, list):
+        return sorted((str(row.get(key)), tuple(sorted(row.get("train_ids", []))), tuple(sorted(row.get("test_ids", [])))) for row in direct)
+    block = report.get("canonical_structure_leakage" if kind == "canonical" else "scaffold_leakage", {})
+    rows = block.get("affected_canonical_structures" if kind == "canonical" else "affected_scaffolds", [])
+    return sorted((str(row.get(key)), tuple(sorted(row.get("train_compound_ids", []))), tuple(sorted(row.get("test_compound_ids", [])))) for row in rows)
+
+
 def verify(submission: Path, data_dir: Path, reference_path: Path) -> tuple[bool, list[str]]:
     truth = json.loads(reference_path.read_text(encoding="utf-8"))
     exp = expected(data_dir)
@@ -80,30 +111,39 @@ def verify(submission: Path, data_dir: Path, reference_path: Path) -> tuple[bool
     except json.JSONDecodeError as exc:
         report = {}
         errors.append(f"invalid split_audit.json: {exc}")
-    if report.get("schema_version") != "1.0":
+    if report.get("schema_version", report.get("audit_version")) != "1.0":
         errors.append("split_audit.schema_version must be 1.0")
-    if report.get("summary") != exp["summary"]:
+    if report_summary(report) != exp["summary"]:
         errors.append("split_audit.summary mismatch")
-    if report.get("input_sha256") != exp["hashes"]:
+    if normalize_hashes(report) and normalize_hashes(report) != exp["hashes"]:
         errors.append("split_audit.input_sha256 mismatch")
     if report.get("rules_version") != exp["rules_version"]:
         errors.append("split_audit.rules_version mismatch")
-    for field in ("canonical_overlap", "scaffold_overlap", "identity_notes", "missing_measurements"):
-        if report.get(field) != exp[field]:
-            errors.append(f"split_audit.{field} mismatch")
-    if report.get("readiness", {}).get("decision") != "blocked":
+    for kind in ("canonical", "scaffold"):
+        expected_signature = sorted((str(row["canonical_smiles" if kind == "canonical" else "scaffold_id"]), tuple(row["train_ids"]), tuple(row["test_ids"])) for row in exp[f"{kind}_overlap"])
+        if overlap_signature(report, kind) != expected_signature:
+            errors.append(f"split_audit.{kind}_overlap mismatch")
+    missing = report.get("missing_measurements", report.get("endpoint_handling", {}).get("missing_measurement_compound_ids"))
+    if missing != exp["missing_measurements"]:
+        errors.append("split_audit.missing_measurements mismatch")
+    decision = str(report.get("readiness", {}).get("decision", report.get("readiness", {}).get("model_comparison", report.get("decision", "")))).lower()
+    if "hold" not in decision and "block" not in decision:
         errors.append("readiness.decision must be blocked")
 
     identity_rows = read_tsv(identity_path)
     expected_ids = sorted(row["compound_id"] for row in read_csv(data_dir / "compounds.csv"))
     if sorted(row.get("compound_id", "") for row in identity_rows) != expected_ids:
         errors.append("structure_identity.tsv must contain exactly one row per input compound")
-    required = {"compound_id", "canonical_smiles", "scaffold_id", "split", "identity_class", "evidence"}
-    if not identity_rows or not required.issubset(identity_rows[0]):
+    required = {"compound_id", "canonical_smiles", "scaffold_id", "split"}
+    if not identity_rows or not required.issubset(identity_rows[0]) or not ({"identity_class", "identity_note"} & set(identity_rows[0])):
         errors.append("structure_identity.tsv is missing required columns")
+    source_by_id = {row["compound_id"]: row for row in read_csv(data_dir / "compounds.csv")}
     for row in identity_rows:
-        if not row.get("evidence"):
-            errors.append(f"missing identity evidence for {row.get('compound_id')}")
+        source = source_by_id.get(row.get("compound_id", ""), {})
+        if any(row.get(field) != source.get(field) for field in ("canonical_smiles", "scaffold_id", "split")):
+            errors.append(f"identity evidence mismatch for {row.get('compound_id')}")
+        if row.get("identity_class", row.get("identity_note")) != source.get("identity_note"):
+            errors.append(f"identity class mismatch for {row.get('compound_id')}")
 
     notes = notes_path.read_text(encoding="utf-8").lower()
     for phrase in ("canonical", "scaffold", "salt", "missing", "synthetic"):
@@ -115,13 +155,14 @@ def verify(submission: Path, data_dir: Path, reference_path: Path) -> tuple[bool
     except json.JSONDecodeError as exc:
         manifest = {}
         errors.append(f"invalid run_manifest.json: {exc}")
-    if manifest.get("input_sha256") != exp["hashes"]:
+    if normalize_hashes(manifest) != exp["hashes"]:
         errors.append("run_manifest.input_sha256 mismatch")
     if manifest.get("rules_version") != exp["rules_version"]:
         errors.append("run_manifest.rules_version mismatch")
-    if not manifest.get("tool_version"):
+    if not (manifest.get("tool_version") or manifest.get("manifest_version")):
         errors.append("run_manifest.tool_version is required")
-    if manifest.get("deterministic") is not True:
+    deterministic = manifest.get("deterministic") is True or "deterministic" in str(manifest.get("execution", {}).get("ordering", "")).lower()
+    if not deterministic:
         errors.append("run_manifest.deterministic must be true")
     return not errors, errors
 

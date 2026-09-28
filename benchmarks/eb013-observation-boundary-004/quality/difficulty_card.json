@@ -1,0 +1,39 @@
+{
+  "task_id": "eb013-observation-boundary-004",
+  "primary_module": "horizon_observation_equivalence",
+  "secondary_modules": [
+    "math_ex_ante_shared_setup",
+    "math_distributional_minimax"
+  ],
+  "supporting_modules": [
+    "retrieval_provenance_temporal_boundary",
+    "math_correlation_adjusted_reduction",
+    "environment_resource_budget"
+  ],
+  "dimensions": [
+    "information partition",
+    "prospective resource coupling",
+    "distribution stress",
+    "temporal evidence join",
+    "correlation",
+    "asymmetric safety thresholds"
+  ],
+  "held_out_variants": [
+    "partition-collapse",
+    "capacity-contract",
+    "deadline-relax",
+    "source-release",
+    "correlation-release",
+    "threshold-change",
+    "no-feasible",
+    "world-order"
+  ],
+  "status": "LOCAL_CALIBRATION_PASS_TWO_TARGET_RAW_PASSES",
+  "target_trials": [
+    "gpt56sol-v1-001",
+    "observation-boundary-gpt56sol-001"
+  ],
+  "target_model_defeated": false,
+  "next_escalation_requirement": "add one new primary difficulty axis; do not count additional schema or artifact burden",
+  "cross_domain_transfer": "NOT_RUN"
+}

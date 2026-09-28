@@ -1,8 +1,10 @@
 {
   "schema_version": "enterprise_model_trial_card.v1",
   "task_id": "eb015-real-source-replacement-gate-001",
-  "status": "TARGET_TRIAL_COMPLETE",
+  "status": "TARGET_TRIAL_COMPLETE_CURRENT_VERSION",
   "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "current_task_version": "2.0.0",
+  "historical_target_trial_status": "PASS_AFTER_CONTRACT_REPLAY",
   "strategies": ["reference_solution", "simple_legal_baseline", "always_abstain", "template_or_keyword", "target_model"],
   "run_records": [
     {"strategy": "reference_solution", "status": "PASS", "passed": true},
@@ -12,11 +14,13 @@
     {
       "strategy": "target_model",
       "model": "gpt-5.6-sol",
-      "trial_id": "eb015-real-source-gpt56sol-002",
-      "status": "raw_fail_contract_replay_pass",
+      "trial_id": "selected4-eb015-gpt56sol-v3-001",
+      "status": "pass_after_contract_replay",
       "passed": true,
-      "failure_attribution": "contract representation only",
-      "valid_difficulty_evidence": false
+      "failure_attribution": "verifier rejected order-insensitive rows and per-source URL objects allowed by the public contract; unchanged artifacts pass the corrected verifier",
+      "valid_difficulty_evidence": false,
+      "target_model_defeated": false,
+      "held_out_replays_passed": 2
     }
   ],
   "release_blockers": ["source rights review", "file-level SHA-256 freeze", "verifier rebind", "fixed-container replay", "practitioner review"]

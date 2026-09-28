@@ -1,0 +1,22 @@
+{
+  "rules_version": "evidence-gap-followup-v1",
+  "decision_date": "2026-09-21",
+  "budget": 5,
+  "max_actions": 2,
+  "claim_order": [
+    "causal",
+    "transportable_association",
+    "registered_association",
+    "descriptive"
+  ],
+  "objective": [
+    "maximize minimum terminal resolved-claim weight over all outcomes",
+    "minimize maximum path cost",
+    "minimize maximum path action count",
+    "lexical compact sorted-key JSON policy"
+  ],
+  "premise_rule": "Eligible observations have current status, available_on <= decision_date and the premise's scope. Effect = arithmetic mean treatment minus arithmetic mean control. A group is positive only if all its observations reach min_effect. Any negative group refutes the premise; otherwise enough positive independent groups support it; otherwise it is unknown. This is a synthetic conservative acceptance rule, not a general scientific inference rule.",
+  "claim_rule": "Any refuted required premise refutes a claim; all supported permits it; otherwise unknown. A claim's scope is authorized by its registered premise requirements, including bridge premises. Refuted is not permission to assert the opposite causal claim.",
+  "action_rule": "Current actions available by decision_date require every dependency supported, enough remaining budget and no repeat on that path. Outcomes append hypothetical observations for replay only. An action and hold are never simultaneous. Hold is always legal and ends a path. Stop after max_actions, or as soon as every positive-weight claim is resolved (supported or refuted).",
+  "scoring_rule": "Sum resolution_weight for claims whose terminal status is supported or refuted. Unknown contributes zero. Minimize cost only after maximizing the worst-case score. No outcome probabilities are assumed."
+}

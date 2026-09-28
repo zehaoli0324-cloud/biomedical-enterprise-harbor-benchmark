@@ -1,0 +1,16 @@
+{
+  "schema_version": "enterprise_independent_oracle_audit.v1",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "implementation": "fractions_manual_expected_table_without_verifier_import",
+  "effect_table_match": true,
+  "state_table_match": true,
+  "selected_candidate": "method_gamma",
+  "expected_selected_candidate": "method_gamma",
+  "passed": true,
+  "scientific_checks": {
+    "technical_replicates_collapsed_before_donor_effect": true,
+    "method_beta_nonpositive_donor_detected": true,
+    "method_gamma_late_missing_donor_does_not_force_global_abstention": true,
+    "inactive_method_shadow_excluded": true
+  }
+}

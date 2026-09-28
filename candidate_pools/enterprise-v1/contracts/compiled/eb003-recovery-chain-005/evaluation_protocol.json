@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb003-recovery-chain-005",
-  "spec_digest": "3c756a73628e30debbda3d3f44c371c7ab0edfaa841d10c5e2573d348c6b0d37",
+  "spec_digest": "7f2b53064d1e595016c9e002e0a58a280e8ce7cee71b81a5ce81e2052e482f47",
   "evaluation": {
     "scale": {
       "min": 0.0,

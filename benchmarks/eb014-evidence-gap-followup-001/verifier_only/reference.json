@@ -1,0 +1,261 @@
+{
+  "claim_ledger.json": {
+    "premises": [
+      {
+        "id": "P-BRIDGE",
+        "status": "unknown",
+        "positive_groups": [],
+        "negative_groups": []
+      },
+      {
+        "id": "P-CAUSAL",
+        "status": "unknown",
+        "positive_groups": [],
+        "negative_groups": []
+      },
+      {
+        "id": "P-EFFECT",
+        "status": "supported",
+        "positive_groups": [
+          "G-DIRECT"
+        ],
+        "negative_groups": []
+      },
+      {
+        "id": "P-REPRO",
+        "status": "unknown",
+        "positive_groups": [
+          "G-B1"
+        ],
+        "negative_groups": []
+      }
+    ],
+    "claims": [
+      {
+        "id": "C-ASSOC",
+        "scope": "registered_primary_cohort",
+        "status": "unknown",
+        "allowed": false,
+        "blocking_premises": [
+          "P-REPRO"
+        ]
+      },
+      {
+        "id": "C-CAUSAL",
+        "scope": "target_population",
+        "status": "unknown",
+        "allowed": false,
+        "blocking_premises": [
+          "P-BRIDGE",
+          "P-CAUSAL",
+          "P-REPRO"
+        ]
+      },
+      {
+        "id": "C-DESC",
+        "scope": "registered_primary_cohort",
+        "status": "supported",
+        "allowed": true,
+        "blocking_premises": []
+      },
+      {
+        "id": "C-TRANSPORT",
+        "scope": "target_population",
+        "status": "unknown",
+        "allowed": false,
+        "blocking_premises": [
+          "P-BRIDGE",
+          "P-REPRO"
+        ]
+      }
+    ],
+    "claim_ceiling": "descriptive",
+    "observations": [
+      {
+        "id": "O-1",
+        "source_id": "E-DIRECT",
+        "premise_id": "P-EFFECT",
+        "independence_group": "G-DIRECT",
+        "effect": 0.5,
+        "included": true,
+        "exclusion_reasons": []
+      },
+      {
+        "id": "O-2",
+        "source_id": "E-BATCH-1",
+        "premise_id": "P-REPRO",
+        "independence_group": "G-B1",
+        "effect": 0.4,
+        "included": true,
+        "exclusion_reasons": []
+      },
+      {
+        "id": "O-3",
+        "source_id": "E-BATCH-2",
+        "premise_id": "P-REPRO",
+        "independence_group": "G-B2",
+        "effect": 0.6,
+        "included": false,
+        "exclusion_reasons": [
+          "source_status"
+        ]
+      },
+      {
+        "id": "O-4",
+        "source_id": "E-BATCH-DUP",
+        "premise_id": "P-REPRO",
+        "independence_group": "G-B1",
+        "effect": 0.4,
+        "included": true,
+        "exclusion_reasons": []
+      },
+      {
+        "id": "O-5",
+        "source_id": "E-OLD-BRIDGE",
+        "premise_id": "P-BRIDGE",
+        "independence_group": "G-BRIDGE-OLD",
+        "effect": 0.6,
+        "included": false,
+        "exclusion_reasons": [
+          "source_status"
+        ]
+      },
+      {
+        "id": "O-6",
+        "source_id": "E-WRONG-BRIDGE",
+        "premise_id": "P-BRIDGE",
+        "independence_group": "G-BRIDGE-WRONG",
+        "effect": 0.6,
+        "included": false,
+        "exclusion_reasons": [
+          "scope"
+        ]
+      },
+      {
+        "id": "O-7",
+        "source_id": "E-FUTURE-INT",
+        "premise_id": "P-CAUSAL",
+        "independence_group": "G-INT-FUTURE",
+        "effect": 0.9,
+        "included": false,
+        "exclusion_reasons": [
+          "future_source"
+        ]
+      }
+    ]
+  },
+  "research_plan.json": {
+    "policy": {
+      "action": "A-REPLICATE",
+      "branches": {
+        "consistent": {
+          "action": "A-BRIDGE",
+          "branches": {
+            "bridge_failed": {
+              "action": "hold",
+              "branches": {}
+            },
+            "bridge_supported": {
+              "action": "hold",
+              "branches": {}
+            }
+          }
+        },
+        "inconsistent": {
+          "action": "hold",
+          "branches": {}
+        }
+      }
+    },
+    "objective": {
+      "worst_resolved_weight": 5,
+      "worst_cost": 4.0,
+      "max_action_count": 2,
+      "policy_key": "{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}"
+    },
+    "stop_reason": "conditional_plan"
+  },
+  "adaptive_update.json": {
+    "hypothetical": true,
+    "leaves": [
+      {
+        "id": "[\"A-REPLICATE:consistent\",\"A-BRIDGE:bridge_failed\"]",
+        "path": [
+          "A-REPLICATE:consistent",
+          "A-BRIDGE:bridge_failed"
+        ],
+        "cost": 4.0,
+        "premises": {
+          "P-BRIDGE": "refuted",
+          "P-CAUSAL": "unknown",
+          "P-EFFECT": "supported",
+          "P-REPRO": "supported"
+        },
+        "claims": {
+          "C-ASSOC": "supported",
+          "C-CAUSAL": "refuted",
+          "C-DESC": "supported",
+          "C-TRANSPORT": "refuted"
+        },
+        "claim_ceiling": "registered_association",
+        "resolved_weight": 5
+      },
+      {
+        "id": "[\"A-REPLICATE:consistent\",\"A-BRIDGE:bridge_supported\"]",
+        "path": [
+          "A-REPLICATE:consistent",
+          "A-BRIDGE:bridge_supported"
+        ],
+        "cost": 4.0,
+        "premises": {
+          "P-BRIDGE": "supported",
+          "P-CAUSAL": "unknown",
+          "P-EFFECT": "supported",
+          "P-REPRO": "supported"
+        },
+        "claims": {
+          "C-ASSOC": "supported",
+          "C-CAUSAL": "unknown",
+          "C-DESC": "supported",
+          "C-TRANSPORT": "supported"
+        },
+        "claim_ceiling": "transportable_association",
+        "resolved_weight": 5
+      },
+      {
+        "id": "[\"A-REPLICATE:inconsistent\"]",
+        "path": [
+          "A-REPLICATE:inconsistent"
+        ],
+        "cost": 2.0,
+        "premises": {
+          "P-BRIDGE": "unknown",
+          "P-CAUSAL": "unknown",
+          "P-EFFECT": "supported",
+          "P-REPRO": "refuted"
+        },
+        "claims": {
+          "C-ASSOC": "refuted",
+          "C-CAUSAL": "refuted",
+          "C-DESC": "supported",
+          "C-TRANSPORT": "refuted"
+        },
+        "claim_ceiling": "descriptive",
+        "resolved_weight": 5
+      }
+    ]
+  },
+  "provenance.json": {
+    "input_sha256": {
+      "actions.json": "e6cddd2232e387d0e500544911c3e934c4513f3f62b2cdf82d2a8d2fa7ae619b",
+      "evidence.json": "3dd615bb8eb1e9d9a71d015e29c8a5a1daad7269cb06da52850766c659181a82",
+      "feedback.json": "da6c3e6ff2a5bb407ca0cd6c5900a3a5fbd3aad24eb809e3dadccbf857946eac",
+      "output_contract.json": "b197ae0402ab284b62c44ec1043b5ea844f2e9fd4bee1849257a6279b43fcfd7",
+      "rules.json": "7e4bb54a41e8980fee693c1666b24903e051c65c5d8a33cffd464e064c4efb1d",
+      "sources.json": "e839babbd1e60f15109defc95da69767572a0e9b9de957a9e58525832d4f07a3"
+    },
+    "rules_version": "evidence-gap-followup-v1",
+    "network": "off",
+    "deterministic": true
+  }
+}

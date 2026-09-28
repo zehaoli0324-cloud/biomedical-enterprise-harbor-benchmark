@@ -1,0 +1,65 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-019",
+  "title": "Completion-gated evidence follow-up continuation batch",
+  "status": "PRETRIAL_PASS_RELEASE_BLOCKED",
+  "selection_policy": {
+    "candidate_count": 4,
+    "coverage": "reconcile competing estimands, cross-assay boundaries, evidence gaps, and sequential feedback",
+    "promotion_gate": "independent oracle, four-control calibration, enterprise SOP preflight, fixed-container replay, practitioner review",
+    "real_data_policy": "synthetic calibration disclosed; no empirical or Harbor-release claim"
+  },
+  "candidates": [
+    {
+      "candidate_id": "eb006-research-completion-008",
+      "primary_module": "judgment_influence_reconciliation",
+      "secondary_modules": ["noise_pooled_stratified_adversary", "horizon_verified_research_completion"],
+      "calibration": "PASS",
+      "target_model_status": "RAW_PASS",
+      "preflight": "PASS",
+      "release_status": "BLOCKED",
+      "release_blockers": ["fixed-container replay", "practitioner review", "real-data replacement"]
+    },
+    {
+      "candidate_id": "eb006-research-completion-011",
+      "primary_module": "judgment_influence_reconciliation",
+      "secondary_modules": ["cross_assay_concordance", "horizon_verified_research_completion"],
+      "calibration": "PASS",
+      "target_model_status": "TIMEOUT_OUTPUT_COMPLETE_SCIENCE_PASS",
+      "preflight": "PASS",
+      "release_status": "BLOCKED",
+      "release_blockers": ["fixed-container replay", "practitioner review", "real-data replacement", "target-model infrastructure attribution"]
+    },
+    {
+      "candidate_id": "eb014-evidence-gap-followup-001",
+      "primary_module": "research_minimum_additional_evidence",
+      "secondary_modules": ["judgment_claim_transportability_boundary", "horizon_adaptive_research_priority"],
+      "calibration": "PASS",
+      "target_model_status": "RAW_PASS",
+      "preflight": "PASS",
+      "release_status": "BLOCKED",
+      "release_blockers": ["fixed-container replay", "practitioner review", "real-data replacement"]
+    },
+    {
+      "candidate_id": "eb014-sequential-evidence-feedback-002",
+      "primary_module": "horizon_sequential_evidence_feedback",
+      "secondary_modules": ["judgment_evidence_sufficiency_abstention", "retrieval_independence_quorum"],
+      "calibration": "CALIBRATED",
+      "target_model_status": "PASS",
+      "preflight": "PASS",
+      "release_status": "BLOCKED",
+      "release_blockers": ["fixed-container replay", "practitioner review"]
+    }
+  ],
+  "shared_controls": [
+    "positive reference",
+    "negative shortcut or wrong evidence",
+    "insufficient evidence or missing handoff",
+    "row/order or duplicate invariance"
+  ],
+  "next_actions": [
+    "run fixed-container replay against the four preflight outputs",
+    "complete practitioner claim-boundary review",
+    "replace synthetic calibration inputs before any Harbor release decision"
+  ]
+}

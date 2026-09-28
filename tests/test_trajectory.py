@@ -35,3 +35,15 @@ def test_gate_statuses_and_long_target():
     assert result["model_turns"] == 41
     assert result["over_40_model_turns"] is True
     assert result["completion_gate_statuses"] == {"accepted": 1, "returned": 1}
+
+
+def test_sequential_adapter_counts_observable_model_messages_without_turn_events():
+    rows = []
+    for _ in range(41):
+        rows.extend([
+            event("item.started", {"type": "command_execution"}),
+            event("item.completed", {"type": "agent_message"}),
+        ])
+    result = summarize(rows)
+    assert result["model_turns"] == 41
+    assert result["over_40_model_turns"] is True

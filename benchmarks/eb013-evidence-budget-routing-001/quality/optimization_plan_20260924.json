@@ -1,0 +1,14 @@
+{
+  "schema_version": "task_optimization_queue.v1",
+  "task_id": "eb013-evidence-budget-routing-001",
+  "status": "QUEUED_FOR_DATA_OPTIMIZATION",
+  "trial_owner": "parallel_window",
+  "target_trial_status_before_merge": "BASELINES_COMPLETE / NOT_RUN",
+  "objectives": [
+    "Expand observable evidence units so the budget decision cannot be solved from one or two records",
+    "Add independent, insufficient-evidence, and budget-contraction variants",
+    "Recompute oracle and claim-evidence map after data expansion",
+    "Preserve exact abstention limits and replay contract"
+  ],
+  "merge_gates": ["evidence surface PASS", "mutation matrix PASS", "focused tests PASS", "target trial result imported without status rewriting"]
+}

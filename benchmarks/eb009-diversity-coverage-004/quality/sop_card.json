@@ -5,12 +5,12 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "CONTRACT_ONLY",
   "control_status": "CALIBRATED",
-  "model_trial_status": "BLOCKED_INFRASTRUCTURE",
-  "target_model_failure_policy": "infrastructure_failures_are_not_difficulty_evidence",
+  "model_trial_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+  "target_model_failure_policy": "contract_replay_pass_is_not_scientific_difficulty_evidence",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
     "source/license/privacy review",
-    "rerun target-model trial after app-server infrastructure repair"
+    "clean target-model trial after contract freeze"
   ]
 }

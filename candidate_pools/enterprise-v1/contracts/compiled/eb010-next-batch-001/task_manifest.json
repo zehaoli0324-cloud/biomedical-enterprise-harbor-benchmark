@@ -206,11 +206,23 @@
         {
           "id": "math_model_selection_and_sensitivity",
           "params": {}
+        },
+        {
+          "id": "math_robust_scenario_optimization",
+          "params": {}
+        },
+        {
+          "id": "math_sensitivity_frontier",
+          "params": {}
         }
       ],
       "horizon": [
         {
           "id": "horizon_branching_experiments",
+          "params": {}
+        },
+        {
+          "id": "horizon_two_stage_acquisition",
           "params": {}
         }
       ],
@@ -234,7 +246,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "5c3a2603b0666f5045061f3cfc609498b95946773216546dab3d72e79bf89ae9",
+  "spec_digest": "5e41c6cb14a2658160248653a5114164d84060e99af79169d9577283e5c59085",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -344,7 +356,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb010-next-batch-001/scenario-card.yaml",
-    "digest": "168ef2de609ed5e3f6e4392744b2e87f0138caa6687b45da4a4943e7720e9335",
+    "digest": "058cd9f9130b53ceaf180d1f1ff832ecf41d1adf24d97ac2a4b58e7225ae55dd",
     "scenario_id": "eb010-next-batch-001",
     "status": "ready",
     "source_scenarios": [

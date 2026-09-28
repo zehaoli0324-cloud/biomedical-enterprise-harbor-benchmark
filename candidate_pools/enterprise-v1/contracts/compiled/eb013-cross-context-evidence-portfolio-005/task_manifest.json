@@ -1,0 +1,266 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb013-cross-context-evidence-portfolio-005",
+    "title": "Context-stratified evidence follow-up portfolio",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "eb013-partial-observation-risk-004"
+    ],
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb013-cross-context-evidence-portfolio-005",
+    "raw_score": 3.75,
+    "adjusted_score": 3.95,
+    "band": "advanced",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Synthetic multi-context evidence boundary with bounded independent follow-up.",
+        "tags": []
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Unsupported and conflicted contexts must remain explicit rather than pooled away.",
+        "tags": []
+      },
+      "computational_difficulty": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Enumerate 32 follow-up portfolios under a deterministic objective.",
+        "tags": []
+      },
+      "tool_call_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Offline JSON and keyed TSV contract.",
+        "tags": []
+      },
+      "retrieval_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Resolve evidence roles and independence labels before aggregation.",
+        "tags": []
+      },
+      "information_noise_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Related repeats and positive-but-insufficient evidence are deliberate distractors.",
+        "tags": []
+      },
+      "data_type_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Context/group/effect evidence joined with follow-up options.",
+        "tags": []
+      },
+      "data_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Independent groups, contexts, replacements and quality states share one budget.",
+        "tags": []
+      },
+      "environment_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Deterministic offline execution and input hashes.",
+        "tags": []
+      },
+      "mathematical_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Lexicographic supported/conflicted/insufficient portfolio optimization.",
+        "tags": []
+      },
+      "long_horizon_complexity": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Evidence selection precedes context claim handoff.",
+        "tags": []
+      },
+      "safety_risk": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Synthetic evidence planning only with human review boundary.",
+        "tags": []
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence"
+    ],
+    "selected_modules": {
+      "judgment": [
+        {
+          "id": "judgment_evidence_sufficiency_abstention",
+          "params": {}
+        }
+      ],
+      "data": [
+        {
+          "id": "data_context_stratified_concordance",
+          "params": {}
+        }
+      ],
+      "math": [
+        {
+          "id": "math_followup_information_gain",
+          "params": {}
+        },
+        {
+          "id": "math_ex_ante_shared_setup",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "json",
+      "tsv",
+      "markdown"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 300,
+    "memory_mb": 1024,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "6bffdafac666ddf174fbf4958fb95e4b61dc616a0ac66f55e170006106b0d8d7",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-cross-context-evidence-portfolio-005/scenario-card.yaml",
+    "digest": "550f39a32526234d68288c5e0944a25d9f82acaa10ffc3e3cede6b6720ae6312",
+    "scenario_id": "eb013-cross-context-evidence-portfolio-005",
+    "status": "ready",
+    "source_scenarios": [
+      "eb013-partial-observation-risk-004"
+    ],
+    "scientific_judgments": [
+      "count independent evidence units rather than related repeats",
+      "classify each context as supported, conflicted, or insufficient",
+      "stop claims when one context lacks sufficient or concordant evidence"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "synthetic_planning_only",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pass"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

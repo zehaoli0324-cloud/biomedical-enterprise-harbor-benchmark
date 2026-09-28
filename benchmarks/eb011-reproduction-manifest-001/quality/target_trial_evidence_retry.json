@@ -1,0 +1,23 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb011-reproduction-manifest-001",
+  "trial_id": "eb011-reproduction-manifest-001-gpt56sol-003",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail_then_contract_replay_pass",
+  "agent_exit_code": 0,
+  "original_verifier_errors": ["decision mismatch"],
+  "unchanged_artifact_contract_replay": "pass",
+  "classification": "agent_completed_scientific_route_passed_after_contract_replay",
+  "selected_stage1_request_id": "D-MANIFEST",
+  "selected_stage2_policy": {"topology_mismatch": "D-REBUILD", "parameter_drift": "D-PIN"},
+  "worst_case_max_critical_residual": 0.1,
+  "worst_case_cost": 5.0,
+  "artifact_sha256": {
+    "plan.json": "07187ee55d89c6b40c291c48b345810f7f28015baf5ef855e5b1608d720a3b4a",
+    "route.tsv": "5fb557b2b66148da8fb2480f7ecfdd7d4363a3c0cb42352b72f22521cb608120",
+    "decision.json": "9ebf778a041a9ec76282352e1b6a364dc7f22b08cf1ed4a592743158325d1bc9",
+    "provenance.json": "df0bf03bfd87730b675852022c1bbae129dba6bb3cbd046c1c68fcc47ba830f6",
+    "audit.md": "152efa29cf4a9100af4adbda6fd2b0dbda8e8010d73de98435b23c7c30a0d136"
+  },
+  "scientific_decision_changed": false
+}

@@ -1,0 +1,33 @@
+{
+  "control_plan_id": "CONTROL-EB013-EVIDENCE-BUDGET-ROUTING-001-001",
+  "task_id": "eb013-evidence-budget-routing-001",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-highest-nominal",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-request-storage-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-provenance",
+      "kind": "insufficient_evidence"
+    },
+    {
+      "control_id": "adversarial-nominal-value",
+      "kind": "adversarial"
+    },
+    {
+      "control_id": "metamorphic-repair-prerequisite",
+      "kind": "metamorphic"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "status": "PASS"
+}

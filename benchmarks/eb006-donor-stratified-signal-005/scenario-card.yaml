@@ -1,0 +1,36 @@
+scenario_id: eb006-donor-stratified-signal-005
+status: ready
+source_scenarios: [EB006]
+domain: biomedical_enterprise
+scientific_decision: select a perturbation signal only when it is reproducible across independent donors and registered states
+scientific_judgments:
+  - collapse technical replicates before donor-level inference
+  - apply state-specific support and heterogeneity thresholds
+  - distinguish a missing donor cell from a globally insufficient state
+  - reject pooled evidence that conceals a donor direction reversal
+workflow_handoffs:
+  - from: adjusted_signal_review
+    to: profile_review
+    artifact: outputs/decision.json
+    invariant: only donor-stratified supported candidates may proceed
+difficulty_modules:
+  - id: judgment_experimental_unit
+    observable: condition means and effects are computed once per biological donor and state
+    decision_flip: observation-row pooling favors method_beta while donor-level direction identifies contradiction
+  - id: math_stratified_partial_identifiability
+    observable: support thresholds and effect tolerances are resolved separately for each state
+    decision_flip: one missing donor remains locally insufficient but the late state is still identifiable
+  - id: judgment_conflict_precedence
+    observable: insufficient contradictory weak and supported states follow a public precedence
+    decision_flip: a high pooled mean cannot override one registered nonpositive donor
+  - id: noise_pooled_stratified_adversary
+    observable: pooled and replicate-weighted summaries are reported only as rejected shortcut controls
+    decision_flip: pooled aggregation selects a different candidate from the stratified oracle
+release_gates:
+  scientific_reality: synthetic_analytical_triage_only
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: automated_controls
+  enterprise_value: pending
+  training_value: evaluation_only

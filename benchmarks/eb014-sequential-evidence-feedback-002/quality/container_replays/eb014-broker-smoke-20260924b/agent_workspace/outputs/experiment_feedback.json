@@ -1,0 +1,9 @@
+{
+  "round": 5,
+  "action_id": "stop",
+  "outcome": "stopped",
+  "cost_charged": 0,
+  "observed_measurements": [],
+  "remaining_budget": 1,
+  "accepted": true
+}

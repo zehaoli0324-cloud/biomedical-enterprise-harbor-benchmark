@@ -1,0 +1,183 @@
+{
+  "schema_version": "near_completion_queue.v1",
+  "queue_id": "near-completion-10-20260924",
+  "created_at": "2026-09-24",
+  "source_scope": "official tracked tasks only",
+  "task_count": 14,
+  "workflow_stage": "FAST_CLOSE_QUEUE_EXTENDED",
+  "queue_segments": {
+    "near_completion": 10,
+    "calibration_ready_extension": 4
+  },
+  "formal_release_claim": false,
+  "calibration_bundles": [
+    {
+      "archive": "dist/selected-four-v3-calibrated-20260924.tar.gz",
+      "sha256": "42ce1999e906c0fd665db66db8cc84f0914d31cdb628cfcca5c77ed0eddf93ad",
+      "snapshot_status": "CALIBRATED_INTERNAL_BATCH",
+      "formal_release_status": "BLOCKED",
+      "payload_files": 208,
+      "unique_new_tasks": 0,
+      "covered_task_ids": [
+        "eb006-research-completion-011",
+        "eb013-cross-context-evidence-portfolio-005",
+        "eb014-sequential-evidence-feedback-002",
+        "eb015-real-source-replacement-gate-001"
+      ],
+      "verification": {
+        "enterprise_sop_preflight": "PASS",
+        "pytest": "51 passed, 3 skipped",
+        "selected_four_dynamic_checks": "PASS"
+      }
+    }
+  ],
+  "selection_rule": "the first ten have a completed pass-like target trial and contract evidence; the four-task extension has contract/preflight evidence and is queued for data/evidence optimization before target trial",
+  "execution_order": [
+    "eb013-cross-context-evidence-portfolio-005",
+    "eb014-sequential-evidence-feedback-002",
+    "eb015-real-source-replacement-gate-001",
+    "eb010-adaptive-policy-regret-005",
+    "eb010-closed-loop-replay-003",
+    "eb013-partial-observation-risk-004",
+    "eb013-shared-setup-routing-003",
+    "eb006-donor-stratified-signal-005",
+    "eb006-research-completion-008",
+    "eb006-research-completion-011",
+    "eb013-evidence-budget-routing-001",
+    "eb013-evidence-budget-routing-002",
+    "eb010-closed-loop-ambiguity-004",
+    "eb010-distributional-policy-stress-006"
+  ],
+  "tasks": [
+    {
+      "task_id": "eb013-cross-context-evidence-portfolio-005",
+      "priority": 1,
+      "target_trial": "TARGET_TRIAL_COMPLETE_CURRENT_VERSION / RAW_PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "PASS",
+      "next_gate": "fixed-container replay",
+      "release_blockers": ["fixed-container replay", "practitioner review", "held-out target trials"]
+    },
+    {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "priority": 2,
+      "target_trial": "TARGET_TRIAL_COMPLETE_CURRENT_VERSION / RAW_PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "PASS",
+      "next_gate": "trajectory analysis",
+      "release_blockers": ["trajectory analysis", "fixed-container replay", "practitioner review"]
+    },
+    {
+      "task_id": "eb015-real-source-replacement-gate-001",
+      "priority": 3,
+      "target_trial": "TARGET_TRIAL_COMPLETE_CURRENT_VERSION / PASS_AFTER_CONTRACT_REPLAY",
+      "contract_audit": "PASS",
+      "evidence_surface": "PASS",
+      "next_gate": "source rights and file-hash freeze",
+      "release_blockers": ["source rights review", "file-level SHA-256 freeze", "verifier rebind", "fixed-container replay", "practitioner review"]
+    },
+    {
+      "task_id": "eb010-adaptive-policy-regret-005",
+      "priority": 4,
+      "target_trial": "TARGET_TRIAL_COMPLETE / PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "not recorded",
+      "next_gate": "fixed-container replay",
+      "release_blockers": ["fixed-container replay", "practitioner review"]
+    },
+    {
+      "task_id": "eb010-closed-loop-replay-003",
+      "priority": 5,
+      "target_trial": "TARGET_TRIAL_COMPLETE / PASS_AFTER_CONTRACT_REPLAY",
+      "contract_audit": "PASS",
+      "evidence_surface": "not recorded",
+      "next_gate": "fixed-container replay",
+      "release_blockers": ["fixed-container replay", "practitioner review"]
+    },
+    {
+      "task_id": "eb013-partial-observation-risk-004",
+      "priority": 6,
+      "target_trial": "COMPLETED / PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "not recorded",
+      "next_gate": "fixed-container replay",
+      "release_blockers": ["fixed-container replay", "practitioner review", "held-out target trials"]
+    },
+    {
+      "task_id": "eb013-shared-setup-routing-003",
+      "priority": 7,
+      "target_trial": "COMPLETED / PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "not recorded",
+      "next_gate": "fixed-container replay",
+      "release_blockers": ["fixed-container replay", "practitioner review", "held-out target trials"]
+    },
+    {
+      "task_id": "eb006-donor-stratified-signal-005",
+      "priority": 8,
+      "target_trial": "TARGET_TRIAL_COMPLETE / RAW_PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "not recorded",
+      "next_gate": "fixed-container replay",
+      "release_blockers": ["fixed-container replay", "held-out difficulty trial", "independent practitioner review", "license/privacy/claim-boundary review"]
+    },
+    {
+      "task_id": "eb006-research-completion-008",
+      "priority": 9,
+      "target_trial": "TARGET_TRIAL_COMPLETE / RAW_PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "not recorded",
+      "next_gate": "fixed-container replay",
+      "release_blockers": ["fixed-container replay", "practitioner review", "real-data replacement"]
+    },
+    {
+      "task_id": "eb006-research-completion-011",
+      "priority": 10,
+      "target_trial": "TARGET_TRIAL_COMPLETE / TIMEOUT_OUTPUT_COMPLETE_SCIENCE_PASS",
+      "contract_audit": "PASS",
+      "evidence_surface": "PASS",
+      "next_gate": "clean target rerun",
+      "release_blockers": ["clean target rerun", "fixed-container replay", "practitioner review", "real-data replacement"]
+    },
+    {
+      "task_id": "eb013-evidence-budget-routing-001",
+      "priority": 11,
+      "queue_segment": "calibration_ready_extension",
+      "target_trial": "BASELINES_COMPLETE / NOT_RUN",
+      "contract_audit": "PASS",
+      "evidence_surface": "READY_FOR_EVIDENCE_SURFACE_TRIAL",
+      "next_gate": "expand evidence surface and run target trial",
+      "release_blockers": ["evidence-surface trial", "current target trial", "fixed-container replay", "practitioner review"]
+    },
+    {
+      "task_id": "eb013-evidence-budget-routing-002",
+      "priority": 12,
+      "queue_segment": "calibration_ready_extension",
+      "target_trial": "BASELINES_COMPLETE / NOT_RUN",
+      "contract_audit": "PASS",
+      "evidence_surface": "READY_FOR_EVIDENCE_SURFACE_TRIAL",
+      "next_gate": "expand evidence surface and run target trial",
+      "release_blockers": ["evidence-surface trial", "current target trial", "fixed-container replay", "practitioner review"]
+    },
+    {
+      "task_id": "eb010-closed-loop-ambiguity-004",
+      "priority": 13,
+      "queue_segment": "calibration_ready_extension",
+      "target_trial": "BASELINES_COMPLETE / NOT_RUN",
+      "contract_audit": "PASS",
+      "evidence_surface": "READY_FOR_RECALIBRATION",
+      "next_gate": "recalibrate after data expansion, then run target trial",
+      "release_blockers": ["post-expansion recalibration", "current target trial", "fixed-container replay", "practitioner review"]
+    },
+    {
+      "task_id": "eb010-distributional-policy-stress-006",
+      "priority": 14,
+      "queue_segment": "calibration_ready_extension",
+      "target_trial": "BASELINES_COMPLETE / NOT_RUN",
+      "contract_audit": "PASS",
+      "evidence_surface": "READY_FOR_EVIDENCE_SURFACE_TRIAL",
+      "next_gate": "expand evidence surface and run target trial",
+      "release_blockers": ["evidence-surface trial", "current target trial", "fixed-container replay", "practitioner review"]
+    }
+  ]
+}

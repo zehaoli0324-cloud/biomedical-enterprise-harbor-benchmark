@@ -1,0 +1,373 @@
+{
+  "stage1": [
+    {
+      "id": "Q1",
+      "cost": 1,
+      "hours": 1,
+      "covers": {
+        "signal": 0.2,
+        "selectivity": 0.2
+      },
+      "group": "G1",
+      "observations": {
+        "W1": "amber",
+        "W2": "amber",
+        "W3": "green",
+        "W4": "green"
+      }
+    },
+    {
+      "id": "Q2",
+      "cost": 2,
+      "hours": 2,
+      "covers": {
+        "signal": 0.25,
+        "selectivity": 0.25
+      },
+      "group": "G1",
+      "observations": {
+        "W1": "a",
+        "W2": "b",
+        "W3": "c",
+        "W4": "d"
+      }
+    },
+    {
+      "id": "Q3",
+      "cost": 0.5,
+      "hours": 1,
+      "covers": {
+        "signal": 0.1,
+        "selectivity": 0.1
+      },
+      "group": "G1",
+      "observations": {
+        "W1": "same",
+        "W2": "same",
+        "W3": "same",
+        "W4": "same"
+      }
+    }
+  ],
+  "stage2": [
+    {
+      "id": "A1",
+      "family": "common",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.48,
+          "selectivity": 0.4
+        },
+        "stress": {
+          "signal": 0.3,
+          "selectivity": 0.4
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": false
+    },
+    {
+      "id": "A2",
+      "family": "common",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.32,
+          "selectivity": 0.5
+        },
+        "stress": {
+          "signal": 0.4,
+          "selectivity": 0.36
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": false
+    },
+    {
+      "id": "A3",
+      "family": "signal",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.6,
+          "selectivity": 0.3
+        },
+        "stress": {
+          "signal": 0.5,
+          "selectivity": 0.3
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": false
+    },
+    {
+      "id": "A4",
+      "family": "select",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.3,
+          "selectivity": 0.62
+        },
+        "stress": {
+          "signal": 0.32,
+          "selectivity": 0.57
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": false
+    },
+    {
+      "id": "A5",
+      "family": "fast",
+      "cost": 0.5,
+      "hours": 1,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.43,
+          "selectivity": 0.44
+        },
+        "stress": {
+          "signal": 0.32,
+          "selectivity": 0.4
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": false
+    },
+    {
+      "id": "A6",
+      "family": "common",
+      "cost": 1,
+      "hours": 2,
+      "group": "G1",
+      "covers": {
+        "nominal": {
+          "signal": 0.65,
+          "selectivity": 0.65
+        },
+        "stress": {
+          "signal": 0.65,
+          "selectivity": 0.65
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": false
+    },
+    {
+      "id": "A7",
+      "family": "common",
+      "cost": 1,
+      "hours": 6,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.55,
+          "selectivity": 0.55
+        },
+        "stress": {
+          "signal": 0.55,
+          "selectivity": 0.55
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": false
+    },
+    {
+      "id": "A8",
+      "family": "fast",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        },
+        "stress": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S2",
+      "future_outcome": false
+    },
+    {
+      "id": "A9",
+      "family": "fast",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        },
+        "stress": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S3",
+      "future_outcome": false
+    },
+    {
+      "id": "A10",
+      "family": "fast",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        },
+        "stress": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S4",
+      "future_outcome": false
+    },
+    {
+      "id": "A11",
+      "family": "fast",
+      "cost": 1,
+      "hours": 2,
+      "group": "G2",
+      "covers": {
+        "nominal": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        },
+        "stress": {
+          "signal": 0.7,
+          "selectivity": 0.7
+        }
+      },
+      "allowed_observations": [
+        "amber",
+        "green",
+        "a",
+        "b",
+        "c",
+        "d",
+        "same"
+      ],
+      "dependencies": [],
+      "source_id": "S1",
+      "future_outcome": true
+    }
+  ]
+}

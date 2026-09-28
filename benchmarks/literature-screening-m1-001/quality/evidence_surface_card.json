@@ -1,0 +1,9 @@
+{
+  "schema_version": "evidence_surface_card.v1",
+  "task_id": "literature-screening-m1-001",
+  "fixture_status": "SYNTHETIC_DISCLOSED",
+  "task_scope": "source_screening_calibration",
+  "repair_plan": "quality/repair_plan.json",
+  "variant_status": "BLOCKED_SOURCE_CLOSURE",
+  "status": "CALIBRATION_ONLY"
+}

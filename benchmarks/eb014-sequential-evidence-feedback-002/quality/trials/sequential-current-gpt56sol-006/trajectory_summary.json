@@ -1,0 +1,15 @@
+{
+  "model_turns": 10,
+  "explicit_turn_events": 6,
+  "completed_turns": 5,
+  "tool_calls_started": 32,
+  "tool_calls_completed": 32,
+  "agent_messages": 14,
+  "agent_messages_with_tools": 10,
+  "completion_gate_events": 1,
+  "completion_gate_statuses": {
+    "accepted": 1
+  },
+  "long_trace_target": "over_40_model_turns",
+  "over_40_model_turns": false
+}

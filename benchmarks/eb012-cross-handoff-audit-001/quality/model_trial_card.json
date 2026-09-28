@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "NOT_RUN",
-  "status": "BASELINES_COMPLETE",
+  "target_model_status": "PASS",
+  "status": "TARGET_TRIAL_COMPLETE",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -52,6 +52,47 @@
       "errors": [
         "decision mismatch"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-l4-002",
+      "task_version": "l4-v1",
+      "status": "verifier_fail",
+      "passed": false,
+      "runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "fail",
+      "failure_attribution": "invalid_contract_defect",
+      "verifier_errors": [
+        "decision mismatch",
+        "evidence outcome mismatch: normalization_report",
+        "evidence outcome mismatch: route_portfolio"
+      ],
+      "trial_dir": "/private/tmp/benchmark-runs/l4-gpt56-sol-20260921/eb012-cross-handoff-audit-001/trial-gpt56-sol-l4-002",
+      "valid_difficulty_evidence": false
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb012-cross-handoff-audit-001-gpt56sol-002",
+      "task_version": "l4-v1-explicit-contract-revision",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "pass",
+      "failure_attribution": null,
+      "verifier_errors": [],
+      "artifact_sha256": {
+        "decision.json": "3200424c00b3fed145ea8224823df0a44d05832e635f4d1a8390a99d481b8a1e",
+        "evidence.tsv": "05e5e07906d3be591d97c89f1cdb1b2cb51d6dc0605b061c29173b2b3f1ee6f9",
+        "review.md": "2c5431429e99001edc1822f1f8ce371b16699ae80600f4111a32b93ba33355a2",
+        "manifest.json": "58c2f54a8d4dfaf170ed391ab87b111943dd1eb3113ed2ce652351b01403bc9e"
+      },
+      "trial_dir": "/private/tmp/enterprise-l4-target-trials-v3/eb012-cross-handoff-audit-001-gpt56sol-002"
     }
   ]
 }

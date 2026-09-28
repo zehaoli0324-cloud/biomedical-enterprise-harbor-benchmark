@@ -1,0 +1,22 @@
+{
+  "schema_version": "enterprise_pretrial_freeze.v1",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "task_version": "1.0.0",
+  "model_target": "gpt-5.6-sol",
+  "files": {
+    "instruction.md": "a3e645c23d6b03474f93a206fc0c50268abd50709b5bae48d1d75057081bb1fc",
+    "task.yaml": "2f8d61f618d8de67d98d6b9a4ef97ee71633cf6f73f9852cb59a67a57c483a7e",
+    "scenario-card.yaml": "4c93f57bdaa9fdac919be8bfa654c20593447f47b8637959ead3bbbbfde8501f",
+    "data/observations.csv": "1088ac12f8b0b6cb72e83467ca340c093e62fa15a109fa6f55d3d630c5031633",
+    "data/policy.json": "127b7807beb0b6777610fa392f4c381722c6115dbf5bdd5ffe015b5ab7325722",
+    "verifier.py": "7863d8a02730b4f8b910f88ac192998705842f37d4912f608bd7c91583fc3eb6",
+    "verifier_only/reference.json": "31f92d9c195df817f92133557b1e61c2d9a0d9b04658d7ce4478cb4fbba4ea93",
+    "controls/calibration_results.json": "b1213d28bf6edd568686516b9845802a6dd13faa5ef539c5e17616a78c69d25e",
+    "quality/contract_audit.json": "ebf7d656fde58cda5a594f11d21fca879bab5c473bd79dc62c367177f76ee8d9",
+    "quality/oracle_audit.json": "a26b7ff155545714c2737b6e02c43b6f930e338adf85fb6c2adab72e1e43b33f"
+  },
+  "controls_status": "PASS",
+  "oracle_status": "PASS",
+  "contract_status": "PASS",
+  "release_permitted": false
+}

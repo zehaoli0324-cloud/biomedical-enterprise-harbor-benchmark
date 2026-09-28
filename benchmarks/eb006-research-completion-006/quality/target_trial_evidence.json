@@ -1,0 +1,26 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb006-research-completion-006",
+  "trial_id": "eb006-research-completion-gpt56sol-002",
+  "model": "gpt-5.6-sol",
+  "runner_status": "timeout",
+  "adapter_exit_code": 124,
+  "completion_attempts": 1,
+  "completion_gate_status": "timeout_output_complete",
+  "required_artifacts_written": true,
+  "post_timeout_completion_replay": "pass",
+  "post_timeout_scientific_verifier_replay": "pass",
+  "classification": "agent_completed_verifier_passed",
+  "infrastructure_attribution": "adapter_stream_lifecycle_timeout_after_correct_artifact_generation",
+  "difficulty_evidence": false,
+  "observed_decision": {"nominal_selected": "C43", "pooled_selected": "C28", "robust_selected": "C17"},
+  "artifact_sha256": {
+    "analysis.py": "5717880d62800b0e81de3af1ee660466622757bee829142f3fcb874aec0277fc",
+    "results.json": "00e8348785430fc70b33295f0e5aea147fc1c1cdb7599eb1435ce7eb151dc914",
+    "provenance.json": "7b92e19ee7abed4fcc21245391c347c5599fd4fc5f7b485f0f3b1d08929077a5",
+    "research_audit.md": "4d2242e89b3dae321336e1c221f4167afc27f7f7997a3e427a481159076c5101"
+  },
+  "post_timeout_completion_receipt": "quality/post_timeout_completion_receipt.json",
+  "post_timeout_completion_receipt_sha256": "56d09d08b6fdba90cc8d6939169230d6dc9d36ac22ba1d0e61aa8562c3c2d3cf",
+  "release_effect": "blocked_pending_adapter_lifecycle_repair_fixed_container_replay_and_practitioner_review"
+}

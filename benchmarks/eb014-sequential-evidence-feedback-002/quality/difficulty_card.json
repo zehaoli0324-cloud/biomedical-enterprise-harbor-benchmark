@@ -11,6 +11,6 @@
     "missing-handoff",
     "budget-overspend"
   ],
-  "max_public_action_rounds": 8,
+  "max_public_action_rounds": 10,
   "long_trace_target": "over_40_model_turns_measured_not_required"
 }

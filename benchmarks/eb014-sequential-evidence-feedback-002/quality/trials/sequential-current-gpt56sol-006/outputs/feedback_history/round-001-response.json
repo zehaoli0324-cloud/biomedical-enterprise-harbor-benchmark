@@ -1,0 +1,14 @@
+{
+  "round": 1,
+  "action_id": "audit_quality",
+  "outcome": "quality_ok",
+  "cost_charged": 1,
+  "observed_measurements": [
+    {
+      "id": "M-QC",
+      "status": "PASS"
+    }
+  ],
+  "remaining_budget": 7,
+  "accepted": true
+}

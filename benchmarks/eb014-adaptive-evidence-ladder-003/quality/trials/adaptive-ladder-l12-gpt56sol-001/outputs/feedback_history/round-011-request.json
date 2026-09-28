@@ -1,0 +1,8 @@
+{
+  "round": 11,
+  "action_id": "robustness_analysis",
+  "question_id": "Q-ROBUSTNESS",
+  "rationale": "Bridge failure, donor influence, and localized confounding are all observed; perform the required robustness analysis before stopping, while retaining the registered-cohort claim boundary.",
+  "expected_information": "A declared robust_registered_only or robustness_failed observation covering the robustness check.",
+  "prior_state_token": "5f2433e77392c438e7bfc3f297bb61d62ce978ca0cb2566b8fc6753118734965"
+}

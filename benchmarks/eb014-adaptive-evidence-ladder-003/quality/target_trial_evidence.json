@@ -1,0 +1,36 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "trial_id": "adaptive-ladder-gpt56sol-001",
+  "model": "gpt-5.6-sol",
+  "trial_path": "/private/tmp/eb014-adaptive-ladder-target-trial-20260923/adaptive-ladder-gpt56sol-001",
+  "runner_status": "verifier_fail",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "accepted_actions": 12,
+  "accepted_action_ids": [
+    "audit_quality",
+    "audit_pairing",
+    "estimate_primary",
+    "compare_context",
+    "orthogonal_assay",
+    "bridge_assay",
+    "independent_replicate",
+    "influence_analysis",
+    "negative_control",
+    "confounding_audit",
+    "robustness_analysis",
+    "stop"
+  ],
+  "explicit_model_turns": 13,
+  "completion_attempts": 1,
+  "initial_verifier_errors": [
+    "contract: completion check coverage mismatch",
+    "scientific: final claims mismatch"
+  ],
+  "classification": "MULTIROUND_BEHAVIOR_PASS_FINAL_CONTRACT_FAIL",
+  "scientific_failure": false,
+  "infrastructure_failure": false,
+  "interpretation": "The target model followed the observation-dependent ladder through every activated branch and required a separate finalization turn. It failed only the final artifact contract by adding outcome labels to completion.checks and using HOLD instead of REVIEW_REQUIRED for localized confounding.",
+  "release_effect": "retain_for_contract_revision_and_second_target_trial"
+}

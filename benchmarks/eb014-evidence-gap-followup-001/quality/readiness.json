@@ -1,0 +1,17 @@
+{
+  "status": "PRETRIAL_VALIDATED",
+  "target_model_trial": "NOT_RUN",
+  "cross_domain_transfer": "NOT_RUN",
+  "human_scientific_review": "NOT_RUN",
+  "isolated_container_replay": "NOT_RUN",
+  "release_ready": false,
+  "primary_module": "research_minimum_additional_evidence",
+  "secondary_modules": [
+    "judgment_claim_transportability_boundary",
+    "horizon_adaptive_research_priority"
+  ],
+  "supporting_modules": [
+    "retrieval_independence_quorum"
+  ],
+  "difficulty_claim": "The v1.0.0 trial remains historical evidence. Contract v1.0.1 has not run a target-model trial."
+}

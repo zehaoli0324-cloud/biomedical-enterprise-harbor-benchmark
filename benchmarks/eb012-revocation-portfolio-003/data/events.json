@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "event_id": "E01",
+      "checkpoint": "T1",
+      "sequence": 1,
+      "action": "retract_source",
+      "target": "SRC-A"
+    },
+    {
+      "event_id": "E02",
+      "checkpoint": "T1",
+      "sequence": 2,
+      "action": "set_sensitivity",
+      "target": "CHAIN-D",
+      "value": "sensitive"
+    },
+    {
+      "event_id": "E03",
+      "checkpoint": "T2",
+      "sequence": 3,
+      "action": "restore_source",
+      "target": "SRC-A"
+    },
+    {
+      "event_id": "E04",
+      "checkpoint": "T2",
+      "sequence": 4,
+      "action": "set_sensitivity",
+      "target": "CHAIN-D",
+      "value": "stable"
+    }
+  ]
+}

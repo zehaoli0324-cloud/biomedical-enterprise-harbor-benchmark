@@ -1,0 +1,9 @@
+{
+  "task_id": "eb006-research-completion-006",
+  "status": "PASS",
+  "review_status": "pass",
+  "method": "Fraction row-first oracle compared with Decimal cell-first verifier and executable perturbation replay",
+  "finding_count": 0,
+  "expected_decision": {"nominal_selected": "C43", "pooled_selected": "C28", "selected": "C17"},
+  "source_report": "controls/calibration_results.json"
+}

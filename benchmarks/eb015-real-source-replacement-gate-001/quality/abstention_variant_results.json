@@ -1,0 +1,88 @@
+{
+  "schema_version": "selected_four_dynamic_controls.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "status": "PASS",
+  "oracle_nop_mutation": {
+    "oracle": {
+      "variant_id": "oracle",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    "nop": {
+      "variant_id": "nop",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "missing artifact: source_audit.tsv",
+        "missing artifact: release_plan.json",
+        "missing artifact: provenance.json",
+        "missing artifact: case_matrix.tsv",
+        "missing artifact: readiness_summary.json",
+        "missing artifact: audit.md",
+        "missing artifact: auditor.py"
+      ],
+      "note": ""
+    },
+    "mutation": {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "case_matrix.tsv: control-case classification mismatch"
+      ],
+      "note": ""
+    }
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "case_matrix.tsv: control-case classification mismatch"
+      ],
+      "note": ""
+    },
+    {
+      "variant_id": "all_definite",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": "No insufficient case exists; all nine cases must be classified."
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "case_matrix.tsv: control-case classification mismatch"
+      ],
+      "note": ""
+    }
+  ],
+  "blanket_abstain_fraction_of_reference_score": 0.0,
+  "generated_by": "scripts/check_selected_four_v2.py"
+}

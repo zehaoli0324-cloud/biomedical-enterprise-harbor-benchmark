@@ -133,6 +133,10 @@
     "selected_modules": {
       "horizon": [
         {
+          "id": "horizon_adaptive_policy_replay",
+          "params": {}
+        },
+        {
           "id": "horizon_two_stage_acquisition",
           "params": {}
         }
@@ -189,7 +193,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "28c40e2198fc73780f9d2d37bf0833aae63d037566d3087901991396a53ebcd2",
+  "spec_digest": "160df43801cc2e6e88a9ace437ed4fb1916e76e2085a33410dd9971659df5f22",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -299,7 +303,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-evidence-budget-routing-002/scenario-card.yaml",
-    "digest": "0c2a4d05572fd992328d5d17a58e25a057147d7b96e63c2d174d799143a58b1b",
+    "digest": "c85dfa6f96d515ea2f4fa060b0ebe3ff4ed9791952093e0c9fa0bcaeadc5d2a7",
     "scenario_id": "eb013-evidence-budget-routing-002",
     "status": "ready",
     "source_scenarios": [

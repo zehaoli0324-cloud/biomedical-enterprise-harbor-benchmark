@@ -1,0 +1,87 @@
+{
+  "schema_version": "research_completion_fixed_container_replay.v1",
+  "base_image_override": null,
+  "isolation": {
+    "docker_network": "none",
+    "cpus": 1,
+    "memory_mb": 1024
+  },
+  "records": [
+    {
+      "task_id": "eb006-research-completion-009",
+      "image": "eb006-research-completion-009:fixed-replay-20260924",
+      "network": "none",
+      "command_exit_code": 0,
+      "elapsed_seconds": 0.145,
+      "stdout": "",
+      "stderr": "",
+      "outputs": [
+        "analysis.py",
+        "provenance.json",
+        "research_audit.md",
+        "results.json"
+      ],
+      "verifier_exit_code": 0,
+      "verifier_stdout": "{\"passed\": true, \"errors\": []}\n",
+      "verifier_stderr": "",
+      "status": "PASS_PROTOCOL_REPLAY",
+      "output_sha256": {
+        "analysis.py": "7a8b7176003dd2eb51121ba95820d763448d4c9d62ffd1245ae7e33389945758",
+        "provenance.json": "1d584bc24cd34c21194fb2b50443e8481bf664167f08fe5dec126897ea7abf8b",
+        "results.json": "0a38def821522ee6e1e72611002edad1dde505eae364a69b6bd161810eb15d3e",
+        "research_audit.md": "011adc9e4f4c2f18e758efaca26f74630425582778effdeef050012770836785"
+      }
+    },
+    {
+      "task_id": "eb006-research-completion-010",
+      "image": "eb006-research-completion-010:fixed-replay-20260924",
+      "network": "none",
+      "command_exit_code": 0,
+      "elapsed_seconds": 0.143,
+      "stdout": "",
+      "stderr": "",
+      "outputs": [
+        "analysis.py",
+        "provenance.json",
+        "research_audit.md",
+        "results.json"
+      ],
+      "verifier_exit_code": 0,
+      "verifier_stdout": "{\"passed\": true, \"errors\": []}\n",
+      "verifier_stderr": "",
+      "status": "PASS_PROTOCOL_REPLAY",
+      "output_sha256": {
+        "analysis.py": "7a8b7176003dd2eb51121ba95820d763448d4c9d62ffd1245ae7e33389945758",
+        "provenance.json": "d691c64f0ed7756f4882be341ee9b726eed56b0653442829a8ea2ed5d8f35573",
+        "results.json": "0a38def821522ee6e1e72611002edad1dde505eae364a69b6bd161810eb15d3e",
+        "research_audit.md": "011adc9e4f4c2f18e758efaca26f74630425582778effdeef050012770836785"
+      }
+    },
+    {
+      "task_id": "eb006-research-completion-011",
+      "image": "eb006-research-completion-011:fixed-replay-20260924",
+      "network": "none",
+      "command_exit_code": 0,
+      "elapsed_seconds": 0.143,
+      "stdout": "",
+      "stderr": "",
+      "outputs": [
+        "analysis.py",
+        "provenance.json",
+        "research_audit.md",
+        "results.json"
+      ],
+      "verifier_exit_code": 0,
+      "verifier_stdout": "{\"passed\": true, \"errors\": []}\n",
+      "verifier_stderr": "",
+      "status": "PASS_PROTOCOL_REPLAY",
+      "output_sha256": {
+        "analysis.py": "ea8bf4e5cfa1860042d8c8c860d8103d440562fe013ac8015d9089028751e47f",
+        "provenance.json": "42a34724e28cd3e5cad5590e8f7b040448bbf1d244fd455092d148e94ef65b08",
+        "results.json": "0a38def821522ee6e1e72611002edad1dde505eae364a69b6bd161810eb15d3e",
+        "research_audit.md": "011adc9e4f4c2f18e758efaca26f74630425582778effdeef050012770836785"
+      }
+    }
+  ],
+  "status": "PASS"
+}

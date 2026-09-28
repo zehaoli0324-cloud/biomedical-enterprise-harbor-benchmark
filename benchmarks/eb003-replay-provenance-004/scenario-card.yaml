@@ -7,6 +7,16 @@ scientific_judgments:
   - provenance_and_environment_reconciliation
   - reproducibility_stop_rule
   - computational_claim_boundary
+difficulty_modules:
+  - id: judgment_claim_permission_lattice
+    observable: each fallback declares claim permissions before and after provenance or reference drift
+    decision_flip: a successful rerun with a permission downgrade must hold the affected claim instead of approving the handoff
+  - id: data_evidence_graph_join
+    observable: artifact, input, environment and replay records are joined by explicit identifiers and hashes
+    decision_flip: a duplicate or conflicting provenance edge cannot count as independent replay evidence
+  - id: horizon_end_to_end_claim
+    observable: the final handoff preserves replay state and the computational-versus-biological claim boundary
+    decision_flip: operational replay success cannot unlock a biological validation claim
 workflow_handoffs:
   - from: analysis
     to: reproduction_review

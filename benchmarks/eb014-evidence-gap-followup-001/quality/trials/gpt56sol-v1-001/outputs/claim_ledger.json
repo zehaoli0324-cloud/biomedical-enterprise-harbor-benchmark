@@ -1,0 +1,124 @@
+{
+  "premises": [
+    {
+      "id": "P-EFFECT",
+      "status": "supported",
+      "positive_groups": ["G-DIRECT"],
+      "negative_groups": []
+    },
+    {
+      "id": "P-REPRO",
+      "status": "unknown",
+      "positive_groups": ["G-B1"],
+      "negative_groups": []
+    },
+    {
+      "id": "P-BRIDGE",
+      "status": "unknown",
+      "positive_groups": [],
+      "negative_groups": []
+    },
+    {
+      "id": "P-CAUSAL",
+      "status": "unknown",
+      "positive_groups": [],
+      "negative_groups": []
+    }
+  ],
+  "claims": [
+    {
+      "id": "C-DESC",
+      "scope": "registered_primary_cohort",
+      "status": "supported",
+      "allowed": true,
+      "blocking_premises": []
+    },
+    {
+      "id": "C-ASSOC",
+      "scope": "registered_primary_cohort",
+      "status": "unknown",
+      "allowed": false,
+      "blocking_premises": ["P-REPRO"]
+    },
+    {
+      "id": "C-TRANSPORT",
+      "scope": "target_population",
+      "status": "unknown",
+      "allowed": false,
+      "blocking_premises": ["P-REPRO", "P-BRIDGE"]
+    },
+    {
+      "id": "C-CAUSAL",
+      "scope": "target_population",
+      "status": "unknown",
+      "allowed": false,
+      "blocking_premises": ["P-REPRO", "P-BRIDGE", "P-CAUSAL"]
+    }
+  ],
+  "claim_ceiling": "descriptive",
+  "observations": [
+    {
+      "id": "O-1",
+      "source_id": "E-DIRECT",
+      "premise_id": "P-EFFECT",
+      "independence_group": "G-DIRECT",
+      "effect": 0.5,
+      "included": true,
+      "exclusion_reasons": []
+    },
+    {
+      "id": "O-2",
+      "source_id": "E-BATCH-1",
+      "premise_id": "P-REPRO",
+      "independence_group": "G-B1",
+      "effect": 0.4,
+      "included": true,
+      "exclusion_reasons": []
+    },
+    {
+      "id": "O-3",
+      "source_id": "E-BATCH-2",
+      "premise_id": "P-REPRO",
+      "independence_group": "G-B2",
+      "effect": 0.6,
+      "included": false,
+      "exclusion_reasons": ["source_status"]
+    },
+    {
+      "id": "O-4",
+      "source_id": "E-BATCH-DUP",
+      "premise_id": "P-REPRO",
+      "independence_group": "G-B1",
+      "effect": 0.4,
+      "included": true,
+      "exclusion_reasons": []
+    },
+    {
+      "id": "O-5",
+      "source_id": "E-OLD-BRIDGE",
+      "premise_id": "P-BRIDGE",
+      "independence_group": "G-BRIDGE-OLD",
+      "effect": 0.6,
+      "included": false,
+      "exclusion_reasons": ["source_status"]
+    },
+    {
+      "id": "O-6",
+      "source_id": "E-WRONG-BRIDGE",
+      "premise_id": "P-BRIDGE",
+      "independence_group": "G-BRIDGE-WRONG",
+      "effect": 0.6,
+      "included": false,
+      "exclusion_reasons": ["scope"]
+    },
+    {
+      "id": "O-7",
+      "source_id": "E-FUTURE-INT",
+      "premise_id": "P-CAUSAL",
+      "independence_group": "G-INT-FUTURE",
+      "effect": 0.9,
+      "included": false,
+      "exclusion_reasons": ["future_source"]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "eb013-observation-boundary-004",
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "task_version": "1.0.0",
+  "source_status": "SYNTHETIC_DISCLOSED",
+  "control_status": "PASS",
+  "contract_status": "FROZEN",
+  "model_trial_status": "RAW_PASS_TWO_LOCAL_TRIALS",
+  "independent_verifier_status": "AUTOMATED_CROSSCHECK_PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "new-primary-difficulty-axis trial",
+    "practitioner review"
+  ]
+}

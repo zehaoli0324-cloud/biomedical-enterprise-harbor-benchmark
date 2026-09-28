@@ -1,0 +1,36 @@
+scenario_id: eb013-observation-boundary-004
+status: ready
+source_scenarios: [eb013-evidence-budget-routing-002, eb013-shared-setup-routing-003]
+domain: biomedical_enterprise
+scientific_decision: authorize an observation-limited prospective evidence policy
+scientific_judgments:
+  - distinguish an observable label from latent world state
+  - commit shared preparation capacity before observation
+  - optimize worst normalized residual across stress worlds
+  - exclude temporally invalid or wrong-scope evidence
+workflow_handoffs:
+  - from: pre_observation_commitment
+    to: observation_conditioned_execution
+    artifact: outputs/decision.json
+    invariant: same observation label has one action across all worlds
+difficulty_modules:
+  - id: horizon_observation_equivalence
+    observable: every policy maps observable labels, never hidden world IDs
+    decision_flip: separating worlds that share a label is forbidden and changes the feasible optimum
+  - id: math_ex_ante_shared_setup
+    observable: setup family union is charged before the branch is known
+    decision_flip: branchwise cost accounting selects an infeasible policy
+  - id: math_distributional_minimax
+    observable: normalized residual is maximized across all stress worlds and axes
+    decision_flip: mean or unnormalized residual selection changes the winner
+  - id: retrieval_provenance_temporal_boundary
+    observable: source state, scope and availability are joined before action eligibility
+    decision_flip: future, retracted or pilot evidence changes the route but is excluded
+release_gates:
+  scientific_reality: synthetic_planning_only
+  observability: pass
+  verifiability: pass
+  naive_resistance: pass
+  reproducibility: automated_controls
+  enterprise_value: pending
+  training_value: evaluation_only

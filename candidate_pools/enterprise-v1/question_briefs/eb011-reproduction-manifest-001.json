@@ -5,7 +5,7 @@
   "source_name": "Uni-FEP-Benchmarks",
   "workflow_id": "WF-FEP-AUDIT",
   "enterprise_role": "computational_chemist_or_method_auditor",
-  "status": "CONTRACT_ONLY",
+  "status": "MATERIALIZED_CALIBRATION_READY",
   "scientific_decision": "Can reported FEP results be reproduced from a fixed protein-ligand-system manifest and pinned configuration?",
   "independent_unit": "protein-ligand system",
   "handoff": "system_manifest->reproduction",
@@ -16,9 +16,11 @@
     "provenance metadata"
   ],
   "required_artifacts": [
-    "reproduction_manifest.json",
-    "rerun_results.tsv",
-    "difference_report.md"
+    "plan.json",
+    "route.tsv",
+    "decision.json",
+    "provenance.json",
+    "audit.md"
   ],
   "failure_injections": [
     "missing system file",
@@ -41,10 +43,13 @@
   },
   "claim_boundary": "Reproduction status does not validate the underlying biological claim.",
   "release_blockers": [
-    "freeze source version and license",
-    "materialize agent-visible data without hidden truth leakage",
-    "author independent oracle or expert-equivalence rubric",
-    "run positive, negative, invariance, and insufficient-evidence controls",
-    "run reference, simple legal, always-abstain, template, and target-model trials"
+    "target-model trial",
+    "fixed-container replay",
+    "practitioner review"
+  ],
+  "reusable_modules": [
+    "math_minimax_evidence_route_selection",
+    "horizon_two_stage_acquisition",
+    "judgment_evidence_route_selection"
   ]
 }

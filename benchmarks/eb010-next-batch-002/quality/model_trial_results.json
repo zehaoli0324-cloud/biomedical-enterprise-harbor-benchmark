@@ -1,8 +1,8 @@
 {
   "task_id": "eb010-next-batch-002",
   "protocol_version": "enterprise-model-trial.v1",
-  "status": "BASELINES_COMPLETE",
-  "target_model_status": "NOT_RUN",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "PASS",
   "records": [
     {
       "strategy": "reference_solution",
@@ -44,6 +44,49 @@
       "errors": [
         "decision mismatch"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-l4-002",
+      "task_version": "l4-v1",
+      "status": "verifier_fail",
+      "passed": false,
+      "runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "fail",
+      "failure_attribution": "invalid_contract_defect",
+      "verifier_errors": [
+        "decision mismatch",
+        "evidence outcome mismatch: C-1",
+        "evidence outcome mismatch: C-2",
+        "evidence outcome mismatch: C-6",
+        "evidence outcome mismatch: C-7"
+      ],
+      "trial_dir": "/private/tmp/benchmark-runs/l4-gpt56-sol-20260921/eb010-next-batch-002/trial-gpt56-sol-l4-002",
+      "valid_difficulty_evidence": false
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb010-next-batch-002-gpt56sol-002",
+      "task_version": "l4-v1-explicit-contract-revision",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "pass",
+      "failure_attribution": null,
+      "verifier_errors": [],
+      "artifact_sha256": {
+        "decision.json": "e749ae6b0cf231568fb27b112cf6d3432096310e9fed5f97dcee214f01a533ce",
+        "evidence.tsv": "f5af0646592ee496808b0587a0ad84cbe389f18a4cbdf28fa67a0e281f9dc63a",
+        "review.md": "d1e2d43084b3de0ea4faed4e15f13091704dcc0c212d6f51718cc27b6d9750ab",
+        "manifest.json": "2a19d67ad9fa733c8866db9748f22cb0e372e3925e56b7d20cf7e096211ea9a6"
+      },
+      "trial_dir": "/private/tmp/enterprise-l4-target-trials-v3/eb010-next-batch-002-gpt56sol-002"
     }
   ]
 }

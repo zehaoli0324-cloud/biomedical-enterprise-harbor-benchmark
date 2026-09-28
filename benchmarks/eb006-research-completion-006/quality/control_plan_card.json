@@ -1,0 +1,14 @@
+{
+  "task_id": "eb006-research-completion-006",
+  "calibration_status": "PASS",
+  "status": "PASS",
+  "source": "controls/calibration_results.json",
+  "controls": [
+    {"control_id": "reference", "kind": "positive", "passed": true},
+    {"control_id": "missing-sensitivity", "kind": "negative", "passed": true},
+    {"control_id": "missing-alternative", "kind": "negative", "passed": true},
+    {"control_id": "duplicate-record", "kind": "negative", "passed": true},
+    {"control_id": "row-order-and-replicate-variants", "kind": "invariance", "passed": true},
+    {"control_id": "threshold-hold", "kind": "insufficient_evidence", "passed": true}
+  ]
+}

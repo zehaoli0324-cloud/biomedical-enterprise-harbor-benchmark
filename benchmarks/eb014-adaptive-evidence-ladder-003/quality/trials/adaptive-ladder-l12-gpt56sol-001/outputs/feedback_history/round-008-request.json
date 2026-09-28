@@ -1,0 +1,8 @@
+{
+  "round": 8,
+  "action_id": "independent_replicate",
+  "question_id": "Q-REPLICATION",
+  "rationale": "The registered-cohort primary signal is supported, and the negative control has activated confounding review; resolve independent replication before selecting the remaining heterogeneity and robustness follow-ups.",
+  "expected_information": "A declared replicate_ok, replicate_heterogeneous, or replicate_failed observation from an independent unit.",
+  "prior_state_token": "c97e91097366492729c857433f1ac476c3602aa050752bc7d1b4963f3fa261c7"
+}

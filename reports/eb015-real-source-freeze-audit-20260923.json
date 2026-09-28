@@ -1,0 +1,83 @@
+{
+  "schema_version": "real_source_gate_audit.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "rules_version": "real-source-gate-v1",
+  "source_count": 3,
+  "rows": [
+    {
+      "source_id": "SRC-CRISPR-PMC7006212",
+      "task_id": "crispr-screen-hit-robustness-l4-contract-001",
+      "release_status": "BLOCKED_RIGHTS",
+      "blockers": [
+        "rights_review_required",
+        "sha256_missing_or_invalid",
+        "verifier_rebind_required"
+      ],
+      "required_fields_missing": [],
+      "rights_status": "open_access_article_supplementary_review_required",
+      "sha256_frozen": false,
+      "verifier_rebound": false,
+      "file_inventory_count": 2,
+      "claim_boundary": "published_screen_rows_do_not_prove_single_gene_causality"
+    },
+    {
+      "source_id": "SRC-BBBC021-V1",
+      "task_id": "microscopy-replicate-l4-contract-001",
+      "release_status": "BLOCKED_RIGHTS",
+      "blockers": [
+        "rights_review_required",
+        "sha256_missing_or_invalid",
+        "verifier_rebind_required"
+      ],
+      "required_fields_missing": [],
+      "rights_status": "metadata_only_review_required",
+      "sha256_frozen": false,
+      "verifier_rebound": false,
+      "file_inventory_count": 3,
+      "claim_boundary": "metadata_and_moa_labels_do_not_validate_image_measurements"
+    },
+    {
+      "source_id": "SRC-ZENODO-10362368",
+      "task_id": "md-replica-convergence-l4-contract-001",
+      "release_status": "BLOCKED_RIGHTS",
+      "blockers": [
+        "rights_review_required",
+        "sha256_missing_or_invalid",
+        "verifier_rebind_required"
+      ],
+      "required_fields_missing": [],
+      "rights_status": "unspecified",
+      "sha256_frozen": false,
+      "verifier_rebound": false,
+      "file_inventory_count": 1,
+      "claim_boundary": "trajectory_convergence_audit_does_not_establish_force_field_validity"
+    }
+  ],
+  "blocked_sources": [
+    "SRC-CRISPR-PMC7006212",
+    "SRC-BBBC021-V1",
+    "SRC-ZENODO-10362368"
+  ],
+  "required_release_artifacts": {
+    "data/numeric_provenance.tsv": {
+      "present": true
+    },
+    "data/release_input_manifest.json": {
+      "present": true
+    }
+  },
+  "missing_release_artifacts": [],
+  "release_status": "STAGING_BLOCKED",
+  "claim_boundary": "source_audit_only_not_scientific_claim",
+  "input_sha256": {
+    "data/rules.json": "82ed721fb841ba38393e5b3f9802d40ffc98a8a51a4c13de093d12ee782ce46e",
+    "data/sources.json": "121916171e1ff6b311b0ad7ae598a7c1a1c9fac51357c6b61da3a495ca51bbf9"
+  },
+  "next_actions": [
+    "request_rights_and_freeze_crispr_workbook",
+    "request_bbbc_terms_and_freeze_metadata_hash",
+    "download_zenodo_subset_and_record_sha256",
+    "rebind_verifiers_from_same_snapshot"
+  ],
+  "network_used": false
+}

@@ -5,12 +5,19 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "MATERIALIZED_V0.3.0",
   "control_status": "CALIBRATED",
-  "model_trial_status": "TARGET_TRIAL_COMPLETE_V0.3",
+  "model_trial_status": "BASELINES_COMPLETE",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
     "fixed-container replay",
     "practitioner review"
   ],
-  "status": "PASS"
+  "status": "PASS",
+  "data_expansion": {
+    "status": "SUPERSEDES_PREVIOUS_TRIAL",
+    "expanded_on": "2026-09-24",
+    "fixture_version": "data-expanded-20260924",
+    "previous_status": "PASS",
+    "recalibration_required": true
+  }
 }

@@ -1,0 +1,26 @@
+{
+  "rules_version": "adaptive-evidence-ladder-v1",
+  "decision_date": "2026-09-23",
+  "budget": 18,
+  "max_rounds": 14,
+  "stop_rule": "stop only after all base and outcome-activated evidence checks are observed",
+  "required_checks": ["quality_audit", "pairing_audit", "primary_estimate", "context_comparison", "independent_replication", "negative_control", "robustness_check", "stop_rule"],
+  "conditional_checks": {
+    "context_shift": ["orthogonal_assay", "bridge_assay"],
+    "replicate_heterogeneous": ["influence_analysis"],
+    "negative_control_signal": ["confounding_audit"]
+  },
+  "claim_boundary": "registered_cohort_only",
+  "final_claims": {
+    "quality_status": "PASS",
+    "pairing_status": "PASS",
+    "primary_status": "SUPPORTED",
+    "context_status": "HOLD",
+    "replication_status": "HOLD",
+    "confounding_status": "REVIEW_REQUIRED",
+    "robustness_status": "REGISTERED_ONLY",
+    "claim_boundary": "registered_cohort_only"
+  },
+  "minimum_rounds_for_submission": null,
+  "long_trace_target": "scientific_dependencies_not_round_count"
+}

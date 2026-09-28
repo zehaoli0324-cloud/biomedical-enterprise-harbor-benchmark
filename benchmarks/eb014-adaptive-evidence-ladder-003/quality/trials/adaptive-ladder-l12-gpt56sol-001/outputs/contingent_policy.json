@@ -1,0 +1,25 @@
+{
+  "schema_version": "adaptive_ladder_l12_policy.v1",
+  "difficulty_level": "L12_STATIC_CONTINGENT_POLICY_REPLAY",
+  "runtime_scope": "STATIC_CONTINGENT_POLICY_REPLAY_ONLY",
+  "root_information_set_id": "I00",
+  "policy": [
+    {"information_set_id":"I00","stage":"root","observation":"PUBLIC_ROOT","chosen_action":"REQUEST_CONTEXT_A","worst_case_value":-6,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I10","stage":"context_a","observation":"PENDING_A_REVEAL","chosen_action":"WAIT_FOR_DELAYED_REVEAL","worst_case_value":-7,"adversarial_branch_count":3,"decision_status":"PENDING_WAIT"},
+    {"information_set_id":"I11H","stage":"context_a","observation":"A_HIGH","chosen_action":"COMMIT_A_HIGH","worst_case_value":10,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I11L","stage":"context_a","observation":"A_LOW","chosen_action":"REQUEST_CONFIRM_A","worst_case_value":-4,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I11C","stage":"context_a","observation":"A_CONFLICT","chosen_action":"ABSTAIN_CONSERVATIVELY","worst_case_value":-7,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I12","stage":"confirm_a","observation":"PENDING_A_CONFIRM_REVEAL","chosen_action":"WAIT_FOR_DELAYED_REVEAL","worst_case_value":-5,"adversarial_branch_count":3,"decision_status":"PENDING_WAIT"},
+    {"information_set_id":"I13P","stage":"confirm_a","observation":"A_CONFIRM_PASS","chosen_action":"COMMIT_A_CONFIRMED","worst_case_value":12,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I13F","stage":"confirm_a","observation":"A_CONFIRM_FAIL","chosen_action":"KEEP_SAFE","worst_case_value":-5,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I13C","stage":"confirm_a","observation":"A_CONFIRM_CONFLICT","chosen_action":"ABSTAIN_CONSERVATIVELY","worst_case_value":-5,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I20","stage":"context_b","observation":"PENDING_B_REVEAL","chosen_action":"WAIT_FOR_DELAYED_REVEAL","worst_case_value":-7,"adversarial_branch_count":3,"decision_status":"PENDING_WAIT"},
+    {"information_set_id":"I21H","stage":"context_b","observation":"B_HIGH","chosen_action":"COMMIT_B_HIGH","worst_case_value":9,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I21L","stage":"context_b","observation":"B_LOW","chosen_action":"REQUEST_CONFIRM_B","worst_case_value":-5,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I21C","stage":"context_b","observation":"B_CONFLICT","chosen_action":"ABSTAIN_CONSERVATIVELY","worst_case_value":-7,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I22","stage":"confirm_b","observation":"PENDING_B_CONFIRM_REVEAL","chosen_action":"WAIT_FOR_DELAYED_REVEAL","worst_case_value":-5,"adversarial_branch_count":3,"decision_status":"PENDING_WAIT"},
+    {"information_set_id":"I23P","stage":"confirm_b","observation":"B_CONFIRM_PASS","chosen_action":"COMMIT_B_CONFIRMED","worst_case_value":11,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I23F","stage":"confirm_b","observation":"B_CONFIRM_FAIL","chosen_action":"KEEP_SAFE","worst_case_value":-5,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"},
+    {"information_set_id":"I23C","stage":"confirm_b","observation":"B_CONFIRM_CONFLICT","chosen_action":"ABSTAIN_CONSERVATIVELY","worst_case_value":-5,"adversarial_branch_count":1,"decision_status":"MINIMAX_OPTIMAL"}
+  ]
+}

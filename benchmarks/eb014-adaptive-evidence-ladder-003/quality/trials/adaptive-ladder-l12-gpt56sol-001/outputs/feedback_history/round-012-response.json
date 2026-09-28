@@ -1,0 +1,10 @@
+{
+  "round": 12,
+  "action_id": "stop",
+  "outcome": "stopped",
+  "cost_charged": 0,
+  "observed_measurements": [],
+  "remaining_budget": 0,
+  "accepted": true,
+  "state_token": "13742aa1818a74c79b1f0b7894e22b9b8c0554e201c0cae84710f58c35a0f58a"
+}

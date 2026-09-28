@@ -1,0 +1,8 @@
+{
+  "round": 9,
+  "action_id": "influence_analysis",
+  "question_id": "Q-REPLICATION-INFLUENCE",
+  "rationale": "The independent replicate is heterogeneous; resolve whether donor influence explains the replication spread before running the required robustness analysis.",
+  "expected_information": "Whether the heterogeneity is attributable to donor influence or remains unresolved.",
+  "prior_state_token": "e5b1044f6c8a93e01412ccaf7107ec7895c541b38e40c8448b8385588e43c8a1"
+}

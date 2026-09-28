@@ -1,0 +1,83 @@
+{
+  "schema_version": "research_completion_trial_preflight.v1",
+  "task_ids": [
+    "eb006-research-completion-009",
+    "eb006-research-completion-010",
+    "eb006-research-completion-011"
+  ],
+  "checks": {
+    "archive": {
+      "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/dist/eb006-research-completion-family-20260924.tar.gz",
+      "exists": true,
+      "sha256": "853c49fbf2252887a5e5de2fdcbfbcebbb4bd688e4d7446c15a0af1aa344e809"
+    },
+    "standard_solution_verifier": [
+      {
+        "task_id": "eb006-research-completion-009",
+        "status": "PASS",
+        "stage": "verifier",
+        "errors": []
+      },
+      {
+        "task_id": "eb006-research-completion-010",
+        "status": "PASS",
+        "stage": "verifier",
+        "errors": []
+      },
+      {
+        "task_id": "eb006-research-completion-011",
+        "status": "PASS",
+        "stage": "verifier",
+        "errors": []
+      }
+    ],
+    "sop_preflight": {
+      "eb006-research-completion-009": {
+        "status": "PASS",
+        "release_status": "BLOCKED",
+        "release_blockers": [
+          "fixed-container replay",
+          "practitioner review",
+          "real-data replacement"
+        ]
+      },
+      "eb006-research-completion-010": {
+        "status": "PASS",
+        "release_status": "BLOCKED",
+        "release_blockers": [
+          "fixed-container replay",
+          "practitioner review",
+          "real-data replacement",
+          "target_model_not_run"
+        ]
+      },
+      "eb006-research-completion-011": {
+        "status": "PASS",
+        "release_status": "BLOCKED",
+        "release_blockers": [
+          "fixed-container replay",
+          "practitioner review",
+          "real-data replacement",
+          "target_model_infrastructure"
+        ]
+      }
+    },
+    "fixed_container_replay": {
+      "status": "PASS",
+      "report": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/reports/eb006-research-completion-fixed-container-replay-20260924.json"
+    },
+    "target_model_trial": {
+      "eb006-research-completion-009": "RAW_FAIL_CONTRACT_AMBIGUITY",
+      "eb006-research-completion-010": "NOT_RUN",
+      "eb006-research-completion-011": "TIMEOUT_OUTPUT_COMPLETE_SCIENCE_PASS"
+    },
+    "handoff_status": "READY_FOR_TARGET_TRIAL",
+    "release_status": "BLOCKED",
+    "release_blockers": [
+      "fixed-container replay",
+      "target-model trial for 010",
+      "practitioner review",
+      "real-data replacement"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-015",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "TARGET_RAW_PASS_DIFFICULTY_NOT_ESTABLISHED",
+  "selection_policy": {
+    "candidate_count": 1,
+    "coverage": "new L7 stratified identifiability axis after adaptive-policy tasks passed",
+    "difficulty_budget": "one primary and two secondary modules",
+    "promotion_gate": "independent oracle and shortcut controls before target-model trial"
+  },
+  "recommended_candidates": [
+    {
+      "candidate_id": "eb006-donor-stratified-signal-005",
+      "source": "EB006",
+      "level": "L7",
+      "primary_module": "math_stratified_partial_identifiability",
+      "secondary_modules": ["judgment_experimental_unit", "judgment_conflict_precedence"],
+      "decision_flip": "pooled observation rows favor method_beta, while donor-level analysis rejects it and selects method_gamma despite one locally missing cell",
+      "status": "TARGET_RAW_PASS_DIFFICULTY_NOT_ESTABLISHED",
+      "target_model_status": "RAW_PASS",
+      "next_escalation": "leave-one-donor-out stability"
+    }
+  ],
+  "shared_controls": ["positive reference", "pseudoreplication negative", "row-order invariance", "global-threshold negative", "pooled shortcut", "local-missing metamorphic", "wrong hash", "claim inflation"],
+  "trial_history": [
+    {"trial_id": "eb006-donor-stratified-gpt56sol-001", "classification": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED", "difficulty_evidence": false},
+    {"trial_id": "eb006-donor-stratified-gpt56sol-002", "classification": "RAW_PASS", "difficulty_evidence": true}
+  ],
+  "release_blockers": ["fixed-container replay", "held-out difficulty trial", "practitioner review", "license/privacy/claim-boundary review"]
+}

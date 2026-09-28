@@ -1,0 +1,11 @@
+{
+  "schema_version": "task_repair_plan.v1",
+  "task_id": "literature-screening-m1-001",
+  "status": "SOURCE_REPLACEMENT_REQUIRED",
+  "current_version": "1.0.0",
+  "current_data_status": "synthetic fixture with DOI-like placeholders; calibration only",
+  "blocking_finding": "PLACEHOLDER_DOI in data/literature_records.tsv",
+  "action": "Replace each DOI-like identifier with a resolvable DOI/accession and archived metadata/full-text locator, or retain as explicitly synthetic calibration and block release.",
+  "completion_conditions": ["source_manifest.json with per-record locator and sha256", "claim_evidence_map.tsv", "scientific review", "duplicate and metadata-conflict replay"],
+  "target_status": "CALIBRATION_ONLY"
+}

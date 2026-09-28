@@ -1,0 +1,26 @@
+{
+  "difficulty_card_id": "DIFF-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
+  "task_id": "eb010-stop-uncertainty-002",
+  "primary_module": "math_minimax_evidence_route_selection",
+  "secondary_modules": [
+    "horizon_two_stage_acquisition",
+    "judgment_evidence_route_selection"
+  ],
+  "supporting_modules": [
+    "math_correlation_adjusted_reduction",
+    "retrieval_provenance_temporal_boundary"
+  ],
+  "held_out_variants": [
+    "observation label swap",
+    "stage-2 budget contraction",
+    "dependency repair",
+    "critical threshold shift"
+  ],
+  "decision_flip_controls": [
+    "fixed-stage2 shortcut",
+    "future nominal winner",
+    "dominated threshold-crossing policy",
+    "missing prerequisite"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

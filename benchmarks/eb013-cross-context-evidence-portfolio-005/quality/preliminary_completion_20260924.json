@@ -1,0 +1,27 @@
+{
+  "schema_version": "preliminary_completion_triage.v1",
+  "task_id": "eb013-cross-context-evidence-portfolio-005",
+  "assessment_date": "2026-09-24",
+  "scope": "20_minute_relaxed_preliminary",
+  "status": "PRELIMINARY_NOT_RELEASE_READY",
+  "nearest_tier": "A",
+  "formal_completion": false,
+  "checks": {
+    "target_trial": "TARGET_TRIAL_COMPLETE_CURRENT_VERSION / RAW_PASS",
+    "independent_verifier": "AUTOMATED_CROSSCHECK_PASS",
+    "contract_audit": "PASS",
+    "evidence_surface": "PASS",
+    "focused_tests": "17 passed"
+  },
+  "relaxed_gates": [
+    "No fresh fixed-container replay in this preliminary pass",
+    "No practitioner review in this preliminary pass",
+    "No held-out target trial in this preliminary pass"
+  ],
+  "remaining_formal_blockers": [
+    "fixed-container replay",
+    "practitioner review",
+    "held-out target trials"
+  ],
+  "next_minimum_action": "Run fixed-container replay, then attach practitioner and held-out trial evidence."
+}

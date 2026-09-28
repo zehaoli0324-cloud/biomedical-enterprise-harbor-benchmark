@@ -1,0 +1,14 @@
+{
+  "task_id": "eb013-observation-boundary-004",
+  "calibration_status": "PASS",
+  "status": "PASS",
+  "controls": [
+    {"control_id": "reference", "kind": "positive", "passed": true},
+    {"control_id": "wrong-action", "kind": "negative", "passed": true},
+    {"control_id": "row-order-path-numeric-equivalence", "kind": "invariance", "passed": true},
+    {"control_id": "wrong-hash", "kind": "insufficient_evidence", "passed": true},
+    {"control_id": "world-id-shortcut", "kind": "adversarial", "passed": true},
+    {"control_id": "partition-collapse", "kind": "metamorphic", "passed": true}
+  ],
+  "source": "controls/calibration_results.json"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb013-observation-boundary-004",
+  "trial_id": "gpt56sol-v1-001",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-observation-boundary-004",
+  "trial_dir": "/private/tmp/benchmark-runs/eb013-observation-boundary-004/gpt56sol-v1-001",
+  "workspace": "/private/tmp/benchmark-runs/eb013-observation-boundary-004/gpt56sol-v1-001/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-22T06:50:58.914900+00:00",
+  "input_hashes": {
+    "data/output_contract.json": "4efea2f2a9a0c02e9c0d702bd7b58e07fcda587dd9f5c2a1b4c2fef864b2883c",
+    "data/requests.json": "15ec7f8502c6bc6ad7a1ce883a3db28e8c7908a4a8a33836982b0bd2824866b4",
+    "data/rules.json": "f647e5e60c25622d8eaedc16d875d3b4610cff94b1eb30afddb14adafcdecae9",
+    "data/sources.json": "75a0bb5b3edb0ac47b2ff06c77e2ac379aecf446fa284ae7eeb3b55b022982e9",
+    "data/worlds.json": "20e6588c9957a7bfd1f3a7615ceb35d0f959c5ad630b92183cf73e8de56e88ec",
+    "instruction.md": "fb2017f5a84bebf2e4a86c4cd5b231a7aed9a84d01da99be3fe4e9e6ac570d0c"
+  },
+  "status": "pass",
+  "agent_command": [
+    "python3",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_complete_turn.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--timeout",
+    "840"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-22T06:50:58.915598+00:00",
+  "timeout_seconds": 900,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-22T07:01:25.123787+00:00",
+  "agent_exit_code": 0,
+  "verifier_status": "pass",
+  "verifier_score": null,
+  "verifier_exit_code": 0,
+  "visible_output_hashes": {
+    "audit.md": "4d2d051cf5de262c48a69e9d650b11fc7b6bf85f99861961ee487c776169f0a8",
+    "decision.json": "b4e45643ed3c4e5e50193c8ad479c123eb784f7d06bd14bb266b9b7dfa9359c6",
+    "plan.json": "d57b80ffd9847863ea25acade5ecae05a383bdfe3057f3e482b0e059968bc11a",
+    "provenance.json": "d9a81ef48229cd26d96307e95301754171c56eae63dc7eff76af6761a357f54b"
+  }
+}

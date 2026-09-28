@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb009-diversity-coverage-004",
-  "spec_digest": "8e37e706b56f71bd69d6f215a778904cb38593f1fbfd039bca39d12a39cfe4bc",
+  "spec_digest": "90c091329aa7df41d418948f543972b9bb41919053192be65d85964a05742742",
   "evaluation": {
     "scale": {
       "min": 0.0,

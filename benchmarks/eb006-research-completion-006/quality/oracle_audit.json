@@ -1,0 +1,10 @@
+{
+  "task_id": "eb006-research-completion-006",
+  "status": "PASS",
+  "implementation": "scripts/audit_research_completion.py",
+  "independent_route": "Fraction row-first grouped effects and scenario enumeration",
+  "verifier_route": "Decimal cell-first grouped effects and scenario enumeration",
+  "agreement": true,
+  "decision": {"nominal_selected": "C43", "pooled_selected": "C28", "selected": "C17"},
+  "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy"
+}

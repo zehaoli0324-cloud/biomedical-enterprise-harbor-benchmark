@@ -1,0 +1,22 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-001",
+  "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-001",
+  "model": "gpt-5.6-sol",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "original_runner_verifier_status": "fail",
+  "initial_failure": "decision_enum_contract_and_output_path_layout",
+  "unchanged_artifact_contract_replay": "pass",
+  "selected_request_ids": ["R-ASSAY", "R-CORR"],
+  "route_cost": 4.0,
+  "maximum_critical_residual": 0.15,
+  "artifact_sha256": {
+    "audit.md": "08f940093a1ddd3a1d231c3af0411dcffa71213b8e1c1ca5711e52062d4a9f9c",
+    "decision.json": "f8e8acb11d70a07ef5622829cc686fc213f6b103a910282c7b65b747e6482333",
+    "plan.json": "e24781ff1b668514d081e3bcdaad7cb258b5edbcadffd7c236fb19801a47d71b",
+    "provenance.json": "5d65fa1d7e6700fe9944077387b1a5ef588f85134ad7c93b9aa77917f55eb1fb",
+    "route.tsv": "0e01b6d5558e8a7f2ae27ce9b014ac651afc688d6aee17552ab9bed5c3ad0921"
+  },
+  "interpretation": "correct minimax reasoning; initial delivery contract failure, not scientific failure"
+}

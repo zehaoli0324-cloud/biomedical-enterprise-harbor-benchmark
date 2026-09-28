@@ -1,0 +1,16 @@
+{
+  "round": 9,
+  "action_id": "influence_analysis",
+  "outcome": "donor_influence",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-INFLUENCE",
+      "unit": "D1",
+      "status": "INFLUENTIAL"
+    }
+  ],
+  "remaining_budget": 3,
+  "accepted": true,
+  "state_token": "e4286d3a12b13d0bb0e0060e0838b7e985bf2a245d40d60d1ba7e126f04c0050"
+}

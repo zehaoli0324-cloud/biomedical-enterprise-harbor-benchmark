@@ -1,0 +1,31 @@
+id: eb014-adaptive-evidence-ladder-003
+version: "0.2.0"
+status: ready_for_recalibration
+title: "Adaptive evidence ladder with token-bound observations"
+domain: biomedical_enterprise
+stage: l12_static_contingent_policy_replay
+agent_visible_inputs:
+  - path: data/
+    format: JSON
+    contract: "Public action, interaction, output and completion contracts"
+required_outputs:
+  - {id: research_log, path: outputs/research_log.json, required_fields: [events, final_claims]}
+  - {id: completion, path: outputs/completion.json, required_fields: [checks, stop_reason, human_review_required, claim_boundary]}
+  - {id: provenance, path: outputs/provenance.json, required_fields: [input_sha256, rules_version, network, deterministic]}
+  - {id: audit, path: outputs/audit.md, required_fields: [explanation]}
+  - {id: contingent_policy, path: outputs/contingent_policy.json, required_fields: [rows]}
+  - {id: policy_certificate, path: outputs/policy_certificate.json, required_fields: [root_action, root_worst_case_value]}
+  - {id: feedback_history, path: outputs/feedback_history/, required_fields: [round_request_and_response_files]}
+hidden_truth:
+  path: verifier_only/scenario.json
+  status: verifier_only
+evaluation:
+  claim_boundary: registered_cohort_only
+  trajectory_target: observation_dependent_multiround_and_minimax_policy
+  l12_runtime_scope: static_contingent_policy_replay_only
+quality:
+  evidence_surface: quality/evidence_surface_card.json
+  claim_evidence_map: quality/claim_evidence_map.tsv
+  contract_audit: quality/contract_audit.json
+  sop_card: quality/sop_card.json
+  data_expansion_record: quality/data_expansion_record_20260924_v2.json

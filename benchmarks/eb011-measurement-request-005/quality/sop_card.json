@@ -3,15 +3,13 @@
   "task_id": "eb011-measurement-request-005",
   "sop_version": "enterprise-harbor-sop-v1.1",
   "source_status": "REVIEW_REQUIRED",
-  "contract_status": "CONTRACT_ONLY",
+  "contract_status": "MATERIALIZED_V0.4.0",
   "control_status": "CALIBRATED",
-  "model_trial_status": "BASELINES_COMPLETE",
+  "model_trial_status": "TARGET_TRIAL_COMPLETE",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
-    "control calibration",
-    "author baselines",
-    "target-model trial",
-    "practitioner review"
+    "practitioner review",
+    "fixed-container replay"
   ]
 }

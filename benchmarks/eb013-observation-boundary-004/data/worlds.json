@@ -1,0 +1,34 @@
+[
+  {
+    "id": "W1",
+    "scenario": "nominal",
+    "initial": {
+      "signal": 0.8,
+      "selectivity": 0.65
+    }
+  },
+  {
+    "id": "W2",
+    "scenario": "stress",
+    "initial": {
+      "signal": 0.8,
+      "selectivity": 0.65
+    }
+  },
+  {
+    "id": "W3",
+    "scenario": "nominal",
+    "initial": {
+      "signal": 0.65,
+      "selectivity": 0.8
+    }
+  },
+  {
+    "id": "W4",
+    "scenario": "stress",
+    "initial": {
+      "signal": 0.65,
+      "selectivity": 0.8
+    }
+  }
+]

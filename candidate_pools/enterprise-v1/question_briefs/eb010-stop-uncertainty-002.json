@@ -5,7 +5,7 @@
   "source_name": "BayBE constrained experimental design",
   "workflow_id": "WF-BAYBE-CLOSED-LOOP",
   "enterprise_role": "experimental_design_scientist",
-  "status": "CONTRACT_ONLY",
+  "status": "MATERIALIZED_CALIBRATION_READY",
   "scientific_decision": "Should the closed loop continue, stop, or request more information given uncertainty and observed improvement?",
   "independent_unit": "optimization state and candidate batch",
   "handoff": "batch_result->uncertainty->stop_or_continue",
@@ -16,9 +16,11 @@
     "provenance metadata"
   ],
   "required_artifacts": [
-    "stop_rule_report.json",
-    "uncertainty_table.tsv",
-    "human_review.md"
+    "plan.json",
+    "route.tsv",
+    "decision.json",
+    "provenance.json",
+    "audit.md"
   ],
   "failure_injections": [
     "uncertainty collapse",
@@ -39,12 +41,15 @@
       "copying public benchmark labels or leaderboard answers"
     ]
   },
-  "claim_boundary": "A simulated objective is not proof of real-world improvement.",
+  "claim_boundary": "A simulated stop policy is a planning aid, not proof of real-world improvement.",
   "release_blockers": [
-    "freeze source version and license",
-    "materialize agent-visible data without hidden truth leakage",
-    "author independent oracle or expert-equivalence rubric",
-    "run positive, negative, invariance, and insufficient-evidence controls",
-    "run reference, simple legal, always-abstain, template, and target-model trials"
+    "target-model trial",
+    "fixed-container replay",
+    "practitioner review"
+  ],
+  "reusable_modules": [
+    "math_minimax_evidence_route_selection",
+    "horizon_two_stage_acquisition",
+    "judgment_evidence_route_selection"
   ]
 }

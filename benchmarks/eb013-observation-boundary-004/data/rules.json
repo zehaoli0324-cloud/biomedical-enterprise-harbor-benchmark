@@ -1,0 +1,33 @@
+{
+  "rules_version": "observation-boundary-v1",
+  "scope": "primary",
+  "decision_date": "2026-09-21",
+  "stage1_budget": 2.5,
+  "commitment_budget": 4.5,
+  "total_budget": 6.0,
+  "capacity_slots": 3,
+  "deadline_hours": 6,
+  "thresholds": {
+    "signal": 0.3,
+    "selectivity": 0.2
+  },
+  "setup_costs": {
+    "common": 1.0,
+    "signal": 1.5,
+    "select": 1.5,
+    "fast": 0.5
+  },
+  "setup_slots": {
+    "common": 1,
+    "signal": 2,
+    "select": 2,
+    "fast": 1
+  },
+  "objective": [
+    "minimize maximum residual/axis-threshold over ALL worlds and critical axes",
+    "minimize worst branch cost",
+    "minimize setup cost",
+    "lexical stage1 ID",
+    "lexical sorted observation-action mapping"
+  ]
+}

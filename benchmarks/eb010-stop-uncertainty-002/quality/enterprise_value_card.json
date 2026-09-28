@@ -1,0 +1,10 @@
+{
+  "enterprise_value_card_id": "VALUE-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
+  "task_id": "eb010-stop-uncertainty-002",
+  "enterprise_reality": {
+    "decision": "select a prospective monitoring policy before deciding continue, stop, or review",
+    "error_consequence": "a fixed follow-up can hide plateau or disagreement and waste another experimental batch",
+    "human_owner": "experimental_design_scientist"
+  },
+  "status": "REVIEW_REQUIRED"
+}

@@ -2,7 +2,7 @@
   "schema_version": "enterprise_target_trial_evidence.v1",
   "task_id": "eb010-closed-loop-ambiguity-004",
   "model": "gpt-5.6-sol",
-  "classification": "agent_completed_verifier_passed_after_contract_replay",
+  "classification": "agent_completed_verifier_passed_clean_v0.7.1",
   "valid_difficulty_outcome": "pass",
   "contract_defects_are_not_difficulty_evidence": true,
   "trials": [
@@ -162,6 +162,45 @@
         "evidence.tsv": "0f9c78f3f5db019a337ae8ee9b4c1a164fe7250f3a20fc316d47a6cabe9392a5"
       },
       "trial_dir": "/private/tmp/benchmark-runs/eb010-closed-loop-ambiguity-004-v061/trial-gpt56-sol-003"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-004",
+      "task_version": "0.7.0",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "verifier_exit_code": 0,
+      "timed_out": false,
+      "failure_attribution": null,
+      "plan": {"operations": ["inventory", "interpret", "screen", "replay", "decide"], "total_cost": 6.5, "network_used": false, "stop_condition": "eligible_record_selected"},
+      "artifact_sha256": {
+        "audit.md": "353ab1e8c386b94240b46b357266ffbec24da6921cf7ed5f4db1f442619c1c36",
+        "decision.json": "ab79099948672c1316c95133445cdddb10dcb11214ab12c34a2d1b463bce0657",
+        "discovery.json": "3c5a88b7d6f0975d250ab0b223167ae8577c8f676ca72654f4a0bbb7327da226",
+        "evidence.tsv": "79b9be80ce8f6a522dad286f4ef8c33b4499583884582f71a56c46ff5681dcd5",
+        "plan.json": "e18adf23beb7c5c1b75b8fe6d2c8c64c75594a52115de187e02c87f5f997bc4b"
+      },
+      "trial_dir": "/private/tmp/benchmark-runs/eb010-closed-loop-ambiguity-004-v070/trial-gpt56-sol-004"
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-005",
+      "task_version": "0.7.1",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "verifier_exit_code": 0,
+      "timed_out": false,
+      "failure_attribution": null,
+      "plan": {"operations": ["inventory", "interpret", "screen", "replay", "decide"], "total_cost": 6.5, "network_used": false, "stop_condition": "eligible_record_selected"},
+      "avoided_shortcuts": ["label_scan", "top_only_replay", "external_lookup", "defer_all"],
+      "artifact_sha256": {"audit.md": "82d5b35854b6efa2890416e46919618c1f11dd9ccd45531f4dec4e5fbdd6e107", "decision.json": "ab79099948672c1316c6f5f6c6c7503012d0ccccd7b30eed1eb006a6dd978c972fc029b66a65cf0a", "discovery.json": "23ebca9b5ce3d18c5293a20cc034c4314badd8e1e70dce0b6e4c0d4b82797096", "evidence.tsv": "79b9be80ce8f6a522dad286f4ef8c33b4499583884582f71a56c46ff5681dcd5", "plan.json": "e18adf23beb7c5c1b75b8fe6d2c8c64c75594a52115de187e02c87f5f997bc4b"},
+      "trial_dir": "/private/tmp/benchmark-runs/eb010-closed-loop-ambiguity-004-v071/trial-gpt56-sol-005"
     }
   ],
   "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"

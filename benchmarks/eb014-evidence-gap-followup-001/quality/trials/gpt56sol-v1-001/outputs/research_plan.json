@@ -1,0 +1,31 @@
+{
+  "policy": {
+    "action": "A-REPLICATE",
+    "branches": {
+      "consistent": {
+        "action": "A-BRIDGE",
+        "branches": {
+          "bridge_failed": {
+            "action": "hold",
+            "branches": {}
+          },
+          "bridge_supported": {
+            "action": "hold",
+            "branches": {}
+          }
+        }
+      },
+      "inconsistent": {
+        "action": "hold",
+        "branches": {}
+      }
+    }
+  },
+  "objective": {
+    "worst_resolved_weight": 5,
+    "worst_cost": 4,
+    "max_action_count": 2,
+    "policy_key": "{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}"
+  },
+  "stop_reason": "conditional_plan"
+}

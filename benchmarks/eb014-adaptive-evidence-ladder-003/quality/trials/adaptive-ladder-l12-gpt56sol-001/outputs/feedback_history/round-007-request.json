@@ -1,0 +1,8 @@
+{
+  "round": 7,
+  "action_id": "negative_control",
+  "question_id": "Q-CONFOUNDING",
+  "rationale": "The registered-cohort signal is supported, but transport failed. Resolve the negative-control branch before deciding whether confounding review and the required robustness analysis are activated.",
+  "expected_information": "Whether the negative control is clear or reveals residual confounding.",
+  "prior_state_token": "8df70347781b710ca3716bcb8eed57b40cce8dc3654ab8fe9dca8d68e328147f"
+}

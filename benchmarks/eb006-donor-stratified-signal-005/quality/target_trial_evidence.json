@@ -1,0 +1,40 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "model": "gpt-5.6-sol",
+  "frozen_version": "1.0.0",
+  "freeze": "quality/pretrial_freeze.json",
+  "trials": [
+    {
+      "trial_id": "eb006-donor-stratified-gpt56sol-001",
+      "runner_status": "timeout",
+      "timed_out": true,
+      "artifact_verification": "pass",
+      "science_score": 1.0,
+      "contract_score": 1.0,
+      "classification": "TIMEOUT_INFRASTRUCTURE_OUTPUT_VERIFIED",
+      "valid_difficulty_evidence": false,
+      "trial_manifest": "/private/tmp/enterprise-eb006-donor-stratified-trials/eb006-donor-stratified-gpt56sol-001/manifest.json"
+    },
+    {
+      "trial_id": "eb006-donor-stratified-gpt56sol-002",
+      "runner_status": "pass",
+      "timed_out": false,
+      "artifact_verification": "pass",
+      "science_score": 1.0,
+      "contract_score": 1.0,
+      "classification": "RAW_PASS",
+      "valid_difficulty_evidence": true,
+      "trial_manifest": "/private/tmp/enterprise-eb006-donor-stratified-trials-v2/eb006-donor-stratified-gpt56sol-002/manifest.json"
+    }
+  ],
+  "artifact_sha256": {
+    "candidate_summary.tsv": "04d1ec1aa431e0cbc7b77da78eeba9b9dfd15c52030b1b4fda90ffbf93601dec",
+    "state_diagnostics.tsv": "f6eb2741417543db86b0e8127d088ceee4f7905eaa283e18ac3173722312a8a3",
+    "decision.json": "a80acc3800a720ac52f4c8a675c43c1acccbe8e4b60f36089bb22b0e34d419ef",
+    "provenance.json": "b7bf22749ec2ca2857ac737d53d58e11b89ba9bf3e675098e6d23e551873f28b"
+  },
+  "cross_trial_artifacts_identical": true,
+  "difficulty_interpretation": "The pooled and abstention baselines fail, but the target model passed the frozen scientific and contract checks. Difficulty against gpt-5.6-sol is not established.",
+  "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"
+}

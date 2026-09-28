@@ -1,0 +1,23 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-stop-uncertainty-002",
+  "trial_id": "eb010-stop-uncertainty-002-gpt56sol-003",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail_then_contract_replay_pass",
+  "agent_exit_code": 0,
+  "original_verifier_errors": ["plan environment or stop mismatch", "decision mismatch", "policies mismatch", "provenance mismatch", "audit missing stage 2"],
+  "unchanged_artifact_contract_replay": "pass",
+  "classification": "agent_completed_scientific_route_passed_after_contract_replay",
+  "selected_stage1_request_id": "S-UNCERTAINTY",
+  "selected_stage2_policy": {"plateau": "S-REPLICATE", "discordant": "S-RECONCILE"},
+  "worst_case_max_critical_residual": 0.15,
+  "worst_case_cost": 5.0,
+  "artifact_sha256": {
+    "plan.json": "389dbc7152cf8da68bd588f088c63573d90f22d412501385790dcab4927ccc78",
+    "route.tsv": "06821a2cded11db8e771455be78ed65ee86580c2c916862b9e673d91d8994a4a",
+    "decision.json": "4513de3735a4f4beaa890b4c0d2768f47e1d4db78444b6df15e88e4f2c6634a6",
+    "provenance.json": "a2ed7e51623de24966632d0aacc931fcf8a4cd72476de668bcd1e15c830ede58",
+    "audit.md": "3a1d9e876ed4fa8d9038c9ab14ede14a4e9ad6a4949eb450c48c7d1675a86df6"
+  },
+  "scientific_decision_changed": false
+}

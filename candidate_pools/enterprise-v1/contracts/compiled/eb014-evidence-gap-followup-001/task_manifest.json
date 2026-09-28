@@ -1,0 +1,274 @@
+{
+  "schema_version": "benchmark_builder.v1",
+  "task": {
+    "id": "eb014-evidence-gap-followup-001",
+    "title": "Evidence gap identification and adaptive follow-up planning",
+    "domain": "biomedical_enterprise",
+    "source_scenarios": [
+      "eb013-observation-boundary-004",
+      "eb012-cross-handoff-audit-001"
+    ],
+    "data_types": [
+      "json",
+      "markdown"
+    ]
+  },
+  "difficulty": {
+    "task_id": "eb014-evidence-gap-followup-001",
+    "raw_score": 4.583,
+    "adjusted_score": 5.0,
+    "band": "frontier",
+    "dimensions": {
+      "scientific_scenario": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Registered evidence, scope and future follow-up are separated.",
+        "tags": []
+      },
+      "scientific_judgment": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Premise support controls a claim-permission ceiling.",
+        "tags": []
+      },
+      "computational_difficulty": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Enumerate action subsets and feedback-conditioned policies.",
+        "tags": []
+      },
+      "tool_call_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Self-contained JSON with a public output contract.",
+        "tags": []
+      },
+      "retrieval_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Evidence status, scope, independence and temporal joins are required.",
+        "tags": []
+      },
+      "information_noise_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Stale, duplicated, wrong-scope and future records remain visible decoys.",
+        "tags": []
+      },
+      "data_type_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Nested evidence-premise-claim-action graph.",
+        "tags": []
+      },
+      "data_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Multiple claim levels and conditional result states.",
+        "tags": []
+      },
+      "environment_complexity": {
+        "level": 3,
+        "weight": 1.0,
+        "rationale": "Offline deterministic calculation.",
+        "tags": []
+      },
+      "mathematical_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "Worst-case resolved-claim weight, then cost and action count under dependencies.",
+        "tags": []
+      },
+      "long_horizon_complexity": {
+        "level": 5,
+        "weight": 1.0,
+        "rationale": "First follow-up result gates the second action and stop decision.",
+        "tags": []
+      },
+      "safety_risk": {
+        "level": 4,
+        "weight": 1.0,
+        "rationale": "Claim inflation is explicitly blocked and human review is required.",
+        "tags": []
+      }
+    },
+    "interactions": [
+      "judgment_x_noisy_evidence",
+      "retrieval_x_scientific_judgment",
+      "high_stakes_safety_review"
+    ],
+    "selected_modules": {
+      "judgment": [
+        {
+          "id": "judgment_claim_transportability_boundary",
+          "params": {}
+        }
+      ],
+      "research_planning": [
+        {
+          "id": "research_minimum_additional_evidence",
+          "params": {}
+        }
+      ],
+      "horizon": [
+        {
+          "id": "horizon_adaptive_research_priority",
+          "params": {}
+        }
+      ],
+      "retrieval": [
+        {
+          "id": "retrieval_independence_quorum",
+          "params": {}
+        }
+      ]
+    },
+    "data_types": [
+      "json",
+      "markdown"
+    ]
+  },
+  "constraints": {
+    "network": "off",
+    "cpu_seconds": 300,
+    "memory_mb": 1024,
+    "requires_input_checksum": true,
+    "requires_deterministic_output": true
+  },
+  "spec_digest": "db5aba829c6f02c851ade135846c3fd8243f41b8d6618d2ca0c30d92509b098e",
+  "evaluation": {
+    "scale": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "criteria": [
+      {
+        "id": "scientific_correctness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Correct experimental unit, model, contrast, result and scientific decision.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "evidence_grounding",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Claims, numbers and citations are traceable and actually entailed.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "experimental_design",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Controls, batches, replicates, stopping rules and sensitivity choices are valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "tool_and_trace_reliability",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Tools, parameters, order, failures and recovery are faithfully recorded.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "artifact_completeness",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Required intermediate and final artifacts are present and schema-valid.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "reproducibility",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "Versions, inputs, checksums, resources and rerun conditions are sufficient.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "uncertainty_and_claim_boundary",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": true,
+        "description": "Uncertainty, negative results and association/causality limits are explicit.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      },
+      {
+        "id": "safety_and_human_review",
+        "weight": 1.0,
+        "minimum_score": 2.0,
+        "critical": false,
+        "description": "High-risk boundaries and required human review are respected.",
+        "remediation": "Review the task instruction, evidence contract, and verifier for this criterion."
+      }
+    ],
+    "judges": [
+      {
+        "id": "domain_scientist",
+        "role": "domain scientist",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "methods_auditor",
+        "role": "methods and reproducibility auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      },
+      {
+        "id": "evidence_auditor",
+        "role": "evidence and claim auditor",
+        "required": true,
+        "model": "external",
+        "temperature": 0.0
+      }
+    ],
+    "hard_gates": [
+      "scientific_reality",
+      "observability",
+      "verifiability"
+    ],
+    "iteration": {
+      "max_rounds": 3,
+      "min_agreement": 0.7,
+      "accept_score": 3.0,
+      "regressions_allowed": 0,
+      "one_change_per_round": true
+    }
+  },
+  "scenario_card": {
+    "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb014-evidence-gap-followup-001/scenario-card.yaml",
+    "digest": "9c951f577ac36ce02a236d5245475bdd382dda6f63b3e39b56e8d73c93ae54de",
+    "scenario_id": "eb014-evidence-gap-followup-001",
+    "status": "ready",
+    "source_scenarios": [
+      "eb013-observation-boundary-004",
+      "eb012-cross-handoff-audit-001"
+    ],
+    "scientific_judgments": [
+      "separate supported premises from tempting but out-of-scope evidence",
+      "preserve claim permissions and withdraw downstream claims when a bridge fails",
+      "choose minimum additional evidence under a shared budget",
+      "update the next action only after a declared intermediate result"
+    ],
+    "handoff_count": 2,
+    "release_gates": {
+      "scientific_reality": "synthetic_planning_only",
+      "observability": "pass",
+      "verifiability": "pass",
+      "naive_resistance": "pending_controls",
+      "reproducibility": "automated_controls",
+      "enterprise_value": "pending",
+      "training_value": "evaluation_only"
+    }
+  },
+  "evidence": {},
+  "status": "compiled_contract"
+}

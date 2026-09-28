@@ -1,0 +1,30 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb013-evidence-budget-routing-001",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "SYNTHETIC_CALIBRATION_REVIEW_REQUIRED",
+  "contract_status": "MATERIALIZED_V0.1.1",
+  "contract_audit_status": "PASS",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BASELINES_COMPLETE",
+  "independent_verifier_status": "PASS",
+  "difficulty_modules": [
+    "judgment_evidence_route_selection",
+    "data_dependency_graph_routing",
+    "math_minimax_evidence_route_selection",
+    "math_correlation_adjusted_reduction",
+    "retrieval_provenance_temporal_boundary"
+  ],
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review"
+  ],
+  "data_expansion": {
+    "status": "SUPERSEDES_PREVIOUS_TRIAL",
+    "expanded_on": "2026-09-24",
+    "fixture_version": "data-expanded-20260924",
+    "previous_status": null,
+    "recalibration_required": true
+  }
+}

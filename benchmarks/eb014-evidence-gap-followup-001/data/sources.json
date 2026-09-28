@@ -1,0 +1,51 @@
+[
+  {
+    "id": "E-DIRECT",
+    "status": "current",
+    "available_on": "2026-09-01",
+    "scope": "registered_primary_cohort",
+    "independence_group": "G-DIRECT"
+  },
+  {
+    "id": "E-BATCH-1",
+    "status": "current",
+    "available_on": "2026-09-02",
+    "scope": "registered_primary_cohort",
+    "independence_group": "G-B1"
+  },
+  {
+    "id": "E-BATCH-2",
+    "status": "archived",
+    "available_on": "2026-09-03",
+    "scope": "registered_primary_cohort",
+    "independence_group": "G-B2"
+  },
+  {
+    "id": "E-BATCH-DUP",
+    "status": "current",
+    "available_on": "2026-09-04",
+    "scope": "registered_primary_cohort",
+    "independence_group": "G-B1"
+  },
+  {
+    "id": "E-OLD-BRIDGE",
+    "status": "archived",
+    "available_on": "2026-09-05",
+    "scope": "target_population",
+    "independence_group": "G-BRIDGE-OLD"
+  },
+  {
+    "id": "E-WRONG-BRIDGE",
+    "status": "current",
+    "available_on": "2026-09-06",
+    "scope": "other_population",
+    "independence_group": "G-BRIDGE-WRONG"
+  },
+  {
+    "id": "E-FUTURE-INT",
+    "status": "current",
+    "available_on": "2026-10-01",
+    "scope": "target_population",
+    "independence_group": "G-INT-FUTURE"
+  }
+]

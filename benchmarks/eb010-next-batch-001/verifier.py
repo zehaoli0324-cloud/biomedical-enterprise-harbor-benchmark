@@ -19,6 +19,13 @@ def _num(value):
         return None
 
 
+def _number_matches(actual, expected_value: float) -> bool:
+    try:
+        return abs(float(actual) - expected_value) <= 1e-5
+    except (TypeError, ValueError):
+        return False
+
+
 def _empty_result(data: Path, rules: dict, rows: list[dict]) -> dict:
     return {
         "best_batch": None,
@@ -62,7 +69,7 @@ def expected(data: Path) -> dict:
         cost = sum(float(row["material_cost"]) for row in batch)
         groups = {row["group"] for row in batch}
         counts = {group: sum(row["group"] == group for row in batch) for group in groups}
-        pairs = [sorted(pair) for pair in incompatible if pair.issubset(ids)]
+        pairs = sorted(sorted(pair) for pair in incompatible if pair.issubset(ids))
         if cost > float(rules["material_budget"]):
             continue
         if not set(rules["required_groups"]).issubset(groups):
@@ -109,7 +116,7 @@ def expected(data: Path) -> dict:
     result.update({"best_batch": best, "legal_batches": legal_batches, "reference_batch": best["ids"] if best else [], "material_cost": best["material_cost"] if best else None, "evidence_complete": bool(rows)})
     result["eligible_candidate_ids"] = sorted(row["candidate_id"] for row in active)
     result["excluded_candidate_ids"] = sorted(row["candidate_id"] for row in rows if row.get("scope") != "active")
-    result["incompatibility_pairs"] = [sorted(pair) for pair in incompatible]
+    result["incompatibility_pairs"] = sorted(sorted(pair) for pair in incompatible)
     return result
 
 
@@ -125,7 +132,7 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
     selected_ids = sorted(row.get("candidate_id", "") for row in rows)
     if best is None or selected_ids != best["ids"]:
         errors.append("next batch is not optimal under robust scenario utility")
-    required_columns = {"candidate_id", "group", "material_cost", "predicted_gain", "uncertainty", "failure_probability", "candidate_utility"}
+    required_columns = {"candidate_id", "scope", "group", "material_cost", "predicted_gain", "uncertainty", "failure_probability", "candidate_utility"}
     if not rows or not required_columns.issubset(rows[0]):
         errors.append("next batch lacks acquisition evidence columns")
     elif "scope" in rows[0] and any(row.get("scope") != "active" for row in rows):
@@ -139,6 +146,9 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
         for field in ("group", "material_cost", "predicted_gain", "uncertainty", "failure_probability"):
             if field in row and str(row[field]) != str(source[field]):
                 errors.append(f"{row.get('candidate_id')} {field} mismatch")
+        nominal = best["candidate_utilities"].get("nominal", {}).get(row["candidate_id"])
+        if nominal is not None and not _number_matches(row.get("candidate_utility"), nominal):
+            errors.append(f"{row['candidate_id']} candidate utility mismatch")
     check = json.loads((submission / "constraint_check.json").read_text())
     if best is not None:
         if check.get("legal", check.get("overall_pass")) is not True:
@@ -152,6 +162,8 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
             errors.append("constraint check robust utility mismatch")
         if "incompatible_pairs" in check and check.get("incompatible_pairs", []) != best["incompatible_pairs"]:
             errors.append("constraint check incompatibility mismatch")
+        if "group_coverage" in check and sorted(check["group_coverage"]) != sorted(best["groups"]):
+            errors.append("constraint check group coverage mismatch")
     if check.get("rules_version") not in (None, exp["rules_version"]):
         errors.append("constraint rules version mismatch")
     uncertainty_rows = list(csv.DictReader((submission / "uncertainty_table.tsv").open(newline=""), delimiter="\t"))
@@ -164,6 +176,8 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
             selected = row.get("selected", "").strip().lower() in {"true", "yes", "1", "selected"}
             if selected != (row["candidate_id"] in selected_set):
                 errors.append(f"{row['candidate_id']} selection audit mismatch")
+            if "scope" in row and row["scope"] != candidates[row["candidate_id"]]["scope"]:
+                errors.append(f"{row['candidate_id']} scope audit mismatch")
     text = (submission / "selection_rationale.md").read_text().lower()
     for concept, alternatives in {"scenario robustness": ("scenario", "worst-case", "robust"), "exploration": ("exploration", "uncertainty"), "failure risk": ("failure", "risk"), "redundancy": ("correlation", "redundan", "incompatib"), "feasibility": ("budget", "feasible"), "planning boundary": ("planning recommendation", "not an experimental result", "human review")}.items():
         if not any(term in text for term in alternatives):

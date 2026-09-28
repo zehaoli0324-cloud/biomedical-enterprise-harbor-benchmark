@@ -1,0 +1,25 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb006-research-completion-009",
+  "model": "gpt-5.6-sol",
+  "trials": [
+    {
+      "trial_id": "gpt56sol-cross-assay-v1-001",
+      "runner_status": "verifier_fail",
+      "completion_status": "accepted",
+      "elapsed_seconds": 1101.2393386660115,
+      "completion_gate": "PASS",
+      "scientific_verifier": "FAIL",
+      "classification": "RAW_FAIL_CONTRACT_AMBIGUITY",
+      "valid_difficulty_evidence": false,
+      "errors": [
+        "assay_checks.effect_range definition was not explicit enough",
+        "provenance contract did not explicitly enumerate assay_observations.csv",
+        "reason code vocabulary was not closed"
+      ],
+      "trial_manifest": "/private/tmp/benchmark-runs/eb006-research-completion-009/gpt56sol-cross-assay-v1-001/manifest.json"
+    }
+  ],
+  "difficulty_interpretation": "The model planned and executed the new cross-assay axis and reached the intended hold, but the contract allowed semantically different effect-range and reason-code representations. This is contract ambiguity, not evidence that the model was scientifically defeated.",
+  "release_effect": "blocked_pending_contract_repair_and_unchanged_science_replay"
+}

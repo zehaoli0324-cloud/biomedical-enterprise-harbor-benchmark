@@ -45,7 +45,7 @@
                 ]
               },
               "pilot_gpu": {
-                "status": "excluded",
+                "status": "out_of_scope",
                 "failed_invariants": [
                   "cohort",
                   "input_digest",
@@ -53,7 +53,7 @@
                 ]
               },
               "archived_2024": {
-                "status": "excluded",
+                "status": "out_of_scope",
                 "failed_invariants": [
                   "cohort",
                   "input_digest",

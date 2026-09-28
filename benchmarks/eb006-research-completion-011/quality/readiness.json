@@ -1,0 +1,10 @@
+{
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_trial": "TIMEOUT_OUTPUT_COMPLETE_SCIENCE_PASS",
+  "human_review": "NOT_RUN",
+  "isolated_replay": "NOT_RUN",
+  "release_ready": false,
+  "completion_gate": "PASS",
+  "scientific_verifier": "PASS",
+  "scientific_defeat": false
+}

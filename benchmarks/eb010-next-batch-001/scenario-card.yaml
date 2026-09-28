@@ -20,6 +20,12 @@ difficulty_modules:
   - id: judgment_uncertainty_and_stop_rules
     observable: missing uncertainty produces an explicit request-for-information handoff
     decision_flip: absent uncertainty blocks a confident batch recommendation
+  - id: horizon_two_stage_acquisition
+    observable: stage-two eligibility, remaining budget and stop-or-continue state are derived only from declared stage-one observations
+    decision_flip: a future outcome or early budget reuse invalidates the policy even when nominal batch utility is high
+  - id: math_sensitivity_frontier
+    observable: nominal, worst-case and perturbation rankings are reported together
+    decision_flip: a point-estimate winner becomes hold when scenario weights or failure risk move within the declared frontier
 workflow_handoffs:
   - from: visible_inputs
     to: decision_handoff

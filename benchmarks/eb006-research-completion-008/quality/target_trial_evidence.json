@@ -1,0 +1,37 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb006-research-completion-008",
+  "model": "gpt-5.6-sol",
+  "trials": [
+    {
+      "trial_id": "gpt56sol-gated-v1-003",
+      "runner_status": "agent_error",
+      "completion_status": "not_started",
+      "classification": "INFRASTRUCTURE_FAIL",
+      "valid_difficulty_evidence": false,
+      "reason": "relative adapter path was resolved inside the isolated agent workspace"
+    },
+    {
+      "trial_id": "gpt56sol-gated-v1-004",
+      "runner_status": "agent_error",
+      "completion_status": "not_started",
+      "classification": "INFRASTRUCTURE_FAIL",
+      "valid_difficulty_evidence": false,
+      "reason": "Codex app-server could not initialize PATH aliases under restricted process permissions"
+    },
+    {
+      "trial_id": "gpt56sol-gated-v1-005",
+      "runner_status": "pass",
+      "completion_status": "accepted",
+      "returned_submissions": 1,
+      "elapsed_seconds": 501.638604,
+      "scientific_verdict": "PASS",
+      "decisions": {"nominal": "C43", "pooled": "C28", "robust": "C17"},
+      "classification": "RAW_PASS",
+      "valid_difficulty_evidence": true,
+      "trial_manifest": "/private/tmp/benchmark-runs/eb006-research-completion-008/gpt56sol-gated-v1-005/manifest.json"
+    }
+  ],
+  "difficulty_interpretation": "The repaired version was completed correctly by the target model in one accepted submission. The task tests multi-estimand reconciliation and executable replay, but this run is evidence of target success, not target defeat.",
+  "release_effect": "scientific_and_completion_checks_pass; human_review_and_isolated_container_replay_remain_required"
+}

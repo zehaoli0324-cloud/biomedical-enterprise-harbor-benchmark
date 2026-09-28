@@ -1,0 +1,23 @@
+{
+  "rules_version": "real-source-gate-v1",
+  "selected_sources": [],
+  "blocked_sources": [
+    "SRC-CRISPR-PMC7006212",
+    "SRC-BBBC021-V1",
+    "SRC-ZENODO-10362368"
+  ],
+  "next_actions": [
+    "request_rights_and_freeze_crispr_workbook",
+    "request_bbbc_terms_and_freeze_metadata_hash",
+    "download_zenodo_subset_and_record_sha256",
+    "rebind_verifiers_from_same_snapshot"
+  ],
+  "claim_boundary": "source_audit_only_not_scientific_claim",
+  "input_sha256": {
+    "data/rules.json": "82ed721fb841ba38393e5b3f9802d40ffc98a8a51a4c13de093d12ee782ce46e",
+    "data/sources.json": "121916171e1ff6b311b0ad7ae598a7c1a1c9fac51357c6b61da3a495ca51bbf9",
+    "data/output_contract.json": "4f71ecba2784a081febd3705e4586beffd58dfe07ed64e0a9a00168720d1eaf8",
+    "data/release_input_manifest.json": "77351edccff8a0c40ab40a4b0b241b17f400202fcc2036852302929c49682fcb",
+    "data/numeric_provenance.tsv": "1109d178af675bf61898a217f67fb06906114c5142a8ed6027bb8bb4b855ab01"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "enterprise_evidence_quality.v1",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "fixture_type": "synthetic",
+  "scientific_scope": "analytical triage of donor-stratified adjusted signal",
+  "not_supported": ["mechanism", "target engagement", "efficacy", "clinical generalization"],
+  "independent_unit": "biological donor by registered state",
+  "technical_unit": "technical replicate within donor/state/condition",
+  "oracle_audit": "quality/oracle_audit.json",
+  "practitioner_review": "PENDING"
+}

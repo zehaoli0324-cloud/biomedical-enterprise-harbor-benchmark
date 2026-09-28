@@ -1,0 +1,24 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb006-donor-stratified-signal-005",
+  "source_benchmark_id": "EB006",
+  "source_name": "Synthetic donor-stratified perturbation signal review",
+  "workflow_id": "WF-DONOR-STRATIFIED-SIGNAL",
+  "enterprise_role": "translational_profile_reviewer",
+  "status": "MATERIALIZED_CALIBRATION_READY",
+  "scientific_decision": "Which adjusted perturbation signal is reproducible across independent donors and registered states and may proceed to profile review?",
+  "independent_unit": "biological donor by state",
+  "handoff": "adjusted_observations->donor_state_diagnostics->profile_review_gate",
+  "error_consequence": "replicate-weighted pooling can advance a candidate with a donor-specific reversal, while blanket abstention can discard sufficient evidence",
+  "agent_visible_inputs": ["technical-replicate observations", "candidate scope", "state-specific support, mean and range thresholds"],
+  "required_artifacts": ["candidate_summary.tsv", "state_diagnostics.tsv", "decision.json", "provenance.json"],
+  "failure_injections": ["unequal technical replicate counts", "pooled winner with donor reversal", "one locally missing donor/state cell", "inactive high-signal candidate", "heterogeneous state thresholds"],
+  "gpt_difficulty": {
+    "mechanism": "the model must preserve the experimental-unit hierarchy, apply state-specific identifiability rules and distinguish local missingness from global insufficiency before robust selection",
+    "semantic_axes": ["experimental_unit", "stratified_identifiability", "conflict_precedence", "bounded_handoff"],
+    "shortcut_probes": ["pool observation rows", "apply one global support threshold", "abstain on any missing cell", "rank before blockers"],
+    "held_out_variants": ["replicate rebalance", "donor restoration", "support contraction", "direction reversal", "scope activation"]
+  },
+  "claim_boundary": "Analytical triage only; not evidence of mechanism, target engagement or efficacy.",
+  "release_blockers": ["target-model repeated trials", "fixed-container replay", "practitioner review", "license/privacy/claim-boundary review"]
+}

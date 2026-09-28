@@ -3,18 +3,22 @@
   "task_id": "eb003-recovery-chain-005",
   "difficulty_hypothesis": {
     "reasoning_chain": [
-      "join visible evidence",
-      "apply cross-artifact constraints",
-      "test decision flip",
-      "preserve bounded claim"
+      "join branch, artifact, environment and provenance evidence",
+      "apply claim-permission downgrades to each fallback",
+      "separate reversible recovery from irreversible side effects",
+      "select one claim-preserving branch or escalate"
     ],
-    "target_failure_mechanism": "local proxy optimization ignores a binding handoff invariant"
+    "competing_choices": ["clean retry vs fast retry", "operational recovery vs biological validation claim"],
+    "stateful_dependencies": ["reference/input drift changes downstream claim permission", "retry budget and side effects persist across handoff"],
+    "target_failure_mechanism": "treats a successful rerun as permission to retain claims that lost provenance or independent validation"
   },
   "shortcut_probes": [
     "always select",
     "always abstain",
     "ignore provenance",
-    "copy the highest proxy"
+    "copy the highest proxy",
+    "count duplicate provenance as independent evidence",
+    "promote operational success to causal evidence"
   ],
-  "status": "DRAFT"
+  "status": "REVIEW_REQUIRED"
 }

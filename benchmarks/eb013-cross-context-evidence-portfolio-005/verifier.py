@@ -7,6 +7,10 @@ import hashlib
 import itertools
 import json
 import math
+import shutil
+import subprocess
+import sys
+import tempfile
 from decimal import Decimal
 from pathlib import Path
 
@@ -157,9 +161,46 @@ def keyed(rows, key):
     return output
 
 
-def verify(submission, data, reference=None):
+def replay_variants(data, root):
+    variants = []
+
+    budget = root / "budget-contraction"
+    shutil.copytree(data, budget)
+    rules = load(budget / "rules.json")
+    rules["followup_budget"] = 1.4
+    (budget / "rules.json").write_text(json.dumps(rules, indent=2) + "\n")
+    variants.append(("budget_contraction", budget))
+
+    relationship = root / "relationship-and-order"
+    shutil.copytree(data, relationship)
+    rules = load(relationship / "rules.json")
+    evidence = load(relationship / "evidence.json")
+    followups = load(relationship / "followups.json")
+    rules["followup_budget"] = 1.2
+    rules["contexts"].reverse()
+    evidence["baseline"].reverse()
+    followups["options"].reverse()
+    option = next(row for row in followups["options"] if row["option_id"] == "F2")
+    option["evidence"]["independence"] = "independent"
+    for path, payload in (
+        (relationship / "rules.json", rules),
+        (relationship / "evidence.json", evidence),
+        (relationship / "followups.json", followups),
+    ):
+        path.write_text(json.dumps(payload, indent=2) + "\n")
+    variants.append(("relationship_and_order", relationship))
+    return variants
+
+
+def verify(submission, data, reference=None, run_replays=True):
     required = ("plan.json", "decision.json", "portfolio.tsv", "context.tsv", "provenance.json", "audit.md")
-    errors = ["delivery_error: missing " + name for name in required if not (submission / name).is_file()]
+    if run_replays:
+        required += ("planner.py",)
+    errors = [
+        "delivery_error: missing or invalid " + name
+        for name in required
+        if not (submission / name).is_file() or (submission / name).is_symlink()
+    ]
     if errors:
         return False, errors
     try:
@@ -204,6 +245,36 @@ def verify(submission, data, reference=None):
         compare(provenance, {"rules_version": load(data / "rules.json")["rules_version"], "network": "off", "deterministic": True}, "provenance", errors)
         if not (submission / "audit.md").read_text(encoding="utf-8").strip():
             errors.append("delivery_error: empty audit")
+        if run_replays:
+            with tempfile.TemporaryDirectory(prefix="context-portfolio-replay-") as tmp_name:
+                tmp = Path(tmp_name)
+                for variant_name, variant_data in replay_variants(data, tmp / "variants"):
+                    output = tmp / (variant_name + "-output")
+                    try:
+                        completed = subprocess.run(
+                            [
+                                sys.executable,
+                                str((submission / "planner.py").resolve()),
+                                "--data",
+                                str(variant_data),
+                                "--out",
+                                str(output),
+                            ],
+                            cwd=tmp,
+                            capture_output=True,
+                            text=True,
+                            timeout=10,
+                            check=False,
+                        )
+                    except subprocess.TimeoutExpired:
+                        errors.append(f"replay.{variant_name}: planner timeout")
+                        continue
+                    if completed.returncode:
+                        errors.append(f"replay.{variant_name}: planner exit {completed.returncode}")
+                        continue
+                    passed, replay_errors = verify(output, variant_data, reference, run_replays=False)
+                    if not passed:
+                        errors.extend(f"replay.{variant_name}.{error}" for error in replay_errors)
     except (ValueError, TypeError, KeyError, OSError, ArithmeticError) as exc:
         errors.append("contract_error: " + str(exc))
     return not errors, errors

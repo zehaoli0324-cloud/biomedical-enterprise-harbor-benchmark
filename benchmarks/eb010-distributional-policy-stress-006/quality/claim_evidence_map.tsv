@@ -1,0 +1,7 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb010-distributional-policy-stress-006	policy_eligibility	POSITIVE_OBSERVABLE	data/inputs/policies.json	判定	P-ADAPT,P-NOMINAL,P-BALANCED,P-HEDGE,P-DIVERSE,P-CONFIRM,P-STOP,P-ROBUST,P-LOWCOST,P-SIGNAL	no	ten active complete nonfuture policies are directly checkable
+eb010-distributional-policy-stress-006	policy_eligibility	NEGATIVE_OBSERVABLE	data/inputs/policies.json	判定	P-FUTURE,P-INCOMPLETE,P-OVERRUN,P-ARCHIVED,P-UNKNOWN,P-LEAKED-2,P-ARCHIVED-2,P-MISSING-MIXED,P-UNLISTED-STRONG,P-RISKY	no	future, incomplete, archived, unknown, unlisted-action and budget-overrun branches are explicit negatives
+eb010-distributional-policy-stress-006	action_utility	POSITIVE_OBSERVABLE	data/inputs/scenarios.json;data/inputs/actions.json	逐情景	weak-A,weak-B,mixed-A,mixed-B,strong-A,strong-B	no	all six scenario/action cells are available for branch scoring
+eb010-distributional-policy-stress-006	action_utility	NEGATIVE_OBSERVABLE	data/inputs/scenarios.json;data/inputs/actions.json	逐情景	all non-winning actions	no	dominated actions must be reported, not omitted
+eb010-distributional-policy-stress-006	profile_robustness	POSITIVE_OBSERVABLE	data/rules.json;data/inputs/policies.json	逐 profile	nominal,weak_shift,mixed_shift,strong_shift,site_b_shift	no	five named profiles and leave-one-out winners are observable
+eb010-distributional-policy-stress-006	cvar_budget	CONTROL_PARAMETER	data/rules.json	规则	alpha=0.4,budget=7	no	CVaR alpha and budget are parameters, not scientific observations

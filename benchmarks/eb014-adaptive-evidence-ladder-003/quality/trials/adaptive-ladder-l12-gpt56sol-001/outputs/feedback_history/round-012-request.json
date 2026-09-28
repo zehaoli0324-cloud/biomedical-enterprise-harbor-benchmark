@@ -1,0 +1,8 @@
+{
+  "round": 12,
+  "action_id": "stop",
+  "question_id": "Q-STOP",
+  "rationale": "All required and outcome-activated evidence checks are observed, including robustness; stop with the registered-cohort claim boundary and human review required.",
+  "expected_information": "Finalize the evidence ladder without extending the claim beyond the registered cohort.",
+  "prior_state_token": "d09b8d1cbcd287d2535a2cb313e683ec8304767038730e7ed10d33e22abcc320"
+}

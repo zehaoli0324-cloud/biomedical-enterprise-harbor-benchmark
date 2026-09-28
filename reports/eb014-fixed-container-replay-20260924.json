@@ -1,0 +1,31 @@
+{
+  "schema_version": "enterprise_fixed_container_replay.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "replay_id": "eb014-broker-smoke-20260924b",
+  "status": "PASS",
+  "classification": "PROTOCOL_REPLAY_PASS_NOT_MODEL_TRIAL",
+  "runner_status": "pass",
+  "verifier_status": "pass",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "execution_backend": "docker",
+  "isolation_mode": "docker_hardened_baseline_with_host_feedback_broker",
+  "docker_network": "none",
+  "docker_image": "eb014-sequential-feedback-broker-smoke@sha256:e5e0a9d26ffd3184e53b13ca75f76044b7d1b7ead44d4542be647d6a87fea84",
+  "agent_visible_paths": ["instruction.md", "data/", "outputs/", "agent_events.jsonl"],
+  "hidden_paths_not_mounted": ["verifier_only/", "verifier.py", "tests/"],
+  "feedback_boundary": "host broker returned only declared public outcome, measurements, cost and remaining budget",
+  "action_rounds": 5,
+  "actions": ["audit_quality", "compare_context", "orthogonal_assay", "independent_replicate", "stop"],
+  "spent_action_budget": 7,
+  "remaining_action_budget": 1,
+  "accepted_submission": true,
+  "independent_hidden_verifier": true,
+  "artifact_path": "benchmarks/eb014-sequential-evidence-feedback-002/quality/container_replays/eb014-broker-smoke-20260924b",
+  "not_model_trial": true,
+  "limitations": [
+    "The container used a deterministic smoke agent because the available task image does not include Codex CLI.",
+    "A current-model Docker trial remains unrun; this replay validates isolation and broker protocol only.",
+    "Practitioner scientific review remains outstanding."
+  ]
+}

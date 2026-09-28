@@ -1,0 +1,41 @@
+scenario_id: eb006-research-completion-006
+status: ready
+source_scenarios: [EB006]
+domain: biomedical_enterprise
+scientific_decision: reconcile competing estimands and influence before recommending analytical follow-up
+scientific_judgments:
+  - technical repeats are not independent donors
+  - a nominal winner can fail an influential-unit sensitivity
+  - reproducible output is not scientific correctness
+workflow_handoffs:
+  - from: raw_measurements
+    to: competing_analysis_and_sensitivity
+    artifact: outputs/results.json
+    invariant: every registered scenario has executable evidence
+  - from: candidate_submission
+    to: public_completion_gate
+    artifact: completion_attempts/
+    invariant: only real completeness or reproducibility issues trigger return
+difficulty_budget:
+  primary: judgment_influence_reconciliation
+  secondary: [noise_pooled_stratified_adversary, horizon_verified_research_completion]
+difficulty_modules:
+  - id: judgment_influence_reconciliation
+    observable: nominal pooled and all leave-one-donor-out choices are computed and reconciled
+    decision_flip: nominal C43 and pooled C28 are rejected in favor of robust C17
+  - id: horizon_verified_research_completion
+    observable: executable artifacts must pass clean repeat and row-order replay before scientific scoring
+    decision_flip: incomplete evidence is returned while reproducible wrong science still fails final scoring
+  - id: noise_pooled_stratified_adversary
+    observable: observation-pooled results are reported as a competing estimand rather than substituted for donor inference
+    decision_flip: technical-replicate imbalance makes pooled C28 differ from donor-balanced C43
+  - id: judgment_experimental_unit
+    observable: technical replicates are collapsed before every base and omission scenario
+    decision_flip: row-level weighting conceals a registered donor reversal
+release_gates:
+  scientific_reality: synthetic_disclosed
+  observability: pass
+  verifiability: automated_controls
+  naive_resistance: automated_controls
+  human_review: NOT_RUN
+  isolated_replay: NOT_RUN

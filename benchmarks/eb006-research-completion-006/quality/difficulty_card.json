@@ -1,0 +1,21 @@
+{
+  "difficulty_card_id": "DIFF-EB006-RESEARCH-COMPLETION-006-001",
+  "task_id": "eb006-research-completion-006",
+  "level": "L8",
+  "primary_module": "judgment_influence_reconciliation",
+  "secondary_modules": ["noise_pooled_stratified_adversary", "horizon_verified_research_completion"],
+  "supporting_modules": ["judgment_experimental_unit", "math_stratified_partial_identifiability"],
+  "held_out_variants": ["row-order", "replicate-balance", "influence-repair", "scope-noise", "threshold-hold"],
+  "decision_flip_controls": [
+    "pooled C28 differs from nominal C43",
+    "LODO stability changes nominal C43 to robust C17",
+    "missing pair evidence remains explicit rather than imputed"
+  ],
+  "difficulty_hypothesis": {
+    "reasoning_chain": ["construct executable estimator", "separate donor and row-pooled estimands", "enumerate all LODO scenarios", "reconcile three rankings", "preserve claim boundary"],
+    "target_failure_mechanism": "returns a plausible nominal result without executable alternative and influence evidence, or treats completion acceptance as scientific correctness"
+  },
+  "difficulty_evidence_status": "TARGET_OUTPUT_CORRECT_INFRASTRUCTURE_TIMEOUT_NOT_DIFFICULTY_EVIDENCE",
+  "target_model_defeated": false,
+  "completion_protocol": "three fresh model turns at most within one shared 840-second budget; public gate feedback excludes hidden truth"
+}

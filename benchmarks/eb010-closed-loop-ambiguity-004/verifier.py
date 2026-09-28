@@ -192,10 +192,10 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
     operations = plan_spec["operations"]
     submitted_operations = _submitted_operations(plan)
     operation_ids = [row.get("operation_id", row.get("id")) for row in submitted_operations]
-    required_ids = set(mission["required_operations"])
-    if len(operation_ids) != len(set(operation_ids)) or set(operation_ids) != required_ids:
-        errors.append("plan must cover each required operation exactly once")
+    if len(operation_ids) != len(set(operation_ids)):
+        errors.append("plan operations must be unique")
     seen = set()
+    provided = set()
     expected_cost = 0.0
     for operation_id in operation_ids:
         operation = operations.get(operation_id)
@@ -207,7 +207,11 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
         if operation.get("network") is True:
             errors.append(f"plan operation requires network: {operation_id}")
         expected_cost += float(operation["cost"])
+        provided.update(operation.get("provides", []))
         seen.add(operation_id)
+    missing_capabilities = set(mission["required_capabilities"]) - provided
+    if missing_capabilities:
+        errors.append("plan missing capabilities: " + ",".join(sorted(missing_capabilities)))
     actual_cost = plan.get("total_cost")
     if not isinstance(actual_cost, (int, float)) or abs(float(actual_cost) - expected_cost) > 1e-6:
         errors.append("plan total cost mismatch")
@@ -220,6 +224,9 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
     decision = json.loads((submission / "decision.json").read_text())
     if decision.get("selected_record") != exp["selected_record"]:
         errors.append("selected record mismatch")
+    expected_stop = "eligible_record_selected" if exp["selected_record"] != "human_review" else "human_review_required"
+    if plan.get("stop_condition") != expected_stop:
+        errors.append("plan stop condition contradicts decision")
     if decision.get("rules_version") not in (None, exp["rules_version"]):
         errors.append("rules version mismatch")
     if decision.get("claim_boundary") != "planning_only_not_experimental_proof":

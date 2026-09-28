@@ -1,0 +1,17 @@
+{
+  "schema_version": "task_repair_plan.v1",
+  "task_id": "crispr-resistance-e2e-001",
+  "status": "BLOCKED_DATA_NOT_MATERIALIZED",
+  "current_version": "0.1.0",
+  "current_data_status": "contract_only; data/ contains README.md only; verifier.py and verifier_only/reference.json are absent",
+  "unsupported_surfaces": [
+    "pooled-screen", "transcriptome", "guide-design", "edit-validation", "literature-evidence", "reproducible-reporting"
+  ],
+  "required_data": [
+    "data/screen/", "data/rnaseq/", "data/amplicon/", "data/literature/", "data/constraints.yaml", "verifier.py", "verifier_only/reference.json"
+  ],
+  "action": "先物化经许可且冻结 hash 的输入、参考答案和 verifier；在此之前不得进入 target trial。若无法物化，应把题目缩窄为契约审查题并删除科学结果输出。",
+  "positive_negative_insufficient_behavior": "当前全部标记为 INSUFFICIENT_BY_DESIGN；不得以空数据推断正例或反例。",
+  "completion_conditions": ["source freeze and scientific review", "claim_evidence_map.tsv", "mutation tests", "Docker verifier replay", "four abstention variants"],
+  "target_status": "HOLD"
+}

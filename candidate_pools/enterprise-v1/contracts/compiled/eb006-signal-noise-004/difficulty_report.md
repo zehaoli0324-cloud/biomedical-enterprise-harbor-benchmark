@@ -5,7 +5,7 @@
 - Raw score: 2.833/5
 - Adjusted score: 3.033/5
 - Band: advanced
-- Spec digest: `de00e0b9400e931695b493046097ebf6514f503b7fdcdfe37644f5bcd1c00612`
+- Spec digest: `788121e3c7f87e96bb4e5f205879452353659d7839d8f747de22348371374807`
 
 ## Dimensions
 
@@ -35,20 +35,24 @@
 ### judgment
 - `judgment_uncertainty_and_stop_rules`: `{}`
 - `judgment_causal_boundary`: `{}`
+- `judgment_blocker_and_abstention`: `{}`
 ### compute
 - `compute_multistage_analysis`: `{}`
 ### tooling
 - `tool_branching_pipeline`: `{}`
 ### noise
 - `noise_metadata_conflict`: `{}`
+- `noise_operational_distractors`: `{}`
 ### data
 - `data_multimodal_join`: `{}`
+- `data_experimental_unit_hierarchy`: `{}`
 ### data_complexity
 - `complexity_sparse_or_missing`: `{}`
 ### environment
 - `environment_pinned_container`: `{}`
 ### math
 - `math_model_selection_and_sensitivity`: `{}`
+- `math_sensitivity_frontier`: `{}`
 ### horizon
 - `horizon_checkpointed_workflow`: `{}`
 ### safety

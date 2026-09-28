@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb008-route-portfolio-002",
-  "spec_digest": "b30ff6b589854bb8795f2338cb22ae67e2582a5a376fde4940e21c3833e7c559",
+  "spec_digest": "a79fa69266c27da75b5e35d3052e3cb2433b14aa608852ff19b9a1b9c39bc671",
   "evaluation": {
     "scale": {
       "min": 0.0,

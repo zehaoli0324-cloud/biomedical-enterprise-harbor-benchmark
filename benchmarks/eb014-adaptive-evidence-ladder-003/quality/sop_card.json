@@ -1,0 +1,18 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "task_version": "0.2.0",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "SYNTHETIC_DISCLOSED_CALIBRATION_ONLY",
+  "contract_status": "PASS",
+  "control_status": "PASS",
+  "independent_verifier_status": "PASS",
+  "model_trial_status": "DATA_EXPANSION_RECALIBRATION_REQUIRED",
+  "release_status": "BLOCKED",
+  "release_blockers": ["post-expansion target trial", "complete enterprise quality review", "fixed-container replay", "practitioner review"],
+  "data_expansion": {
+    "fixture_version": "data-expanded-20260924-v2",
+    "historical_trials_superseded": true,
+    "recalibration_required": true
+  }
+}

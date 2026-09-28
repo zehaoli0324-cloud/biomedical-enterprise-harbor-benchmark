@@ -1,0 +1,17 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb006-research-completion-007",
+  "model": "gpt-5.6-sol",
+  "trials": [{
+    "trial_id": "gpt56sol-gated-v1-002",
+    "runner_status": "agent_error",
+    "completion_status": "timeout",
+    "returned_submissions": 0,
+    "scientific_artifacts": "numerically correct intermediate artifacts, not accepted",
+    "classification": "TIMEOUT_DELIVERY_FAIL",
+    "valid_difficulty_evidence": false,
+    "trial_manifest": "/private/tmp/benchmark-runs/eb006-research-completion-007/gpt56sol-gated-v1-002/manifest.json"
+  }],
+  "difficulty_interpretation": "The model found and repaired an omission-label bug, but the process timed out and the required analysis.py output path was not satisfied.",
+  "release_effect": "blocked_pending_runner_path_and_network_repair"
+}

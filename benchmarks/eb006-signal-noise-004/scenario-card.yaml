@@ -7,6 +7,16 @@ scientific_judgments:
   - replicate_and_plate_signal_reconciliation
   - adjusted_effect_identifiability
   - analytical_claim_boundary
+difficulty_modules:
+  - id: data_experimental_unit_hierarchy
+    observable: donor, plate, well and replicate levels remain distinct in the diagnostic evidence
+    decision_flip: insufficient independent experimental units force hold even when well-level counts look adequate
+  - id: math_sensitivity_frontier
+    observable: the recommended normalization includes leave-one-batch-out and control-subset sensitivity results
+    decision_flip: a point-estimate winner becomes sensitive or hold when a single batch or control subset is removed
+  - id: judgment_blocker_and_abstention
+    observable: evidence-incomplete, direction-reversal and over-correction blockers are reported separately
+    decision_flip: a low-noise profile is not eligible when it erases or reverses the phenotype
 workflow_handoffs:
   - from: images_and_metadata
     to: signal_noise_diagnostics

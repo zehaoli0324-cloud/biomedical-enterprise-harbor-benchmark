@@ -1,0 +1,15 @@
+{
+  "round": 11,
+  "action_id": "robustness_analysis",
+  "outcome": "robust_registered_only",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-ROBUST",
+      "status": "REGISTERED_ONLY"
+    }
+  ],
+  "remaining_budget": 0,
+  "accepted": true,
+  "state_token": "d09b8d1cbcd287d2535a2cb313e683ec8304767038730e7ed10d33e22abcc320"
+}

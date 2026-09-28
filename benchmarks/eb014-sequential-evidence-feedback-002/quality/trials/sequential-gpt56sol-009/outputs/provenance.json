@@ -1,0 +1,12 @@
+{
+  "input_sha256": {
+    "action_catalog.json": "6fad856ef9237e848a0c8478c08a7977ab77948a21d1a20a6c6149448534b13f",
+    "action_contract.json": "19d6c1cca861ebbbd7d1c10c1fd18291047f6ff8f591065729e0b0e15dc07da3",
+    "initial_state.json": "0248726a0d821dd53011421a4255c733892b95e2f12d4d1e34f362fed001b41f",
+    "output_contract.json": "23343a4b496548ba68eaea3c5af0885142f9dd52c9c33342ac3362859ef30e5a",
+    "rules.json": "f4c9fb3aba4ed3c52c2a41957229030e00d1af512059f747cfb594ff000b13a7"
+  },
+  "rules_version": "sequential-evidence-feedback-v1",
+  "network": "off",
+  "deterministic": true
+}

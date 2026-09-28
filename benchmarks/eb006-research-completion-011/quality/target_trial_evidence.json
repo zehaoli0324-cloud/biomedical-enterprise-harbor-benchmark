@@ -1,0 +1,32 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb006-research-completion-011",
+  "model": "gpt-5.6-sol",
+  "trials": [
+    {
+      "trial_id": "gpt56sol-cross-assay-v1-003",
+      "classification": "TIMEOUT_OUTPUT_COMPLETE_SCIENCE_PASS",
+      "completion_gate": "PASS",
+      "scientific_verifier": "PASS",
+      "valid_difficulty_evidence": true,
+      "scientific_defeat": false
+    },
+    {
+      "trial_id": "gpt56sol-cross-assay-v1-005",
+      "classification": "SCIENTIFIC_FAIL_CONTRACT_PASS",
+      "completion_gate": "PASS",
+      "scientific_verifier": "FAIL",
+      "elapsed_seconds": 854.002857,
+      "valid_difficulty_evidence": true,
+      "scientific_defeat": true,
+      "verifier_errors": [
+        "results.assay_checks[C43|late].status: mismatch",
+        "provenance: key coverage",
+        "perturbation.assay_checks[C43|late].status: mismatch"
+      ],
+      "trial_evidence": "quality/trials/gpt56sol-cross-assay-v1-005/evidence.json"
+    }
+  ],
+  "difficulty_interpretation": "The current trial completed the public contract and deterministic replay but failed independent scientific scoring on incomplete assay coverage. Together with the earlier science pass, this is mixed but valid target-model difficulty evidence.",
+  "release_effect": "retain_task_for_additional_replicate_trials_and_human_review"
+}

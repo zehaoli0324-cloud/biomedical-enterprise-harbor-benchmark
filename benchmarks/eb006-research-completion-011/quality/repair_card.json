@@ -1,0 +1,11 @@
+{
+  "schema_version": "task_repair_card.v1",
+  "task_id": "eb006-research-completion-011",
+  "current_version": "1.3.2",
+  "data_status": "SYNTHETIC_DISCLOSED calibration fixture with 36 independent classification units",
+  "evidence_map": "quality/claim_evidence_map.tsv",
+  "changes": ["added cross-assay missingness program replay", "localized the only permitted insufficient call", "declared evidence and abstention ratios"],
+  "removed_or_narrowed_surfaces": ["no mechanism or efficacy claim", "no broad abstention from one missing assay unit"],
+  "completion_conditions": ["oracle pass", "nop fail", "four abstention variants", "Docker replay", "target-model trial", "scientific review before release"],
+  "target_status": "STAGING"
+}

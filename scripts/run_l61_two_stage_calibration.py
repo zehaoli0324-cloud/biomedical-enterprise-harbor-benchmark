@@ -19,7 +19,7 @@ def reference(out: Path) -> dict:
     lines = ["stage1_request_id\tobservation\tstage2_request_id\teligible\tblockers"]
     for policy in exp["policies"]:
         for state in policy["states"]:
-            lines.append("\t".join([policy["stage1_request_id"], state["observation"], state["stage2_request_id"], str(state["eligible"]).lower(), "" if state["eligible"] else "critical_threshold"]))
+            lines.append("\t".join([policy["stage1_request_id"], state["observation"], state["stage2_request_id"] or "", str(state["eligible"]).lower(), "" if state["eligible"] else "critical_threshold"]))
     (out / "route.tsv").write_text("\n".join(lines) + "\n", encoding="utf-8")
     write(out / "provenance.json", {"input_sha256": exp["hashes"], "rules_version": exp["rules_version"], "network": "off", "deterministic": True})
     (out / "audit.md").write_text("Observation gates stage 2 after stage 1. Stage 1 and stage 2 dependency checks are explicit. The budget is bounded and future outcome requests are excluded. Human review remains required for an ineligible policy. This is not experimental proof.\n", encoding="utf-8")

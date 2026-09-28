@@ -5,7 +5,7 @@
 - Raw score: 3.72/5
 - Adjusted score: 3.92/5
 - Band: advanced
-- Spec digest: `3c756a73628e30debbda3d3f44c371c7ab0edfaa841d10c5e2573d348c6b0d37`
+- Spec digest: `7f2b53064d1e595016c9e002e0a58a280e8ce7cee71b81a5ce81e2052e482f47`
 
 ## Dimensions
 
@@ -32,14 +32,17 @@
 
 ### judgment
 - `judgment_claim_preserving_recovery`: `{}`
+- `judgment_claim_permission_lattice`: `{}`
 ### compute
 - `compute_failure_recovery`: `{}`
 ### tooling
 - `tool_branching_pipeline`: `{}`
 ### horizon
 - `horizon_checkpointed_workflow`: `{}`
+- `horizon_end_to_end_claim`: `{}`
 ### data
 - `data_text_and_metadata`: `{}`
+- `data_evidence_graph_join`: `{}`
 ### data_complexity
 - `complexity_sparse_or_missing`: `{}`
 ### environment

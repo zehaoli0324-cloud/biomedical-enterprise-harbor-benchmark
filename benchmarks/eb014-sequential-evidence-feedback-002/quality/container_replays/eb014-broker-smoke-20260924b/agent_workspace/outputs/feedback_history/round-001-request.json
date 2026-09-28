@@ -1,0 +1,7 @@
+{
+  "round": 1,
+  "action_id": "audit_quality",
+  "question_id": "Q-QUALITY",
+  "rationale": "Use the latest public observation to resolve the next registered question.",
+  "expected_information": "The declared public outcome and cost for this action."
+}

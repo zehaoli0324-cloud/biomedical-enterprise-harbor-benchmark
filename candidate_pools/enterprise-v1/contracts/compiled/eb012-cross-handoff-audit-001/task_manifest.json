@@ -143,6 +143,10 @@
         {
           "id": "judgment_causal_boundary",
           "params": {}
+        },
+        {
+          "id": "judgment_claim_permission_lattice",
+          "params": {}
         }
       ],
       "horizon": [
@@ -154,6 +158,10 @@
       "data": [
         {
           "id": "data_text_and_metadata",
+          "params": {}
+        },
+        {
+          "id": "data_evidence_graph_join",
           "params": {}
         }
       ],
@@ -196,7 +204,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "254d923fbcf4f95c3d25c7a74a6a3c66321b083e0307ad1e3399ca04d2e06db8",
+  "spec_digest": "51c4ef27a5a260e485c95c272182a1ff38b52eb201b3f998fd91ff1330ad1c50",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -306,7 +314,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb012-cross-handoff-audit-001/scenario-card.yaml",
-    "digest": "73a09f21458bd84bcc9a84f13a977c4e5f514d45aa686754eae4a2cadcf38cc4",
+    "digest": "e356168600bed49394318ca90aaf92996f904d67aaf07924f8195c23651e3047",
     "scenario_id": "eb012-cross-handoff-audit-001",
     "status": "ready",
     "source_scenarios": [

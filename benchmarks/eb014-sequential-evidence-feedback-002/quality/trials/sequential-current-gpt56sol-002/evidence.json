@@ -1,0 +1,36 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "sequential-current-gpt56sol-002",
+  "model": "gpt-5.6-sol",
+  "classification": "INFRASTRUCTURE_FAIL",
+  "runner_status": "agent_error",
+  "raw_verifier_result": {
+    "passed": false,
+    "errors": [
+      "delivery: [Errno 2] No such file or directory: '/private/tmp/enterprise-sequential-current.EDHnU4/sequential-current-gpt56sol-002/agent_workspace/outputs/research_log.json'"
+    ],
+    "status": "fail",
+    "runner_verifier_exit_code": 1,
+    "runner_verifier_seconds": 0.035
+  },
+  "trajectory": {
+    "model_turns": 2,
+    "explicit_turn_events": 2,
+    "completed_turns": 1,
+    "tool_calls_started": 12,
+    "tool_calls_completed": 12,
+    "agent_messages": 3,
+    "agent_messages_with_tools": 2,
+    "completion_gate_events": 0,
+    "completion_gate_statuses": {},
+    "long_trace_target": "over_40_model_turns",
+    "over_40_model_turns": false
+  },
+  "event_log_sha256": "5819aa849407289af49edcf340b1166bb2f5e5dcdbb695d21e76d629b37899eb",
+  "agent_exit_code": 124,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "counted_as_difficulty_failure": false,
+  "target_model_defeated": false,
+  "artifact_path": "benchmarks/eb014-sequential-evidence-feedback-002/quality/trials/sequential-current-gpt56sol-002"
+}

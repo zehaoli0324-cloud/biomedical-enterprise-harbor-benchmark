@@ -1,0 +1,25 @@
+{
+  "status": "accepted",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exit_code": 0,
+      "elapsed_seconds": 853.67975070799,
+      "artifact_sha256": {
+        "analysis.py": "c6154bd063d2b35d7a523712b351f65f47bca3074e9e864e6342bb651cc7a245",
+        "provenance.json": "8139ce21202a7b743bb111a35cd0d688cdc1131c4254c74e17a2f75fd91a0675",
+        "results.json": "d4181b353f7bb5bb0a7efcd3decaf6e83060fb160bb9b680551b08d9cc4f1013",
+        "research_audit.md": "b3498740dbeeb148bb8ac31a417383693a52cdea3b13b4fb7752d5abfd8577d9"
+      },
+      "completion": {
+        "accepted": true,
+        "issues": []
+      },
+      "status": "accepted"
+    }
+  ],
+  "max_attempts": 3,
+  "total_timeout_seconds": 1650,
+  "continuation_mode": "fresh ephemeral model turn with preserved workspace and public gate feedback",
+  "feedback_is_scientific_scoring": false
+}

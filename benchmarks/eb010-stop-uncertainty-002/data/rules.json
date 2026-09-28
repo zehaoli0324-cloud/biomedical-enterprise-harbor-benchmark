@@ -1,0 +1,19 @@
+{
+  "rules_version": "l6.2-stop-uncertainty-v1",
+  "stage1_budget": 3.0,
+  "total_budget": 5.0,
+  "critical_thresholds": {
+    "improvement": 0.25,
+    "model_disagreement": 0.25
+  },
+  "initial_uncertainty": {
+    "improvement": 0.8,
+    "model_disagreement": 0.7,
+    "replication": 0.45
+  },
+  "objective": "minimize worst-case maximum critical residual, then worst-case cost, then lexical policy",
+  "correlation_rule": "within one correlation group only the largest reduction per uncertainty counts",
+  "required_scope": "current",
+  "required_network": "off",
+  "claim_boundary": "A simulated stop policy is a planning aid, not proof of real-world improvement."
+}

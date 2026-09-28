@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "sha256": {
+    "verifier.py": "7618ab294fa77b24a3535690a113ac76cbb97ae6475aa89643e04e8a600d183f",
+    "instruction.md": "fb2017f5a84bebf2e4a86c4cd5b231a7aed9a84d01da99be3fe4e9e6ac570d0c",
+    "task.yaml": "6d4a513c2626ff6c3bfc12efe93c9785a9fd8f79f55171a5bef13dfa0b19d5f9",
+    "data/output_contract.json": "4efea2f2a9a0c02e9c0d702bd7b58e07fcda587dd9f5c2a1b4c2fef864b2883c",
+    "data/requests.json": "15ec7f8502c6bc6ad7a1ce883a3db28e8c7908a4a8a33836982b0bd2824866b4",
+    "data/rules.json": "f647e5e60c25622d8eaedc16d875d3b4610cff94b1eb30afddb14adafcdecae9",
+    "data/sources.json": "75a0bb5b3edb0ac47b2ff06c77e2ac379aecf446fa284ae7eeb3b55b022982e9",
+    "data/worlds.json": "20e6588c9957a7bfd1f3a7615ceb35d0f959c5ad630b92183cf73e8de56e88ec",
+    "controls/calibration_results.json": "84c8e493f5ee2df47e6b80db7424bce4b6e6e07bf8a2b12c009050fb1bac64fa"
+  }
+}

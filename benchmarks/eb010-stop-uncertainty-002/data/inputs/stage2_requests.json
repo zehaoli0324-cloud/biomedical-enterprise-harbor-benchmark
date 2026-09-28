@@ -1,0 +1,111 @@
+{
+  "requests": [
+    {
+      "request_id": "S-REPLICATE",
+      "stage": 2,
+      "cost": 2.0,
+      "correlation_group": "G3",
+      "covers": {
+        "improvement": 0.35,
+        "model_disagreement": 0.35
+      },
+      "allowed_observations": [
+        "plateau"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "S-UNCERTAINTY"
+      ],
+      "nominal_value": 0.82
+    },
+    {
+      "request_id": "S-RECONCILE",
+      "stage": 2,
+      "cost": 2.0,
+      "correlation_group": "G4",
+      "covers": {
+        "improvement": 0.4,
+        "model_disagreement": 0.4
+      },
+      "allowed_observations": [
+        "discordant"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "S-UNCERTAINTY"
+      ],
+      "nominal_value": 0.8
+    },
+    {
+      "request_id": "S-FIXED",
+      "stage": 2,
+      "cost": 1.0,
+      "correlation_group": "G5",
+      "covers": {
+        "improvement": 0.3,
+        "model_disagreement": 0.3
+      },
+      "allowed_observations": [
+        "plateau",
+        "discordant"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "S-UNCERTAINTY"
+      ],
+      "nominal_value": 1.05
+    },
+    {
+      "request_id": "S-GAIN-CHECK",
+      "stage": 2,
+      "cost": 2.0,
+      "correlation_group": "G6",
+      "covers": {
+        "model_disagreement": 0.3
+      },
+      "allowed_observations": [
+        "gain",
+        "no_gain"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "S-GAIN"
+      ],
+      "nominal_value": 0.91
+    },
+    {
+      "request_id": "S-POST",
+      "stage": 2,
+      "cost": 1.0,
+      "correlation_group": "G7",
+      "covers": {
+        "improvement": 0.8,
+        "model_disagreement": 0.7
+      },
+      "allowed_observations": [
+        "plateau",
+        "discordant"
+      ],
+      "status": "current",
+      "future_outcome": true,
+      "dependency_ids": [],
+      "nominal_value": 1.5
+    },
+    {
+      "request_id": "S-CONTEXT-CHECK",
+      "stage": 2,
+      "cost": 1.5,
+      "correlation_group": "G8",
+      "covers": {"improvement": 0.25, "model_disagreement": 0.25},
+      "allowed_observations": ["context_clear", "context_conflict"],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": ["S-CONTEXT"],
+      "nominal_value": 0.89
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "selected_four_dynamic_controls.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "status": "PASS",
+  "oracle_nop_mutation": {
+    "oracle": {
+      "variant_id": "oracle",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    "nop": {
+      "variant_id": "nop",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "delivery: [Errno 2] No such file or directory: '/var/folders/gt/_lrhr1nj1k16lp50myrkwpnm0000gn/T/selected-four-v2-yaplrmcq/eb014-nop/research_log.json'"
+      ],
+      "note": ""
+    },
+    "mutation": {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "scientific: outcome mismatch for characterize_shift",
+        "scientific: unmet dependency for assay_screen"
+      ],
+      "note": ""
+    }
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "contract: events must be a nonempty array",
+        "contract: missing completion check stop_rule",
+        "contract: missing completion check independent_replication",
+        "contract: missing completion check quality_audit",
+        "contract: missing completion check context_comparison"
+      ],
+      "note": ""
+    },
+    {
+      "variant_id": "all_definite",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": "No insufficient unit exists; early hold is therefore invalid."
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "scientific: outcome mismatch for characterize_shift",
+        "scientific: unmet dependency for assay_screen"
+      ],
+      "note": ""
+    }
+  ],
+  "blanket_abstain_fraction_of_reference_score": 0.0,
+  "generated_by": "scripts/check_selected_four_v2.py"
+}

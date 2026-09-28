@@ -131,6 +131,10 @@
         {
           "id": "judgment_value_of_information",
           "params": {}
+        },
+        {
+          "id": "judgment_blocker_and_abstention",
+          "params": {}
         }
       ],
       "compute": [
@@ -145,19 +149,13 @@
           "params": {}
         }
       ],
-      "safety": [
-        {
-          "id": "safety_human_approval_gate",
-          "params": {}
-        },
-        {
-          "id": "safety_human_approval_gate",
-          "params": {}
-        }
-      ],
       "data": [
         {
           "id": "data_text_and_metadata",
+          "params": {}
+        },
+        {
+          "id": "data_evidence_graph_join",
           "params": {}
         }
       ],
@@ -177,6 +175,16 @@
         {
           "id": "math_model_selection_and_sensitivity",
           "params": {}
+        },
+        {
+          "id": "math_sensitivity_frontier",
+          "params": {}
+        }
+      ],
+      "safety": [
+        {
+          "id": "safety_human_approval_gate",
+          "params": {}
         }
       ]
     },
@@ -194,7 +202,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "ab07c47b69bc34f1137bb50d8ba8badf0d5aee36e1d58892b7e73c0d1eebacde",
+  "spec_digest": "6c015bd38efdbc2e43dbd4cec12da85128e9ab7c8655990de624adabbbf60de0",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -304,7 +312,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb011-measurement-request-005/scenario-card.yaml",
-    "digest": "1a673d1773e348edab9424e8e89d42a3dc27297b0eae37852ac63863c877bfd4",
+    "digest": "04fa0d4e6ed4e6c4da2aa8db2c7c9d6e3b7c5115cb0ac17daa9a6f22bd593216",
     "scenario_id": "eb011-measurement-request-005",
     "status": "ready",
     "source_scenarios": [

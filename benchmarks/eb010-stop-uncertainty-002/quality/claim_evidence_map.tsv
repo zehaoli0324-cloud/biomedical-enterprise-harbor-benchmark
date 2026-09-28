@@ -1,0 +1,5 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb010-stop-uncertainty-002	stage1_observations	POSITIVE_OBSERVABLE	data/inputs/stage1_requests.json	分支	S-UNCERTAINTY,S-GAIN,S-CHEAP,S-CONTEXT	no	plateau/discordant, gain/no_gain, screen positive/negative and context clear/conflict branches are explicit
+eb010-stop-uncertainty-002	stage2_routing	POSITIVE_OBSERVABLE	data/inputs/stage2_requests.json	条件路由	S-REPLICATE,S-RECONCILE,S-FIXED,S-GAIN-CHECK,S-CONTEXT-CHECK	no	all eligible follow-up policies have observable costs and reductions
+eb010-stop-uncertainty-002	future_outcome	INSUFFICIENT_BY_DESIGN	data/inputs/stage2_requests.json	边界	S-POST	yes	future_outcome is intentionally unavailable and must be labeled, not guessed
+eb010-stop-uncertainty-002	stop_rules	CONTROL_PARAMETER	data/rules.json	规则	critical_threshold,budget	no	thresholds and budget control routing but are not missing evidence

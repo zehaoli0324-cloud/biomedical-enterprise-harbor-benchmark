@@ -131,6 +131,10 @@
         {
           "id": "judgment_experimental_unit",
           "params": {}
+        },
+        {
+          "id": "judgment_blocker_and_abstention",
+          "params": {}
         }
       ],
       "compute": [
@@ -145,23 +149,21 @@
           "params": {}
         },
         {
-          "id": "math_model_selection_and_sensitivity",
-          "params": {}
-        }
-      ],
-      "safety": [
-        {
-          "id": "safety_human_approval_gate",
-          "params": {}
-        },
-        {
-          "id": "safety_human_approval_gate",
+          "id": "math_sensitivity_frontier",
           "params": {}
         }
       ],
       "data": [
         {
           "id": "data_text_and_metadata",
+          "params": {}
+        },
+        {
+          "id": "data_shared_inventory_allocation",
+          "params": {}
+        },
+        {
+          "id": "data_evidence_graph_join",
           "params": {}
         }
       ],
@@ -174,6 +176,12 @@
       "environment": [
         {
           "id": "environment_offline_setup",
+          "params": {}
+        }
+      ],
+      "safety": [
+        {
+          "id": "safety_human_approval_gate",
           "params": {}
         }
       ]
@@ -192,7 +200,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "b30ff6b589854bb8795f2338cb22ae67e2582a5a376fde4940e21c3833e7c559",
+  "spec_digest": "a79fa69266c27da75b5e35d3052e3cb2433b14aa608852ff19b9a1b9c39bc671",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -302,7 +310,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb008-route-portfolio-002/scenario-card.yaml",
-    "digest": "56d173077c6baa98ce177d38c0ffde3f22c6ea454f26a0030d4d25d72e5a0bf8",
+    "digest": "864eaac87f51aacc8a4e002a493c4af39e2e43e9a4860b96fb330762619803ab",
     "scenario_id": "eb008-route-portfolio-002",
     "status": "ready",
     "source_scenarios": [

@@ -5,7 +5,7 @@
 - Raw score: 4.655/5
 - Adjusted score: 5.0/5
 - Band: frontier
-- Spec digest: `28c40e2198fc73780f9d2d37bf0833aae63d037566d3087901991396a53ebcd2`
+- Spec digest: `160df43801cc2e6e88a9ace437ed4fb1916e76e2085a33410dd9971659df5f22`
 
 ## Dimensions
 
@@ -35,6 +35,7 @@
 ## Selected modules
 
 ### horizon
+- `horizon_adaptive_policy_replay`: `{}`
 - `horizon_two_stage_acquisition`: `{}`
 ### judgment
 - `judgment_evidence_route_selection`: `{}`

@@ -1,0 +1,7 @@
+{
+  "round": 4,
+  "action_id": "independent_replicate",
+  "question_id": "Q-REPLICATION",
+  "rationale": "Use the latest public observation to resolve the next registered question.",
+  "expected_information": "The declared public outcome and cost for this action."
+}

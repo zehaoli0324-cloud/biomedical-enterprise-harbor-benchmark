@@ -1,0 +1,110 @@
+{
+  "task_id": "eb014-evidence-gap-followup-001",
+  "trial_id": "gpt56sol-v1-001",
+  "model": "gpt-5.6-sol",
+  "classification": "RAW_PASS",
+  "runner_status": "pass",
+  "turn_completed": true,
+  "agent_exit_code": 0,
+  "elapsed_seconds": 564.693385,
+  "timeout_seconds": 900,
+  "started_at": "2026-09-22T09:05:07.773568+00:00",
+  "finished_at": "2026-09-22T09:14:32.466953+00:00",
+  "raw_verifier_result": {
+    "passed": true,
+    "errors": [],
+    "status": "pass",
+    "runner_verifier_exit_code": 0,
+    "runner_verifier_seconds": 0.038
+  },
+  "frozen_replay": {
+    "passed": true,
+    "errors": []
+  },
+  "artifact_sha256": {
+    "adaptive_update.json": "7cc1524ad63d1819506aed95f2c25656df1fafb43363a7dfd011408e99ea5fad",
+    "audit.md": "ea9664b6ee3b5631d6dc48e1b947582068a19a389bc0519dfe5d2fb58075f698",
+    "claim_ledger.json": "61500f218c1414268468b65b122dc2495a1a38a3467e5e15b273c7fb2dfef8e5",
+    "provenance.json": "4e78918aea9eb557f467a66c2fde0a84f5f62a1adfe85d47079f9e5f8f471513",
+    "research_plan.json": "dde8b8122a198dfc41ca7e5e1e181ba582416d0b7bfdf1619b8d622b70968a46"
+  },
+  "artifact_content_changed": false,
+  "event_log_sha256": "552a511a48226567df739898778699be1a68d5873774d6b1e6f1b33fadbef2bc",
+  "freeze_sha256": "0fddd4059c2de91883fc4522ee4c44a411d2185b80ad0e5c055805c274fb6605",
+  "isolation_mode": "process_cwd_only",
+  "trial_dir": "/private/tmp/benchmark-runs/gpt56sol-v1-001",
+  "submitted_plan": {
+    "policy": {
+      "action": "A-REPLICATE",
+      "branches": {
+        "consistent": {
+          "action": "A-BRIDGE",
+          "branches": {
+            "bridge_failed": {
+              "action": "hold",
+              "branches": {}
+            },
+            "bridge_supported": {
+              "action": "hold",
+              "branches": {}
+            }
+          }
+        },
+        "inconsistent": {
+          "action": "hold",
+          "branches": {}
+        }
+      }
+    },
+    "objective": {
+      "worst_resolved_weight": 5,
+      "worst_cost": 4,
+      "max_action_count": 2,
+      "policy_key": "{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}"
+    },
+    "stop_reason": "conditional_plan"
+  },
+  "expected_plan": {
+    "policy": {
+      "action": "A-REPLICATE",
+      "branches": {
+        "consistent": {
+          "action": "A-BRIDGE",
+          "branches": {
+            "bridge_failed": {
+              "action": "hold",
+              "branches": {}
+            },
+            "bridge_supported": {
+              "action": "hold",
+              "branches": {}
+            }
+          }
+        },
+        "inconsistent": {
+          "action": "hold",
+          "branches": {}
+        }
+      }
+    },
+    "objective": {
+      "worst_resolved_weight": 5,
+      "worst_cost": 4.0,
+      "max_action_count": 2,
+      "policy_key": "{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}"
+    },
+    "stop_reason": "conditional_plan"
+  },
+  "adapter_sha256": {
+    "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+    "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+  },
+  "adapter_capture": "Post-run hashes; compare with the separately observed in-run hashes during analysis.",
+  "target_model_defeated": false,
+  "limitations": [
+    "One local process trial",
+    "Not container-isolated",
+    "No held-out model trial",
+    "Human scientific review NOT_RUN"
+  ]
+}

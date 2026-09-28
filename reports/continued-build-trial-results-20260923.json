@@ -1,0 +1,73 @@
+{
+  "schema_version": "continued_build_trial_results.v1",
+  "run_date": "2026-09-23",
+  "runner": "benchmark_runner.cli",
+  "model": "gpt-5.6-sol",
+  "execution_backend": "process_cwd_only",
+  "network_policy": "off_requested",
+  "artifact_root": "/private/tmp/biomedical-three-trials-20260923",
+  "results": [
+    {
+      "task_id": "eb015-real-source-replacement-gate-001",
+      "trial_id": "eb015-real-source-gpt56sol-003",
+      "status": "verifier_fail",
+      "agent_exit_code": 0,
+      "verifier_status": "fail",
+      "failure_classification": "agent_completed_contract_or_claim_boundary_failure",
+      "verifier_errors": [
+        "release_plan.json: canonical plan mismatch",
+        "audit.md missing required boundary: sha-256"
+      ],
+      "trial_dir": "/private/tmp/biomedical-three-trials-20260923/eb015/eb015-real-source-gpt56sol-003"
+    },
+    {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "trial_id": "sequential-gpt56sol-008",
+      "status": "agent_error",
+      "agent_exit_code": 124,
+      "verifier_status": "fail",
+      "failure_classification": "infrastructure_timeout_no_completion_artifact",
+      "trajectory": {
+        "model_turns": 8,
+        "completed_turns": 5,
+        "tool_calls_started": 51,
+        "tool_calls_completed": 51,
+        "over_40_model_turns": false
+      },
+      "verifier_errors": [
+        "completion.json was not written before the adapter timeout"
+      ],
+      "trial_dir": "/private/tmp/biomedical-three-trials-20260923/eb014/sequential-gpt56sol-008"
+    },
+    {
+      "task_id": "eb006-research-completion-011",
+      "trial_id": "gpt56sol-cross-assay-v1-004",
+      "status": "verifier_fail",
+      "agent_exit_code": 0,
+      "verifier_status": "fail",
+      "failure_classification": "agent_completed_scientific_verifier_failure",
+      "continuation": {
+        "attempts": 1,
+        "public_completion_gate": "accepted"
+      },
+      "verifier_errors": [
+        "results.summaries[C28].failed_scenarios: members mismatch",
+        "results.summaries[C43].failed_scenarios: members mismatch",
+        "results.assay_checks[C43|late].status: mismatch",
+        "perturbation.summaries[C17].failed_scenarios: members mismatch",
+        "perturbation.summaries[C28].failed_scenarios: members mismatch",
+        "perturbation.summaries[C43].failed_scenarios: members mismatch",
+        "perturbation.assay_checks[C43|late].status: mismatch"
+      ],
+      "trial_dir": "/private/tmp/biomedical-three-trials-20260923/eb006/gpt56sol-cross-assay-v1-004"
+    }
+  ],
+  "interpretation": {
+    "real_trials_started": 3,
+    "verifier_passes": 0,
+    "contract_or_science_failures": 2,
+    "infrastructure_failures": 1,
+    "not_a_difficulty_claim": "The eb014 timeout is infrastructure evidence and is excluded from scientific difficulty attribution.",
+    "release_status": "BLOCKED"
+  }
+}

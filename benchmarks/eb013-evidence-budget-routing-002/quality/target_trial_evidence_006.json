@@ -1,0 +1,37 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-006",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_infrastructure_error_then_contract_replay_pass",
+  "agent_execution_observed": true,
+  "required_artifacts_written": true,
+  "initial_verifier_status": "infrastructure_error",
+  "initial_verifier_error": "canonical_policy attempted dict access on summary observation-state strings",
+  "replay_verifier_status": "pass",
+  "classification": "agent_completed_scientific_route_passed_after_verifier_contract_replay",
+  "scientific_route": {
+    "stage1_request_id": "R-ADAPTIVE",
+    "stage2_policy": {
+      "signal_high": "R-SELECT",
+      "signal_low": "R-CORR",
+      "signal_mid": "R-BALANCE"
+    },
+    "worst_case_max_critical_residual": 0.25,
+    "worst_case_cost": 5.0
+  },
+  "contract_revision": {
+    "reason": "accept summary-only observation state names and incomplete-policy null summaries",
+    "artifact_content_changed": false,
+    "scientific_decision_changed": false
+  },
+  "artifact_sha256": {
+    "plan.json": "6cdd53a5a14fa9ae01010ad5210efd3c84c1190751cf1fadc945cbaf210d7a25",
+    "route.tsv": "61f0f6749e2123a53fd4e2a85d07b0fd90d11b2ec11c360526a8a56e50f87125",
+    "decision.json": "89c47dc96b8e7cc80cd978e07c050993f6e7b6faec7c00250936398f06bce6ee",
+    "provenance.json": "ac8e18bcf204cf71acd5141d1576bd5ade6d0d11c70c939affe2556140a1a2b0",
+    "audit.md": "f0bd3be7ee735dbeb760205e826e720e0312d7dab322ddeff04b60f2c04c33e0"
+  },
+  "replay_command": "python3 benchmarks/eb013-evidence-budget-routing-002/verifier.py --submission <trial-workspace>/outputs --data benchmarks/eb013-evidence-budget-routing-002/data --reference benchmarks/eb013-evidence-budget-routing-002/verifier_only/reference.json",
+  "release_effect": "fixed-container replay and practitioner review remain pending"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "trial_id": "adaptive-ladder-gpt56sol-002",
+  "model": "gpt-5.6-sol",
+  "status": "agent_error",
+  "agent_exit_code": 124,
+  "timed_out": false,
+  "accepted_actions": 11,
+  "last_action": "robustness_analysis",
+  "last_observed_outcome": "robust_registered_only",
+  "explicit_model_turns": 12,
+  "completion_attempts": 0,
+  "verifier_status": "not_reached_with_complete_submission",
+  "classification": "MULTIROUND_BEHAVIOR_PARTIAL_INFRASTRUCTURE_TIMEOUT",
+  "interpretation": "The model again followed all eleven evidence actions and conditional branches, but the adapter exited with code 124 before issuing the required stop request and finalization turn. No final artifacts were available to assess.",
+  "release_effect": "retain_first trial as behavioral evidence; require a clean completion trial before release",
+  "trial_path": "/private/tmp/eb014-adaptive-ladder-target-trial-20260924/adaptive-ladder-gpt56sol-002"
+}

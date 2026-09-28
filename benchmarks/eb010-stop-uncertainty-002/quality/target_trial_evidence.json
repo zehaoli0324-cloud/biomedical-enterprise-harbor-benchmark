@@ -1,0 +1,13 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-stop-uncertainty-002",
+  "trial_id": "eb010-stop-uncertainty-002-gpt56sol-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "timeout_no_outputs",
+  "agent_execution_observed": true,
+  "required_artifacts_written": false,
+  "verifier_status": "not_run_no_outputs",
+  "classification": "infrastructure_timeout_no_model_artifact",
+  "difficulty_evidence": false,
+  "interpretation": "No scientific or delivery conclusion is drawn because the adapter reached the runner timeout without writing an artifact."
+}

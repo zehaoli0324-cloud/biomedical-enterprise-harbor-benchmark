@@ -1,0 +1,8 @@
+{
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_trial": "TIMEOUT_DELIVERY_FAIL",
+  "human_review": "NOT_RUN",
+  "isolated_replay": "NOT_RUN",
+  "release_ready": false,
+  "difficulty_claim": "No target-model defeat evidence; scientific intermediate result was correct but submission was not accepted."
+}

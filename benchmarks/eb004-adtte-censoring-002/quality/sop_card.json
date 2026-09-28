@@ -4,11 +4,11 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "CALIBRATION_READY",
   "control_status": "CALIBRATED",
-  "model_trial_status": "BASELINES_COMPLETE_TARGET_NOT_RUN",
+  "model_trial_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
-    "target-model trial",
+    "clean target-model trial after contract freeze",
     "independent scientific review",
     "reproducibility and license signoff"
   ]

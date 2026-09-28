@@ -1,0 +1,119 @@
+{
+  "schema_version": "enterprise_calibration.v1",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "status": "PASS",
+  "cases": [
+    {
+      "control_id": "reference",
+      "expected_pass": true,
+      "observed_pass": true,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "row-order-invariance",
+      "expected_pass": true,
+      "observed_pass": true,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "control_id": "pseudoreplication",
+      "expected_pass": false,
+      "observed_pass": false,
+      "passed": true,
+      "errors": [
+        "candidate_summary.method_alpha.rank: mismatch",
+        "candidate_summary.method_beta.decision: mismatch",
+        "candidate_summary.method_beta.eligible: mismatch",
+        "candidate_summary.method_beta.rank: mismatch",
+        "candidate_summary.method_beta.worst_state_mean_effect: numeric mismatch",
+        "candidate_summary.method_beta.maximum_state_effect_range: numeric mismatch",
+        "candidate_summary.method_gamma.rank: mismatch",
+        "state_diagnostics.('method_beta', 'early').nonpositive_donors: mismatch",
+        "state_diagnostics.('method_beta', 'early').status: mismatch",
+        "state_diagnostics.('method_beta', 'early').mean_effect: numeric mismatch",
+        "state_diagnostics.('method_beta', 'early').effect_range: numeric mismatch",
+        "state_diagnostics.('method_beta', 'late').nonpositive_donors: mismatch",
+        "state_diagnostics.('method_beta', 'late').status: mismatch",
+        "state_diagnostics.('method_beta', 'late').mean_effect: numeric mismatch",
+        "state_diagnostics.('method_beta', 'late').effect_range: numeric mismatch",
+        "decision.selected_candidate: mismatch"
+      ]
+    },
+    {
+      "control_id": "pooled-shortcut",
+      "expected_pass": false,
+      "observed_pass": false,
+      "passed": true,
+      "errors": [
+        "candidate_summary.method_alpha.rank: mismatch",
+        "candidate_summary.method_beta.decision: mismatch",
+        "candidate_summary.method_beta.eligible: mismatch",
+        "candidate_summary.method_beta.rank: mismatch",
+        "candidate_summary.method_beta.worst_state_mean_effect: numeric mismatch",
+        "candidate_summary.method_beta.maximum_state_effect_range: numeric mismatch",
+        "candidate_summary.method_gamma.rank: mismatch",
+        "state_diagnostics.('method_beta', 'early').nonpositive_donors: mismatch",
+        "state_diagnostics.('method_beta', 'early').status: mismatch",
+        "state_diagnostics.('method_beta', 'early').mean_effect: numeric mismatch",
+        "state_diagnostics.('method_beta', 'early').effect_range: numeric mismatch",
+        "state_diagnostics.('method_beta', 'late').nonpositive_donors: mismatch",
+        "state_diagnostics.('method_beta', 'late').status: mismatch",
+        "state_diagnostics.('method_beta', 'late').mean_effect: numeric mismatch",
+        "state_diagnostics.('method_beta', 'late').effect_range: numeric mismatch",
+        "decision.selected_candidate: mismatch"
+      ]
+    },
+    {
+      "control_id": "global-threshold",
+      "expected_pass": false,
+      "observed_pass": false,
+      "passed": true,
+      "errors": [
+        "state_diagnostics.('method_gamma', 'late').status: mismatch"
+      ]
+    },
+    {
+      "control_id": "any-missing-forces-abstain",
+      "expected_pass": false,
+      "observed_pass": false,
+      "passed": true,
+      "errors": [
+        "candidate_summary.method_gamma.decision: mismatch",
+        "candidate_summary.method_gamma.eligible: mismatch",
+        "candidate_summary.method_gamma.rank: mismatch",
+        "candidate_summary.method_gamma.worst_state_mean_effect: numeric mismatch",
+        "candidate_summary.method_gamma.maximum_state_effect_range: numeric mismatch"
+      ]
+    },
+    {
+      "control_id": "always-abstain",
+      "expected_pass": false,
+      "observed_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.decision: mismatch",
+        "decision.selected_candidate: mismatch"
+      ]
+    },
+    {
+      "control_id": "wrong-hash",
+      "expected_pass": false,
+      "observed_pass": false,
+      "passed": true,
+      "errors": [
+        "provenance.input_sha256: mismatch"
+      ]
+    },
+    {
+      "control_id": "claim-inflation",
+      "expected_pass": false,
+      "observed_pass": false,
+      "passed": true,
+      "errors": [
+        "decision.claim_boundary: mismatch"
+      ]
+    }
+  ]
+}

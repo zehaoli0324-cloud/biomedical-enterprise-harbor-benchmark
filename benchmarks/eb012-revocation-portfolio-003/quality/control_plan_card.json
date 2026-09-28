@@ -1,0 +1,35 @@
+{
+  "control_plan_id": "CONTROL-EB012-REVOCATION-PORTFOLIO-003-001",
+  "task_id": "eb012-revocation-portfolio-003",
+  "controls": [
+    {
+      "control_id": "positive-reference",
+      "kind": "positive"
+    },
+    {
+      "control_id": "negative-nominal-pair",
+      "kind": "negative"
+    },
+    {
+      "control_id": "invariance-event-storage-order",
+      "kind": "invariance"
+    },
+    {
+      "control_id": "insufficient-replay",
+      "kind": "insufficient_evidence"
+    },
+    {
+      "control_id": "adversarial-shared-lot",
+      "kind": "adversarial"
+    },
+    {
+      "control_id": "metamorphic-event-order",
+      "kind": "metamorphic"
+    }
+  ],
+  "single_factor_policy": true,
+  "calibration_status": "CALIBRATED",
+  "status": "REVIEW_REQUIRED",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "BASELINES_COMPLETE"
+}

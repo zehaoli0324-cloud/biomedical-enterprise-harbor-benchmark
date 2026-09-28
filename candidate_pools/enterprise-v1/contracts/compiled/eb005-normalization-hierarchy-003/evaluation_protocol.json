@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb005-normalization-hierarchy-003",
-  "spec_digest": "0080bb2afc682a0aad417fe18b8bca8141258c0b183eba1b2b4cde48e7f8444a",
+  "spec_digest": "dcaf43b1e14c6abca72638c9e8cfe6cbe8afdbac7c5e03402426ac01610353a0",
   "evaluation": {
     "scale": {
       "min": 0.0,

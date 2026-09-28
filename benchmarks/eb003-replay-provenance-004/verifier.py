@@ -8,9 +8,12 @@ def sha(path: Path) -> str:
 def expected(data: Path) -> dict:
     artifact = json.loads((data / "artifact_manifest.json").read_text())
     env = json.loads((data / "environment.json").read_text())
+    rerun = artifact.get("rerun_result")
     return {"artifact_id": artifact["artifact_id"], "rules_version": artifact["rules_version"],
             "input_hashes": artifact["input_hashes"], "output_hashes": artifact["output_hashes"],
-            "environment": env, "hashes": {name: sha(data / name) for name in ("artifact_manifest.json", "environment.json")}}
+            "environment": env, "rerun_result": rerun,
+            "replay_status": "reproduced" if rerun is not None else "not_run",
+            "hashes": {name: sha(data / name) for name in ("artifact_manifest.json", "environment.json")}}
 
 def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[str]]:
     exp, errors = expected(data), []
@@ -23,7 +26,15 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
     if manifest.get("rules_version") != exp["rules_version"]: errors.append("rules version mismatch")
     if manifest.get("input_hashes") != exp["input_hashes"] or manifest.get("output_hashes") != exp["output_hashes"]: errors.append("provenance hash mismatch")
     if manifest.get("environment") != exp["environment"]: errors.append("environment mismatch")
-    if manifest.get("replay_status") != "reproduced": errors.append("replay_status must be reproduced")
+    status = str(manifest.get("replay_status", "")).strip().lower()
+    if exp["rerun_result"] is None:
+        if status not in {"not_run", "hold", "held", "blocked", "not_reproduced"}:
+            errors.append("replay_status must hold when rerun evidence is absent")
+        review = str(manifest.get("human_review", manifest.get("review_status", ""))).lower()
+        if "requir" not in review and "hold" not in review:
+            errors.append("missing rerun evidence must require human review")
+    elif status != "reproduced":
+        errors.append("replay_status must be reproduced")
     diff = (submission / "provenance_diff.tsv").read_text().lower()
     for phrase in ("field", "status", "match"):
         if phrase not in diff: errors.append("provenance_diff.tsv missing " + phrase)

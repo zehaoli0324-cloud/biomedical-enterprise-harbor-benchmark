@@ -89,3 +89,32 @@ target-model run, and no `harbor analyze` trajectory review. Those are process
 gaps, not model failures. A release-grade rerun should use the Harbor layout and
 separate verifier mode, run oracle and nop first, then analyze the target trial
 trajectory before updating difficulty or training claims.
+
+## L5 closed-loop replay trial
+
+`eb010-closed-loop-replay-003` was run once with `gpt-5.6-sol` on 2026-09-21
+using the local process backend. The model exited normally, selected
+`policy_safe`, rejected the future-outcome leakage policy and the over-budget
+policy, and produced all four required artifacts. The first verifier rejection
+was caused by two contract defects: a valid blocker synonym was not accepted,
+and numeric replay values were compared as strings. The verifier was corrected
+to use semantic blocker aliases and numeric tolerance; the unchanged artifacts
+then passed with zero errors. The durable evidence is
+`benchmarks/eb010-closed-loop-replay-003/quality/target_trial_evidence.json` and
+the detailed analysis is in that task's `quality/trial_analysis.md`.
+
+This supports task solvability and one successful exercise of temporal causality,
+future-outcome exclusion, budget gating, replay aggregation and bounded claims.
+It is not evidence of repeated model reliability or release readiness. The trial
+used `process_cwd_only`, so fixed-container replay, repeated trials, trajectory
+analysis and practitioner review remain required.
+
+## L5.1 low-disclosure ambiguity trial
+
+`eb010-closed-loop-ambiguity-004` adds recursive schema discovery, offline provenance and conflicting proceed/review cues. The `gpt-5.6-sol` agent completed normally and selected `P-ALPHA`; it correctly escalated `P-BETA` and `P-GAMMA`, rejected future-outcome leakage in `P-DELTA`, and excluded archived `P-ARCHIVE`.
+
+The strict first replay rejected the unchanged artifacts because of representation differences (record list versus keyed object, `eligibility` versus `eligible`, canonical status/blocker aliases, `data/` path prefixes and claim-boundary token spelling). After those documented compatibility normalizations, the same four artifacts passed with zero errors. This is a contract-replay success, not evidence that the model was defeated; fixed-container replay and practitioner review remain open.
+
+## L5.1 v0.7 self-planned workflow trial
+
+v0.7.0 adds a discoverable mission and operation catalog while the instruction only gives the business boundary and asks the agent to plan its own workflow. `trial-gpt56-sol-004` passed on the first verifier execution. The model discovered and submitted the valid dependency order `inventory -> interpret -> screen -> replay -> decide`, declared offline execution, respected the planning budget, selected `P-ALPHA`, and preserved the existing ambiguity and leakage blockers. This demonstrates task completion with one self-planning layer; it is not yet evidence of model discrimination or Harbor release readiness.

@@ -2,7 +2,7 @@
   "schema_version": "policy-review-mission.v1",
   "objective": "choose one bounded policy action or escalate for human review",
   "allowed_actions": ["advance", "human_review", "request_evidence", "exclude"],
-  "required_operations": ["inventory", "interpret", "screen", "replay", "decide"],
+  "required_capabilities": ["provenance", "semantic_resolution", "eligibility_screen", "complete_replay", "bounded_decision"],
   "stop_conditions": ["eligible_record_selected", "human_review_required", "evidence_incomplete"],
   "max_planning_cost": 7.0,
   "network": "off"

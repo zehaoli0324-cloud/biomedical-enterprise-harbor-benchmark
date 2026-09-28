@@ -1,0 +1,19 @@
+{
+  "rules_version": "l5.5-revocation-portfolio-v1",
+  "checkpoints": [
+    "T0",
+    "T1",
+    "T2"
+  ],
+  "claim_levels": {
+    "descriptive": 2,
+    "associational": 3,
+    "causal": 4
+  },
+  "initial_source_active": true,
+  "initial_sensitivity": "stable",
+  "portfolio_size": 2,
+  "shared_lot_exclusive": true,
+  "score": "minimum checkpoint sum of utilities",
+  "tie_break": "ascending joined chain ids"
+}

@@ -47,7 +47,8 @@ def expected(data):
                     route = next(item for item in case["routes"] if item["route_id"] == route_id)
                     for item in route["materials"]: usage[item["compound_id"]] = usage.get(item["compound_id"], 0) + item["amount"]
                 if all(value <= stock.get(key, 0) for key, value in usage.items()): portfolios.append([left["route_id"], right["route_id"]])
-        decision = "+".join(portfolios[0]) if portfolios else next((row["route_id"] for row in routes if row["accepted"]), "reject")
+        portfolios = sorted(portfolios)
+        decision = "+".join(portfolios[0]) if portfolios else next(iter(sorted(row["route_id"] for row in routes if row["accepted"])), "reject")
         decisions = {"routes": routes, "portfolios": portfolios}
     elif kind == "batch":
         candidates = [row for row in case["candidates"] if row["scope"] == "active"]

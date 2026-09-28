@@ -2,23 +2,36 @@
   "schema_version": "enterprise_scale_tranche.v1",
   "tranche_id": "TRANCHE-011",
   "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
-  "status": "L5_4_TARGET_VERIFIER_FAIL_VALID_EVIDENCE_RELEASE_BLOCKED",
+  "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY_FIXED_CONTAINER_PENDING",
   "selection_policy": {
     "candidate_count": 1,
-    "coverage": "cross-stage provenance chain, weakest claim permission, resource gate and handoff integrity",
-    "shared_contract": "docs/enterprise-harbor-sop-v1.1.md",
-    "required_before_release": ["replay after any contract revision", "fixed-container replay", "practitioner review"]
+    "coverage": "revocation-aware checkpoint replay and shared-resource maximin portfolio",
+    "shared_contract": "docs/enterprise-difficulty-escalation-v1.md"
   },
   "recommended_candidates": [
     {
-      "candidate_id": "eb012-cross-stage-chain-002",
-      "level": "L5.4",
-      "upgrade": "four-stage recovery-normalization-route-policy handoff with hash and claim lattice",
-      "primary_module": "horizon_end_to_end_claim",
-      "secondary_modules": ["judgment_claim_permission_lattice", "data_evidence_graph_join"],
-      "status": "V1_2_PREFLIGHT_PASS_TARGET_VERIFIER_FAIL"
+      "candidate_id": "eb012-revocation-portfolio-003",
+      "level": "L5.5",
+      "upgrade": "ordered retraction propagation, checkpoint robustness and shared-lot portfolio selection",
+      "primary_module": "horizon_checkpointed_workflow",
+      "secondary_modules": [
+        "data_shared_inventory_allocation",
+        "math_robust_scenario_optimization"
+      ],
+      "status": "TARGET_PASS_AFTER_CONTRACT_REPLAY",
+      "target_trial": "eb012-revocation-portfolio-003-gpt56sol-001"
     }
   ],
-  "trial_interpretation": "The model completed normally. After accepting declared equivalent chain and permission representations, the remaining failure was an explicitly required manifest rules_version omission.",
-  "release_blockers": ["target model verifier failure", "fixed-container replay", "practitioner review"]
+  "difficulty_result": {
+    "model": "gpt-5.6-sol",
+    "outcome": "pass",
+    "interpretation": "ordered revocation replay and maximin portfolio selection did not defeat the target model",
+    "invalid_failures_excluded": [
+      "unspecified blocker vocabulary"
+    ]
+  },
+  "release_blockers": [
+    "fixed-container replay",
+    "practitioner review"
+  ]
 }

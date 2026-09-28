@@ -1,0 +1,15 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-007",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "L5_1_V0_7_1_SELF_PLANNED_SUBGRAPH_CLEAN_PASS_FIXED_CONTAINER_PENDING",
+  "selection_policy": {
+    "candidate_count": 1,
+    "coverage": "low-disclosure nested discovery, self-planned capability-complete workflow, semantic ambiguity, conservative escalation and offline environment provenance",
+    "shared_contract": "docs/enterprise-difficulty-escalation-v1.md",
+    "release_blockers": ["fixed-container replay", "practitioner review"]
+  },
+  "recommended_candidates": [
+    {"candidate_id":"eb010-closed-loop-ambiguity-004","upgrade":"L5.1 v0.7.1 self-planned capability subgraph and semantic ambiguity","primary_modules":["judgment_agent_planned_workflow","horizon_planning_stop_condition","judgment_semantic_ambiguity_resolution"],"status":"TARGET_TRIAL_CLEAN_PASS_V0.7.1"}
+  ]
+}

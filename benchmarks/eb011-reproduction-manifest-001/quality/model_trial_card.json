@@ -1,0 +1,95 @@
+{
+  "model_trial_card_id": "TRIAL-EB011-REPRODUCTION-MANIFEST-001-001",
+  "task_id": "eb011-reproduction-manifest-001",
+  "protocol_version": "enterprise-model-trial.v1",
+  "strategies": [
+    "reference_solution",
+    "simple_legal_baseline",
+    "always_abstain",
+    "template_or_keyword",
+    "target_model"
+  ],
+  "target_model_status": "PASS_AFTER_CONTRACT_REPLAY",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "run_records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true,
+      "error_count": 0,
+      "failure_attribution": null,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "fixed stage-2 choice ignores observation-specific minimax route"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "method_choice",
+      "errors": [
+        "eligible adaptive policy exists"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "verifier_fail",
+      "passed": false,
+      "error_count": 1,
+      "failure_attribution": "artifact_completeness",
+      "errors": [
+        "missing policy replay and provenance"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb011-reproduction-manifest-001-gpt56sol-001",
+      "status": "correct_route_delivery_fail",
+      "passed": false,
+      "runner_status": "timeout",
+      "timed_out": true,
+      "artifact_verification": "partial_outputs_missing_provenance_audit",
+      "failure_attribution": "delivery_missing_artifacts_and_runner_lifecycle_timeout",
+      "selected_stage1_request_id": "D-MANIFEST",
+      "selected_stage2_policy": {
+        "topology_mismatch": "D-REBUILD",
+        "parameter_drift": "D-PIN"
+      },
+      "durable_evidence": "quality/target_trial_evidence.json"
+    },
+    {
+      "strategy": "target_model_retry",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb011-reproduction-manifest-001-gpt56sol-003",
+      "status": "pass_after_contract_replay",
+      "passed": true,
+      "runner_status": "verifier_fail_then_contract_replay_pass",
+      "timed_out": false,
+      "artifact_verification": "unchanged_artifacts_replay_pass",
+      "failure_attribution": "initial verifier enum/schema defect; scientific route correct",
+      "selected_stage1_request_id": "D-MANIFEST",
+      "selected_stage2_policy": {
+        "topology_mismatch": "D-REBUILD",
+        "parameter_drift": "D-PIN"
+      },
+      "durable_evidence": "quality/target_trial_evidence_retry.json"
+    }
+  ],
+  "data_expansion": {
+    "status": "SUPERSEDES_PREVIOUS_TRIAL",
+    "expanded_on": "2026-09-24",
+    "fixture_version": "data-expanded-20260924",
+    "previous_status": "TARGET_TRIAL_COMPLETE",
+    "recalibration_required": true
+  }
+}

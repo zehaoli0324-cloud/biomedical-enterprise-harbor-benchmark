@@ -1,0 +1,104 @@
+[task]
+id = "eb006-research-completion-011"
+title = "Completion-gated donor evidence research, cross-assay hold oracle-repaired"
+domain = "biomedical_enterprise"
+source_scenarios = ["EB006"]
+
+[scenario]
+card = "../../../benchmarks/eb006-research-completion-011/scenario-card.yaml"
+
+[difficulty.scientific_scenario]
+level = 5
+weight = 1.0
+rationale = "A profile-review handoff must reconcile donor-balanced, pooled, and influence-robust evidence."
+tags = ["donor", "research-completion"]
+
+[difficulty.scientific_judgment]
+level = 5
+weight = 1.5
+rationale = "The nominal, pooled, and LODO-robust winners differ and require a bounded resolution."
+tags = ["influence", "competing-estimands"]
+
+[difficulty.computational_difficulty]
+level = 5
+weight = 1.0
+rationale = "A standalone program computes 24 unit effects, 30 scenario checks, pooled diagnostics, summaries, and decisions."
+tags = ["executable-analysis", "scenario-enumeration"]
+
+[difficulty.tool_call_complexity]
+level = 5
+weight = 1.0
+rationale = "The submission is executed repeatedly in clean directories and on reordered input."
+tags = ["replay", "completion-gate"]
+
+[difficulty.retrieval_complexity]
+level = 2
+weight = 1.0
+rationale = "All evidence and the public completion contract are offline."
+tags = ["offline"]
+
+[difficulty.information_noise_complexity]
+level = 5
+weight = 1.0
+rationale = "Unequal technical replication makes the pooled winner scientifically misleading."
+tags = ["pooled-adversary", "missing-pair"]
+
+[difficulty.data_type_complexity]
+level = 5
+weight = 1.0
+rationale = "CSV inputs, JSON policy/contract, executable Python, JSON outputs, provenance, and audit text must agree."
+tags = ["multi-artifact", "executable"]
+
+[difficulty.data_complexity]
+level = 5
+weight = 1.0
+rationale = "The design crosses candidate, donor, state, condition, replicate, and omission scenario."
+tags = ["nested-units", "lodo"]
+
+[difficulty.environment_complexity]
+level = 5
+weight = 1.0
+rationale = "A bounded completion budget, strict output directory, clean replay, and joined independent assay evidence are observable environment constraints."
+tags = ["offline", "clean-replay", "bounded-budget"]
+
+[difficulty.mathematical_complexity]
+level = 5
+weight = 1.0
+rationale = "Exact aggregation, precedence, thresholds, omission stability, and three ranking objectives interact."
+tags = ["robustness", "stratified"]
+
+[difficulty.long_horizon_complexity]
+level = 5
+weight = 1.0
+rationale = "Submission is accepted only after executable primary, alternative, sensitivity, and resolution evidence passes the public gate."
+tags = ["returnable-submission", "research-completion"]
+
+[difficulty.safety_risk]
+level = 3
+weight = 1.0
+rationale = "The recommendation remains analytical triage requiring human review."
+tags = ["claim-boundary"]
+
+[modules]
+scenario = ["scenario_omics_analysis"]
+judgment = ["judgment_influence_reconciliation", "judgment_experimental_unit", "cross_assay_concordance"]
+compute = ["compute_multistage_analysis"]
+tooling = ["tool_branching_pipeline"]
+retrieval = ["retrieval_schema_discovery"]
+noise = ["noise_pooled_stratified_adversary"]
+data = ["data_experimental_unit_hierarchy"]
+data_complexity = ["complexity_replicates_and_batches", "complexity_sparse_or_missing"]
+environment = ["environment_offline_setup", "environment_resource_budget"]
+math = ["math_stratified_partial_identifiability", "math_model_selection_and_sensitivity"]
+horizon = ["horizon_verified_research_completion", "bounded_replay_delivery"]
+safety = ["safety_human_approval_gate"]
+
+[data]
+types = ["csv", "json", "python", "markdown"]
+
+[constraints]
+network = "off"
+cpu_seconds = 1260
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

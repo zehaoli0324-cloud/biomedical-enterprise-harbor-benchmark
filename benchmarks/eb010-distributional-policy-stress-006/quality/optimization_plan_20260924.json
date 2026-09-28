@@ -1,0 +1,14 @@
+{
+  "schema_version": "task_optimization_queue.v1",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "status": "QUEUED_FOR_DATA_OPTIMIZATION",
+  "trial_owner": "parallel_window",
+  "target_trial_status_before_merge": "BASELINES_COMPLETE / NOT_RUN",
+  "objectives": [
+    "Complete the evidence-surface trial across multiple distributional stress families",
+    "Add enough independent numeric scenarios that one policy cannot pass by abstaining",
+    "Recompute robust oracle, sensitivity grid, and metamorphic controls",
+    "Preserve distribution-shift claim boundaries and replay invariance"
+  ],
+  "merge_gates": ["evidence surface PASS", "mutation matrix PASS", "focused tests PASS", "target trial result imported without status rewriting"]
+}

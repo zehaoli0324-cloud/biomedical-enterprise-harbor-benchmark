@@ -51,6 +51,8 @@ def archive(trial):
     workspace = trial / "agent_workspace"
     if (workspace / "outputs").exists(): shutil.copytree(workspace / "outputs", dest / "outputs")
     if (workspace / "trajectory_turns").exists(): shutil.copytree(workspace / "trajectory_turns", dest / "trajectory_turns")
+    if (workspace / "accepted_submission").exists(): shutil.copytree(workspace / "accepted_submission", dest / "accepted_submission")
+    if (workspace / "trajectory_summary.json").exists(): shutil.copy2(workspace / "trajectory_summary.json", dest / "trajectory_summary.json")
     for name in ("manifest.json", "verifier_result.json", "stdout.log", "stderr.log", "agent_events.jsonl"):
         path = trial / name
         if path.exists(): shutil.copy2(path, dest / name)
@@ -79,12 +81,27 @@ def main():
     results = read(quality / "model_trial_results.json")
     card = read(quality / "model_trial_card.json")
     base = [row for row in results.get("records", []) if row.get("strategy") != "target_model"]
-    trial_records = [{"strategy": "target_model", **row} for row in records]
-    results.update(status="COMPLETED_WITH_ATTRIBUTION", target_model_status="PASS" if any(row["classification"] == "RAW_PASS" for row in records) else "INFRASTRUCTURE_FAIL", records=base + trial_records)
-    card.update(status="COMPLETED_WITH_ATTRIBUTION", target_model_status=results["target_model_status"], run_records=base + trial_records)
+    existing_trials = {
+        row.get("trial_id"): row
+        for row in results.get("records", [])
+        if row.get("strategy") == "target_model" and row.get("trial_id")
+    }
+    existing_trials.update({row["trial_id"]: {"strategy": "target_model", **row} for row in records})
+    trial_records = list(existing_trials.values())
+    target_status = "PASS" if any(row.get("classification") == "RAW_PASS" for row in trial_records) else "INFRASTRUCTURE_FAIL"
+    results.update(status="COMPLETED_WITH_ATTRIBUTION", target_model_status=target_status, records=base + trial_records)
+    card.update(status="COMPLETED_WITH_ATTRIBUTION", target_model_status=target_status, run_records=base + trial_records)
     write(quality / "model_trial_results.json", results); write(quality / "model_trial_card.json", card)
-    write(quality / "target_trial_evidence.json", {"task_id": TASK.name, "records": records, "difficulty_interpretation": "Interactive protocol evidence is separate from the over-40-turn target; infrastructure failures are not scientific defeats."})
-    (quality / "trial_analysis.md").write_text("# EB014-002 interactive trial analysis\n\n" + "\n".join(f"- `{row['trial_id']}`: `{row['classification']}`, {row['trajectory'].get('model_turns')} observable model turns; counted_as_difficulty_failure={row['counted_as_difficulty_failure']}." for row in records) + "\n\nThe fixed sequence replay passed independently. A long trajectory target is exploratory and is not a minimum completion requirement. Provider, adapter, or network failures are infrastructure evidence, not model scientific failures.\n")
+    sop = read(quality / "sop_card.json")
+    if results["target_model_status"] == "PASS":
+        sop["model_trial_status"] = "PASS_SINGLE_TRIAL"
+        completed = {"target-model trial", "trajectory analysis"}
+        sop["release_blockers"] = [row for row in sop.get("release_blockers", []) if row not in completed]
+    else:
+        sop["model_trial_status"] = "INFRASTRUCTURE_FAIL"
+    write(quality / "sop_card.json", sop)
+    write(quality / "target_trial_evidence.json", {"task_id": TASK.name, "records": trial_records, "difficulty_interpretation": "Interactive protocol evidence is separate from the over-40-turn target; infrastructure failures are not scientific defeats."})
+    (quality / "trial_analysis.md").write_text("# EB014-002 interactive trial analysis\n\n" + "\n".join(f"- `{row['trial_id']}`: `{row['classification']}`, {row['trajectory'].get('model_turns')} observable model turns; counted_as_difficulty_failure={row['counted_as_difficulty_failure']}." for row in trial_records) + "\n\nThe fixed sequence replay passed independently. A long trajectory target is exploratory and is not a minimum completion requirement. Provider, adapter, or network failures are infrastructure evidence, not model scientific failures.\n")
     print(json.dumps(records, indent=2))
 
 

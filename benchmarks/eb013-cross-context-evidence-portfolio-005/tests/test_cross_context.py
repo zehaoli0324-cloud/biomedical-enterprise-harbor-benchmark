@@ -14,9 +14,9 @@ v = cal.verifier()
 def test_independent_oracle_and_portfolio_count():
     exp = v.expected(TASK / "data")
     independent, _ = cal.independent(TASK / "data")
-    assert exp["portfolio_count"] == 32
-    assert tuple(exp["winner"]["selected_followups"]) == independent[1] == ("F1", "F4")
-    assert exp["winner"]["supported_count"] == 3
+    assert exp["portfolio_count"] == 512
+    assert tuple(exp["winner"]["selected_followups"]) == independent[1] == ("F1", "F4", "F6", "F7")
+    assert exp["winner"]["supported_count"] == 5
 
 
 @pytest.mark.parametrize("name", ["pooled-shortcut", "related-repeat", "independent-gain", "budget-contraction", "conflict-resolution", "order-invariance", "insufficient"])
@@ -50,9 +50,17 @@ def test_contract_mutations_rejected(tmp_path, mutation):
 def test_declared_equivalences_pass(tmp_path):
     cal.reference(tmp_path, TASK / "data", v)
     for name in ("plan.json", "decision.json"):
-        payload = cal.read(tmp_path / name); payload["selected_followups"].reverse(); payload["total_cost"] = "2.400000"; cal.write(tmp_path / name, payload)
+        payload = cal.read(tmp_path / name); payload["selected_followups"].reverse(); payload["total_cost"] = "4.400000"; cal.write(tmp_path / name, payload)
     p = tmp_path / "portfolio.tsv"; lines = p.read_text().splitlines(); p.write_text("\n".join([lines[0]] + list(reversed(lines[1:]))) + "\n")
     assert v.verify(tmp_path, TASK / "data") == (True, [])
+
+
+def test_constant_output_planner_is_rejected(tmp_path):
+    cal.reference(tmp_path, TASK / "data", v)
+    (tmp_path / "planner.py").write_text("raise SystemExit(0)\n")
+    passed, errors = v.verify(tmp_path, TASK / "data")
+    assert not passed
+    assert any(error.startswith("replay.") for error in errors)
 
 
 def test_materializer_never_overwrites(tmp_path):

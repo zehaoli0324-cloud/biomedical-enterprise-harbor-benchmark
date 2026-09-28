@@ -2,10 +2,10 @@
 
 - Title: Generated candidate diversity and scaffold coverage
 - Domain: biomedical_enterprise
-- Raw score: 2.75/5
-- Adjusted score: 2.75/5
-- Band: intermediate
-- Spec digest: `8e37e706b56f71bd69d6f215a778904cb38593f1fbfd039bca39d12a39cfe4bc`
+- Raw score: 2.833/5
+- Adjusted score: 3.033/5
+- Band: advanced
+- Spec digest: `90c091329aa7df41d418948f543972b9bb41919053192be65d85964a05742742`
 
 ## Dimensions
 
@@ -16,7 +16,7 @@
 | `computational_difficulty` | 3 | 1 | The task joins validity, scaffold and cluster records. |
 | `tool_call_complexity` | 2 | 1 | The challenge is audit reasoning, not tool count. |
 | `retrieval_complexity` | 1 | 1 | All evidence is in the frozen offline bundle. |
-| `information_noise_complexity` | 3 | 1 | Invalid and near-duplicate candidates create bounded noise. |
+| `information_noise_complexity` | 4 | 1 | Invalid identifiers, collapsed clusters and threshold-sensitive coverage create competing evidence paths. |
 | `data_type_complexity` | 3 | 1 | CSV candidate rows and JSON rules require reconciliation. |
 | `data_complexity` | 2 | 1 | The fixture is small but contains a collapsed cluster and invalid row. |
 | `environment_complexity` | 2 | 1 | The offline environment is fixed and deterministic. |
@@ -26,7 +26,7 @@
 
 ## Interactions
 
-- None
+- `judgment_x_noisy_evidence`
 
 ## Selected modules
 
@@ -35,6 +35,7 @@
 ### judgment
 - `judgment_uncertainty_and_stop_rules`: `{}`
 - `judgment_causal_boundary`: `{}`
+- `judgment_blocker_and_abstention`: `{}`
 ### compute
 - `compute_multistage_analysis`: `{}`
 ### tooling
@@ -43,12 +44,14 @@
 - `noise_metadata_conflict`: `{}`
 ### data
 - `data_multimodal_join`: `{}`
+- `data_evidence_graph_join`: `{}`
 ### data_complexity
 - `complexity_sparse_or_missing`: `{}`
 ### environment
 - `environment_pinned_container`: `{}`
 ### math
 - `math_model_selection_and_sensitivity`: `{}`
+- `math_sensitivity_frontier`: `{}`
 ### horizon
 - `horizon_checkpointed_workflow`: `{}`
 ### safety

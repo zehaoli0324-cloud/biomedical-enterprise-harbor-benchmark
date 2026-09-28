@@ -1,0 +1,14 @@
+{
+  "round": 3,
+  "action_id": "orthogonal_assay",
+  "outcome": "orthogonal_confirmed",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-ORTHO",
+      "status": "QUALITY_NOT_CAUSAL"
+    }
+  ],
+  "remaining_budget": 3,
+  "accepted": true
+}

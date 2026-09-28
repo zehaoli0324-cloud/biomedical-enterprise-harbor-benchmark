@@ -1,0 +1,28 @@
+{
+  "task_id": "eb006-research-completion-010",
+  "protocol_version": "enterprise-model-trial.v1",
+  "status": "BASELINES_COMPLETE",
+  "target_model_status": "NOT_RUN",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "always_abstain",
+      "status": "fail",
+      "passed": false
+    },
+    {
+      "strategy": "template_or_keyword",
+      "status": "fail",
+      "passed": false
+    }
+  ]
+}

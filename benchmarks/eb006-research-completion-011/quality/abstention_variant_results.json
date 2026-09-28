@@ -1,0 +1,121 @@
+{
+  "schema_version": "selected_four_dynamic_controls.v1",
+  "task_id": "eb006-research-completion-011",
+  "status": "PASS",
+  "oracle_nop_mutation": {
+    "oracle": {
+      "variant_id": "oracle",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    "nop": {
+      "variant_id": "nop",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "delivery: missing or invalid analysis.py",
+        "delivery: missing or invalid results.json",
+        "delivery: missing or invalid provenance.json",
+        "delivery: missing or invalid research_audit.md"
+      ],
+      "note": ""
+    },
+    "mutation": {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "results.checks[base|C17|early].status: mismatch"
+      ],
+      "note": ""
+    }
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "results.checks[base|C17|early].status: mismatch",
+        "results.checks[omit:D1|C17|early].status: mismatch",
+        "results.checks[omit:D2|C17|early].status: mismatch",
+        "results.checks[omit:D3|C17|early].status: mismatch",
+        "results.checks[omit:D4|C17|early].status: mismatch",
+        "results.checks[base|C17|late].status: mismatch",
+        "results.checks[omit:D1|C17|late].status: mismatch",
+        "results.checks[omit:D2|C17|late].status: mismatch",
+        "results.checks[omit:D3|C17|late].status: mismatch",
+        "results.checks[omit:D4|C17|late].status: mismatch",
+        "results.checks[base|C28|early].status: mismatch",
+        "results.checks[omit:D1|C28|early].status: mismatch",
+        "results.checks[omit:D2|C28|early].status: mismatch",
+        "results.checks[omit:D3|C28|early].status: mismatch",
+        "results.checks[omit:D4|C28|early].status: mismatch",
+        "results.checks[base|C28|late].status: mismatch",
+        "results.checks[omit:D1|C28|late].status: mismatch",
+        "results.checks[omit:D2|C28|late].status: mismatch",
+        "results.checks[omit:D3|C28|late].status: mismatch",
+        "results.checks[omit:D4|C28|late].status: mismatch",
+        "results.checks[base|C43|early].status: mismatch",
+        "results.checks[omit:D1|C43|early].status: mismatch",
+        "results.checks[omit:D2|C43|early].status: mismatch",
+        "results.checks[omit:D3|C43|early].status: mismatch",
+        "results.checks[omit:D4|C43|early].status: mismatch",
+        "results.checks[base|C43|late].status: mismatch",
+        "results.checks[omit:D1|C43|late].status: mismatch",
+        "results.checks[omit:D2|C43|late].status: mismatch",
+        "results.checks[omit:D3|C43|late].status: mismatch",
+        "results.checks[omit:D4|C43|late].status: mismatch",
+        "results.assay_checks[C17|early].status: mismatch",
+        "results.assay_checks[C17|late].status: mismatch",
+        "results.assay_checks[C28|early].status: mismatch",
+        "results.assay_checks[C28|late].status: mismatch",
+        "results.assay_checks[C43|early].status: mismatch"
+      ],
+      "note": ""
+    },
+    {
+      "variant_id": "all_definite",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "results.assay_checks[C43|late].status: mismatch"
+      ],
+      "note": "The one missing assay unit cannot be forced determinate."
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": "Oracle contains 35 determinate units and one local insufficient unit."
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "results.checks[base|C17|early].status: mismatch"
+      ],
+      "note": ""
+    }
+  ],
+  "blanket_abstain_fraction_of_reference_score": 0.0,
+  "generated_by": "scripts/check_selected_four_v2.py"
+}

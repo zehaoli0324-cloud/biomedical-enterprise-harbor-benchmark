@@ -1,0 +1,16 @@
+{
+  "task_id": "eb006-donor-stratified-signal-005",
+  "calibration_status": "PASS",
+  "status": "PASS",
+  "controls": [
+    {"control_id": "reference", "kind": "positive", "passed": true},
+    {"control_id": "pseudoreplication", "kind": "negative", "passed": true},
+    {"control_id": "row-order-invariance", "kind": "invariance", "passed": true},
+    {"control_id": "global-threshold", "kind": "insufficient_evidence", "passed": true},
+    {"control_id": "pooled-shortcut", "kind": "adversarial", "passed": true},
+    {"control_id": "any-missing-forces-abstain", "kind": "metamorphic", "passed": true},
+    {"control_id": "wrong-hash", "kind": "provenance", "passed": true},
+    {"control_id": "claim-inflation", "kind": "claim_boundary", "passed": true}
+  ],
+  "source": "controls/calibration_results.json"
+}

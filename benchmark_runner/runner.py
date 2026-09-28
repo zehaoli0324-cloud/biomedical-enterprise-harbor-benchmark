@@ -130,6 +130,7 @@ def _run_process(
             "BENCHMARK_PROMPT": str(trial.prompt_path),
             "BENCHMARK_EVENT_LOG": str(trial.workspace / "agent_events.jsonl"),
             "BENCHMARK_NETWORK_POLICY": "off_requested",
+            "BENCHMARK_TRIAL_TIMEOUT_SECONDS": str(timeout_seconds),
             "PYTHONUNBUFFERED": "1",
         }
     )

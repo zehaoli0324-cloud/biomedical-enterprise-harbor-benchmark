@@ -4,4 +4,9 @@ Use only the supplied offline JSON files. Evaluate every chain in order: recover
 
 Select by highest robust_cvar, then ascending chain_id. Ineligible chains cannot be selected. Round computed values to six decimal places.
 
-Write exactly four artifacts: `outputs/chain.json` with selected_chain, rules_version and every chain record; `outputs/handoff.tsv` with one row for every artifact and columns artifact_id, chain_id, stage, upstream_hash, content_hash, claim_permission and status; `outputs/audit.md` explaining claim permission, upstream hash, inventory, human review, stop conditions and why this is not experimental proof; and `outputs/manifest.json` with hashes for case.json and rules.json, rules_version and deterministic=true.
+Write exactly four artifacts:
+
+- `outputs/chain.json`: an object with `selected_chain`, `rules_version`, and `chains`. `chains` is a four-item array, one row per input chain, with `chain_id`, `eligible`, `requested_claim`, `robust_cvar`, and `artifact_ids`. Additional audit fields are allowed.
+- `outputs/handoff.tsv`: exactly one row per artifact and the header `artifact_id`, `chain_id`, `stage`, `upstream_hash`, `content_hash`, `claim_permission`, `status`. Use the artifact's highest listed permission in `claim_permission`. Encode a root artifact's missing upstream hash as either an empty field or `null`.
+- `outputs/audit.md`: explain the claim-permission boundary, upstream-hash checks, inventory, human review, stop conditions, and why the result does not constitute experimental proof. Equivalent hyphenation and wording are allowed.
+- `outputs/manifest.json`: include `rules_version`, `deterministic=true`, and SHA-256 hashes for `case.json` and `rules.json`. The canonical form is `input_sha256: {"case.json": "...", "rules.json": "..."}`; semantically equivalent direct or `hashes` mappings are accepted.

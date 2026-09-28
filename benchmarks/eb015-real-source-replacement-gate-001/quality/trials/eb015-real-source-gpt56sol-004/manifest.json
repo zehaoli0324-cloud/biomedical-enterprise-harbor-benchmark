@@ -1,0 +1,60 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "trial_id": "eb015-real-source-gpt56sol-004",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb015-real-source-replacement-gate-001",
+  "trial_dir": "/private/tmp/biomedical-three-trials-rerun-20260923/eb015/eb015-real-source-gpt56sol-004",
+  "workspace": "/private/tmp/biomedical-three-trials-rerun-20260923/eb015/eb015-real-source-gpt56sol-004/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-23T09:09:50.685208+00:00",
+  "input_hashes": {
+    "data/numeric_provenance.tsv": "1109d178af675bf61898a217f67fb06906114c5142a8ed6027bb8bb4b855ab01",
+    "data/output_contract.json": "4f71ecba2784a081febd3705e4586beffd58dfe07ed64e0a9a00168720d1eaf8",
+    "data/release_input_manifest.json": "77351edccff8a0c40ab40a4b0b241b17f400202fcc2036852302929c49682fcb",
+    "data/rules.json": "82ed721fb841ba38393e5b3f9802d40ffc98a8a51a4c13de093d12ee782ce46e",
+    "data/sources.json": "121916171e1ff6b311b0ad7ae598a7c1a1c9fac51357c6b61da3a495ca51bbf9",
+    "instruction.md": "5c99547f815fac233a181587289155952bc697f7f9fa1f1a122f3c9f1cdf6630"
+  },
+  "status": "pass",
+  "agent_command": [
+    "python3",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_complete_turn.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--timeout",
+    "1400"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-23T09:09:50.685878+00:00",
+  "timeout_seconds": 1500,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-23T09:15:06.975068+00:00",
+  "agent_exit_code": 0,
+  "verifier_status": "pass",
+  "verifier_score": null,
+  "verifier_exit_code": 0,
+  "visible_output_hashes": {
+    "audit.md": "5280d899115784e0aaee5b12fc2da26a546a8d198b36849817898c9b5e37e9cd",
+    "provenance.json": "3843fa43f0d52c467f01accf36ed10fd853ab53f6fe444f09fb60fe33db53daf",
+    "release_plan.json": "b1e1e91c5fb774970d52e5551d439d0590b545a05e02e5bd5a3bd16008bb7a67",
+    "source_audit.tsv": "282d5b9e7cf078d24a1c907c62efe72c9f5cfd128a642f0a5c391982d6d9b810"
+  }
+}

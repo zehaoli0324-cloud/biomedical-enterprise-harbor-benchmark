@@ -15,9 +15,9 @@
   },
   "difficulty": {
     "task_id": "eb003-replay-provenance-004",
-    "raw_score": 2.833,
-    "adjusted_score": 2.833,
-    "band": "intermediate",
+    "raw_score": 2.917,
+    "adjusted_score": 3.117,
+    "band": "advanced",
     "dimensions": {
       "scientific_scenario": {
         "level": 4,
@@ -70,9 +70,9 @@
         ]
       },
       "information_noise_complexity": {
-        "level": 3,
+        "level": 4,
         "weight": 1.0,
-        "rationale": "Version and checksum differences are plausible but bounded.",
+        "rationale": "Conflicting provenance edges, stale versions and duplicate replay evidence can change the permission decision.",
         "tags": [
           "provenance",
           "replay",
@@ -140,7 +140,9 @@
         ]
       }
     },
-    "interactions": [],
+    "interactions": [
+      "judgment_x_noisy_evidence"
+    ],
     "selected_modules": {
       "scenario": [
         {
@@ -155,6 +157,10 @@
         },
         {
           "id": "judgment_causal_boundary",
+          "params": {}
+        },
+        {
+          "id": "judgment_claim_permission_lattice",
           "params": {}
         }
       ],
@@ -180,6 +186,10 @@
         {
           "id": "data_multimodal_join",
           "params": {}
+        },
+        {
+          "id": "data_evidence_graph_join",
+          "params": {}
         }
       ],
       "data_complexity": [
@@ -204,6 +214,10 @@
         {
           "id": "horizon_checkpointed_workflow",
           "params": {}
+        },
+        {
+          "id": "horizon_end_to_end_claim",
+          "params": {}
         }
       ],
       "safety": [
@@ -226,7 +240,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "0c9c1bc4076a053312bf6caa02ecf69e25ba18ec83034f5cfdf80b23aaec910a",
+  "spec_digest": "e2166717b3f7fd7a5e9252bb7802321deac98cc84fd0c049e940ffae0c110d09",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -336,7 +350,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb003-replay-provenance-004/scenario-card.yaml",
-    "digest": "af83784cbb6a9c523bf74e53633f5e5748b9dd177b4cf51e26d5dc7d851b26b8",
+    "digest": "1469fb6441ccb27cdf35f9fff52a6402ddbaed9608ef16a72b305d7f984ede03",
     "scenario_id": "eb003-replay-provenance-004",
     "status": "ready",
     "source_scenarios": [

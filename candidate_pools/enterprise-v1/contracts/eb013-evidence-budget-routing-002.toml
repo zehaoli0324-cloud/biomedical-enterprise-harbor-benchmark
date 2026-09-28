@@ -66,7 +66,7 @@ weight = 1.0
 rationale = "Future outcome leakage and unsupported experimental claims are blocked."
 tags = ["human-review", "claim-boundary"]
 [modules]
-horizon = ["horizon_two_stage_acquisition"]
+horizon = ["horizon_adaptive_policy_replay", "horizon_two_stage_acquisition"]
 judgment = ["judgment_evidence_route_selection", "judgment_uncertainty_and_stop_rules"]
 math = ["math_correlation_adjusted_reduction", "math_minimax_evidence_route_selection"]
 retrieval = ["retrieval_provenance_temporal_boundary"]

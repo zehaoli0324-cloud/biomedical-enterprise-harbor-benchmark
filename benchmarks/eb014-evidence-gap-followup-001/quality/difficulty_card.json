@@ -1,0 +1,20 @@
+{
+  "task_id": "eb014-evidence-gap-followup-001",
+  "status": "CALIBRATED",
+  "primary_module": "research_minimum_additional_evidence",
+  "secondary_modules": [
+    "judgment_claim_transportability_boundary",
+    "horizon_adaptive_research_priority"
+  ],
+  "held_out_variants": [
+    "budget-contraction",
+    "archived-source-restored",
+    "bridge-scope-repair",
+    "independence-group-merge",
+    "future-action-available",
+    "measurement-threshold",
+    "row-order",
+    "feedback-renamed"
+  ],
+  "difficulty_claim": "Target trials show executable completion and scientific verification; they do not establish model defeat."
+}

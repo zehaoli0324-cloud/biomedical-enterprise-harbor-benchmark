@@ -1,0 +1,4 @@
+source_id	task_id	source_kind	release_track	release_status	blockers	claim_boundary
+SRC-CRISPR-PMC7006212	crispr-screen-hit-robustness-l4-contract-001	published_supplement	published_mageck_rows	BLOCKED_RIGHTS	["rights_review_required","sha256_missing_or_md5_only","verifier_rebind_required"]	published_screen_rows_do_not_prove_single_gene_causality
+SRC-BBBC021-V1	microscopy-replicate-l4-contract-001	official_dataset_metadata	metadata_and_moa_ground_truth	BLOCKED_RIGHTS	["rights_review_required","sha256_missing_or_md5_only","verifier_rebind_required"]	metadata_and_moa_labels_do_not_validate_image_measurements
+SRC-ZENODO-10362368	md-replica-convergence-l4-contract-001	open_archive_dataset	bounded_trajectory_subset	BLOCKED_RIGHTS	["rights_review_required","sha256_missing_or_md5_only","verifier_rebind_required"]	trajectory_convergence_audit_does_not_establish_force_field_validity

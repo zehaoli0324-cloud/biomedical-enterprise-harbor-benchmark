@@ -1,0 +1,1 @@
+2026-09-24T05:25:24.089113Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to read file to update /private/tmp/eb014-l12-target-trial-20260924/adaptive-ladder-l12-gpt56sol-001/agent_workspace/outputs/experiment_request.json: No such file or directory (os error 2)

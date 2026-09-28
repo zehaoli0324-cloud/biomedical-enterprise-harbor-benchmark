@@ -45,7 +45,7 @@ STAGE2 = [
 
 def render_verifier() -> str:
     return '''from __future__ import annotations
-import argparse, hashlib, itertools, json
+import argparse, csv, hashlib, io, itertools, json
 from pathlib import Path
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def _route_reduction(requests):
@@ -81,7 +81,14 @@ def verify(submission,data,reference):
     for n in ("plan.json","route.tsv","decision.json","provenance.json","audit.md"):
         if not (submission/n).is_file(): errors.append("missing artifact: "+n)
     if errors:return False,errors
-    plan=json.loads((submission/"plan.json").read_text()); decision=json.loads((submission/"decision.json").read_text())
+    parsed={}
+    for name in ("plan.json","decision.json","provenance.json"):
+        try:
+            parsed[name]=json.loads((submission/name).read_text())
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            errors.append(f"invalid JSON: {name} ({exc.__class__.__name__})")
+    if errors:return False,errors
+    plan,decision=parsed["plan.json"],parsed["decision.json"]
     for name,payload in (("plan",plan),("decision",decision)):
         stage1 = payload.get("stage1_request_id", payload.get("selected_stage1_request_id"))
         if stage1!=exp["selected_stage1_request_id"] or payload.get("stage2_policy", payload.get("selected_stage2_policy"))!=exp["selected_stage2_policy"]: errors.append(name+" selected policy mismatch")
@@ -113,11 +120,29 @@ def verify(submission,data,reference):
     expected_policies = canonical_policies(exp["policies"])
     if policy_summaries(decision.get("policies")) != policy_summaries(exp["policies"]): errors.append("decision policies mismatch")
     if canonical_policies(plan.get("policies")) != expected_policies: errors.append("plan policies mismatch")
-    rows=(submission/"route.tsv").read_text().splitlines();
-    row_count=max(len(rows)-1,0)
-    state_count=sum(len(policy["states"]) for policy in exp["policies"])
-    if row_count not in {len(exp["policies"]),state_count}: errors.append("route coverage mismatch")
-    prov=json.loads((submission/"provenance.json").read_text()); hashes=prov.get("input_sha256",{})
+    try:
+        route_rows=list(csv.DictReader(io.StringIO((submission/"route.tsv").read_text()), delimiter="\t"))
+    except (OSError, UnicodeDecodeError, csv.Error):
+        route_rows=[]
+    required_route_fields={"stage1_request_id","observation","stage2_request_id","eligible","blockers"}
+    expected_route={(policy["stage1_request_id"], state["observation"]): state for policy in exp["policies"] for state in policy["states"]}
+    actual_route={}
+    for row in route_rows:
+        key=(row.get("stage1_request_id",""), row.get("observation",""))
+        if key in actual_route or not required_route_fields.issubset(row):
+            errors.append("route schema mismatch")
+            break
+        actual_route[key]=row
+    if set(actual_route)!=set(expected_route): errors.append("route coverage mismatch")
+    elif not errors:
+        for key, expected_state in expected_route.items():
+            row=actual_route[key]
+            expected_stage2=expected_state["stage2_request_id"] or ""
+            expected_eligible=str(expected_state["eligible"]).lower()
+            if row.get("stage2_request_id","")!=expected_stage2 or row.get("eligible","").lower()!=expected_eligible:
+                errors.append("route state mismatch")
+                break
+    prov=parsed["provenance.json"]; hashes=prov.get("input_sha256",{})
     hashes={str(name).removeprefix("data/"): digest for name,digest in hashes.items() if str(name).removeprefix("data/")!="instruction.md"}
     if hashes!=exp["hashes"] or prov.get("rules_version")!=exp["rules_version"] or prov.get("network")!="off" or prov.get("deterministic") is not True: errors.append("provenance mismatch")
     audit=(submission/"audit.md").read_text().lower().replace("stage-1","stage 1").replace("stage-2","stage 2")
@@ -144,7 +169,11 @@ Use only the supplied nested JSON bundle. Choose a stage-1 request before observ
 
 For every observation state, subtract the stage-1 and selected stage-2 reductions plus the declared observation adjustment. The observation states are not limited to the examples in prose: enumerate every state declared by each stage-1 request, and require exactly one legal stage-2 action for each state. Within one correlation group, only the largest reduction per uncertainty counts. A policy is eligible only if every observation state reaches both critical thresholds. Select the eligible policy by lowest worst-case maximum critical residual, then lowest worst-case cost, then lexical stage-1 request ID and stage-2 mapping. This is a planning task, not experimental proof.
 
-Write exactly `outputs/plan.json`, `outputs/route.tsv`, `outputs/decision.json`, `outputs/provenance.json`, and `outputs/audit.md`. Keep the same output schema as the prior evidence-routing task, with `stage1_request_id`, `stage2_policy`, `worst_case_max_critical_residual`, `worst_case_cost`, and complete `policies` added to plan/decision. Policy states may use `states` or `observation_states`; `decision.json` may use summary policy rows when `plan.json` contains the full per-state replay. The `decision` value may be `execute_adaptive_route` or the selected stage-1 request ID. `route.tsv` must contain one row per enumerated policy.
+Write exactly `outputs/plan.json`, `outputs/route.tsv`, `outputs/decision.json`, `outputs/provenance.json`, and `outputs/audit.md`. Keep the same output schema as the prior evidence-routing task, with `stage1_request_id`, `stage2_policy`, `worst_case_max_critical_residual`, `worst_case_cost`, and complete `policies` added to plan/decision. Policy states may use `states` or `observation_states`; `decision.json` may use summary policy rows when `plan.json` contains the full per-state replay. The `decision` value may be `execute_adaptive_route` or the selected stage-1 request ID.
+
+`route.tsv` must use the literal header `stage1_request_id\\tobservation\\tstage2_request_id\\teligible\\tblockers` and exactly one data row for every enumerated `(stage1_request_id, observation)` state, including ineligible and incomplete policies. Use real tab and newline delimiters, not the two-character text `\\\\t` or `\\\\n`; do not prefix rows with `+`. For each policy, `eligible` must equal the conjunction of its state eligibility values, and `complete` must be an explicit boolean in `policies` (`false` for an all-null stage-2 mapping).
+
+For each state, compute every `residual_uncertainty` value by subtracting the stage-1 reduction, the selected stage-2 reduction, and that state's observation adjustment from the initial uncertainty, applying correlation-group maxima before subtraction. `max_critical_residual` is the maximum over the critical uncertainties, and policy `eligible` must be false if any state exceeds a critical threshold.
 
 `provenance.json.input_sha256` must contain SHA-256 values for all four agent-visible JSON inputs: `data/inputs/run_manifest.json`, `data/inputs/stage1_requests.json`, `data/inputs/stage2_requests.json`, and `data/rules.json`. It must also contain the rules version, `network="off"`, and `deterministic=true`. The audit must explain observation gating, stages, dependency, budget, future-outcome exclusion, human review, and not experimental proof.
 ''', encoding="utf-8")

@@ -1,0 +1,34 @@
+{
+  "schema_version": "l12_pretrial_freeze.v1",
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "difficulty_level": "L12_STATIC_CONTINGENT_POLICY_REPLAY",
+  "status": "DATA_EXPANSION_RECALIBRATION_REQUIRED",
+  "task_version": "0.2.0",
+  "frozen_at": "2026-09-24",
+  "scope": "static_contingent_policy_replay_only",
+  "checks": {
+    "oracle_verifier": "PASS",
+    "focused_task_tests": "PASS",
+    "full_pytest": "306 passed, 6 skipped",
+    "verification_agent_review": "PASS",
+    "harbor_print_config": "PASS",
+    "docker_trial": "BLOCKED_DOCKER_HUB_DNS",
+    "first_l12_target_trial": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+    "clean_replicate": "MULTIROUND_BEHAVIOR_PARTIAL_INFRASTRUCTURE_TIMEOUT",
+    "data_heavy_revision_oracle": "PASS",
+    "audit_measurement_citation_gate": "PASS",
+    "data_heavy_target_trial": "SUPERSEDED_BY_V0.2.0_DATA_EXPANSION",
+    "data_heavy_target_trial_replicate": "SUPERSEDED_BY_V0.2.0_DATA_EXPANSION",
+    "v0.2.0_oracle_verifier": "PASS",
+    "v0.2.0_focused_tests": "8 passed, 1 skipped",
+    "v0.2.0_target_trial": "NOT_RUN"
+  },
+  "policy_shape": {
+    "information_set_count": 17,
+    "delayed_reveal_state_count": 4,
+    "selected_adversarial_branch_count": 25,
+    "required_policy_files": ["contingent_policy.json", "policy_certificate.json"]
+  },
+  "historical_trial_note": "Existing target_trial_evidence.json predates this L12 revision and is not evidence for the current difficulty level.",
+  "target_model_status": "RECALIBRATION_REQUIRED"
+}

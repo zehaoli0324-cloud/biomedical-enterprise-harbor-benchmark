@@ -30,3 +30,10 @@ def test_verifier_rejects_missing_submission(tmp_path: Path):
     ok, errors = verifier.verify(tmp_path, ROOT / "data", ROOT / "verifier_only/reference.json")
     assert not ok
     assert any("missing artifact" in error for error in errors)
+
+
+def test_trial_equivalent_adtte_aliases_are_canonicalized():
+    source = {"USUBJID": "S", "PARAMCD": "PFS", "TRTSDT": "2024-01-01", "ADT": "2024-02-01",
+              "CNSR": "1", "EVNTDESC": "FOLLOWUP_CENSOR", "ADTDTYPE": "FOLLOWUP", "DERIVATION_STATUS": "DERIVED"}
+    assert verifier.canonical_adtte(source)["EVNTDESC"] == "CENSORED"
+    assert verifier.canonical_adtte(source)["ADT_DTYPE"] == "NONE"

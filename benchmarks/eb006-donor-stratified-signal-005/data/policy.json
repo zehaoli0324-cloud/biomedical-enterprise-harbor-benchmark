@@ -1,0 +1,49 @@
+{
+  "rules_version": "donor-stratified-signal-v1",
+  "active_candidates": [
+    "method_alpha",
+    "method_beta",
+    "method_gamma"
+  ],
+  "registered_donors": [
+    "D1",
+    "D2",
+    "D3",
+    "D4"
+  ],
+  "registered_states": [
+    "early",
+    "late"
+  ],
+  "conditions": [
+    "control",
+    "treatment"
+  ],
+  "qc_pass_status": "PASS",
+  "minimum_identifiable_donors": {
+    "early": 4,
+    "late": 3
+  },
+  "minimum_state_mean_effect": {
+    "early": 0.35,
+    "late": 0.3
+  },
+  "maximum_state_effect_range": {
+    "early": 0.4,
+    "late": 0.35
+  },
+  "decision_precedence": [
+    "INSUFFICIENT",
+    "CONTRADICTORY",
+    "WEAK",
+    "SUPPORTED"
+  ],
+  "selection_rule": [
+    "eligible SUPPORTED candidates only",
+    "largest worst_state_mean_effect",
+    "smallest maximum_state_effect_range",
+    "lexical candidate_id"
+  ],
+  "rounding": "decimal round-half-up to six places",
+  "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy"
+}

@@ -1,0 +1,17 @@
+{
+  "sha256": {
+    "verifier.py": "7d95b9d74c086bf46ba684e3ce86497d62f2daa0db3858f536af805b791ed8e9",
+    "instruction.md": "da3d69da73a5da6d0f4d13514658d61d313a0a1b55db0430b8e0a6e452b7b298",
+    "task.yaml": "4a9ed5493d131b38a7c71c080783ebae36c04dd6b81ed6f12562d3648325dd90",
+    "data/observations.csv": "85c46b22b2049570133fd2b3d427da3c255f310dbd8b556eceab1f65b8920b04",
+    "data/policy.json": "e1ab492a7a27b1a1a5f39053958d64e4c96d5f98d5c6deea04a4bcdad13e861f",
+    "data/research_contract.json": "cdc4ecbbd0bcb4cb8744b066d05d303467fb5d9630baab5edb3f452ab5c4b802"
+  },
+  "runtime_sha256": {
+    "benchmark_runner/research_gate.py": "4d70ae0608d19bfb91d9fe546b77b693a430b2429f93ae995ed9bcc61091620d",
+    "benchmark_runner/adapters/codex_research_gate.py": "1c904b427c3eb05eb053dd1a5f73586e18edc19bfbc06e44a214730c6120a4b0",
+    "benchmark_runner/adapters/codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+    "benchmark_runner/adapters/codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194",
+    "scripts/audit_research_completion.py": "dda00c21a59d79a5a2a13618be1fb31898386b49da7ec3507c969ee0b5daedc1"
+  }
+}

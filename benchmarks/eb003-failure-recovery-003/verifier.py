@@ -43,7 +43,7 @@ def expected(data: Path) -> dict:
             eligible.append(branch)
             status = "selected"
         elif "scope" in failed:
-            status = "excluded"
+            status = "out_of_scope"
         elif any(field in failed for field in spec["required_provenance"]):
             status = "provenance_incomplete"
         else:
@@ -97,7 +97,7 @@ def verify(submission: Path, data: Path, reference: Path) -> tuple[bool, list[st
     accepted_statuses = {
         "failed": {"failed"},
         "selected": {"selected", "success"},
-        "excluded": {"excluded"},
+        "out_of_scope": {"out_of_scope", "excluded"},
         "provenance_incomplete": {"provenance_incomplete", "rejected"},
         "scientific_drift": {"scientific_drift", "rejected"},
         "hold_ambiguous": {"hold", "hold_ambiguous"},

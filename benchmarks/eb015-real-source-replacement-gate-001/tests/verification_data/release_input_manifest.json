@@ -1,0 +1,29 @@
+{
+  "schema_version": "release_input_manifest.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "release_status": "STAGING_BLOCKED",
+  "agent_visible_policy": "metadata_only_source_audit; no downloaded source bytes or hidden labels",
+  "claim_boundary": "source_audit_only_not_scientific_claim",
+  "allowlist": [
+    {"path": "data/rules.json", "kind": "PUBLIC_RULES", "scientific_status": "CONTROL_PARAMETER"},
+    {"path": "data/sources.json", "kind": "SOURCE_REGISTRY", "scientific_status": "SOURCE_REGISTRY_METADATA"},
+    {"path": "data/case_mutations.json", "kind": "GATE_CONTROL_MATRIX", "scientific_status": "CONTROL_PARAMETER"},
+    {"path": "data/output_contract.json", "kind": "OUTPUT_CONTRACT", "scientific_status": "CONTROL_PARAMETER"},
+    {"path": "data/numeric_provenance.tsv", "kind": "PROVENANCE_INDEX", "scientific_status": "SOURCE_REGISTRY_METADATA"},
+    {"path": "data/source_manifest.json", "kind": "SOURCE_MANIFEST", "scientific_status": "SOURCE_REGISTRY_METADATA"},
+    {"path": "data/release_input_manifest.json", "kind": "MANIFEST", "scientific_status": "CONTROL_PARAMETER"}
+  ],
+  "excluded": [
+    {"path": "verifier_only/reference.json", "reason": "hidden verifier truth"},
+    {"path": "verifier.py", "reason": "author-side verifier implementation"},
+    {"path": "tests/", "reason": "author-side tests"},
+    {"path": "data/downloaded_source_bytes/", "reason": "no source bytes are frozen in this staging task"}
+  ],
+  "promotion_requirements": [
+    "rights decision for each selected file",
+    "file-level SHA-256 freeze",
+    "verifier rebound from the same snapshot",
+    "fixed-container replay",
+    "independent practitioner review"
+  ]
+}

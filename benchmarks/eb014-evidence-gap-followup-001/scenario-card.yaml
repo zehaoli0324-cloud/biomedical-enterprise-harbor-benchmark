@@ -1,0 +1,44 @@
+scenario_id: eb014-evidence-gap-followup-001
+status: ready
+source_scenarios: [eb013-observation-boundary-004, eb012-cross-handoff-audit-001]
+domain: biomedical_enterprise
+scientific_decision: determine current claim ceiling and choose adaptive evidence follow-up
+scientific_judgments:
+  - separate supported premises from tempting but out-of-scope evidence
+  - preserve claim permissions and withdraw downstream claims when a bridge fails
+  - choose minimum additional evidence under a shared budget
+  - update the next action only after a declared intermediate result
+workflow_handoffs:
+  - from: evidence_graph_reconstruction
+    to: claim_permission_ledger
+    artifact: outputs/claim_ledger.json
+    invariant: every claim cites all required premise statuses
+  - from: followup_selection
+    to: feedback_conditioned_replan
+    artifact: outputs/adaptive_update.json
+    invariant: no future result is used before its declared state
+difficulty_modules:
+  - id: judgment_claim_transportability_boundary
+    observable: claim scope and permission are bounded by registered premises
+    decision_flip: removing a bridge premise withdraws a downstream claim
+  - id: research_minimum_additional_evidence
+    observable: selected actions maximize worst-case claim resolution under budget and dependencies
+    decision_flip: budget or dependency intervention changes the minimum follow-up set
+  - id: horizon_adaptive_research_priority
+    observable: later action depends only on the first observed result and remaining budget
+    decision_flip: inconsistent first result produces hold while consistent result permits a bridge action
+  - id: retrieval_independence_quorum
+    observable: duplicate or stale evidence cannot satisfy independent support
+    decision_flip: replacing one source changes premise status and claim ceiling
+difficulty_budget:
+  primary: research_minimum_additional_evidence
+  secondary: [judgment_claim_transportability_boundary, horizon_adaptive_research_priority]
+  supporting: [retrieval_independence_quorum]
+release_gates:
+  scientific_reality: synthetic_planning_only
+  observability: pass
+  verifiability: pass
+  naive_resistance: pending_controls
+  reproducibility: automated_controls
+  enterprise_value: pending
+  training_value: evaluation_only

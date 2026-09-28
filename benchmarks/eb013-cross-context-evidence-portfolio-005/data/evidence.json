@@ -39,6 +39,38 @@
       "independence": "independent",
       "quality": "pass",
       "effect": 0.48
+    },
+    {
+      "record_id": "C4-G1",
+      "context_id": "C4",
+      "group_id": "G10",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": 0.22
+    },
+    {
+      "record_id": "C4-G2",
+      "context_id": "C4",
+      "group_id": "G11",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": 0.25
+    },
+    {
+      "record_id": "C5-G1",
+      "context_id": "C5",
+      "group_id": "G12",
+      "independence": "independent",
+      "quality": "pass",
+      "effect": 0.51
+    },
+    {
+      "record_id": "C5-G1R",
+      "context_id": "C5",
+      "group_id": "G12R",
+      "independence": "related",
+      "quality": "pass",
+      "effect": 0.49
     }
   ]
 }

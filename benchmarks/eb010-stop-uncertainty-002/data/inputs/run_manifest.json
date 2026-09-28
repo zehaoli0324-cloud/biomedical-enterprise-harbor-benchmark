@@ -1,0 +1,11 @@
+{
+  "schema_version": "two-stage-evidence-manifest.v1",
+  "network": "off",
+  "decision_date": "2026-09-22",
+  "input_files": [
+    "inputs/stage1_requests.json",
+    "inputs/stage2_requests.json",
+    "rules.json"
+  ],
+  "future_outcome_visible": false
+}

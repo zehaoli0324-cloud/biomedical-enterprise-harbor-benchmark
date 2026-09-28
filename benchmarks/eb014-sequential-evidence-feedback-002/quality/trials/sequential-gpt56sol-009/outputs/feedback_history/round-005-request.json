@@ -1,0 +1,7 @@
+{
+  "round": 5,
+  "action_id": "stop",
+  "question_id": "Q-STOP",
+  "rationale": "Quality audit, context comparison, independent replication, and the orthogonal handoff assay are all recorded. The independent replicate reproduced the registered-cohort effect, while the confirmed context shift still prevents transport beyond that cohort; the stop rule is therefore satisfied with the claim boundary held at registered_cohort_only.",
+  "expected_information": "Record the stopped outcome and complete the required stop-rule check without making a claim about transport to the target context."
+}

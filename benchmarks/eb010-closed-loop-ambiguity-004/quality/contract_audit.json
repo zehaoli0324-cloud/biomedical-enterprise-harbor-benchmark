@@ -1,7 +1,7 @@
 {
   "schema_version": "enterprise_contract_audit.v1",
   "task_id": "eb010-closed-loop-ambiguity-004",
-  "task_version": "0.7.0",
+  "task_version": "0.8.0",
   "status": "PASS",
   "checks": [
     {"output": "outputs/plan.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
@@ -13,8 +13,8 @@
   "canonical_outputs": {
     "plan.json": {
       "required": ["operations", "total_cost", "network_used", "stop_condition"],
-      "equivalents": ["operation strings or operation objects", "any valid topological order"],
-      "forbidden": ["duplicate operation", "missing dependency", "network_used=true", "unknown operation"]
+      "equivalents": ["operation strings or operation objects", "any capability-complete dependency-valid subset", "any valid topological order"],
+      "forbidden": ["duplicate operation", "missing capability", "missing dependency", "network_used=true", "unknown operation"]
     },
     "decision.json": {
       "required": ["selected_record", "rules_version", "claim_boundary", "human_review_required", "records"],

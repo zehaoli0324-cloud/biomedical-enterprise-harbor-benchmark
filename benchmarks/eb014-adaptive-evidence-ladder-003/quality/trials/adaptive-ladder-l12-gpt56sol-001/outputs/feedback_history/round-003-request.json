@@ -1,0 +1,8 @@
+{
+  "round": 3,
+  "action_id": "estimate_primary",
+  "question_id": "Q-PRIMARY",
+  "rationale": "Quality and pairing audits passed; estimate the registered-cohort primary signal before activating transport, replication, and confounding checks.",
+  "expected_information": "A declared primary_supported or primary_weak observation for the registered cohort.",
+  "prior_state_token": "854f44c4dd14c93eea28ba666f458025d494143ed2cc0dc312d55b78461824c7"
+}

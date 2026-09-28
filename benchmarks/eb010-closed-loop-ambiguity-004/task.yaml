@@ -1,8 +1,13 @@
 id: eb010-closed-loop-ambiguity-004
-version: "0.7.0"
+version: "0.8.0"
 status: ready_for_calibration
+calibration_status: DATA_EXPANDED_RECALIBRATION_REQUIRED
 title: "Ambiguous policy replay with discovery and semantic abstention"
 domain: biomedical_enterprise
+evidence_surface:
+  map: quality/claim_evidence_map.tsv
+  card: quality/evidence_surface_card.json
+  abstention_rule: "仅 P-BETA 的语义歧义可标记 INSUFFICIENT_BY_DESIGN；不得对可判定记录 blanket-abstain。"
 agent_visible_inputs:
   - path: data/
     format: nested JSON bundle

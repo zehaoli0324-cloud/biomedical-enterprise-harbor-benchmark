@@ -1,0 +1,16 @@
+{
+  "round": 6,
+  "action_id": "bridge_assay",
+  "outcome": "bridge_failed",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-BRIDGE",
+      "effect": 0.05,
+      "status": "NOT_TRANSPORTED"
+    }
+  ],
+  "remaining_budget": 8,
+  "accepted": true,
+  "state_token": "8df70347781b710ca3716bcb8eed57b40cce8dc3654ab8fe9dca8d68e328147f"
+}

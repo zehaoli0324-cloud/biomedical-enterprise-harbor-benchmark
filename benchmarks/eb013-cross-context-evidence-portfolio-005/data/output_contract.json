@@ -1,5 +1,16 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "required_files": [
+    "planner.py",
+    "plan.json",
+    "decision.json",
+    "portfolio.tsv",
+    "context.tsv",
+    "provenance.json",
+    "audit.md"
+  ],
+  "planner_cli": "python planner.py --data <data-directory> --out <output-directory>",
+  "replay_contract": "The verifier may change public numeric values, option independence, budget, and JSON array order without changing schemas or controlled vocabularies. planner.py must recompute every non-code output from the supplied data directory.",
   "numeric_tolerance": 1e-06,
   "required_hash_paths": [
     "rules.json",
@@ -52,6 +63,7 @@
     "related replicate counted as independent",
     "missing context",
     "wrong hash",
-    "nonfinite number"
+    "nonfinite number",
+    "constant-output planner"
   ]
 }

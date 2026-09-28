@@ -54,6 +54,26 @@
       ]
     },
     {
+      "control_id": "constant-output-planner",
+      "kind": "negative",
+      "passed": true,
+      "verifier_passed": false,
+      "errors": [
+        "replay.budget_contraction.delivery_error: missing or invalid plan.json",
+        "replay.budget_contraction.delivery_error: missing or invalid decision.json",
+        "replay.budget_contraction.delivery_error: missing or invalid portfolio.tsv",
+        "replay.budget_contraction.delivery_error: missing or invalid context.tsv",
+        "replay.budget_contraction.delivery_error: missing or invalid provenance.json",
+        "replay.budget_contraction.delivery_error: missing or invalid audit.md",
+        "replay.relationship_and_order.delivery_error: missing or invalid plan.json",
+        "replay.relationship_and_order.delivery_error: missing or invalid decision.json",
+        "replay.relationship_and_order.delivery_error: missing or invalid portfolio.tsv",
+        "replay.relationship_and_order.delivery_error: missing or invalid context.tsv",
+        "replay.relationship_and_order.delivery_error: missing or invalid provenance.json",
+        "replay.relationship_and_order.delivery_error: missing or invalid audit.md"
+      ]
+    },
+    {
       "control_id": "pooled-shortcut",
       "kind": "metamorphic",
       "passed": true,
@@ -83,9 +103,9 @@
     },
     {
       "control_id": "conflict-resolution",
-      "kind": "invariance",
+      "kind": "metamorphic",
       "passed": true,
-      "decision_flip": false,
+      "decision_flip": true,
       "errors": []
     },
     {
@@ -108,10 +128,12 @@
       "name": "pooled-shortcut",
       "selected": {
         "selected_followups": [
-          "F1"
+          "F1",
+          "F6",
+          "F7"
         ],
-        "total_cost": 1.0,
-        "supported_count": 3,
+        "total_cost": 3.0,
+        "supported_count": 5,
         "conflicted_count": 0,
         "insufficient_count": 0
       },
@@ -124,7 +146,7 @@
         "total_cost": 0.0,
         "supported_count": 1,
         "conflicted_count": 1,
-        "insufficient_count": 1
+        "insufficient_count": 3
       },
       "decision_flip": true
     },
@@ -132,12 +154,12 @@
       "name": "independent-gain",
       "selected": {
         "selected_followups": [
-          "F1"
+          "F7"
         ],
-        "total_cost": 1.0,
+        "total_cost": 0.9,
         "supported_count": 2,
         "conflicted_count": 1,
-        "insufficient_count": 0
+        "insufficient_count": 2
       },
       "decision_flip": true
     },
@@ -150,7 +172,7 @@
         "total_cost": 1.4,
         "supported_count": 2,
         "conflicted_count": 0,
-        "insufficient_count": 1
+        "insufficient_count": 3
       },
       "decision_flip": true
     },
@@ -158,25 +180,27 @@
       "name": "conflict-resolution",
       "selected": {
         "selected_followups": [
-          "F1",
-          "F4"
+          "F4",
+          "F7"
         ],
-        "total_cost": 2.4,
+        "total_cost": 2.3,
         "supported_count": 3,
         "conflicted_count": 0,
-        "insufficient_count": 0
+        "insufficient_count": 2
       },
-      "decision_flip": false
+      "decision_flip": true
     },
     {
       "name": "order-invariance",
       "selected": {
         "selected_followups": [
           "F1",
-          "F4"
+          "F4",
+          "F6",
+          "F7"
         ],
-        "total_cost": 2.4,
-        "supported_count": 3,
+        "total_cost": 4.4,
+        "supported_count": 5,
         "conflicted_count": 0,
         "insufficient_count": 0
       },
@@ -186,10 +210,12 @@
       "name": "insufficient",
       "selected": {
         "selected_followups": [
-          "F4"
+          "F4",
+          "F6",
+          "F7"
         ],
-        "total_cost": 1.4,
-        "supported_count": 2,
+        "total_cost": 3.4,
+        "supported_count": 4,
         "conflicted_count": 0,
         "insufficient_count": 1
       },

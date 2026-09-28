@@ -1,0 +1,74 @@
+{
+  "requests": [
+    {
+      "request_id": "D-MANIFEST",
+      "stage": 1,
+      "cost": 2.0,
+      "correlation_group": "G0",
+      "covers": {
+        "energy_error": 0.25,
+        "configuration_drift": 0.3
+      },
+      "outcomes": {
+        "topology_mismatch": {
+          "energy_error": 0.15
+        },
+        "parameter_drift": {
+          "configuration_drift": 0.15
+        }
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 0.88
+    },
+    {
+      "request_id": "D-NOMINAL",
+      "stage": 1,
+      "cost": 1.0,
+      "correlation_group": "G1",
+      "covers": {
+        "energy_error": 0.5,
+        "configuration_drift": 0.05
+      },
+      "outcomes": {
+        "reported_match": {},
+        "reported_mismatch": {}
+      },
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 1.25
+    },
+    {
+      "request_id": "D-ARCHIVE",
+      "stage": 1,
+      "cost": 1.0,
+      "correlation_group": "G2",
+      "covers": {
+        "energy_error": 0.55,
+        "configuration_drift": 0.4
+      },
+      "outcomes": {
+        "legacy_match": {},
+        "legacy_mismatch": {}
+      },
+      "status": "archived",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 1.4
+    },
+    {
+      "request_id": "D-CONTEXT",
+      "stage": 1,
+      "cost": 1.0,
+      "correlation_group": "G8",
+      "covers": {"energy_error": 0.2, "configuration_drift": 0.25},
+      "outcomes": {"environment_match": {"energy_error": 0.1}, "environment_conflict": {"configuration_drift": 0.2}},
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [],
+      "nominal_value": 1.02
+    }
+  ]
+}

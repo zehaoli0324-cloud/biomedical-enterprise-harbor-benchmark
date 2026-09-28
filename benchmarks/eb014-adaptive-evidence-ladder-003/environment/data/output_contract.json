@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "required_files": ["research_log.json", "completion.json", "provenance.json", "audit.md", "contingent_policy.json", "policy_certificate.json"],
+  "event_fields": ["round", "action_id", "observed_outcome", "cost", "question_id", "next_question", "state_token"],
+  "claim_container": "final_claims",
+  "claim_values_source": "rules.final_claims",
+  "claim_fields": ["quality_status", "pairing_status", "primary_status", "context_status", "replication_status", "confounding_status", "robustness_status", "claim_boundary"],
+  "completion_fields": ["checks", "stop_reason", "human_review_required", "claim_boundary"],
+  "completion_schema": {
+    "checks": "object whose keys are check IDs (never outcome labels), mapping every required and outcome-activated check to boolean true",
+    "stop_reason": {"type": "string", "enum": ["evidence_complete", "bounded_handoff"]},
+    "human_review_required": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string", "const_from": "rules.claim_boundary"}
+  },
+  "provenance_schema": {
+    "input_sha256": "object mapping every data/*.json filename to its lowercase SHA-256 digest",
+    "rules_version": {"type": "string", "const_from": "rules.rules_version"},
+    "network": {"type": "string", "const": "off"},
+    "deterministic": {"type": "boolean", "const": true}
+  },
+  "allowed_statuses": ["PASS", "SUPPORTED", "HOLD", "REVIEW_REQUIRED", "REGISTERED_ONLY"],
+  "policy_contract": "data/partial_observation_protocol.json",
+  "policy_row_fields": ["information_set_id", "stage", "observation", "chosen_action", "worst_case_value", "adversarial_branch_count", "decision_status"],
+  "policy_rows_container_aliases": ["rows", "policy"],
+  "policy_decision_status_aliases": {"ROBUST_ACTION": ["ROBUST_ACTION", "MINIMAX_OPTIMAL"], "DELAYED_REVEAL_WAIT": ["DELAYED_REVEAL_WAIT", "PENDING_WAIT"]},
+  "policy_certificate_aliases": {"overall_decision": ["MINIMAX_POLICY_COMPLETE", "VALID_STATIC_MINIMAX_REPLAY"], "claim_scope": ["static_contingent_policy_replay_only", "STATIC_CONTINGENT_POLICY_REPLAY_ONLY"]},
+  "audit_evidence_ids": ["M-QC", "M-PAIR", "M-PRIMARY", "M-CONTEXT", "M-REPL", "M-NEG", "M-ORTHO", "M-BRIDGE", "M-INFLUENCE", "M-CONFOUND", "M-ROBUST"],
+  "forbidden": ["future outcome before action", "broken state-token chain", "duplicate action", "budget overspend", "early stop", "missing activated follow-up", "incomplete contingent policy", "live-interactive L12 claim"]
+}

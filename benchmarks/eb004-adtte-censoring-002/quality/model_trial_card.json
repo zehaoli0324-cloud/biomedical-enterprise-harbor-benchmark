@@ -73,6 +73,6 @@
       "failure_attribution": "shortcut_or_calculation"
     }
   ],
-  "target_model_status": "NOT_RUN",
-  "status": "BASELINES_COMPLETE"
+  "target_model_status": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+  "status": "TARGET_TRIAL_COMPLETE"
 }

@@ -1,0 +1,40 @@
+{
+  "strategy": "target_model",
+  "model": "gpt-5.6-sol",
+  "trial_id": "observation-boundary-gpt56sol-001",
+  "classification": "RAW_PASS",
+  "runner_status": "pass",
+  "turn_completed": true,
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "started_at": "2026-09-22T07:00:03.462089+00:00",
+  "finished_at": "2026-09-22T07:11:02.215545+00:00",
+  "raw_verifier_result": {
+    "passed": true,
+    "errors": [],
+    "status": "pass",
+    "runner_verifier_exit_code": 0,
+    "runner_verifier_seconds": 0.116
+  },
+  "frozen_replay": {
+    "passed": true,
+    "errors": []
+  },
+  "artifact_sha256": {
+    "audit.md": "0d498bbb30122febc63bee501d866f0cc844be72a859828532246125fff352af",
+    "decision.json": "b4e45643ed3c4e5e50193c8ad479c123eb784f7d06bd14bb266b9b7dfa9359c6",
+    "plan.json": "d57b80ffd9847863ea25acade5ecae05a383bdfe3057f3e482b0e059968bc11a",
+    "provenance.json": "d9a81ef48229cd26d96307e95301754171c56eae63dc7eff76af6761a357f54b"
+  },
+  "event_log_sha256": "d757d59f8fd622f87810d90ff6ca2ed3f878a4f0ee35bbe8a5b92d4248c22caf",
+  "freeze_sha256": "8f4da828bf6b0044a26ac42a327aa3819abf37a92d9fd416446da21c88e5db6d",
+  "artifact_content_changed": false,
+  "isolation_mode": "process_cwd_only",
+  "trial_dir": "/private/tmp/enterprise-observation-boundary-trials/observation-boundary-gpt56sol-001",
+  "adapter_sha256": {
+    "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+    "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+  },
+  "adapter_capture": "post-run source hashes; no adapter edits during this trial",
+  "limitation": "Local calibration, not container-isolated or cross-domain target-model validation."
+}

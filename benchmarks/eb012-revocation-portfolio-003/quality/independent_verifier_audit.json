@@ -1,0 +1,8 @@
+{
+  "audit_id": "AUDIT-EB012-REVOCATION-PORTFOLIO-003-001",
+  "task_id": "eb012-revocation-portfolio-003",
+  "review_status": "pass",
+  "finding_count": 0,
+  "source_report": "/private/tmp/eb012-revocation-portfolio-review.json",
+  "status": "PASS"
+}

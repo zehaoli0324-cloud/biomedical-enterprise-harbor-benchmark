@@ -1,8 +1,13 @@
 id: eb010-distributional-policy-stress-006
-version: "0.8.1"
+version: "0.8.2"
 status: ready_for_calibration
+calibration_status: DATA_EXPANDED_RECALIBRATION_REQUIRED
 title: "Distributionally robust adaptive-policy stress test"
 domain: biomedical_enterprise
+evidence_surface:
+  map: quality/claim_evidence_map.tsv
+  card: quality/evidence_surface_card.json
+  abstention_rule: "仅未来/缺字段/未知状态策略可标记 INSUFFICIENT_BY_DESIGN；六个情景和五个 profile 均须给出分支结果。"
 agent_visible_inputs:
   - path: data/
     format: nested JSON bundle

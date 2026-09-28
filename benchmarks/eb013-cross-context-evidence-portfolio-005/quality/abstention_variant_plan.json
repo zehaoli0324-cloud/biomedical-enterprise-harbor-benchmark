@@ -1,0 +1,56 @@
+{
+  "task_id": "eb013-cross-context-evidence-portfolio-005",
+  "evidence_surface": {
+    "independent_example_units": 9,
+    "example_units_by_type": {
+      "POSITIVE_OBSERVABLE": 4,
+      "NEGATIVE_OBSERVABLE": 5,
+      "INSUFFICIENT_BY_DESIGN": 0
+    },
+    "insufficient_fraction": 0.0,
+    "insufficient_score_weight": 0.0
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "decision.decision: mismatch"
+      ],
+      "note": ""
+    },
+    {
+      "variant_id": "all_definite",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": "No insufficient unit exists; the control confirms that none may be invented."
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "contexts.C1.decision: mismatch"
+      ],
+      "note": ""
+    }
+  ],
+  "gate_status": "PASS"
+}

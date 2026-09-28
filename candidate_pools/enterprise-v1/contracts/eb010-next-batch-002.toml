@@ -80,9 +80,9 @@ rationale = "The output is bounded by human review and explicit non-experimental
 tags = ["human-gate"]
 
 [modules]
-judgment = ["judgment_value_of_information", "judgment_uncertainty_and_stop_rules"]
-math = ["math_batch_acquisition_under_uncertainty", "math_model_selection_and_sensitivity"]
-horizon = ["horizon_branching_experiments"]
+judgment = ["judgment_value_of_information", "judgment_uncertainty_and_stop_rules", "judgment_blocker_and_abstention"]
+math = ["math_batch_acquisition_under_uncertainty", "math_model_selection_and_sensitivity", "math_robust_scenario_optimization", "math_sensitivity_frontier"]
+horizon = ["horizon_branching_experiments", "horizon_two_stage_acquisition"]
 data = ["data_text_and_metadata"]
 data_complexity = ["complexity_sparse_or_missing"]
 environment = ["environment_offline_setup"]

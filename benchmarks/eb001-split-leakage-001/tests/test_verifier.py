@@ -62,3 +62,11 @@ def test_reference_shaped_submission_passes(tmp_path: Path):
     (tmp_path / "run_manifest.json").write_text(json.dumps({"input_sha256": result["hashes"], "rules_version": result["rules_version"], "tool_version": "test", "deterministic": True}), encoding="utf-8")
     ok, errors = verifier.verify(tmp_path, ROOT / "data", ROOT / "verifier_only/reference.json")
     assert ok, errors
+
+
+def test_semantically_equivalent_trial_shape_passes(tmp_path: Path):
+    trial = Path('/private/tmp/benchmark-runs/batch-notrun-eb001-split-leakage-001/trial-gpt56-sol-20260922-001/agent_workspace/outputs')
+    if not trial.exists():
+        return
+    ok, errors = verifier.verify(trial, ROOT / 'data', ROOT / 'verifier_only/reference.json')
+    assert ok, errors

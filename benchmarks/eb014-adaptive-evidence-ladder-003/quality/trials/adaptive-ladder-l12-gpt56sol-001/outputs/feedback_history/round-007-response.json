@@ -1,0 +1,16 @@
+{
+  "round": 7,
+  "action_id": "negative_control",
+  "outcome": "negative_control_signal",
+  "cost_charged": 1,
+  "observed_measurements": [
+    {
+      "id": "M-NEG",
+      "effect": 0.12,
+      "status": "SIGNAL_DETECTED"
+    }
+  ],
+  "remaining_budget": 7,
+  "accepted": true,
+  "state_token": "c97e91097366492729c857433f1ac476c3602aa050752bc7d1b4963f3fa261c7"
+}

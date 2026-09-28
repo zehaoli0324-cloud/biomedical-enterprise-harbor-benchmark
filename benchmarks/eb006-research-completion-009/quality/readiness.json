@@ -1,0 +1,9 @@
+{
+  "status": "CONTRACT_REPAIR_REQUIRED",
+  "target_model_trial": "RAW_FAIL_CONTRACT_AMBIGUITY",
+  "human_review": "NOT_RUN",
+  "isolated_replay": "NOT_RUN",
+  "release_ready": false,
+  "completion_gate": "PASS",
+  "scientific_verifier": "FAIL_CONTRACT_AMBIGUITY"
+}

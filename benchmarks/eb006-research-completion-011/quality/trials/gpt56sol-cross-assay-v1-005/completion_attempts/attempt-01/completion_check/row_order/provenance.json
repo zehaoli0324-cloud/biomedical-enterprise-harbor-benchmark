@@ -1,0 +1,17 @@
+{
+  "analysis_sha256": "c6154bd063d2b35d7a523712b351f65f47bca3074e9e864e6342bb651cc7a245",
+  "deterministic": true,
+  "input_sha256": {
+    "assay_observations.csv": "a15d86a7b44731d2db4ef255583d702a826571bdb49b9e04d00f02dc7dd1d365",
+    "observations.csv": "9792a8ef5231190726f0d4c89aff9869a0cd54c2f4d61d1be4c0806d512149d0",
+    "policy.json": "fa14526be5de4384c055b640c44e147aa1708394a8e12bc064d602a2f3933dde",
+    "research_contract.json": "1b864a3d6fe5cf823297b26f9eff4da077c8bea43fb6beeb9a93a8d9a6069fa4"
+  },
+  "network": "off",
+  "rules_version": "research-completion-v1.3.2",
+  "runtime": {
+    "decimal_precision": 50,
+    "python_implementation": "cpython",
+    "python_version": "3.14.7"
+  }
+}

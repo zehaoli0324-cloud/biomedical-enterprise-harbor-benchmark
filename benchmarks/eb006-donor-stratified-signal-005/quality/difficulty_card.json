@@ -1,0 +1,40 @@
+{
+  "difficulty_card_id": "DIFF-EB006-DONOR-STRATIFIED-SIGNAL-005-001",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "level": "L7",
+  "primary_module": "math_stratified_partial_identifiability",
+  "secondary_modules": [
+    "judgment_experimental_unit",
+    "judgment_conflict_precedence"
+  ],
+  "supporting_modules": [
+    "noise_pooled_stratified_adversary",
+    "noise_operational_distractors"
+  ],
+  "held_out_variants": [
+    "technical-replicate rebalance without donor-effect change",
+    "late-state donor restoration",
+    "early-state support contraction",
+    "single donor direction reversal",
+    "inactive high-signal candidate activation"
+  ],
+  "decision_flip_controls": [
+    "row-pooled shortcut favors method_beta but donor stratification rejects it",
+    "one missing late-state donor leaves method_gamma supported",
+    "a nonpositive registered donor forces contradiction before mean-effect ranking"
+  ],
+  "difficulty_hypothesis": {
+    "reasoning_chain": [
+      "filter scope and QC",
+      "collapse technical replicates within condition",
+      "pair conditions by donor and state",
+      "resolve heterogeneous state support and range thresholds",
+      "apply cross-state precedence",
+      "rank only supported candidates"
+    ],
+    "target_failure_mechanism": "uses replicate-weighted pooled evidence or global thresholds and therefore misses a donor-specific reversal or over-abstains on one missing donor cell"
+  },
+  "difficulty_evidence_status": "TARGET_RAW_PASS_DIFFICULTY_NOT_ESTABLISHED",
+  "target_model_defeated": false,
+  "next_escalation_requirement": "add leave-one-donor-out stability as a new primary axis; do not add schema pressure"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "evidence_surface_card.v1",
+  "task_id": "eb006-research-completion-011",
+  "fixture_status": "SYNTHETIC_DISCLOSED",
+  "task_scope": "mixed_analysis",
+  "claim_evidence_map": "quality/claim_evidence_map.tsv",
+  "variant_plan": "quality/abstention_variant_plan.json",
+  "independent_units": 36,
+  "observable_units": 35,
+  "insufficient_units": 1,
+  "insufficient_fraction": 0.027778,
+  "observable_score_fraction": 0.972222,
+  "abstention_limits": {
+    "max_independent_sample_fraction": 0.3,
+    "max_score_weight": 0.25,
+    "blanket_abstain_max_fraction_of_reference_score": 0.7
+  },
+  "variant_status": "PASS",
+  "status": "PASS"
+}

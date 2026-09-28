@@ -129,5 +129,61 @@
       "mixed": "UNLISTED",
       "strong": "EXPLOIT"
     }
+  },
+  {
+    "policy_id": "P-ROBUST",
+    "scope": "active",
+    "initial_cost": 1.0,
+    "uses_future_outcome": false,
+    "branches": {"weak": "HEDGE", "mixed": "DIVERSIFY", "strong": "EXPLOIT"}
+  },
+  {
+    "policy_id": "P-LOWCOST",
+    "scope": "active",
+    "initial_cost": 0.5,
+    "uses_future_outcome": false,
+    "branches": {"weak": "CONFIRM", "mixed": "HEDGE", "strong": "EXPLOIT"}
+  },
+  {
+    "policy_id": "P-RISKY",
+    "scope": "active",
+    "initial_cost": 5.5,
+    "uses_future_outcome": false,
+    "branches": {"weak": "MAXIMIZE", "mixed": "HEDGE", "strong": "EXPLOIT"}
+  },
+  {
+    "policy_id": "P-SIGNAL",
+    "scope": "active",
+    "initial_cost": 2.5,
+    "uses_future_outcome": false,
+    "branches": {"weak": "STOP", "mixed": "CONFIRM", "strong": "EXPLOIT"}
+  },
+  {
+    "policy_id": "P-LEAKED-2",
+    "scope": "active",
+    "initial_cost": 1.0,
+    "uses_future_outcome": true,
+    "branches": {"weak": "HEDGE", "mixed": "HEDGE", "strong": "EXPLOIT"}
+  },
+  {
+    "policy_id": "P-ARCHIVED-2",
+    "scope": "archived",
+    "initial_cost": 1.0,
+    "uses_future_outcome": false,
+    "branches": {"weak": "HEDGE", "mixed": "DIVERSIFY", "strong": "EXPLOIT"}
+  },
+  {
+    "policy_id": "P-MISSING-MIXED",
+    "scope": "active",
+    "initial_cost": 1.0,
+    "uses_future_outcome": false,
+    "branches": {"weak": "HEDGE", "strong": "EXPLOIT"}
+  },
+  {
+    "policy_id": "P-UNLISTED-STRONG",
+    "scope": "active",
+    "initial_cost": 1.0,
+    "uses_future_outcome": false,
+    "branches": {"weak": "HEDGE", "mixed": "DIVERSIFY", "strong": "UNLISTED"}
   }
 ]

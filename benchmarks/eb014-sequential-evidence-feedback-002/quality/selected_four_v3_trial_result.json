@@ -1,0 +1,17 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "task_version": "2.0.0",
+  "trial_id": "selected4-eb014-gpt56sol-v3-002",
+  "model": "gpt-5.6-sol",
+  "classification": "RAW_PASS",
+  "runner_status": "pass",
+  "rounds": 10,
+  "budget_spent": 12,
+  "valid_difficulty_evidence": true,
+  "target_model_defeated": false,
+  "excluded_attempt": {
+    "trial_id": "selected4-eb014-gpt56sol-v3-001",
+    "reason": "adapter finalization race"
+  },
+  "report": "reports/selected-four-v3-optimization-20260924.json"
+}

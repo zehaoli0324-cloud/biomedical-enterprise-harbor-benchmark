@@ -1,0 +1,11 @@
+{
+  "schema_version": "task_repair_card.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "current_version": "0.1.0",
+  "data_status": "PUBLIC_SOURCE_METADATA_WITH_SYNTHETIC_GATE_CONTROLS; source bytes remain intentionally absent",
+  "evidence_map": "quality/claim_evidence_map.tsv",
+  "changes": ["added nine mixed gate cases", "added three positive READY_FOR_REVIEW branches", "separated rights, hash and rebind blockers", "kept source claims fail-closed"],
+  "removed_or_narrowed_surfaces": ["boundary-only source release audit", "no image, gene, assay or causal result claims"],
+  "completion_conditions": ["oracle pass", "nop fail", "four abstention variants", "Docker replay", "target-model trial", "source download/license freeze and scientific review before release"],
+  "target_status": "STAGING"
+}

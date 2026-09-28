@@ -1,0 +1,17 @@
+{
+  "project_id": "AEL-EB014-003",
+  "initial_questions": [
+    {"id": "Q-QUALITY", "status": "unknown", "decision": "is the apparent signal a measurement artifact?"},
+    {"id": "Q-PAIRING", "status": "locked", "decision": "is the registered paired estimand identifiable?"},
+    {"id": "Q-PRIMARY", "status": "locked", "decision": "does the registered cohort support the primary signal?"},
+    {"id": "Q-TRANSPORT", "status": "locked", "decision": "does the signal transport to the target context?"},
+    {"id": "Q-REPLICATION", "status": "locked", "decision": "does an independent unit reproduce the signal?"},
+    {"id": "Q-CONFOUNDING", "status": "locked", "decision": "does the negative control reveal residual confounding?"}
+  ],
+  "visible_measurements": [
+    {"id": "M-BASELINE", "scope": "registered_cohort", "effect": 0.42, "sample_count": 48, "quality": "unresolved", "strata": 3},
+    {"id": "M-TARGET", "scope": "target_context", "effect": 0.08, "sample_count": 36, "quality": "unresolved", "replicate_context_pairs": 3},
+    {"id": "M-DATA-MANIFEST", "measurement_domains": ["quality_replicates", "paired_deltas", "primary_ci", "context_interaction", "unit_heterogeneity", "negative_control", "orthogonal_markers", "transport_ratio", "leave_one_out", "stratified_adjustment", "sensitivity_grid"], "raw_measurement_rows_available_after_action": 76}
+  ],
+  "competing_explanations": ["measurement_artifact", "pairing_failure", "context_shift", "unit_heterogeneity", "residual_confounding"]
+}

@@ -16,9 +16,9 @@
   },
   "difficulty": {
     "task_id": "eb009-diversity-coverage-004",
-    "raw_score": 2.75,
-    "adjusted_score": 2.75,
-    "band": "intermediate",
+    "raw_score": 2.833,
+    "adjusted_score": 3.033,
+    "band": "advanced",
     "dimensions": {
       "scientific_scenario": {
         "level": 4,
@@ -71,9 +71,9 @@
         ]
       },
       "information_noise_complexity": {
-        "level": 3,
+        "level": 4,
         "weight": 1.0,
-        "rationale": "Invalid and near-duplicate candidates create bounded noise.",
+        "rationale": "Invalid identifiers, collapsed clusters and threshold-sensitive coverage create competing evidence paths.",
         "tags": [
           "diversity",
           "scaffold",
@@ -141,7 +141,9 @@
         ]
       }
     },
-    "interactions": [],
+    "interactions": [
+      "judgment_x_noisy_evidence"
+    ],
     "selected_modules": {
       "scenario": [
         {
@@ -156,6 +158,10 @@
         },
         {
           "id": "judgment_causal_boundary",
+          "params": {}
+        },
+        {
+          "id": "judgment_blocker_and_abstention",
           "params": {}
         }
       ],
@@ -181,6 +187,10 @@
         {
           "id": "data_multimodal_join",
           "params": {}
+        },
+        {
+          "id": "data_evidence_graph_join",
+          "params": {}
         }
       ],
       "data_complexity": [
@@ -198,6 +208,10 @@
       "math": [
         {
           "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        },
+        {
+          "id": "math_sensitivity_frontier",
           "params": {}
         }
       ],
@@ -228,7 +242,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "8e37e706b56f71bd69d6f215a778904cb38593f1fbfd039bca39d12a39cfe4bc",
+  "spec_digest": "90c091329aa7df41d418948f543972b9bb41919053192be65d85964a05742742",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -338,7 +352,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb009-diversity-coverage-004/scenario-card.yaml",
-    "digest": "fdd66a46ca4373f57df6b9b8f0717d569e86744f26b414411e6445e7944ecd0b",
+    "digest": "135b850f9f0e8751c364ebd7443861d6602fc4142bee8dc0a6246763b9447679",
     "scenario_id": "eb009-diversity-coverage-004",
     "status": "ready",
     "source_scenarios": [

@@ -1,0 +1,7 @@
+{
+  "round": 1,
+  "action_id": "audit_quality",
+  "question_id": "Q-QUALITY",
+  "rationale": "The target-context degradation may be a measurement-quality artifact, so quality must be assessed before interpreting context or replication evidence.",
+  "expected_information": "Determine whether the baseline and target measurements pass the declared quality audit or require repair."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb013-evidence-budget-routing-001",
+  "task_version": "0.1.1",
+  "status": "PASS",
+  "checks": [
+    {"output": "outputs/plan.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/route.tsv", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/decision.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/provenance.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
+    {"output": "outputs/audit.md", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true}
+  ],
+  "accepted_equivalents": {
+    "decision": ["execute_route", "route_selected"],
+    "residual_map": ["residual_uncertainty", "residual_uncertainty_map"],
+    "maximum_residual": ["max_critical_residual", "objective_values.maximum_critical_residual"],
+    "hashes": ["input_sha256", "sha256"],
+    "network": ["network", "network_state", "network_used=false"],
+    "route_blockers": "semantic intrinsic blockers are required; additional explanatory exclusions are allowed"
+  },
+  "mutation_matrix": [
+    {"fixture": "reference", "expected": "pass"},
+    {"fixture": "catalog-order permutation", "expected": "pass"},
+    {"fixture": "alias representation", "expected": "pass"},
+    {"fixture": "highest nominal future request", "expected": "fail"},
+    {"fixture": "correlated reduction sum", "expected": "fail"},
+    {"fixture": "missing input hash", "expected": "fail"}
+  ],
+  "replay_policy": "preserve trial artifacts and errors; never overwrite an earlier trial"
+}

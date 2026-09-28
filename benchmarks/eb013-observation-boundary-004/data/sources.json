@@ -1,0 +1,22 @@
+{
+  "S1": {
+    "status": "current",
+    "scope": "primary",
+    "available_at": "2026-09-20"
+  },
+  "S2": {
+    "status": "retracted",
+    "scope": "primary",
+    "available_at": "2026-09-20"
+  },
+  "S3": {
+    "status": "current",
+    "scope": "primary",
+    "available_at": "2026-09-22"
+  },
+  "S4": {
+    "status": "current",
+    "scope": "pilot",
+    "available_at": "2026-09-20"
+  }
+}

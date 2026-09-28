@@ -1,0 +1,200 @@
+{
+  "task_id": "eb013-observation-boundary-004",
+  "target_model_status": "RAW_PASS",
+  "records": [
+    {
+      "strategy": "reference_solution",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "strategy": "simple_legal_baseline",
+      "passed": false,
+      "errors": [
+        "decision.selected.stage1_id: mismatch",
+        "decision.selected.policy.amber: missing",
+        "decision.selected.policy.green: missing",
+        "decision.selected.worst_cost: numeric mismatch",
+        "decision: exact observation mapping required",
+        "replay.W1.observation: mismatch",
+        "replay.W1.action_id: mismatch",
+        "replay.W1.residuals.signal: numeric mismatch",
+        "replay.W1.cost: numeric mismatch",
+        "replay.W1.hours: numeric mismatch",
+        "replay.W2.observation: mismatch",
+        "replay.W2.action_id: mismatch",
+        "replay.W2.residuals.selectivity: numeric mismatch",
+        "replay.W2.cost: numeric mismatch",
+        "replay.W2.hours: numeric mismatch",
+        "replay.W4.observation: mismatch",
+        "replay.W4.residuals.signal: numeric mismatch",
+        "replay.W4.residuals.selectivity: numeric mismatch",
+        "replay.W4.cost: numeric mismatch",
+        "replay.W4.hours: numeric mismatch",
+        "replay.W3.observation: mismatch",
+        "replay.W3.action_id: mismatch",
+        "replay.W3.residuals.signal: numeric mismatch",
+        "replay.W3.residuals.selectivity: numeric mismatch",
+        "replay.W3.cost: numeric mismatch",
+        "replay.W3.hours: numeric mismatch"
+      ]
+    },
+    {
+      "strategy": "always_abstain",
+      "passed": false,
+      "errors": [
+        "decision.decision: mismatch",
+        "decision.selected: object required"
+      ]
+    },
+    {
+      "strategy": "template_or_keyword",
+      "passed": false,
+      "errors": [
+        "delivery_or_contract: invalid table: stage1_id"
+      ]
+    },
+    {
+      "strategy": "absolute-residual-baseline",
+      "passed": false,
+      "errors": [
+        "decision.selected.stage1_id: mismatch",
+        "decision.selected.policy.amber: missing",
+        "decision.selected.policy.green: missing",
+        "decision.selected.setup_families: mismatch",
+        "decision.selected.setup_cost: numeric mismatch",
+        "decision.selected.setup_slots: numeric mismatch",
+        "decision.selected.worst_cost: numeric mismatch",
+        "decision.selected.risk: numeric mismatch",
+        "decision: exact observation mapping required",
+        "replay.W1.observation: mismatch",
+        "replay.W1.cost: numeric mismatch",
+        "replay.W2.observation: mismatch",
+        "replay.W2.cost: numeric mismatch",
+        "replay.W4.observation: mismatch",
+        "replay.W4.action_id: mismatch",
+        "replay.W4.residuals.signal: numeric mismatch",
+        "replay.W4.residuals.selectivity: numeric mismatch",
+        "replay.W4.cost: numeric mismatch",
+        "replay.W3.observation: mismatch",
+        "replay.W3.action_id: mismatch",
+        "replay.W3.residuals.signal: numeric mismatch",
+        "replay.W3.residuals.selectivity: numeric mismatch",
+        "replay.W3.cost: numeric mismatch"
+      ]
+    },
+    {
+      "strategy": "cheapest-baseline",
+      "passed": false,
+      "errors": [
+        "decision.selected.policy.amber: mismatch",
+        "decision.selected.policy.green: mismatch",
+        "decision.selected.setup_families: mismatch",
+        "decision.selected.setup_cost: numeric mismatch",
+        "decision.selected.setup_slots: numeric mismatch",
+        "decision.selected.worst_cost: numeric mismatch",
+        "decision.selected.risk: numeric mismatch",
+        "decision: exact observation mapping required",
+        "replay.W1.action_id: mismatch",
+        "replay.W1.residuals.signal: numeric mismatch",
+        "replay.W1.residuals.selectivity: numeric mismatch",
+        "replay.W1.cost: numeric mismatch",
+        "replay.W1.hours: numeric mismatch",
+        "replay.W2.action_id: mismatch",
+        "replay.W2.residuals.signal: numeric mismatch",
+        "replay.W2.residuals.selectivity: numeric mismatch",
+        "replay.W2.cost: numeric mismatch",
+        "replay.W2.hours: numeric mismatch",
+        "replay.W4.action_id: mismatch",
+        "replay.W4.residuals.selectivity: numeric mismatch",
+        "replay.W4.cost: numeric mismatch",
+        "replay.W4.hours: numeric mismatch",
+        "replay.W3.action_id: mismatch",
+        "replay.W3.residuals.signal: numeric mismatch",
+        "replay.W3.residuals.selectivity: numeric mismatch",
+        "replay.W3.cost: numeric mismatch",
+        "replay.W3.hours: numeric mismatch"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "gpt56sol-v1-001",
+      "classification": "RAW_PASS",
+      "runner_status": "pass",
+      "turn_completed": true,
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "started_at": "2026-09-22T06:50:58.915598+00:00",
+      "finished_at": "2026-09-22T07:01:25.123787+00:00",
+      "raw_verifier_result": {
+        "passed": true,
+        "errors": [],
+        "status": "pass",
+        "runner_verifier_exit_code": 0,
+        "runner_verifier_seconds": 0.094
+      },
+      "frozen_replay": {
+        "passed": true,
+        "errors": []
+      },
+      "artifact_sha256": {
+        "audit.md": "4d2d051cf5de262c48a69e9d650b11fc7b6bf85f99861961ee487c776169f0a8",
+        "decision.json": "b4e45643ed3c4e5e50193c8ad479c123eb784f7d06bd14bb266b9b7dfa9359c6",
+        "plan.json": "d57b80ffd9847863ea25acade5ecae05a383bdfe3057f3e482b0e059968bc11a",
+        "provenance.json": "d9a81ef48229cd26d96307e95301754171c56eae63dc7eff76af6761a357f54b"
+      },
+      "event_log_sha256": "567aa37ca55dab98bf473552a332fbd856d0aed6f23f460acaa7cced91da80ef",
+      "freeze_sha256": "8f4da828bf6b0044a26ac42a327aa3819abf37a92d9fd416446da21c88e5db6d",
+      "artifact_content_changed": false,
+      "isolation_mode": "process_cwd_only",
+      "trial_dir": "/private/tmp/benchmark-runs/eb013-observation-boundary-004/gpt56sol-v1-001",
+      "adapter_sha256": {
+        "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+        "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+      },
+      "adapter_capture": "post-run source hashes; no adapter edits during this trial",
+      "limitation": "Local calibration, not container-isolated or cross-domain target-model validation."
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "observation-boundary-gpt56sol-001",
+      "classification": "RAW_PASS",
+      "runner_status": "pass",
+      "turn_completed": true,
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "started_at": "2026-09-22T07:00:03.462089+00:00",
+      "finished_at": "2026-09-22T07:11:02.215545+00:00",
+      "raw_verifier_result": {
+        "passed": true,
+        "errors": [],
+        "status": "pass",
+        "runner_verifier_exit_code": 0,
+        "runner_verifier_seconds": 0.116
+      },
+      "frozen_replay": {
+        "passed": true,
+        "errors": []
+      },
+      "artifact_sha256": {
+        "audit.md": "0d498bbb30122febc63bee501d866f0cc844be72a859828532246125fff352af",
+        "decision.json": "b4e45643ed3c4e5e50193c8ad479c123eb784f7d06bd14bb266b9b7dfa9359c6",
+        "plan.json": "d57b80ffd9847863ea25acade5ecae05a383bdfe3057f3e482b0e059968bc11a",
+        "provenance.json": "d9a81ef48229cd26d96307e95301754171c56eae63dc7eff76af6761a357f54b"
+      },
+      "event_log_sha256": "d757d59f8fd622f87810d90ff6ca2ed3f878a4f0ee35bbe8a5b92d4248c22caf",
+      "freeze_sha256": "8f4da828bf6b0044a26ac42a327aa3819abf37a92d9fd416446da21c88e5db6d",
+      "artifact_content_changed": false,
+      "isolation_mode": "process_cwd_only",
+      "trial_dir": "/private/tmp/enterprise-observation-boundary-trials/observation-boundary-gpt56sol-001",
+      "adapter_sha256": {
+        "codex_complete_turn.py": "b36aabf405b697890e7bcd7f202a8f216f6f2683925dd10179a30c2d44eba311",
+        "codex_gpt55.py": "42f8c91902aa2e00e29b2b4b6a0c859930ed7e4565cd7d5748915e4d1d097194"
+      },
+      "adapter_capture": "post-run source hashes; no adapter edits during this trial",
+      "limitation": "Local calibration, not container-isolated or cross-domain target-model validation."
+    }
+  ]
+}

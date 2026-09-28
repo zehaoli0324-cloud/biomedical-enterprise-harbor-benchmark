@@ -1,0 +1,7 @@
+{
+  "round": 2,
+  "action_id": "compare_context",
+  "question_id": "Q-CONTEXT",
+  "rationale": "The quality audit passed, so the remaining target-context degradation should be tested directly for transfer before interpreting it as a context effect or extending the registered-cohort claim.",
+  "expected_information": "Whether the observed effect is context_shift or context_aligned."
+}

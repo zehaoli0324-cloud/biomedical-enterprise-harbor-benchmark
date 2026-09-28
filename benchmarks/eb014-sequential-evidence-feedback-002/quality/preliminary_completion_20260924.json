@@ -1,0 +1,27 @@
+{
+  "schema_version": "preliminary_completion_triage.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "assessment_date": "2026-09-24",
+  "scope": "20_minute_relaxed_preliminary",
+  "status": "PRELIMINARY_NOT_RELEASE_READY",
+  "nearest_tier": "A",
+  "formal_completion": false,
+  "checks": {
+    "target_trial": "TARGET_TRIAL_COMPLETE_CURRENT_VERSION / RAW_PASS",
+    "independent_verifier": "PASS",
+    "contract_audit": "PASS",
+    "evidence_surface": "PASS",
+    "focused_tests": "3 passed, 1 skipped"
+  },
+  "relaxed_gates": [
+    "No trajectory analysis in this preliminary pass",
+    "No fixed-container replay in this preliminary pass",
+    "No practitioner review in this preliminary pass"
+  ],
+  "remaining_formal_blockers": [
+    "trajectory analysis",
+    "fixed-container replay",
+    "practitioner review"
+  ],
+  "next_minimum_action": "Complete trajectory analysis and fixed-container replay before human review."
+}

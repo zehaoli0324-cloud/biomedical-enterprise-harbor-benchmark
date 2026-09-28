@@ -1,0 +1,19 @@
+{
+  "schema_version": "evidence_quality.v1",
+  "package": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004",
+  "fixture_classification": "SYNTHETIC_FIXTURE",
+  "source_status": "NO_AUTOMATED_DEFECT",
+  "claim_policy": "CALIBRATION_ONLY",
+  "finding_severity": "NONE",
+  "findings": [],
+  "synthetic_evidence_files": [
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/instruction.md",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/quality/difficulty_analysis.md",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/quality/source_ledger.json",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/quality/trial_analysis.md",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-partial-observation-risk-004/quality/trials/partial-risk-gpt56sol-001/agent_events.jsonl"
+  ],
+  "manual_review_required": true,
+  "release_recommendation": "BLOCKED",
+  "generated_on": "2026-09-22"
+}

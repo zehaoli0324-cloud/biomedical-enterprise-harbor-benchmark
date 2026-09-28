@@ -1,0 +1,49 @@
+{
+  "accepted": true,
+  "issues": [],
+  "runs": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/replay_a.py",
+        "--data",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/replay_a_data",
+        "--out",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/replay_a"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "replay_a",
+      "script_sha256": "c6154bd063d2b35d7a523712b351f65f47bca3074e9e864e6342bb651cc7a245"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/replay_b.py",
+        "--data",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/replay_b_data",
+        "--out",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/replay_b"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "replay_b",
+      "script_sha256": "c6154bd063d2b35d7a523712b351f65f47bca3074e9e864e6342bb651cc7a245"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/row_order.py",
+        "--data",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/row_order_data",
+        "--out",
+        "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005/completion_attempts/attempt-01/completion_check/row_order"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "row_order",
+      "script_sha256": "c6154bd063d2b35d7a523712b351f65f47bca3074e9e864e6342bb651cc7a245"
+    }
+  ],
+  "feedback_boundary": "Completion and reproducibility only; no hidden scientific answers returned."
+}

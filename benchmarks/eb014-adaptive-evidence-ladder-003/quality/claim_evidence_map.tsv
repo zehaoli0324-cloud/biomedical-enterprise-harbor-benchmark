@@ -1,0 +1,13 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb014-adaptive-evidence-ladder-003	quality_replicates	POSITIVE_OBSERVABLE	verifier_only/scenario.json: M-QC	feedback	M-QC	no	12 replicate effects, batch IDs and batch means support numeric quality interpretation
+eb014-adaptive-evidence-ladder-003	paired_deltas	POSITIVE_OBSERVABLE	verifier_only/scenario.json: M-PAIR	feedback	M-PAIR	no	8 complete pairs with pair IDs and delta interval
+eb014-adaptive-evidence-ladder-003	primary_ci	POSITIVE_OBSERVABLE	verifier_only/scenario.json: M-PRIMARY	feedback	M-PRIMARY	no	stratified effects, counts and bootstrap interval are supplied after primary estimation
+eb014-adaptive-evidence-ladder-003	context_interaction	NEGATIVE_OBSERVABLE	verifier_only/scenario.json: M-CONTEXT	feedback	M-CONTEXT	no	registered/target effects and replicate deltas support a bounded context hold
+eb014-adaptive-evidence-ladder-003	unit_heterogeneity	INSUFFICIENT_BY_DESIGN	verifier_only/scenario.json: M-REPL,M-REPL-RANGE	feedback	M-REPL,M-REPL-RANGE	yes	heterogeneity activates influence analysis; it does not justify blanket abstention
+eb014-adaptive-evidence-ladder-003	negative_control	NEGATIVE_OBSERVABLE	verifier_only/scenario.json: M-NEG	feedback	M-NEG	no	replicate control effects and adjusted effect support confounding audit
+eb014-adaptive-evidence-ladder-003	orthogonal_markers	POSITIVE_OBSERVABLE	verifier_only/scenario.json: M-ORTHO	feedback	M-ORTHO	no	marker-level effects distinguish local confirmation from transport
+eb014-adaptive-evidence-ladder-003	transport_ratio	NEGATIVE_OBSERVABLE	verifier_only/scenario.json: M-BRIDGE	feedback	M-BRIDGE	no	bridge replicates and target interval constrain transport claims
+eb014-adaptive-evidence-ladder-003	leave_one_out	NEGATIVE_OBSERVABLE	verifier_only/scenario.json: M-INFLUENCE	feedback	M-INFLUENCE	no	unit-level leave-one-out effects identify influence
+eb014-adaptive-evidence-ladder-003	stratified_adjustment	NEGATIVE_OBSERVABLE	verifier_only/scenario.json: M-CONFOUND	feedback	M-CONFOUND	no	stratum counts, adjusted interval and sensitivity effects bound confounding
+eb014-adaptive-evidence-ladder-003	sensitivity_grid	NEGATIVE_OBSERVABLE	verifier_only/scenario.json: M-ROBUST	feedback	M-ROBUST	no	six labeled sensitivity grids support registered-only robustness status
+eb014-adaptive-evidence-ladder-003	contingent_policy	CONTROL_PARAMETER	data/partial_observation_protocol.json	policy	I00,I10,I12,I20,I22	no	17 information sets and delayed reveal branches define minimax policy surface

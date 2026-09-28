@@ -3,10 +3,10 @@
   "task_id": "eb010-closed-loop-ambiguity-004",
   "sop_version": "enterprise-harbor-sop-v1.2",
   "source_status": "REVIEW_REQUIRED",
-  "contract_status": "MATERIALIZED_V0.7.0",
+  "contract_status": "MATERIALIZED_V0.8.0",
   "contract_audit_status": "PASS",
   "control_status": "CALIBRATED",
-  "model_trial_status": "TARGET_TRIAL_PENDING_V0.7.0",
+  "model_trial_status": "BASELINES_COMPLETE",
   "independent_verifier_status": "PASS",
   "difficulty_modules": [
     "judgment_agent_planned_workflow",
@@ -19,5 +19,12 @@
   "release_blockers": [
     "fixed-container replay",
     "practitioner review"
-  ]
+  ],
+  "data_expansion": {
+    "status": "SUPERSEDES_PREVIOUS_TRIAL",
+    "expanded_on": "2026-09-24",
+    "fixture_version": "data-expanded-20260924-v2",
+    "previous_status": null,
+    "recalibration_required": true
+  }
 }

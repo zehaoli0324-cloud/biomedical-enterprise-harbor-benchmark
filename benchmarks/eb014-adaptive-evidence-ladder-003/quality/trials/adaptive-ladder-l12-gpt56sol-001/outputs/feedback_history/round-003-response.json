@@ -1,0 +1,16 @@
+{
+  "round": 3,
+  "action_id": "estimate_primary",
+  "outcome": "primary_supported",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-PRIMARY",
+      "effect": 0.42,
+      "status": "SUPPORTED"
+    }
+  ],
+  "remaining_budget": 14,
+  "accepted": true,
+  "state_token": "df51685be7a70bd81bd319571cc40126c9a8209afdd10a4504e1a206a8d763a8"
+}

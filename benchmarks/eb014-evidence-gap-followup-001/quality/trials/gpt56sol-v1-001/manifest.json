@@ -1,0 +1,62 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb014-evidence-gap-followup-001",
+  "trial_id": "gpt56sol-v1-001",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb014-evidence-gap-followup-001",
+  "trial_dir": "/private/tmp/benchmark-runs/gpt56sol-v1-001",
+  "workspace": "/private/tmp/benchmark-runs/gpt56sol-v1-001/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-22T09:05:07.772862+00:00",
+  "input_hashes": {
+    "data/actions.json": "e6cddd2232e387d0e500544911c3e934c4513f3f62b2cdf82d2a8d2fa7ae619b",
+    "data/evidence.json": "3dd615bb8eb1e9d9a71d015e29c8a5a1daad7269cb06da52850766c659181a82",
+    "data/feedback.json": "da6c3e6ff2a5bb407ca0cd6c5900a3a5fbd3aad24eb809e3dadccbf857946eac",
+    "data/output_contract.json": "b197ae0402ab284b62c44ec1043b5ea844f2e9fd4bee1849257a6279b43fcfd7",
+    "data/rules.json": "7e4bb54a41e8980fee693c1666b24903e051c65c5d8a33cffd464e064c4efb1d",
+    "data/sources.json": "e839babbd1e60f15109defc95da69767572a0e9b9de957a9e58525832d4f07a3",
+    "instruction.md": "6e6c0e399ae9ca1d8649644c17c6208653813f7d808776d310eec228c97c10f9"
+  },
+  "status": "pass",
+  "agent_command": [
+    "python3",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_complete_turn.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--timeout",
+    "840"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-22T09:05:07.773568+00:00",
+  "timeout_seconds": 900,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-22T09:14:32.466953+00:00",
+  "agent_exit_code": 0,
+  "verifier_status": "pass",
+  "verifier_score": null,
+  "verifier_exit_code": 0,
+  "visible_output_hashes": {
+    "adaptive_update.json": "7cc1524ad63d1819506aed95f2c25656df1fafb43363a7dfd011408e99ea5fad",
+    "audit.md": "ea9664b6ee3b5631d6dc48e1b947582068a19a389bc0519dfe5d2fb58075f698",
+    "claim_ledger.json": "61500f218c1414268468b65b122dc2495a1a38a3467e5e15b273c7fb2dfef8e5",
+    "provenance.json": "4e78918aea9eb557f467a66c2fde0a84f5f62a1adfe85d47079f9e5f8f471513",
+    "research_plan.json": "dde8b8122a198dfc41ca7e5e1e181ba582416d0b7bfdf1619b8d622b70968a46"
+  }
+}

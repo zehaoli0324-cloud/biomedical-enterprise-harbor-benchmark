@@ -1,0 +1,33 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb012-revocation-portfolio-003",
+  "trial_id": "eb012-revocation-portfolio-003-gpt56sol-001",
+  "model": "gpt-5.6-sol",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "runner_status": "verifier_fail_then_contract_replay_pass",
+  "initial_verifier_errors": [
+    "portfolios mismatch",
+    "replay mismatch"
+  ],
+  "classification": "agent_completed_verifier_passed_after_contract_replay",
+  "contract_revision": {
+    "reason": "blocker vocabulary was not enumerated; verify semantic gates independently of labels",
+    "scientific_decision_changed": false,
+    "artifact_content_changed": false
+  },
+  "selected_portfolio": [
+    "CHAIN-B",
+    "CHAIN-C"
+  ],
+  "robust_score": 1.38,
+  "replay_verifier_result": "pass",
+  "artifact_sha256": {
+    "audit.md": "20b021c048a5eb2b93617d71ebab6c7111faf7a3a3440b16b104bf93374cd935",
+    "decision.json": "c344d4c1c7a7f980fd4a0a0dc326d3d6078b76a2c06e77a4a8fb0884d5e9e16d",
+    "manifest.json": "6b879e838deec8be2be7de374dade73da77db7556d4b35bdd45c6c45070a4d73",
+    "replay.tsv": "433c22d7bdbe9ff68e5cecb45d8a00315491eb894e4f34bf073ba2a91900eccf"
+  },
+  "model_difficulty_outcome": "pass; target model not defeated",
+  "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"
+}

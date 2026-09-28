@@ -80,13 +80,13 @@ rationale = "The output is bounded by human review and explicit non-experimental
 tags = ["human-gate"]
 
 [modules]
-judgment = ["judgment_experimental_unit"]
+judgment = ["judgment_experimental_unit", "judgment_blocker_and_abstention"]
 compute = ["compute_data_schema_discovery"]
-math = ["math_model_selection_and_sensitivity", "math_model_selection_and_sensitivity"]
-safety = ["safety_human_approval_gate", "safety_human_approval_gate"]
-data = ["data_text_and_metadata"]
+math = ["math_model_selection_and_sensitivity", "math_sensitivity_frontier"]
+data = ["data_text_and_metadata", "data_shared_inventory_allocation", "data_evidence_graph_join"]
 data_complexity = ["complexity_sparse_or_missing"]
 environment = ["environment_offline_setup"]
+safety = ["safety_human_approval_gate"]
 
 [data]
 types = ["csv", "json", "tsv", "markdown"]

@@ -1,0 +1,16 @@
+{
+  "round": 10,
+  "action_id": "confounding_audit",
+  "outcome": "confounding_localized",
+  "cost_charged": 1,
+  "observed_measurements": [
+    {
+      "id": "M-CONFOUND",
+      "scope": "target_context",
+      "status": "LOCALIZED"
+    }
+  ],
+  "remaining_budget": 2,
+  "accepted": true,
+  "state_token": "5f2433e77392c438e7bfc3f297bb61d62ce978ca0cb2566b8fc6753118734965"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "evidence_surface_card.v1",
+  "task_id": "crispr-resistance-e2e-001",
+  "fixture_status": "NOT_MATERIALIZED",
+  "task_scope": "boundary_only",
+  "repair_plan": "quality/repair_plan.json",
+  "abstention_limits": {"max_independent_sample_fraction": 0.30, "max_score_weight": 0.25, "blanket_abstain_max_fraction_of_reference_score": 0.70},
+  "variant_status": "BLOCKED",
+  "status": "HOLD_NO_TARGET_TRIAL"
+}

@@ -1,0 +1,111 @@
+{
+  "requests": [
+    {
+      "request_id": "D-REBUILD",
+      "stage": 2,
+      "cost": 3.0,
+      "correlation_group": "G3",
+      "covers": {
+        "energy_error": 0.4,
+        "configuration_drift": 0.35
+      },
+      "allowed_observations": [
+        "topology_mismatch"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "D-MANIFEST"
+      ],
+      "nominal_value": 0.85
+    },
+    {
+      "request_id": "D-PIN",
+      "stage": 2,
+      "cost": 2.0,
+      "correlation_group": "G4",
+      "covers": {
+        "energy_error": 0.55,
+        "configuration_drift": 0.35
+      },
+      "allowed_observations": [
+        "parameter_drift"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "D-MANIFEST"
+      ],
+      "nominal_value": 0.83
+    },
+    {
+      "request_id": "D-CROSSCHECK",
+      "stage": 2,
+      "cost": 2.0,
+      "correlation_group": "G5",
+      "covers": {
+        "energy_error": 0.35,
+        "configuration_drift": 0.3
+      },
+      "allowed_observations": [
+        "topology_mismatch",
+        "parameter_drift"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "D-MANIFEST"
+      ],
+      "nominal_value": 1.1
+    },
+    {
+      "request_id": "D-REPORT",
+      "stage": 2,
+      "cost": 1.0,
+      "correlation_group": "G6",
+      "covers": {
+        "configuration_drift": 0.3
+      },
+      "allowed_observations": [
+        "reported_match",
+        "reported_mismatch"
+      ],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": [
+        "D-NOMINAL"
+      ],
+      "nominal_value": 1.0
+    },
+    {
+      "request_id": "D-POST",
+      "stage": 2,
+      "cost": 1.0,
+      "correlation_group": "G7",
+      "covers": {
+        "energy_error": 0.9,
+        "configuration_drift": 0.75
+      },
+      "allowed_observations": [
+        "topology_mismatch",
+        "parameter_drift"
+      ],
+      "status": "current",
+      "future_outcome": true,
+      "dependency_ids": [],
+      "nominal_value": 1.6
+    },
+    {
+      "request_id": "D-CONTEXT-CHECK",
+      "stage": 2,
+      "cost": 1.0,
+      "correlation_group": "G8",
+      "covers": {"energy_error": 0.25, "configuration_drift": 0.25},
+      "allowed_observations": ["environment_match", "environment_conflict"],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": ["D-CONTEXT"],
+      "nominal_value": 0.9
+    }
+  ]
+}

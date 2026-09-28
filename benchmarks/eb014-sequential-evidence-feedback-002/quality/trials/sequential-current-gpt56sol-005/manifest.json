@@ -1,0 +1,55 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "sequential-current-gpt56sol-005",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb014-sequential-evidence-feedback-002",
+  "trial_dir": "/private/tmp/eb014-current-retry.gEmobz/sequential-current-gpt56sol-005",
+  "workspace": "/private/tmp/eb014-current-retry.gEmobz/sequential-current-gpt56sol-005/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-23T09:28:44.356415+00:00",
+  "input_hashes": {
+    "data/action_catalog.json": "6fad856ef9237e848a0c8478c08a7977ab77948a21d1a20a6c6149448534b13f",
+    "data/action_contract.json": "19d6c1cca861ebbbd7d1c10c1fd18291047f6ff8f591065729e0b0e15dc07da3",
+    "data/initial_state.json": "0248726a0d821dd53011421a4255c733892b95e2f12d4d1e34f362fed001b41f",
+    "data/output_contract.json": "23343a4b496548ba68eaea3c5af0885142f9dd52c9c33342ac3362859ef30e5a",
+    "data/rules.json": "f4c9fb3aba4ed3c52c2a41957229030e00d1af512059f747cfb594ff000b13a7",
+    "instruction.md": "00e8ab6d49cb692456a0f856707eec5e9974e9c6080dee49ad0a1228e8233fe7"
+  },
+  "status": "agent_error",
+  "agent_command": [
+    "/opt/homebrew/bin/python3",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_sequential_feedback.py",
+    "--model",
+    "gpt-5.6-sol",
+    "--max-turns",
+    "9"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-23T09:28:44.356973+00:00",
+  "timeout_seconds": 1800,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-23T09:34:44.589005+00:00",
+  "agent_exit_code": 124,
+  "verifier_status": "fail",
+  "verifier_score": null,
+  "verifier_exit_code": 1,
+  "visible_output_hashes": {}
+}

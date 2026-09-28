@@ -1,0 +1,8 @@
+{
+  "round": 10,
+  "action_id": "confounding_audit",
+  "question_id": "Q-CONFOUNDING-AUDIT",
+  "rationale": "The negative control showed a signal; localize residual confounding before the required robustness analysis, while preserving the registered-cohort claim boundary.",
+  "expected_information": "A declared confounding_localized or confounding_unresolved observation for the negative-control signal.",
+  "prior_state_token": "e4286d3a12b13d0bb0e0060e0838b7e985bf2a245d40d60d1ba7e126f04c0050"
+}

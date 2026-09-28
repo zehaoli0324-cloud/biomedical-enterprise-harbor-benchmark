@@ -1,0 +1,10 @@
+{
+  "rules_version":"l6-evidence-routing-v1",
+  "required_scope":"current",
+  "max_budget":5.0,
+  "required_network":"off",
+  "critical_margin_rule":"every critical uncertainty residual must be at or below its threshold",
+  "correlation_rule":"within one correlation_group, only the largest reduction per uncertainty counts",
+  "objective":"minimize maximum critical residual, then total cost, then lexical request IDs",
+  "claim_boundary":"planning_only_not_experimental_proof"
+}

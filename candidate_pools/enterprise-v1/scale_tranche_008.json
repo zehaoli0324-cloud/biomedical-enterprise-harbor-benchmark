@@ -1,0 +1,20 @@
+{
+  "schema_version": "enterprise_scale_tranche.v1",
+  "tranche_id": "TRANCHE-008",
+  "source_matrix": "candidate_pools/enterprise-v1/manifest.json",
+  "status": "L5_2_TARGET_TRIAL_PASS_FIXED_CONTAINER_PENDING",
+  "selection_policy": {
+    "candidate_count": 1,
+    "coverage": "adaptive policy tree replay, hard feasibility gates and scenario-wise minimax regret",
+    "shared_contract": "docs/enterprise-difficulty-escalation-v1.md"
+  },
+  "recommended_candidates": [
+    {"candidate_id": "eb010-adaptive-policy-regret-005", "upgrade": "L5.2 complete policy tree and minimax regret", "primary_modules": ["horizon_adaptive_policy_replay", "math_robust_scenario_optimization"], "status": "TARGET_MODEL_PASS", "target_trial": "eb010-adaptive-policy-regret-005-gpt56sol-001"}
+  ],
+  "difficulty_result": {
+    "model": "gpt-5.6-sol",
+    "outcome": "pass",
+    "interpretation": "the task exercises full policy replay and minimax regret but did not defeat the target model"
+  },
+  "release_blockers": ["fixed-container replay", "practitioner review"]
+}

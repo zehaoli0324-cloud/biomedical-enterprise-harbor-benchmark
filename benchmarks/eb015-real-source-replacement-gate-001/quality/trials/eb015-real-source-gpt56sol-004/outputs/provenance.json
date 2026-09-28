@@ -1,0 +1,32 @@
+{
+  "input_sha256": {
+    "data/rules.json": "82ed721fb841ba38393e5b3f9802d40ffc98a8a51a4c13de093d12ee782ce46e",
+    "data/sources.json": "121916171e1ff6b311b0ad7ae598a7c1a1c9fac51357c6b61da3a495ca51bbf9",
+    "data/output_contract.json": "4f71ecba2784a081febd3705e4586beffd58dfe07ed64e0a9a00168720d1eaf8",
+    "data/release_input_manifest.json": "77351edccff8a0c40ab40a4b0b241b17f400202fcc2036852302929c49682fcb",
+    "data/numeric_provenance.tsv": "1109d178af675bf61898a217f67fb06906114c5142a8ed6027bb8bb4b855ab01"
+  },
+  "sources": [
+    {
+      "source_id": "SRC-CRISPR-PMC7006212",
+      "project_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7006212/",
+      "download_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7006212/bin/13059_2020_1940_MOESM5_ESM.xlsx",
+      "access_date": "2026-09-22"
+    },
+    {
+      "source_id": "SRC-BBBC021-V1",
+      "project_url": "https://bbbc.broadinstitute.org/BBBC021",
+      "download_url": "https://data.broadinstitute.org/bbbc/BBBC021/BBBC021_v1_moa.csv",
+      "access_date": "2026-09-22"
+    },
+    {
+      "source_id": "SRC-ZENODO-10362368",
+      "project_url": "https://zenodo.org/records/10362368",
+      "download_url": "https://zenodo.org/records/10362368/files/ml-multimem_MD_trajectory_benzene_500mol_300K_nvt_v1.zip",
+      "access_date": "2026-09-22"
+    }
+  ],
+  "access_date": "2026-09-22",
+  "deterministic": true,
+  "claim_boundary": "source_audit_only_not_scientific_claim"
+}

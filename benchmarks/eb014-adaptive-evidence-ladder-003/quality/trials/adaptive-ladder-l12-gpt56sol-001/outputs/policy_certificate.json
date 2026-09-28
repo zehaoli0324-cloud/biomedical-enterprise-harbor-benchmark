@@ -1,0 +1,15 @@
+{
+  "schema_version": "adaptive_ladder_l12_policy_certificate.v1",
+  "difficulty_level": "L12_STATIC_CONTINGENT_POLICY_REPLAY",
+  "runtime_scope": "STATIC_CONTINGENT_POLICY_REPLAY_ONLY",
+  "protocol": "data/partial_observation_protocol.json",
+  "protocol_sha256": "f9ddf2647e3c29f5b128bd581c85f8b6c31a18f17b4729de88bc61246f400344",
+  "root_information_set_id": "I00",
+  "recomputed_root_action": "REQUEST_CONTEXT_A",
+  "recomputed_root_value": -6,
+  "root_adversarial_branch_count": 1,
+  "information_set_count": 17,
+  "pending_information_set_count": 4,
+  "policy_row_count": 17,
+  "certificate_status": "VALID_STATIC_MINIMAX_REPLAY"
+}

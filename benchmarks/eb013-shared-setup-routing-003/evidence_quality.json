@@ -1,0 +1,20 @@
+{
+  "schema_version": "evidence_quality.v1",
+  "package": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003",
+  "fixture_classification": "SYNTHETIC_FIXTURE",
+  "source_status": "NO_AUTOMATED_DEFECT",
+  "claim_policy": "CALIBRATION_ONLY",
+  "finding_severity": "NONE",
+  "findings": [],
+  "synthetic_evidence_files": [
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003/data/output_contract.json",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003/instruction.md",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003/quality/contract_audit.json",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003/quality/trial_analysis.md",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003/quality/trials/eb013-shared-setup-routing-003-gpt56sol-001/agent_events.jsonl",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-shared-setup-routing-003/quality/trials/shared-setup-gpt56sol-002/agent_events.jsonl"
+  ],
+  "manual_review_required": true,
+  "release_recommendation": "BLOCKED",
+  "generated_on": "2026-09-22"
+}

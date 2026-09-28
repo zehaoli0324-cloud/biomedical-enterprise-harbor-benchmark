@@ -1,0 +1,7 @@
+{
+  "round": 4,
+  "action_id": "orthogonal_assay",
+  "question_id": "Q-HANDOFF",
+  "rationale": "The quality audit passed, the context comparison observed a context shift, and the independent replicate reproduced the registered-cohort effect. Use the required orthogonal assay to resolve the handoff check without treating the target-context shift as transport evidence.",
+  "expected_information": "Whether an orthogonal assay confirms or leaves unresolved the observed context shift, with its declared measurement and charged cost."
+}

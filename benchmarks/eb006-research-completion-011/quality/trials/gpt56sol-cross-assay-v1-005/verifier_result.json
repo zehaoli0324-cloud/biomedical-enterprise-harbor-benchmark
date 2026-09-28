@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "errors": [
+    "results.assay_checks[C43|late].status: mismatch",
+    "provenance: key coverage",
+    "perturbation.assay_checks[C43|late].status: mismatch"
+  ],
+  "status": "fail",
+  "runner_verifier_exit_code": 1,
+  "runner_verifier_seconds": 0.079
+}

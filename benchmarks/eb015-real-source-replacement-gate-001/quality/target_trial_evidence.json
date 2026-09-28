@@ -1,23 +1,34 @@
 {
   "schema_version": "enterprise_target_trial_evidence.v1",
   "task_id": "eb015-real-source-replacement-gate-001",
-  "trial_id": "eb015-real-source-gpt56sol-002",
   "model": "gpt-5.6-sol",
-  "runner_status": "verifier_fail_then_contract_replay_pass",
-  "agent_exit_code": 0,
-  "timed_out": false,
-  "required_artifacts_written": true,
-  "initial_verifier_errors": [
-    "release_plan.json: exact plan mismatch",
-    "provenance.json: exact provenance mismatch",
-    "audit.md missing required boundary: not a scientific"
+  "trials": [
+    {
+      "trial_id": "eb015-real-source-gpt56sol-002",
+      "classification": "RAW_FAIL_CONTRACT_REPLAY_PASS",
+      "valid_difficulty_evidence": false
+    },
+    {
+      "trial_id": "eb015-real-source-gpt56sol-004",
+      "runner_status": "pass",
+      "classification": "RAW_PASS",
+      "elapsed_seconds": 316.28919,
+      "valid_difficulty_evidence": false,
+      "trial_evidence": "quality/trials/eb015-real-source-gpt56sol-004/evidence.json"
+    },
+    {
+      "trial_id": "selected4-eb015-gpt56sol-v3-001",
+      "task_version": "2.0.0",
+      "runner_status": "verifier_fail",
+      "classification": "PASS_AFTER_CONTRACT_REPLAY",
+      "unchanged_artifact_replay_passed": true,
+      "held_out_replays_passed": 2,
+      "failure_attribution": "public-contract equivalence missing from the initial verifier",
+      "valid_difficulty_evidence": false,
+      "target_model_defeated": false,
+      "trial_evidence": "/Users/zehaoli0324/harbor-runs/selected-four-target-v3/eb015/selected4-eb015-gpt56sol-v3-001"
+    }
   ],
-  "classification": "RAW_FAIL_CONTRACT_REPLAY_PASS",
-  "scientific_decision_unchanged": true,
-  "canonical_replay_result": "pass",
-  "selected_sources": [],
-  "blocked_sources": ["SRC-CRISPR-PMC7006212", "SRC-BBBC021-V1", "SRC-ZENODO-10362368"],
-  "claim_boundary": "source_audit_only_not_scientific_claim",
-  "trial_dir": "/private/tmp/eb015-real-source-trial2.7d7HHY/eb015-real-source-gpt56sol-002",
+  "difficulty_interpretation": "The executable current version, including two held-out replays, was solved by the target model. Its unchanged output passed after the verifier was aligned with declared representation equivalences, so this version does not establish target-model difficulty.",
   "release_effect": "blocked_pending_source_rights_hash_verifier_rebind_fixed_container_replay_and_practitioner_review"
 }

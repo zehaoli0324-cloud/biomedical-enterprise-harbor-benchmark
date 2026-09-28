@@ -1,0 +1,9 @@
+{
+  "selected_stage1_request_id": "S-UNCERTAINTY",
+  "selected_stage2_policy": {
+    "plateau": "S-REPLICATE",
+    "discordant": "S-RECONCILE"
+  },
+  "rules_version": "l6.2-stop-uncertainty-v1",
+  "status": "verifier_only"
+}

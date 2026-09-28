@@ -1,0 +1,16 @@
+{
+  "schema_version": "evidence_quality.v1",
+  "package": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-observation-boundary-004",
+  "fixture_classification": "SYNTHETIC_FIXTURE",
+  "source_status": "NO_AUTOMATED_DEFECT",
+  "claim_policy": "CALIBRATION_ONLY",
+  "finding_severity": "NONE",
+  "findings": [],
+  "synthetic_evidence_files": [
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-observation-boundary-004/instruction.md",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-observation-boundary-004/quality/trials/gpt56sol-v1-001/outputs/audit.md"
+  ],
+  "manual_review_required": true,
+  "release_recommendation": "BLOCKED",
+  "generated_on": "2026-09-22"
+}

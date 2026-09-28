@@ -1,0 +1,10 @@
+{
+  "schema_version":"enterprise_scale_tranche.v1",
+  "tranche_id":"TRANCHE-012",
+  "source_matrix":"candidate_pools/enterprise-v1/manifest.json",
+  "status":"MIXED_TARGET_TRIAL_OUTCOMES_RELEASE_BLOCKED",
+  "selection_policy":{"candidate_count":1,"coverage":"dependency-aware evidence routing under correlated uncertainty and temporal provenance","shared_contract":"docs/enterprise-difficulty-escalation-v1.md"},
+  "recommended_candidates":[{"candidate_id":"eb013-evidence-budget-routing-001","level":"L6","upgrade":"self-planned evidence route with dependency, correlation, budget and future-outcome gates","primary_module":"judgment_evidence_route_selection","secondary_modules":["data_dependency_graph_routing","math_minimax_evidence_route_selection"],"supporting_modules":["math_correlation_adjusted_reduction"],"status":"MIXED_TARGET_TRIAL_OUTCOMES","target_trial":{"model":"gpt-5.6-sol","trial_id":"trial-gpt56-sol-001","passed":false,"failure_attribution":"minimax_route_selection"},"retry_trial":{"model":"gpt-5.6-sol","trial_id":"eb013-evidence-budget-routing-001-gpt56sol-001","passed_after_contract_replay":true,"failure_attribution":"output path and decision-enum contract defect"}}],
+  "difficulty_result":{"model":"gpt-5.6-sol","outcome":"mixed_valid_evidence","observed_failure_module":"math_minimax_evidence_route_selection","interpretation":"one valid trial failed the minimax route objective; a retry computed the optimum but initially failed delivery contract, so L6 remains discriminative","evidence":"benchmarks/eb013-evidence-budget-routing-001/quality/trial_analysis.md"},
+  "release_blockers":["fixed-container replay","practitioner review"]
+}

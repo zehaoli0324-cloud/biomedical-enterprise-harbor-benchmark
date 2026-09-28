@@ -1,0 +1,55 @@
+[task]
+id = "eb013-cross-context-evidence-portfolio-005"
+title = "Context-stratified evidence follow-up portfolio"
+domain = "biomedical_enterprise"
+source_scenarios = ["eb013-partial-observation-risk-004"]
+[scenario]
+card = "../../../benchmarks/eb013-cross-context-evidence-portfolio-005/scenario-card.yaml"
+[difficulty.scientific_scenario]
+level = 5
+rationale = "Synthetic multi-context evidence boundary with bounded independent follow-up."
+[difficulty.scientific_judgment]
+level = 5
+rationale = "Unsupported and conflicted contexts must remain explicit rather than pooled away."
+[difficulty.computational_difficulty]
+level = 3
+rationale = "Enumerate 32 follow-up portfolios under a deterministic objective."
+[difficulty.tool_call_complexity]
+level = 3
+rationale = "Offline JSON and keyed TSV contract."
+[difficulty.retrieval_complexity]
+level = 3
+rationale = "Resolve evidence roles and independence labels before aggregation."
+[difficulty.information_noise_complexity]
+level = 4
+rationale = "Related repeats and positive-but-insufficient evidence are deliberate distractors."
+[difficulty.data_type_complexity]
+level = 3
+rationale = "Context/group/effect evidence joined with follow-up options."
+[difficulty.data_complexity]
+level = 5
+rationale = "Independent groups, contexts, replacements and quality states share one budget."
+[difficulty.environment_complexity]
+level = 3
+rationale = "Deterministic offline execution and input hashes."
+[difficulty.mathematical_complexity]
+level = 4
+rationale = "Lexicographic supported/conflicted/insufficient portfolio optimization."
+[difficulty.long_horizon_complexity]
+level = 4
+rationale = "Evidence selection precedes context claim handoff."
+[difficulty.safety_risk]
+level = 3
+rationale = "Synthetic evidence planning only with human review boundary."
+[modules]
+judgment = ["judgment_evidence_sufficiency_abstention"]
+data = ["data_context_stratified_concordance"]
+math = ["math_followup_information_gain", "math_ex_ante_shared_setup"]
+[data]
+types = ["json", "tsv", "markdown"]
+[constraints]
+network = "off"
+cpu_seconds = 300
+memory_mb = 1024
+requires_input_checksum = true
+requires_deterministic_output = true

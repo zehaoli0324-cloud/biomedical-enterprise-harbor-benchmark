@@ -1,0 +1,16 @@
+{
+  "round": 4,
+  "action_id": "compare_context",
+  "outcome": "context_shift",
+  "cost_charged": 2,
+  "observed_measurements": [
+    {
+      "id": "M-CONTEXT",
+      "effect": 0.08,
+      "status": "SHIFT_DETECTED"
+    }
+  ],
+  "remaining_budget": 12,
+  "accepted": true,
+  "state_token": "04583ed1f357d4eb06bdd9055e0da430ffdb83ac55488a801ff4accac6a4e675"
+}

@@ -1,0 +1,57 @@
+{
+  "rules_version": "research-completion-v1.1",
+  "active_candidates": [
+    "C17",
+    "C28",
+    "C43"
+  ],
+  "registered_donors": [
+    "D1",
+    "D2",
+    "D3",
+    "D4"
+  ],
+  "registered_states": [
+    "early",
+    "late"
+  ],
+  "conditions": [
+    "control",
+    "treatment"
+  ],
+  "qc_pass_status": "PASS",
+  "minimum_identifiable_donors": {
+    "early": 4,
+    "late": 3
+  },
+  "minimum_state_mean_effect": {
+    "early": 0.35,
+    "late": 0.35
+  },
+  "maximum_state_effect_range": {
+    "early": 0.4,
+    "late": 0.35
+  },
+  "decision_precedence": [
+    "INSUFFICIENT",
+    "CONTRADICTORY",
+    "WEAK",
+    "SUPPORTED"
+  ],
+  "selection_rule": [
+    "nominal: SUPPORTED in all base states; largest worst state mean then lexical ID",
+    "pooled diagnostic: largest minimum pooled state effect then lexical ID; ignores support gates",
+    "robust: SUPPORTED in every state of base and every omission scenario; largest minimum paired state mean over all scenarios then lexical ID; null when none"
+  ],
+  "rounding": "decimal round-half-up to six places",
+  "claim_boundary": "analytical_triage_only_not_mechanism_or_efficacy",
+  "scenarios": [
+    "base",
+    "omit:D1",
+    "omit:D2",
+    "omit:D3",
+    "omit:D4"
+  ],
+  "sensitivity_count_rule": "In omission scenarios use max(2, original state minimum - 1), even if the omitted donor was already unidentifiable. Keep effect and range thresholds unchanged.",
+  "precision": "Compute using exact decimal or rational arithmetic; round reported numbers half-up to six decimal places. Apply thresholds and rankings before rounding."
+}

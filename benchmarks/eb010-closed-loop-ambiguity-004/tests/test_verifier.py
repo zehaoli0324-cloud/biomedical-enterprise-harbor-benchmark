@@ -15,6 +15,19 @@ def test_expected_is_deterministic():
     assert verifier.expected(ROOT / "data") == verifier.expected(ROOT / "data")
 
 
+def test_expanded_fixture_covers_decision_boundaries():
+    expected = verifier.expected(ROOT / "data")
+    assert expected["selected_record"] == "P-OMICRON"
+    assert expected["records"]["P-NU"]["eligible"] is True
+    assert expected["records"]["P-NU"]["utility_range"] == 0.2
+    assert expected["records"]["P-XI"]["blocker_reasons"] == ["budget"]
+    assert expected["records"]["P-PI"]["blocker_reasons"] == ["semantic_ambiguity"]
+    assert expected["records"]["P-RHO"]["blocker_reasons"] == ["uncertainty"]
+    assert expected["records"]["P-SIGMA"]["blocker_reasons"] == ["signal_threshold"]
+    assert expected["records"]["P-UPSILON"]["blocker_reasons"] == ["replay_stability"]
+    assert expected["records"]["P-PHI"]["blocker_reasons"] == ["scope"]
+
+
 def test_reference_shape_passes(tmp_path):
     exp = verifier.expected(ROOT / "data")
     (tmp_path / "plan.json").write_text(json.dumps({"operations": ["inventory", "interpret", "screen", "replay", "decide"], "total_cost": 6.5, "network_used": False, "stop_condition": "eligible_record_selected"}))
@@ -40,6 +53,17 @@ def test_reference_shape_passes(tmp_path):
 def test_missing_submission_fails(tmp_path):
     ok, errors = verifier.verify(tmp_path, ROOT / "data", ROOT / "verifier_only/reference.json")
     assert not ok and errors
+
+
+def test_incomplete_shortcut_plan_fails(tmp_path):
+    exp = verifier.expected(ROOT / "data")
+    (tmp_path / "plan.json").write_text(json.dumps({"operations": ["inventory", "label_scan", "top_only_replay"], "total_cost": 2.0, "network_used": False, "stop_condition": "eligible_record_selected"}))
+    (tmp_path / "decision.json").write_text(json.dumps({"selected_record": exp["selected_record"], "rules_version": exp["rules_version"], "claim_boundary": "planning_only_not_experimental_proof", "human_review_required": True, "records": exp["records"]}))
+    (tmp_path / "evidence.tsv").write_text("record_id\tsemantic_status\teligible\tblocker_reasons\n")
+    (tmp_path / "discovery.json").write_text(json.dumps({"discovered_files": exp["discovered_files"], "input_hashes": exp["hashes"], "network": exp["network"], "deterministic": True}))
+    (tmp_path / "audit.md").write_text("plan workflow ambiguity scope future stability human review not experimental proof")
+    ok, errors = verifier.verify(tmp_path, ROOT / "data", ROOT / "verifier_only/reference.json")
+    assert not ok and any("capabilities" in error for error in errors)
 
 
 def test_instruction_declares_machine_checked_output_contract():

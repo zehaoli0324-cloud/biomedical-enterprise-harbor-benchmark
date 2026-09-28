@@ -1,0 +1,12 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "selected4-eb014-gpt56sol-v2-002",
+  "model": "gpt-5.6-sol",
+  "classification": "HISTORICAL_PASS_SUPERSEDED",
+  "trial_task_version": "1.0.2",
+  "current_task_version": "2.0.0",
+  "applicable_to_current_version": false,
+  "valid_difficulty_evidence": false,
+  "target_model_defeated": false,
+  "report": "reports/selected-four-v2-target-trials-20260924.json"
+}

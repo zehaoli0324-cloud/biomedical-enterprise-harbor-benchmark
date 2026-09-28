@@ -1,0 +1,7 @@
+{
+  "round": 5,
+  "action_id": "stop",
+  "question_id": "Q-STOP",
+  "rationale": "The quality audit passed, the context comparison detected a shift, the independent replicate reproduced the registered-cohort effect, and the orthogonal assay confirmed the shift is not a quality artifact. The required evidence and handoff checks are recorded, so stop without making a transport claim.",
+  "expected_information": "A stopped outcome with zero additional cost to complete the public stop-rule check."
+}

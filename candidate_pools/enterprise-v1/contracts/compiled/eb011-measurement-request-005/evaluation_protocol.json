@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb011-measurement-request-005",
-  "spec_digest": "ab07c47b69bc34f1137bb50d8ba8badf0d5aee36e1d58892b7e73c0d1eebacde",
+  "spec_digest": "6c015bd38efdbc2e43dbd4cec12da85128e9ab7c8655990de624adabbbf60de0",
   "evaluation": {
     "scale": {
       "min": 0.0,

@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "NOT_RUN",
-  "status": "BASELINES_COMPLETE",
+  "target_model_status": "PASS",
+  "status": "TARGET_TRIAL_COMPLETE",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -52,6 +52,45 @@
       "errors": [
         "decision mismatch"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-l4-002",
+      "task_version": "l4-v1",
+      "status": "verifier_fail",
+      "passed": false,
+      "runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "fail",
+      "failure_attribution": "invalid_contract_defect",
+      "verifier_errors": [
+        "decision mismatch"
+      ],
+      "trial_dir": "/private/tmp/benchmark-runs/l4-gpt56-sol-20260921/eb011-measurement-request-005/trial-gpt56-sol-l4-002",
+      "valid_difficulty_evidence": false
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb011-measurement-request-005-gpt56sol-002",
+      "task_version": "l4-v1-explicit-contract-revision",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "pass",
+      "failure_attribution": null,
+      "verifier_errors": [],
+      "artifact_sha256": {
+        "decision.json": "e8447f4a7d81d28a60d6e0d9a12f6923bcaa13336a9106a9f3b9ff0d5f4a42ab",
+        "evidence.tsv": "0a32055d4fa42ea27f1f149aec99145c07dcf3f4c1b591d7ed9aab0399d484b5",
+        "review.md": "91eeb57d7e6ac7c6be48c2451ea11024ceeabb91e326dbf60b5edbc57b7c815f",
+        "manifest.json": "1abf6a6188f03460f9c8184bb72e69e6bb03dac7e31d6b0c55bc6109b37150ff"
+      },
+      "trial_dir": "/private/tmp/enterprise-l4-target-trials-v3/eb011-measurement-request-005-gpt56sol-002"
     }
   ]
 }

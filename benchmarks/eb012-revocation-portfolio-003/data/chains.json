@@ -1,0 +1,106 @@
+{
+  "chains": [
+    {
+      "chain_id": "CHAIN-A",
+      "source_id": "SRC-A",
+      "lot_id": "LOT-3",
+      "requested_claim": "associational",
+      "permissions": [
+        "associational",
+        "associational",
+        "associational",
+        "associational"
+      ],
+      "utilities": {
+        "T0": 0.92,
+        "T1": 0.2,
+        "T2": 0.85
+      }
+    },
+    {
+      "chain_id": "CHAIN-B",
+      "source_id": "SRC-B",
+      "lot_id": "LOT-1",
+      "requested_claim": "associational",
+      "permissions": [
+        "associational",
+        "associational",
+        "associational",
+        "associational"
+      ],
+      "utilities": {
+        "T0": 0.7,
+        "T1": 0.76,
+        "T2": 0.72
+      }
+    },
+    {
+      "chain_id": "CHAIN-C",
+      "source_id": "SRC-C",
+      "lot_id": "LOT-2",
+      "requested_claim": "associational",
+      "permissions": [
+        "associational",
+        "associational",
+        "associational",
+        "associational"
+      ],
+      "utilities": {
+        "T0": 0.68,
+        "T1": 0.71,
+        "T2": 0.74
+      }
+    },
+    {
+      "chain_id": "CHAIN-D",
+      "source_id": "SRC-D",
+      "lot_id": "LOT-1",
+      "requested_claim": "associational",
+      "permissions": [
+        "associational",
+        "associational",
+        "associational",
+        "associational"
+      ],
+      "utilities": {
+        "T0": 0.82,
+        "T1": 0.62,
+        "T2": 0.8
+      }
+    },
+    {
+      "chain_id": "CHAIN-E",
+      "source_id": "SRC-E",
+      "lot_id": "LOT-1",
+      "requested_claim": "associational",
+      "permissions": [
+        "associational",
+        "associational",
+        "associational",
+        "associational"
+      ],
+      "utilities": {
+        "T0": 0.65,
+        "T1": 0.68,
+        "T2": 0.7
+      }
+    },
+    {
+      "chain_id": "CHAIN-F",
+      "source_id": "SRC-F",
+      "lot_id": "LOT-3",
+      "requested_claim": "associational",
+      "permissions": [
+        "descriptive",
+        "descriptive",
+        "descriptive",
+        "descriptive"
+      ],
+      "utilities": {
+        "T0": 0.88,
+        "T1": 0.9,
+        "T2": 0.91
+      }
+    }
+  ]
+}

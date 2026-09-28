@@ -1,0 +1,42 @@
+{
+  "schema_version": "harbor_integration_manifest.v1",
+  "integration_date": "2026-09-23",
+  "source_baseline": {
+    "factory_archive": {
+      "path": "/Users/zehaoli0324/Downloads/harbor-science-bench-factory-main.zip",
+      "sha256": "4a954245916fdc8d3adce02e511179815788d7ba579703e7931e1888ba304401",
+      "use": "reference_only; no bulk extraction into the active benchmark tree"
+    },
+    "plans": [
+      {"path": "future-task-authoring-plan-v1.0.md", "sha256": "674fd0ecaf71347f315b4dc00acba65f19414d51ab76745542850c98fe9713ef"},
+      {"path": "ten-task-real-data-replacement-plan.md", "sha256": "eefebd0c4f627f06a02bb57dad541af134529ec3fc0a2ebf3b52534869a6ca4d"},
+      {"path": "Harbor_SOP_难度与长流程重构修改方案_2026-09-23.md", "sha256": "f272c4bdd8acd20e329e2dc264a91e3cf6a570588c46726eab92ef87bd9c1df9"},
+      {"path": "Harbor_持续尝试与交卷控制改进方案_2026-09-22 (1).md", "sha256": "30b1bd157a05c6d9f75fcc8a769f468c42d8422e6585c3ab812b35b1601ebbc0"},
+      {"path": "Harbor_超过40轮的科研任务设计方案_2026-09-22.md", "sha256": "4031fdae72ca37fc0fbb1955ce8ddbeac13d5646371f051cc3168bb7fbdec991"}
+    ]
+  },
+  "selected_tasks": [
+    {"task_id": "eb015-real-source-replacement-gate-001", "stage": "real_source_freeze", "status": "REVIEW_REQUIRED", "next": "rights_hash_verifier_rebind"},
+    {"task_id": "eb014-sequential-evidence-feedback-002", "stage": "continuation_e2e", "status": "CALIBRATED_TARGET_PASS", "next": "fixed_version_container_replay"},
+    {"task_id": "eb006-research-completion-011", "stage": "completion_gated_research", "status": "SCIENCE_PASS_RELEASE_BLOCKED", "next": "isolated_replay_and_adapter_audit"}
+  ],
+  "implemented_in_this_revision": [
+    {"path": "benchmark_runner/continuation_controller.py", "scope": "public gate receipt, bounded continuation, idempotent duplicate submission, terminal budget/infrastructure states"},
+    {"path": "benchmark_runner/continuation_controller.py", "scope": "accepted submission snapshot with file-level SHA-256 manifest"},
+    {"path": "benchmark_runner/adapters/codex_sequential_feedback.py", "scope": "freeze accepted outputs once the public completion gate passes"},
+    {"path": "benchmarks/eb015-real-source-replacement-gate-001/data/numeric_provenance.tsv", "scope": "field-level source registry provenance with pending-source fail-closed states"},
+    {"path": "benchmarks/eb015-real-source-replacement-gate-001/data/release_input_manifest.json", "scope": "explicit metadata-only agent-visible allowlist and excluded hidden artifacts"},
+    {"path": "scripts/audit_real_source_gate.py", "scope": "deterministic metadata-only source audit without network access"},
+    {"path": "scripts/package_continued_selection.py", "scope": "deterministic author-side bundle with manifest/hash verification for the selected three tasks"},
+    {"path": "benchmark_runner/trajectory.py", "scope": "observable model-message turns count toward the over-40 trajectory attribute when explicit turn events are absent"},
+    {"path": "benchmark_runner/tests/test_continuation_controller.py", "scope": "revision, idempotence and budget-stop protocol negatives"},
+    {"path": "tests/test_trajectory.py", "scope": "sequential adapter turn-count regression"}
+  ],
+  "not_claimed": [
+    "No real-data source has been promoted to release.",
+    "No fixed-container Harbor replay has been completed in this revision.",
+    "No task is required to reach 40 turns; trajectory length remains a measured attribute.",
+    "The factory archive was not treated as proof that its historical tasks satisfy the current release gates."
+  ],
+  "verification": {"selected_task_tests": "40 passed", "full_suite": "279 passed", "bundle": "165 payload files verified", "hidden_truth_accessed": false}
+}

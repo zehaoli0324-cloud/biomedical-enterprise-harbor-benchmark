@@ -1,0 +1,8 @@
+{
+  "round": 6,
+  "action_id": "bridge_assay",
+  "question_id": "Q-TRANSPORT-BRIDGE",
+  "rationale": "The context shift was confirmed by an orthogonal assay; test whether a bridge assay supports transport before closing the target-context claim.",
+  "expected_information": "A declared bridge_supported or bridge_failed observation for the registered-to-target context bridge.",
+  "prior_state_token": "f46d01a9277477666e3a931d4795d1b6c7fe2af124e4425ec48fa098d70a5831"
+}

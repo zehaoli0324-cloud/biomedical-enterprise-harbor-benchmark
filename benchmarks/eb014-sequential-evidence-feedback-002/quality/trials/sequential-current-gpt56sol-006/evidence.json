@@ -1,0 +1,36 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "trial_id": "sequential-current-gpt56sol-006",
+  "model": "gpt-5.6-sol",
+  "classification": "RAW_PASS",
+  "runner_status": "pass",
+  "raw_verifier_result": {
+    "passed": true,
+    "errors": [],
+    "status": "pass",
+    "runner_verifier_exit_code": 0,
+    "runner_verifier_seconds": 0.032
+  },
+  "trajectory": {
+    "model_turns": 10,
+    "explicit_turn_events": 6,
+    "completed_turns": 5,
+    "tool_calls_started": 32,
+    "tool_calls_completed": 32,
+    "agent_messages": 14,
+    "agent_messages_with_tools": 10,
+    "completion_gate_events": 1,
+    "completion_gate_statuses": {
+      "accepted": 1
+    },
+    "long_trace_target": "over_40_model_turns",
+    "over_40_model_turns": false
+  },
+  "event_log_sha256": "c85800b4ef236670da52c96a085a585d7c256c7f7163b791a0cd383c0fe8fcb4",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "counted_as_difficulty_failure": false,
+  "target_model_defeated": false,
+  "artifact_path": "benchmarks/eb014-sequential-evidence-feedback-002/quality/trials/sequential-current-gpt56sol-006"
+}

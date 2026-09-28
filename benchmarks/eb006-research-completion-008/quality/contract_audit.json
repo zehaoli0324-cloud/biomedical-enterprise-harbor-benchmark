@@ -1,0 +1,31 @@
+{
+  "task_id": "eb006-research-completion-008",
+  "status": "PASS",
+  "checks": [
+    {
+      "output": "outputs/analysis.py",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/results.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/provenance.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/research_audit.md",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    }
+  ],
+  "completion_gate": "public completeness and deterministic replay are separate from scientific verification"
+}

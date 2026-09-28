@@ -1,0 +1,61 @@
+{
+  "schema_version": "continued_build_trial_results.v2",
+  "run_date": "2026-09-23",
+  "runner": "benchmark_runner.cli",
+  "model": "gpt-5.6-sol",
+  "execution_backend": "process_cwd_only",
+  "artifact_root": "/private/tmp/biomedical-three-trials-rerun-20260923",
+  "results": [
+    {
+      "task_id": "eb015-real-source-replacement-gate-001",
+      "trial_id": "eb015-real-source-gpt56sol-004",
+      "status": "pass",
+      "elapsed_seconds": 316.28919,
+      "agent_exit_code": 0,
+      "verifier_status": "pass",
+      "classification": "RAW_PASS"
+    },
+    {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "trial_id": "sequential-gpt56sol-009",
+      "status": "pass",
+      "elapsed_seconds": 794.580405,
+      "agent_exit_code": 0,
+      "verifier_status": "pass",
+      "classification": "RAW_PASS",
+      "trajectory": {
+        "model_turns": 10,
+        "explicit_turn_events": 6,
+        "completed_turns": 5,
+        "tool_calls_started": 32,
+        "tool_calls_completed": 32,
+        "experiment_requests": 5,
+        "completion_gate_status": "accepted",
+        "over_40_model_turns": false
+      }
+    },
+    {
+      "task_id": "eb006-research-completion-011",
+      "trial_id": "gpt56sol-cross-assay-v1-005",
+      "status": "verifier_fail",
+      "elapsed_seconds": 854.002857,
+      "agent_exit_code": 0,
+      "completion_gate_status": "accepted",
+      "submission_attempts": 1,
+      "verifier_status": "fail",
+      "classification": "SCIENTIFIC_FAIL_CONTRACT_PASS",
+      "verifier_errors": [
+        "results.assay_checks[C43|late].status: mismatch",
+        "provenance: key coverage",
+        "perturbation.assay_checks[C43|late].status: mismatch"
+      ]
+    }
+  ],
+  "interpretation": {
+    "real_trials_completed": 3,
+    "raw_passes": 2,
+    "scientific_failures": 1,
+    "infrastructure_failures": 0,
+    "next_action": "Increase substantive difficulty for eb015 and eb014; retain eb006 and run at least one additional target-model replicate."
+  }
+}

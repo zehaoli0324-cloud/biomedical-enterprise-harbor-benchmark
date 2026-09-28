@@ -8,18 +8,18 @@ scientific_judgments:
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
 difficulty_modules:
-  - id: judgment_claim_preserving_recovery
-    observable: module 1 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of judgment_claim_preserving_recovery changes selection or triggers a bounded hold
+  - id: judgment_claim_permission_lattice
+    observable: every fallback records operational, descriptive, associational and causal permissions before and after drift
+    decision_flip: a successful rerun with reference or input drift downgrades only the affected claim and cannot approve the full handoff
+  - id: data_evidence_graph_join
+    observable: branch, artifact, input hash and environment records are joined without duplicate provenance edges
+    decision_flip: conflicting or duplicated provenance evidence routes the branch to hold rather than increasing its quorum
+  - id: horizon_end_to_end_claim
+    observable: the final recovery state carries retry budget, side-effect state and the computational-versus-biological boundary
+    decision_flip: operational success with an irreversible side effect blocks downstream biological interpretation
   - id: compute_failure_recovery
-    observable: module 2 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of compute_failure_recovery changes selection or triggers a bounded hold
-  - id: tool_branching_pipeline
-    observable: module 3 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of tool_branching_pipeline changes selection or triggers a bounded hold
-  - id: horizon_checkpointed_workflow
-    observable: module 4 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of horizon_checkpointed_workflow changes selection or triggers a bounded hold
+    observable: partial output, retry status and execution failure are preserved as separate intermediate states
+    decision_flip: a silent retry or discarded partial output invalidates the recovery recommendation
 workflow_handoffs:
   - from: visible_inputs
     to: decision_handoff

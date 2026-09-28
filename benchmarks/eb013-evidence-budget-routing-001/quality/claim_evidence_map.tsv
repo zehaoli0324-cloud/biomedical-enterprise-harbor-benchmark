@@ -1,0 +1,5 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb013-evidence-budget-routing-001	uncertainty_dimensions	POSITIVE_OBSERVABLE	data/inputs/uncertainty_map.json	逐项	signal,selectivity,reproducibility	no	three correlated uncertainty dimensions include current and critical states
+eb013-evidence-budget-routing-001	request_catalog	POSITIVE_OBSERVABLE	data/inputs/request_catalog.json	逐请求	R-ASSAY,R-CHEM,R-REPL,R-CORR,R-CROSS,R-ORTHO	no	supported requests expose cost, reduction and dependency fields
+eb013-evidence-budget-routing-001	request_catalog	INSUFFICIENT_BY_DESIGN	data/inputs/request_catalog.json	边界	R-POST,R-INCOMPLETE	yes	future and incomplete requests are local blockers, not justification for blanket abstention
+eb013-evidence-budget-routing-001	budget_and_dependency	CONTROL_PARAMETER	data/rules.json	规则	budget,correlation,stop_rule	no	routing rules are control parameters

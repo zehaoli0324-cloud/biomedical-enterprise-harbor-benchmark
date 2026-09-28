@@ -1,0 +1,79 @@
+{
+  "schema_version": "selected_four_target_trials.v1",
+  "recorded_on": "2026-09-24",
+  "model": "gpt-5.6-sol",
+  "trial_root": "/Users/zehaoli0324/harbor-runs/selected-four-target-v2",
+  "execution_notes": {
+    "v2_001": "Excluded as infrastructure failure: the nested Codex process was denied by the sandbox before task work began.",
+    "v2_002": "Executed outside that sandbox restriction with agent-visible data only; verifier-only files were not mounted.",
+    "network_policy": "off_requested",
+    "isolation_mode": "process_cwd_only",
+    "release_evidence": false
+  },
+  "results": [
+    {
+      "task_id": "eb006-research-completion-011",
+      "trial_id": "selected4-eb006-gpt56sol-v2-002",
+      "raw_runner_status": "verifier_fail",
+      "effective_classification": "SCIENTIFIC_FAIL_CONTRACT_PASS",
+      "replay_passed": false,
+      "valid_difficulty_evidence": true,
+      "target_model_defeated": true,
+      "replay_errors": [
+        "results.assay_checks[C43|late].status: mismatch",
+        "perturbation.assay_checks[C43|late].status: mismatch",
+        "assay_perturbation.assay_checks[C17|late].status: mismatch",
+        "assay_perturbation.assay_checks[C43|late].status: mismatch"
+      ],
+      "interpretation": "The model treated an assay state with an incomplete registered donor pair as supported and its submitted program repeated that error under both declared replays. An unrelated extra provenance metadata field is now accepted and is not counted as a failure."
+    },
+    {
+      "task_id": "eb013-cross-context-evidence-portfolio-005",
+      "trial_id": "selected4-eb013-gpt56sol-v2-002",
+      "raw_runner_status": "pass",
+      "effective_classification": "RAW_PASS",
+      "replay_passed": true,
+      "valid_difficulty_evidence": true,
+      "target_model_defeated": false,
+      "interpretation": "The model solved the expanded 5-context, 9-option, 512-portfolio optimization task. A future revision needs observation-contingent routing or executable perturbation checks rather than a larger static enumeration alone."
+    },
+    {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "trial_id": "selected4-eb014-gpt56sol-v2-002",
+      "raw_runner_status": "verifier_fail",
+      "effective_classification": "PASS_AFTER_CONTRACT_REPLAY",
+      "replay_passed": true,
+      "valid_difficulty_evidence": false,
+      "target_model_defeated": false,
+      "raw_error": "contract: wrong or missing input hash",
+      "interpretation": "The scientific six-action trajectory and final claims were correct. The verifier had rejected data/-prefixed hash keys even though they unambiguously name the same public files. The unchanged submission passes after canonical path normalization."
+    },
+    {
+      "task_id": "eb015-real-source-replacement-gate-001",
+      "trial_id": "selected4-eb015-gpt56sol-v2-002",
+      "raw_runner_status": "verifier_fail",
+      "effective_classification": "PASS_AFTER_CONTRACT_REPLAY",
+      "replay_passed": true,
+      "valid_difficulty_evidence": false,
+      "target_model_defeated": false,
+      "raw_errors": [
+        "readiness_summary.json: summary mismatch",
+        "audit.md missing required boundary: source_audit_only_not_scientific_claim"
+      ],
+      "interpretation": "All nine case decisions were correct. The old verifier required an undeclared summary key and one exact hidden phrase. The unchanged submission passes after restricting checks to the public contract and semantic non-claim language."
+    }
+  ],
+  "abstention_surface": {
+    "eb006-research-completion-011": {"observable_score_fraction": 0.972222, "insufficient_fraction": 0.027778},
+    "eb013-cross-context-evidence-portfolio-005": {"observable_score_fraction": 1.0, "insufficient_fraction": 0.0},
+    "eb014-sequential-evidence-feedback-002": {"observable_score_fraction": 1.0, "insufficient_fraction": 0.0},
+    "eb015-real-source-replacement-gate-001": {"observable_score_fraction": 1.0, "insufficient_fraction": 0.0}
+  },
+  "verification": {
+    "pytest": "33 passed, 3 skipped",
+    "selected_four_dynamic_checks": "PASS",
+    "eb006_unchanged_submission_replay": "FAIL_WITH_FOUR_SCIENTIFIC_MISMATCHES",
+    "eb014_unchanged_submission_replay": "PASS",
+    "eb015_unchanged_submission_replay": "PASS"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "required_files": [
+    "analysis.py",
+    "results.json",
+    "provenance.json",
+    "research_audit.md"
+  ],
+  "tables": {
+    "unit_effects": {
+      "ids": [
+        "C17|early|D1",
+        "C17|early|D2",
+        "C17|early|D3",
+        "C17|early|D4",
+        "C17|late|D1",
+        "C17|late|D2",
+        "C17|late|D3",
+        "C17|late|D4",
+        "C28|early|D1",
+        "C28|early|D2",
+        "C28|early|D3",
+        "C28|early|D4",
+        "C28|late|D1",
+        "C28|late|D2",
+        "C28|late|D3",
+        "C28|late|D4",
+        "C43|early|D1",
+        "C43|early|D2",
+        "C43|early|D3",
+        "C43|early|D4",
+        "C43|late|D1",
+        "C43|late|D2",
+        "C43|late|D3",
+        "C43|late|D4"
+      ],
+      "fields": [
+        "id",
+        "effect",
+        "control_rows",
+        "treatment_rows"
+      ]
+    },
+    "checks": {
+      "ids": [
+        "base|C17|early",
+        "base|C17|late",
+        "base|C28|early",
+        "base|C28|late",
+        "base|C43|early",
+        "base|C43|late",
+        "omit:D1|C17|early",
+        "omit:D1|C17|late",
+        "omit:D1|C28|early",
+        "omit:D1|C28|late",
+        "omit:D1|C43|early",
+        "omit:D1|C43|late",
+        "omit:D2|C17|early",
+        "omit:D2|C17|late",
+        "omit:D2|C28|early",
+        "omit:D2|C28|late",
+        "omit:D2|C43|early",
+        "omit:D2|C43|late",
+        "omit:D3|C17|early",
+        "omit:D3|C17|late",
+        "omit:D3|C28|early",
+        "omit:D3|C28|late",
+        "omit:D3|C43|early",
+        "omit:D3|C43|late",
+        "omit:D4|C17|early",
+        "omit:D4|C17|late",
+        "omit:D4|C28|early",
+        "omit:D4|C28|late",
+        "omit:D4|C43|early",
+        "omit:D4|C43|late"
+      ],
+      "fields": [
+        "id",
+        "count",
+        "missing_donors",
+        "nonpositive_donors",
+        "mean_effect",
+        "effect_range",
+        "status"
+      ]
+    },
+    "pooled": {
+      "ids": [
+        "C17|early",
+        "C17|late",
+        "C28|early",
+        "C28|late",
+        "C43|early",
+        "C43|late"
+      ],
+      "fields": [
+        "id",
+        "effect",
+        "control_rows",
+        "treatment_rows"
+      ]
+    },
+    "summaries": {
+      "ids": [
+        "C17",
+        "C28",
+        "C43"
+      ],
+      "fields": [
+        "id",
+        "nominal_eligible",
+        "robust_eligible",
+        "nominal_worst_mean",
+        "robust_worst_mean",
+        "pooled_worst_mean",
+        "failed_scenarios"
+      ]
+    }
+    ,"assay_checks": {
+      "ids": ["C17|early", "C17|late", "C28|early", "C28|late", "C43|early", "C43|late"],
+      "fields": ["id", "assay_a_effect", "assay_b_effect", "direction_concordant", "effect_range", "status"]
+    }
+  },
+  "decision_fields": [
+    "nominal_selected",
+    "pooled_selected",
+    "selected",
+    "assay_selected",
+    "cross_assay_hold",
+    "reason_codes",
+    "claim_boundary",
+    "human_review_required"
+  ],
+  "replay_timeout_seconds": 10,
+  "max_submission_attempts": 3,
+  "shared_model_seconds": 1200,
+  "program_interface": "Standalone Python standard-library analysis.py --data DATA_DIRECTORY --out OUTPUT_DIRECTORY must write results.json. Resolve all inputs from --data, not a fixed path. It must work with altered measurements, row order and equivalent schema. It may additionally write provenance and audit. Each clean replay has a 10-second limit; no network or subprocesses in submitted analysis code.",
+  "provenance_input_files": ["observations.csv", "assay_observations.csv", "policy.json", "research_contract.json"],
+  "completion_gate": "At a normal model turn end, the system checks required artifacts under outputs/, exact public record coverage and required fields, then executes the submitted code in three clean directories (two identical inputs, one reversed row order). Replay results must agree semantically with submitted results. Real missing requirements are returned, at most three submissions within one shared 1200-second budget. No hidden scientific scores or expected numbers are fed back. Complete first submissions are accepted immediately.",
+  "scientific_verifier": "After the gate, independent scoring checks numerical correctness, decisions and the submitted program on measurement perturbations. Perturbation expected results are never feedback during repair. Completion acceptance is not scientific correctness.",
+  "formats": "results.json is an object with exactly the four tables and decision. Each table is an array with one object for each declared id. Row/object key order does not matter. ID arrays and decision.reason_codes are unordered duplicate-free sets. Numeric fields are JSON numbers, missing effects are null, and flags are booleans. All listed fields required; no extra fields. Scientific numeric tolerance 1e-6. Duplicate keys/IDs and non-finite numbers forbidden.",
+  "field_semantics": {
+    "unit_effects": "Base condition counts and treatment mean minus control mean for each registered donor/state; effect null if either condition missing. Exclude inactive candidates, unregistered donors/states/conditions and non-PASS or empty values.",
+    "checks": "Recompute equal-weight identifiable donor effects for each scenario. Omitted donor is not in missing_donors. Status follows policy.decision_precedence. Count below scenario minimum gives INSUFFICIENT, else any effect <=0 CONTRADICTORY, else mean below minimum or range above maximum WEAK, else SUPPORTED. Empty mean/range are null.",
+    "pooled": "Base unpaired treatment row mean minus control row mean on eligible observations, including a one-sided row from an unpaired donor. No donor equal weighting. Report condition row counts; effect null if either group empty. This is an alternative explanation diagnostic, not a replacement estimand.",
+    "summaries": "All numeric minima are reported even if ineligible; null if any needed mean missing. nominal_eligible means all base states SUPPORTED. robust_eligible means all scenarios/states SUPPORTED. failed_scenarios lists every scenario with any non-SUPPORTED state. Rank using unrounded means and policy.selection_rule.",
+    "assay_checks": "For each candidate/state, compute donor-balanced effects separately in assay A and B. `effect_range` is exactly abs(assay_a_effect - assay_b_effect), using unrounded assay means before reporting. Status is INSUFFICIENT when either assay lacks a complete donor pair, CONTRADICTORY when either assay contains a nonpositive donor effect or the assay directions disagree, WEAK when either assay mean is below minimum_assay_effect or the assay effect range exceeds the registered state range, otherwise SUPPORTED.",
+    "decision": "Use policy selection rules for three winner fields, then require the robust winner to have SUPPORTED assay_checks in every registered state. If no robust winner survives assay concordance, selected and assay_selected are null and cross_assay_hold is true. reason_codes is a duplicate-free subset of [pooled_ranking_disagrees, nominal_selection_not_robust, technical_replication_imbalance, missing_pair_evidence, cross_assay_disagreement]. claim_boundary copies policy.claim_boundary; human_review_required is true.",
+    "provenance": "input_sha256 contains all three data filenames (no directory prefix) and SHA-256; rules_version, network=off, deterministic=true. analysis_sha256 hashes submitted analysis.py. Do not fabricate runner execution receipts.",
+    "research_audit": "Explain the competing estimands, coverage, observed disagreements, influential donors and conclusion boundary. Presence checked automatically; prose scientific review is separate."
+  }
+}

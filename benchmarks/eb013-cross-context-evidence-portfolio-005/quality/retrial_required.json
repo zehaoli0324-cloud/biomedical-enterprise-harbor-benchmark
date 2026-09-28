@@ -1,0 +1,9 @@
+{
+  "task_id": "eb013-cross-context-evidence-portfolio-005",
+  "task_version": "1.2.0",
+  "status": "TARGET_RETRIAL_COMPLETE",
+  "trial_id": "selected4-eb013-gpt56sol-v3-001",
+  "classification": "RAW_PASS",
+  "target_model_defeated": false,
+  "reason": "Version 1.2 was exercised with its executable planner and both schema-preserving held-out replays. The target model passed, so the trial is valid but does not establish target-model difficulty."
+}

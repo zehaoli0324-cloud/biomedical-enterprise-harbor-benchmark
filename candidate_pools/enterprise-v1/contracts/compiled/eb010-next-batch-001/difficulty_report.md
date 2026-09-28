@@ -5,7 +5,7 @@
 - Raw score: 3.24/5
 - Adjusted score: 3.44/5
 - Band: advanced
-- Spec digest: `5c3a2603b0666f5045061f3cfc609498b95946773216546dab3d72e79bf89ae9`
+- Spec digest: `5e41c6cb14a2658160248653a5114164d84060e99af79169d9577283e5c59085`
 
 ## Dimensions
 
@@ -50,7 +50,10 @@
 ### math
 - `math_batch_acquisition_under_uncertainty`: `{}`
 - `math_model_selection_and_sensitivity`: `{}`
+- `math_robust_scenario_optimization`: `{}`
+- `math_sensitivity_frontier`: `{}`
 ### horizon
 - `horizon_branching_experiments`: `{}`
+- `horizon_two_stage_acquisition`: `{}`
 ### safety
 - `safety_human_approval_gate`: `{}`

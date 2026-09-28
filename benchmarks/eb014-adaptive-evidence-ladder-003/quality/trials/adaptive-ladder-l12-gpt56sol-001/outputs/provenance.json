@@ -1,0 +1,14 @@
+{
+  "input_sha256": {
+    "action_catalog.json": "034c4757c610515442065759b79255cd852a564ef37f784585461c91199f2ce0",
+    "action_contract.json": "ac2cafe3a179ed092895db25bfe49a901723cf49c269b3d33a558373c500de45",
+    "initial_state.json": "5b8fe7fc926ffd0434b6bc72aa4a53d4ece5186e919bbf6024c1c1d06d1aac73",
+    "output_contract.json": "40128b6dbd214df4783743e1d74d083e2d523bcda408900011e5ffe3557db10c",
+    "partial_observation_protocol.json": "f9ddf2647e3c29f5b128bd581c85f8b6c31a18f17b4729de88bc61246f400344",
+    "research_contract.json": "fac6e41717cc7ac78f06a6484a966a918191fb100b1d3ad6b9d7d95360d2fb92",
+    "rules.json": "d2a25ebcfe268f297bba9347dc037248535d4e8344fab6a3a5315acb6a7abfa8"
+  },
+  "rules_version": "adaptive-evidence-ladder-v1",
+  "network": "off",
+  "deterministic": true
+}

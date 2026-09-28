@@ -1,0 +1,17 @@
+{
+  "schema_version": "enterprise_harbor_sop_card.v1",
+  "task_id": "eb014-evidence-gap-followup-001",
+  "sop_version": "enterprise-harbor-sop-v1.2",
+  "source_status": "SYNTHETIC_DISCLOSED",
+  "contract_status": "FROZEN_1_0_1",
+  "control_status": "CALIBRATED",
+  "model_trial_status": "NOT_RUN",
+  "independent_verifier_status": "PASS",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "target-model trial for v1.0.1",
+    "fixed-container replay",
+    "practitioner review",
+    "real-data replacement"
+  ]
+}

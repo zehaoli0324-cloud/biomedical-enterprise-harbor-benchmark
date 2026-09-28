@@ -1,0 +1,7 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb006-research-completion-011	primary_supported	POSITIVE_OBSERVABLE	data/observations.csv	candidate-state-scenario	21 supported checks	no	Donor-stratified effects support determinate positive calls.
+eb006-research-completion-011	primary_failed	NEGATIVE_OBSERVABLE	data/observations.csv	candidate-state-scenario	8 contradictory; 1 weak	no	Negative and heterogeneous donor effects require determinate rejection.
+eb006-research-completion-011	assay_supported	POSITIVE_OBSERVABLE	data/assay_observations.csv	candidate-state	2 supported	no	Two cross-assay units are complete and concordant.
+eb006-research-completion-011	assay_failed	NEGATIVE_OBSERVABLE	data/assay_observations.csv	candidate-state	3 contradictory	no	Three complete units contain observable cross-assay disagreement.
+eb006-research-completion-011	assay_missing	INSUFFICIENT_BY_DESIGN	data/assay_observations.csv	candidate-state	C43|late	yes	One registered assay unit is missing and must remain local, not become blanket abstention.
+eb006-research-completion-011	thresholds	CONTROL_PARAMETER	data/policy.json	rule	minimum effects; maximum ranges	no	Registered thresholds and omission scenarios are controls, not experimental findings.

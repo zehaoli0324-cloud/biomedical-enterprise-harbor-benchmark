@@ -1,0 +1,11 @@
+{
+  "schema_version": "task_repair_plan.v1",
+  "task_id": "research-workflow-stress-test-001",
+  "status": "SOURCE_REPLACEMENT_REQUIRED",
+  "current_version": "1.0.0",
+  "current_data_status": "fixture classification is not declared; literature_records.tsv contains DOI-like placeholders",
+  "blocking_finding": "PLACEHOLDER_DOI in data/literature_records.tsv",
+  "action": "Declare synthetic calibration explicitly or replace the literature rows with resolvable, archived sources and licensed locators before a target trial.",
+  "completion_conditions": ["fixture classification", "source_manifest.json with per-record locator and sha256", "claim_evidence_map.tsv", "scientific review", "workflow replay"],
+  "target_status": "CALIBRATION_ONLY"
+}

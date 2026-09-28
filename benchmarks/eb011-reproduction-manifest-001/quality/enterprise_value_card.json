@@ -1,0 +1,10 @@
+{
+  "enterprise_value_card_id": "VALUE-EB013-EVIDENCE-BUDGET-ROUTING-002-001",
+  "task_id": "eb011-reproduction-manifest-001",
+  "enterprise_reality": {
+    "decision": "select a diagnostic rerun and observation-conditioned remediation policy",
+    "error_consequence": "a fixed remediation can conceal topology or parameter drift and make reported errors unauditable",
+    "human_owner": "computational_chemist_or_method_auditor"
+  },
+  "status": "REVIEW_REQUIRED"
+}

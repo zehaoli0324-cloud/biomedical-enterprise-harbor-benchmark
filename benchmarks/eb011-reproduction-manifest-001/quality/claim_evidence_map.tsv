@@ -1,0 +1,5 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb011-reproduction-manifest-001	manifest_observations	POSITIVE_OBSERVABLE	data/inputs/stage1_requests.json	分支	D-MANIFEST,D-NOMINAL,D-ARCHIVE,D-CONTEXT	no	manifest drift, nominal, archived and environment match/conflict states are explicit
+eb011-reproduction-manifest-001	remediation_routing	POSITIVE_OBSERVABLE	data/inputs/stage2_requests.json	条件路由	D-REBUILD,D-PIN,D-CROSSCHECK,D-REPORT,D-CONTEXT-CHECK	no	all supported remediation policies have observable dependencies and cost
+eb011-reproduction-manifest-001	future_outcome	INSUFFICIENT_BY_DESIGN	data/inputs/stage2_requests.json	边界	D-POST	yes	future outcome remains unavailable by design
+eb011-reproduction-manifest-001	manifest_rules	CONTROL_PARAMETER	data/rules.json	规则	critical_threshold,budget	no	thresholds and budget define the policy boundary

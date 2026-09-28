@@ -3,6 +3,10 @@ version: "0.1.0"
 status: contract_only
 title: "从 pooled CRISPR screen 到单基因编辑验证的可审计耐药机制判断"
 domain: life_sciences
+evidence_surface:
+  status: BLOCKED_DATA_NOT_MATERIALIZED
+  repair_plan: quality/repair_plan.json
+  abstention_rule: "当前仅为设计契约；无 data/verifier/reference 时不得生成科学结论或进入目标试跑。"
 stage: master_phd
 scenario_ids:
   - M1

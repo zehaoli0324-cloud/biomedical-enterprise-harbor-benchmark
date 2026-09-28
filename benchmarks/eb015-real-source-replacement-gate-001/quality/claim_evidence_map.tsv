@@ -1,0 +1,5 @@
+task_id	item_id	evidence_type	evidence_path	observability	example_ids	abstention_allowed	notes
+eb015-real-source-replacement-gate-001	ready_cases	POSITIVE_OBSERVABLE	data/case_mutations.json	case	CASE-06,CASE-07,CASE-08	no	Complete control metadata permits READY_FOR_REVIEW.
+eb015-real-source-replacement-gate-001	blocked_cases	NEGATIVE_OBSERVABLE	data/case_mutations.json	case	CASE-01,CASE-02,CASE-03,CASE-04,CASE-05,CASE-09	no	Rights, hash and rebind blockers are separately observable.
+eb015-real-source-replacement-gate-001	base_source_availability	NEGATIVE_OBSERVABLE	data/sources.json;data/numeric_provenance.tsv	source	three registered sources	no	Missing bytes are observable blockers and do not justify invented scientific claims.
+eb015-real-source-replacement-gate-001	case_overrides	CONTROL_PARAMETER	data/case_mutations.json	control-case	rights_status,sha256,verifier_rebound	no	Synthetic gate controls test logic and are not factual source claims.

@@ -1,0 +1,14 @@
+{
+  "schema_version": "task_optimization_queue.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "status": "QUEUED_FOR_DATA_OPTIMIZATION",
+  "trial_owner": "parallel_window",
+  "target_trial_status_before_merge": "BASELINES_COMPLETE / NOT_RUN",
+  "objectives": [
+    "Expand cross-context evidence and budget branches beyond the current baseline fixture",
+    "Add insufficient-evidence and independent-replicate controls that penalize blanket abstention",
+    "Recompute held-out decisions, hashes, and claim-evidence map",
+    "Preserve schema-preserving replay and exact abstention limits"
+  ],
+  "merge_gates": ["evidence surface PASS", "mutation matrix PASS", "focused tests PASS", "target trial result imported without status rewriting"]
+}

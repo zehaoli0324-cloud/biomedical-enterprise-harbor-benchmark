@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "general": {
+    "required": "All described fields and all registered rows are required. No additional fields except optional notes at any object.",
+    "equivalence": "Object key and identified-row order are irrelevant. Arrays of records with id may instead be objects keyed by that id; an explicit id must agree with its key. Arrays of group IDs, blockers and exclusion reasons are unordered with no duplicates. Path arrays are ordered. Finite numeric strings are accepted within absolute tolerance 1e-8; booleans must be JSON booleans. Duplicate JSON keys, duplicate IDs, missing or extra rows, null numbers and non-finite numbers are forbidden.",
+    "states": [
+      "supported",
+      "refuted",
+      "unknown"
+    ],
+    "missing_semantics": "Missing data is an incomplete submission, never implicitly hold, zero, false or unknown."
+  },
+  "artifacts": {
+    "claim_ledger.json": {
+      "premises": "One row per premise: {id, status, positive_groups: string[], negative_groups: string[]}. Use initial eligible observations only.",
+      "claims": "One row per claim: {id, scope, status, allowed: boolean, blocking_premises: string[]}. Blocking premises are every required premise not supported, even for a refuted claim.",
+      "claim_ceiling": "Highest supported permission in rules.claim_order, or null if none.",
+      "observations": "One row per initial observation: {id, source_id, premise_id, independence_group, effect: number, included: boolean, exclusion_reasons: string[]}. Compute effect even when excluded. Reasons accumulate: source_status if not current; future_source if after decision_date; scope if different from premise.scope."
+    },
+    "research_plan.json": {
+      "policy": "Recursive {action: action ID or hold, branches: {outcome ID: child policy}}. For hold branches must be {}. Each chosen action must cover exactly its catalogue's outcomes. After max_actions children must hold. Repeated actions on a path are forbidden.",
+      "objective": "{worst_resolved_weight: number, worst_cost: number, max_action_count: number, policy_key: string}. Aggregates over all terminal leaves. policy_key is compact JSON of policy with all object keys lexicographically sorted and no spaces; this exact text is the final tie breaker. Optional notes are not part of this key.",
+      "stop_reason": "hold if the root action is hold, otherwise conditional_plan."
+    },
+    "adaptive_update.json": {
+      "hypothetical": "Must be true. This artifact does not update the current claim ledger.",
+      "leaves": "One record for every terminal path: {id, path: string[], cost: number, premises: {premise ID: status}, claims: {claim ID: status}, claim_ceiling: string or null, resolved_weight: number}. Each path element is action ID + ':' + outcome ID. id is compact JSON of the ordered path array. Root hold has path [] and id '[]'. Include all premise and claim IDs in each leaf map."
+    },
+    "provenance.json": {
+      "input_sha256": "Object mapping every agent-visible data/*.json filename to SHA-256; optional data/ prefix accepted but duplicate normalized paths forbidden.",
+      "rules_version": "Copy rules.rules_version.",
+      "network": "off",
+      "deterministic": true
+    },
+    "audit.md": "Nonempty explanatory Markdown. Automated grading checks presence only; quality of the reasoning and human-review/experimental boundaries requires separately recorded human review. Do not mistake this prose check for scientific validation."
+  }
+}

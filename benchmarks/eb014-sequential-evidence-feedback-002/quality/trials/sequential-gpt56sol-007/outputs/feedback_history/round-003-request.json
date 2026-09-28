@@ -1,0 +1,7 @@
+{
+  "round": 3,
+  "action_id": "independent_replicate",
+  "question_id": "Q-REPLICATION",
+  "rationale": "Quality passed, but the context comparison detected a shift. Test whether the registered-cohort effect reproduces independently before making the bounded claim.",
+  "expected_information": "Whether an independent unit reproduces the registered-cohort effect; this will resolve the independent_replication check without treating the target-context shift as transport evidence."
+}

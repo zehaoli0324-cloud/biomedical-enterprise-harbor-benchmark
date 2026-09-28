@@ -1,0 +1,11 @@
+{
+  "shared_model_seconds": 3300,
+  "max_model_turns": 16,
+  "max_completion_returns": 3,
+  "one_request_per_model_interaction": true,
+  "trusted_stop_state_required": true,
+  "difficulty_level": "L12_STATIC_CONTINGENT_POLICY_REPLAY",
+  "l12_runtime_scope": "STATIC_CONTINGENT_POLICY_REPLAY_ONLY",
+  "requires_minimax_policy": true,
+  "requires_hidden_trajectory_replay": true
+}

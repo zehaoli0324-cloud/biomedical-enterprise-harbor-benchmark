@@ -1,0 +1,123 @@
+{
+  "project_id": "AEL-EB014-003",
+  "events": [
+    {
+      "round": 1,
+      "action_id": "audit_quality",
+      "observed_outcome": "quality_ok",
+      "cost": 1,
+      "question_id": "Q-QUALITY",
+      "next_question": "Q-PAIRING",
+      "state_token": "ea20d267edfec027a146588f42fb63e907d14cdcb9af3189c5a03ccc458df846"
+    },
+    {
+      "round": 2,
+      "action_id": "audit_pairing",
+      "observed_outcome": "pairing_ok",
+      "cost": 1,
+      "question_id": "Q-PAIRING",
+      "next_question": "Q-PRIMARY",
+      "state_token": "854f44c4dd14c93eea28ba666f458025d494143ed2cc0dc312d55b78461824c7"
+    },
+    {
+      "round": 3,
+      "action_id": "estimate_primary",
+      "observed_outcome": "primary_supported",
+      "cost": 2,
+      "question_id": "Q-PRIMARY",
+      "next_question": "Q-TRANSPORT",
+      "state_token": "df51685be7a70bd81bd319571cc40126c9a8209afdd10a4504e1a206a8d763a8"
+    },
+    {
+      "round": 4,
+      "action_id": "compare_context",
+      "observed_outcome": "context_shift",
+      "cost": 2,
+      "question_id": "Q-TRANSPORT",
+      "next_question": "Q-TRANSPORT-ORTHOGONAL",
+      "state_token": "04583ed1f357d4eb06bdd9055e0da430ffdb83ac55488a801ff4accac6a4e675"
+    },
+    {
+      "round": 5,
+      "action_id": "orthogonal_assay",
+      "observed_outcome": "orthogonal_confirmed",
+      "cost": 2,
+      "question_id": "Q-TRANSPORT-ORTHOGONAL",
+      "next_question": "Q-TRANSPORT-BRIDGE",
+      "state_token": "f46d01a9277477666e3a931d4795d1b6c7fe2af124e4425ec48fa098d70a5831"
+    },
+    {
+      "round": 6,
+      "action_id": "bridge_assay",
+      "observed_outcome": "bridge_failed",
+      "cost": 2,
+      "question_id": "Q-TRANSPORT-BRIDGE",
+      "next_question": "Q-CONFOUNDING",
+      "state_token": "8df70347781b710ca3716bcb8eed57b40cce8dc3654ab8fe9dca8d68e328147f"
+    },
+    {
+      "round": 7,
+      "action_id": "negative_control",
+      "observed_outcome": "negative_control_signal",
+      "cost": 1,
+      "question_id": "Q-CONFOUNDING",
+      "next_question": "Q-REPLICATION",
+      "state_token": "c97e91097366492729c857433f1ac476c3602aa050752bc7d1b4963f3fa261c7"
+    },
+    {
+      "round": 8,
+      "action_id": "independent_replicate",
+      "observed_outcome": "replicate_heterogeneous",
+      "cost": 2,
+      "question_id": "Q-REPLICATION",
+      "next_question": "Q-REPLICATION-INFLUENCE",
+      "state_token": "e5b1044f6c8a93e01412ccaf7107ec7895c541b38e40c8448b8385588e43c8a1"
+    },
+    {
+      "round": 9,
+      "action_id": "influence_analysis",
+      "observed_outcome": "donor_influence",
+      "cost": 2,
+      "question_id": "Q-REPLICATION-INFLUENCE",
+      "next_question": "Q-CONFOUNDING-AUDIT",
+      "state_token": "e4286d3a12b13d0bb0e0060e0838b7e985bf2a245d40d60d1ba7e126f04c0050"
+    },
+    {
+      "round": 10,
+      "action_id": "confounding_audit",
+      "observed_outcome": "confounding_localized",
+      "cost": 1,
+      "question_id": "Q-CONFOUNDING-AUDIT",
+      "next_question": "Q-ROBUSTNESS",
+      "state_token": "5f2433e77392c438e7bfc3f297bb61d62ce978ca0cb2566b8fc6753118734965"
+    },
+    {
+      "round": 11,
+      "action_id": "robustness_analysis",
+      "observed_outcome": "robust_registered_only",
+      "cost": 2,
+      "question_id": "Q-ROBUSTNESS",
+      "next_question": "Q-STOP",
+      "state_token": "d09b8d1cbcd287d2535a2cb313e683ec8304767038730e7ed10d33e22abcc320"
+    },
+    {
+      "round": 12,
+      "action_id": "stop",
+      "observed_outcome": "stopped",
+      "cost": 0,
+      "question_id": "Q-STOP",
+      "next_question": null,
+      "state_token": "13742aa1818a74c79b1f0b7894e22b9b8c0554e201c0cae84710f58c35a0f58a"
+    }
+  ],
+  "final_claims": {
+    "quality_status": "PASS",
+    "pairing_status": "PASS",
+    "primary_status": "SUPPORTED",
+    "context_status": "HOLD",
+    "replication_status": "HOLD",
+    "confounding_status": "REVIEW_REQUIRED",
+    "robustness_status": "REGISTERED_ONLY",
+    "claim_boundary": "registered_cohort_only"
+  }
+}

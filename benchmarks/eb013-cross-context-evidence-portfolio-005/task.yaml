@@ -1,8 +1,13 @@
 id: eb013-cross-context-evidence-portfolio-005
-version: "1.0.1"
+version: "1.2.0"
 status: ready_for_calibration
 title: "Context-stratified evidence follow-up portfolio"
 domain: biomedical_enterprise
+calibration_status: CALIBRATED_TARGET_RETRIAL_REQUIRED
+evidence_surface:
+  map: quality/claim_evidence_map.tsv
+  card: quality/evidence_surface_card.json
+  abstention_rule: "All nine follow-up choices and five final contexts are observable; blanket request_information is invalid when an eligible optimum exists."
 agent_visible_inputs:
   - path: data/
     format: JSON
@@ -12,6 +17,7 @@ constraints:
     record_input_checksum: true
     deterministic_output: true
 required_outputs:
+  - {id: planner, path: outputs/planner.py, required_fields: [executable_program]}
   - {id: plan, path: outputs/plan.json, required_fields: [selected_followups, total_cost, supported_count, conflicted_count, insufficient_count, contexts]}
   - {id: decision, path: outputs/decision.json, required_fields: [selected_followups, total_cost, supported_count, conflicted_count, insufficient_count, decision, human_review_required, claim_boundary]}
   - {id: portfolio, path: outputs/portfolio.tsv, required_fields: [option_id, selected, cost, kind, description]}

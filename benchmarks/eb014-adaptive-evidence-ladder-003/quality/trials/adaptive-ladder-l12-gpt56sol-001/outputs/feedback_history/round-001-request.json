@@ -1,0 +1,8 @@
+{
+  "round": 1,
+  "action_id": "audit_quality",
+  "question_id": "Q-QUALITY",
+  "rationale": "Resolve whether the registered-cohort signal may be a measurement artifact before unlocking pairing and downstream evidence checks.",
+  "expected_information": "A declared quality_ok or quality_issue observation for the measurement process.",
+  "prior_state_token": "GENESIS"
+}

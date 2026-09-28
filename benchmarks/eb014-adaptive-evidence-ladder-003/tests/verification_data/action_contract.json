@@ -1,0 +1,14 @@
+{
+  "request": "outputs/experiment_request.json",
+  "response": "outputs/experiment_feedback.json",
+  "request_fields": ["round", "action_id", "question_id", "rationale", "expected_information", "prior_state_token"],
+  "response_fields": ["round", "action_id", "outcome", "cost_charged", "observed_measurements", "remaining_budget", "state_token"],
+  "state_token": {
+    "genesis": "GENESIS",
+    "request_field": "prior_state_token",
+    "response_field": "state_token",
+    "rule": "Each request must copy the state_token from the latest accepted response."
+  },
+  "feedback_boundary": "The environment returns only the declared observation, cost and chain token; it does not return hidden scores or a recommended action.",
+  "replay_rule": "One unique action per accepted round. Conditional actions unlock only from observed outcomes."
+}

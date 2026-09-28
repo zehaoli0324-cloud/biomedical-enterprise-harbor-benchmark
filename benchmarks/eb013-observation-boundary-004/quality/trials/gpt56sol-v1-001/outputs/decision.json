@@ -1,0 +1,20 @@
+{
+  "decision": "execute",
+  "selected": {
+    "stage1_id": "Q1",
+    "policy": {
+      "amber": "A6",
+      "green": "A4"
+    },
+    "setup_families": [
+      "common",
+      "select"
+    ],
+    "setup_cost": 2.5,
+    "setup_slots": 3,
+    "worst_cost": 4.5,
+    "risk": 0.5
+  },
+  "claim_boundary": "planning_only",
+  "human_review_required": true
+}

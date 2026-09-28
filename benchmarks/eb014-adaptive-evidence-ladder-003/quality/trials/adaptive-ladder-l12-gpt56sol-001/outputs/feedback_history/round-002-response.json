@@ -1,0 +1,16 @@
+{
+  "round": 2,
+  "action_id": "audit_pairing",
+  "outcome": "pairing_ok",
+  "cost_charged": 1,
+  "observed_measurements": [
+    {
+      "id": "M-PAIR",
+      "complete_pairs": 4,
+      "status": "PASS"
+    }
+  ],
+  "remaining_budget": 16,
+  "accepted": true,
+  "state_token": "854f44c4dd14c93eea28ba666f458025d494143ed2cc0dc312d55b78461824c7"
+}

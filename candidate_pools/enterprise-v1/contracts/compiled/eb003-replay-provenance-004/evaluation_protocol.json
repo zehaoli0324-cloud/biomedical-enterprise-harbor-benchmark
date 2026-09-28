@@ -1,7 +1,7 @@
 {
   "schema_version": "benchmark_builder.evaluation.v1",
   "task_id": "eb003-replay-provenance-004",
-  "spec_digest": "0c9c1bc4076a053312bf6caa02ecf69e25ba18ec83034f5cfdf80b23aaec910a",
+  "spec_digest": "e2166717b3f7fd7a5e9252bb7802321deac98cc84fd0c049e940ffae0c110d09",
   "evaluation": {
     "scale": {
       "min": 0.0,

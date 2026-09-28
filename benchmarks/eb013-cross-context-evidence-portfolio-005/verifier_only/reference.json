@@ -2,11 +2,13 @@
   "winner": {
     "selected_followups": [
       "F1",
-      "F4"
+      "F4",
+      "F6",
+      "F7"
     ],
-    "total_cost": 2.4,
+    "total_cost": 4.4,
     "eligible": true,
-    "supported_count": 3,
+    "supported_count": 5,
     "conflicted_count": 0,
     "insufficient_count": 0,
     "contexts": [
@@ -36,19 +38,39 @@
         "max_effect": 0.48,
         "decision": "SUPPORTED",
         "pooled_shortcut_invalid": false
+      },
+      {
+        "context_id": "C4",
+        "n_independent": 2,
+        "mean_effect": 0.37,
+        "min_effect": 0.22,
+        "max_effect": 0.52,
+        "decision": "SUPPORTED",
+        "pooled_shortcut_invalid": false
+      },
+      {
+        "context_id": "C5",
+        "n_independent": 2,
+        "mean_effect": 0.47,
+        "min_effect": 0.43,
+        "max_effect": 0.51,
+        "decision": "SUPPORTED",
+        "pooled_shortcut_invalid": false
       }
     ]
   },
   "hashes": {
-    "evidence.json": "647ab350178fc6b8925707877c9a3f35e3680fffcb046df8c6f26f65864b1c7f",
-    "followups.json": "7d504739bb889b8b8f9965d3de2fa5c69de65bf7adf5955e6563b7980de3afe3",
-    "output_contract.json": "976b67f5ee511de09c1176684eb36e43bc76c9718244ea8a20c7e0d4f9763506",
-    "rules.json": "871c776605b9f3bb0ea8f25889fc9c0a77370cd18568e835ad74db0642308e6f"
+    "evidence.json": "332f44444e8d3101950abb9a1fa35e85734b2aedda3ed3e8cae813452c8453e7",
+    "followups.json": "dcc3791f2f51c87a49820c5587fe233ca10d0ceb830d07f7e4c037640c832fa4",
+    "output_contract.json": "bf58c5b9c556d0c9f851f7b07b9f40a29c0123dac9be5b73320a4d9a0ffbfdee",
+    "rules.json": "54a0dc8c6f98a2391b0ae8617508f1b00c5a4101986f55a4d32b9dd99c6fd2a5"
   },
   "contexts": [
     "C1",
     "C2",
-    "C3"
+    "C3",
+    "C4",
+    "C5"
   ],
-  "portfolio_count": 32
+  "portfolio_count": 512
 }

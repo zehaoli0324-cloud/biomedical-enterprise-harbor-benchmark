@@ -5,7 +5,7 @@ domain: biomedical_enterprise
 scientific_decision: allocate limited follow-up evidence to maximize context-supported claims without hiding conflicts
 scientific_judgments:
   - count independent evidence units rather than related repeats
-  - classify each context as supported, conflicted, or insufficient
+  - classify five contexts as supported, conflicted, weak-effect, or insufficient
   - stop claims when one context lacks sufficient or concordant evidence
 workflow_handoffs:
   - from: context_stratified_evidence_review
@@ -25,7 +25,7 @@ difficulty_modules:
     decision_flip: pooled-positive but context-reversed evidence becomes conflicted
   - id: math_followup_information_gain
     observable: portfolio objective and marginal supported-context gain
-    decision_flip: independent follow-up dominates cheaper related repetition
+    decision_flip: independent follow-up dominates cheaper related repetition across C3 and C5
   - id: math_ex_ante_shared_setup
     observable: selected option costs paid once under one budget
     decision_flip: budget contraction changes the portfolio

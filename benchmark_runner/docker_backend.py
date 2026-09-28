@@ -4,6 +4,7 @@ import os
 import shutil
 import subprocess
 from pathlib import Path
+from typing import Mapping
 
 from .files import RunnerError
 from .models import PreparedTrial
@@ -47,6 +48,7 @@ def build_docker_command(
     memory: str = "512m",
     pids_limit: int = 256,
     user: str = "1000:1000",
+    extra_environment: Mapping[str, str] | None = None,
 ) -> list[str]:
     if not image or any(char.isspace() for char in image):
         raise RunnerError("docker image must be a non-empty image reference without whitespace")
@@ -88,13 +90,13 @@ def build_docker_command(
         "--label",
         f"benchmark.trial_id={trial.trial_id}",
         "--mount",
-        f"type=bind,src={_safe_mount_path(trial.workspace / 'data')},dst=/workspace/data,ro",
+        f"type=bind,src={_safe_mount_path(trial.workspace / 'data')},dst=/workspace/data,readonly",
         "--mount",
-        f"type=bind,src={_safe_mount_path(trial.workspace / 'instruction.md')},dst=/workspace/instruction.md,ro",
+        f"type=bind,src={_safe_mount_path(trial.workspace / 'instruction.md')},dst=/workspace/instruction.md,readonly",
         "--mount",
-        f"type=bind,src={_safe_mount_path(trial.workspace / 'outputs')},dst=/workspace/outputs,rw",
+        f"type=bind,src={_safe_mount_path(trial.workspace / 'outputs')},dst=/workspace/outputs",
         "--mount",
-        f"type=bind,src={_safe_mount_path(event_log)},dst=/workspace/agent_events.jsonl,rw",
+        f"type=bind,src={_safe_mount_path(event_log)},dst=/workspace/agent_events.jsonl",
     ]
     base_environment = {
         "BENCHMARK_TASK_ID": trial.task_id,
@@ -104,9 +106,14 @@ def build_docker_command(
         "BENCHMARK_PROMPT": "/workspace/instruction.md",
         "BENCHMARK_EVENT_LOG": "/workspace/agent_events.jsonl",
         "BENCHMARK_NETWORK_POLICY": network,
+        "BENCHMARK_TRIAL_TIMEOUT_SECONDS": str(timeout_seconds),
         "PYTHONUNBUFFERED": "1",
     }
     for name, value in base_environment.items():
+        docker_command.extend(["--env", f"{name}={value}"])
+    for name, value in (extra_environment or {}).items():
+        if not name or "=" in name:
+            raise RunnerError(f"invalid extra environment variable name: {name}")
         docker_command.extend(["--env", f"{name}={value}"])
     for name in passthrough_env:
         if not name or "=" in name:

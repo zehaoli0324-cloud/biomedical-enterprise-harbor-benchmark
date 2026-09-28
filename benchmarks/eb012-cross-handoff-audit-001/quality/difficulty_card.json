@@ -3,18 +3,22 @@
   "task_id": "eb012-cross-handoff-audit-001",
   "difficulty_hypothesis": {
     "reasoning_chain": [
-      "join visible evidence",
-      "apply cross-artifact constraints",
-      "test decision flip",
-      "preserve bounded claim"
+      "join upstream artifact scope, schema, hash and claim permissions",
+      "intersect permissions across the handoff graph",
+      "locate the earliest blocking edge and preserve event order",
+      "block downstream consumption or approve only the bounded claim"
     ],
-    "target_failure_mechanism": "local proxy optimization ignores a binding handoff invariant"
+    "competing_choices": ["all-artifact pass vs earliest blocker", "schema success vs provenance-valid handoff"],
+    "stateful_dependencies": ["later artifacts cannot repair an earlier stale hash", "claim permission is inherited across stages"],
+    "target_failure_mechanism": "lets a mostly complete handoff proceed despite one stale provenance edge or inflated claim permission"
   },
   "shortcut_probes": [
     "always select",
     "always abstain",
     "ignore provenance",
-    "copy the highest proxy"
+    "copy the highest proxy",
+    "approve when only one artifact passes",
+    "repair stale provenance by later metadata"
   ],
-  "status": "DRAFT"
+  "status": "REVIEW_REQUIRED"
 }

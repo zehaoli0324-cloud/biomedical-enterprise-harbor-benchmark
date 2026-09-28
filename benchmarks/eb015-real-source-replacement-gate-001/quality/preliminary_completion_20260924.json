@@ -1,0 +1,30 @@
+{
+  "schema_version": "preliminary_completion_triage.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "assessment_date": "2026-09-24",
+  "scope": "20_minute_relaxed_preliminary",
+  "status": "PRELIMINARY_NOT_RELEASE_READY",
+  "nearest_tier": "A",
+  "formal_completion": false,
+  "checks": {
+    "target_trial": "TARGET_TRIAL_COMPLETE_CURRENT_VERSION / PASS_AFTER_CONTRACT_REPLAY",
+    "independent_verifier": "PASS",
+    "contract_audit": "PASS",
+    "evidence_surface": "PASS",
+    "focused_tests": "test suite discovered; 1 skipped, no runnable local case"
+  },
+  "relaxed_gates": [
+    "No source-rights review in this preliminary pass",
+    "No file-level SHA-256 freeze in this preliminary pass",
+    "No verifier rebind or fixed-container replay in this preliminary pass",
+    "No practitioner review in this preliminary pass"
+  ],
+  "remaining_formal_blockers": [
+    "source rights review",
+    "file-level SHA-256 freeze",
+    "verifier rebind",
+    "fixed-container replay",
+    "practitioner review"
+  ],
+  "next_minimum_action": "Freeze source files and rights metadata, rebind the verifier, then run the fixed-container replay."
+}

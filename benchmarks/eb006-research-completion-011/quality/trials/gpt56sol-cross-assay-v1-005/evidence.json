@@ -1,0 +1,21 @@
+{
+  "task_id": "eb006-research-completion-011",
+  "trial_id": "gpt56sol-cross-assay-v1-005",
+  "model": "gpt-5.6-sol",
+  "classification": "SCIENTIFIC_FAIL_CONTRACT_PASS",
+  "runner_status": "verifier_fail",
+  "agent_exit_code": 0,
+  "completion_status": "accepted",
+  "submission_attempts": 1,
+  "timed_out": false,
+  "elapsed_seconds": 854.002857,
+  "valid_difficulty_evidence": true,
+  "target_model_defeated": true,
+  "verifier_errors": [
+    "results.assay_checks[C43|late].status: mismatch",
+    "provenance: key coverage",
+    "perturbation.assay_checks[C43|late].status: mismatch"
+  ],
+  "failure_attribution": "The model treated incomplete C43 late assay donor coverage as supported and added an undeclared provenance runtime field.",
+  "trial_dir": "/private/tmp/biomedical-three-trials-rerun-20260923/eb006/gpt56sol-cross-assay-v1-005"
+}

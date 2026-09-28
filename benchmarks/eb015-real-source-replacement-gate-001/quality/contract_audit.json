@@ -1,8 +1,25 @@
 {
   "schema_version": "enterprise_contract_audit.v1",
   "task_id": "eb015-real-source-replacement-gate-001",
-  "task_id": "eb015-real-source-replacement-gate-001",
   "status": "PASS",
-  "canonical_outputs": ["source_audit.tsv", "release_plan.json", "provenance.json", "audit.md"],
-  "checks": ["exact TSV columns", "one row per source", "full or registered shorthand hash", "map/object/array provenance equivalence", "scientific non-claim boundary", "wrong hash rejection"]
+  "canonical_outputs": [
+    "auditor.py",
+    "source_audit.tsv",
+    "release_plan.json",
+    "provenance.json",
+    "case_matrix.tsv",
+    "readiness_summary.json",
+    "audit.md"
+  ],
+  "checks": [
+    "exact TSV columns",
+    "one row per source and public case",
+    "full or registered shorthand hash",
+    "map/object/array provenance equivalence",
+    "scientific non-claim boundary",
+    "wrong hash rejection",
+    "ready-and-reordered executable replay",
+    "rebind-only executable replay",
+    "constant-output auditor rejection"
+  ]
 }

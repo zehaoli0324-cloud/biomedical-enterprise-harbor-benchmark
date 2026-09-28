@@ -1,0 +1,7 @@
+{
+  "round": 2,
+  "action_id": "compare_context",
+  "question_id": "Q-CONTEXT",
+  "rationale": "The quality audit passed, so the remaining target-context degradation should next be tested directly for context shift versus context alignment before interpreting transport or finalizing the registered-cohort claim.",
+  "expected_information": "A context_shift or context_aligned outcome with the declared context-comparison measurement and charged cost."
+}

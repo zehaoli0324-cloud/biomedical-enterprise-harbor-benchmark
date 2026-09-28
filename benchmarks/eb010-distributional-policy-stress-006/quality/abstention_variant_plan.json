@@ -1,0 +1,61 @@
+{
+  "task_id": "eb010-distributional-policy-stress-006",
+  "evidence_surface": {
+    "map_rows": 6,
+    "independent_example_units": 32,
+    "example_units_by_type": {
+      "POSITIVE_OBSERVABLE": 21,
+      "NEGATIVE_OBSERVABLE": 11,
+      "CONTROL_PARAMETER": 2
+    },
+    "score_weights_declared": false
+  },
+  "existing_always_abstain_baseline": {
+    "status": "verifier_fail",
+    "failure_attribution": "artifact_completeness",
+    "errors": [
+      "missing artifact: policy.json",
+      "missing artifact: branches.tsv",
+      "missing artifact: profiles.tsv",
+      "missing artifact: audit.md",
+      "missing artifact: manifest.json"
+    ],
+    "usable_as_score_evidence": false
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "description": "所有独立判断单元均输出弃权",
+      "status": "NOT_RUN",
+      "score": null,
+      "score_weight": null,
+      "abstention_fraction": null
+    },
+    {
+      "variant_id": "all_definite",
+      "description": "所有有证据判断单元均输出确定回答",
+      "status": "NOT_RUN",
+      "score": null,
+      "score_weight": null,
+      "abstention_fraction": null
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "description": "正例确定回答，设计内证据不足分支弃权",
+      "status": "NOT_RUN",
+      "score": null,
+      "score_weight": null,
+      "abstention_fraction": null
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "description": "把一个正例错误改为弃权，验证正例覆盖确实计分",
+      "status": "NOT_RUN",
+      "score": null,
+      "score_weight": null,
+      "abstention_fraction": null
+    }
+  ],
+  "gate_status": "BLOCKED_VARIANTS_NOT_RECORDED",
+  "blocking_reason": "verifier pass/fail records do not expose independent-unit scores or score weights"
+}

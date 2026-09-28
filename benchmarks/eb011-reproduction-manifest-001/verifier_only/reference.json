@@ -1,0 +1,9 @@
+{
+  "selected_stage1_request_id": "D-MANIFEST",
+  "selected_stage2_policy": {
+    "topology_mismatch": "D-REBUILD",
+    "parameter_drift": "D-PIN"
+  },
+  "rules_version": "l6.2-reproduction-remediation-v1",
+  "status": "verifier_only"
+}

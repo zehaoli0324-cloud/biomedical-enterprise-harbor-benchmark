@@ -1,0 +1,25 @@
+{
+  "schema_version": "adaptive_ladder_l12_protocol.v1",
+  "difficulty_level": "L12_STATIC_CONTINGENT_POLICY_REPLAY",
+  "root_information_set_id": "I00",
+  "information_sets": [
+    {"information_set_id":"I00","stage":"root","observation":"PUBLIC_ROOT","actions":[{"action":"COMMIT_SAFE","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_SAFE"}]},{"action":"REQUEST_CONTEXT_A","utility_delta":1,"branches":[{"signal":"A_HIGH","next_state":"I10"}]},{"action":"REQUEST_CONTEXT_B","utility_delta":0,"branches":[{"signal":"B_HIGH","next_state":"I20"}]}]},
+    {"information_set_id":"I10","stage":"context_a","observation":"PENDING_A_REVEAL","actions":[{"action":"WAIT_FOR_DELAYED_REVEAL","utility_delta":0,"branches":[{"signal":"A_HIGH","next_state":"I11H"},{"signal":"A_LOW","next_state":"I11L"},{"signal":"A_CONFLICT","next_state":"I11C"}]}]},
+    {"information_set_id":"I11H","stage":"context_a","observation":"A_HIGH","actions":[{"action":"COMMIT_A_HIGH","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_A_HIGH"}]}]},
+    {"information_set_id":"I11L","stage":"context_a","observation":"A_LOW","actions":[{"action":"REQUEST_CONFIRM_A","utility_delta":1,"branches":[{"signal":"A_CONFIRM_PENDING","next_state":"I12"}]}]},
+    {"information_set_id":"I11C","stage":"context_a","observation":"A_CONFLICT","actions":[{"action":"ABSTAIN_CONSERVATIVELY","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_SAFE"}]}]},
+    {"information_set_id":"I12","stage":"confirm_a","observation":"PENDING_A_CONFIRM_REVEAL","actions":[{"action":"WAIT_FOR_DELAYED_REVEAL","utility_delta":0,"branches":[{"signal":"A_CONFIRM_PASS","next_state":"I13P"},{"signal":"A_CONFIRM_FAIL","next_state":"I13F"},{"signal":"A_CONFIRM_CONFLICT","next_state":"I13C"}]}]},
+    {"information_set_id":"I13P","stage":"confirm_a","observation":"A_CONFIRM_PASS","actions":[{"action":"COMMIT_A_CONFIRMED","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_A_CONFIRMED"}]}]},
+    {"information_set_id":"I13F","stage":"confirm_a","observation":"A_CONFIRM_FAIL","actions":[{"action":"KEEP_SAFE","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_A_FAIL_UNSAFE"}]}]},
+    {"information_set_id":"I13C","stage":"confirm_a","observation":"A_CONFIRM_CONFLICT","actions":[{"action":"ABSTAIN_CONSERVATIVELY","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_A_CONFIRM_UNSAFE"}]}]},
+    {"information_set_id":"I20","stage":"context_b","observation":"PENDING_B_REVEAL","actions":[{"action":"WAIT_FOR_DELAYED_REVEAL","utility_delta":0,"branches":[{"signal":"B_HIGH","next_state":"I21H"},{"signal":"B_LOW","next_state":"I21L"},{"signal":"B_CONFLICT","next_state":"I21C"}]}]},
+    {"information_set_id":"I21H","stage":"context_b","observation":"B_HIGH","actions":[{"action":"COMMIT_B_HIGH","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_B_HIGH"}]}]},
+    {"information_set_id":"I21L","stage":"context_b","observation":"B_LOW","actions":[{"action":"REQUEST_CONFIRM_B","utility_delta":0,"branches":[{"signal":"B_CONFIRM_PENDING","next_state":"I22"}]}]},
+    {"information_set_id":"I21C","stage":"context_b","observation":"B_CONFLICT","actions":[{"action":"ABSTAIN_CONSERVATIVELY","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_SAFE"}]}]},
+    {"information_set_id":"I22","stage":"confirm_b","observation":"PENDING_B_CONFIRM_REVEAL","actions":[{"action":"WAIT_FOR_DELAYED_REVEAL","utility_delta":0,"branches":[{"signal":"B_CONFIRM_PASS","next_state":"I23P"},{"signal":"B_CONFIRM_FAIL","next_state":"I23F"},{"signal":"B_CONFIRM_CONFLICT","next_state":"I23C"}]}]},
+    {"information_set_id":"I23P","stage":"confirm_b","observation":"B_CONFIRM_PASS","actions":[{"action":"COMMIT_B_CONFIRMED","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_B_CONFIRMED"}]}]},
+    {"information_set_id":"I23F","stage":"confirm_b","observation":"B_CONFIRM_FAIL","actions":[{"action":"KEEP_SAFE","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_B_FAIL_UNSAFE"}]}]},
+    {"information_set_id":"I23C","stage":"confirm_b","observation":"B_CONFIRM_CONFLICT","actions":[{"action":"ABSTAIN_CONSERVATIVELY","utility_delta":0,"branches":[{"signal":"TERMINAL","next_state":"T_B_CONFIRM_UNSAFE"}]}]}
+  ],
+  "terminal_utilities": {"T_SAFE":-7,"T_A_HIGH":10,"T_A_CONFIRMED":12,"T_A_CONFIRM_UNSAFE":-5,"T_A_FAIL_UNSAFE":-5,"T_B_HIGH":9,"T_B_CONFIRMED":11,"T_B_CONFIRM_UNSAFE":-5,"T_B_FAIL_UNSAFE":-5}
+}

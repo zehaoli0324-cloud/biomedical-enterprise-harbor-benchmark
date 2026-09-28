@@ -17,6 +17,20 @@ TASKS = (
     "eb010-next-batch-002",
     "eb011-measurement-request-005",
     "eb012-cross-handoff-audit-001",
+    "eb010-closed-loop-replay-003",
+    "eb010-closed-loop-ambiguity-004",
+    "eb010-adaptive-policy-regret-005",
+    "eb010-distributional-policy-stress-006",
+    "eb012-cross-stage-chain-002",
+    "eb012-revocation-portfolio-003",
+    "eb013-evidence-budget-routing-001",
+    "eb013-evidence-budget-routing-002",
+    "eb013-observation-boundary-004",
+    "eb006-donor-stratified-signal-005",
+    "eb006-research-completion-006",
+    "eb006-research-completion-008",
+    "eb006-research-completion-009",
+    "eb006-research-completion-011",
 )
 
 

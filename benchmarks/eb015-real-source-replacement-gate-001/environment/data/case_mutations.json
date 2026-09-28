@@ -1,0 +1,16 @@
+{
+  "schema_version": "source-gate-case-matrix.v1",
+  "case_scope": "CONTROL_PARAMETER",
+  "cases": [
+    {"case_id": "CASE-01-BASE-CRISPR", "source_id": "SRC-CRISPR-PMC7006212", "overrides": {}},
+    {"case_id": "CASE-02-BASE-BBBC", "source_id": "SRC-BBBC021-V1", "overrides": {}},
+    {"case_id": "CASE-03-BASE-ZENODO", "source_id": "SRC-ZENODO-10362368", "overrides": {}},
+    {"case_id": "CASE-04-HASH-BLOCK", "source_id": "SRC-CRISPR-PMC7006212", "overrides": {"rights_status": "explicit_license"}},
+    {"case_id": "CASE-05-REBIND-BLOCK", "source_id": "SRC-BBBC021-V1", "overrides": {"rights_status": "metadata_only_permitted", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"}},
+    {"case_id": "CASE-06-READY-CRISPR", "source_id": "SRC-CRISPR-PMC7006212", "overrides": {"rights_status": "explicit_license", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "verifier_rebound": true}},
+    {"case_id": "CASE-07-READY-BBBC", "source_id": "SRC-BBBC021-V1", "overrides": {"rights_status": "metadata_only_permitted", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "verifier_rebound": true}},
+    {"case_id": "CASE-08-READY-ZENODO", "source_id": "SRC-ZENODO-10362368", "overrides": {"rights_status": "open_access_reuse_declared", "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "verifier_rebound": true}},
+    {"case_id": "CASE-09-RIGHTS-PRECEDENCE", "source_id": "SRC-ZENODO-10362368", "overrides": {"sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "verifier_rebound": true}}
+  ],
+  "warning": "Override values are deterministic control parameters for testing gate precedence. They are not assertions about the current rights, bytes, or verifier state of the registered public sources."
+}

@@ -1,0 +1,8 @@
+{
+  "round": 5,
+  "action_id": "orthogonal_assay",
+  "question_id": "Q-TRANSPORT-ORTHOGONAL",
+  "rationale": "The context comparison detected a shift, activating the orthogonal assay to test whether the target-context difference is supported by an independent measurement before bridge interpretation.",
+  "expected_information": "A declared orthogonal_confirmed or orthogonal_unresolved observation for the shifted target context.",
+  "prior_state_token": "04583ed1f357d4eb06bdd9055e0da430ffdb83ac55488a801ff4accac6a4e675"
+}

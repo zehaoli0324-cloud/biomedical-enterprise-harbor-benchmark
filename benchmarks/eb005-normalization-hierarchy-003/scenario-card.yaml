@@ -8,18 +8,18 @@ scientific_judgments:
   - competing_choice_and_stop_rule
   - claim_boundary_and_evidence_quality
 difficulty_modules:
+  - id: data_experimental_unit_hierarchy
+    observable: donor, plate, well and replicate levels plus missingness mechanism remain explicit in the normalization evidence
+    decision_flip: well-level replicate counts cannot satisfy an independent-donor gate when the donor linkage is missing
+  - id: math_sensitivity_frontier
+    observable: each profile reports leave-one-batch-out, control-subset and phenotype-sign sensitivity
+    decision_flip: the point-estimate winner becomes sensitive or hold when one batch or control subset is removed
+  - id: judgment_blocker_and_abstention
+    observable: evidence incompleteness, over-correction and direction reversal are distinct blockers
+    decision_flip: a lower control range cannot override phenotype erasure or an underidentified experimental unit
   - id: compute_multistage_analysis
-    observable: module 1 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of compute_multistage_analysis changes selection or triggers a bounded hold
-  - id: noise_metadata_conflict
-    observable: module 2 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of noise_metadata_conflict changes selection or triggers a bounded hold
-  - id: complexity_replicates_and_batches
-    observable: module 3 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of complexity_replicates_and_batches changes selection or triggers a bounded hold
-  - id: judgment_uncertainty_and_stop_rules
-    observable: module 4 contributes an explicit evidence row to the final decision
-    decision_flip: a single-factor perturbation of judgment_uncertainty_and_stop_rules changes selection or triggers a bounded hold
+    observable: joined metadata, unit-level summaries and profile metrics retain the same rules version
+    decision_flip: parameter drift between join and profile comparison invalidates the recommendation
 workflow_handoffs:
   - from: visible_inputs
     to: decision_handoff

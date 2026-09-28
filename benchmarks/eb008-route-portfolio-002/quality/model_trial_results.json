@@ -1,8 +1,8 @@
 {
   "task_id": "eb008-route-portfolio-002",
   "protocol_version": "enterprise-model-trial.v1",
-  "status": "BASELINES_COMPLETE",
-  "target_model_status": "NOT_RUN",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "PASS",
   "records": [
     {
       "strategy": "reference_solution",
@@ -44,6 +44,48 @@
       "errors": [
         "decision mismatch"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-l4-002",
+      "task_version": "l4-v1",
+      "status": "verifier_fail",
+      "passed": false,
+      "runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "fail",
+      "failure_attribution": "invalid_contract_defect",
+      "verifier_errors": [
+        "decision mismatch",
+        "evidence outcome mismatch: R-A",
+        "evidence outcome mismatch: R-B",
+        "evidence outcome mismatch: R-C"
+      ],
+      "trial_dir": "/private/tmp/benchmark-runs/l4-gpt56-sol-20260921/eb008-route-portfolio-002/trial-gpt56-sol-l4-002",
+      "valid_difficulty_evidence": false
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb008-route-portfolio-002-gpt56sol-003",
+      "task_version": "l4-v1-explicit-contract-revision",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "pass",
+      "failure_attribution": null,
+      "verifier_errors": [],
+      "artifact_sha256": {
+        "decision.json": "16002fdaab69dbe84d90f7f7254a4a505648df635ffe89ece4ee896210ea84ee",
+        "evidence.tsv": "78adf64598806346e7cb5db02647534bde4fb7a0e7f25a3a6fb12033f6906749",
+        "review.md": "ff3a96049e4bebee9883bf58e88f8106da6d1c8f2a1f80463dbd57ae562cf2be",
+        "manifest.json": "67d23b0b4d43ce18ace1afb5acb15cea2e9ff7074f7f4836df64a6321cc2114e"
+      },
+      "trial_dir": "/private/tmp/enterprise-l4-target-trials-v3/eb008-route-portfolio-002-gpt56sol-003"
     }
   ]
 }

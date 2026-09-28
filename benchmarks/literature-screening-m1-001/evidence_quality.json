@@ -1,0 +1,23 @@
+{
+  "schema_version": "evidence_quality.v1",
+  "package": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/literature-screening-m1-001",
+  "fixture_classification": "SYNTHETIC_FIXTURE",
+  "source_status": "PLACEHOLDER_OR_MISSING",
+  "claim_policy": "CALIBRATION_ONLY",
+  "finding_severity": "HIGH",
+  "findings": [
+    {
+      "code": "PLACEHOLDER_DOI",
+      "severity": "HIGH",
+      "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/literature-screening-m1-001/data/literature_records.tsv",
+      "action": "Replace with a resolvable DOI/accession or mark as synthetic calibration and block release."
+    }
+  ],
+  "synthetic_evidence_files": [
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/literature-screening-m1-001/data/README.md",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/literature-screening-m1-001/task.yaml"
+  ],
+  "manual_review_required": true,
+  "release_recommendation": "BLOCKED",
+  "generated_on": "2026-09-22"
+}

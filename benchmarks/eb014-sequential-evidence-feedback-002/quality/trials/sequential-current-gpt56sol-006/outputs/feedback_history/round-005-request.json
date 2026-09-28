@@ -1,0 +1,7 @@
+{
+  "round": 5,
+  "action_id": "stop",
+  "question_id": "Q-STOP",
+  "rationale": "Quality passed, the context shift was orthogonally confirmed, and an independent registered-cohort unit reproduced the effect; all evidence checks are complete, so the zero-cost stop rule is now satisfied.",
+  "expected_information": "Record the stop-rule completion without asserting any unobserved outcome."
+}

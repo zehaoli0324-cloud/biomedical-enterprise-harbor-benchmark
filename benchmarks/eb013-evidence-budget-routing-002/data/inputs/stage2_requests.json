@@ -95,6 +95,18 @@
       "future_outcome": true,
       "dependency_ids": [],
       "nominal_value": 1.4
+    },
+    {
+      "request_id": "R-CONTEXT-CHECK",
+      "stage": 2,
+      "cost": 1.0,
+      "correlation_group": "G8",
+      "covers": {"signal": 0.25, "selectivity": 0.25},
+      "allowed_observations": ["context_clear", "context_conflict"],
+      "status": "current",
+      "future_outcome": false,
+      "dependency_ids": ["R-CONTEXT"],
+      "nominal_value": 0.87
     }
   ]
 }

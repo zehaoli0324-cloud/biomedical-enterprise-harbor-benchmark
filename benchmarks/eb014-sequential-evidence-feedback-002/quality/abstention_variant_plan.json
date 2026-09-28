@@ -1,0 +1,61 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "evidence_surface": {
+    "independent_example_units": 5,
+    "example_units_by_type": {
+      "POSITIVE_OBSERVABLE": 3,
+      "NEGATIVE_OBSERVABLE": 2,
+      "INSUFFICIENT_BY_DESIGN": 0
+    },
+    "insufficient_fraction": 0.0,
+    "insufficient_score_weight": 0.0
+  },
+  "variants": [
+    {
+      "variant_id": "all_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "contract: events must be a nonempty array",
+        "contract: missing completion check stop_rule",
+        "contract: missing completion check independent_replication",
+        "contract: missing completion check quality_audit",
+        "contract: missing completion check context_comparison"
+      ],
+      "note": ""
+    },
+    {
+      "variant_id": "all_definite",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": ""
+    },
+    {
+      "variant_id": "positive_plus_insufficient_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": true,
+      "verifier_passed": true,
+      "score": 1.0,
+      "errors": [],
+      "note": "No insufficient unit exists; early hold is therefore invalid."
+    },
+    {
+      "variant_id": "positive_as_wrong_abstain",
+      "status": "PASS",
+      "expected_verifier_pass": false,
+      "verifier_passed": false,
+      "score": 0.0,
+      "errors": [
+        "scientific: outcome mismatch for characterize_shift",
+        "scientific: unmet dependency for assay_screen"
+      ],
+      "note": ""
+    }
+  ],
+  "gate_status": "PASS"
+}

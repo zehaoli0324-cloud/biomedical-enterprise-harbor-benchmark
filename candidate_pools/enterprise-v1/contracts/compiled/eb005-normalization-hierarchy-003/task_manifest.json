@@ -153,11 +153,19 @@
         {
           "id": "judgment_uncertainty_and_stop_rules",
           "params": {}
+        },
+        {
+          "id": "judgment_blocker_and_abstention",
+          "params": {}
         }
       ],
       "data": [
         {
           "id": "data_text_and_metadata",
+          "params": {}
+        },
+        {
+          "id": "data_experimental_unit_hierarchy",
           "params": {}
         }
       ],
@@ -170,6 +178,10 @@
       "math": [
         {
           "id": "math_model_selection_and_sensitivity",
+          "params": {}
+        },
+        {
+          "id": "math_sensitivity_frontier",
           "params": {}
         }
       ],
@@ -194,7 +206,7 @@
     "requires_input_checksum": true,
     "requires_deterministic_output": true
   },
-  "spec_digest": "0080bb2afc682a0aad417fe18b8bca8141258c0b183eba1b2b4cde48e7f8444a",
+  "spec_digest": "dcaf43b1e14c6abca72638c9e8cfe6cbe8afdbac7c5e03402426ac01610353a0",
   "evaluation": {
     "scale": {
       "min": 0.0,
@@ -304,7 +316,7 @@
   },
   "scenario_card": {
     "path": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb005-normalization-hierarchy-003/scenario-card.yaml",
-    "digest": "bcf3a1fc635daa0fb5b23c789ddb24bb5497691864056153dc6d91616a642ada",
+    "digest": "9ceaf4413aff38eed7904389d0221621f6fe4815995526fc51979af5d0314d7a",
     "scenario_id": "eb005-normalization-hierarchy-003",
     "status": "ready",
     "source_scenarios": [

@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "quality_audit": true,
+    "pairing_audit": true,
+    "primary_estimate": true,
+    "context_comparison": true,
+    "independent_replication": true,
+    "negative_control": true,
+    "robustness_check": true,
+    "stop_rule": true,
+    "orthogonal_assay": true,
+    "bridge_assay": true,
+    "influence_analysis": true,
+    "confounding_audit": true
+  },
+  "stop_reason": "bounded_handoff",
+  "human_review_required": true,
+  "claim_boundary": "registered_cohort_only"
+}

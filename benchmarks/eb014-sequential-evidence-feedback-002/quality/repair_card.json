@@ -1,0 +1,11 @@
+{
+  "schema_version": "task_repair_card.v1",
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "current_version": "1.0.2",
+  "data_status": "SYNTHETIC_DISCLOSED stateful calibration scenario with five observable scientific transitions",
+  "evidence_map": "quality/claim_evidence_map.tsv",
+  "changes": ["added observable quality-failure branch", "required registered quality repair before context work", "expanded valid path to six actions and full budget"],
+  "removed_or_narrowed_surfaces": ["no claim beyond the registered cohort", "no artificial minimum turn count"],
+  "completion_conditions": ["oracle pass", "nop fail", "four abstention variants", "broker continuation replay", "target-model trial", "scientific review before release"],
+  "target_status": "STAGING"
+}

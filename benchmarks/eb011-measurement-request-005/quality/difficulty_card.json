@@ -3,18 +3,22 @@
   "task_id": "eb011-measurement-request-005",
   "difficulty_hypothesis": {
     "reasoning_chain": [
-      "join visible evidence",
-      "apply cross-artifact constraints",
-      "test decision flip",
-      "preserve bounded claim"
+      "screen measurement visibility and feasibility",
+      "discount correlation and normalize value by cost",
+      "test stability across redundancy assumptions",
+      "request one measurement or hold for human review"
     ],
-    "target_failure_mechanism": "local proxy optimization ignores a binding handoff invariant"
+    "competing_choices": ["highest raw gain vs decision value", "eligible measurement vs future-leaking measurement"],
+    "stateful_dependencies": ["observed outcome removes a measurement from the action set", "provenance failure blocks approval"],
+    "target_failure_mechanism": "selects an attractive but observed, infeasible or highly redundant measurement"
   },
   "shortcut_probes": [
     "always select",
     "always abstain",
     "ignore provenance",
-    "copy the highest proxy"
+    "copy the highest proxy",
+    "ignore cost normalization",
+    "use future outcomes as current evidence"
   ],
-  "status": "DRAFT"
+  "status": "REVIEW_REQUIRED"
 }

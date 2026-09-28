@@ -1,0 +1,8 @@
+{
+  "selected_portfolio": [
+    "CHAIN-B",
+    "CHAIN-C"
+  ],
+  "rules_version": "l5.5-revocation-portfolio-v1",
+  "status": "verifier_only"
+}

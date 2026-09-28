@@ -1,0 +1,24 @@
+{
+  "schema_version": "enterprise_question_brief.v1",
+  "brief_id": "BRIEF-eb006-research-completion-006",
+  "source_benchmark_id": "EB006",
+  "source_name": "Synthetic completion-gated donor evidence review",
+  "workflow_id": "WF-DONOR-RESEARCH-COMPLETION",
+  "enterprise_role": "translational_profile_reviewer",
+  "status": "MATERIALIZED_CALIBRATION_READY_TARGET_INFRA_BLOCKED",
+  "scientific_decision": "Which candidate remains eligible after donor-balanced primary analysis, pooled competing-explanation analysis, and every leave-one-donor-out sensitivity?",
+  "independent_unit": "biological donor by state",
+  "handoff": "raw_observations->executable_research_requirements->public_completion_gate->profile_review",
+  "error_consequence": "a nominal or row-pooled shortcut can advance an influential or donor-contradictory candidate",
+  "agent_visible_inputs": ["technical-replicate observations", "registered policy", "public research completion contract"],
+  "required_artifacts": ["analysis.py", "results.json", "provenance.json", "research_audit.md"],
+  "failure_injections": ["unequal technical replication", "missing donor pair", "nominal winner unstable under LODO", "pooled winner differs", "inactive high-signal candidate"],
+  "gpt_difficulty": {
+    "mechanism": "the model must implement a reusable estimator and complete primary, competing, robustness, and disagreement-resolution evidence before submission",
+    "semantic_axes": ["experimental_unit", "competing_estimand", "influence_stability", "evidence_gated_completion"],
+    "shortcut_probes": ["submit nominal winner only", "replace donor estimator with row pooling", "omit one sensitivity", "hard-code base answer"],
+    "held_out_variants": ["row order", "replicate balance", "influence repair", "scope noise", "threshold hold"]
+  },
+  "claim_boundary": "Analytical triage only; not evidence of mechanism, target engagement or efficacy.",
+  "release_blockers": ["adapter lifecycle repair", "fixed-container replay", "practitioner review", "license/privacy/claim-boundary review"]
+}

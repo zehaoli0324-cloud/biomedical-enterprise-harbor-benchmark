@@ -22,11 +22,24 @@ def test_docker_command_has_default_hardening(tmp_path: Path):
     assert "/workspace" in command
     assert "verifier_only" not in " ".join(command)
     mount_text = " ".join(command)
-    assert ",ro" in mount_text
-    assert "dst=/workspace/outputs,rw" in mount_text
+    assert "readonly" in mount_text
+    assert "dst=/workspace/outputs" in mount_text
 
 
 def test_docker_command_rejects_network_policy(tmp_path: Path):
     trial = prepare_trial(TASK, tmp_path, "trial-docker-network")
     with pytest.raises(RunnerError, match="network"):
         build_docker_command(trial, ["python", "adapter.py"], "benchmark-agent:test", 120, network="host")
+
+
+def test_docker_command_adds_explicit_broker_environment(tmp_path: Path):
+    trial = prepare_trial(TASK, tmp_path, "trial-docker-broker")
+    command = build_docker_command(
+        trial,
+        ["python", "adapter.py"],
+        "benchmark-agent:test",
+        120,
+        extra_environment={"BENCHMARK_FEEDBACK_BROKER": "1"},
+    )
+    assert "BENCHMARK_FEEDBACK_BROKER=1" in command
+    assert "BENCHMARK_HIDDEN_TASK_DIR" not in " ".join(command)

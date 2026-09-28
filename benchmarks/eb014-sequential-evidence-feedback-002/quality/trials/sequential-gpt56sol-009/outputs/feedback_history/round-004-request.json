@@ -1,0 +1,7 @@
+{
+  "round": 4,
+  "action_id": "independent_replicate",
+  "question_id": "Q-REPLICATION",
+  "rationale": "The quality audit passed, and the context shift was independently confirmed as not caused by measurement quality. With replication still unresolved and sufficient budget remaining, an independent unit is the next legal test for the registered-cohort effect.",
+  "expected_information": "Whether an independent unit reproduces the registered-cohort effect (replicate_ok or replicate_failed)."
+}

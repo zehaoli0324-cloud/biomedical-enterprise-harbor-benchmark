@@ -1,8 +1,8 @@
 {
   "task_id": "eb005-normalization-hierarchy-003",
   "protocol_version": "enterprise-model-trial.v1",
-  "status": "BASELINES_COMPLETE",
-  "target_model_status": "NOT_RUN",
+  "status": "TARGET_TRIAL_COMPLETE",
+  "target_model_status": "PASS",
   "records": [
     {
       "strategy": "reference_solution",
@@ -44,6 +44,48 @@
       "errors": [
         "decision mismatch"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "trial-gpt56-sol-l4-002",
+      "task_version": "l4-v1",
+      "status": "verifier_fail",
+      "passed": false,
+      "runner_status": "verifier_fail",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "fail",
+      "failure_attribution": "invalid_contract_defect",
+      "verifier_errors": [
+        "decision mismatch",
+        "evidence outcome mismatch: global",
+        "evidence outcome mismatch: hierarchical",
+        "evidence outcome mismatch: site_local"
+      ],
+      "trial_dir": "/private/tmp/benchmark-runs/l4-gpt56-sol-20260921/eb005-normalization-hierarchy-003/trial-gpt56-sol-l4-002",
+      "valid_difficulty_evidence": false
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb005-normalization-hierarchy-003-gpt56sol-003",
+      "task_version": "l4-v1-explicit-contract-revision",
+      "status": "pass",
+      "passed": true,
+      "runner_status": "pass",
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "verifier_status": "pass",
+      "failure_attribution": null,
+      "verifier_errors": [],
+      "artifact_sha256": {
+        "decision.json": "2d4c74776f234221dba724fbe22656a4bd3b81113f50bd61f276fb176f8f8509",
+        "evidence.tsv": "bcd8926ec61b83b2014bb65d07cbe4ea36b5bf41ad744fadedfecfad244fc386",
+        "review.md": "bc1b6be451e04e56da0ebf000761b7ccb365f01f8ae872d9539194a7dd6648cf",
+        "manifest.json": "29838e530a603d58d647bb0aeae3636a0866d734a399d066fa011f140f70af86"
+      },
+      "trial_dir": "/private/tmp/enterprise-l4-target-trials-v3/eb005-normalization-hierarchy-003-gpt56sol-003"
     }
   ]
 }

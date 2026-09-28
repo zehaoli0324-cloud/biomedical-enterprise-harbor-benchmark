@@ -1,10 +1,14 @@
 {
   "schema_version": "policy-review-operations.v1",
   "operations": [
-    {"operation_id":"inventory","purpose":"discover and hash the input bundle","depends_on":[],"cost":1.0,"network":false},
-    {"operation_id":"interpret","purpose":"join the semantic lexicon to policy text","depends_on":["inventory"],"cost":1.5,"network":false},
-    {"operation_id":"screen","purpose":"apply scope, future-outcome and explicit review gates","depends_on":["interpret"],"cost":1.0,"network":false},
-    {"operation_id":"replay","purpose":"compute replay utility, spread and numeric blockers","depends_on":["screen"],"cost":2.0,"network":false},
-    {"operation_id":"decide","purpose":"select an eligible record or escalate","depends_on":["replay"],"cost":1.0,"network":false}
+    {"operation_id":"inventory","purpose":"discover and hash the input bundle","provides":["provenance"],"depends_on":[],"cost":1.0,"network":false},
+    {"operation_id":"interpret","purpose":"join the semantic lexicon to policy text","provides":["semantic_resolution"],"depends_on":["inventory"],"cost":1.5,"network":false},
+    {"operation_id":"screen","purpose":"apply scope, future-outcome and explicit review gates","provides":["eligibility_screen"],"depends_on":["interpret"],"cost":1.0,"network":false},
+    {"operation_id":"replay","purpose":"compute every record's utility, spread and numeric blockers","provides":["complete_replay"],"depends_on":["screen"],"cost":2.0,"network":false},
+    {"operation_id":"decide","purpose":"select an eligible record or escalate","provides":["bounded_decision"],"depends_on":["replay"],"cost":1.0,"network":false},
+    {"operation_id":"label_scan","purpose":"infer intent from record labels without joining narrative cues","provides":["lexical_hint"],"depends_on":["inventory"],"cost":0.4,"network":false},
+    {"operation_id":"top_only_replay","purpose":"replay only the current highest-utility record","provides":["partial_replay"],"depends_on":["screen"],"cost":0.6,"network":false},
+    {"operation_id":"external_lookup","purpose":"resolve ambiguous text using external material","provides":["external_context"],"depends_on":["inventory"],"cost":0.5,"network":true},
+    {"operation_id":"defer_all","purpose":"send all records to review without completing evidence checks","provides":["blanket_defer"],"depends_on":["inventory"],"cost":0.2,"network":false}
   ]
 }

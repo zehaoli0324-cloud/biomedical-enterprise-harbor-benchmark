@@ -1,0 +1,8 @@
+{
+  "round": 4,
+  "action_id": "compare_context",
+  "question_id": "Q-TRANSPORT",
+  "rationale": "The registered-cohort primary signal is supported after quality and pairing checks; compare it with the target context to resolve transport before making any broader claim.",
+  "expected_information": "A declared context_shift or context_aligned observation for the target context.",
+  "prior_state_token": "df51685be7a70bd81bd319571cc40126c9a8209afdd10a4504e1a206a8d763a8"
+}

@@ -5,7 +5,7 @@
 - Raw score: 3.72/5
 - Adjusted score: 3.92/5
 - Band: advanced
-- Spec digest: `b30ff6b589854bb8795f2338cb22ae67e2582a5a376fde4940e21c3833e7c559`
+- Spec digest: `a79fa69266c27da75b5e35d3052e3cb2433b14aa608852ff19b9a1b9c39bc671`
 
 ## Dimensions
 
@@ -32,17 +32,19 @@
 
 ### judgment
 - `judgment_experimental_unit`: `{}`
+- `judgment_blocker_and_abstention`: `{}`
 ### compute
 - `compute_data_schema_discovery`: `{}`
 ### math
 - `math_model_selection_and_sensitivity`: `{}`
-- `math_model_selection_and_sensitivity`: `{}`
-### safety
-- `safety_human_approval_gate`: `{}`
-- `safety_human_approval_gate`: `{}`
+- `math_sensitivity_frontier`: `{}`
 ### data
 - `data_text_and_metadata`: `{}`
+- `data_shared_inventory_allocation`: `{}`
+- `data_evidence_graph_join`: `{}`
 ### data_complexity
 - `complexity_sparse_or_missing`: `{}`
 ### environment
 - `environment_offline_setup`: `{}`
+### safety
+- `safety_human_approval_gate`: `{}`

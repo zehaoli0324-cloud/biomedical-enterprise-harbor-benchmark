@@ -1,0 +1,8 @@
+{
+  "round": 2,
+  "action_id": "audit_pairing",
+  "question_id": "Q-PAIRING",
+  "rationale": "Quality control passed; verify that the registered paired estimand is identifiable before estimating the primary signal.",
+  "expected_information": "A declared pairing_ok or pairing_issue observation for the registered pairing.",
+  "prior_state_token": "ea20d267edfec027a146588f42fb63e907d14cdcb9af3189c5a03ccc458df846"
+}

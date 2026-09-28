@@ -1,0 +1,28 @@
+{
+  "version": "1.0.2",
+  "required_files": ["research_log.json", "completion.json", "provenance.json", "audit.md"],
+  "event_fields": ["round", "action_id", "observed_outcome", "cost", "question_id", "next_question"],
+  "claim_container": "final_claims",
+  "claim_fields": ["quality_status", "context_status", "replication_status", "claim_boundary"],
+  "status_semantics": {
+    "quality_status": {"quality_ok": "PASS", "quality_repaired": "PASS", "quality_unresolved": "HOLD"},
+    "context_status": {"context_shift": "HOLD", "context_aligned": "SUPPORTED"},
+    "replication_status": {"replicate_ok": "SUPPORTED", "replicate_failed": "HOLD"}
+  },
+  "completion_fields": ["checks", "stop_reason", "human_review_required", "claim_boundary"],
+  "completion_schema": {
+    "checks": "object mapping every rules.required_checks key to boolean true",
+    "stop_reason": {"type": "string", "enum": ["evidence_complete", "bounded_handoff"]},
+    "human_review_required": {"type": "boolean", "const": true},
+    "claim_boundary": {"type": "string", "const_from": "rules.claim_boundary"}
+  },
+  "provenance_schema": {
+    "input_sha256": "object mapping every data/*.json filename to its lowercase SHA-256 digest",
+    "rules_version": {"type": "string", "const_from": "rules.rules_version"},
+    "network": {"type": "string", "const": "off"},
+    "deterministic": {"type": "boolean", "const": true}
+  },
+  "allowed_statuses": ["PASS", "HOLD", "SUPPORTED", "UNRESOLVED", "REVIEW_REQUIRED"],
+  "equivalents": ["JSON key order", "finite numeric strings", "event array order only by round"],
+  "forbidden": ["future outcome before action", "duplicate round", "budget overspend", "hidden score query", "missing handoff"]
+}

@@ -1,0 +1,421 @@
+{
+  "status": "PASS",
+  "controls": [
+    {
+      "id": "reference",
+      "expected": true,
+      "passed": true
+    },
+    {
+      "id": "claim-ceiling-inflation",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: claim_ledger.json.claim_ceiling mismatch"
+      ]
+    },
+    {
+      "id": "duplicate-quorum",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: claim_ledger.json.premises[P-REPRO].positive_groups members mismatch"
+      ]
+    },
+    {
+      "id": "archived-source-inclusion",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: claim_ledger.json.observations[O-3].included mismatch"
+      ]
+    },
+    {
+      "id": "wrong-effect",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: claim_ledger.json.observations[O-2].effect mismatch"
+      ]
+    },
+    {
+      "id": "scope-inflation",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: claim_ledger.json.claims[C-DESC].scope mismatch"
+      ]
+    },
+    {
+      "id": "future-action",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: research_plan.json.policy.action mismatch"
+      ]
+    },
+    {
+      "id": "overspend",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: research_plan.json.objective.worst_cost mismatch"
+      ]
+    },
+    {
+      "id": "wrong-objective",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: research_plan.json.objective.worst_resolved_weight mismatch"
+      ]
+    },
+    {
+      "id": "missing-feedback-state",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: research_plan.json.policy.branches key coverage mismatch"
+      ]
+    },
+    {
+      "id": "illegal-conflict-continuation",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: research_plan.json.policy.branches.inconsistent.action mismatch"
+      ]
+    },
+    {
+      "id": "future-result-as-current",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: claim_ledger.json.claims[C-TRANSPORT].allowed mismatch"
+      ]
+    },
+    {
+      "id": "missing-leaf",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: adaptive_update.json.leaves row coverage mismatch"
+      ]
+    },
+    {
+      "id": "duplicate-leaf",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: adaptive_update.json.leaves row coverage mismatch"
+      ]
+    },
+    {
+      "id": "unregistered-leaf",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: adaptive_update.json.leaves row coverage mismatch"
+      ]
+    },
+    {
+      "id": "not-hypothetical",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: adaptive_update.json.hypothetical mismatch"
+      ]
+    },
+    {
+      "id": "null-cost",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: adaptive_update.json.leaves[[\"A-REPLICATE:consistent\",\"A-BRIDGE:bridge_failed\"]].cost must be finite numeric"
+      ]
+    },
+    {
+      "id": "boolean-cost",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: adaptive_update.json.leaves[[\"A-REPLICATE:consistent\",\"A-BRIDGE:bridge_failed\"]].cost must be finite numeric"
+      ]
+    },
+    {
+      "id": "nan-effect",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "delivery: claim_ledger.json: non-finite JSON number: NaN"
+      ]
+    },
+    {
+      "id": "wrong-hash",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "scientific: provenance.json.input_sha256.rules.json mismatch"
+      ]
+    },
+    {
+      "id": "missing-field",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: claim_ledger.json key coverage mismatch"
+      ]
+    },
+    {
+      "id": "invalid-document-type",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "contract: claim_ledger.json must be an object"
+      ]
+    },
+    {
+      "id": "duplicate-json-key",
+      "expected": false,
+      "passed": false,
+      "errors": [
+        "delivery: claim_ledger.json: duplicate JSON key: premises"
+      ]
+    },
+    {
+      "id": "keyed-rows-order-numeric-prefix-equivalence",
+      "expected": true,
+      "passed": true
+    }
+  ],
+  "variants": [
+    {
+      "id": "budget-contraction",
+      "oracle_agreement": true,
+      "policy_changed": true,
+      "classification": "decision_flip",
+      "policy": {
+        "action": "hold",
+        "branches": {}
+      },
+      "objective": {
+        "worst_resolved_weight": 0,
+        "worst_cost": 0.0,
+        "max_action_count": 0,
+        "policy_key": "{\"action\":\"hold\",\"branches\":{}}"
+      }
+    },
+    {
+      "id": "archived-source-restored",
+      "oracle_agreement": true,
+      "policy_changed": true,
+      "classification": "decision_flip",
+      "policy": {
+        "action": "A-BRIDGE",
+        "branches": {
+          "bridge_supported": {
+            "action": "hold",
+            "branches": {}
+          },
+          "bridge_failed": {
+            "action": "hold",
+            "branches": {}
+          }
+        }
+      },
+      "objective": {
+        "worst_resolved_weight": 5,
+        "worst_cost": 2.0,
+        "max_action_count": 1,
+        "policy_key": "{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}}"
+      }
+    },
+    {
+      "id": "bridge-scope-repair",
+      "oracle_agreement": true,
+      "policy_changed": true,
+      "classification": "decision_flip",
+      "policy": {
+        "action": "A-REPLICATE",
+        "branches": {
+          "consistent": {
+            "action": "hold",
+            "branches": {}
+          },
+          "inconsistent": {
+            "action": "hold",
+            "branches": {}
+          }
+        }
+      },
+      "objective": {
+        "worst_resolved_weight": 5,
+        "worst_cost": 2.0,
+        "max_action_count": 1,
+        "policy_key": "{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"hold\",\"branches\":{}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}"
+      }
+    },
+    {
+      "id": "independence-group-merge",
+      "oracle_agreement": true,
+      "policy_changed": true,
+      "classification": "decision_flip",
+      "policy": {
+        "action": "A-REPLICATE-EXPRESS",
+        "branches": {
+          "consistent": {
+            "action": "A-BRIDGE",
+            "branches": {
+              "bridge_supported": {
+                "action": "hold",
+                "branches": {}
+              },
+              "bridge_failed": {
+                "action": "hold",
+                "branches": {}
+              }
+            }
+          },
+          "inconsistent": {
+            "action": "hold",
+            "branches": {}
+          }
+        }
+      },
+      "objective": {
+        "worst_resolved_weight": 5,
+        "worst_cost": 5.0,
+        "max_action_count": 2,
+        "policy_key": "{\"action\":\"A-REPLICATE-EXPRESS\",\"branches\":{\"consistent\":{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}"
+      }
+    },
+    {
+      "id": "future-action-available",
+      "oracle_agreement": true,
+      "policy_changed": true,
+      "classification": "decision_flip",
+      "policy": {
+        "action": "A-FUTURE",
+        "branches": {
+          "bridge_supported": {
+            "action": "A-REPLICATE",
+            "branches": {
+              "consistent": {
+                "action": "hold",
+                "branches": {}
+              },
+              "inconsistent": {
+                "action": "hold",
+                "branches": {}
+              }
+            }
+          },
+          "bridge_failed": {
+            "action": "A-REPLICATE",
+            "branches": {
+              "consistent": {
+                "action": "hold",
+                "branches": {}
+              },
+              "inconsistent": {
+                "action": "hold",
+                "branches": {}
+              }
+            }
+          }
+        }
+      },
+      "objective": {
+        "worst_resolved_weight": 5,
+        "worst_cost": 3.0,
+        "max_action_count": 2,
+        "policy_key": "{\"action\":\"A-FUTURE\",\"branches\":{\"bridge_failed\":{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"hold\",\"branches\":{}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}},\"bridge_supported\":{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"hold\",\"branches\":{}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}}}"
+      }
+    },
+    {
+      "id": "measurement-threshold",
+      "oracle_agreement": true,
+      "policy_changed": true,
+      "classification": "decision_flip",
+      "policy": {
+        "action": "hold",
+        "branches": {}
+      },
+      "objective": {
+        "worst_resolved_weight": 5,
+        "worst_cost": 0.0,
+        "max_action_count": 0,
+        "policy_key": "{\"action\":\"hold\",\"branches\":{}}"
+      }
+    },
+    {
+      "id": "row-order",
+      "oracle_agreement": true,
+      "policy_changed": false,
+      "classification": "invariance",
+      "policy": {
+        "action": "A-REPLICATE",
+        "branches": {
+          "consistent": {
+            "action": "A-BRIDGE",
+            "branches": {
+              "bridge_supported": {
+                "action": "hold",
+                "branches": {}
+              },
+              "bridge_failed": {
+                "action": "hold",
+                "branches": {}
+              }
+            }
+          },
+          "inconsistent": {
+            "action": "hold",
+            "branches": {}
+          }
+        }
+      },
+      "objective": {
+        "worst_resolved_weight": 5,
+        "worst_cost": 4.0,
+        "max_action_count": 2,
+        "policy_key": "{\"action\":\"A-REPLICATE\",\"branches\":{\"consistent\":{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}},\"inconsistent\":{\"action\":\"hold\",\"branches\":{}}}}"
+      }
+    },
+    {
+      "id": "feedback-renamed",
+      "oracle_agreement": true,
+      "policy_changed": true,
+      "classification": "label_equivalence",
+      "policy": {
+        "action": "A-REPLICATE",
+        "branches": {
+          "replication_positive": {
+            "action": "A-BRIDGE",
+            "branches": {
+              "bridge_supported": {
+                "action": "hold",
+                "branches": {}
+              },
+              "bridge_failed": {
+                "action": "hold",
+                "branches": {}
+              }
+            }
+          },
+          "inconsistent": {
+            "action": "hold",
+            "branches": {}
+          }
+        }
+      },
+      "objective": {
+        "worst_resolved_weight": 5,
+        "worst_cost": 4.0,
+        "max_action_count": 2,
+        "policy_key": "{\"action\":\"A-REPLICATE\",\"branches\":{\"inconsistent\":{\"action\":\"hold\",\"branches\":{}},\"replication_positive\":{\"action\":\"A-BRIDGE\",\"branches\":{\"bridge_failed\":{\"action\":\"hold\",\"branches\":{}},\"bridge_supported\":{\"action\":\"hold\",\"branches\":{}}}}}}"
+      }
+    }
+  ],
+  "candidate_count": 12
+}

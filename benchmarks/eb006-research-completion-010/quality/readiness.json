@@ -1,0 +1,7 @@
+{
+  "status": "PRETRIAL_VALIDATED",
+  "target_model_trial": "NOT_RUN",
+  "human_review": "NOT_RUN",
+  "isolated_replay": "NOT_RUN",
+  "release_ready": false
+}

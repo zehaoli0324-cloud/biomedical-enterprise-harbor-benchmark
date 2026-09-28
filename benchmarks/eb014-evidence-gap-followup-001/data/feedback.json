@@ -1,0 +1,74 @@
+{
+  "replication": [
+    {
+      "id": "consistent",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.4,
+        1.5
+      ]
+    },
+    {
+      "id": "inconsistent",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.05,
+        1.1
+      ]
+    }
+  ],
+  "bridge": [
+    {
+      "id": "bridge_supported",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.4,
+        1.5
+      ]
+    },
+    {
+      "id": "bridge_failed",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1,
+        1.1
+      ]
+    }
+  ],
+  "intervention": [
+    {
+      "id": "causal_supported",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1.4,
+        1.5
+      ]
+    },
+    {
+      "id": "causal_failed",
+      "control": [
+        1,
+        1.1
+      ],
+      "treatment": [
+        1,
+        1.1
+      ]
+    }
+  ]
+}

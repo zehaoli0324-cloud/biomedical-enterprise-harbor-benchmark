@@ -1,0 +1,9 @@
+# Evidence review audit
+
+The executable policy is conditioned only on the observable label returned by Q1. The two possible labels are `amber` and `green`; the policy is therefore `amber -> A6` and `green -> A4`. World IDs and scenario names were used only to evaluate every listed world after the policy was fixed. In particular, the two amber worlds share A6 and the two green worlds share A4.
+
+Before observation, Q1 costs 1 hour and 1 cost unit. The policy commits setup for the union of the `common` and `select` families once: setup cost 2.5 and 3 slots. Commitment is 3.5, within the 4.5 commitment budget; Q1 is within the 2.5 stage-1 budget. Each branch adds cost 1 and 2 hours, so every world has total cost 4.5 and duration 3, within the 6.0 total-cost and 6-hour deadline limits. The selected residuals are W1/W2 `(signal 0.15, selectivity 0)`, W3 `(0.15, 0)`, and W4 `(0.13, 0.03)`. The maximum normalized residual is `0.15 / 0.3 = 0.5`.
+
+Enumeration occurred after source, dependency, and observation gates and before feasibility gates. Q1 had 49 mappings and 23 eligible policies; its best risk was 0.5. Q2 had 2,401 mappings and 511 eligible policies; its best risk also was 0.5, but its worst branch cost was 5.5, so the ordered objective selects Q1 at the second objective. Q3 had 7 mappings and 1 eligible policy, with risk 0.75. Setup and mapping lexical tie-breakers were applied after risk and worst-branch cost.
+
+The source audit excludes A8 because S2 is retracted, A9 because S3 is available after the 2026-09-21 decision date, A10 because S4 is pilot scope rather than primary scope, and A11 because it is marked as a future-outcome action. All valid stage-2 dependencies are empty and all valid actions allow the selected labels. This is a synthetic planning calculation only; `human_review_required` remains true and no experimental or retrospective claim is made.

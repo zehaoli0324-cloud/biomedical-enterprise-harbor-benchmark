@@ -1,0 +1,12 @@
+{
+  "schema_version": "enterprise_independent_verifier_audit.v1",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "status": "PASS",
+  "review_status": "pass",
+  "route": "independent Fraction implementation and manual expected effect table",
+  "source_report": "quality/oracle_audit.json",
+  "external_static_report": "/private/tmp/eb006-donor-stratified-signal-review.json",
+  "external_static_judge": "HeuristicJudge",
+  "finding_count": 0,
+  "scope_boundary": "automated oracle independence; practitioner review remains required"
+}

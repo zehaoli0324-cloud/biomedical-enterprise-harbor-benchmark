@@ -1,0 +1,9 @@
+{
+  "task_id": "eb014-sequential-evidence-feedback-002",
+  "task_version": "2.0.0",
+  "status": "TARGET_RETRIAL_COMPLETE",
+  "trial_id": "selected4-eb014-gpt56sol-v3-002",
+  "classification": "RAW_PASS",
+  "target_model_defeated": false,
+  "reason": "Version 2.0 completed all ten observation-dependent rounds, spent the exact budget, recorded the stop event, and passed the verifier. The first attempt is excluded because the adapter killed finalization before changed artifacts were written."
+}

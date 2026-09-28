@@ -1,0 +1,17 @@
+{
+  "task_id": "eb014-adaptive-evidence-ladder-003",
+  "trial_id": "adaptive-ladder-gpt56sol-001",
+  "model": "gpt-5.6-sol",
+  "status": "verifier_fail",
+  "oracle_reward": 1.0,
+  "nop_reward": 0.0,
+  "accepted_actions": 12,
+  "explicit_model_turns": 13,
+  "completion_gate": "final_contract_fail",
+  "verifier_errors": [
+    "contract: completion check coverage mismatch",
+    "scientific: final claims mismatch"
+  ],
+  "behavioral_result": "The model did not complete in one response; it waited for each observation, followed all activated conditional branches, accepted stop only after the trusted controller allowed it, and used a separate finalization turn.",
+  "next_revision": "Expose the active completion-check key set in public repair feedback and rerun one target-model replicate before release."
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "source_manifest.v1",
+  "task_id": "eb015-real-source-replacement-gate-001",
+  "fixture_classification": "PUBLIC_SOURCE_METADATA_WITH_SYNTHETIC_GATE_CONTROLS",
+  "promotion_status": "STAGING",
+  "supported_claims": ["source registry field audit", "gate precedence under declared control mutations"],
+  "unsupported_claims": ["redistribution permission", "download completion", "scientific validity of source-derived results"],
+  "required_next": ["source-specific rights review", "file-level SHA-256 freeze", "verifier rebind", "independent scientific review"]
+}

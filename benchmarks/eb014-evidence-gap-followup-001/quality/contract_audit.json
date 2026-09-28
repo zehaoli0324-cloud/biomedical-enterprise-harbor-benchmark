@@ -1,0 +1,37 @@
+{
+  "task_id": "eb014-evidence-gap-followup-001",
+  "status": "PASS",
+  "checks": [
+    {
+      "output": "outputs/claim_ledger.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/research_plan.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/adaptive_update.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/provenance.json",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    },
+    {
+      "output": "outputs/audit.md",
+      "path_declared": true,
+      "schema_declared": true,
+      "claim_boundary_declared": true
+    }
+  ],
+  "completion_gate": "public completeness and deterministic replay are separate from scientific verification"
+}

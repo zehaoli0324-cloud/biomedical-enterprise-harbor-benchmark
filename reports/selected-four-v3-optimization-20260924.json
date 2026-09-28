@@ -1,0 +1,106 @@
+{
+  "schema_version": "selected_four_optimization.v1",
+  "recorded_on": "2026-09-24",
+  "model": "gpt-5.6-sol",
+  "completed_snapshot": {
+    "task_id": "eb006-research-completion-011",
+    "status": "CALIBRATED_INTERNAL_SNAPSHOT",
+    "archive": "dist/eb006-research-completion-011-calibrated-20260924.tar.gz",
+    "sha256": "87ec1ca8bf8ac5041bceb9529097ec1962e2aed88013716724ae1e2047d295c0",
+    "payload_files": 51,
+    "formal_release_status": "BLOCKED",
+    "release_blockers": [
+      "fixed-container release replay",
+      "practitioner review",
+      "real-data replacement"
+    ]
+  },
+  "optimized_tasks": [
+    {
+      "task_id": "eb013-cross-context-evidence-portfolio-005",
+      "task_version": "1.2.0",
+      "changes": [
+        "required executable planner",
+        "budget-contraction held-out replay",
+        "relationship and independence mutation replay",
+        "constant-output planner negative control"
+      ],
+      "trial_id": "selected4-eb013-gpt56sol-v3-001",
+      "classification": "RAW_PASS",
+      "held_out_replays_passed": 2,
+      "target_model_defeated": false,
+      "formal_release_status": "BLOCKED",
+      "release_blockers": [
+        "fixed-container replay",
+        "held-out target trials",
+        "practitioner review"
+      ]
+    },
+    {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "task_version": "2.0.0",
+      "changes": [
+        "expanded observation-dependent path from six to ten rounds",
+        "added quality repair, shift characterization, assay adjudication, orthogonal confirmation, and transport-boundary checks",
+        "required exact full-budget completion with separate assay and transport claims",
+        "fixed adapter finalization race and added regression coverage"
+      ],
+      "trial_id": "selected4-eb014-gpt56sol-v3-002",
+      "classification": "RAW_PASS",
+      "rounds": 10,
+      "budget_spent": 12,
+      "target_model_defeated": false,
+      "excluded_attempt": {
+        "trial_id": "selected4-eb014-gpt56sol-v3-001",
+        "reason": "adapter finalization race"
+      },
+      "formal_release_status": "BLOCKED",
+      "release_blockers": [
+        "fixed-container replay",
+        "trajectory analysis",
+        "practitioner review"
+      ]
+    },
+    {
+      "task_id": "eb015-real-source-replacement-gate-001",
+      "task_version": "2.0.0",
+      "changes": [
+        "required executable auditor",
+        "ready-and-reordered held-out replay",
+        "rights, hash, and rebind held-out replay",
+        "contract-equivalent ordering and source URL object support"
+      ],
+      "trial_id": "selected4-eb015-gpt56sol-v3-001",
+      "classification": "PASS_AFTER_CONTRACT_REPLAY",
+      "raw_runner_status": "verifier_fail",
+      "unchanged_artifact_replay_passed": true,
+      "held_out_replays_passed": 2,
+      "target_model_defeated": false,
+      "valid_difficulty_evidence": false,
+      "formal_release_status": "BLOCKED",
+      "release_blockers": [
+        "source rights review",
+        "file-level SHA-256 freeze",
+        "verifier rebind",
+        "fixed-container replay",
+        "practitioner review"
+      ]
+    }
+  ],
+  "harbor_controls": {
+    "eb014-sequential-evidence-feedback-002": {"oracle_reward": 1.0, "nop_reward": 0.0},
+    "eb015-real-source-replacement-gate-001": {"oracle_reward": 1.0, "nop_reward": 0.0}
+  },
+  "verification": {
+    "pytest": "51 passed, 3 skipped",
+    "selected_four_dynamic_checks": "PASS",
+    "enterprise_sop_preflight": {
+      "eb013-cross-context-evidence-portfolio-005": "PASS",
+      "eb014-sequential-evidence-feedback-002": "PASS",
+      "eb015-real-source-replacement-gate-001": "PASS"
+    },
+    "eb015_unchanged_submission_replay": "PASS",
+    "archive_sha256_verified": true
+  },
+  "difficulty_conclusion": "The revisions remove static-answer shortcuts and extend executable or sequential generalization checks, but all three current target trials are effective passes. Future difficulty should come from multiple hidden scenario families and cross-scenario policy robustness, not from increasing unsupported questions or abstention opportunities."
+}

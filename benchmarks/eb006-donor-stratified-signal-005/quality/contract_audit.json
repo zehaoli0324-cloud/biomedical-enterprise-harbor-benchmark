@@ -1,0 +1,22 @@
+{
+  "schema_version": "enterprise_contract_audit.v1",
+  "task_id": "eb006-donor-stratified-signal-005",
+  "status": "PASS",
+  "checks": [
+    {"output": "outputs/candidate_summary.tsv", "schema_declared": true, "equivalence": "row order and finite numeric formatting"},
+    {"output": "outputs/state_diagnostics.tsv", "schema_declared": true, "equivalence": "row order, JSON array whitespace and finite numeric formatting"},
+    {"output": "outputs/decision.json", "schema_declared": true, "equivalence": "JSON key order"},
+    {"output": "outputs/provenance.json", "schema_declared": true, "equivalence": "JSON key order"}
+  ],
+  "ambiguity_probes": [
+    "technical replicate versus biological donor",
+    "state-specific versus global thresholds",
+    "missing donor cell versus insufficient state",
+    "nonpositive inclusive boundary",
+    "rounding time and rule",
+    "inactive candidate scope"
+  ],
+  "mutation_controls": "controls/calibration_results.json",
+  "score_partition": ["science_score", "contract_score", "classification"],
+  "contract_failures_are_not_scientific_difficulty": true
+}

@@ -1,0 +1,7 @@
+{
+  "round": 3,
+  "action_id": "orthogonal_assay",
+  "question_id": "Q-CONTEXT",
+  "rationale": "Use the latest public observation to resolve the next registered question.",
+  "expected_information": "The declared public outcome and cost for this action."
+}

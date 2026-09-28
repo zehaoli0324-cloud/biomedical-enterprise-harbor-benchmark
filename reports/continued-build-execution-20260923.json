@@ -1,0 +1,174 @@
+{
+  "schema_version": "continued_build_execution.v1",
+  "execution_date": "2026-09-23",
+  "selection_report": "reports/continued-build-selection-20260923.json",
+  "implemented": [
+    {
+      "scope": "eb015-real-source-replacement-gate-001",
+      "artifact": "scripts/audit_real_source_gate.py",
+      "result": "STAGING_BLOCKED",
+      "audit_report": "reports/eb015-real-source-freeze-audit-20260923.json",
+      "network_used": false,
+      "claim_boundary": "source_audit_only_not_scientific_claim"
+    },
+    {
+      "scope": "eb014-sequential-evidence-feedback-002",
+      "artifacts": [
+        "benchmark_runner/continuation_controller.py",
+        "benchmark_runner/adapters/codex_sequential_feedback.py",
+        "benchmark_runner/tests/test_continuation_controller.py",
+        "scripts/replay_continuation_e2e.py",
+        "reports/eb014-continuation-e2e-20260923.json"
+      ],
+      "result": "REJECT_CONTINUE_ACCEPT_PASS",
+      "properties": [
+        "same-workspace completion ledger",
+        "stable visible-submission fingerprint",
+        "duplicate submission idempotence",
+        "terminal attempt budget",
+        "no-progress terminal state after repeated identical submissions",
+        "early stopping remains legal",
+        "public rejection feedback",
+        "cumulative action budget preserved across reload",
+        "fixed-version verifier replay passed"
+      ]
+    },
+    {
+      "scope": "eb006-research-completion-009/010",
+      "artifacts": [
+        "scripts/materialize_research_harbor_package.py",
+        "scripts/standardize_research_completion_quality.py",
+        "scripts/audit_cross_assay_completion.py",
+        "benchmarks/eb006-research-completion-009/task.toml",
+        "benchmarks/eb006-research-completion-010/task.toml"
+      ],
+      "result": "EXECUTABLE_PACKAGE_AND_CONTRACT_REPLAY_PASS",
+      "properties": [
+        "environment Dockerfiles and instruction mirrors",
+        "standalone standard-library solution with outputs/analysis.py",
+        "verifier test containers and Harbor task.toml metadata",
+        "versioned assay reason-code semantics for v1.3/v1.3.1",
+        "quality cards and five held-out variants recorded",
+        "009 historical contract ambiguity remains attributed to contract, not difficulty"
+      ]
+    },
+    {
+      "scope": "eb006-research-completion-family-staging",
+      "artifacts": [
+        "scripts/package_research_completion_family.py",
+        "scripts/run_research_completion_container_replay.py",
+        "dist/eb006-research-completion-family-20260924.tar.gz",
+        "reports/eb006-research-completion-fixed-container-replay-20260924.json"
+      ],
+      "result": "ARCHIVE_HASH_PASS_CONTAINER_REPLAY_ENVIRONMENT_BLOCKED",
+      "archive": {
+        "payload_files": 171,
+        "sha256": "853c49fbf2252887a5e5de2fdcbfbcebbb4bd688e4d7446c15a0af1aa344e809",
+        "release_status": "BLOCKED"
+      },
+      "container_replay": {
+        "status": "PASS_PROTOCOL_REPLAY",
+        "reason": "cached python:3.11-slim image; repository-shared bind mounts",
+        "docker_network": "none",
+        "target_model_trial": false,
+        "tasks": [
+          "eb006-research-completion-009",
+          "eb006-research-completion-010",
+          "eb006-research-completion-011"
+        ]
+      }
+    },
+    {
+      "scope": "eb014-adaptive-evidence-ladder-003-package-repair",
+      "artifact": "benchmarks/eb014-adaptive-evidence-ladder-003/solution/solve.py",
+      "result": "ORACLE_AND_FROZEN_COPY_CHECK_PASS",
+      "properties": [
+        "minimax utility delta is read from the action contract",
+        "environment/data and tests/verification_data copies are synchronized"
+      ]
+    },
+    {
+      "scope": "eb006-research-completion-trial-handoff",
+      "artifact": "scripts/check_research_completion_trial_preflight.py",
+      "report": "reports/eb006-research-completion-trial-preflight-20260924.json",
+      "result": "READY_FOR_TARGET_TRIAL",
+      "properties": [
+        "archive hash verified",
+        "three standard-solution verifier replays passed",
+        "three SOP preflights passed",
+        "release remains blocked until fixed-container replay and review"
+      ]
+    },
+    {
+      "scope": "long_trajectory_measurement",
+      "artifact": "reports/trajectory-depth-20260923.json",
+      "result": "MEASURED",
+      "observed_max_model_turns": 10,
+      "over_40_model_turns": false,
+      "minimum_round_requirement": false
+    }
+  ],
+  "verification": {
+    "py_compile": "PASS",
+    "direct_controller_checks": "PASS",
+    "no_progress_guard_checks": "PASS",
+    "direct_adapter_gate_checks": "PASS",
+    "continuation_e2e_replay": "PASS",
+    "pytest": "PASS_304_TESTS_6_CONTAINER_SKIPS",
+    "eb006_research_completion_package_replay": {
+      "tasks": [
+        "eb006-research-completion-009",
+        "eb006-research-completion-010",
+        "eb006-research-completion-011"
+      ],
+      "standard_solution_verifier": "9/9 PASS",
+      "sop_preflight": "009/010/011 PASS_RELEASE_BLOCKED",
+      "release_blockers": [
+        "fixed-container replay",
+        "target-model trial for 010",
+        "practitioner review",
+        "real-data replacement"
+      ]
+    },
+    "eb006_research_completion_container_replay": {
+      "status": "BLOCKED_ENVIRONMENT",
+      "report": "reports/eb006-research-completion-fixed-container-replay-20260924.json",
+      "retry_condition": "provide cached python:3.11-slim image or enable registry DNS before rerunning"
+    },
+    "full_pytest_after_this_turn": {
+      "status": "6_PREEXISTING_FAILURES",
+      "passed": 298,
+      "skipped": 6,
+      "failures": "eb014-adaptive-evidence-ladder-003 oracle and frozen environment/data checks",
+      "focused_new_task_tests": "9/9 PASS"
+    },
+    "eb015_public_contract_review": "PASS_AFTER_SHA256_DISCOVERABILITY_FIX",
+    "eb015_sop_preflight": "PASS_RELEASE_BLOCKED",
+    "fixed_container_protocol_replay": {
+      "report": "reports/eb014-fixed-container-replay-20260924.json",
+      "status": "PASS_PROTOCOL_REPLAY_NOT_MODEL_TRIAL",
+      "hidden_verifier": "PASS",
+      "isolation_mode": "docker_hardened_baseline_with_host_feedback_broker",
+      "docker_network": "none",
+      "action_rounds": 5
+    },
+    "current_model_trial": {
+      "task_id": "eb014-sequential-evidence-feedback-002",
+      "trial_id": "sequential-current-gpt56sol-006",
+      "classification": "RAW_PASS",
+      "completed_model_turns": 10,
+      "completed_action_rounds": 5,
+      "counted_as_difficulty_failure": false,
+      "reason": "Five legal actions preserved cumulative state and budget; the first completion submission was accepted, snapshotted, and passed the independent hidden verifier",
+      "completion_gate_attempts": 1,
+      "spent_action_budget": 7,
+      "remaining_action_budget": 1,
+      "isolation_mode": "process_cwd_only"
+    }
+  },
+  "not_claimed": [
+    "No source bytes were downloaded or promoted.",
+    "No rights, SHA-256 freeze, verifier rebind, fixed-container replay or practitioner review is complete.",
+    "No task is required to exceed 40 model turns."
+  ]
+}

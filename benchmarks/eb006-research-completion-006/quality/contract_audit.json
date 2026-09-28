@@ -1,0 +1,16 @@
+{
+  "task_id": "eb006-research-completion-006",
+  "status": "PASS",
+  "canonical_contract": "data/research_contract.json",
+  "checks": [
+    {"id": "required-analysis-program", "status": "PASS"},
+    {"id": "required-results-tables", "status": "PASS"},
+    {"id": "required-provenance", "status": "PASS"},
+    {"id": "required-research-audit", "status": "PASS"},
+    {"id": "public-completion-feedback-boundary", "status": "PASS"},
+    {"id": "independent-scientific-verifier", "status": "PASS"},
+    {"id": "reason-codes-unordered-set", "status": "PASS"},
+    {"id": "clean-and-row-order-replay", "status": "PASS"}
+  ],
+  "finding_count": 0
+}

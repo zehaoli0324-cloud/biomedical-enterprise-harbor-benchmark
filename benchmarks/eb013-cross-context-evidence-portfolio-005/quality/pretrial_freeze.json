@@ -1,14 +1,14 @@
 {
-  "task_version": "1.0.1",
+  "task_version": "1.2.0",
   "files": {
-    "task.yaml": "06da6d082c93bb6d9230721b3f4b950c09f26ba7998449c3974a52ef39368e7e",
-    "instruction.md": "087cfdc54b409e93f9d4ffee2308662fd7fd8debb5894bacc48aaf369ac15097",
-    "verifier.py": "6d1a90819f9c4e020b8e0bba6bc83fb650855a0eca3ad551698d259a3fe93365",
-    "quality/contract_audit.json": "94c5879c5052b76538e74262d53d7b67b1ce2ebff969c267e101eee1b73f62a6",
-    "controls/calibration_results.json": "1d31ee06400f81e866fb1547f2d7535c194fb59a79a47eb09a50ccca39fdbd63",
-    "data/evidence.json": "647ab350178fc6b8925707877c9a3f35e3680fffcb046df8c6f26f65864b1c7f",
-    "data/followups.json": "7d504739bb889b8b8f9965d3de2fa5c69de65bf7adf5955e6563b7980de3afe3",
-    "data/output_contract.json": "976b67f5ee511de09c1176684eb36e43bc76c9718244ea8a20c7e0d4f9763506",
-    "data/rules.json": "871c776605b9f3bb0ea8f25889fc9c0a77370cd18568e835ad74db0642308e6f"
+    "task.yaml": "f0d15f94914510fb5d8c20bf3e1263baaa4fa28ff7e2410f6a15e7aef3ec053b",
+    "instruction.md": "59c43fc9245104b0cc7d5a64c08b77dabf6e842deb70fcf97b9bbc9afad2fbca",
+    "verifier.py": "a68d4206a4d6217d8a9a046f0b31634236f4f0eb89da9dbd401158d2fa520f74",
+    "quality/contract_audit.json": "ff3d71737136dfba9258c6efb2b9ae44ccd6090f603d7ede1a8833d6c8bfaf64",
+    "controls/calibration_results.json": "498197741c2bcd7e8b2989bee0362c33880b103ab5b24fd7d8a21ec85b1287db",
+    "data/evidence.json": "332f44444e8d3101950abb9a1fa35e85734b2aedda3ed3e8cae813452c8453e7",
+    "data/followups.json": "dcc3791f2f51c87a49820c5587fe233ca10d0ceb830d07f7e4c037640c832fa4",
+    "data/output_contract.json": "bf58c5b9c556d0c9f851f7b07b9f40a29c0123dac9be5b73320a4d9a0ffbfdee",
+    "data/rules.json": "54a0dc8c6f98a2391b0ae8617508f1b00c5a4101986f55a4d32b9dd99c6fd2a5"
   }
 }

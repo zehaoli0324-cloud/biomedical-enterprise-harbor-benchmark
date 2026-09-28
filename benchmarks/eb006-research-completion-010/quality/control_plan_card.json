@@ -1,0 +1,34 @@
+{
+  "task_id": "eb006-research-completion-010",
+  "status": "CALIBRATED",
+  "calibration_status": "CALIBRATED",
+  "controls": [
+    {
+      "id": "reference",
+      "kind": "positive",
+      "passed": true
+    },
+    {
+      "id": "missing-sensitivity",
+      "kind": "insufficient_evidence",
+      "passed": true
+    },
+    {
+      "id": "missing-alternative",
+      "kind": "negative",
+      "passed": true
+    },
+    {
+      "id": "duplicate-record",
+      "kind": "negative",
+      "passed": true
+    },
+    {
+      "id": "row-order",
+      "kind": "invariance",
+      "passed": true
+    }
+  ],
+  "source": "controls/calibration_results.json",
+  "control_count": 5
+}

@@ -1,0 +1,20 @@
+{
+  "difficulty_card_id": "DIFF-EB012-REVOCATION-PORTFOLIO-003-001",
+  "task_id": "eb012-revocation-portfolio-003",
+  "primary_module": "horizon_checkpointed_workflow",
+  "secondary_modules": [
+    "data_shared_inventory_allocation",
+    "math_robust_scenario_optimization"
+  ],
+  "held_out_variants": [
+    "delayed retraction",
+    "lot release",
+    "claim downgrade"
+  ],
+  "decision_flip_controls": [
+    "retracted nominal winner",
+    "shared-lot top pair",
+    "descriptive high score"
+  ],
+  "status": "REVIEW_REQUIRED"
+}

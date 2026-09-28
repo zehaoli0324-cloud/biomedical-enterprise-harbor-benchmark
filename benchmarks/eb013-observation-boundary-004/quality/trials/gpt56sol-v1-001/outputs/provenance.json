@@ -1,0 +1,12 @@
+{
+  "input_sha256": {
+    "data/output_contract.json": "4efea2f2a9a0c02e9c0d702bd7b58e07fcda587dd9f5c2a1b4c2fef864b2883c",
+    "data/requests.json": "15ec7f8502c6bc6ad7a1ce883a3db28e8c7908a4a8a33836982b0bd2824866b4",
+    "data/rules.json": "f647e5e60c25622d8eaedc16d875d3b4610cff94b1eb30afddb14adafcdecae9",
+    "data/sources.json": "75a0bb5b3edb0ac47b2ff06c77e2ac379aecf446fa284ae7eeb3b55b022982e9",
+    "data/worlds.json": "20e6588c9957a7bfd1f3a7615ceb35d0f959c5ad630b92183cf73e8de56e88ec"
+  },
+  "rules_version": "observation-boundary-v1",
+  "network": "off",
+  "deterministic": true
+}

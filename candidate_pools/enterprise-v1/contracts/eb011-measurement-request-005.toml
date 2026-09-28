@@ -80,14 +80,14 @@ rationale = "The output is bounded by human review and explicit non-experimental
 tags = ["human-gate"]
 
 [modules]
-judgment = ["judgment_value_of_information"]
+judgment = ["judgment_value_of_information", "judgment_blocker_and_abstention"]
 compute = ["compute_multistage_analysis"]
 noise = ["noise_metadata_conflict"]
-safety = ["safety_human_approval_gate", "safety_human_approval_gate"]
-data = ["data_text_and_metadata"]
+data = ["data_text_and_metadata", "data_evidence_graph_join"]
 data_complexity = ["complexity_sparse_or_missing"]
 environment = ["environment_offline_setup"]
-math = ["math_model_selection_and_sensitivity"]
+math = ["math_model_selection_and_sensitivity", "math_sensitivity_frontier"]
+safety = ["safety_human_approval_gate"]
 
 [data]
 types = ["csv", "json", "tsv", "markdown"]

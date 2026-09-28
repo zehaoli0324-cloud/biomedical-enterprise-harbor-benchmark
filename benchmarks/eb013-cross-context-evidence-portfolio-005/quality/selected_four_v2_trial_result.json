@@ -1,0 +1,12 @@
+{
+  "task_id": "eb013-cross-context-evidence-portfolio-005",
+  "trial_id": "selected4-eb013-gpt56sol-v2-002",
+  "model": "gpt-5.6-sol",
+  "classification": "HISTORICAL_RAW_PASS_SUPERSEDED",
+  "trial_task_version": "1.1.0",
+  "current_task_version": "1.2.0",
+  "applicable_to_current_version": false,
+  "valid_difficulty_evidence": true,
+  "target_model_defeated": false,
+  "report": "reports/selected-four-v2-target-trials-20260924.json"
+}

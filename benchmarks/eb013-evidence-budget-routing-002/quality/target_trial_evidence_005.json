@@ -1,0 +1,15 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "task_version": "0.3.0",
+  "trial_id": "trial-gpt56-sol-20260922-005",
+  "model": "gpt-5.6-sol",
+  "agent_exit_code": null,
+  "timed_out": true,
+  "classification": "TARGET_MODEL_TIMEOUT",
+  "runner_status": "timeout",
+  "timeout_seconds": 600,
+  "artifact_verification": "not_run_no_outputs",
+  "trial_dir": "/private/tmp/benchmark-runs/upgrade-eb013-002-clean/trial-gpt56-sol-20260922-005",
+  "interpretation": "The first clean post-contract-freeze trial did not produce outputs before the runner timeout. This is a runtime/model interaction failure, not evidence of a scientific decision failure."
+}

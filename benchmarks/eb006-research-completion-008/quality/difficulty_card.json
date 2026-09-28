@@ -1,0 +1,17 @@
+{
+  "task_id": "eb006-research-completion-008",
+  "status": "CALIBRATED",
+  "primary_module": "judgment_influence_reconciliation",
+  "secondary_modules": [
+    "noise_pooled_stratified_adversary",
+    "horizon_verified_research_completion"
+  ],
+  "held_out_variants": [
+    "row-order",
+    "replicate-balance",
+    "influence-repair",
+    "scope-noise",
+    "threshold-hold"
+  ],
+  "difficulty_claim": "Target trials show executable completion and scientific verification; they do not establish model defeat."
+}

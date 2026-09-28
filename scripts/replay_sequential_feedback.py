@@ -26,7 +26,7 @@ def main() -> int:
     shutil.copytree(task / "data", workspace / "data")
     (workspace / "outputs").mkdir()
     controller = FeedbackController(task, workspace)
-    path = ["audit_quality", "compare_context", "independent_replicate", "orthogonal_assay", "stop"]
+    path = ["audit_quality", "repair_quality", "compare_context", "independent_replicate", "orthogonal_assay", "stop"]
     events = []
     for round_no, action_id in enumerate(path, 1):
         response = controller.submit({"round": round_no, "action_id": action_id, "question_id": "Q-CONTEXT", "rationale": "resolve the current registered blocker", "expected_information": "quality, context or independent replication state"})
