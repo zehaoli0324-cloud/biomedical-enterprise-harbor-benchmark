@@ -4,6 +4,9 @@ TASK=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location("verifier",TASK/"verifier.py"); verifier=importlib.util.module_from_spec(spec); assert spec and spec.loader; spec.loader.exec_module(verifier)
 def test_oracle_selects_adaptive_policy():
  exp=verifier.expected(TASK/"data"); assert exp["selected_stage1_request_id"]=="R-ADAPTIVE"; assert exp["selected_stage2_policy"]=={"signal_high":"R-SELECT","signal_low":"R-CORR","signal_mid":"R-BALANCE"}; assert exp["worst_case_max_critical_residual"]==0.25
+def test_output_contract_covers_all_oracle_json_inputs():
+ contract=json.loads((TASK/"data/output_contract.json").read_text())
+ assert set(contract["required_hash_paths"]) == set(verifier.expected(TASK/"data")["hashes"])
 def test_reference_shape_is_deterministic():
  assert verifier.expected(TASK/"data")==verifier.expected(TASK/"data")
 def test_fixed_stage2_policy_is_not_selected():

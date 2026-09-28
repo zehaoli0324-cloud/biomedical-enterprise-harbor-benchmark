@@ -1,0 +1,45 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-001",
+  "task_version": "data-expanded-20260924",
+  "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "trial_dir": "/private/tmp/benchmark-runs-gpt56sol/eb013-evidence-budget-routing-001/eb013-evidence-budget-routing-001-gpt56sol-20260928-001",
+  "raw_verifier_result": {
+    "passed": false,
+    "errors": [
+      "decision residual_uncertainty mismatch",
+      "R-ASSAY effective reductions mismatch",
+      "R-CHEM effective reductions mismatch",
+      "R-REPL effective reductions mismatch",
+      "R-CORR effective reductions mismatch",
+      "R-ARCHIVE effective reductions mismatch",
+      "R-POST effective reductions mismatch",
+      "R-INCOMPLETE effective reductions mismatch",
+      "R-CROSS effective reductions mismatch",
+      "R-ORTHO effective reductions mismatch",
+      "provenance mismatch"
+    ]
+  },
+  "scientific_observation": {
+    "selected_request_ids": ["R-ASSAY", "R-ORTHO"],
+    "route_cost": 5.0,
+    "maximum_critical_residual_claimed": 0.0,
+    "decision_claimed": "execute_bounded_evidence_route",
+    "interpretation": "The model selected the declared minimax route, but the submitted residual/reduction and provenance fields did not match the current verifier oracle."
+  },
+  "artifact_sha256": {
+    "audit.md": "718a5e6ea6e8746517f108da6fc4d1802dad0693a6e25d74ad6f1f511a92fa74",
+    "decision.json": "da65fbc03b89035a13a53b2a921bca109c557aac45f5f2dc9b9950ffee792e4e",
+    "plan.json": "8a3e9e5edfd099e2556025bdaf3f78540e3adf689928c1b7d323155902a03187",
+    "provenance.json": "6dbc7f3d920061cdb4fb1a1fd2d31c1c00b1cf6be894e26289ed72eb18459d20",
+    "route.tsv": "d121ccbfa40a6d6769cc8b3ea118474be26a039842d9ed7578312095300c4edf9"
+  },
+  "difficulty_evidence_valid": false,
+  "failure_attribution": "scientific_or_delivery_fail_pending_triage",
+  "release_effect": "blocked_pending_contract_or_scientific_triage_fixed_container_replay_and_practitioner_review"
+}

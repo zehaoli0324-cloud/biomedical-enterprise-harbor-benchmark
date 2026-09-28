@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "NOT_RUN",
-  "status": "BASELINES_COMPLETE",
+  "target_model_status": "VERIFIER_FAIL_PENDING_TRIAGE",
+  "status": "TARGET_TRIAL_COMPLETE_TRIAGE",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -48,6 +48,26 @@
       "failure_attribution": "artifact_completeness",
       "errors": [
         "missing policy replay and provenance"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-20260928-001",
+      "status": "verifier_fail",
+      "runner_status": "verifier_fail",
+      "passed": false,
+      "error_count": 4,
+      "failure_attribution": "scientific_or_delivery_fail_pending_triage",
+      "timed_out": false,
+      "agent_exit_code": 0,
+      "valid_difficulty_evidence": false,
+      "trial_dir": "/private/tmp/benchmark-runs-gpt56sol/eb013-evidence-budget-routing-002/eb013-evidence-budget-routing-002-gpt56sol-20260928-001",
+      "errors": [
+        "plan policies mismatch",
+        "route schema mismatch",
+        "route coverage mismatch",
+        "provenance mismatch"
       ]
     }
   ],

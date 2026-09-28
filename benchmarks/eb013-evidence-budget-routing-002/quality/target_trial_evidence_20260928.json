@@ -1,0 +1,42 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "task_version": "data-expanded-20260924",
+  "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-20260928-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "trial_dir": "/private/tmp/benchmark-runs-gpt56sol/eb013-evidence-budget-routing-002/eb013-evidence-budget-routing-002-gpt56sol-20260928-001",
+  "raw_verifier_result": {
+    "passed": false,
+    "errors": [
+      "plan policies mismatch",
+      "route schema mismatch",
+      "route coverage mismatch",
+      "provenance mismatch"
+    ]
+  },
+  "scientific_observation": {
+    "selected_stage1_request_id": "R-ADAPTIVE",
+    "selected_stage2_policy": {
+      "signal_high": "R-SELECT",
+      "signal_low": "R-CORR",
+      "signal_mid": "R-BALANCE"
+    },
+    "worst_case_max_critical_residual": 0.25,
+    "worst_case_cost": 5.0,
+    "interpretation": "The model selected the declared adaptive policy and reproduced the expected route objective, but policy serialization, route schema/coverage, and provenance did not match the current verifier contract."
+  },
+  "artifact_sha256": {
+    "audit.md": "753e8b8bf40f86b18ddb35ded8c6798eb416d6e7a4670d87ca1fb226f2b68e1c",
+    "decision.json": "b1ba5980685c9f5c3f05493891f333427c5efe8a0d90def399b12aaa75654003",
+    "plan.json": "152beee84a8a62397520c9432228360336696e3e79795925d2fbc57d6a0ed724",
+    "provenance.json": "ef743361e81a82badf5533e8636186f15e4ecd988c7d471a67383fbc04535c74",
+    "route.tsv": "190f48dd383e75c98391949620cd9bb5d224964529f7716a867dea0a033e432f"
+  },
+  "difficulty_evidence_valid": false,
+  "failure_attribution": "scientific_or_delivery_fail_pending_triage",
+  "release_effect": "blocked_pending_contract_or_scientific_triage_fixed_container_replay_and_practitioner_review"
+}

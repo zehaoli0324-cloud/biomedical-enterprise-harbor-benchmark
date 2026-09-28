@@ -915,7 +915,7 @@
       ],
       "source_status": "REVIEW_REQUIRED",
       "controls_status": "CALIBRATED",
-      "target_model_status": "NOT_RUN",
+      "target_model_status": "VERIFIER_FAIL_PENDING_TRIAGE",
       "missing_contract": [
         "candidate_design.json",
         "data/output_contract.json"
@@ -955,7 +955,6 @@
         "COMPLETE_CONTRACT_FILES",
         "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
         "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
-        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
         "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
         "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
         "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
@@ -1047,7 +1046,7 @@
       ],
       "source_status": "REVIEW_REQUIRED",
       "controls_status": "CALIBRATED",
-      "target_model_status": "NOT_RUN",
+      "target_model_status": "VERIFIER_FAIL_PENDING_TRIAGE",
       "missing_contract": [
         "candidate_design.json",
         "data/output_contract.json"
@@ -1082,7 +1081,6 @@
         "COMPLETE_CONTRACT_FILES",
         "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
         "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
-        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
         "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
         "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
         "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
@@ -1533,7 +1531,6 @@
         "dynamic_oracle_nop",
         "missing:candidate_design.json",
         "missing:data/numeric_provenance.tsv",
-        "missing:data/output_contract.json",
         "missing:data/release_input_manifest.json",
         "missing:data/source_freeze_manifest.json",
         "missing:data/source_manifest.json",
@@ -1542,10 +1539,9 @@
       ],
       "source_status": "REVIEW_REQUIRED",
       "controls_status": "CALIBRATED",
-      "target_model_status": "NOT_RUN",
+      "target_model_status": "VERIFIER_FAIL_PENDING_TRIAGE",
       "missing_contract": [
-        "candidate_design.json",
-        "data/output_contract.json"
+        "candidate_design.json"
       ],
       "missing_evidence": [
         "data/source_manifest.json",
@@ -1572,7 +1568,6 @@
         "COMPLETE_CONTRACT_FILES",
         "CLASSIFY_SOURCE_AND_CLAIM_BOUNDARY",
         "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
-        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
         "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
         "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
         "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
@@ -2274,7 +2269,7 @@
     {
       "task_id": "eb006-research-completion-010",
       "scope": "candidate",
-      "identity_task_id": "terminal-bench-science/eb006-research-completion-010",
+      "identity_task_id": "eb006-research-completion-010",
       "pipeline_status": "CONTRACT_ONLY",
       "evidence_status": "PENDING",
       "review_status": "NOT_RUN",
@@ -2338,7 +2333,7 @@
     {
       "task_id": "eb006-research-completion-011",
       "scope": "candidate",
-      "identity_task_id": "terminal-bench-science/eb006-research-completion-011",
+      "identity_task_id": "eb006-research-completion-011",
       "pipeline_status": "CONTRACT_ONLY",
       "evidence_status": "PENDING",
       "review_status": "NOT_RUN",
@@ -2598,7 +2593,6 @@
         "dynamic_oracle_nop",
         "missing:candidate_design.json",
         "missing:data/numeric_provenance.tsv",
-        "missing:data/output_contract.json",
         "missing:data/release_input_manifest.json",
         "missing:data/source_freeze_manifest.json",
         "missing:data/source_manifest.json",
@@ -2607,10 +2601,9 @@
       ],
       "source_status": "SYNTHETIC_CALIBRATION_REVIEW_REQUIRED",
       "controls_status": "CALIBRATED",
-      "target_model_status": "NOT_RUN",
+      "target_model_status": "VERIFIER_FAIL_PENDING_TRIAGE",
       "missing_contract": [
-        "candidate_design.json",
-        "data/output_contract.json"
+        "candidate_design.json"
       ],
       "missing_evidence": [
         "data/source_manifest.json",
@@ -2641,7 +2634,6 @@
       "actions": [
         "COMPLETE_CONTRACT_FILES",
         "ADD_SOURCE_FREEZE_NUMERIC_PROVENANCE_CLAIM_MAP_REVIEW",
-        "RUN_CURRENT_TARGET_TRIAL_AND_ANALYSIS",
         "RUN_FIXED_CONTAINER_REPLAY_AND_HASH_CAPTURE",
         "COMPLETE_SCIENTIFIC_AND_PRACTITIONER_REVIEW",
         "UNPACK_DIFF_AND_ARCHIVE_RELEASE_MANIFEST"
@@ -2701,7 +2693,7 @@
     {
       "task_id": "eb014-adaptive-evidence-ladder-003",
       "scope": "candidate",
-      "identity_task_id": "terminal-bench-science/eb014-adaptive-evidence-ladder-003",
+      "identity_task_id": "eb014-adaptive-evidence-ladder-003",
       "pipeline_status": "CONTRACT_ONLY",
       "evidence_status": "PENDING",
       "review_status": "NOT_RUN",

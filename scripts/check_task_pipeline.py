@@ -62,8 +62,10 @@ def task_identity(package: Path) -> dict[str, Any]:
     return {
         "directory_id": package.name,
         "formats": identities,
-        "task_id": next(iter(ids), package.name),
-        "task_version": next(iter(versions), None),
+        # Sets are used only for consistency checks; choose a stable value for
+        # reports so repeated audits do not change with hash iteration order.
+        "task_id": sorted(ids)[0] if ids else package.name,
+        "task_version": sorted(versions)[0] if versions else None,
         "identity_consistent": bool(identities) and len(ids) <= 1 and len(versions) <= 1 and package.name in ids,
     }
 

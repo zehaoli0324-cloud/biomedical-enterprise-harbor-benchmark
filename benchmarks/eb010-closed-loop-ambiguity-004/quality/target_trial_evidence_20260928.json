@@ -1,0 +1,33 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-closed-loop-ambiguity-004",
+  "task_version": "data-expanded-20260924-v2",
+  "trial_id": "eb010-closed-loop-ambiguity-004-gpt56sol-20260928-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "trial_dir": "/private/tmp/benchmark-runs-gpt56sol/eb010-closed-loop-ambiguity-004/eb010-closed-loop-ambiguity-004-gpt56sol-20260928-001",
+  "raw_verifier_result": {
+    "passed": false,
+    "errors": ["P-TAU blocker reasons mismatch"]
+  },
+  "scientific_observation": {
+    "selected_record": "P-OMICRON",
+    "total_cost": 6.5,
+    "stop_condition": "eligible_record_selected",
+    "claim_boundary": "planning_only_not_experimental_proof",
+    "interpretation": "The model produced all five required artifacts, selected the expected P-OMICRON record, and matched the overall planning stop condition. The remaining verifier failure is a single blocker-reason mismatch for P-TAU."
+  },
+  "artifact_sha256": {
+    "audit.md": "b8db059cb3247d674f452450ecb5f27b51869bbf690fb327c3938e955a34f5f4",
+    "decision.json": "4435101b00551f041847d422ae8621438154fbd592cac5cffa4da5851c862a07",
+    "discovery.json": "11d79f1718198f03a39ae2c8d675793fdcd821c6f4887f3f6bfb2f58cafed4b5",
+    "evidence.tsv": "2dbc34ac295ad48c1a07dbaea3ffd079419a84f1bdc6233cc50694832fc66ce9",
+    "plan.json": "e18adf23beb7c5c1b75b8fe6d2c8c64c75594a52115de187e02c87f5f997bc4b"
+  },
+  "difficulty_evidence_valid": false,
+  "failure_attribution": "scientific_or_delivery_fail_pending_triage",
+  "release_effect": "blocked_pending_unchanged_artifact_replay_fixed_container_replay_and_practitioner_review"
+}

@@ -3,6 +3,7 @@
   "task_id": "eb013-evidence-budget-routing-001",
   "task_version": "0.1.1",
   "status": "PASS",
+  "canonical_contract": "data/output_contract.json",
   "checks": [
     {"output": "outputs/plan.json", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},
     {"output": "outputs/route.tsv", "path_declared": true, "schema_declared": true, "equivalents_declared": true, "claim_boundary_declared": true},

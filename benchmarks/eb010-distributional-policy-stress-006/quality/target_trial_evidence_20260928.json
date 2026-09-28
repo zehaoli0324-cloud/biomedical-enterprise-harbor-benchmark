@@ -1,0 +1,44 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb010-distributional-policy-stress-006",
+  "task_version": "data-expanded-20260924",
+  "trial_id": "eb010-distributional-policy-stress-006-gpt56sol-20260928-001",
+  "model": "gpt-5.6-sol",
+  "runner_status": "verifier_fail",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "trial_dir": "/private/tmp/benchmark-runs-gpt56sol/eb010-distributional-policy-stress-006/eb010-distributional-policy-stress-006-gpt56sol-20260928-001",
+  "raw_verifier_result": {
+    "passed": false,
+    "error_count": 458,
+    "error_categories": [
+      "selected_policy/profile_winner/profile_best mismatches",
+      "policy metric mismatches",
+      "branch evidence utility mismatches",
+      "profile evidence expected utility/CVaR/regret mismatches"
+    ]
+  },
+  "scientific_observation": {
+    "selected_policy_claimed": "P-LOWCOST",
+    "profile_winners_claimed": {
+      "nominal": "P-LOWCOST",
+      "weak_shift": "P-LOWCOST",
+      "mixed_shift": "P-LOWCOST",
+      "strong_shift": "P-LOWCOST",
+      "site_b_shift": "P-LOWCOST"
+    },
+    "claim_boundary": "planning_only_not_experimental_proof",
+    "interpretation": "The model produced all five required artifacts and a coherent planning report, but policy selection, branch calculations, profile metrics, and stability summaries did not match the current oracle at scale."
+  },
+  "artifact_sha256": {
+    "audit.md": "cb5b7b2974088a0c5a36468528c57afaab7b2d25236b504fca4dd07d18aaf615",
+    "branches.tsv": "aaa18534a907076da32678bd562e366a10b48578d0443850ad3d9d5d2f57bb69",
+    "manifest.json": "7a22aac701b9c50fe1a99f6da31acc7528898ff998b3bbc6560cd5c3102c42d8",
+    "policy.json": "aa8617d649f601800eec80d0050721d36ca7e387f527ee01f23784fbe1fb5992",
+    "profiles.tsv": "896d788ffc719dd156d60da067b9b413e0fa8f00e4e330905a5e6e08a49869f7"
+  },
+  "difficulty_evidence_valid": false,
+  "failure_attribution": "scientific_or_delivery_fail_pending_triage",
+  "release_effect": "blocked_pending_unchanged_artifact_replay_fixed_container_replay_and_practitioner_review"
+}

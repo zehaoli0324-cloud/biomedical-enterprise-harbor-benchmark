@@ -69,6 +69,12 @@ def test_expected_is_deterministic_and_matches_reference() -> None:
     assert reference["selected_request_ids"] == first["selected_request_ids"]
 
 
+def test_output_contract_covers_all_oracle_json_inputs() -> None:
+    contract = json.loads((TASK / "data/output_contract.json").read_text())
+    expected_paths = set(VERIFIER.expected(TASK / "data")["hashes"])
+    assert set(contract["required_hash_paths"]) == expected_paths
+
+
 def test_reference_submission_passes(tmp_path: Path) -> None:
     write_reference(tmp_path)
     passed, errors = VERIFIER.verify(tmp_path, TASK / "data", TASK / "verifier_only/reference.json")

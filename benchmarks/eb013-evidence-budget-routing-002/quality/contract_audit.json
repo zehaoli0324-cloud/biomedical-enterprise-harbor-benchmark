@@ -3,6 +3,7 @@
   "task_id": "eb013-evidence-budget-routing-002",
   "task_version": "0.3.0",
   "status": "PASS",
+  "canonical_contract": "data/output_contract.json",
   "checks": [
     {
       "output": "outputs/plan.json",
