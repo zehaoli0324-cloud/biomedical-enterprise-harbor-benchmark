@@ -1,0 +1,77 @@
+{
+  "schema_version": "enterprise_target_trial_evidence.v1",
+  "task_id": "eb013-evidence-budget-routing-001",
+  "task_version": "0.2.0-contract-repair-20260928",
+  "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-005",
+  "model": "gpt-5.6-sol",
+  "runner_status": "pass",
+  "agent_exit_code": 0,
+  "timed_out": false,
+  "isolation_mode": "process_cwd_only",
+  "raw_verifier_result": {
+    "passed": true,
+    "errors": [],
+    "status": "pass",
+    "runner_verifier_exit_code": 0,
+    "runner_verifier_seconds": 0.04
+  },
+  "classification": "RAW_PASS",
+  "scientific_observation": {
+    "selected_request_ids": [
+      "R-ASSAY",
+      "R-ORTHO"
+    ],
+    "route_cost": 5.0,
+    "maximum_critical_residual": 0.0,
+    "structured_artifacts_match_oracle": true,
+    "interpretation": "The model selected and serialized the verifier-approved route with complete derived fields and provenance."
+  },
+  "artifact_sha256": {
+    "audit.md": "f04a0af4fbd73ec236d87c5e1b194807380684ffecbf357ddfb7553f337656c8",
+    "decision.json": "9245e1c4f62e96f6128434a30cbd38f9f4f9edba1d560299535efded9586a9b8",
+    "plan.json": "8403cf3f5f57bfd691a95721ba3abf5cd33c40ca4b320882171be35dc129a85d",
+    "provenance.json": "35e37d188b66e6961b67e1e120a1a32dc023366a3fd0ad6be92c1784b2d924ae",
+    "route.tsv": "d07d46296a1d9c6b52280e0405140b45203483cc6a347746da1d78ac47932568"
+  },
+  "attempts": [
+    {
+      "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-002",
+      "status": "fail",
+      "errors": [
+        "R-ASSAY route disposition mismatch",
+        "R-CHEM route disposition mismatch",
+        "R-REPL route disposition mismatch",
+        "R-CORR route disposition mismatch",
+        "R-ARCHIVE route disposition mismatch",
+        "R-POST route disposition mismatch",
+        "R-INCOMPLETE route disposition mismatch",
+        "R-CROSS route disposition mismatch",
+        "R-ORTHO route disposition mismatch"
+      ]
+    },
+    {
+      "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-003",
+      "status": "fail",
+      "errors": [
+        "audit missing bottleneck",
+        "audit missing stop"
+      ]
+    },
+    {
+      "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-004",
+      "status": "fail",
+      "errors": [
+        "environment provenance mismatch"
+      ]
+    },
+    {
+      "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-005",
+      "status": "pass",
+      "errors": []
+    }
+  ],
+  "durable_trial_dir": "benchmarks/eb013-evidence-budget-routing-001/quality/trials/eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-005",
+  "calibration_evidence_valid": true,
+  "release_evidence_valid": false,
+  "release_effect": "blocked_pending_fixed_container_replay_and_practitioner_review"
+}

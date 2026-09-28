@@ -27,7 +27,7 @@
 
 | task | runner result | model observation | classification |
 |---|---|---|---|
-| `eb013-evidence-budget-routing-001` | `verifier_fail`, 11 errors | 选出 `R-ASSAY + R-ORTHO`，cost `5.0`；路线目标正确，但 residual/reduction/provenance 不匹配 | `scientific_or_delivery_fail_pending_triage` |
+| `eb013-evidence-budget-routing-001` | repaired trial `pass` | 选出 `R-ASSAY + R-ORTHO`，cost `5.0`；修复后结构化产物、派生 reductions、provenance 和 audit 关键词均通过 | `RAW_PASS`，仅待 fixed-container/practitioner |
 | `eb013-evidence-budget-routing-002` | `verifier_fail`, 4 errors | 选出 `R-ADAPTIVE` 及三路 stage-2 policy，worst residual `0.25`、cost `5.0`；policy/TSV/provenance 序列化不匹配 | `scientific_or_delivery_fail_pending_triage` |
 | `eb010-closed-loop-ambiguity-004` | `verifier_fail`, 1 error | 生成五份产物，选出 `P-OMICRON`，cost `6.5`；仅 `P-TAU blocker reasons` 不匹配 | `scientific_or_delivery_fail_pending_triage` |
 | `eb010-distributional-policy-stress-006` | `verifier_fail`, 458 errors | 生成五份产物并选出 `P-LOWCOST`；政策、branch、profile 指标与 oracle 大范围不匹配 | `scientific_or_delivery_fail_pending_triage` |
@@ -40,3 +40,5 @@
 2. EB013 两题优先核对 output contract、派生 reduction、route TSV 和 provenance hash；已有修复合同与回归测试保持在题包中。
 3. EB010 ambiguity 先核对 `P-TAU` blocker oracle；distributional 先核对 scenario/profile join 和 branch utility，再判断是否需要模型重跑。
 4. Docker/Harbor 恢复后，对所有要进入发布候选的题执行 fixed-container replay、hash capture、解包 diff 和 practitioner review。
+
+本轮高质量 trial bundle 已生成：`dist/high-quality-gpt56sol-trials-20260928.tar.gz`，SHA-256 记录在同名 `.sha256` 文件；bundle 详情见 `reports/high_quality_trial_bundle_20260928.md`。

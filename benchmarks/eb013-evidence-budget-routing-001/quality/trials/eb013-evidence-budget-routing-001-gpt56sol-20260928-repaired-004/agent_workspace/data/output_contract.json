@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "claim_boundary": "planning_only_not_experimental_proof",
+  "required_files": [
+    "outputs/plan.json",
+    "outputs/route.tsv",
+    "outputs/decision.json",
+    "outputs/provenance.json",
+    "outputs/audit.md"
+  ],
+  "required_hash_paths": [
+    "rules.json",
+    "inputs/run_manifest.json",
+    "inputs/uncertainty_map.json",
+    "inputs/request_catalog.json",
+    "output_contract.json"
+  ],
+  "numeric_tolerance": 0.000001,
+  "plan_fields": [
+    "selected_request_ids",
+    "total_cost",
+    "network_used",
+    "stop_condition"
+  ],
+  "decision_fields": [
+    "decision",
+    "selected_request_ids",
+    "route_cost",
+    "residual_uncertainty",
+    "max_critical_residual",
+    "human_review_required"
+  ],
+  "route_columns": [
+    "request_id",
+    "status",
+    "included",
+    "blockers",
+    "effective_reductions",
+    "route_position"
+  ],
+  "provenance_fields": [
+    "input_sha256",
+    "rules_version",
+    "network",
+    "deterministic"
+  ],
+  "semantic_rules": [
+    "Enumerate every request exactly once in route.tsv.",
+    "Copy each request's status value verbatim from request_catalog.json; status is not a routing label, so do not replace current or archived with selected, excluded, or blocked.",
+    "Intrinsic blockers are scope, future_outcome_leakage, and missing_dependency; a merely unselected legal request has no intrinsic blocker.",
+    "effective_reductions is the request's full covers object whenever it has no intrinsic blocker, including legal requests excluded by the selected route; use {} only when an intrinsic blocker exists.",
+    "input_sha256 must contain the exact SHA-256 for every JSON file listed in required_hash_paths, keyed relative to data/.",
+    "audit.md must literally contain the words bottleneck and stop (or stop condition), in addition to explaining the required concepts and the phrase not experimental proof."
+  ],
+  "equivalents": [
+    "selected_request_ids or route",
+    "residual_uncertainty or residual_uncertainty_map",
+    "max_critical_residual or objective_values.maximum_critical_residual",
+    "input_sha256 or sha256",
+    "data-prefixed or data-relative hash keys",
+    "semicolon-joined blocker lists"
+  ],
+  "forbidden": [
+    "duplicate request rows",
+    "correlation double-counting",
+    "future-outcome evidence",
+    "invented or empty input hashes",
+    "experimental efficacy claim"
+  ]
+}

@@ -1,0 +1,10 @@
+stage1_request_id	observation	stage2_request_id	eligible	blockers
+R-ADAPTIVE	signal_high	R-SELECT	true	
+R-ADAPTIVE	signal_low	R-CORR	true	
+R-ADAPTIVE	signal_mid	R-BALANCE	true	
+R-CHEAP	screen_positive	R-REPL	false	critical signal/selectivity residuals 0.55 exceed 0.25
+R-CHEAP	screen_negative	R-REPL	false	critical signal/selectivity residuals 0.55 exceed 0.25
+R-CONTEXT	context_clear	R-CONTEXT-CHECK	false	critical signal/selectivity residuals 0.45 exceed 0.25; same-group maximum reduction applied
+R-CONTEXT	context_conflict	R-CONTEXT-CHECK	false	critical signal/selectivity residuals 0.55/0.30 exceed 0.25; same-group maximum reduction applied
+R-FIXED	chem_clean		false	no legal dependency-valid stage-2 request; R-REPL requires missing R-CHEAP
+R-FIXED	chem_risk		false	no legal dependency-valid stage-2 request; R-REPL requires missing R-CHEAP

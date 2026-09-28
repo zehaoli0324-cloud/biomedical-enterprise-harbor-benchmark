@@ -1,0 +1,12 @@
+{
+  "input_sha256": {
+    "rules.json": "cc2b55b2e0da349a83512bf1bf3abedcfe509c40e518db881ea45ff8afd3c962",
+    "inputs/run_manifest.json": "6a9eebc88dc334bf2f6b26064d26f1cdfd07da5a048168878b923d2d19a6b5e8",
+    "inputs/stage1_requests.json": "825d018a4328032c7eedbadb7226da73f1895115d75558ce10b23b1ed0a30528",
+    "inputs/stage2_requests.json": "02c9a66cde4bc8a39adf553da709663146263e2528dad67e0623a548e3e08909",
+    "output_contract.json": "b812eaa1353b53eb88e8572fbeded151ca2eb592692c01fc997b1961df91ce54"
+  },
+  "rules_version": "l6.1-two-stage-evidence-v2",
+  "network": "off",
+  "deterministic": true
+}

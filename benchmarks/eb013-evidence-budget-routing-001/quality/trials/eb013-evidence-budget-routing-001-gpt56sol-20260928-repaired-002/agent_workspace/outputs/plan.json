@@ -1,0 +1,25 @@
+{
+  "selected_request_ids": [
+    "R-ASSAY",
+    "R-ORTHO"
+  ],
+  "route_strategy": {
+    "type": "bounded_evidence_route",
+    "sequence": [
+      {
+        "request_id": "R-ASSAY",
+        "route_position": 1,
+        "prerequisites_satisfied": true
+      },
+      {
+        "request_id": "R-ORTHO",
+        "route_position": 2,
+        "prerequisites_satisfied": true
+      }
+    ],
+    "correlation_handling": "largest reduction per uncertainty within each correlation group"
+  },
+  "total_cost": 5.0,
+  "network_used": false,
+  "stop_condition": "route_selected"
+}

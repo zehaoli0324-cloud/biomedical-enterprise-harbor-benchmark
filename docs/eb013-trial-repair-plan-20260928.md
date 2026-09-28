@@ -37,3 +37,9 @@ Timeout：600 秒
 输出根目录：`/private/tmp/eb013-repaired-trials-20260928`
 
 Trial 结果和 artifact SHA-256 将在本次运行完成后追加到本文档，并同步写入每题 `quality/`。
+
+## Trial outcome
+
+- `eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-005`: Agent 正常退出，raw verifier `pass`。此前 repair attempts 暴露并修复了 route status 原样复制、audit literal concepts 和 network 顶层字符串三个交付细节；最终路线、残差、provenance 和 audit 全部通过。
+- `eb013-evidence-budget-routing-002-gpt56sol-20260928-repaired-002`: Agent 正常退出，raw verifier `pass`。`R-ADAPTIVE` 三状态 policy、完整 route coverage 和五份 JSON 输入 hash 均通过。
+- 两次结果均为本地 `process_cwd_only` calibration evidence；Docker/Harbor fixed-container replay 与 practitioner review 仍未完成。

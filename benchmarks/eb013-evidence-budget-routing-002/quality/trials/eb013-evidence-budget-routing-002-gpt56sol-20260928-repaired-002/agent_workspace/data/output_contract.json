@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "claim_boundary": "planning_only_not_experimental_proof",
+  "required_files": [
+    "outputs/plan.json",
+    "outputs/route.tsv",
+    "outputs/decision.json",
+    "outputs/provenance.json",
+    "outputs/audit.md"
+  ],
+  "required_hash_paths": [
+    "rules.json",
+    "inputs/run_manifest.json",
+    "inputs/stage1_requests.json",
+    "inputs/stage2_requests.json",
+    "output_contract.json"
+  ],
+  "numeric_tolerance": 0.000001,
+  "policy_fields": [
+    "stage1_request_id",
+    "stage2_policy",
+    "states",
+    "worst_case_max_critical_residual",
+    "worst_case_cost",
+    "eligible",
+    "complete"
+  ],
+  "state_fields": [
+    "observation",
+    "stage2_request_id",
+    "residual_uncertainty",
+    "max_critical_residual",
+    "cost",
+    "eligible"
+  ],
+  "route_columns": [
+    "stage1_request_id",
+    "observation",
+    "stage2_request_id",
+    "eligible",
+    "blockers"
+  ],
+  "provenance_fields": [
+    "input_sha256",
+    "rules_version",
+    "network",
+    "deterministic"
+  ],
+  "semantic_rules": [
+    "Enumerate every declared stage-1 observation state exactly once for every stage-1 policy in route.tsv.",
+    "A policy with no legal stage-2 request for any state is represented with a complete=false flag, null stage-2 actions, and null worst-case residual and cost.",
+    "For complete policies, states are the full per-observation replay; policy eligible is the conjunction of state eligibility values.",
+    "Write route.tsv with literal ASCII U+0009 tab delimiters and U+000A newlines; the header is stage1_request_id, observation, stage2_request_id, eligible, blockers.",
+    "input_sha256 must contain the exact SHA-256 for every JSON file listed in required_hash_paths, keyed relative to data/."
+  ],
+  "equivalents": [
+    "states or observation_states",
+    "residual_uncertainty or residuals",
+    "max_critical_residual or critical_residual_max",
+    "summary-only policy rows in decision.json when plan.json contains full states",
+    "data-prefixed or data-relative hash keys",
+    "semicolon-joined blocker lists"
+  ],
+  "forbidden": [
+    "literal backslash-t or backslash-n delimiters",
+    "missing observation state",
+    "duplicate policy/state rows",
+    "stage-2 action selected before observation",
+    "future-outcome evidence",
+    "experimental efficacy claim"
+  ]
+}

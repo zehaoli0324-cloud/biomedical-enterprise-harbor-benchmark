@@ -1,0 +1,10 @@
+request_id	status	included	blockers	effective_reductions	route_position
+R-ASSAY	current	true		{"signal":0.50,"selectivity":0.45}	1
+R-CHEM	current	false	not_selected	{"signal":0.40}	
+R-REPL	current	false	dependency_not_in_route;not_selected	{"selectivity":0.40,"reproducibility":0.20}	
+R-CORR	current	false	not_selected	{"signal":0.35}	
+R-ARCHIVE	archived	false	scope	{}	
+R-POST	current	false	future_outcome_leakage	{}	
+R-INCOMPLETE	current	false	missing_dependency	{}	
+R-CROSS	current	false	not_selected	{"reproducibility":0.35}	
+R-ORTHO	current	true		{"signal":0.25,"selectivity":0.20}	2

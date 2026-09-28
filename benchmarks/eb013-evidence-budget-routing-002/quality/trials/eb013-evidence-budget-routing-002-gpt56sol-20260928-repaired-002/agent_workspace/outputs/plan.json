@@ -1,0 +1,175 @@
+{
+  "schema_version": "two-stage-evidence-plan.v2",
+  "decision": "execute_adaptive_route",
+  "stage1_request_id": "R-ADAPTIVE",
+  "stage2_policy": {
+    "signal_high": "R-SELECT",
+    "signal_low": "R-CORR",
+    "signal_mid": "R-BALANCE"
+  },
+  "worst_case_max_critical_residual": 0.25,
+  "worst_case_cost": 5.0,
+  "policies": [
+    {
+      "stage1_request_id": "R-ADAPTIVE",
+      "stage2_policy": {
+        "signal_high": "R-SELECT",
+        "signal_low": "R-CORR",
+        "signal_mid": "R-BALANCE"
+      },
+      "states": [
+        {
+          "observation": "signal_high",
+          "stage2_request_id": "R-SELECT",
+          "residual_uncertainty": {
+            "signal": 0.25,
+            "selectivity": 0.0,
+            "reproducibility": 0.45
+          },
+          "max_critical_residual": 0.25,
+          "cost": 5.0,
+          "eligible": true
+        },
+        {
+          "observation": "signal_low",
+          "stage2_request_id": "R-CORR",
+          "residual_uncertainty": {
+            "signal": 0.05,
+            "selectivity": 0.2,
+            "reproducibility": 0.45
+          },
+          "max_critical_residual": 0.2,
+          "cost": 4.0,
+          "eligible": true
+        },
+        {
+          "observation": "signal_mid",
+          "stage2_request_id": "R-BALANCE",
+          "residual_uncertainty": {
+            "signal": 0.15,
+            "selectivity": 0.15,
+            "reproducibility": 0.45
+          },
+          "max_critical_residual": 0.15,
+          "cost": 4.0,
+          "eligible": true
+        }
+      ],
+      "worst_case_max_critical_residual": 0.25,
+      "worst_case_cost": 5.0,
+      "eligible": true,
+      "complete": true
+    },
+    {
+      "stage1_request_id": "R-CHEAP",
+      "stage2_policy": {
+        "screen_positive": "R-REPL",
+        "screen_negative": "R-REPL"
+      },
+      "states": [
+        {
+          "observation": "screen_positive",
+          "stage2_request_id": "R-REPL",
+          "residual_uncertainty": {
+            "signal": 0.55,
+            "selectivity": 0.55,
+            "reproducibility": 0.2
+          },
+          "max_critical_residual": 0.55,
+          "cost": 4.0,
+          "eligible": false
+        },
+        {
+          "observation": "screen_negative",
+          "stage2_request_id": "R-REPL",
+          "residual_uncertainty": {
+            "signal": 0.55,
+            "selectivity": 0.55,
+            "reproducibility": 0.2
+          },
+          "max_critical_residual": 0.55,
+          "cost": 4.0,
+          "eligible": false
+        }
+      ],
+      "worst_case_max_critical_residual": 0.55,
+      "worst_case_cost": 4.0,
+      "eligible": false,
+      "complete": true
+    },
+    {
+      "stage1_request_id": "R-CONTEXT",
+      "stage2_policy": {
+        "context_clear": "R-CONTEXT-CHECK",
+        "context_conflict": "R-CONTEXT-CHECK"
+      },
+      "states": [
+        {
+          "observation": "context_clear",
+          "stage2_request_id": "R-CONTEXT-CHECK",
+          "residual_uncertainty": {
+            "signal": 0.45,
+            "selectivity": 0.45,
+            "reproducibility": 0.45
+          },
+          "max_critical_residual": 0.45,
+          "cost": 3.0,
+          "eligible": false
+        },
+        {
+          "observation": "context_conflict",
+          "stage2_request_id": "R-CONTEXT-CHECK",
+          "residual_uncertainty": {
+            "signal": 0.55,
+            "selectivity": 0.3,
+            "reproducibility": 0.45
+          },
+          "max_critical_residual": 0.55,
+          "cost": 3.0,
+          "eligible": false
+        }
+      ],
+      "worst_case_max_critical_residual": 0.55,
+      "worst_case_cost": 3.0,
+      "eligible": false,
+      "complete": true
+    },
+    {
+      "stage1_request_id": "R-FIXED",
+      "stage2_policy": {
+        "chem_clean": null,
+        "chem_risk": null
+      },
+      "states": [
+        {
+          "observation": "chem_clean",
+          "stage2_request_id": null,
+          "residual_uncertainty": {
+            "signal": 0.3,
+            "selectivity": 0.4,
+            "reproducibility": 0.45
+          },
+          "max_critical_residual": 0.4,
+          "cost": 3.0,
+          "eligible": false
+        },
+        {
+          "observation": "chem_risk",
+          "stage2_request_id": null,
+          "residual_uncertainty": {
+            "signal": 0.25,
+            "selectivity": 0.5,
+            "reproducibility": 0.45
+          },
+          "max_critical_residual": 0.5,
+          "cost": 3.0,
+          "eligible": false
+        }
+      ],
+      "worst_case_max_critical_residual": null,
+      "worst_case_cost": null,
+      "eligible": false,
+      "complete": false
+    }
+  ]
+}

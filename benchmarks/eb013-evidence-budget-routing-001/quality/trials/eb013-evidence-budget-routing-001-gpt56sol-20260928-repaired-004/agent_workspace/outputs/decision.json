@@ -1,0 +1,17 @@
+{
+  "decision": "route_selected",
+  "selected_request_ids": ["R-ASSAY", "R-ORTHO"],
+  "route_cost": 5.0,
+  "residual_uncertainty": {
+    "signal": 0.0,
+    "selectivity": 0.0,
+    "reproducibility": 0.45
+  },
+  "max_critical_residual": 0.0,
+  "objective_values": {
+    "maximum_critical_residual": 0.0,
+    "total_cost": 5.0,
+    "lexical_request_ids": ["R-ASSAY", "R-ORTHO"]
+  },
+  "human_review_required": false
+}

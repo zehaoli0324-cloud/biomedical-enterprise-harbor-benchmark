@@ -1,0 +1,11 @@
+[
+  {"request_id":"R-ASSAY","status":"current","cost":3.0,"dependency_ids":[],"correlation_group":"G2","covers":{"signal":0.50,"selectivity":0.45},"future_outcome":false,"nominal_value":0.92},
+  {"request_id":"R-CHEM","status":"current","cost":2.0,"dependency_ids":[],"correlation_group":"G1","covers":{"signal":0.40},"future_outcome":false,"nominal_value":0.80},
+  {"request_id":"R-REPL","status":"current","cost":2.0,"dependency_ids":["R-CHEM"],"correlation_group":"G3","covers":{"selectivity":0.40,"reproducibility":0.20},"future_outcome":false,"nominal_value":0.78},
+  {"request_id":"R-CORR","status":"current","cost":1.0,"dependency_ids":[],"correlation_group":"G1","covers":{"signal":0.35},"future_outcome":false,"nominal_value":0.88},
+  {"request_id":"R-ARCHIVE","status":"archived","cost":1.0,"dependency_ids":[],"correlation_group":"G4","covers":{"signal":0.70,"selectivity":0.70},"future_outcome":false,"nominal_value":1.20},
+  {"request_id":"R-POST","status":"current","cost":1.0,"dependency_ids":[],"correlation_group":"G5","covers":{"signal":0.80,"selectivity":0.80},"future_outcome":true,"nominal_value":1.40},
+  {"request_id":"R-INCOMPLETE","status":"current","cost":1.0,"dependency_ids":["R-MISSING"],"correlation_group":"G6","covers":{"selectivity":0.50},"future_outcome":false,"nominal_value":0.95},
+  {"request_id":"R-CROSS","status":"current","cost":1.0,"dependency_ids":[],"correlation_group":"G7","covers":{"reproducibility":0.35},"future_outcome":false,"nominal_value":0.74},
+  {"request_id":"R-ORTHO","status":"current","cost":2.0,"dependency_ids":[],"correlation_group":"G8","covers":{"signal":0.25,"selectivity":0.20},"future_outcome":false,"nominal_value":0.81}
+]

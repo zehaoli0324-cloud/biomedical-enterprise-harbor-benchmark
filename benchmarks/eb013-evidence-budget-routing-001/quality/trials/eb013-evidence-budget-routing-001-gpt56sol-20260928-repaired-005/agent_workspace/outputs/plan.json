@@ -1,0 +1,6 @@
+{
+  "selected_request_ids": ["R-ASSAY", "R-ORTHO"],
+  "total_cost": 5.0,
+  "network_used": false,
+  "stop_condition": "route_selected"
+}

@@ -1,0 +1,20 @@
+{
+  "discovered_input_paths": [
+    "data/rules.json",
+    "data/inputs/run_manifest.json",
+    "data/inputs/uncertainty_map.json",
+    "data/inputs/request_catalog.json",
+    "data/output_contract.json"
+  ],
+  "input_sha256": {
+    "rules.json": "ecf0912b3dee8dd5f9ee34852832fe86c8b39060a9fcb24fe9964e409508b029",
+    "inputs/run_manifest.json": "52fddf8de1b6d27da6bf8ee628a09d5b80aeec63c792271305b54b28cb900479",
+    "inputs/uncertainty_map.json": "db5111637ddca0cec69c7240165a67dfe9dc7be140fcf116af564574cb5977ae",
+    "inputs/request_catalog.json": "086af98f79c56fe7e1855a6970624f0663ee7ba815d2f1a23d2dcfdb30ad90f7",
+    "output_contract.json": "5187381a055a68602b2174c0295aa64f58cc8f61f7775d052de4f96ced31a7f4"
+  },
+  "rules_version": "l6-evidence-routing-v1",
+  "network": "off",
+  "network_used": false,
+  "deterministic": true
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "benchmark_runner.trial.v1",
+  "task_id": "eb013-evidence-budget-routing-002",
+  "trial_id": "eb013-evidence-budget-routing-002-gpt56sol-20260928-repaired-002",
+  "task_dir": "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmarks/eb013-evidence-budget-routing-002",
+  "trial_dir": "/private/tmp/eb013-repaired-trials-20260928/002-escalated/eb013-evidence-budget-routing-002-gpt56sol-20260928-repaired-002",
+  "workspace": "/private/tmp/eb013-repaired-trials-20260928/002-escalated/eb013-evidence-budget-routing-002-gpt56sol-20260928-repaired-002/agent_workspace",
+  "agent_visible_paths": [
+    "instruction.md",
+    "data/",
+    "outputs/"
+  ],
+  "hidden_paths_not_mounted": [
+    "verifier_only/",
+    "verifier.py",
+    "tests/"
+  ],
+  "network_policy": "off_requested",
+  "isolation_mode": "process_cwd_only",
+  "network_enforcement": "caller_or_container_required",
+  "prepared_at": "2026-09-28T08:49:49.789082+00:00",
+  "input_hashes": {
+    "data/inputs/run_manifest.json": "6a9eebc88dc334bf2f6b26064d26f1cdfd07da5a048168878b923d2d19a6b5e8",
+    "data/inputs/stage1_requests.json": "825d018a4328032c7eedbadb7226da73f1895115d75558ce10b23b1ed0a30528",
+    "data/inputs/stage2_requests.json": "02c9a66cde4bc8a39adf553da709663146263e2528dad67e0623a548e3e08909",
+    "data/output_contract.json": "b812eaa1353b53eb88e8572fbeded151ca2eb592692c01fc997b1961df91ce54",
+    "data/rules.json": "cc2b55b2e0da349a83512bf1bf3abedcfe509c40e518db881ea45ff8afd3c962",
+    "instruction.md": "d4f6905b875c2f95e53cde66e6d537eca31354b2d2d7ab50688a116259b3b166"
+  },
+  "status": "pass",
+  "agent_command": [
+    "/Users/zehaoli0324/.local/bin/python3.11",
+    "/Users/zehaoli0324/biomedical-enterprise-harbor-benchmark/benchmark_runner/adapters/codex_gpt55.py",
+    "--model",
+    "gpt-5.6-sol"
+  ],
+  "passed_environment": [],
+  "started_at": "2026-09-28T08:49:49.789732+00:00",
+  "timeout_seconds": 600,
+  "execution_backend": "process",
+  "docker_image": null,
+  "docker_network": null,
+  "docker_cpus": null,
+  "docker_memory": null,
+  "docker_pids_limit": null,
+  "docker_user": null,
+  "finished_at": "2026-09-28T08:55:38.955142+00:00",
+  "agent_exit_code": 0,
+  "verifier_status": "pass",
+  "verifier_score": null,
+  "verifier_exit_code": 0,
+  "visible_output_hashes": {
+    "audit.md": "1d57cda98c33b15166c7876eb6d623c2c5cea06855938974769e88edd8fa0db1",
+    "decision.json": "51a6ad90ee2ae4c3e34b356eaa7eee8f2449086ea2617cc85d6a276d65adfcf7",
+    "plan.json": "a752cdda2240c96fc32744bab81410873769f5709e72d6fa6a0526a4c3d76612",
+    "provenance.json": "1445e50c50eb7e06802ab0ecb0a384931d457db3b25510109aca4b2edb3f4802",
+    "route.tsv": "a38e1f5a26d3a9bb60b78f808c5c088b700fe1f693c54721e6c2002b99d0500b"
+  }
+}

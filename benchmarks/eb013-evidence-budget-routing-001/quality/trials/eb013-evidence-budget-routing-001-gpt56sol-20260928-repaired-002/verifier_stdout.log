@@ -1,0 +1,1 @@
+{"passed": false, "errors": ["R-ASSAY route disposition mismatch", "R-CHEM route disposition mismatch", "R-REPL route disposition mismatch", "R-CORR route disposition mismatch", "R-ARCHIVE route disposition mismatch", "R-POST route disposition mismatch", "R-INCOMPLETE route disposition mismatch", "R-CROSS route disposition mismatch", "R-ORTHO route disposition mismatch"]}

@@ -1,0 +1,58 @@
+{
+  "decision": "execute_adaptive_route",
+  "stage1_request_id": "R-ADAPTIVE",
+  "stage2_policy": {
+    "signal_high": "R-SELECT",
+    "signal_low": "R-CORR",
+    "signal_mid": "R-BALANCE"
+  },
+  "worst_case_max_critical_residual": 0.25,
+  "worst_case_cost": 5.0,
+  "policies": [
+    {
+      "stage1_request_id": "R-ADAPTIVE",
+      "stage2_policy": {
+        "signal_high": "R-SELECT",
+        "signal_low": "R-CORR",
+        "signal_mid": "R-BALANCE"
+      },
+      "worst_case_max_critical_residual": 0.25,
+      "worst_case_cost": 5.0,
+      "eligible": true,
+      "complete": true
+    },
+    {
+      "stage1_request_id": "R-CHEAP",
+      "stage2_policy": {
+        "screen_positive": "R-REPL",
+        "screen_negative": "R-REPL"
+      },
+      "worst_case_max_critical_residual": 0.55,
+      "worst_case_cost": 4.0,
+      "eligible": false,
+      "complete": true
+    },
+    {
+      "stage1_request_id": "R-CONTEXT",
+      "stage2_policy": {
+        "context_clear": "R-CONTEXT-CHECK",
+        "context_conflict": "R-CONTEXT-CHECK"
+      },
+      "worst_case_max_critical_residual": 0.55,
+      "worst_case_cost": 3.0,
+      "eligible": false,
+      "complete": true
+    },
+    {
+      "stage1_request_id": "R-FIXED",
+      "stage2_policy": {
+        "chem_clean": null,
+        "chem_risk": null
+      },
+      "worst_case_max_critical_residual": null,
+      "worst_case_cost": null,
+      "eligible": false,
+      "complete": false
+    }
+  ]
+}

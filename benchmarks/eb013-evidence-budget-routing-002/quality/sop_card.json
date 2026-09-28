@@ -5,13 +5,12 @@
   "source_status": "REVIEW_REQUIRED",
   "contract_status": "MATERIALIZED_V0.3.0",
   "control_status": "CALIBRATED",
-  "model_trial_status": "TARGET_TRIAL_COMPLETE_TRIAGE",
+  "model_trial_status": "TARGET_TRIAL_COMPLETE_REPAIRED",
   "independent_verifier_status": "PASS",
   "release_status": "BLOCKED",
   "release_blockers": [
     "fixed-container replay",
-    "practitioner review",
-    "gpt-5.6-sol verifier failure pending unchanged-artifact triage"
+    "practitioner review"
   ],
   "status": "PASS",
   "data_expansion": {

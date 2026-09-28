@@ -1,0 +1,7 @@
+{
+  "selected_request_ids": ["R-ASSAY", "R-ORTHO"],
+  "route_strategy": "Execute current, non-future-outcome requests in dependency order; aggregate reductions across correlation groups using the largest reduction per uncertainty within each group.",
+  "total_cost": 5.0,
+  "network_used": false,
+  "stop_condition": "route_selected"
+}

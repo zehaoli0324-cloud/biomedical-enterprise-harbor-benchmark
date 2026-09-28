@@ -1,0 +1,7 @@
+{
+  "schema_version": "evidence-routing-manifest.v1",
+  "network": "off",
+  "decision_date": "2026-09-22",
+  "input_files": ["inputs/uncertainty_map.json", "inputs/request_catalog.json", "rules.json"],
+  "future_outcome_visible": false
+}

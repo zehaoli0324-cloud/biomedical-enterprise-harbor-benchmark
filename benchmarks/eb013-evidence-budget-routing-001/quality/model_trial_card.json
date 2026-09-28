@@ -9,8 +9,8 @@
     "template_or_keyword",
     "target_model"
   ],
-  "target_model_status": "VERIFIER_FAIL_PENDING_TRIAGE",
-  "status": "TARGET_TRIAL_COMPLETE_TRIAGE",
+  "target_model_status": "RAW_PASS",
+  "status": "TARGET_TRIAL_COMPLETE_REPAIRED",
   "run_records": [
     {
       "strategy": "reference_solution",
@@ -77,6 +77,39 @@
         "R-ORTHO effective reductions mismatch",
         "provenance mismatch"
       ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-003",
+      "status": "verifier_fail",
+      "runner_status": "verifier_fail",
+      "passed": false,
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "failure_attribution": "artifact_completeness_audit_required_concepts",
+      "scientific_route_correct": true,
+      "valid_difficulty_evidence": false,
+      "durable_evidence": "quality/target_trial_evidence_repaired_20260928.json",
+      "errors": [
+        "audit missing bottleneck",
+        "audit missing stop"
+      ]
+    },
+    {
+      "strategy": "target_model",
+      "model": "gpt-5.6-sol",
+      "trial_id": "eb013-evidence-budget-routing-001-gpt56sol-20260928-repaired-005",
+      "status": "pass",
+      "runner_status": "pass",
+      "passed": true,
+      "agent_exit_code": 0,
+      "timed_out": false,
+      "failure_attribution": null,
+      "scientific_route_correct": true,
+      "valid_difficulty_evidence": true,
+      "durable_evidence": "quality/target_trial_evidence_repaired_20260928.json",
+      "errors": []
     }
   ],
   "data_expansion": {

@@ -1,0 +1,8 @@
+{
+  "decision": "approve_or_hold_next_experiment_batch",
+  "uncertainties": [
+    {"uncertainty_id":"signal", "initial":0.70, "critical":true, "threshold":0.25, "consequence":"wrong allocation if signal is overstated"},
+    {"uncertainty_id":"selectivity", "initial":0.60, "critical":true, "threshold":0.25, "consequence":"off-target exposure if selectivity is unresolved"},
+    {"uncertainty_id":"reproducibility", "initial":0.45, "critical":false, "threshold":0.40, "consequence":"lower confidence in repeat execution"}
+  ]
+}
